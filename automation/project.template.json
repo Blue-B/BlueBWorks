@@ -1,0 +1,26 @@
+{
+  "slug": "replace-project-name",
+  "title": "실제 프로젝트 이름",
+  "summary": "사용자가 얻는 결과를 한 문장으로",
+  "created_at": "YYYY-MM-DD",
+  "problem": "누가 어떤 상황에서 반복해서 겪는 문제인지",
+  "audience": "구체적인 대상 사용자",
+  "why_now": "확인된 최근 변화 또는 지금 유효한 문제의 근거",
+  "difference": "아래 두 대안으로 해결되지 않는 구체적인 부분",
+  "monetization_hypothesis": "검증 전 가설. 수익화가 부적합하면 그 이유",
+  "limitations": ["실제로 남아 있는 제약"],
+  "source_files": ["src/main.py"],
+  "test_files": ["tests/test_main.py"],
+  "setup": [],
+  "checks": [
+    {"kind": "test", "command": ["python3", "-m", "unittest", "discover", "-s", "tests", "-v"], "timeout_seconds": 180}
+  ],
+  "sources": [
+    {"url": "https://replace-primary-source.invalid/", "primary": true, "checked_at": "YYYY-MM-DD"},
+    {"url": "https://replace-second-source.invalid/", "primary": false, "checked_at": "YYYY-MM-DD"}
+  ],
+  "alternatives": [
+    {"name": "첫 번째 기존 대안", "url": "https://replace-alternative-one.invalid/", "difference": "구체적인 차이"},
+    {"name": "두 번째 기존 대안", "url": "https://replace-alternative-two.invalid/", "difference": "구체적인 차이"}
+  ]
+}
