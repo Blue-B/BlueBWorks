@@ -9,14 +9,29 @@
     if (depth > LIMITS.depth || ++budget.n > LIMITS.nodes) throw new SnapshotError('데이터 구조가 너무 복잡해. 깊이 48단계, 항목 100,000개 이하로 줄여줘.');
     if (value && typeof value === 'object') for (const v of Object.values(value)) bounded(v, depth + 1, budget);
   }
-  function canonical(value, key = '') {
-    if (Array.isArray(value)) {
-      const items = value.map(v => canonical(v));
-      return '[' + ((key === 'required' || key === 'enum' || key === 'type') ? [...new Set(items)].sort() : items).join(',') + ']';
-    }
-    if (record(value)) return '{' + Object.keys(value).sort().map(k => JSON.stringify(k) + ':' + canonical(value[k], k)).join(',') + '}';
+  function canonical(value) {
+    if (Array.isArray(value)) return '[' + value.map(v => canonical(v)).join(',') + ']';
+    if (record(value)) return '{' + Object.keys(value).sort().map(k => JSON.stringify(k) + ':' + canonical(value[k])).join(',') + '}';
     return JSON.stringify(value);
   }
+  // Normalize schema keywords only, never similarly named keys inside literal data.
+  const schemaMaps = new Set(['properties', 'patternProperties', '$defs', 'definitions', 'dependentSchemas']);
+  const schemaSingles = new Set(['additionalProperties', 'unevaluatedProperties', 'additionalItems', 'unevaluatedItems', 'contains', 'propertyNames', 'not', 'if', 'then', 'else', 'contentSchema']);
+  function normalizedSchema(value) {
+    if (!record(value)) return value;
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => {
+      if (['required', 'enum', 'type'].includes(key) && Array.isArray(item)) {
+        const byValue = new Map(item.map(v => [canonical(v), v]));
+        return [key, [...byValue.keys()].sort().map(k => byValue.get(k))];
+      }
+      if (schemaMaps.has(key) && record(item)) return [key, Object.fromEntries(Object.entries(item).map(([name, child]) => [name, normalizedSchema(child)]))];
+      if (schemaSingles.has(key)) return [key, normalizedSchema(item)];
+      if (['items', 'prefixItems', 'allOf', 'anyOf', 'oneOf'].includes(key)) return [key, Array.isArray(item) ? item.map(normalizedSchema) : normalizedSchema(item)];
+      return [key, item];
+    }));
+  }
+  const schemaKey = value => canonical(normalizedSchema(value));
+  const toolKey = value => canonical({ ...value, inputSchema: normalizedSchema(value.inputSchema), ...(own(value, 'outputSchema') ? { outputSchema: normalizedSchema(value.outputSchema) } : {}) });
   function validateName(value, what, max) {
     if (typeof value !== 'string' || !value.trim() || value.length > max || /[\u0000-\u001f\u007f]/.test(value)) throw new SnapshotError(what + ' 이름이 비어 있거나 너무 길거나 제어 문자를 포함해.');
   }
@@ -85,11 +100,11 @@
       const oldEnum = oldProps[name].enum, newEnum = newProps[name].enum;
       if (Array.isArray(newEnum) && (!Array.isArray(oldEnum) || oldEnum.some(v => !newEnum.some(n => canonical(n) === canonical(v))))) add('ENUM_NARROWED', 'contract', '입력 ' + name + '의 허용 값이 제한됐어.');
     }
-    if (canonical(oldTool.raw.inputSchema) !== canonical(newTool.raw.inputSchema)) add('INPUT_SCHEMA', 'contract', '입력 스키마가 변경됐어. 중첩 조건·참조까지의 완전한 호환성 판정은 제공하지 않아.');
-    if (canonical(oldTool.raw.outputSchema) !== canonical(newTool.raw.outputSchema)) add('OUTPUT_SCHEMA', 'contract', '출력 스키마가 변경됐어. 결과를 읽는 코드도 확인해.');
+    if (schemaKey(oldTool.raw.inputSchema) !== schemaKey(newTool.raw.inputSchema)) add('INPUT_SCHEMA', 'contract', '입력 스키마가 변경됐어. 중첩 조건·참조까지의 완전한 호환성 판정은 제공하지 않아.');
+    if (schemaKey(oldTool.raw.outputSchema) !== schemaKey(newTool.raw.outputSchema)) add('OUTPUT_SCHEMA', 'contract', '출력 스키마가 변경됐어. 결과를 읽는 코드도 확인해.');
     if (oldTool.raw.description !== newTool.raw.description) add('DESCRIPTION', 'info', '모델에 전달되는 도구 설명이 달라졌어. 원문을 비교해.');
     if (canonical(oldTool.raw.annotations) !== canonical(newTool.raw.annotations)) add('ANNOTATIONS', 'info', '힌트 선언값이 달라졌어. 미선언과 명시적 기본값도 구분해서 표시해.');
-    if (!notes.length && canonical(oldTool.raw) !== canonical(newTool.raw)) add('METADATA', 'info', '제목·아이콘·실행 옵션 등 도구 정의의 다른 항목이 바뀌었어.');
+    if (!notes.length && toolKey(oldTool.raw) !== toolKey(newTool.raw)) add('METADATA', 'info', '제목·아이콘·실행 옵션 등 도구 정의의 다른 항목이 바뀌었어.');
     return notes;
   }
   function compare(before, after) {
@@ -98,7 +113,7 @@
     const counts = { added: 0, removed: 0, changed: 0, unchanged: 0, review: 0 };
     const entries = [...new Set([...a.keys(), ...b.keys()])].map(key => {
       const oldTool = a.get(key), newTool = b.get(key), tool = newTool || oldTool;
-      const status = !oldTool ? 'added' : !newTool ? 'removed' : canonical(oldTool.raw) === canonical(newTool.raw) ? 'unchanged' : 'changed';
+      const status = !oldTool ? 'added' : !newTool ? 'removed' : toolKey(oldTool.raw) === toolKey(newTool.raw) ? 'unchanged' : 'changed';
       const notes = status === 'unchanged' ? [] : changes(oldTool, newTool);
       const review = notes.some(n => n.level !== 'info');
       counts[status]++; if (review) counts.review++;

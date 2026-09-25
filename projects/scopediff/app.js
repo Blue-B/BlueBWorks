@@ -85,7 +85,7 @@
     if (file.size > S.LIMITS.bytes) { showError('최대 2 MiB까지 읽을 수 있어.'); return; }
     try {
       const text = await file.text(); if (revisions[side] !== revision) return;
-      $(side).value = text; invalidate('파일을 읽었어. 변경 사항 비교를 눌러줘.');
+      $(side).value = text; $('notice').textContent = '사용자 파일 입력 · 반대쪽에 예제가 남아 있다면 함께 바꿔줘.'; invalidate('파일을 읽었어. 변경 사항 비교를 눌러줘.');
     } catch (_) { if (revisions[side] === revision) showError('파일을 읽지 못했어. 접근 가능한 JSON 파일을 골라줘.'); }
   }
   function download(extension, text) {

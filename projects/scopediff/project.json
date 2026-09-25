@@ -5,15 +5,15 @@
   "created_at": "2026-09-26",
   "problem": "MCP 서버를 업데이트한 뒤 새 도구, 읽기 전용 선언 해제, 필수 입력 변경을 JSON 전체를 눈으로 대조하며 확인해야 한다.",
   "audience": "MCP를 여러 개 연결해서 사용하는 개인 개발자와 도구 변경을 검토하는 유지보수자",
-  "why_now": "MCP 공식 2026-03-16 글이 도구 힌트의 불완전성과 기본값을 설명하며, 2026-07-28 규격도 도구 목록 변화와 사용자 확인 인터페이스를 다룬다. 실제 설치 환경에서 변경 검토가 필요한지에 대한 사용자 수요 검증은 아직 하지 않았다.",
-  "difference": "MCP Inspector의 서버 접속·호출 시험이나 Snyk Agent Scan의 구성 발견·보안 분석 대신, 이미 확보한 두 도구 목록의 선언 변화와 입력 계약 변화를 실행·네트워크 없이 검토한다. 보안 스캐너의 대체물이 아니다.",
+  "why_now": "MCP 공식 2026-03-16 글이 도구 힌트의 불완전성과 기본값을 설명하며, 2026-07-28 규격도 도구 목록 변화와 사용자 확인 인터페이스를 다룬다. 실제 사용자 수요는 아직 검증하지 않았다.",
+  "difference": "MCP Inspector의 서버 접속·호출 시험이나 Snyk Agent Scan의 구성 발견·보안 분석 대신, 이미 확보한 두 목록의 선언 변화와 입력 규격 변화를 실행·네트워크 없이 검토한다. 보안 스캐너의 대체물이 아니다.",
   "monetization_hypothesis": "검증 전 가설: 팀 단위 변경 승인 기록·리뷰 보관 기능은 유료화 가능성이 있으나 현재 프로토타입에는 결제·계정·서버가 없다.",
-  "limitations": ["실제 권한·서버 코드·런타임 동작을 검사하지 않음", "악성 도구·프롬프트 주입 탐지기 또는 보안 점수 서비스가 아님", "중첩 JSON Schema와 참조의 완전한 호환성 판정은 하지 않음", "각 입력 최대 2 MiB, 도구 500개, JSON 깊이 48단계", "모든 페이지를 합친 tools/list 데이터가 필요하며 연결 설정 파일은 지원하지 않음", "같은 이름이 바뀐 서버나 도구는 추가·삭제로 취급"],
-  "source_files": ["core.js", "app.js", "index.html", "style.css", "cli.cjs", "build.cjs"],
-  "test_files": ["test.cjs"],
+  "limitations": ["실제 권한·서버 코드·런타임 동작을 검사하지 않음", "악성 도구·프롬프트 주입 탐지기 또는 보안 점수 서비스가 아님", "중첩 JSON Schema와 참조의 완전한 호환성 판정은 하지 않음", "각 입력 최대 2 MiB, 도구 500개, JSON 깊이 48단계", "모든 페이지를 합친 tools/list 데이터가 필요하며 연결 설정 파일은 지원하지 않음", "이름이 바뀐 서버나 도구는 추가·삭제로 취급", "실기기·Safari·Firefox 미검증; 테스트 환경의 파일 URL 탐색 제한으로 동일 HTML을 브라우저 문서에 직접 로드해 검증"],
+  "source_files": ["core.js", "app.js", "index.html", "cli.cjs", "build.cjs"],
+  "test_files": ["test.cjs", "regression.cjs", "browser_test.py"],
   "setup": [],
   "checks": [
-    {"kind": "test", "command": ["node", "--test", "test.cjs"], "timeout_seconds": 120},
+    {"kind": "test", "command": ["node", "--test", "test.cjs", "regression.cjs"], "timeout_seconds": 120},
     {"kind": "build", "command": ["node", "build.cjs"], "timeout_seconds": 60},
     {"kind": "smoke", "command": ["node", "cli.cjs", "--help"], "timeout_seconds": 30}
   ],
@@ -24,6 +24,6 @@
   ],
   "alternatives": [
     {"name": "MCP Inspector", "url": "https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector", "difference": "접속한 서버의 도구 조회·실행 시험을 제공한다. ScopeDiff는 서버에 연결하지 않고 두 시점의 목록을 로컬에서 대조한다."},
-    {"name": "Snyk Agent Scan", "url": "https://github.com/snyk/agent-scan", "difference": "에이전트 구성·MCP·스킬을 발견하고 보안 위험을 분석한다. ScopeDiff는 저장된 도구 목록의 명시적 변화를 설명하며 서버 실행·원격 분석·위험 점수는 없다."}
+    {"name": "Snyk Agent Scan", "url": "https://github.com/snyk/agent-scan", "difference": "에이전트 구성·MCP·스킬을 발견하고 보안 위험을 분석한다. ScopeDiff는 저장된 목록의 명시적 변화를 설명하며 서버 실행·원격 분석·위험 점수는 없다."}
   ]
 }
