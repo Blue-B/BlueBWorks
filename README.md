@@ -11,3 +11,9 @@ MCP 업데이트 전후의 도구 목록을 비교하는 로컬 도구입니다.
 브라우저 DevTools에서 저장한 HAR 파일을 외부 업로드 없이 분석해 실패 요청, 느린 요청, 도메인별 호출 수, 상태 코드 분포와 전송량을 빠르게 보여주는 로컬 진단 도구입니다.
 
 [![HARLens 미리보기](projects/harlens/preview.svg)](projects/harlens/)
+
+## [InstallLens](projects/installlens/)
+
+npm `package-lock.json`을 오프라인에서 점검해 설치 스크립트 승인 필요 항목과 Git/원격 URL 의존성, integrity 누락을 빠르게 보여주는 로컬 CLI입니다.
+
+[![InstallLens 미리보기](projects/installlens/preview.svg)](projects/installlens/)
