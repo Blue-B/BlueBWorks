@@ -1,0 +1,9 @@
+{
+  "name": "HARLens",
+  "slug": "harlens",
+  "summary": "Offline HAR triage for failed, slow, and domain-heavy requests.",
+  "entrypoint": "python harlens.py <file.har>",
+  "runtime": "Python 3.9+",
+  "network_required": false,
+  "dependencies": []
+}
