@@ -23,3 +23,9 @@ npm `package-lock.json`을 오프라인에서 점검해 설치 스크립트 승�
 AI 코딩 에이전트 지침 파일이 특정 코드 경로에 어떤 순서로 적용되는지 실행 전에 오프라인으로 보여주는 로컬 CLI입니다.
 
 [![AgentScope 미리보기](projects/agentscope/preview.svg)](projects/agentscope/)
+
+## [PyLockPeek](projects/pylockpeek/)
+
+표준 `pylock.toml`을 설치 없이 읽어 패키지 수, 기록된 배포 파일 종류와 wheel 없이 sdist만 있는 항목을 빠르게 보여주는 로컬 CLI입니다.
+
+[![PyLockPeek 실제 CLI 출력 미리보기](projects/pylockpeek/preview.svg)](projects/pylockpeek/)
