@@ -1,1 +1,28 @@
-{"slug":"agenttracelite","title":"AgentTraceLite","summary":"Inspect OTLP JSONL traces offline and surface agent, model, tool, latency, error, and token signals without a tracing backend.","created_at":"2026-09-29","problem":"Developers receiving OpenTelemetry traces from AI coding agents need a quick way to inspect a captured trace file without standing up a full tracing backend or uploading potentially sensitive telemetry.","audience":"Developers experimenting with OpenTelemetry-enabled coding agents and local GenAI instrumentation.","why_now":"GitHub announced OpenTelemetry support in the Copilot app on 2026-09-22, while OpenTelemetry defines a standard JSONL file serialization for OTLP telemetry.","difference":"AgentTraceLite is a standard-library-only, read-only file inspector for quick local triage; it does not replace production tracing storage or dashboards.","monetization_hypothesis":"Best kept as a free local utility; paid team features would require separate demand validation.","limitations":["Trace JSONL only; no protobuf binary, metrics, or logs.","Heuristic categories depend on span names and semantic attributes."],"source_files":["agenttracelite.py"],"test_files":["test_agenttracelite.py"],"setup":[],"checks":[{"kind":"test","command":["python3","-m","unittest","-v","test_agenttracelite.py"],"timeout_seconds":60},{"kind":"smoke","command":["python3","agenttracelite.py","examples/agent-trace.jsonl"],"timeout_seconds":30}],"sources":[{"url":"https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app/","primary":true,"checked_at":"2026-09-29","published_at":"2026-09-22"},{"url":"https://opentelemetry.io/docs/specs/otel/protocol/file-exporter/","primary":true,"checked_at":"2026-09-29"},{"url":"https://opentelemetry.io/docs/specs/otlp/","primary":true,"checked_at":"2026-09-29"}],"alternatives":[{"name":"Jaeger","url":"https://www.jaegertracing.io/docs/2.21/getting-started/","difference":"Jaeger provides a collector/query/UI tracing system; AgentTraceLite reads an existing JSONL trace locally with no service to run."},{"name":"Grafana Tempo","url":"https://grafana.com/docs/tempo/latest/set-up-for-tracing/","difference":"Tempo is a trace backend for ingestion, storage and querying; AgentTraceLite is a zero-backend file triage tool."}]}
+{
+  "slug": "agenttracelite",
+  "title": "AgentTraceLite",
+  "summary": "Inspect OTLP JSONL traces offline and surface agent, model, tool, latency, error, and token signals without a tracing backend.",
+  "created_at": "2026-09-29",
+  "problem": "Developers receiving OpenTelemetry traces from AI coding agents need a quick way to inspect a captured trace file without standing up a full tracing backend or uploading potentially sensitive telemetry.",
+  "audience": "Developers experimenting with OpenTelemetry-enabled coding agents and local GenAI instrumentation.",
+  "why_now": "GitHub announced OpenTelemetry support in the Copilot app on 2026-09-22, while OpenTelemetry defines a standard JSONL file serialization for OTLP telemetry.",
+  "difference": "AgentTraceLite is a standard-library-only, read-only file inspector for quick local triage; it does not replace production tracing storage or dashboards.",
+  "monetization_hypothesis": "Best kept as a free local utility; paid team features would require separate demand validation.",
+  "limitations": ["Trace JSONL only; no protobuf binary, metrics, or logs.", "Heuristic categories depend on span names and semantic attributes."],
+  "source_files": ["agenttracelite.py"],
+  "test_files": ["check_agenttracelite.py"],
+  "setup": [],
+  "checks": [
+    {"kind": "test", "command": ["python3", "check_agenttracelite.py"], "timeout_seconds": 60},
+    {"kind": "smoke", "command": ["python3", "agenttracelite.py", "examples/agent-trace.jsonl"], "timeout_seconds": 30}
+  ],
+  "sources": [
+    {"url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app/", "primary": true, "checked_at": "2026-09-29", "published_at": "2026-09-22"},
+    {"url": "https://opentelemetry.io/docs/specs/otel/protocol/file-exporter/", "primary": true, "checked_at": "2026-09-29"},
+    {"url": "https://opentelemetry.io/docs/specs/otlp/", "primary": true, "checked_at": "2026-09-29"}
+  ],
+  "alternatives": [
+    {"name": "Jaeger", "url": "https://www.jaegertracing.io/docs/2.21/getting-started/", "difference": "Jaeger provides a collector/query/UI tracing system; AgentTraceLite reads an existing JSONL trace locally with no service to run."},
+    {"name": "Grafana Tempo", "url": "https://grafana.com/docs/tempo/latest/set-up-for-tracing/", "difference": "Tempo is a trace backend for ingestion, storage and querying; AgentTraceLite is a zero-backend file triage tool."}
+  ]
+}
