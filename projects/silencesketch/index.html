@@ -12,10 +12,15 @@
     <h1>말없는 구간을<br><span>눈으로 보고</span> 골라 자르기.</h1>
     <p>음성·팟캐스트 파일을 브라우저에서 바로 분석해 긴 무음을 표시하고, 뺄 구간을 직접 고른 뒤 WAV로 저장해.</p>
   </header>
+
   <section class="drop" id="dropzone">
-    <div><strong>오디오 파일을 여기로 끌어와</strong><span>브라우저 안에서만 처리돼. 서버 업로드 없음.</span></div>
+    <div>
+      <strong>오디오 파일을 여기로 끌어와</strong>
+      <span>브라우저 안에서만 처리돼. 서버 업로드 없음.</span>
+    </div>
     <div class="actions"><label class="button primary">파일 열기<input id="file-input" type="file" accept="audio/*" hidden></label><button class="button" id="demo-button">9초 데모</button></div>
   </section>
+
   <section id="workspace" hidden>
     <div class="fileline"><span class="dot"></span><span id="file-name"></span></div>
     <div class="stats">
@@ -24,10 +29,12 @@
       <article><small>결과</small><strong id="result">—</strong></article>
       <article><small>제안 컷</small><strong><span id="count">0</span>개</strong></article>
     </div>
+
     <div class="wave-card">
       <div class="wave-head"><div><b>말의 리듬</b><span>붉은 영역이 잘라낼 무음이야.</span></div><button class="download" id="download-button">정리된 WAV 저장</button></div>
       <canvas id="waveform" aria-label="오디오 파형과 삭제 예정 무음 구간"></canvas>
     </div>
+
     <div class="grid">
       <aside class="controls">
         <h2>감도 조절</h2>
