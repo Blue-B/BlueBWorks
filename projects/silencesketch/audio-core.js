@@ -88,6 +88,6 @@ function summarize(duration, cuts) {
   return { duration, removed, result: Math.max(0,duration-removed), count: cuts.length };
 }
 
-const api={detectSilences,keptRanges,cutChannels,encodeWav,summarize};
+const api={detectSilences,invertCuts:keptRanges,keptRanges,cutChannels,encodeWav,summarize};
 if(typeof module!=='undefined') module.exports=api;
 if(typeof window!=='undefined') window.SilenceSketchCore=api;
