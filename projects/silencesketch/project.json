@@ -1,0 +1,26 @@
+{
+  "slug": "silencesketch",
+  "title": "SilenceSketch",
+  "summary": "A local browser audio editor that visualizes long pauses, lets users keep or remove each proposed cut, and exports the tightened result as WAV.",
+  "created_at": "2026-09-30",
+  "audience": "Podcasters, video creators, interviewers and anyone cleaning spoken recordings.",
+  "problem": "Removing dead air from speech recordings is repetitive, but fully automatic cutting can damage intentional pauses. Users need a fast way to see proposed cuts and keep exceptions before exporting.",
+  "difference": "SilenceSketch is a zero-upload, no-account browser workflow focused on inspect-adjust-export: it visualizes detected silence, recalculates instantly as sensitivity changes, lets users veto individual cuts, and renders a real WAV output locally.",
+  "limitations": [
+    "The first version exports WAV rather than preserving the original codec.",
+    "Very long recordings consume browser memory because decoding and rendering happen locally.",
+    "Silence detection is energy-based and does not distinguish room tone from intentional ambience."
+  ],
+  "source_files": ["index.html", "styles.css", "app.js", "audio-core.js"],
+  "test_files": ["test_audio_core.js"],
+  "checks": [{"kind":"test","command":["node","test_audio_core.js"],"timeout_seconds":30}],
+  "sources": [
+    {"url":"https://apps.apple.com/kr/app/quietcut-silence-remover/id6797038606","checked_at":"2026-09-30","primary":true},
+    {"url":"https://shadowgraph.io/oentoro/autoclipper","checked_at":"2026-09-30","primary":false},
+    {"url":"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/decodeAudioData","checked_at":"2026-09-30","primary":true}
+  ],
+  "alternatives": [
+    {"name":"QuietCut","url":"https://quietcut.me/","difference":"QuietCut is a fuller desktop/video product with automated cutting and paid tiers; SilenceSketch is a tiny zero-install browser workspace for quickly reviewing and vetoing pause cuts before WAV export."},
+    {"name":"AutoClipper","url":"https://github.com/oentoro/autoclipper","difference":"AutoClipper is a full local AI video editing stack with transcription and smart cropping; SilenceSketch deliberately avoids model downloads and focuses on one fast spoken-audio cleanup interaction."}
+  ]
+}
