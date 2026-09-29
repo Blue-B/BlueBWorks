@@ -1,1 +1,7 @@
-.card-image {\n  view-transition-name: card-image;\n  view-transition-class: media;\n}\n.title {\n  view-transition-name: title;\n}\n
+.card-image {
+  view-transition-name: card-image;
+  view-transition-class: media;
+}
+.title {
+  view-transition-name: title;
+}
