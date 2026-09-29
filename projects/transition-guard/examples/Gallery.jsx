@@ -1,0 +1,1 @@
+import { ViewTransition, addTransitionType } from 'react';\n\nexport function Gallery({ children }) {\n  function next() {\n    addTransitionType('next');\n  }\n  return <ViewTransition>{children}</ViewTransition>;\n}\n

@@ -29,3 +29,9 @@ AI 코딩 에이전트 지침 파일이 특정 코드 경로에 어떤 순서로
 표준 `pylock.toml`을 설치 없이 읽어 패키지 수, 기록된 배포 파일 종류와 wheel 없이 sdist만 있는 항목을 빠르게 보여주는 로컬 CLI입니다.
 
 [![PyLockPeek 실제 CLI 출력 미리보기](projects/pylockpeek/preview.svg)](projects/pylockpeek/)
+
+## [TransitionGuard](projects/transition-guard/)
+
+React/CSS 코드에서 View Transition 사용 위치와 정적으로 중복된 `view-transition-name`을 오프라인으로 찾아주는 로컬 CLI입니다.
+
+[![TransitionGuard 실제 예제 출력](projects/transition-guard/preview.svg)](projects/transition-guard/)
