@@ -40,4 +40,4 @@ React/CSS 코드에서 View Transition 사용 위치와 정적으로 중복된 `
 
 말이 없는 긴 구간을 파형 위에서 바로 보고, 지울 쉼과 남길 쉼을 고른 뒤 정리된 WAV를 만드는 로컬 브라우저 오디오 도구입니다.
 
-[![SilenceSketch 실제 데모](projects/silencesketch/demo.gif)](projects/silencesketch/)
+[![SilenceSketch 미리보기](projects/silencesketch/preview.svg)](projects/silencesketch/)
