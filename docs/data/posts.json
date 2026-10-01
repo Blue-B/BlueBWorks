@@ -1,5 +1,111 @@
 [
   {
+    "slug": "olmo-core-3-moe-training-2026",
+    "title": "Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다",
+    "summary": "Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.",
+    "category": "오픈소스",
+    "publishedAt": "2026-10-01",
+    "verifiedAt": "2026-10-02T02:59:13+09:00",
+    "tags": [
+      "Ai2",
+      "Olmo-core 3",
+      "MoE",
+      "Open Source"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "Olmo-core 3는 대형 MoE 모델을 위한 공개 학습 프레임워크 업데이트다. Ai2는 전문가를 GPU에 상주시킨 채 데이터를 라우팅하는 방식, expert parallelism·pipeline parallelism·분산 옵티마이저 등을 결합했고, 1조 파라미터가 넘는 구성까지 시스템 수준 벤치마크를 공개했다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "모델 가중치뿐 아니라 실제 대형 MoE를 어떻게 분산 학습하는지까지 코드와 실험 결과가 공개된 점이 중요하다. 자체 모델을 훈련하는 연구팀이나 인프라 엔지니어라면 라우팅, 통신, 메모리와 처리량 사이의 실제 설계 선택을 참고할 수 있다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "이 프로젝트는 일반 PC에서 모델을 바로 돌려보는 도구가 아니라 대규모 학습 인프라에 가깝다. 공개된 처리량 수치는 특정 NVIDIA B300 구성과 시스템 벤치마크에서 나온 값이므로 다른 하드웨어의 실제 학습 성능으로 그대로 일반화하면 안 된다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Hugging Face / Ai2 — Introducing Olmo-core 3",
+        "url": "https://huggingface.co/blog/allenai/olmocore3"
+      },
+      {
+        "name": "Ai2 — olmo-core GitHub",
+        "url": "https://github.com/allenai/olmo-core"
+      }
+    ]
+  },
+  {
+    "slug": "gemini-4-argon-2026",
+    "title": "Gemini 4 Argon 발표 — 장기 작업용 100만 출력 토큰 모델이 등장했다",
+    "summary": "Google이 장기 코딩·전문 업무·사이버 방어를 겨냥한 Gemini 4 Argon을 발표했다. 한 번의 작업 흐름에서 최대 100만 출력 토큰을 지원하지만 현재는 제한된 사이버 방어 파트너부터 단계적으로 공개 중이다.",
+    "category": "모델",
+    "publishedAt": "2026-09-30",
+    "verifiedAt": "2026-10-02T02:59:13+09:00",
+    "tags": [
+      "Google",
+      "Gemini 4 Argon",
+      "Coding",
+      "Agent"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "Gemini 4 Argon은 Google의 새 프런티어 모델로, 복잡하고 긴 작업을 한 흐름에서 처리하도록 설계됐다. Google은 출력 한도를 기존 64K에서 100만 토큰으로 늘렸고 코딩, 전문 지식 업무, 멀티모달 분석과 방어적 사이버 보안을 주요 용도로 제시했다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "긴 코드 변경이나 여러 단계 에이전트 작업에서 모델이 중간 상태를 자주 끊지 않고 더 긴 실행 궤적을 유지하려는 방향이 분명해졌다. 모델 경쟁이 단순 응답 품질뿐 아니라 장시간 작업을 얼마나 안정적으로 이어가느냐로 이동하고 있다는 신호다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "현재 일반 개발자가 바로 사용할 수 있는 공개 API 상태는 아니다. Google은 Fairwind의 신뢰된 사이버 방어자부터 접근을 열고 이후 유료 API 고객과 Google AI Ultra 이용자로 확대할 계획이라고 밝혔으므로, 실제 사용 가능 여부를 확인한 뒤 도입을 판단해야 한다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Google — Gemini 4 Argon",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+      }
+    ]
+  },
+  {
+    "slug": "github-copilot-hydrafusion-vscode-2026",
+    "title": "HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다",
+    "summary": "GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.",
+    "category": "개발도구",
+    "publishedAt": "2026-09-30",
+    "verifiedAt": "2026-10-02T02:59:13+09:00",
+    "tags": [
+      "GitHub",
+      "Copilot",
+      "HydraFusion",
+      "VS Code"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "HydraFusion은 하나의 모델이 아니라 여러 모델과 실행 방식을 조합하는 Copilot의 연구 프리뷰다. 이번 업데이트로 VS Code와 GitHub Copilot 앱에서 사용할 수 있게 됐고, Single·Cascade·Critique 세 가지 흐름 중 작업에 맞는 방식을 선택한다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "코딩 도구에서 사용자가 매번 모델을 직접 고르는 대신 도구가 비용과 품질을 고려해 모델 조합과 검토 흐름까지 선택하는 방향이 실제 제품으로 들어오고 있다. 특히 긴 구현이나 디버깅에서 '어떤 모델이 최고인가'보다 '어떤 모델들을 어떤 순서로 쓸 것인가'가 중요한 설계 요소가 될 수 있다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "VS Code 1.140 이상에서 모델 선택기로 사용할 수 있고, 조직 계정은 관리자가 프리뷰 기능을 허용해야 할 수 있다. 아직 연구 프리뷰이므로 동작 방식과 제공 범위는 바뀔 수 있고, Auto와 달리 한 요청 안에서 여러 모델을 조합한다는 차이를 확인하는 게 좋다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "GitHub Changelog — HydraFusion in VS Code and the GitHub Copilot app",
+        "url": "https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/"
+      }
+    ]
+  },
+  {
     "slug": "openai-dots-2026",
     "title": "OpenAI Dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다",
     "summary": "OpenAI가 DevDay 2026에서 장기 작업을 맡길 수 있는 always-on 에이전트 Dots를 공개했다. 자체 클라우드 컴퓨터와 플러그인 연결을 사용하고, 피드백을 통해 사용자의 작업 방식을 익히는 형태다.",
