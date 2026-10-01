@@ -1,4 +1,0 @@
----
-applyTo: "**/*.md"
----
-docs rules

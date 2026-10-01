@@ -1,4 +1,0 @@
----
-applyTo: "**/*.py"
----
-python rules
