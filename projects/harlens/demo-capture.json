@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "project": "harlens",
+  "captured_at": "2026-10-01T11:28:16.416455+00:00",
+  "environment": {
+    "os": "Linux",
+    "machine": "x86_64",
+    "python": "3.12.14"
+  },
+  "method": "Real subprocess stdout/stderr captured verbatim, then rendered as a paced text replay with Pillow. Not a desktop screen recording or application UI.",
+  "data": "Bundled sample.har / illustrative HTTP requests",
+  "playback_timing": "Edited for readability; not a runtime benchmark.",
+  "regenerate": "python3 automation/capture_cli_demos.py --project harlens",
+  "source_and_input_sha256": {
+    "projects/harlens/harlens.py": "353ba298278f60f292b21aad23678591ee994b1b2251addd5e15dfdb1f121e5c",
+    "projects/harlens/sample.har": "77685bbd03cd298dc636252232eb33f3cdb56384d4e162461e4eab8e71fcde0b"
+  },
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "harlens.py",
+        "sample.har"
+      ],
+      "cwd": "projects/harlens",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "HARLens summary\n- Requests: 5\n- Transfer: 112.4 KB\n- Aggregate request time: 2589.0 ms\n- Status groups: 2xx=3, 4xx=1, 5xx=1\n\nTop domains:\n     2  api.example.com\n     1  app.example.com\n     1  cdn.example.net\n     1  img.example.net\n\nFailed requests:\n  404    78.0 ms  GET https://img.example.net/hero.webp\n  500  1842.0 ms  POST https://api.example.com/v1/search\n\nSlow requests:\n   1842.0 ms  500 POST https://api.example.com/v1/search\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "harlens.py",
+        "sample.har",
+        "--slow-ms",
+        "200"
+      ],
+      "cwd": "projects/harlens",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "HARLens summary\n- Requests: 5\n- Transfer: 112.4 KB\n- Aggregate request time: 2589.0 ms\n- Status groups: 2xx=3, 4xx=1, 5xx=1\n\nTop domains:\n     2  api.example.com\n     1  app.example.com\n     1  cdn.example.net\n     1  img.example.net\n\nFailed requests:\n  404    78.0 ms  GET https://img.example.net/hero.webp\n  500  1842.0 ms  POST https://api.example.com/v1/search\n\nSlow requests:\n   1842.0 ms  500 POST https://api.example.com/v1/search\n    331.0 ms  200 GET https://cdn.example.net/app.js\n    242.0 ms  200 GET https://api.example.com/v1/profile\n",
+      "stderr": ""
+    }
+  ],
+  "gif": {
+    "width": 1120,
+    "height": 782,
+    "frames": 15,
+    "distinct_frames": 15,
+    "duration_ms": 12560,
+    "bytes": 362863
+  },
+  "artifacts_sha256": {
+    "demo.gif": "e5735cb536417e47aba3c67d7cbdf822ca009ffd37b40dfc7e5e3ebaba706dcf",
+    "preview.png": "dc93d33b6b193aab91fbb4f1bb08469fdf20ab8e3d7fa2663e67e93af71fba65",
+    "demo-transcript.txt": "72544db9c100b994b281d7368cf1c880ae527370a65453b5d0c9cbff05855ade"
+  }
+}

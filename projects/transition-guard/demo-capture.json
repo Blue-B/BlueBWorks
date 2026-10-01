@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "project": "transition-guard",
+  "captured_at": "2026-10-01T11:28:18.831630+00:00",
+  "environment": {
+    "os": "Linux",
+    "machine": "x86_64",
+    "python": "3.12.14"
+  },
+  "method": "Real subprocess stdout/stderr captured verbatim, then rendered as a paced text replay with Pillow. Not a desktop screen recording or application UI.",
+  "data": "Bundled examples/ / illustrative React and CSS source",
+  "playback_timing": "Edited for readability; not a runtime benchmark.",
+  "regenerate": "python3 automation/capture_cli_demos.py --project transition-guard",
+  "source_and_input_sha256": {
+    "projects/transition-guard/examples/Gallery.jsx": "af4c236793a4da00569d4f6c2902e4eebd101e6211b40e335e6ab7ff8e1d0518",
+    "projects/transition-guard/examples/cards.css": "16171c8e70c8ed0c6f456c9fd187cbb4dbc8e0a90485c39e4a8a608ed7b2dc44",
+    "projects/transition-guard/examples/detail.css": "816851c29ad7a7ce798cee03182615144b2114414b240c3236f2c43ed1b6d3cc",
+    "projects/transition-guard/transition_guard.py": "8861802e97bb3400b5371c7121fb6f65195ab2ae02f7e2db74afb8c467afc9cb"
+  },
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "transition_guard.py",
+        "examples"
+      ],
+      "cwd": "projects/transition-guard",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "TransitionGuard: 3 file(s), 3 named declaration(s), 1 duplicate name(s)\nDUPLICATE card-image\n  examples/cards.css:2\n  examples/detail.css:2\nReact <ViewTransition>: 1\naddTransitionType(): 1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "transition_guard.py",
+        "examples",
+        "--fail-on-duplicate"
+      ],
+      "cwd": "projects/transition-guard",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "TransitionGuard: 3 file(s), 3 named declaration(s), 1 duplicate name(s)\nDUPLICATE card-image\n  examples/cards.css:2\n  examples/detail.css:2\nReact <ViewTransition>: 1\naddTransitionType(): 1\n",
+      "stderr": ""
+    }
+  ],
+  "gif": {
+    "width": 1120,
+    "height": 430,
+    "frames": 6,
+    "distinct_frames": 6,
+    "duration_ms": 9320,
+    "bytes": 115049
+  },
+  "artifacts_sha256": {
+    "demo.gif": "bb26c7f77721ab6b32a6c845cee9933cb5056520a2c6653079174ab1be4a01b6",
+    "preview.png": "dd73a8af820df796e049e7f6267f53991533859af84b81db117a129efa908fc9",
+    "demo-transcript.txt": "7bdc5e8bd20665a03f90b5181311f1ae375bdc8ef900b6dcd0105117c29083a3"
+  }
+}

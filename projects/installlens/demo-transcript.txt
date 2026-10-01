@@ -1,0 +1,61 @@
+InstallLens - actual subprocess capture
+EXAMPLE DATA: Bundled examples/*.json / illustrative packages; never installed
+Playback is paced for readability; it does not measure execution time.
+
+cwd: projects/installlens
+$ python3 installlens.py examples/package-lock.json
+[stdout]
+InstallLens
+packages: 5 (2 direct)
+install scripts: 1 total / 1 unreviewed
+git deps: 1
+remote URL deps: 1
+registry entries missing integrity: 1
+
+Unreviewed install scripts:
+  - @demo/native@1.0.0 [direct]
+
+Git dependencies:
+  - @demo/git-source@1.0.0 [transitive]
+
+Remote URL dependencies:
+  - @demo/remote@1.0.0 [transitive]
+
+Registry entries missing integrity:
+  - @demo/missing-integrity@1.0.0 [transitive]
+
+Note: this is a lockfile policy preflight, not a malware verdict.
+Review package contents and provenance before approving scripts or unusual sources.
+
+[stderr]
+
+[exit 0]
+
+cwd: projects/installlens
+$ python3 installlens.py examples/package-lock.json --package-json examples/package.json --strict
+[stdout]
+InstallLens
+packages: 5 (2 direct)
+install scripts: 1 total / 0 unreviewed
+git deps: 1
+remote URL deps: 1
+registry entries missing integrity: 1
+
+Unreviewed install scripts:
+  (none)
+
+Git dependencies:
+  - @demo/git-source@1.0.0 [transitive]
+
+Remote URL dependencies:
+  - @demo/remote@1.0.0 [transitive]
+
+Registry entries missing integrity:
+  - @demo/missing-integrity@1.0.0 [transitive]
+
+Note: this is a lockfile policy preflight, not a malware verdict.
+Review package contents and provenance before approving scripts or unusual sources.
+
+[stderr]
+
+[exit 2]

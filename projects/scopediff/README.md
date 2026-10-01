@@ -58,6 +58,12 @@ Playwright와 Chromium이 설치된 개발 환경에서는 `python3 browser_test
 
 2026-09-26 수동 시험: 코드·CLI·빌드 회귀 테스트 63개, 브라우저 시나리오 15개, 저장소 검사기 회귀 테스트 26개가 통과했다. Chromium 144에서 1440px 및 390px/320px 화면, 실제 파일 입력·끌어놓기·검색·필터·보고서 다운로드를 확인했다. 테스트 환경은 `file://` 및 로컬 HTTP 탐색이 차단되어 **빌드 결과를 CSP 수정 없이 브라우저 문서에 직접 로드(`set_content`)하고 오프라인 상태에서 검증**했다. 실제 더블클릭 경로, 모바일 실기기, Safari·Firefox는 미검증이다. 원격 CI와 무인 예약 실행의 성공을 뜻하지 않는다.
 
+### 2026-10-01 재검증
+
+코드·CLI·빌드 회귀 테스트 63개와 빌드를 다시 실행해 통과했다. 기존 `demo.gif`는 2012×1840, 12프레임(서로 다른 화면 11개), 20.15초, 730,070바이트이며 실제 이미지를 열어 가독성을 확인했다. GIF와 현재 소스 4개(`index.html`, `core.js`, `app.js`, `style.css`)의 Git blob은 기존 [캡처 기록](preview-checks.json)과 모두 일치한다. 유효한 기존 캡처를 그대로 유지했다.
+
+이번 환경에서는 Chromium 시작이 `socket() failed: Operation not permitted`로 실패해 브라우저 15개 시나리오를 재실행하지 못했다. 위 브라우저 검증 결과는 과거 실행 기록이며 이번 실행의 통과 결과가 아니다.
+
 ## 해석 주의
 
 힌트는 서버의 자기 선언이며 실제 권한·동작·안전성을 강제하지 않는다. 미선언 기본값은 `readOnlyHint=false`, `destructiveHint=true`, `idempotentHint=false`, `openWorldHint=true`다. 읽기 전용이면 destructive/idempotent 힌트는 적용하지 않는 것으로 표시한다.

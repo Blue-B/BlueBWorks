@@ -1,0 +1,3 @@
+{
+  "silencesketch": "2026-10-01: standalone Chromium could not start (socket Operation not permitted); managed cloud browser rejected the local app URL (ERR_BLOCKED_BY_CLIENT). Core tests pass, but real UI capture and browser E2E remain unverified. No mock GIF substituted."
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "project": "agenttracelite",
+  "captured_at": "2026-10-01T11:28:15.028427+00:00",
+  "environment": {
+    "os": "Linux",
+    "machine": "x86_64",
+    "python": "3.12.14"
+  },
+  "method": "Real subprocess stdout/stderr captured verbatim, then rendered as a paced text replay with Pillow. Not a desktop screen recording or application UI.",
+  "data": "Bundled examples/agent-trace.jsonl / synthetic telemetry",
+  "playback_timing": "Edited for readability; not a runtime benchmark.",
+  "regenerate": "python3 automation/capture_cli_demos.py --project agenttracelite",
+  "source_and_input_sha256": {
+    "projects/agenttracelite/agenttracelite.py": "dfc77aa094ba78751652546c07ef910dc60ccab7ead5ddcd92baff7b3d6a373b",
+    "projects/agenttracelite/examples/agent-trace.jsonl": "17417c050cf1457ff6c86b4fd298c49d0e62394dccb7a86bba7af35dad18083c"
+  },
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "agenttracelite.py",
+        "examples/agent-trace.jsonl"
+      ],
+      "cwd": "projects/agenttracelite",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "AgentTraceLite: 1 trace(s) | 3 span(s) | errors=1 | tokens=820\nDURATION   STATUS  TYPE   SERVICE              SPAN\n  2150.0ms  OK      agent  copilot-chat         invoke_agent\n  1230.0ms  OK      agent  copilot-chat         chat [model=example-model]\n   520.0ms  ERROR   tool   copilot-chat         execute_tool [tool=lookup_docs]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "agenttracelite.py",
+        "examples/agent-trace.jsonl",
+        "--category",
+        "tool"
+      ],
+      "cwd": "projects/agenttracelite",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "AgentTraceLite: 1 trace(s) | 3 span(s) | errors=1 | tokens=820\nDURATION   STATUS  TYPE   SERVICE              SPAN\n   520.0ms  ERROR   tool   copilot-chat         execute_tool [tool=lookup_docs]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "agenttracelite.py",
+        "examples/agent-trace.jsonl",
+        "--slow-ms",
+        "1000"
+      ],
+      "cwd": "projects/agenttracelite",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "AgentTraceLite: 1 trace(s) | 3 span(s) | errors=1 | tokens=820\nDURATION   STATUS  TYPE   SERVICE              SPAN\n  2150.0ms  OK      agent  copilot-chat         invoke_agent\n  1230.0ms  OK      agent  copilot-chat         chat [model=example-model]\n",
+      "stderr": ""
+    }
+  ],
+  "gif": {
+    "width": 1120,
+    "height": 430,
+    "frames": 8,
+    "distinct_frames": 8,
+    "duration_ms": 13620,
+    "bytes": 163541
+  },
+  "artifacts_sha256": {
+    "demo.gif": "266e3ef96a4bf60ff17a53b8c92820df322b16566058e72132761b214f4d591f",
+    "preview.png": "90a1998bfe083c88e4a84c016e86e5d16d03115ef17ecb0b1eedc7b1cb536270",
+    "demo-transcript.txt": "3f49722f07201e8e1b00857c907cf7c7db363d8fb487238e75102ef05a40fe6d"
+  }
+}

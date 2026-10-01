@@ -1,0 +1,28 @@
+AgentScope - actual subprocess capture
+EXAMPLE DATA: Bundled example_repo / illustrative instruction files
+Playback is paced for readability; it does not measure execution time.
+
+cwd: projects/agentscope
+$ python3 agentscope.py src/api/service.py --root example_repo
+[stdout]
+AgentScope: src/api/service.py
+  1. .github/instructions/python.instructions.md - github-path-specific [**/*.py]
+  2. .github/copilot-instructions.md - github-repository
+  3. src/AGENTS.md - agent-instructions
+  4. AGENTS.md - agent-instructions
+
+[stderr]
+
+[exit 0]
+
+cwd: projects/agentscope
+$ python3 agentscope.py AGENTS.md --root example_repo
+[stdout]
+AgentScope: AGENTS.md
+  1. .github/instructions/docs.instructions.md - github-path-specific [**/*.md]
+  2. .github/copilot-instructions.md - github-repository
+  3. AGENTS.md - agent-instructions
+
+[stderr]
+
+[exit 0]

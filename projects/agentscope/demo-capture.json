@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "project": "agentscope",
+  "captured_at": "2026-10-01T11:28:14.426472+00:00",
+  "environment": {
+    "os": "Linux",
+    "machine": "x86_64",
+    "python": "3.12.14"
+  },
+  "method": "Real subprocess stdout/stderr captured verbatim, then rendered as a paced text replay with Pillow. Not a desktop screen recording or application UI.",
+  "data": "Bundled example_repo / illustrative instruction files",
+  "playback_timing": "Edited for readability; not a runtime benchmark.",
+  "regenerate": "python3 automation/capture_cli_demos.py --project agentscope",
+  "source_and_input_sha256": {
+    "projects/agentscope/agentscope.py": "a0c1abfd02b7823652953281c8efde00c61dad35c4c457159495c01c9a019eec",
+    "projects/agentscope/example_repo/.github/copilot-instructions.md": "6d1ba5b217d94a50d214aa3c4f96aa6c365ddc3c08ddde13ecd9914fea9c91cf",
+    "projects/agentscope/example_repo/.github/instructions/docs.instructions.md": "fc238d2a9827d727181add51d6b4615b334cf508688e3dbca2a5448023845598",
+    "projects/agentscope/example_repo/.github/instructions/python.instructions.md": "f0e54f9e4204b7e78caa943c3b8bff7974d002bb3d1532da2572878a6ce15f07",
+    "projects/agentscope/example_repo/AGENTS.md": "9fea85ddc50e441338e3bdcd55b3d0fdc02fc213cfc88bc6a35b70ff87be0dab",
+    "projects/agentscope/example_repo/src/AGENTS.md": "5ffa8e5e4bd2d9a396b84e6783ca5fd81feb073f090c53e86b8ce218b3d07747",
+    "projects/agentscope/example_repo/src/api/service.py": "5b991bbad329969f86dd0e218373b9bda3b66bedf8a1277c92a558c2bb36f817"
+  },
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "agentscope.py",
+        "src/api/service.py",
+        "--root",
+        "example_repo"
+      ],
+      "cwd": "projects/agentscope",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "AgentScope: src/api/service.py\n  1. .github/instructions/python.instructions.md - github-path-specific [**/*.py]\n  2. .github/copilot-instructions.md - github-repository\n  3. src/AGENTS.md - agent-instructions\n  4. AGENTS.md - agent-instructions\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "agentscope.py",
+        "AGENTS.md",
+        "--root",
+        "example_repo"
+      ],
+      "cwd": "projects/agentscope",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "AgentScope: AGENTS.md\n  1. .github/instructions/docs.instructions.md - github-path-specific [**/*.md]\n  2. .github/copilot-instructions.md - github-repository\n  3. AGENTS.md - agent-instructions\n",
+      "stderr": ""
+    }
+  ],
+  "gif": {
+    "width": 1120,
+    "height": 430,
+    "frames": 6,
+    "distinct_frames": 6,
+    "duration_ms": 9320,
+    "bytes": 118464
+  },
+  "artifacts_sha256": {
+    "demo.gif": "095964979051623b114d4fb3d6baa3f8bd1ca8af99a8ebbcb83083fc86f59cfd",
+    "preview.png": "626b6ac0edeb47fa01c00b6b0b39cf1e31782aaf7f735db51b4a7b7bf50505d6",
+    "demo-transcript.txt": "681d124d6b60e180df7c8f70e8f80cacf075cfea2d8335ff9031789dd8a9410e"
+  }
+}

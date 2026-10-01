@@ -11,16 +11,54 @@
     "Very long recordings consume browser memory because decoding and rendering happen locally.",
     "Silence detection is energy-based and does not distinguish room tone from intentional ambience."
   ],
-  "source_files": ["index.html", "styles.css", "app.js", "audio-core.js"],
-  "test_files": ["test_audio_core.js"],
-  "checks": [{"kind":"test","command":["node","test_audio_core.js"],"timeout_seconds":30}],
+  "source_files": [
+    "index.html",
+    "app.js",
+    "audio-core.js"
+  ],
+  "test_files": [
+    "test_audio_core.js",
+    "browser_test.py"
+  ],
+  "checks": [
+    {
+      "kind": "test",
+      "command": [
+        "node",
+        "test_audio_core.js"
+      ],
+      "timeout_seconds": 30
+    }
+  ],
   "sources": [
-    {"url":"https://apps.apple.com/kr/app/quietcut-silence-remover/id6797038606","checked_at":"2026-09-30","primary":true},
-    {"url":"https://shadowgraph.io/oentoro/autoclipper","checked_at":"2026-09-30","primary":false},
-    {"url":"https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/decodeAudioData","checked_at":"2026-09-30","primary":true}
+    {
+      "url": "https://apps.apple.com/kr/app/quietcut-silence-remover/id6797038606",
+      "checked_at": "2026-09-30",
+      "primary": true
+    },
+    {
+      "url": "https://shadowgraph.io/oentoro/autoclipper",
+      "checked_at": "2026-09-30",
+      "primary": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/decodeAudioData",
+      "checked_at": "2026-09-30",
+      "primary": true
+    }
   ],
   "alternatives": [
-    {"name":"QuietCut","url":"https://quietcut.me/","difference":"QuietCut is a fuller desktop/video product with automated cutting and paid tiers; SilenceSketch is a tiny zero-install browser workspace for quickly reviewing and vetoing pause cuts before WAV export."},
-    {"name":"AutoClipper","url":"https://github.com/oentoro/autoclipper","difference":"AutoClipper is a full local AI video editing stack with transcription and smart cropping; SilenceSketch deliberately avoids model downloads and focuses on one fast spoken-audio cleanup interaction."}
-  ]
+    {
+      "name": "QuietCut",
+      "url": "https://quietcut.me/",
+      "difference": "QuietCut is a fuller desktop/video product with automated cutting and paid tiers; SilenceSketch is a tiny zero-install browser workspace for quickly reviewing and vetoing pause cuts before WAV export."
+    },
+    {
+      "name": "AutoClipper",
+      "url": "https://github.com/oentoro/autoclipper",
+      "difference": "AutoClipper is a full local AI video editing stack with transcription and smart cropping; SilenceSketch deliberately avoids model downloads and focuses on one fast spoken-audio cleanup interaction."
+    }
+  ],
+  "why_now": "The 2026-09-30 project review found the collection concentrated on developer diagnostics. A focused creator workflow provides a different, immediately testable outcome: inspect long pauses, keep intentional silence, and export a real WAV without account setup or uploads. QuietCut and AutoClipper establish existing alternatives; user demand and monetization remain unvalidated.",
+  "monetization_hypothesis": "Unvalidated hypothesis: creators who repeatedly clean recordings may value batch processing or reusable pause presets. This prototype has no paid features, billing, accounts, or measured demand."
 }

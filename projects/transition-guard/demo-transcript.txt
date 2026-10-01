@@ -1,0 +1,31 @@
+TransitionGuard - actual subprocess capture
+EXAMPLE DATA: Bundled examples/ / illustrative React and CSS source
+Playback is paced for readability; it does not measure execution time.
+
+cwd: projects/transition-guard
+$ python3 transition_guard.py examples
+[stdout]
+TransitionGuard: 3 file(s), 3 named declaration(s), 1 duplicate name(s)
+DUPLICATE card-image
+  examples/cards.css:2
+  examples/detail.css:2
+React <ViewTransition>: 1
+addTransitionType(): 1
+
+[stderr]
+
+[exit 0]
+
+cwd: projects/transition-guard
+$ python3 transition_guard.py examples --fail-on-duplicate
+[stdout]
+TransitionGuard: 3 file(s), 3 named declaration(s), 1 duplicate name(s)
+DUPLICATE card-image
+  examples/cards.css:2
+  examples/detail.css:2
+React <ViewTransition>: 1
+addTransitionType(): 1
+
+[stderr]
+
+[exit 1]

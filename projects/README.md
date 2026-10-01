@@ -9,3 +9,6 @@
 - [PyLockPeek](pylockpeek/) — 표준 pylock.toml의 패키지·배포 파일 구성을 설치 없이 빠르게 확인
 - [TransitionGuard](transition-guard/) — React/CSS View Transition 사용 위치와 정적 이름 중복 오프라인 점검
 - [SilenceSketch](silencesketch/) — 음성 파일의 긴 무음을 파형에서 검토하고 선택적으로 제거해 WAV로 저장
+
+
+- [AgentTraceLite](agenttracelite/) — JSONL 에이전트 실행 로그의 지연·토큰·오류 오프라인 분석
