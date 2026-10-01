@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="최신 AI·개발 소식을 빠르게 검증해 한국어로 정리하는 BlueBWorks AI Radar">
+  <title>BlueBWorks AI Radar</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="alternate" type="application/rss+xml" title="BlueBWorks AI Radar" href="feed.xml">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="./"><span class="brand-mark">B</span><span>BlueBWorks</span></a>
+  <nav><a href="./">Radar</a><a href="about.html">About</a><a href="feed.xml">RSS</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <p class="eyebrow">AI · OPEN SOURCE · DEV TOOLS</p>
+    <h1>새로 나온 것만.<br>써볼 가치가 있는 것만.</h1>
+    <p class="hero-copy">공식 발표와 원 저장소를 우선 확인하고, 개발자 관점에서 필요한 내용만 짧고 빠르게 정리해.</p>
+  </section>
+  <section class="toolbar" aria-label="글 필터">
+    <input id="search" type="search" placeholder="모델, 에이전트, 도구 검색" autocomplete="off">
+    <div id="categories" class="chips"></div>
+  </section>
+  <section class="feed">
+    <div class="feed-head"><h2>Latest</h2><span id="count"></span></div>
+    <div id="posts" class="post-grid" aria-live="polite"></div>
+  </section>
+</main>
+<footer><span>BlueBWorks AI Radar</span><span>Official sources first.</span></footer>
+<script>window.BLUEB_PAGE="home";</script><script src="assets/app.js"></script>
+</body></html>
