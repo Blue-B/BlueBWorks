@@ -1,0 +1,78 @@
+[
+  {
+    "slug": "openai-dots-2026",
+    "title": "OpenAI Dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다",
+    "summary": "OpenAI가 DevDay 2026에서 장기 작업을 맡길 수 있는 always-on 에이전트 Dots를 공개했다. 자체 클라우드 컴퓨터와 플러그인 연결을 사용하고, 피드백을 통해 사용자의 작업 방식을 익히는 형태다.",
+    "category": "에이전트",
+    "publishedAt": "2026-09-29",
+    "verifiedAt": "2026-10-01T23:20:00+09:00",
+    "tags": [
+      "OpenAI",
+      "Dots",
+      "Agent",
+      "GPT-6 Astra"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "Dots는 ChatGPT 안팎에서 계속 실행되는 에이전트다. OpenAI 설명에 따르면 GPT-6 Astra 기반이며 자체 클라우드 컴퓨터를 사용하고, 수천 개의 앱과 연결할 수 있는 플러그인 생태계를 활용한다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "한 번 질문하고 답을 받는 챗봇보다, 목표를 맡겨두고 여러 도구를 사용해 계속 진행하는 에이전트가 별도 제품 형태로 자리잡기 시작했다는 점이 크다. 반복 모니터링, 자료 수집, 운영 업무처럼 시간이 이어지는 작업 설계가 더 중요해진다."
+      },
+      {
+        "title": "직접 볼 때 체크할 점",
+        "body": "항상 실행되는 만큼 어떤 앱에 연결하는지, 어떤 작업을 스스로 수행할 수 있는지, 승인과 권한 범위가 어떻게 제한되는지를 함께 확인하는 게 좋다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "OpenAI — Introducing dots",
+        "url": "https://openai.com/index/introducing-dots/"
+      },
+      {
+        "name": "OpenAI — DevDay 2026 Recap",
+        "url": "https://openai.com/index/devday-2026-recap/"
+      }
+    ]
+  },
+  {
+    "slug": "gpt-6-1-sol-2026",
+    "title": "GPT‑6.1 Sol 출시 — 코딩·컴퓨터 사용 중심으로 Sol이 업데이트됐다",
+    "summary": "OpenAI가 GPT‑6.1 Sol을 공개했다. 에이전트형 코딩, 컴퓨터 사용, 전문 업무 성능을 강화하고 Astra 대비 낮은 표준 API 가격을 강조한 업데이트다.",
+    "category": "모델",
+    "publishedAt": "2026-09-29",
+    "verifiedAt": "2026-10-01T23:20:00+09:00",
+    "tags": [
+      "OpenAI",
+      "GPT-6.1 Sol",
+      "Coding",
+      "API"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "GPT‑6.1 Sol은 GPT‑6 Sol 계열의 새 모델이다. OpenAI는 특히 agentic coding, computer use, 전문 업무에서의 향상을 강조했고 API와 ChatGPT의 여러 플랜에 제공한다고 발표했다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "코드 생성 자체보다 도구 호출, 여러 단계 작업, 화면 조작처럼 에이전트가 실제 일을 이어가는 용도가 모델 선택의 중심이 되고 있다는 흐름을 보여준다."
+      },
+      {
+        "title": "직접 써볼 때",
+        "body": "기존 Sol 기반 에이전트가 있다면 같은 작업에서 성공률, 도구 호출 횟수, 총 토큰 비용과 완료 시간을 함께 비교하는 게 유용하다. 단순 벤치마크 숫자보다 실제 워크플로의 비용과 재시도 횟수를 보는 편이 낫다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "OpenAI — Introducing GPT-6.1 Sol",
+        "url": "https://openai.com/index/introducing-gpt-6-1-sol/"
+      },
+      {
+        "name": "OpenAI — DevDay 2026 Recap",
+        "url": "https://openai.com/index/devday-2026-recap/"
+      }
+    ]
+  }
+]
