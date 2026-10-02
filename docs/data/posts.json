@@ -1,5 +1,73 @@
 [
   {
+    "slug": "claude-code-mods-2026",
+    "title": "Claude Code Mods 공개 — TypeScript로 동작과 UI까지 바꾼다",
+    "summary": "Anthropic이 Claude Code 내부 이벤트를 가로채 동작과 화면을 바꿀 수 있는 Mods를 공개했다. 프롬프트 재작성, 도구 호출 차단·수정, 권한 판단, UI 추가까지 플러그인 형태로 확장할 수 있어 기존 훅보다 깊은 커스터마이징이 가능해졌다.",
+    "category": "개발도구",
+    "publishedAt": "2026-10-01",
+    "verifiedAt": "2026-10-02T15:03:02+09:00",
+    "tags": [
+      "Anthropic",
+      "Claude Code",
+      "Mods",
+      "TypeScript"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "Claude Code Mods는 Claude Code가 도구를 호출하거나 권한을 묻고 화면을 그리는 등의 이벤트에 연결되는 작은 TypeScript 함수다. 이벤트 전후나 대신 실행해 프롬프트를 바꾸고, 도구 호출을 차단·수정·재시도하고, 새 버튼이나 입력 UI를 추가할 수 있으며 CLI와 데스크톱 앱에서 플러그인으로 설치·공유한다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "팀이 Claude Code 자체의 동작을 기다리지 않고 작업 방식과 안전장치를 직접 넣을 수 있게 됐다. 예를 들어 CI 상태를 옆 패널에 표시하거나, 운영 설정을 건드리기 전에 추가 확인을 요구하거나, 모든 도구 호출을 감사 로그로 남기는 식의 내부 개발 환경을 만들 수 있다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "Mods는 샌드박스에서 격리되지 않고 Claude Code와 같은 수준으로 로컬 머신에 접근하므로 출처를 신뢰할 수 있는 것만 설치해야 한다. Team·Enterprise와 관리형 설정 환경에는 위험한 권한 우회를 막는 `sec-default`가 먼저 로드되며, 기존 플러그인 허용·차단 정책도 그대로 적용된다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Anthropic — Customize Claude Code with mods in TypeScript",
+        "url": "https://claude.com/blog/claude-code-mods"
+      }
+    ]
+  },
+  {
+    "slug": "github-copilot-dynamic-workflows-2026",
+    "title": "GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다",
+    "summary": "GitHub가 Copilot CLI·Copilot 앱·Copilot SDK에 Dynamic Workflows를 공개 프리뷰로 추가했다. 자동화 단계와 여러 에이전트를 코드로 조합해 순차·병렬 실행, 구조화된 결과 전달, 검토 체크포인트까지 반복 가능한 절차로 만들 수 있다.",
+    "category": "개발도구",
+    "publishedAt": "2026-10-01",
+    "verifiedAt": "2026-10-02T15:03:02+09:00",
+    "tags": [
+      "GitHub",
+      "Copilot",
+      "Dynamic Workflows",
+      "Multi-Agent"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "Dynamic Workflow는 작업 절차를 프로그램으로 정의하고 그 안에 명령·도구·외부 서비스 호출과 하나 이상의 에이전트 작업을 섞는 기능이다. 단계는 순차 또는 병렬로 실행할 수 있고, 앞 단계의 구조화된 결과를 다음 단계로 넘기거나 여러 에이전트가 서로의 결과를 검증하게 할 수도 있다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "멀티에이전트 작업을 매번 프롬프트의 자율 판단에 맡기지 않고 재현 가능한 코드 흐름으로 고정할 수 있다는 점이 핵심이다. 릴리스 점검, 대규모 코드 리뷰, 장애 조사처럼 단계·검증·중단 조건이 명확해야 하는 작업에서 실행 과정을 관찰하고 다시 쓰기 쉬워진다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "현재 공개 프리뷰이며 모든 Copilot 플랜에서 제공된다. Copilot 앱에서는 바로 사용할 수 있지만 Copilot CLI에서는 최신 버전에서 `--experimental` 또는 `/experimental on`으로 실험 기능을 켜야 하고, 단순한 질문이나 작은 수정은 일반 채팅이 더 적합하다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "GitHub Changelog — Dynamic workflows in Copilot CLI and the Copilot app",
+        "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/"
+      }
+    ]
+  },
+  {
     "slug": "github-copilot-computer-use-2026",
     "title": "GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다",
     "summary": "GitHub가 Copilot CLI와 Copilot 앱의 macOS·Windows 버전에 컴퓨터 사용 기능을 공개 프리뷰로 추가했다. 화면을 읽고 클릭·입력·스크롤·드래그를 수행할 수 있어 API나 CLI, MCP가 없는 GUI 전용 업무까지 자동화 범위가 넓어진다.",
