@@ -1,5 +1,73 @@
 [
   {
+    "slug": "microsoft-mai-audio-vercel-ai-gateway-2026",
+    "title": "Microsoft AI 음성 모델이 Vercel AI Gateway에 들어왔다 — TTS와 실시간 전사를 한 API로",
+    "summary": "Vercel이 Microsoft AI의 MAI-Voice-2.1·MAI-Voice-2.1-Flash·MAI-Transcribe-2 Streaming을 AI Gateway에 추가했다. 음성 생성과 실시간 전사를 AI SDK의 공통 인터페이스로 호출할 수 있어 음성 에이전트나 자막 기능을 붙일 때 공급자별 연동 코드를 줄일 수 있다.",
+    "category": "모델",
+    "publishedAt": "2026-10-01",
+    "verifiedAt": "2026-10-02T18:04:23+09:00",
+    "tags": [
+      "Microsoft AI",
+      "Vercel",
+      "TTS",
+      "Speech-to-Text"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "Vercel AI Gateway가 Microsoft AI의 최신 음성 모델 세 종을 지원한다. MAI-Voice-2.1은 23개 언어의 표현력 있는 음성 생성, Flash 버전은 더 낮은 지연의 음성 응답, MAI-Transcribe-2 Streaming은 오디오가 들어오는 동안 부분 전사를 반환하는 용도다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "Vercel AI SDK를 이미 쓰는 앱이라면 별도 Microsoft 전용 호출 흐름을 새로 만들지 않고 같은 게이트웨이에서 TTS와 실시간 전사를 붙일 수 있다. 모델 호출·사용량·비용·요청 추적을 한 곳에서 관리할 수 있어 음성 에이전트나 실시간 자막 기능을 시험하기가 쉬워진다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "실시간 전사의 partial 결과는 뒤에 들어오는 오디오에 따라 바뀔 수 있으므로 화면에서는 새 partial로 기존 텍스트를 교체하는 방식이 필요하다. Vercel은 AI Gateway에서 이 모델들을 표시 가격으로 제공하고 별도 플랫폼 추론 마크업은 붙이지 않는다고 안내한다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Vercel — Microsoft AI models are now available on AI Gateway",
+        "url": "https://vercel.com/changelog/microsoft-ai-models-are-now-available-on-ai-gateway"
+      }
+    ]
+  },
+  {
+    "slug": "cloudflare-k2-serverless-event-streams-2026",
+    "title": "Cloudflare K2 공개 — Kafka 없이 쓰는 서버리스 이벤트 스트림",
+    "summary": "Cloudflare가 R2 위에 구축한 서버리스 이벤트 스트리밍 서비스 K2를 공개 베타로 내놨다. 이벤트를 순서가 있는 로그로 장기간 보관하고 여러 소비자가 독립적으로 읽을 수 있어 엣지 환경에서 대규모 데이터 파이프라인을 만들 때 Kafka 같은 별도 클러스터 운영 부담을 줄이는 선택지가 생겼다.",
+    "category": "개발도구",
+    "publishedAt": "2026-10-01",
+    "verifiedAt": "2026-10-02T18:04:23+09:00",
+    "tags": [
+      "Cloudflare",
+      "K2",
+      "Event Streaming",
+      "Serverless"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "K2는 이벤트를 순서가 보장되는 durable log로 저장하고 여러 소비자가 각자 속도로 읽게 해주는 Cloudflare Developer Platform의 새 스트리밍 서비스다. R2 객체 스토리지를 기반으로 저장과 처리를 분리했고 장기 보관과 fan-out 소비를 지원한다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "트래픽 급증이나 소비자 장애가 생겨도 이벤트를 버리지 않고 버퍼링해야 하는 분석·로그·사기 탐지 같은 흐름을 서버리스 형태로 구성할 수 있다. 전통적인 Kafka 클러스터를 직접 배포하고 확장·복구하는 운영 부담 없이 Cloudflare 엣지와 가까운 스트리밍 파이프라인을 만들 수 있다는 점이 핵심이다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "현재 공개 베타이며 K2는 개별 메시지 재시도보다 대량 데이터 이동과 장기 보관에 초점을 맞춘다. 초기 버전은 R2에 세그먼트를 쓰는 구조 때문에 producer p99 지연이 약 1초라고 Cloudflare가 밝히고 있어 초저지연 메시지 큐가 필요한 경우에는 Queues 같은 다른 서비스와 비교해야 한다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Cloudflare Blog — Announcing Cloudflare K2: serverless event streams",
+        "url": "https://blog.cloudflare.com/cloudflare-k2-streams/"
+      }
+    ]
+  },
+  {
     "slug": "claude-code-mods-2026",
     "title": "Claude Code Mods 공개 — TypeScript로 동작과 UI까지 바꾼다",
     "summary": "Anthropic이 Claude Code 내부 이벤트를 가로채 동작과 화면을 바꿀 수 있는 Mods를 공개했다. 프롬프트 재작성, 도구 호출 차단·수정, 권한 판단, UI 추가까지 플러그인 형태로 확장할 수 있어 기존 훅보다 깊은 커스터마이징이 가능해졌다.",
