@@ -1,5 +1,77 @@
 [
   {
+    "slug": "decision-models-clef-strands-2026",
+    "title": "Decision model 경쟁 시작 — Cloudflare Clef·AWS Strands Decider가 에이전트의 짧은 판단을 맡는다",
+    "summary": "Cloudflare와 AWS가 같은 날 에이전트 내부의 분류·선택·점수화를 전담하는 decision model을 각각 공개했다. 자유롭게 문장을 생성하는 큰 LLM 대신 제한된 선택지를 빠르게 고르는 모델을 따로 두는 방식이 실제 에이전트 스택으로 들어오고 있다.",
+    "category": "모델",
+    "publishedAt": "2026-10-01",
+    "verifiedAt": "2026-10-02T08:57:30+09:00",
+    "tags": [
+      "Cloudflare",
+      "AWS",
+      "Decision Model",
+      "Agent"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "Cloudflare는 Clef와 Clef-flash를 Workers AI와 오픈 가중치로 공개했고, AWS Strands Labs는 약 1.9B 파라미터의 Strands Decider를 오픈소스로 내놨다. 두 계열 모두 긴 자유형 답변을 생성하기보다 여러 선택지 중 하나를 고르거나 점수를 매기고 신뢰도를 반환하는 데 초점을 둔다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "에이전트가 도구 선택, 요청 분류, 정책 판정 같은 반복 결정을 할 때마다 큰 LLM을 호출하지 않고 별도 판단 모델에 맡길 수 있다는 점이 핵심이다. 어려운 추론은 큰 모델이 처리하고 빠른 반복 결정은 작은 전용 모델이 처리하는 혼합 구조가 비용과 지연을 줄이는 실용적인 설계 선택지로 커지고 있다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "Clef는 Workers AI에서 호출하거나 공개 가중치를 내려받아 실행할 수 있고, Strands Decider는 공개 저장소의 CLI와 서버 예제로 로컬에서 시험할 수 있다. 각 프로젝트가 제시한 벤치마크는 하드웨어와 평가셋이 다르므로 숫자만 직접 비교하지 말고 실제 라우팅·분류 작업에서 정확도, 지연, 신뢰도 보정을 따로 검증하는 편이 좋다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Cloudflare Blog — Introducing Clef",
+        "url": "https://blog.cloudflare.com/clef-decision-models/"
+      },
+      {
+        "name": "AWS Strands Labs — strands-decider GitHub",
+        "url": "https://github.com/strands-labs/strands-decider"
+      }
+    ]
+  },
+  {
+    "slug": "cloudflare-ai-search-ga-2026",
+    "title": "Cloudflare AI Search 정식 출시 — 이미지·PDF까지 바로 검색하는 관리형 RAG 파이프라인",
+    "summary": "Cloudflare가 Workers AI, Vectorize, R2, Browser Run을 묶은 AI Search를 정식 출시했다. 이번 GA에서는 이미지 자체를 임베딩하는 멀티모달 검색, PDF OCR, 더 큰 파일 지원이 추가돼 문서와 이미지가 섞인 검색 서비스를 별도 파이프라인 없이 구성할 수 있게 됐다.",
+    "category": "개발도구",
+    "publishedAt": "2026-10-01",
+    "verifiedAt": "2026-10-02T08:57:30+09:00",
+    "tags": [
+      "Cloudflare",
+      "AI Search",
+      "RAG",
+      "Multimodal"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "AI Search는 콘텐츠 수집, 인덱싱, 임베딩, 벡터 검색을 Cloudflare 서비스 안에서 관리해주는 검색 파이프라인이다. 정식 출시와 함께 이미지 픽셀을 직접 임베딩하는 검색, PDF OCR, 대용량 파일 지원이 추가됐고 Qwen3-VL-Embedding을 이용한 이미지·텍스트 통합 검색도 제공한다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "RAG나 사이트 검색을 만들 때 크롤러, 파일 저장소, 임베딩 모델, 벡터 DB를 따로 연결하는 작업을 줄일 수 있다. 특히 스크린샷, 제품 이미지, PDF처럼 텍스트 변환만으로 정보가 손실되기 쉬운 자료를 같은 검색 흐름에 넣을 수 있다는 점이 실용적이다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "AI Search는 2026년 11월 1일부터 과금이 시작되며 무료 구간은 계속 제공될 예정이다. 기존 텍스트 전용 임베딩 모델도 이미지 질의를 처리할 수 있지만 이 경우 이미지를 텍스트로 변환한 뒤 검색하므로 네이티브 멀티모달 검색과 결과 특성이 다를 수 있다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Cloudflare Blog — AI Search is now generally available",
+        "url": "https://blog.cloudflare.com/ai-search-ga/"
+      }
+    ]
+  },
+  {
     "slug": "olmo-core-3-moe-training-2026",
     "title": "Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다",
     "summary": "Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.",
