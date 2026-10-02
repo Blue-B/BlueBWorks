@@ -1,5 +1,73 @@
 [
   {
+    "slug": "servicenow-autosynthdata-agent-training-2026",
+    "title": "ServiceNow AutoSynthData 공개 — 에이전트 실패를 다음 훈련 데이터로 바꾼다",
+    "summary": "ServiceNow CoreAI가 목표 모델이 실패한 작업과 더 강한 교사 모델이 성공한 작업을 비교해, 다음에 학습할 과제를 자동으로 만들고 검증하는 AutoSynthData를 공개했다. 고정된 합성 데이터셋을 한 번 만드는 방식이 아니라 모델이 좋아질수록 남은 약점을 다시 찾아 훈련 과제를 바꾸는 폐쇄형 개선 루프가 핵심이다.",
+    "category": "에이전트",
+    "publishedAt": "2026-10-02",
+    "verifiedAt": "2026-10-02T21:04:53+09:00",
+    "tags": [
+      "ServiceNow",
+      "AutoSynthData",
+      "Agents",
+      "Synthetic Data"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "AutoSynthData는 에이전트가 실제 도구와 상태를 가진 환경에서 어디서 실패하는지 진단하고, 더 강한 교사 모델의 성공 패턴을 바탕으로 새로운 훈련 과제를 생성하는 파이프라인이다. 각 과제는 시스템 규칙·사용자 요청·검증기로 구성되고, 생성 뒤 실제 실행과 정답·오답 검증, 제한된 수정 과정을 거쳐 통과한 샘플만 학습 데이터에 넣는다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "기업용 에이전트는 일반 벤치마크 성능보다 실제 사내 도구와 규칙에서 반복되는 실패가 더 큰 문제다. 이 방식은 특정 환경에서 드러난 약점을 그대로 다음 훈련 커리큘럼으로 연결해, 에이전트 평가와 데이터 생성·후속 학습을 하나의 반복 루프로 묶는 방법을 구체적으로 보여준다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "ServiceNow이 공개한 수치는 EnterpriseOps Gym의 특정 모델·환경에서 얻은 실험 결과라 다른 업무로 그대로 일반화하면 안 된다. 실제 적용에서는 생성된 과제가 정말 실행 가능한지, 검증기가 틀린 결과를 확실히 거르는지, 기존 평가 세트의 표현을 그대로 베끼지 않는지를 따로 확인해야 한다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Hugging Face / ServiceNow CoreAI — AutoSynthData: Generating Training Data for Enterprise Agents",
+        "url": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata"
+      }
+    ]
+  },
+  {
+    "slug": "cloudflare-workers-kv-instant-2026",
+    "title": "Cloudflare Workers KV Instant 공개 — 전 세계 설정값을 2ms 안팎으로 읽는다",
+    "summary": "Cloudflare가 내부에서 쓰던 Quicksilver를 Workers KV에 붙인 새 모드 KV Instant를 비공개 베타로 공개했다. 자주 읽고 드물게 바뀌는 플래그·라우팅 규칙·앱 설정을 모든 엣지에서 거의 즉시 읽고 갱신하는 용도에 맞춰져 있다.",
+    "category": "개발도구",
+    "publishedAt": "2026-10-01",
+    "verifiedAt": "2026-10-02T21:04:53+09:00",
+    "tags": [
+      "Cloudflare",
+      "Workers KV",
+      "Quicksilver",
+      "Edge"
+    ],
+    "sections": [
+      {
+        "title": "무엇이 나왔나",
+        "body": "KV Instant는 기존 Workers KV와 같은 get·put·list·delete API를 쓰지만 저장·복제 계층을 Cloudflare의 Quicksilver v2로 바꾼 모드다. Cloudflare 측 측정에서는 전체 읽기 p99가 1.62ms이고, 쓰기의 99%가 300곳이 넘는 엣지 위치에 약 250ms 안에 복제된다."
+      },
+      {
+        "title": "개발자에게 왜 중요한가",
+        "body": "기능 플래그나 라우팅 규칙처럼 요청마다 읽어야 하지만 전 세계에 빠르게 반영돼야 하는 작은 설정값은 일반 KV의 캐시·복제 지연 때문에 별도 설계가 필요했다. KV Instant는 이 패턴을 기존 Workers KV API 안에서 처리해, 핫패스 설정 조회를 단순하게 만들 수 있는 선택지를 추가한다."
+      },
+      {
+        "title": "직접 써볼 때 알아둘 점",
+        "body": "현재 비공개 베타이고 모든 데이터 저장에 적합한 서비스는 아니다. 네임스페이스 전체가 1MB로 제한되고 쓰기는 네임스페이스당 초당 1회이며, 저장과 쓰기 비용은 일반 Workers KV보다 훨씬 비싸므로 작은 설정 데이터를 매우 자주 읽는 경우에만 맞는지 확인해야 한다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "Cloudflare Blog — Introducing Workers KV Instant — powered by Quicksilver",
+        "url": "https://blog.cloudflare.com/workers-kv-instant/"
+      }
+    ]
+  },
+  {
     "slug": "microsoft-mai-audio-vercel-ai-gateway-2026",
     "title": "Microsoft AI 음성 모델이 Vercel AI Gateway에 들어왔다 — TTS와 실시간 전사를 한 API로",
     "summary": "Vercel이 Microsoft AI의 MAI-Voice-2.1·MAI-Voice-2.1-Flash·MAI-Transcribe-2 Streaming을 AI Gateway에 추가했다. 음성 생성과 실시간 전사를 AI SDK의 공통 인터페이스로 호출할 수 있어 음성 에이전트나 자막 기능을 붙일 때 공급자별 연동 코드를 줄일 수 있다.",
