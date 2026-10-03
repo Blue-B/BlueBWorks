@@ -15,7 +15,7 @@ export function articleCover(post, base) {
         <div class="scene-layer scene-mascot" style="--depth:12">
           <button class="mascot-button" type="button" aria-expanded="false" aria-controls="mascot-notes" aria-label="캐릭터를 눌러 사이트 사용 팁 보기">
             <span class="mascot-float"><img class="mascot-img" src="${assetHref(base, 'mascot.webp')}" width="320" height="320" alt="파란 눈과 남색 스카프의 BlueBWorks 로봇 캐릭터"></span>
-            <span class="mascot-hint">읽다가 궁금하면, 원문으로.</span>
+            <span class="mascot-hint">사이트 사용 안내</span>
           </button>
         </div>
       </div>
@@ -26,14 +26,37 @@ export function articleCover(post, base) {
 
 export function articleExtras(section) {
   let html = '';
+  for (const figure of section.figures || []) {
+    html += `<figure class="article-figure">
+      <a href="${esc(figure.src)}" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: ${esc(figure.alt)}">
+        <img src="${esc(figure.src)}" alt="${esc(figure.alt)}" width="${figure.width}" height="${figure.height}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>${esc(figure.caption || figure.alt)}</span><a href="${esc(figure.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(figure.credit)} · 원문</a></figcaption>
+    </figure>`;
+  }
+  if (section.video) {
+    const video = section.video;
+    html += `<figure class="article-video">
+      <video controls playsinline preload="none"${video.poster ? ` poster="${esc(video.poster)}"` : ''} aria-label="${esc(video.caption)}">
+        <source src="${esc(video.src)}" type="video/mp4">
+        <a href="${esc(video.src)}">공식 영상 파일 열기</a>
+      </video>
+      <figcaption><span>${esc(video.caption)}</span><a href="${esc(video.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(video.credit)} · 원문과 전체 데모</a></figcaption>
+    </figure>`;
+  }
   if (section.table) {
-    html += `<div class="table-scroll" tabindex="0" role="region" aria-label="모델 비교표"><table><thead><tr>${section.table.headers.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${section.table.rows.map(row => `<tr>${row.map((c,i) => i===0 ? `<th scope="row">${esc(c)}</th>` : `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div><p class="table-caption">공식 모델 페이지의 표시 단가. 실제 결제 조건은 원문에서 확인하세요.</p>`;
+    html += `<div class="table-scroll" tabindex="0" role="region" aria-label="${esc(section.title || '비교표')}"><table><thead><tr>${section.table.headers.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${section.table.rows.map(row => `<tr>${row.map((cell, index) => index === 0 ? `<th scope="row">${esc(cell)}</th>` : `<td>${esc(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    if (section.table.caption) html += `<p class="table-caption">${esc(section.table.caption)}</p>`;
   }
   if (section.diagram === 'transcription-flow') {
     html += `<figure class="flow-figure"><figcaption>실시간 자막이 화면에 남기까지</figcaption><ol class="flow-steps"><li><span>01</span><strong>마이크 입력</strong><small>음성을 연속 전송</small></li><li><span>02</span><strong>임시 자막</strong><small>새 결과로 교체</small></li><li><span>03</span><strong>확정 자막</strong><small>최종 구간만 보관</small></li></ol><p>동작을 설명하기 위한 구성도입니다. 실제 API 응답 화면은 아닙니다.</p></figure>`;
   }
   if (section.code) {
-    html += `<figure class="code-example"><figcaption>${esc(section.code.language)} · 문서 기반 연결 예제</figcaption><pre tabindex="0"><code>${esc(section.code.text)}</code></pre></figure>`;
+    html += `<figure class="code-example"><figcaption>${esc(section.code.language)} · ${esc(section.code.caption || '문서 기반 구성 예시')}</figcaption><pre tabindex="0"><code>${esc(section.code.text)}</code></pre></figure>`;
+  }
+  if (section.links?.length) {
+    html += `<div class="section-links">${section.links.map(link => `<a href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${esc(link.label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`;
   }
   return html;
 }

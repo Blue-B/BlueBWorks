@@ -38,6 +38,43 @@
     });
   }
 
+  // Responsive navigation. Without JavaScript the links stay visible,
+  // so the menu never depends on this enhancement to be usable.
+  var siteHeader = document.querySelector(".site-header");
+  var navToggle = siteHeader ? siteHeader.querySelector("[data-nav-toggle]") : null;
+  if (siteHeader && navToggle) {
+    siteHeader.setAttribute("data-nav-ready", "true");
+    navToggle.hidden = false;
+    var setNav = function (open) {
+      siteHeader.setAttribute("data-nav-open", open ? "true" : "false");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    setNav(false);
+    navToggle.addEventListener("click", function () {
+      setNav(siteHeader.getAttribute("data-nav-open") !== "true");
+    });
+    var nav = siteHeader.querySelector("[data-nav]");
+    if (nav) {
+      nav.addEventListener("click", function (event) {
+        if (event.target.closest("a")) setNav(false);
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && siteHeader.getAttribute("data-nav-open") === "true") {
+          setNav(false);
+          navToggle.focus();
+        }
+      });
+      document.addEventListener("click", function (event) {
+        if (
+          siteHeader.getAttribute("data-nav-open") === "true" &&
+          !siteHeader.contains(event.target)
+        ) {
+          setNav(false);
+        }
+      });
+    }
+  }
+
   // Mascot notes. Local tips only; this is not a chat interface.
   var notes = document.getElementById("mascot-notes");
   var mascotButton = document.querySelector(".mascot-button");
@@ -92,14 +129,17 @@
     });
   }
 
-  // Home: keyboard-accessible search + category filter over static cards.
-  var postList = document.getElementById("post-list");
-  if (postList) {
+  // Search + category filter. Every [data-filter-scope] block wraps its own
+  // search input, filters, list and status text, so home and the archive
+  // share one implementation.
+  Array.prototype.slice.call(document.querySelectorAll("[data-filter-scope]")).forEach(function (scope) {
+    var postList = scope.querySelector("[data-post-list]");
+    if (!postList) return;
     var cards = Array.prototype.slice.call(postList.querySelectorAll("[data-post-card]"));
-    var filters = Array.prototype.slice.call(document.querySelectorAll("[data-filter]"));
-    var search = document.getElementById("post-search");
-    var listStatus = document.getElementById("list-status");
-    var emptyState = document.getElementById("empty-state");
+    var filters = Array.prototype.slice.call(scope.querySelectorAll("[data-filter]"));
+    var search = scope.querySelector("[data-search-input]");
+    var listStatus = scope.querySelector("[data-list-status]");
+    var emptyState = scope.querySelector("[data-empty-state]");
     var activeFilter = "all";
 
     var render = function () {
@@ -139,7 +179,7 @@
     });
     if (search) search.addEventListener("input", render);
     render();
-  }
+  });
 
   // Article table of contents scroll spy.
   var tocLinks = Array.prototype.slice.call(document.querySelectorAll(".toc nav a"));
@@ -241,4 +281,50 @@
       box.replaceChildren(iframe);
     });
   });
+
+  // Article figures zoom into an accessible dialog. The markup is a normal
+  // link to the full-size image, so it keeps working when this never runs.
+  var zoomTargets = Array.prototype.slice.call(
+    document.querySelectorAll(".article-figure [data-zoom-image]"),
+  );
+  var supportsDialog = typeof HTMLDialogElement === "function" && "showModal" in HTMLDialogElement.prototype;
+  if (zoomTargets.length && supportsDialog) {
+    var lightbox = document.createElement("dialog");
+    lightbox.className = "figure-lightbox";
+    lightbox.setAttribute("aria-label", "이미지 크게 보기");
+    lightbox.innerHTML =
+      '<button type="button" class="figure-lightbox-close" data-lightbox-close aria-label="크게 보기 닫기">닫기</button>' +
+      '<figure><img alt="" decoding="async"><figcaption></figcaption></figure>';
+    document.body.appendChild(lightbox);
+    var lightboxImg = lightbox.querySelector("img");
+    var lightboxCaption = lightbox.querySelector("figcaption");
+    var returnFocus = null;
+    var closeLightbox = function () {
+      if (lightbox.open) lightbox.close();
+    };
+    zoomTargets.forEach(function (target) {
+      var link = target.tagName === "A" ? target : target.closest("a");
+      if (!link || !link.getAttribute("href")) return;
+      link.addEventListener("click", function (event) {
+        var image = target.tagName === "IMG" ? target : link.querySelector("img");
+        var figure = link.closest(".article-figure") || link.closest("figure");
+        var caption = figure ? figure.querySelector("figcaption") : null;
+        event.preventDefault();
+        returnFocus = document.activeElement;
+        lightboxImg.setAttribute("src", link.getAttribute("href"));
+        lightboxImg.setAttribute("alt", image ? image.getAttribute("alt") || "" : "");
+        lightboxCaption.textContent = caption ? caption.textContent.trim() : "";
+        lightbox.showModal();
+      });
+    });
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+    var lightboxClose = lightbox.querySelector("[data-lightbox-close]");
+    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("close", function () {
+      lightboxImg.removeAttribute("src");
+      if (returnFocus && returnFocus.focus) returnFocus.focus();
+    });
+  }
 })();

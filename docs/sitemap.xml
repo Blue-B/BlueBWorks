@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/about.html</loc>
@@ -22,7 +22,11 @@
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://blue-b.github.io/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/</loc>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/</loc>
@@ -34,7 +38,7 @@
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/claude-code-mods-2026/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/</loc>

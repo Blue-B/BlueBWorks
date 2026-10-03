@@ -15,11 +15,20 @@ import {
 } from "./util.mjs";
 import { isIndexable, relatedPosts } from "./data.mjs";
 import { articleCover, articleExtras } from "./rich.mjs";
+import { journalHome, journalHeader } from "./home.mjs";
 
 const esc = escapeHtml;
 
 function svgMark() {
   return `<svg class="brand-mark" viewBox="0 0 40 34" role="img" aria-label="고양이 귀 로봇 마스코트" focusable="false"><path d="M8 13 5 3l9 6h12l9-6-3 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><rect x="4" y="12" width="32" height="20" rx="7" fill="currentColor"/><circle cx="14" cy="21" r="3.1" fill="#79d2ff"/><circle cx="26" cy="21" r="3.1" fill="#79d2ff"/><path d="M15 27h10" stroke="#0b1224" stroke-width="2.4" stroke-linecap="round"/></svg>`;
+}
+
+function navToggleIcon() {
+  return `<svg class="nav-toggle-icon" viewBox="0 0 20 14" aria-hidden="true" focusable="false"><path d="M1 1h18M1 7h18M1 13h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+}
+
+function searchIcon() {
+  return `<svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m12.8 12.8 5.2 5.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>`;
 }
 
 function mascotFallbackSvg() {
@@ -68,30 +77,14 @@ function head({
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap">
     <link rel="stylesheet" href="${assetHref(base, "style.css")}">
-    <link rel="stylesheet" href="${assetHref(base, "prototype.css")}">
+    <link rel="stylesheet" href="${assetHref(base, "prototype.css")}?v=journal3">
+    <link rel="stylesheet" href="${assetHref(base, "journal.css")}">
     ${ld}
   </head>`;
 }
 
-function header({ config, base, active }) {
-  const link = (path, label, key) =>
-    `<a href="${pageHref(base, path)}"${active === key ? ' aria-current="page"' : ""}>${esc(label)}</a>`;
-  return `<a class="skip-link" href="#main">본문으로 건너뛰기</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="${pageHref(base, "/")}" aria-label="${esc(config.siteName)} 홈">
-        ${svgMark()}
-        <span class="brand-text"><strong>BlueBWorks</strong><span>AI Radar</span></span>
-      </a>
-      <nav class="site-nav" aria-label="주요 메뉴">
-        ${link("/", "레이더", "home")}
-        ${link("articles/", "글 목록", "articles")}
-        ${link("editorial.html", "편집 원칙", "editorial")}
-        ${link("about.html", "소개", "about")}
-      </nav>
-      <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button>
-    </div>
-  </header>`;
+function header(options) {
+  return journalHeader(options);
 }
 
 function footer({ config, base }) {
@@ -110,7 +103,7 @@ function footer({ config, base }) {
         <a href="${esc(config.repoUrl)}" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
-    <p class="footer-byline wrap">AI 보조로 작성하며, 공식 출처와 확인 시점을 함께 표시합니다. 배경 사진: NASA / Jessica Meir. 캐릭터: AI 생성 일러스트.</p>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.<br>배경 NASA / Jessica Meir · 캐릭터 AI 생성 일러스트</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>`;
 }
 
@@ -120,7 +113,8 @@ function layout({ config, base, active, ...page }) {
   ${header({ config, base, active })}
   ${page.content}
   ${footer({ config, base })}
-  <script src="${assetHref(base, "app.js")}" defer></script>
+  <script src="${assetHref(base, "app.js")}?v=journal3" defer></script>
+  <script src="${assetHref(base, "journal.js")}" defer></script>
   </body>
 </html>
 `;
@@ -215,7 +209,6 @@ function postCard(post, base, { featured = false } = {}) {
           <h3 class="post-title">${esc(post.title)}</h3>
           <p class="post-summary">${esc(post.summary)}</p>
           <p class="post-tags">${post.tags.map((tag) => `<span>${esc(tag)}</span>`).join("")}</p>
-          <span class="post-more">글 읽기</span>
         </div>
       </a>
     </li>`;
@@ -242,7 +235,7 @@ function mascotNotes(config, base) {
       <ul>
         <li>레이더에서 카테고리 버튼과 검색창으로 글을 좁힐 수 있습니다.</li>
         <li>글의 <strong>확인</strong> 시각과 <strong>확인한 출처</strong>를 함께 보면 발표와 실제 사용 가능 상태를 구분하기 쉽습니다.</li>
-        <li>화면 오른쪽 위 <strong>동작 줄이기</strong>로 애니메이션과 별 움직임을 끌 수 있습니다. 브라우저 설정도 함께 반영합니다.</li>
+        <li>페이지 아래 <strong>동작 줄이기</strong>로 애니메이션과 별 움직임을 끌 수 있습니다. 브라우저 설정도 함께 반영합니다.</li>
         <li>각 글의 <strong>링크 복사</strong>로 주소를 공유할 수 있습니다.</li>
         <li>오류 제보는 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 받습니다.</li>
       </ul>
@@ -250,98 +243,7 @@ function mascotNotes(config, base) {
 }
 
 export function renderHome({ config, base, posts, generatedAt, heroImageUrl = "" }) {
-  const indexable = posts.filter(isIndexable);
-  const categories = unique(indexable.map((post) => post.category));
-  const [featured, ...rest] = indexable;
-  const heroImage = heroImageUrl;
-  const mascotNotesHtml = mascotNotes(config, base);
-  const listItems = [
-    ...(featured ? [postCard(featured, base, { featured: true })] : []),
-    ...rest.map((post) => postCard(post, base)),
-  ].join("\n      ");
-
-  const content = `<main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true">
-        <img class="hero-photo" src="${assetHref(base, "earth-night.jpg")}" alt="" onerror="this.closest('.hero-bg').classList.add('no-photo')">
-        <span class="hero-stars"></span>
-        <span class="hero-horizon"></span>
-      </div>
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <p class="hero-kicker">${esc(config.siteName)}</p>
-          <h1 id="hero-title">AI, 직접 써보기 전에.</h1>
-          <p class="hero-lead">모델·개발 도구·오픈소스의 사용 조건과 실제 차이를 정리합니다.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#radar">최신 글 보기</a>
-            <a class="btn btn-ghost" href="${pageHref(base, "editorial.html")}">편집 원칙</a>
-          </div>
-        </div>
-        <div class="hero-scene" data-parallax>
-          <span class="scene-layer scene-stars" style="--depth:6"></span>
-          <div class="scene-layer scene-mascot" style="--depth:15">
-            <button class="mascot-button" type="button" aria-expanded="false" aria-controls="mascot-notes">
-              <span class="mascot-float">
-                <img class="mascot-img" src="${assetHref(base, "mascot.webp")}" alt="" onerror="this.closest('.hero-scene').classList.add('no-mascot')">
-                ${mascotFallbackSvg()}
-              </span>
-              <span class="mascot-hint">클릭하면 사이트 사용 팁</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    ${mascotNotesHtml}
-
-    <section class="radar wrap" id="radar" aria-labelledby="radar-title">
-      <div class="radar-head">
-        <div>
-          <h2 id="radar-title">레이더</h2>
-          <p class="radar-note">발표 내용부터 실제 사용 조건까지. 관심 있는 주제부터 읽어보세요.</p>
-        </div>
-        <div class="search-field">
-          <label for="post-search">글 검색</label>
-          <input id="post-search" type="search" placeholder="모델, 도구, 태그로 검색" autocomplete="off">
-        </div>
-      </div>
-      <div class="filters" role="group" aria-label="카테고리 필터">
-        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
-        ${categories.map((category) => `<button class="filter" type="button" data-filter="${esc(category)}" aria-pressed="false">${esc(category)}</button>`).join("\n        ")}
-      </div>
-      <p class="list-status" id="list-status" aria-live="polite">글 ${indexable.length}편</p>
-      <ol class="post-list" id="post-list">
-      ${listItems}
-      </ol>
-      <p class="empty-state" id="empty-state" hidden>조건에 맞는 글을 찾지 못했습니다. 검색어를 지우거나 다른 카테고리를 골라 보세요.</p>
-    </section>
-
-    <section class="rail" aria-labelledby="rail-title">
-      <div class="wrap">
-        <div class="rail-head">
-          <h2 id="rail-title">바로 쓰는 자료</h2>
-          <p>원문을 직접 확인할 때 쓰는 공식 페이지입니다. 사이트와 함께 바뀌지 않습니다.</p>
-        </div>
-        <ul class="rail-grid">
-          ${config.resources.map(resourceCard).join("\n          ")}
-        </ul>
-      </div>
-    </section>
-  </main>`;
-
-  return layout({
-    config,
-    base,
-    active: "home",
-    title: `${config.tagline} | ${config.siteName}`,
-    description: config.description,
-    canonicalPath: "/",
-    ogType: "website",
-    ogImage: heroImage,
-    bodyClass: "page-home",
-    content,
-    jsonLd: [websiteJsonLd(config), orgJsonLd(config)],
-    generatedAt,
-  });
+  return layout({ config, base, active: "home", title: `AI Radar | ${config.siteName}`, description: config.description, canonicalPath: "/", ogType: "website", ogImage: heroImageUrl, bodyClass: "page-home", content: journalHome({ config, base, posts: posts.filter(isIndexable), notes: mascotNotes(config, base) }), jsonLd: [websiteJsonLd(config), orgJsonLd(config)], generatedAt });
 }
 
 function citations(refs, sources) {
@@ -597,10 +499,11 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
 
 export function renderArticlesIndex({ config, base, posts, generatedAt }) {
   const sorted = posts.slice().sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
+  const categories = unique(sorted.map((post) => post.category));
   const rows = sorted
     .map((post) => {
       const state = isIndexable(post) ? "" : `<span class="archive-flag">검토 중</span>`;
-      return `<li>
+      return `<li data-post-card data-category="${esc(post.category)}" data-search="${esc(searchText(post))}">
         <a href="${pageHref(base, `articles/${post.slug}/`)}">
           <span class="archive-cat">${esc(post.category)}</span>
           <strong>${esc(post.title)}</strong>
@@ -612,14 +515,26 @@ export function renderArticlesIndex({ config, base, posts, generatedAt }) {
     .join("\n        ");
 
   const content = `<main id="main">
-    <div class="wrap simple-wrap">
+    <div class="wrap simple-wrap" data-filter-scope>
       <header class="simple-head">
         <h1>글 목록</h1>
         <p>발표일 기준으로 정리한 전체 글입니다. 검토가 끝나지 않은 글은 표시를 달고 검색 노출에서 제외합니다.</p>
       </header>
-      <ol class="archive-list">
+      <section class="archive-search" id="archive-search" aria-label="글 검색과 분류">
+        <div class="search-field">
+          <label for="archive-search-input">글 검색</label>
+          <input id="archive-search-input" type="search" data-search-input placeholder="제목, 요약, 태그로 검색" autocomplete="off">
+        </div>
+        <div class="filters" role="group" aria-label="카테고리 필터">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
+          ${categories.map((category) => `<button class="filter" type="button" data-filter="${esc(category)}" aria-pressed="false">${esc(category)}</button>`).join("\n          ")}
+        </div>
+        <p class="list-status" data-list-status aria-live="polite">글 ${sorted.length}편</p>
+      </section>
+      <ol class="archive-list" data-post-list>
         ${rows}
       </ol>
+      <p class="empty-state" data-empty-state hidden>조건에 맞는 글을 찾지 못했습니다. 검색어를 지우거나 다른 카테고리를 골라 보세요.</p>
     </div>
   </main>`;
 

@@ -2,51 +2,51 @@
 
 공식 자료와 실제 사용 경로를 함께 정리하는 한국어 AI 기술 사이트입니다.
 
-- 사이트: https://blue-b.github.io/BlueBWorks/
-- 음성 AI 해설: https://blue-b.github.io/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/
-- 기존 `post.html?slug=...` 주소도 같은 글로 연결됩니다.
+사이트: https://blue-b.github.io/BlueBWorks/
 
-## 구현
-짙은 우주 배경과 생성 캐릭터, 밝은 기사 본문, 데스크톱의 목차·리소스 사이드바를 사용합니다. 모바일에서는 읽는 순서대로 한 열로 정리됩니다. 캐릭터 안내, 검색, 카테고리 필터, 링크 복사, 동작 줄이기 기능이 있습니다.
+## 구성
+우주 배경과 생성 캐릭터는 유지하면서 기사 탐색을 중심으로 구성합니다. 헤더 검색, 모바일 메뉴, 카테고리 필터, 이미지 확대, 원문 영상 재생, 목차·자료 사이드바, 링크 복사, 동작 줄이기를 제공합니다. 모바일 메뉴와 이미지 링크는 JavaScript가 없어도 기본 탐색 경로를 유지합니다.
 
-본문은 JavaScript 실행을 기다리지 않아도 HTML에 포함됩니다. 각 기사에는 개별 주소, canonical, 설명, BlogPosting 구조화 데이터가 있으며 RSS와 sitemap을 생성합니다. 검색 노출이나 광고 수익을 보장하는 설정은 아닙니다.
+본문은 처음부터 HTML에 포함됩니다. 개별 기사 주소와 canonical, 설명, BlogPosting 구조화 데이터, RSS와 sitemap을 생성합니다. 기존 `post.html?slug=...`도 같은 글에 연결됩니다. 검색 노출과 수익을 보장하는 설정은 아닙니다.
 
-## 빌드
-Node.js 18 이상이 필요합니다. npm 패키지 의존성은 없습니다.
+## 작성 데이터
+- `docs/data/posts.json`: 보존한 기존 기사 데이터
+- `content/reviewed-posts.json`: 기존 정밀 검토본
+- **`content/articles/<slug>.json`: 새로운 장문 기사와 기존 글 개정본. 한 파일당 한 기사.**
 
-```sh
-npm run build
-npm run check
-npm test
-# 전체 빌드·정적 검사·단위 테스트
-npm run verify
-```
+같은 slug에는 위 목록에서 뒤쪽 데이터가 우선합니다. 기존 검토본보다 `content/articles/`가 우선하므로 실제 글을 수정할 때 이 폴더부터 확인합니다. 발표일을 임의로 새 날짜로 바꾸지 않고 정정이 필요한 내용은 기록합니다.
 
-이미지는 준비된 파일을 재사용합니다. 원본 에셋을 다시 확보할 때만 네트워크가 필요하며, Python Pillow가 있으면 큰 이미지를 최적화합니다. 준비된 이미지를 사용하는 일반 빌드는 Pillow가 없어도 됩니다.
+`sections`는 문단·출처 번호와 함께 `figures`, `video`, `links`, `table`, `code`를 지원합니다. 원문 이미지에는 설명, 대체 텍스트, 고유 크기, 출처 링크가 필요합니다. 공식 MP4는 직접 재생할 수 있지만 자동재생하지 않습니다. 확인되지 않은 영상 ID나 가짜 재생 버튼은 넣지 않습니다.
 
-브라우저 검사는 DevSpace의 전용 브라우저 프로필을 사용합니다.
+## 빌드와 검사
+Node.js 18 이상, 별도 npm 의존성 없이 실행합니다.
 
 ```sh
-SITE_TEST_URL=https://blue-b.github.io/BlueBWorks node test/browser-smoke.mjs
+npm run editorial:check # 새 장문 기사 구조·분량·출처 번호 검사
+npm run build           # 구조 검사 후 정적 HTML·RSS·sitemap 생성
+npm run check           # 생성된 HTML과 내부 링크 검사
+npm test                # 데이터, 렌더링, 출처·미디어, UI 회귀 테스트
+npm run verify          # 전체 검증
 ```
 
-## 파일
-- `docs/data/posts.json`: 기존 기사 데이터
-- `content/reviewed-posts.json`: 같은 slug에 우선 적용하는 검토본
-- `build/lib/templates.mjs`, `rich.mjs`: 페이지·기사 HTML
-- `site/assets/`: CSS, 동작 코드, 준비된 이미지
-- `site/asset-data.json`: 생성 캐릭터의 원본 데이터
-- `build/prepare-assets.mjs`: 공식 이미지 다운로드 및 캐릭터 준비
-- `site/assets/credits.json`: 에셋 출처
-- `site.config.json`: 사이트 이름과 기준 주소
-- `docs/`: GitHub Pages에 실제 게시되는 빌드 결과
-- `AUTOMATION.md`: 기사 작성·사실 확인·배포 규칙
+장문 기사 검사는 본문 3,000자 이상, 출처 연결, 중복 문단, 원문 미디어 정보와 직접 자료 링크를 확인합니다. **구조 검사만으로 사실이 검증되는 것은 아닙니다.** 편집 시 공식 원문을 실제로 읽고 별도로 확인해야 합니다.
 
-`docs/`는 빌드 결과지만 저장소에 함께 반영해야 합니다. 데이터 JSON만 바꾸고 빌드 결과를 올리지 않으면 실제 기사 페이지는 바뀌지 않습니다.
+`site/assets/`와 `build/lib/`가 디자인·렌더링 원본이며 `docs/`는 게시되는 결과입니다. **JSON뿐 아니라 빌드한 docs/도 함께 커밋**해야 사이트가 바뀝니다. `site.config.json`이 기준 도메인을 관리합니다.
 
-## 미디어 및 편집
-장식용 로봇은 AI 생성 이미지입니다. 우주 배경은 NASA / Jessica Meir의 공식 사진이며, 기사 이미지에는 공식 발표 자료를 사용합니다. 로봇이나 구성도를 제품의 실제 화면처럼 표시하지 않습니다. 확인된 관련 영상이 없으면 유튜브 임베드를 만들지 않습니다.
+## 브라우저 확인
+DevSpace 전용 프로필과 현재 작업공간 세션만 사용합니다.
 
-Microsoft 음성 AI 글은 문서 기반 해설입니다. 유료 API를 실제 호출해 벤치마크한 사용기가 아닙니다. 기존 다른 기사의 본문은 별도 검토본이 없는 한 원본을 유지합니다.
+```sh
+DEVSPACE_WORKSPACE_ID=<현재작업공간> node test/browser-smoke.mjs
+DEVSPACE_WORKSPACE_ID=<현재작업공간> node test/editorial-browser.mjs
+# 공개 배포 검사에는 SITE_TEST_URL=https://blue-b.github.io/BlueBWorks 를 함께 지정
+```
 
-Pages는 이 저장소의 `main /docs`를 사용합니다. 개인 블로그 저장소 `Blue-B/Blue-B.github.io`는 수정하거나 동기화하지 않습니다. 사용자 정의 GitHub Actions 워크플로는 추가하지 않습니다.
+기본 검사는 기존 주소 호환·검색·캐릭터를, 편집 검사는 새 기사들의 실제 이미지·영상 메타데이터·확대·모바일 메뉴를 확인합니다. 스크린샷은 `.verify/` 또는 임시 폴더에만 기록합니다.
+
+## 미디어와 발행
+기존 로봇은 AI 생성 장식이고 우주 사진은 NASA / Jessica Meir 출처입니다. 기사에는 해당 원문에서 확인한 실제 화면·도식과 허용된 미디어를 사용하며, 장식 이미지를 제품의 증거로 설명하지 않습니다. 직접 API를 실행하지 않은 해설은 사용기나 실험 결과로 표시하지 않습니다.
+
+정기 작업은 `AUTOMATION.md`에 따라 새 소식 조사 → 근거 확인 → 장문 작성 → 검증·빌드 → main 반영 → 공개 배포 확인 순으로 진행합니다. 의미 있는 새 소식이 없는 회차는 건너뜁니다.
+
+GitHub Pages는 `main /docs`를 사용합니다. 개인 블로그 `Blue-B/Blue-B.github.io`는 수정하지 않으며 사용자 정의 Actions 워크플로를 추가하지 않습니다. 이번 변경 전 배포 기준은 `18057dcc7e53f0db789e6c01b92cf2894344b528`입니다. 복구가 필요하면 변경 커밋을 revert하는 새 커밋을 만들고 다시 배포합니다. 강제 push나 기록 재작성은 하지 않습니다.

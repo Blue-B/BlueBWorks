@@ -7,12 +7,20 @@
     <language>ko-KR</language>
     <lastBuildDate>Thu, 01 Oct 2026 15:00:00 GMT</lastBuildDate>
     <item>
-      <title>Copilot 코드리뷰가 API로 열렸다 — 리뷰를 ‘버튼’이 아니라 파이프라인으로 호출하는 단계</title>
+      <title>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</title>
       <link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/</link>
       <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/</guid>
       <pubDate>Thu, 01 Oct 2026 15:00:00 GMT</pubDate>
       <category>개발도구</category>
-      <description>GitHub가 Copilot 코드리뷰 요청을 REST·GraphQL API로 열었다. 이제 PR 화면에서 사람이 리뷰를 눌러야 하는 기능이 아니라, 내부 배포 게이트·리스크 분류·자동화 스크립트 안에서 필요한 시점에 코드리뷰를 호출할 수 있다.</description>
+      <description>GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.</description>
+    </item>
+    <item>
+      <title>로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/</guid>
+      <pubDate>Thu, 01 Oct 2026 15:00:00 GMT</pubDate>
+      <category>개발도구</category>
+      <description>Cloudflare Quick Tunnels에 이메일 인증이 추가됐다. 계정이나 도메인 없이 개발 중인 앱을 공유하되, 지정한 사람만 접속하게 할 수 있다. 다만 임시 링크라는 성격과 스트리밍·자동 호출의 제약까지 달라진 것은 아니다.</description>
     </item>
     <item>
       <title>Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나</title>
@@ -31,12 +39,12 @@
       <description>Cloudflare가 R2 위에 구축한 서버리스 이벤트 스트리밍 서비스 K2를 공개 베타로 내놨다. 이벤트를 순서가 있는 로그로 장기간 보관하고 여러 소비자가 독립적으로 읽을 수 있어 엣지 환경에서 대규모 데이터 파이프라인을 만들 때 Kafka 같은 별도 클러스터 운영 부담을 줄이는 선택지가 생겼다.</description>
     </item>
     <item>
-      <title>Claude Code Mods 공개 — TypeScript로 동작과 UI까지 바꾼다</title>
+      <title>Claude Code Mods로 바꿀 수 있는 것: 상태 표시부터 명령 확인 화면까지</title>
       <link>https://blue-b.github.io/BlueBWorks/articles/claude-code-mods-2026/</link>
       <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/claude-code-mods-2026/</guid>
       <pubDate>Wed, 30 Sep 2026 15:00:00 GMT</pubDate>
       <category>개발도구</category>
-      <description>Anthropic이 Claude Code 내부 이벤트를 가로채 동작과 화면을 바꿀 수 있는 Mods를 공개했다. 프롬프트 재작성, 도구 호출 차단·수정, 권한 판단, UI 추가까지 플러그인 형태로 확장할 수 있어 기존 훅보다 깊은 커스터마이징이 가능해졌다.</description>
+      <description>Claude Code의 모드는 테마나 프롬프트 모음이 아니다. 세션의 이벤트를 받아 동작을 바꾸고 화면도 그리는 플러그인 코드다. 공식 튜토리얼의 영상과 실제 화면을 따라, 기존 설정으로 충분한 일과 모드가 필요한 일을 나눠 봤다.</description>
     </item>
     <item>
       <title>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</title>

@@ -20,26 +20,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap">
     <link rel="stylesheet" href="/BlueBWorks/assets/style.css">
-    <link rel="stylesheet" href="/BlueBWorks/assets/prototype.css">
+    <link rel="stylesheet" href="/BlueBWorks/assets/prototype.css?v=journal3">
+    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"문의","item":"https://blue-b.github.io/BlueBWorks/contact.html"}]}</script>
   </head>
   <body class="page-simple">
-  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="/BlueBWorks/" aria-label="BlueBWorks AI Radar 홈">
-        <svg class="brand-mark" viewBox="0 0 40 34" role="img" aria-label="고양이 귀 로봇 마스코트" focusable="false"><path d="M8 13 5 3l9 6h12l9-6-3 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><rect x="4" y="12" width="32" height="20" rx="7" fill="currentColor"/><circle cx="14" cy="21" r="3.1" fill="#79d2ff"/><circle cx="26" cy="21" r="3.1" fill="#79d2ff"/><path d="M15 27h10" stroke="#0b1224" stroke-width="2.4" stroke-linecap="round"/></svg>
-        <span class="brand-text"><strong>BlueBWorks</strong><span>AI Radar</span></span>
-      </a>
-      <nav class="site-nav" aria-label="주요 메뉴">
-        <a href="/BlueBWorks/">레이더</a>
-        <a href="/BlueBWorks/articles/">글 목록</a>
-        <a href="/BlueBWorks/editorial.html">편집 원칙</a>
-        <a href="/BlueBWorks/about.html">소개</a>
-      </nav>
-      <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button>
-    </div>
-  </header>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header journal-header" data-nav-ready="false">
+  <div class="publication-line"><span>AI와 개발 도구를 다루는 한국어 저널</span><a href="/BlueBWorks/feed.xml">RSS로 읽기 ↗</a></div>
+  <div class="journal-masthead"><a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks AI Radar 홈"><span class="brand-name">BlueBWorks</span><span class="brand-label">AI Radar</span><span class="brand-punctuation" aria-hidden="true">✳</span></a>
+  <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/">최신 글</a><a href="/BlueBWorks/editorial.html">편집 노트</a><a href="/BlueBWorks/about.html">소개</a></nav>
+  <div class="journal-tools"><a class="header-search" href="/BlueBWorks/articles/#archive-search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="m12.5 12.5 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 22 16" aria-hidden="true"><path d="M1 3h20M1 13h20"/></svg><span>메뉴</span></button></div></div></header>
   <main id="main">
     <div class="wrap simple-wrap">
       <nav class="breadcrumb" aria-label="현재 위치">
@@ -88,8 +78,9 @@
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
-    <p class="footer-byline wrap">AI 보조로 작성하며, 공식 출처와 확인 시점을 함께 표시합니다. 배경 사진: NASA / Jessica Meir. 캐릭터: AI 생성 일러스트.</p>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.<br>배경 NASA / Jessica Meir · 캐릭터 AI 생성 일러스트</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
-  <script src="/BlueBWorks/assets/app.js" defer></script>
+  <script src="/BlueBWorks/assets/app.js?v=journal3" defer></script>
+  <script src="/BlueBWorks/assets/journal.js" defer></script>
   </body>
 </html>

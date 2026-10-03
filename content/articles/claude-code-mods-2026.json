@@ -1,0 +1,101 @@
+{
+  "slug": "claude-code-mods-2026",
+  "title": "Claude Code Mods로 바꿀 수 있는 것: 상태 표시부터 명령 확인 화면까지",
+  "summary": "Claude Code의 모드는 테마나 프롬프트 모음이 아니다. 세션의 이벤트를 받아 동작을 바꾸고 화면도 그리는 플러그인 코드다. 공식 튜토리얼의 영상과 실제 화면을 따라, 기존 설정으로 충분한 일과 모드가 필요한 일을 나눠 봤다.",
+  "category": "개발도구",
+  "publishedAt": "2026-10-01",
+  "verifiedAt": "2026-10-04T00:43:28+09:00",
+  "status": "제공 중 · API는 버전별 변경 가능",
+  "reviewStatus": "reviewed",
+  "tags": ["Anthropic", "Claude Code", "Mods", "플러그인", "개발 환경"],
+  "image": "https://blue-b.github.io/BlueBWorks/assets/editorial/claude-mods-blast-radius.png",
+  "imageAlt": "Claude Code 공식 Blast Radius 예제가 명령 실행 전에 영향받는 파일과 Proceed·Cancel 선택지를 보여 주는 터미널 화면",
+  "imageCredit": "Anthropic · claude.dev 공식 튜토리얼",
+  "editorNote": "모드의 필요성은 더 많은 기능을 붙일 수 있느냐보다, 반복해서 확인하던 정보를 작업 화면에 얼마나 가깝게 둘 수 있느냐에 있다. 사용량을 보여 주는 표시 하나와 명령을 막는 보안 장치는 요구하는 검증 수준이 다르다. 처음에는 관찰용 기능으로 범위를 좁히는 편이 구조를 이해하기 쉽다.",
+  "keyPoints": [
+    "공식 시작 가이드는 Claude Code 2.1.287 이상을 기준으로 한다. 모드는 플러그인 안의 JavaScript·TypeScript 모듈로 배포한다.",
+    "이벤트를 관찰하거나 다음 단계로 보낼 값을 바꾸고, 직접 응답할 수 있다. UI를 그리는 이벤트도 같은 방식으로 다룬다.",
+    "공식 예제 영상과 화면은 아래에 포함했다. 실제 설치 전에는 제작자와 코드를 확인해야 하며, 예제 보호 화면을 완전한 보안 경계로 취급해서는 안 된다."
+  ],
+  "sections": [
+    {
+      "title": "명령어를 하나 더 외우는 대신, 작업 화면을 바꾼다",
+      "paragraphs": [
+        "긴 코딩 작업에서 자주 확인하는 정보는 의외로 단순하다. 현재 세션이 컨텍스트를 얼마나 썼는지, 실행하려는 명령이 어느 파일을 건드리는지, 방금 바꾼 코드가 무엇인지가 그렇다. 상태를 보려고 다른 창을 열고 다시 돌아오는 일이 반복된다면, 모델의 답변 능력보다 작업 도구의 화면 구성이 더 직접적인 문제일 수 있다.",
+        "Anthropic이 10월 1일 발표한 Claude Code Mods는 이런 부분을 사용자 코드로 바꾸는 확장 기능이다. 프롬프트를 수정하고, 도구 호출을 제어하고, 화면 요소를 추가하거나 교체한다. 모드는 플러그인에 담겨 CLI와 데스크톱 앱에서 사용되므로, 별개의 코딩 앱을 만드는 것보다는 기존 Claude Code 안에 필요한 동작을 넣는 방식에 가깝다.",
+        "공식 튜토리얼은 세 예제를 제시한다. Token Weather는 컨텍스트 상태를, Blast Radius는 명령이 미칠 영향을, Replay Theater는 코드 변경을 순서대로 보여 준다. 아래 영상은 해당 원문에서 제공하는 실제 터미널 데모다. 이 사이트에서 따로 제작한 제품 시연이나 실행 결과가 아니다."
+      ],
+      "sourceRefs": [1, 2],
+      "video": {"src":"https://blue-b.github.io/BlueBWorks/assets/editorial/claude-mods-terminal-demo.mp4","poster":"https://blue-b.github.io/BlueBWorks/assets/editorial/claude-mods-blast-radius.png","caption":"공식 터미널 시연: Token Weather, Blast Radius, Replay Theater. 원문에는 데스크톱 앱 버전도 있다.","credit":"Anthropic / claude.dev","sourceUrl":"https://claude.dev/blog/getting-started-with-claude-code-mods/","verified":true},
+      "links": [{"label":"원문과 데스크톱 버전 시연","url":"https://claude.dev/blog/getting-started-with-claude-code-mods/"}]
+    },
+    {
+      "title": "동작의 단위는 프롬프트가 아니라 이벤트다",
+      "paragraphs": [
+        "모드가 동작하는 시점을 이해하면 어떤 기능을 만들 수 있는지도 분명해진다. Claude Code가 도구를 부르거나 세션을 시작하거나 화면을 그릴 때 이벤트가 발생한다. 모드는 그 이벤트에 연결된 함수다. 플러그인의 모듈에서 register를 내보내고, 처리할 이벤트에 함수를 연결하는 것이 기본 구조다.",
+        "다음 처리 단계로 값을 넘기면 원래 동작이 이어진다. 값을 바꿔 넘기면 이후 플러그인과 Claude Code는 수정된 입력을 받는다. 다음 단계에 넘기지 않고 직접 결과를 반환하면 그 모드가 요청에 응답하는 형태가 된다. 같은 이벤트에 여러 모드가 연결될 수 있다는 점에서, 서버의 요청을 차례로 처리하는 미들웨어에 비유할 수 있다.",
+        "이 구조에서는 설치 순서도 단순한 목록 정렬이 아니다. 앞에서 입력을 바꾼 모드가 있으면 뒤에서 기록하는 모드는 바뀐 값을 볼 수 있고, 앞에서 요청을 끝내면 뒷단의 처리가 실행되지 않을 수 있다. 화면을 꾸미는 플러그인 정도로만 생각하고 여러 개를 무작정 쌓으면, 문제가 생겼을 때 어떤 단계에서 동작이 바뀌었는지 찾기 어려워진다."
+      ],
+      "sourceRefs": [1, 2, 3],
+      "table": {"headers":["처리 방식","하는 일","생각해 볼 용도"],"rows":[["관찰","원래 처리를 이어 간 뒤 결과를 읽는다","세션 상태·실행 결과 표시"],["변경","다음 단계로 넘길 입력을 수정한다","팀에서 정한 입력 형식 적용"],["직접 응답","다음 처리를 호출하지 않고 결과를 돌려준다","확인이 필요한 명령의 보류"]],"caption":"공식 API의 처리 방식을 기능 설계 관점에서 풀어 쓴 표. 실제 동작은 설치한 버전과 연결된 모드에 따라 확인해야 한다."}
+    },
+    {
+      "title": "설정 훅과 모드는 어느 지점에서 갈라질까",
+      "paragraphs": [
+        "이벤트가 생길 때 검사 명령을 한 번 실행하면 충분한 작업도 많다. 파일을 고친 뒤 정해진 검사를 돌리거나, 특정 단계에서 외부 스크립트에 값을 보내는 일이 그렇다. 공식 튜토리얼은 기존 settings hook이 이벤트마다 셸 명령을 실행하고 표준 입력과 출력으로 JSON을 주고받는 방식이라고 설명한다.",
+        "반면 모드는 세션 안에 로드된 상태로 남아, 이벤트 사이의 상태를 유지하고 바뀌는 정보를 화면에 다시 그릴 수 있다. 따라서 매번 독립된 검사 한 번이 아니라, 사용량의 변화나 작업 과정을 계속 보여 주려는 경우에 차이가 난다. ‘기존 훅보다 새 기능이니 무조건 교체한다’는 접근보다는 필요한 상태와 화면이 있는지 먼저 살펴보면 된다.",
+        "이미 Claude Code 내부의 기능도 같은 구조를 사용한다. 공개 저장소에는 diff, agents-md, telemetry, sec-default 등의 모드 소스가 있다. 특히 /diff와 프로젝트 지침 읽기 같은 기능이 확장 구조 위에서 동작한다는 점은, 사용자가 만든 코드도 실제 제품의 이벤트 흐름과 가까운 곳에서 작동한다는 뜻이다.",
+        "다만 내장 모드의 존재가 임의의 외부 모드까지 제품과 같은 품질로 보증한다는 뜻은 아니다. 공개된 구현과 테스트를 읽는 참고 자료로 사용하되, 자신의 모드가 처리할 이벤트와 영향 범위는 별도로 정해야 한다. 작은 표시 기능 하나를 만들면서 설정 전체나 도구 권한까지 개입할 이유는 없다."
+      ],
+      "sourceRefs": [2, 3],
+      "links": [{"label":"내장 모드 소스와 테스트","url":"https://github.com/anthropics/claude-code/tree/main/mods"}]
+    },
+    {
+      "title": "공식 화면에서 봐야 할 것은 장식보다 판단 정보다",
+      "paragraphs": [
+        "Token Weather의 핵심은 날씨 모양 자체가 아니라 사용 중인 컨텍스트를 프롬프트 근처에서 계속 볼 수 있다는 점이다. 남은 범위를 알아야 파일을 더 읽힐지, 작업을 나눌지 판단하기 쉽다. 이미 필요한 정보가 기본 상태 표시줄에 충분히 있다면 비슷한 모드를 추가할 실익은 크지 않을 수도 있다.",
+        "Blast Radius는 실행하려는 명령과 그 명령이 영향을 줄 파일을 확인 화면에 같이 놓는다. 경고 문구만 크게 띄우는 것과 달리, 사용자가 무엇을 허용하는지 판단할 재료가 화면에 있어야 한다는 예다. 그러나 예제에 나열된 위험 패턴을 처리한다고 해서 가능한 모든 위험 명령을 분석하는 것은 아니다. 명령 문자열 검사 하나를 운영 환경의 마지막 방어선으로 두어서는 안 된다.",
+        "Replay Theater의 화면은 변경을 한 번에 긴 텍스트로 쏟아내는 대신 단계별로 읽게 만든다. 아래는 공식 튜토리얼에 실린 실제 이미지다. 파일, 변경 내용, 이동 버튼을 한곳에 놓은 구성이어서 ‘코드를 만들었다’는 결과보다 무엇이 달라졌는지를 확인하는 데 초점이 있다.",
+        "세 예제를 자신의 작업에 적용할 때도 이 관점이 도움이 된다. 꾸미고 싶은 화면을 먼저 고르기보다, 작업 중 반복해서 찾는 정보 하나를 정하고 그 정보를 어느 시점에 보여 줄지 결정하는 것이다. 그러면 같은 API로도 토큰 계기판, 변경 파일 목록, 팀의 확인 절차처럼 서로 다른 결과를 만들 수 있다."
+      ],
+      "sourceRefs": [2],
+      "figures": [{"src":"https://blue-b.github.io/BlueBWorks/assets/editorial/claude-mods-replay-theater.png","alt":"Replay Theater 공식 터미널 화면. 단계 표시, greet.js의 변경, Prev·Next·Close 버튼이 보인다","caption":"Replay Theater는 변경 내용을 단계별로 읽는 예제다. 이미지 자체는 Anthropic 공식 튜토리얼의 실제 화면이며, 클릭하면 원본 크기로 볼 수 있다.","credit":"Anthropic / claude.dev","sourceUrl":"https://claude.dev/blog/getting-started-with-claude-code-mods/","width":840,"height":1019}]
+    },
+    {
+      "title": "만들기 전에 버전과 재로딩 동작부터 맞춘다",
+      "paragraphs": [
+        "10월 1일 공개된 시작 가이드는 Claude Code 2.1.287 이상을 요구한다. 모드를 불러올 때 현재 빌드의 타입 선언을 모드 안에 생성하며, 그 선언을 해당 버전의 기준으로 삼도록 안내한다. 인터넷 예제의 함수 이름만 그대로 가져오기보다 자신의 실행 버전에서 제공하는 형태를 먼저 확인할 필요가 있다.",
+        "플러그인 폴더는 일반적인 manifest, 모듈을 지정하는 hooks 설정, 실제 JavaScript 또는 TypeScript 코드로 구성한다. 첫 시도에서는 모델 호출을 바꾸는 코드보다 현재 상태를 읽어 보여 주는 기능이 범위를 잡기 쉽다. 그다음 플러그인 검증과 테스트 명령으로 필요한 이벤트와 반환 형식이 맞는지 확인한다. 이 글에서는 별도 모드를 설치하거나 사용자의 설정을 변경하지 않았다.",
+        "개발 중 재로딩에도 주의할 점이 있다. 코드가 다시 로드되면 모듈 변수만으로 보관한 값이 초기화될 수 있다. 여러 턴의 기록이 필요한 표시 기능이라면 호스트가 제공하는 세션 상태를 사용하는 구조를 고려해야 한다. 반대로 매번 최신 값 하나만 필요한 기능에 장기 저장까지 도입하면 불필요하게 복잡해진다.",
+        "검증은 정상 동작 한 번에서 끝내지 않는 편이 좋다. 화면 폭이 줄어들거나, 필요한 데이터가 아직 없거나, 다른 모드가 같은 공간을 사용하는 경우에도 원래 작업이 이어지는지 본다. 부가 기능이 그릴 내용이 없을 때 기존 동작을 막지 않는 것이 작은 확장 기능의 중요한 품질 조건이다."
+      ],
+      "sourceRefs": [2, 3],
+      "code": {"language":"shell","caption":"가이드의 버전 확인과 준비된 로컬 플러그인 검사 명령. 설치 경로는 자신의 폴더로 바꾼다.","text":"claude --version\nclaude plugin validate ./my-display-mod\nclaude plugin test ./my-display-mod"},
+      "links": [{"label":"공식 시작 가이드","url":"https://claude.dev/blog/getting-started-with-claude-code-mods/"},{"label":"내장 구현의 테스트 구조","url":"https://github.com/anthropics/claude-code/blob/main/mods/README.md"}]
+    },
+    {
+      "title": "설치할 코드를 믿는 일은 여전히 사용자의 몫이다",
+      "paragraphs": [
+        "공식 발표는 모드가 Claude Code와 같은 수준으로 컴퓨터에 접근할 수 있으므로 신뢰하는 출처의 코드만 설치하라고 경고한다. 튜토리얼은 모듈에 DOM이나 Node API를 직접 주지 않고 호스트 인터페이스를 통하도록 설명한다. 실행 환경이 분리돼 있다는 설명을 ‘파일이나 프로세스에 영향을 줄 수 없는 안전한 테마’라는 뜻으로 읽어서는 안 된다.",
+        "조직용 환경에는 sec-default가 관리 설정과 정책을 사용자 설치 모드가 임의로 우회하지 못하도록 제한하는 역할을 맡는다. 공개 README는 이 모드가 새 보안 정책을 만들어 주는 것이 아니라, 이미 조직이 정한 통제의 범위를 지키는 구성이라고 설명한다. 그러므로 조직의 정책을 정하는 일과 그 정책을 확장 코드가 침범하지 않도록 하는 일도 나뉜다.",
+        "개인이 처음 시험한다면 별도의 테스트 프로젝트에서 출처를 확인한 모드를 한 개씩 추가하고, 어떤 이벤트에 연결되는지와 외부 통신을 하는지 살펴보는 방식이 관리하기 쉽다. 업무 데이터를 외부 서비스로 보내는 기능이 있다면 표시 화면만 예쁘다는 이유로 넘길 수 없다. 팀 배포에서는 버전 고정, 업데이트 검토, 문제 발생 시 비활성화 경로까지 함께 정리할 필요가 있다.",
+        "Mods는 Claude Code를 다른 도구로 바꾸기보다, 반복해서 불편했던 부분을 자신의 작업 방식에 맞추는 수단이다. 공식 영상에서 관심이 간 동작 하나를 고르고, 원문 코드와 현재 버전의 타입을 확인한 뒤 작은 범위로 시작하면 된다. 모드의 개수보다 실제 작업을 덜 끊기게 만드는 정보가 무엇인지가 더 중요한 선택 기준이다."
+      ],
+      "sourceRefs": [1, 2, 3, 4],
+      "links": [{"label":"조직 기본 보호 모드의 원문 설명","url":"https://github.com/anthropics/claude-code/tree/main/mods/sec-default"}]
+    }
+  ],
+  "sources": [
+    {"name":"Anthropic · Customize Claude Code with mods","url":"https://claude.com/blog/claude-code-mods","description":"2026-10-01 공식 발표. 배포 방식, 확장 범위와 신뢰 조건."},
+    {"name":"claude.dev · Getting started with Claude Code mods","url":"https://claude.dev/blog/getting-started-with-claude-code-mods/","description":"공식 튜토리얼. 지원 버전, 영상·실제 화면, 예제와 재로딩 동작."},
+    {"name":"anthropics/claude-code · 내장 모드 README","url":"https://github.com/anthropics/claude-code/blob/main/mods/README.md","description":"내장 기능, 모듈 구조와 테스트 코드."},
+    {"name":"anthropics/claude-code · sec-default","url":"https://github.com/anthropics/claude-code/tree/main/mods/sec-default","description":"관리 정책을 사용자 설치 모드로부터 보호하는 역할."}
+  ],
+  "resources": [
+    {"name":"공식 소개","url":"https://claude.com/blog/claude-code-mods","description":"기능과 설치 시 신뢰 조건","type":"발표"},
+    {"name":"코드·터미널·데스크톱 데모","url":"https://claude.dev/blog/getting-started-with-claude-code-mods/","description":"원문에서 예제별 영상과 전체 코드 보기","type":"튜토리얼"},
+    {"name":"내장 모드 저장소","url":"https://github.com/anthropics/claude-code/tree/main/mods","description":"실제 제품이 사용하는 구현과 테스트","type":"소스"},
+    {"name":"sec-default 정책 설명","url":"https://github.com/anthropics/claude-code/tree/main/mods/sec-default","description":"조직 정책과 확장 코드의 경계","type":"보안"}
+  ],
+  "videos": []
+}

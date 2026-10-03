@@ -1,14 +1,13 @@
 {
   "name": "bluebworks-ai-radar",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "description": "BlueBWorks AI Radar static site builder and tests",
-  "engines": {
-    "node": ">=18"
-  },
+  "engines": { "node": ">=18" },
   "scripts": {
-    "build": "node build/prepare-assets.mjs && node build/build.mjs",
+    "editorial:check": "node build/editorial-check.mjs",
+    "build": "npm run editorial:check && node build/prepare-assets.mjs && node build/prepare-editorial-media.mjs && node build/build.mjs",
     "check": "node build/check.mjs",
     "test": "node --test test/*.test.mjs",
     "verify": "npm run build && npm run check && npm test"

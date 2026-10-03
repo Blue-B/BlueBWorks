@@ -1,0 +1,95 @@
+{
+  "slug": "cloudflare-protected-quick-tunnels-2026",
+  "title": "로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels",
+  "summary": "Cloudflare Quick Tunnels에 이메일 인증이 추가됐다. 계정이나 도메인 없이 개발 중인 앱을 공유하되, 지정한 사람만 접속하게 할 수 있다. 다만 임시 링크라는 성격과 스트리밍·자동 호출의 제약까지 달라진 것은 아니다.",
+  "category": "개발도구",
+  "publishedAt": "2026-10-02",
+  "verifiedAt": "2026-10-04T00:43:28+09:00",
+  "status": "제공 중 · 개발·테스트용",
+  "reviewStatus": "reviewed",
+  "tags": ["Cloudflare", "Quick Tunnels", "개발 환경", "접근 제어"],
+  "image": "https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-protected-tunnels.png",
+  "imageAlt": "Cloudflare의 Protected Quick Tunnels 공식 발표 이미지",
+  "imageCredit": "Cloudflare · Protected Quick Tunnels 공식 발표",
+  "editorNote": "휴대전화에서 개발 화면을 확인하거나 고객에게 짧게 시연할 때는 유용한 변화다. 반면 검색으로 방문자를 모을 블로그의 배포 수단으로 고르기에는 맞지 않는다. 이메일 잠금은 방문자 범위를 정하는 기능이고, 상시 운영은 여전히 별도의 문제다.",
+  "keyPoints": [
+    "cloudflared 2026.9.3부터 --allowed-mail로 접속 가능한 이메일을 지정할 수 있다. 공개 링크가 기본이므로 옵션을 빼면 보호되지 않는다.",
+    "초대한 사람은 이메일로 받은 일회용 PIN으로 접속한다. 링크를 만드는 쪽과 방문하는 쪽 모두 Cloudflare 계정이 없어도 된다.",
+    "Quick Tunnel은 개발·테스트용이다. 실행을 끝내면 접속도 끝나며, 고정 주소·가동 시간 보장·SSE를 제공하지 않는다."
+  ],
+  "sections": [
+    {
+      "title": "공유는 쉬웠지만, 링크를 아는 사람은 누구나 들어왔다",
+      "paragraphs": [
+        "개발 중인 웹앱을 휴대전화에서 확인하려면 보통 로컬 서버 밖으로 접속할 방법이 필요하다. 같은 네트워크에서 접속하도록 설정하거나, 임시 서버에 배포하거나, 터널로 로컬 포트를 외부에 연결한다. Quick Tunnels는 이 중 마지막 방법이다. cloudflared를 실행하면 임의의 trycloudflare.com 주소가 생기고, 그 주소가 자신의 컴퓨터에서 실행 중인 HTTP 서비스로 이어진다.",
+        "기존 방식의 약점은 주소 자체가 사실상 입장권이었다는 점이다. 링크를 팀 채팅에 붙여 넣은 뒤 다른 사람에게 전달되면, 앱에 따로 로그인 기능이 없는 한 그 사람도 화면을 열 수 있었다. Cloudflare가 10월 2일 공개한 Protected Quick Tunnels는 이 지점에 이메일 확인 단계를 추가한다. 외부 주소를 만드는 절차는 그대로 두고, 누구에게 보여 줄지만 명시할 수 있게 한 것이다.",
+        "이는 개발 서버가 정식 서비스로 바뀐다는 뜻은 아니다. 원래 컴퓨터에서 실행 중인 앱을 잠시 보여 주는 구조는 유지된다. 따라서 이번 업데이트를 이해할 때는 ‘접속 범위를 줄이는 기능’과 ‘안정적으로 오래 운영하는 기능’을 나눠 보는 편이 정확하다."
+      ],
+      "sourceRefs": [1, 2],
+      "links": [{"label":"Cloudflare 공식 발표","url":"https://blog.cloudflare.com/protected-quick-tunnels/"}]
+    },
+    {
+      "title": "시작할 때 필요한 것은 허용할 이메일 한 개다",
+      "paragraphs": [
+        "공식 발표는 cloudflared 2026.9.3 이상을 기준으로 설명한다. 먼저 자신의 앱이 로컬에서 열리는지 확인하고, 터널 명령에 --allowed-mail과 허용할 이메일을 넣는다. 아래 예시의 5173은 개발 서버 포트이며, visitor@example.com은 실제로 초대할 주소로 바꿔야 한다. 이 명령을 실행하는 동안에만 임시 접속 경로가 유지된다.",
+        "허용된 방문자는 생성된 링크를 열어 이메일을 입력하고, 받은편지함에 도착한 일회용 PIN으로 확인을 마친다. Cloudflare 계정 가입을 초대 조건으로 요구하지 않는다는 점이 간단한 시연에 잘 맞는다. 받는 사람에게 별도의 VPN이나 개발 도구를 설치해 달라고 부탁할 필요도 없다.",
+        "이메일 여러 개를 넣거나 특정 도메인을 허용하는 방법도 문서에 나온다. 다만 처음에는 개인 주소를 좁게 지정하는 편이 이해하기 쉽다. 회사 도메인 전체를 허용하면 초대한 두세 명뿐 아니라 그 도메인의 메일을 가진 다른 사람도 대상이 된다. 범위를 넓히는 것은 편의 기능이지, 추가로 안전해지는 설정이 아니다."
+      ],
+      "sourceRefs": [1, 2, 3],
+      "code": {"language":"shell","caption":"자신이 관리하는 개발 서버를 지정한 방문자에게 공유하는 예시","text":"# 로컬 앱이 먼저 실행 중이어야 한다.\ncloudflared --version\ncloudflared tunnel --url http://localhost:5173 \\\n  --allowed-mail visitor@example.com"},
+      "links": [{"label":"설치 파일과 업데이트 방법","url":"https://developers.cloudflare.com/tunnel/downloads/"},{"label":"이메일 지정 문법 확인","url":"https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/#restrict-access-by-email"}]
+    },
+    {
+      "title": "이메일 확인과 입장 허가는 서로 다른 곳에서 처리한다",
+      "paragraphs": [
+        "Cloudflare가 공개한 구조에서 이메일의 소유 여부를 확인하는 쪽은 Cloudflare Access다. 반면 확인된 이메일이 허용 목록에 들어 있는지는 자신의 컴퓨터에서 실행 중인 cloudflared가 판단한다. 아래 도식은 이 구분을 보여 주는 공식 원문 이미지다. 인증 화면을 통과했다는 사실만으로 모든 보호된 터널에 들어갈 수 있는 것은 아니다.",
+        "이 분리가 중요한 이유는 Quick Tunnel에 사용자의 Cloudflare 계정이 없기 때문이다. 일반적인 관리형 접근 정책처럼 계정 안에 방문자 명단을 저장하는 대신, 개발자가 명령에 적은 규칙을 로컬에서 적용한다. 공식 설명에 따르면 보호 모드가 확인되지 않으면 연결 도구는 시작을 거부하며, 보호된 터널이 조용히 공개 모드로 바뀌지는 않는다.",
+        "운영 관점에서 확인할 지점도 분명해진다. 이메일을 받는 데 실패한 문제와 허용 목록에 없어서 거부된 문제는 다르게 살펴봐야 한다. 시연 전에 허용한 주소로 한 번 접속하고, 허용하지 않은 주소로는 들어가지 못하는지 확인하면 명령이 기대한 범위로 적용됐는지 점검할 수 있다. 이는 별도 실험 결과가 아니라 배포 전에 해 볼 수 있는 확인 절차다."
+      ],
+      "sourceRefs": [1],
+      "figures": [{"src":"https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-email-flow.png","alt":"방문자가 링크를 열고 이메일 PIN 인증을 거친 뒤 로컬 cloudflared가 허용 목록을 검사하는 네 단계 도식","caption":"이메일 소유 확인은 Cloudflare Access가, 실제 입장 여부는 로컬 cloudflared가 판단한다. Cloudflare가 공개한 원문 도식.","credit":"Cloudflare","sourceUrl":"https://blog.cloudflare.com/protected-quick-tunnels/","width":1999,"height":983}]
+    },
+    {
+      "title": "보호 옵션을 붙여도 해결되지 않는 제약",
+      "paragraphs": [
+        "Quick Tunnels 문서에는 가동 시간 보장이 없고, 동시에 처리 중인 요청이 200개를 넘으면 추가 요청에 429 응답을 반환한다고 명시돼 있다. 여기서 200개는 등록 사용자 수나 하루 방문자 수가 아니라 진행 중인 요청 수다. 테스트 링크를 부하 시험이나 실제 고객 트래픽의 입구로 사용하기 전에 이 구분부터 확인해야 한다.",
+        "또 하나는 Server-Sent Events, 즉 서버가 브라우저에 이벤트를 연속으로 보내는 SSE를 지원하지 않는다는 제약이다. 채팅 화면이 평범하게 열리더라도 실제 답변을 조금씩 표시하는 통신 방식이 SSE라면 같은 수준의 호환성을 기대할 수 없다. 화면 첫 로딩이 성공했다는 이유만으로 음성·채팅·실시간 알림까지 모두 검증됐다고 볼 수는 없다.",
+        "이메일 보호는 사람이 브라우저에서 인증하는 흐름이다. 문서는 비대화형 클라이언트를 지원하지 않는다고 설명한다. 따라서 서버끼리 호출하는 웹훅이나 자동화 도구에 PIN 입력 화면을 그대로 붙이면 요청을 막을 수 있다. ‘내 앱을 사람에게 보여 주는 링크’와 ‘외부 서버가 자동 호출할 주소’를 같은 요구로 묶지 않는 것이 좋다."
+      ],
+      "sourceRefs": [2],
+      "table": {"headers":["사용 상황","먼저 확인할 것"],"rows":[["휴대전화에서 개발 화면 확인","이메일 인증 뒤 실제 버튼과 폼도 동작하는가"],["실시간 채팅 시연","앱이 SSE를 사용하는가"],["외부 서비스의 웹훅 수신","브라우저 로그인 없이 호출해야 하는가"],["검색에 노출할 공개 블로그","주소가 고정되고 상시 운영되는가"]],"caption":"공식 제한 사항을 바탕으로 정리한 용도별 확인 항목. 성능 비교 결과는 아니다."}
+    },
+    {
+      "title": "AI가 만든 미리보기에도 같은 규칙을 적용할 수 있다",
+      "paragraphs": [
+        "코딩 에이전트가 개발 서버를 띄우고 미리보기 링크까지 만드는 작업은 이제 낯설지 않다. 문제는 에이전트가 가장 짧은 공개 명령을 골랐을 때, 사용자가 원치 않은 화면까지 외부에 보일 수 있다는 점이다. Cloudflare는 에이전트가 읽는 지침 파일에 Quick Tunnel 생성 시 허용 이메일을 붙이도록 적는 방법을 제시한다.",
+        "다만 지침에 적었다는 사실과 실제 실행이 같다는 보장은 없다. 생성된 링크만 확인하지 말고, 터널이 이메일 보호 모드로 시작됐는지도 살펴야 한다. 특히 운영용 관리 화면이나 비밀값이 표시되는 페이지라면 ‘어차피 나만 볼 링크’라는 전제로 접근 통제를 생략해서는 안 된다.",
+        "같은 이유로 이 기능은 애플리케이션 자체의 사용자 권한을 대신하지 않는다. 터널은 입구를 제한하지만, 들어온 사람이 앱 안에서 어떤 버튼을 누를 수 있는지까지 업무 규칙에 맞게 결정해 주지는 않는다. 외부 시연에는 읽기 전용 데이터나 별도 테스트 계정을 준비하는 식으로 노출 범위와 작업 권한을 함께 좁히는 편이 낫다."
+      ],
+      "sourceRefs": [1, 2]
+    },
+    {
+      "title": "상시 사이트와 임시 시연을 분리해서 선택한다",
+      "paragraphs": [
+        "발표와 문서는 Quick Tunnels 자체와 이메일 보호를 무료로 안내한다. 계정과 도메인 없이 시작할 수 있다는 조건까지 합치면, 짧게 만든 기능을 특정 사람에게 확인받는 용도로는 절차가 간단하다. 중요한 것은 비용이 적다는 장점과 오래 운영하기에 적합하다는 판단을 혼동하지 않는 것이다.",
+        "프로세스를 멈추면 모두의 접근이 끝나고, 새로 만들 때 호스트 이름도 달라진다. 반대로 문서는 안정적인 호스트 이름과 운영 트래픽에는 일반 Cloudflare Tunnel을 사용하도록 안내한다. 외부 인증 제공자의 그룹처럼 더 복잡한 규칙이 필요할 때는 Access와 함께 구성하는 방법도 별도로 검토해야 한다.",
+        "예를 들어 검색에서 꾸준히 읽히게 만들 기술 블로그는 정식 호스팅과 고정 도메인으로 운영하고, 새 디자인을 공개하기 전에 본인과 검토자만 보는 시연에 Protected Quick Tunnel을 쓸 수 있다. 둘 중 하나만 골라야 하는 관계가 아니다. 공개 콘텐츠를 배포하는 경로와 개발 중인 화면을 검토하는 경로를 나누면 각 도구의 제한도 관리하기 쉬워진다.",
+        "지금 필요한 것이 잠깐의 확인 링크라면 로컬 서버, cloudflared 버전, 허용 이메일, 실제 접속 결과 순으로 확인하면 된다. 상시 운영이 목적이라면 임시 링크를 계속 갱신하는 것보다 고정된 배포 경로를 먼저 정하는 편이 맞다. 원문의 실행 화면과 세부 제한은 아래 자료에서 바로 열 수 있다."
+      ],
+      "sourceRefs": [1, 2, 3],
+      "links": [{"label":"공식 실행 화면과 변경 기록","url":"https://developers.cloudflare.com/changelog/post/2026-10-02-protected-quick-tunnels/"},{"label":"운영용 Tunnel 시작 안내","url":"https://developers.cloudflare.com/tunnel/get-started/"}]
+    }
+  ],
+  "sources": [
+    {"name":"Cloudflare · Protected Quick Tunnels 발표","url":"https://blog.cloudflare.com/protected-quick-tunnels/","description":"2026-10-02 발표. 지원 버전, 인증 구조, 무료 제공 범위와 원문 도식."},
+    {"name":"Quick Tunnels 공식 문서","url":"https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/","description":"명령, 이메일 규칙, 200 in-flight 요청과 SSE·비대화형 인증 제한."},
+    {"name":"Cloudflare · 이메일 인증 기능 변경 기록","url":"https://developers.cloudflare.com/changelog/post/2026-10-02-protected-quick-tunnels/","description":"공식 실행 데모와 추가된 옵션 확인."}
+  ],
+  "resources": [
+    {"name":"공식 발표와 설계 도식","url":"https://blog.cloudflare.com/protected-quick-tunnels/","description":"이메일 확인과 로컬 접근 허가를 나눈 이유","type":"원문"},
+    {"name":"cloudflared 설치","url":"https://developers.cloudflare.com/tunnel/downloads/","description":"운영체제별 설치·업데이트 방법","type":"설치"},
+    {"name":"명령과 제한 사항","url":"https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/","description":"이메일 지정 문법, SSE와 동시 요청 제한","type":"문서"},
+    {"name":"공식 실행 데모","url":"https://developers.cloudflare.com/changelog/post/2026-10-02-protected-quick-tunnels/","description":"원문에 포함된 이메일 인증 시연","type":"데모"}
+  ],
+  "videos": []
+}
