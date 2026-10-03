@@ -31,6 +31,6 @@ AI와 개발 도구를 실제로 쓰는 사람이 놓치기 아까운 새 소식
 ## 저장과 배포
 새 글은 docs/data/posts.json 배열 맨 앞에 추가하고 docs/feed.xml도 최신순으로 갱신한다.
 
-저장소는 Private으로 유지한다. 예약작업은 GitHub main에 직접 반영하며 GitHub Actions와 GitHub Pages는 사용하지 않는다. Vercel이 main 변경을 감지해 docs/를 자동 배포한다.
+예약작업은 GitHub main에 직접 반영하며 GitHub Actions는 사용하지 않는다. GitHub Pages는 main 브랜치의 /docs 폴더를 게시 소스로 사용한다.
 
-RSS의 사이트 링크와 글 링크는 Vercel production 주소를 사용한다. blue-b.github.io/BlueBWorks 주소를 다시 넣지 않는다.
+RSS의 사이트 링크와 글 링크는 https://blue-b.github.io/BlueBWorks/ 기준으로 유지한다.
