@@ -10,8 +10,8 @@
 - `docs/feed.xml`: RSS
 - `AUTOMATION.md`: 자동 발행 규칙
 
-이 저장소의 `docs/`가 원본입니다. 실제 GitHub Pages 배포는 이미 Pages가 활성화된 `Blue-B/Blue-B.github.io` 저장소의 `BlueBWorks/` 경로에 동기화합니다.
+GitHub Pages는 이 저장소 자체에서 `main /docs`를 게시 소스로 사용합니다.
 
 사이트 주소: https://blue-b.github.io/BlueBWorks/
 
-예약작업은 새 글을 원본에 반영한 뒤 실제 Pages 저장소에도 동기화합니다. 별도의 새 GitHub Actions 워크플로는 만들지 않습니다.
+예약작업은 새 글을 `main`의 `docs/`에 반영하면 되고, 기존 `Blue-B.github.io` 블로그 저장소와는 별개로 운영합니다.
