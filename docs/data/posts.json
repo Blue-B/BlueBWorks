@@ -81,7 +81,6 @@
       }
     ],
     "status": "Available",
-    "image": "https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png",
     "imageAlt": "Vercel 로고",
     "imageCredit": "Vercel",
     "editorNote": "음성 기능은 모델 자체 성능만큼 ‘연동 비용’이 제품 속도를 좌우한다. 이미 Vercel AI SDK를 쓰는 팀이라면 TTS와 스트리밍 전사를 같은 게이트웨이 안에서 시험할 수 있다는 점이 실용적이다. 다만 실시간 전사 품질은 네트워크·마이크·부분 결과 처리 방식에 크게 좌우되므로 데모 성공을 곧바로 운영 품질로 해석하면 안 된다.",
@@ -168,7 +167,6 @@
       }
     ],
     "status": "Preview",
-    "image": "https://www.anthropic.com/images/icons/apple-touch-icon.png",
     "imageAlt": "Anthropic 로고",
     "imageCredit": "Anthropic",
     "editorNote": "Mods는 단순 명령 모음이 아니라 Claude Code의 행동 경로에 코드를 끼워 넣는 확장점에 가깝다. 조직용 개발 환경에서는 권한·감사·사내 도구 연결을 제품 업데이트와 독립적으로 구현할 수 있다는 장점이 있지만, 같은 이유로 신뢰하지 않는 Mod를 설치할 때의 위험도 훨씬 크다.",
@@ -212,7 +210,6 @@
       }
     ],
     "status": "Public preview",
-    "image": "https://github.blog/wp-content/themes/github-2021-child/assets/img/featured-v3-new-releases.svg",
     "imageAlt": "GitHub 새 기능 발표 그래픽",
     "imageCredit": "GitHub",
     "editorNote": "멀티에이전트의 약점은 모델 수가 아니라 절차가 재현되지 않는 데서 자주 생긴다. Dynamic Workflows는 에이전트에게 전부 맡기는 대신 순서·병렬성·검증 단계를 코드로 고정한다. 장애 조사나 릴리스 점검처럼 ‘누가 어떤 순서로 무엇을 확인했는가’가 중요한 작업에 특히 맞는 방향이다.",
@@ -256,7 +253,6 @@
       }
     ],
     "status": "Public preview",
-    "image": "https://github.blog/wp-content/themes/github-2021-child/assets/img/featured-v3-new-releases.svg",
     "imageAlt": "GitHub Copilot 새 기능 발표 그래픽",
     "imageCredit": "GitHub",
     "editorNote": "API와 MCP가 없는 오래된 사내 프로그램까지 자동화 범위에 들어온다는 점이 가장 크다. 반대로 화면 조작은 구조화된 API 호출보다 실패 원인이 많고 권한 범위도 넓다. 처음부터 전사 자동화를 노리기보다 반복적이고 되돌릴 수 있는 GUI 업무부터 붙이는 편이 맞다.",
@@ -304,7 +300,6 @@
       }
     ],
     "status": "Open source",
-    "image": "https://www.cloudflare.com/favicon.ico",
     "imageAlt": "Cloudflare 로고",
     "imageCredit": "Cloudflare",
     "editorNote": "에이전트 시스템에서 의외로 비싼 부분은 ‘답변 생성’이 아니라 수없이 반복되는 작은 결정이다. Clef는 도구 선택·라우팅·분류처럼 선택지가 정해진 판단을 생성형 LLM에서 떼어내려는 시도다. 모델 크기보다 실제 업무 데이터에서 오분류 비용이 얼마나 줄어드는지 보는 게 중요하다.",
@@ -400,7 +395,6 @@
       }
     ],
     "status": "Limited rollout",
-    "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/g4_30-09-26_key-art_blog.width-200.format-webp.webp",
     "imageAlt": "Gemini 4 Argon 공식 키아트",
     "imageCredit": "Google",
     "editorNote": "Argon은 지금 당장 누구나 API 키로 호출할 수 있는 모델이 아니다. 그래서 벤치마크보다 중요한 정보는 접근 범위와 Google이 실제 내부 장기 작업에 어떻게 쓰고 있는지다. 대규모 코드 마이그레이션과 보안 작업을 모델 한 번의 응답이 아니라 긴 실행 궤적으로 다루는 방향이 더 뚜렷해졌다.",
@@ -444,7 +438,6 @@
       }
     ],
     "status": "Research preview",
-    "image": "https://github.blog/wp-content/themes/github-2021-child/assets/img/featured-v3-new-releases.svg",
     "imageAlt": "GitHub Copilot 새 기능 발표 그래픽",
     "imageCredit": "GitHub",
     "editorNote": "HydraFusion은 ‘가장 좋은 모델 하나’를 고르는 문제를 런타임이 해결하려는 시도다. 요청마다 Single·Cascade·Critique 흐름을 달리 쓰기 때문에, 앞으로 코딩 도구의 차별점이 모델 목록보다 모델을 조합하고 검증하는 오케스트레이션으로 이동할 가능성을 보여준다.",
