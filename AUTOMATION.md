@@ -29,8 +29,22 @@ AI와 개발 도구를 실제로 쓰는 사람이 놓치기 아까운 새 소식
 과장된 표현, 확인되지 않은 성능 비교, 출처 없는 숫자는 넣지 않는다.
 
 ## 저장과 배포
-새 글은 docs/data/posts.json 배열 맨 앞에 추가하고 docs/feed.xml도 최신순으로 갱신한다.
+원본 저장소는 `Blue-B/BlueBWorks`이고 사이트 원본은 `docs/`이다.
 
-예약작업은 GitHub main에 직접 반영하며 GitHub Actions는 사용하지 않는다. GitHub Pages는 main 브랜치의 /docs 폴더를 게시 소스로 사용한다.
+새 글은 `docs/data/posts.json` 배열 맨 앞에 추가하고 `docs/feed.xml`도 최신순으로 갱신한다. RSS의 사이트 링크와 글 링크는 항상 `https://blue-b.github.io/BlueBWorks/` 기준으로 유지한다.
 
-RSS의 사이트 링크와 글 링크는 https://blue-b.github.io/BlueBWorks/ 기준으로 유지한다.
+원본 main 반영이 끝나면 실제 Pages 저장소 `Blue-B/Blue-B.github.io`의 `master` 브랜치에 아래 경로를 동기화한다.
+- `docs/index.html` → `BlueBWorks/index.html`
+- `docs/post.html` → `BlueBWorks/post.html`
+- `docs/about.html` → `BlueBWorks/about.html`
+- `docs/feed.xml` → `BlueBWorks/feed.xml`
+- `docs/assets/app.js` → `BlueBWorks/assets/app.js`
+- `docs/assets/style.css` → `BlueBWorks/assets/style.css`
+- `docs/data/posts.json` → `BlueBWorks/data/posts.json`
+- `docs/.nojekyll` → `BlueBWorks/.nojekyll`
+
+실제 Pages는 기존 `Blue-B/Blue-B.github.io` 저장소의 Pages 배포 설정을 그대로 사용한다. 예약작업은 새 GitHub Actions 워크플로를 만들거나 기존 워크플로를 수정하지 않는다.
+
+동기화 전 대상 저장소의 최신 `master`를 다시 읽고, 기존 블로그 파일을 절대 삭제하거나 덮어쓰지 않는다. `BlueBWorks/` 하위 파일만 변경한다. force push하지 않는다.
+
+동기화 후 `Blue-B/Blue-B.github.io`의 `master`에서 `BlueBWorks/index.html`, `BlueBWorks/data/posts.json`, `BlueBWorks/feed.xml`을 다시 읽어 실제 반영됐는지 확인한다. 사이트 주소는 `https://blue-b.github.io/BlueBWorks/`이다.
