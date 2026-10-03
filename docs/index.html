@@ -1,32 +1,69 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="최신 AI·개발 소식을 빠르게 검증해 한국어로 정리하는 BlueBWorks AI Radar">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AI·개발 도구의 변화를 공식 출처 중심으로 검증하고 실무 관점에서 해설하는 BlueBWorks AI Radar">
   <title>BlueBWorks AI Radar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="alternate" type="application/rss+xml" title="BlueBWorks AI Radar" href="feed.xml">
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="./"><span class="brand-mark">B</span><span>BlueBWorks</span></a>
-  <nav><a href="./">Radar</a><a href="about.html">About</a><a href="feed.xml">RSS</a></nav>
-</header>
-<main>
-  <section class="hero">
-    <p class="eyebrow">AI · OPEN SOURCE · DEV TOOLS</p>
-    <h1>새로 나온 것만.<br>써볼 가치가 있는 것만.</h1>
-    <p class="hero-copy">공식 발표와 원 저장소를 우선 확인하고, 개발자 관점에서 필요한 내용만 짧고 빠르게 정리해.</p>
-  </section>
-  <section class="toolbar" aria-label="글 필터">
-    <input id="search" type="search" placeholder="모델, 에이전트, 도구 검색" autocomplete="off">
-    <div id="categories" class="chips"></div>
-  </section>
-  <section class="feed">
-    <div class="feed-head"><h2>Latest</h2><span id="count"></span></div>
-    <div id="posts" class="post-grid" aria-live="polite"></div>
-  </section>
-</main>
-<footer><span>BlueBWorks AI Radar</span><span>Official sources first.</span></footer>
-<script>window.BLUEB_PAGE="home";</script><script src="assets/app.js"></script>
-</body></html>
+  <div class="top-rule"></div>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="./" aria-label="BlueBWorks AI Radar 홈">
+        <span class="brand-kicker">BLUEBWORKS</span>
+        <strong>AI RADAR</strong>
+      </a>
+      <div class="edition">
+        <span id="edition-date">LATEST EDITION</span>
+        <span>OFFICIAL SOURCES FIRST</span>
+      </div>
+      <nav class="main-nav">
+        <a href="./" aria-current="page">Radar</a>
+        <a href="about.html">About</a>
+        <a href="feed.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      <p class="section-label">EDITOR'S RADAR</p>
+      <h1>새 소식을 옮겨 적지 않고,<br>쓸 가치가 있는 변화만 해설한다.</h1>
+      <p class="intro-copy">공식 발표·원 저장소를 먼저 확인하고, 실제 개발 흐름에서 무엇이 바뀌는지와 도입 전에 봐야 할 한계까지 함께 정리해.</p>
+    </section>
+
+    <section id="lead-story" class="lead-story" aria-label="주요 기사"></section>
+
+    <section class="archive">
+      <div class="archive-head">
+        <div>
+          <p class="section-label">LATEST BRIEFINGS</p>
+          <h2>최근 업데이트</h2>
+        </div>
+        <div class="search-wrap">
+          <label class="sr-only" for="search">기사 검색</label>
+          <input id="search" type="search" placeholder="모델, 에이전트, 도구 검색" autocomplete="off">
+        </div>
+      </div>
+      <div id="categories" class="category-tabs" aria-label="카테고리"></div>
+      <div class="archive-meta"><span id="count"></span><span>최신순 · 공식 출처 확인</span></div>
+      <div id="posts" class="story-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><strong>BlueBWorks AI Radar</strong><span>AI와 개발 도구를 위한 독립 큐레이션 노트</span></div>
+    <div><span>사실 확인 → 맥락 → 실무 판단</span><a href="about.html">편집 원칙</a></div>
+  </footer>
+
+  <script>window.BLUEB_PAGE="home";</script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
