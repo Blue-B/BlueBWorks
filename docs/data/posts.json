@@ -1,5 +1,53 @@
 [
   {
+    "slug": "github-copilot-code-review-api-2026",
+    "title": "Copilot 코드리뷰가 API로 열렸다 — 리뷰를 ‘버튼’이 아니라 파이프라인으로 호출하는 단계",
+    "summary": "GitHub가 Copilot 코드리뷰 요청을 REST·GraphQL API로 열었다. 이제 PR 화면에서 사람이 리뷰를 눌러야 하는 기능이 아니라, 내부 배포 게이트·리스크 분류·자동화 스크립트 안에서 필요한 시점에 코드리뷰를 호출할 수 있다.",
+    "category": "개발도구",
+    "publishedAt": "2026-10-02",
+    "verifiedAt": "2026-10-03T20:40:00+09:00",
+    "status": "GA",
+    "tags": [
+      "GitHub",
+      "Copilot",
+      "Code Review",
+      "API"
+    ],
+    "image": "https://github.blog/wp-content/uploads/2026/10/663343489-d0f10d32-3726-4507-9ede-10407ea30715.jpg?resize=2064%2C1096",
+    "imageAlt": "GitHub Copilot 코드리뷰의 Balanced 리뷰 강도 설정 화면",
+    "imageCredit": "GitHub Changelog",
+    "editorNote": "이번 업데이트의 핵심은 ‘AI가 리뷰를 더 잘한다’가 아니라 호출 지점이 바뀌었다는 데 있다. 리뷰를 CI 이후, 배포 직전, 특정 라벨이 붙은 PR처럼 팀이 정한 운영 규칙 안에 넣을 수 있게 됐다. 코드리뷰를 개발자 개인 기능이 아니라 엔지니어링 시스템의 한 단계로 보는 팀이라면 변화 폭이 크다.",
+    "keyPoints": [
+      "REST·GraphQL API에서 Copilot 코드리뷰를 요청할 수 있다.",
+      "요청마다 리뷰 effort level을 지정할 수 있고 Balanced가 기본값이 됐다.",
+      "Copilot Pro·Pro+·Max·Business·Enterprise에서 일반 제공된다."
+    ],
+    "sections": [
+      {
+        "title": "무엇이 달라졌나",
+        "body": "GitHub는 10월 2일부터 Copilot code review를 지원되는 REST·GraphQL API에서 직접 요청할 수 있게 했다. 요청 시 리뷰 강도(effort level)를 선택할 수 있고, 기존 저장소와 조직의 기본 리뷰 강도도 Balanced로 변경됐다. 이전에는 PR UI 중심 기능이었다면 이제 코드에서 리뷰 시작 조건을 제어할 수 있다."
+      },
+      {
+        "title": "실무에서는 어디에 붙일 수 있나",
+        "body": "가장 직접적인 활용처는 팀 내부 자동화다. 예를 들어 변경 파일이 일정 규모를 넘거나 보안 관련 디렉터리를 건드렸을 때만 Copilot 리뷰를 추가로 요청하고, 결과를 사람이 보는 필수 리뷰와 병렬로 돌릴 수 있다. 자체 대시보드나 릴리스 도구가 있는 조직이라면 GitHub 화면으로 이동하지 않고 그 도구에서 리뷰를 시작하는 흐름도 만들 수 있다."
+      },
+      {
+        "title": "Balanced 기본값이 의미하는 것",
+        "body": "GitHub는 리뷰 강도의 기본값을 Balanced로 바꿨다. Lite보다 더 깊은 분석을 하되 비용과 지연을 무한정 키우는 방식은 피하려는 기본 선택이다. 다만 상위 조직 설정을 저장소가 재정의할 수 있는 계층 구조이므로, 여러 조직을 운영한다면 단순히 ‘기본값이 바뀌었다’고 끝내지 말고 실제 적용 레벨을 확인하는 편이 안전하다."
+      },
+      {
+        "title": "도입 전에 볼 점",
+        "body": "AI 리뷰는 사람 리뷰를 대체하는 승인 장치로 두기보다, 사람이 놓치기 쉬운 패턴을 먼저 훑는 보조 단계로 설계하는 편이 현실적이다. 특히 자동 호출을 넓히면 리뷰 횟수와 비용도 함께 늘 수 있으므로 변경 규모·위험도·브랜치 정책 같은 조건으로 호출 범위를 좁혀 시작하는 게 좋다."
+      }
+    ],
+    "sources": [
+      {
+        "name": "GitHub Changelog — Copilot code review: API support and new default effort level",
+        "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level/"
+      }
+    ]
+  },
+  {
     "slug": "microsoft-mai-audio-vercel-ai-gateway-2026",
     "title": "Microsoft AI 음성 모델이 Vercel AI Gateway에 들어왔다 — TTS와 실시간 전사를 한 API로",
     "summary": "Vercel이 Microsoft AI의 MAI-Voice-2.1·MAI-Voice-2.1-Flash·MAI-Transcribe-2 Streaming을 AI Gateway에 추가했다. 음성 생성과 실시간 전사를 AI SDK의 공통 인터페이스로 호출할 수 있어 음성 에이전트나 자막 기능을 붙일 때 공급자별 연동 코드를 줄일 수 있다.",
@@ -31,6 +79,16 @@
         "name": "Vercel — Microsoft AI models are now available on AI Gateway",
         "url": "https://vercel.com/changelog/microsoft-ai-models-are-now-available-on-ai-gateway"
       }
+    ],
+    "status": "Available",
+    "image": "https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png",
+    "imageAlt": "Vercel 로고",
+    "imageCredit": "Vercel",
+    "editorNote": "음성 기능은 모델 자체 성능만큼 ‘연동 비용’이 제품 속도를 좌우한다. 이미 Vercel AI SDK를 쓰는 팀이라면 TTS와 스트리밍 전사를 같은 게이트웨이 안에서 시험할 수 있다는 점이 실용적이다. 다만 실시간 전사 품질은 네트워크·마이크·부분 결과 처리 방식에 크게 좌우되므로 데모 성공을 곧바로 운영 품질로 해석하면 안 된다.",
+    "keyPoints": [
+      "Vercel AI Gateway에서 Microsoft AI 음성 모델 3종을 호출할 수 있다.",
+      "TTS와 스트리밍 전사를 기존 AI SDK 흐름 안에 붙일 수 있다.",
+      "partial transcript를 UI에서 안정적으로 갱신하는 처리가 필요하다."
     ]
   },
   {
@@ -65,6 +123,15 @@
         "name": "Cloudflare Blog — Announcing Cloudflare K2: serverless event streams",
         "url": "https://blog.cloudflare.com/cloudflare-k2-streams/"
       }
+    ],
+    "status": "Public beta",
+    "imageAlt": "Cloudflare K2 공식 발표 페이지",
+    "imageCredit": "Cloudflare",
+    "editorNote": "K2를 ‘서버리스 Kafka’라고만 부르면 중요한 차이가 빠진다. Cloudflare가 택한 핵심은 R2를 내구성 계층으로 쓰고 계산과 저장을 분리한 구조다. 그 결과 운영 부담과 장기 보관에는 이점이 있지만 초기 공개 버전의 producer p99 지연은 약 1초다. 초저지연 큐가 아니라 대규모 이벤트 이동·보관 문제에 맞춰 봐야 한다.",
+    "keyPoints": [
+      "R2 위에 구축된 순서 보장 durable log다.",
+      "장기 보관과 fan-out 소비를 서버리스 형태로 제공한다.",
+      "초기 버전 producer p99 지연은 약 1초라 저지연 큐와 용도가 다르다."
     ]
   },
   {
@@ -99,6 +166,16 @@
         "name": "Anthropic — Customize Claude Code with mods in TypeScript",
         "url": "https://claude.com/blog/claude-code-mods"
       }
+    ],
+    "status": "Preview",
+    "image": "https://www.anthropic.com/images/icons/apple-touch-icon.png",
+    "imageAlt": "Anthropic 로고",
+    "imageCredit": "Anthropic",
+    "editorNote": "Mods는 단순 명령 모음이 아니라 Claude Code의 행동 경로에 코드를 끼워 넣는 확장점에 가깝다. 조직용 개발 환경에서는 권한·감사·사내 도구 연결을 제품 업데이트와 독립적으로 구현할 수 있다는 장점이 있지만, 같은 이유로 신뢰하지 않는 Mod를 설치할 때의 위험도 훨씬 크다.",
+    "keyPoints": [
+      "TypeScript 함수로 도구 호출·권한 판단·UI 이벤트에 개입한다.",
+      "팀 내부 가드레일과 감사 로깅을 플러그인으로 만들 수 있다.",
+      "샌드박스 격리가 아니므로 설치 출처를 엄격히 관리해야 한다."
     ]
   },
   {
@@ -133,6 +210,16 @@
         "name": "GitHub Changelog — Dynamic workflows in Copilot CLI and the Copilot app",
         "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/"
       }
+    ],
+    "status": "Public preview",
+    "image": "https://github.blog/wp-content/themes/github-2021-child/assets/img/featured-v3-new-releases.svg",
+    "imageAlt": "GitHub 새 기능 발표 그래픽",
+    "imageCredit": "GitHub",
+    "editorNote": "멀티에이전트의 약점은 모델 수가 아니라 절차가 재현되지 않는 데서 자주 생긴다. Dynamic Workflows는 에이전트에게 전부 맡기는 대신 순서·병렬성·검증 단계를 코드로 고정한다. 장애 조사나 릴리스 점검처럼 ‘누가 어떤 순서로 무엇을 확인했는가’가 중요한 작업에 특히 맞는 방향이다.",
+    "keyPoints": [
+      "에이전트와 도구 호출을 코드 기반 워크플로로 조합한다.",
+      "순차·병렬 실행과 구조화된 결과 전달을 지원한다.",
+      "Copilot CLI에서는 실험 기능을 별도로 켜야 한다."
     ]
   },
   {
@@ -167,6 +254,16 @@
         "name": "GitHub Changelog — GitHub Copilot can now interact with desktop apps with computer use",
         "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/"
       }
+    ],
+    "status": "Public preview",
+    "image": "https://github.blog/wp-content/themes/github-2021-child/assets/img/featured-v3-new-releases.svg",
+    "imageAlt": "GitHub Copilot 새 기능 발표 그래픽",
+    "imageCredit": "GitHub",
+    "editorNote": "API와 MCP가 없는 오래된 사내 프로그램까지 자동화 범위에 들어온다는 점이 가장 크다. 반대로 화면 조작은 구조화된 API 호출보다 실패 원인이 많고 권한 범위도 넓다. 처음부터 전사 자동화를 노리기보다 반복적이고 되돌릴 수 있는 GUI 업무부터 붙이는 편이 맞다.",
+    "keyPoints": [
+      "Copilot CLI와 macOS·Windows 앱에서 데스크톱 앱을 조작한다.",
+      "클릭·입력·스크롤·드래그 같은 GUI 행동을 수행할 수 있다.",
+      "앱 제어 전에 승인을 요구하며 조직 관리자가 기능을 끌 수 있다."
     ]
   },
   {
@@ -205,6 +302,16 @@
         "name": "Hugging Face — Cloudflare/clef",
         "url": "https://huggingface.co/Cloudflare/clef"
       }
+    ],
+    "status": "Open source",
+    "image": "https://www.cloudflare.com/favicon.ico",
+    "imageAlt": "Cloudflare 로고",
+    "imageCredit": "Cloudflare",
+    "editorNote": "에이전트 시스템에서 의외로 비싼 부분은 ‘답변 생성’이 아니라 수없이 반복되는 작은 결정이다. Clef는 도구 선택·라우팅·분류처럼 선택지가 정해진 판단을 생성형 LLM에서 떼어내려는 시도다. 모델 크기보다 실제 업무 데이터에서 오분류 비용이 얼마나 줄어드는지 보는 게 중요하다.",
+    "keyPoints": [
+      "자유문장 대신 선택지별 확률을 반환하는 decision model이다.",
+      "Weights가 Apache 2.0으로 공개됐다.",
+      "라우팅·분류·가드레일 같은 좁은 판단 단계에 초점을 맞춘다."
     ]
   },
   {
@@ -243,12 +350,22 @@
         "name": "Ai2 — olmo-core GitHub",
         "url": "https://github.com/allenai/olmo-core"
       }
+    ],
+    "status": "Open source",
+    "image": "https://opengraph.githubassets.com/1/allenai/olmo-core",
+    "imageAlt": "Ai2 olmo-core GitHub 저장소 미리보기",
+    "imageCredit": "GitHub / Ai2",
+    "editorNote": "일반 개발자가 당장 가져다 쓸 앱은 아니지만 공개 모델 생태계에서는 중요한 인프라 자료다. 대형 MoE를 어떻게 라우팅하고 분산시키는지 코드와 시스템 벤치마크가 함께 공개되기 때문에 모델 가중치만 공개하는 프로젝트보다 학습 인프라를 이해하는 데 훨씬 가치가 있다.",
+    "keyPoints": [
+      "MoE용 expert·pipeline parallelism과 분산 옵티마이저를 다룬다.",
+      "조 단위 파라미터 구성을 염두에 둔 학습 스택이다.",
+      "공개 성능 수치는 특정 B300 환경이므로 다른 하드웨어에 그대로 적용하면 안 된다."
     ]
   },
   {
     "slug": "gemini-4-argon-2026",
-    "title": "Gemini 4 Argon 발표 — 장기 작업용 100만 출력 토큰 모델이 등장했다",
-    "summary": "Google이 장기 코딩·전문 업무·사이버 방어를 겨냥한 Gemini 4 Argon을 발표했다. 한 번의 작업 흐름에서 최대 100만 출력 토큰을 지원하지만 현재는 제한된 사이버 방어 파트너부터 단계적으로 공개 중이다.",
+    "title": "Gemini 4 Argon 발표 — 100만 컨텍스트로 장기 코딩·사이버 방어를 겨냥한다",
+    "summary": "Google이 복잡한 장기 작업을 겨냥한 Gemini 4 Argon을 발표했다. 공식 발표에서 강조한 것은 ‘100만 출력 토큰’이 아니라 100만 토큰 컨텍스트와 장기 추론이며, 현재는 Fairwind 프로그램의 신뢰된 사이버 방어 조직부터 제한적으로 배포 중이다.",
     "category": "모델",
     "publishedAt": "2026-09-30",
     "verifiedAt": "2026-10-02T02:59:13+09:00",
@@ -260,16 +377,20 @@
     ],
     "sections": [
       {
-        "title": "무엇이 나왔나",
-        "body": "Gemini 4 Argon은 Google의 새 프런티어 모델로, 복잡하고 긴 작업을 한 흐름에서 처리하도록 설계됐다. Google은 출력 한도를 기존 64K에서 100만 토큰으로 늘렸고 코딩, 전문 지식 업무, 멀티모달 분석과 방어적 사이버 보안을 주요 용도로 제시했다."
+        "title": "발표에서 확인된 것",
+        "body": "Google은 9월 30일 Gemini 4 Argon을 공개하며 복잡하고 긴 작업에서 추론을 지속하는 프런티어 모델이라고 설명했다. 100만 토큰 규모의 컨텍스트를 핵심 사양으로 제시했고, 소프트웨어 엔지니어링·법률 및 금융 리서치·방어적 사이버 보안을 대표 사용처로 들었다."
       },
       {
-        "title": "개발자에게 왜 중요한가",
-        "body": "긴 코드 변경이나 여러 단계 에이전트 작업에서 모델이 중간 상태를 자주 끊지 않고 더 긴 실행 궤적을 유지하려는 방향이 분명해졌다. 모델 경쟁이 단순 응답 품질뿐 아니라 장시간 작업을 얼마나 안정적으로 이어가느냐로 이동하고 있다는 신호다."
+        "title": "‘긴 컨텍스트’보다 중요한 변화",
+        "body": "100만 토큰 자체보다 주목할 부분은 모델을 긴 실행 단위에 투입하는 방식이다. Google은 내부에서 대규모 C/C++→Rust 마이그레이션, 메모리 최적화 탐색, 반복적인 프로파일 기반 실험처럼 한 번의 답으로 끝나지 않는 작업에 Argon 에이전트를 쓰고 있다고 밝혔다. 즉 문서를 많이 넣는 능력보다 여러 단계의 상태를 유지하며 작업을 이어가는 방향에 초점이 있다."
       },
       {
-        "title": "직접 써볼 때 알아둘 점",
-        "body": "현재 일반 개발자가 바로 사용할 수 있는 공개 API 상태는 아니다. Google은 Fairwind의 신뢰된 사이버 방어자부터 접근을 열고 이후 유료 API 고객과 Google AI Ultra 이용자로 확대할 계획이라고 밝혔으므로, 실제 사용 가능 여부를 확인한 뒤 도입을 판단해야 한다."
+        "title": "현재 누가 쓸 수 있나",
+        "body": "일반 개발자 전체에게 즉시 열린 API 출시는 아니다. Google은 Fairwind Program에 참여하는 신뢰된 사이버 방어 조직에 먼저 제공하고, 사전 안전성 검토와 피드백을 거쳐 개발자·기업·소비자 접근을 확대하겠다고 밝혔다. 도입 검토 시 ‘모델이 발표됐다’와 ‘내 계정에서 사용할 수 있다’를 구분해야 한다."
+      },
+      {
+        "title": "가격과 판단 포인트",
+        "body": "Google은 정식 확대 시점의 도입 가격으로 입력 100만 토큰당 2달러, 출력 10달러, 캐시 입력 95% 할인을 예고했다. 다만 실제 비용은 장기 에이전트가 수행하는 반복 호출·도구 사용·검증 횟수에 크게 좌우된다. 공개 확대 뒤에는 단일 벤치마크보다 실제 코드베이스에서 완료율과 재시도 횟수, 총 비용을 함께 비교하는 편이 유효하다."
       }
     ],
     "sources": [
@@ -277,6 +398,16 @@
         "name": "Google — Gemini 4 Argon",
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
       }
+    ],
+    "status": "Limited rollout",
+    "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/g4_30-09-26_key-art_blog.width-200.format-webp.webp",
+    "imageAlt": "Gemini 4 Argon 공식 키아트",
+    "imageCredit": "Google",
+    "editorNote": "Argon은 지금 당장 누구나 API 키로 호출할 수 있는 모델이 아니다. 그래서 벤치마크보다 중요한 정보는 접근 범위와 Google이 실제 내부 장기 작업에 어떻게 쓰고 있는지다. 대규모 코드 마이그레이션과 보안 작업을 모델 한 번의 응답이 아니라 긴 실행 궤적으로 다루는 방향이 더 뚜렷해졌다.",
+    "keyPoints": [
+      "공식 설명 기준 100만 토큰 컨텍스트를 지원한다.",
+      "코딩·기업 지식 업무·방어적 사이버 보안을 장기 작업 사례로 제시한다.",
+      "초기 가격은 입력 $2·출력 $10/100만 토큰으로 예고됐지만 일반 공개 전 단계다."
     ]
   },
   {
@@ -311,6 +442,16 @@
         "name": "GitHub Changelog — HydraFusion in VS Code and the GitHub Copilot app",
         "url": "https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/"
       }
+    ],
+    "status": "Research preview",
+    "image": "https://github.blog/wp-content/themes/github-2021-child/assets/img/featured-v3-new-releases.svg",
+    "imageAlt": "GitHub Copilot 새 기능 발표 그래픽",
+    "imageCredit": "GitHub",
+    "editorNote": "HydraFusion은 ‘가장 좋은 모델 하나’를 고르는 문제를 런타임이 해결하려는 시도다. 요청마다 Single·Cascade·Critique 흐름을 달리 쓰기 때문에, 앞으로 코딩 도구의 차별점이 모델 목록보다 모델을 조합하고 검증하는 오케스트레이션으로 이동할 가능성을 보여준다.",
+    "keyPoints": [
+      "한 요청 안에서 여러 모델을 조합할 수 있다.",
+      "Single·Cascade·Critique 실행 흐름을 작업에 맞게 선택한다.",
+      "VS Code와 Copilot 앱으로 연구 프리뷰 범위가 확대됐다."
     ]
   },
   {
@@ -349,6 +490,16 @@
         "name": "OpenAI — DevDay 2026 Recap",
         "url": "https://openai.com/index/devday-2026-recap/"
       }
+    ],
+    "status": "Rolling out",
+    "image": "https://images.ctfassets.net/kftzwdyauwt9/KKSjto3MtJguvsLQsM1Bp/1704a6937d22b1bb3cac38dc5f43f9df/dots-o.svg",
+    "imageAlt": "OpenAI dots 공식 그래픽",
+    "imageCredit": "OpenAI",
+    "editorNote": "Dots를 단순한 ‘더 똑똑한 챗봇’으로 보면 핵심을 놓친다. 독립 클라우드 컴퓨터·고유 권한·지속 작업을 기본 단위로 둔다는 점에서 제품의 중심이 대화 세션에서 책임 단위로 이동했다. 실제 활용에서는 능력보다 어떤 앱을 연결하고 어떤 행동을 사전 승인할지 정하는 운영 설계가 더 중요해진다.",
+    "keyPoints": [
+      "GPT-6 Astra 기반의 상시 작동 에이전트다.",
+      "자체 클라우드 컴퓨터와 브라우저를 갖고 여러 프로젝트를 이어서 수행한다.",
+      "OpenAI는 플러그인 생태계를 통해 4,000개 이상 앱 연결을 설명하고 있다."
     ]
   },
   {
@@ -387,6 +538,15 @@
         "name": "OpenAI — DevDay 2026 Recap",
         "url": "https://openai.com/index/devday-2026-recap/"
       }
+    ],
+    "status": "Available",
+    "imageAlt": "GPT-6.1 Sol 공식 발표 페이지",
+    "imageCredit": "OpenAI",
+    "editorNote": "GPT‑6.1 Sol의 포지션은 ‘최고 성능’보다 ‘긴 에이전트 작업을 감당할 비용대’에 가깝다. 공식 API 문서 기준 105만 컨텍스트와 12.8만 최대 출력, 여러 reasoning effort를 지원한다. 모델 비교 시 토큰 단가만 보지 말고 한 작업이 끝날 때까지의 재시도와 도구 호출까지 합친 총비용을 보는 게 맞다.",
+    "keyPoints": [
+      "API 문서 기준 1,050,000 컨텍스트와 128,000 최대 출력 토큰을 지원한다.",
+      "코딩·컴퓨터 사용·전문 업무를 비용 효율 중심으로 겨냥한다.",
+      "Responses API에서 도구 호출을 지원하고 reasoning effort를 조절할 수 있다."
     ]
   }
 ]
