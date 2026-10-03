@@ -1,0 +1,20 @@
+{
+  "mascot": {
+    "credit": "BlueBWorks, AI-generated character artwork",
+    "decorative": true
+  },
+  "images": [
+    {
+      "name": "earth-night.jpg",
+      "url": "https://www.nasa.gov/wp-content/uploads/2026/09/55534901810-95d2f06788-o.jpg",
+      "credit": "NASA / Jessica Meir",
+      "source": "https://www.nasa.gov/image-article/space-station-view-of-earth-at-night/"
+    },
+    {
+      "name": "microsoft-audio-official.png",
+      "url": "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/4VUQPah80J1WYBwplwXQjh/341d68a8100d89550907348d511d49db/image__111_.png",
+      "credit": "Vercel",
+      "source": "https://vercel.com/changelog/microsoft-ai-models-are-now-available-on-ai-gateway"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "baseUrl": "https://blue-b.github.io/BlueBWorks",
+  "siteName": "BlueBWorks AI Radar",
+  "shortName": "BlueBWorks",
+  "tagline": "AI, 직접 써보기 전에",
+  "description": "모델, 개발 도구, 오픈소스의 사용 조건과 실제 차이를 공식 출처 중심으로 정리하는 BlueBWorks AI Radar.",
+  "language": "ko-KR",
+  "byline": "AI-assisted BlueBWorks",
+  "repoUrl": "https://github.com/Blue-B/BlueBWorks",
+  "issuesUrl": "https://github.com/Blue-B/BlueBWorks/issues",
+  "rssTitle": "BlueBWorks AI Radar",
+  "resources": [
+    {
+      "name": "OpenAI 플랫폼 문서",
+      "url": "https://platform.openai.com/docs",
+      "description": "모델, API, 가격, 사용 제한을 확인하는 공식 문서.",
+      "type": "공식 문서"
+    },
+    {
+      "name": "Anthropic 개발자 문서",
+      "url": "https://docs.anthropic.com",
+      "description": "Claude 모델과 API, 도구 사용 규칙의 원문.",
+      "type": "공식 문서"
+    },
+    {
+      "name": "Google AI for Developers",
+      "url": "https://ai.google.dev",
+      "description": "Gemini 모델과 API의 공식 안내.",
+      "type": "공식 문서"
+    },
+    {
+      "name": "GitHub Changelog",
+      "url": "https://github.blog/changelog/",
+      "description": "Copilot과 GitHub 플랫폼 변경의 원문 기록.",
+      "type": "변경 기록"
+    },
+    {
+      "name": "Cloudflare 블로그",
+      "url": "https://blog.cloudflare.com/",
+      "description": "Workers, R2, AI 제품 발표와 기술 설명.",
+      "type": "공식 블로그"
+    },
+    {
+      "name": "Hugging Face Models",
+      "url": "https://huggingface.co/models",
+      "description": "모델 카드와 라이선스, 실제 배포 형태를 확인하는 곳.",
+      "type": "모델 저장소"
+    },
+    {
+      "name": "Vercel Changelog",
+      "url": "https://vercel.com/changelog",
+      "description": "배포 플랫폼과 AI Gateway 변경 기록.",
+      "type": "변경 기록"
+    }
+  ]
+}

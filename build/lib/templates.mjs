@@ -1,0 +1,950 @@
+import {
+  assetHref,
+  escapeHtml,
+  hostnameOf,
+  jsonEmbed,
+  joinUrl,
+  pageHref,
+  readingMinutes,
+  sectionParagraphs,
+  toIso,
+  toRfc822,
+  formatKoreanDate,
+  formatKoreanDateTime,
+  unique,
+} from "./util.mjs";
+import { isIndexable, relatedPosts } from "./data.mjs";
+import { articleCover, articleExtras } from "./rich.mjs";
+
+const esc = escapeHtml;
+
+function svgMark() {
+  return `<svg class="brand-mark" viewBox="0 0 40 34" role="img" aria-label="고양이 귀 로봇 마스코트" focusable="false"><path d="M8 13 5 3l9 6h12l9-6-3 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><rect x="4" y="12" width="32" height="20" rx="7" fill="currentColor"/><circle cx="14" cy="21" r="3.1" fill="#79d2ff"/><circle cx="26" cy="21" r="3.1" fill="#79d2ff"/><path d="M15 27h10" stroke="#0b1224" stroke-width="2.4" stroke-linecap="round"/></svg>`;
+}
+
+function mascotFallbackSvg() {
+  return `<svg class="mascot-fallback-svg" viewBox="0 0 220 260" role="img" aria-label="파란 눈의 고양이 귀 로봇"><ellipse cx="110" cy="248" rx="58" ry="9" fill="rgba(0,0,0,.35)"/><path d="M52 74 40 26l46 28h48l46-28-12 48" fill="#dbe2ef" stroke="#aab6cc" stroke-width="3" stroke-linejoin="round"/><rect x="40" y="66" width="140" height="128" rx="38" fill="#eef2f9" stroke="#aab6cc" stroke-width="3"/><rect x="66" y="104" width="88" height="52" rx="20" fill="#101c3d"/><circle cx="90" cy="130" r="11" fill="#79d2ff"/><circle cx="130" cy="130" r="11" fill="#79d2ff"/><circle cx="86" cy="126" r="3.4" fill="#eaf7ff"/><circle cx="126" cy="126" r="3.4" fill="#eaf7ff"/><path d="M84 176q26 16 52 0" fill="none" stroke="#101c3d" stroke-width="4" stroke-linecap="round"/><path d="M52 58q58 26 116 0" fill="none" stroke="#2f4f97" stroke-width="14" stroke-linecap="round"/><path d="M150 62l10-12 4 14 15 2-12 9 3 15-13-8-13 8 3-15-12-9 15-2z" fill="#7fb0ff"/></svg>`;
+}
+
+function head({
+  config,
+  base,
+  title,
+  description,
+  canonicalPath,
+  ogType = "website",
+  ogImage = "",
+  robots = "",
+  jsonLd = [],
+}) {
+  const canonical = joinUrl(config.baseUrl, canonicalPath);
+  const cards = ogImage
+    ? `<meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="${esc(ogImage)}">`
+    : `<meta name="twitter:card" content="summary">`;
+  const ld = jsonLd
+    .filter(Boolean)
+    .map((entry) => `<script type="application/ld+json">${jsonEmbed(entry)}</script>`)
+    .join("\n    ");
+  return `<!doctype html>
+<html lang="ko" data-base="${esc(base)}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>${esc(title)}</title>
+    <meta name="description" content="${esc(description)}">
+    <link rel="canonical" href="${esc(canonical)}">
+    ${robots ? `<meta name="robots" content="${esc(robots)}">` : ""}
+    <meta property="og:type" content="${esc(ogType)}">
+    <meta property="og:site_name" content="${esc(config.siteName)}">
+    <meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${esc(canonical)}">
+    <meta property="og:locale" content="ko_KR">
+    ${cards}
+    <link rel="icon" href="${assetHref(base, "favicon.svg")}" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="${esc(config.rssTitle)}" href="${pageHref(base, "feed.xml")}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap">
+    <link rel="stylesheet" href="${assetHref(base, "style.css")}">
+    <link rel="stylesheet" href="${assetHref(base, "prototype.css")}">
+    ${ld}
+  </head>`;
+}
+
+function header({ config, base, active }) {
+  const link = (path, label, key) =>
+    `<a href="${pageHref(base, path)}"${active === key ? ' aria-current="page"' : ""}>${esc(label)}</a>`;
+  return `<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="${pageHref(base, "/")}" aria-label="${esc(config.siteName)} 홈">
+        ${svgMark()}
+        <span class="brand-text"><strong>BlueBWorks</strong><span>AI Radar</span></span>
+      </a>
+      <nav class="site-nav" aria-label="주요 메뉴">
+        ${link("/", "레이더", "home")}
+        ${link("articles/", "글 목록", "articles")}
+        ${link("editorial.html", "편집 원칙", "editorial")}
+        ${link("about.html", "소개", "about")}
+      </nav>
+      <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button>
+    </div>
+  </header>`;
+}
+
+function footer({ config, base }) {
+  return `<footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>${esc(config.siteName)}</strong>
+        <p>${esc(config.description)}</p>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="${pageHref(base, "about.html")}">소개</a>
+        <a href="${pageHref(base, "editorial.html")}">편집 원칙</a>
+        <a href="${pageHref(base, "contact.html")}">문의</a>
+        <a href="${pageHref(base, "privacy.html")}">개인정보</a>
+        <a href="${pageHref(base, "feed.xml")}">RSS</a>
+        <a href="${esc(config.repoUrl)}" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <p class="footer-byline wrap">AI 보조로 작성하며, 공식 출처와 확인 시점을 함께 표시합니다. 배경 사진: NASA / Jessica Meir. 캐릭터: AI 생성 일러스트.</p>
+  </footer>`;
+}
+
+function layout({ config, base, active, ...page }) {
+  return `${head({ config, base, ...page })}
+  <body class="${esc(page.bodyClass || "")}">
+  ${header({ config, base, active })}
+  ${page.content}
+  ${footer({ config, base })}
+  <script src="${assetHref(base, "app.js")}" defer></script>
+  </body>
+</html>
+`;
+}
+
+function orgJsonLd(config) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: config.shortName,
+    url: joinUrl(config.baseUrl, "/"),
+    description: config.description,
+    sameAs: [config.repoUrl],
+  };
+}
+
+function websiteJsonLd(config) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: config.siteName,
+    url: joinUrl(config.baseUrl, "/"),
+    description: config.description,
+    inLanguage: "ko-KR",
+    publisher: { "@type": "Organization", name: config.shortName },
+  };
+}
+
+function breadcrumbJsonLd(config, items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: joinUrl(config.baseUrl, item.path),
+    })),
+  };
+}
+
+function sourceHost(post) {
+  return post.sources[0] ? hostnameOf(post.sources[0].url) : "";
+}
+
+function mediaFigure(post, base, { className = "post-media", eager = false } = {}) {
+  if (post.image) {
+    return `<figure class="${className}">
+        <img src="${esc(post.image)}" alt="${esc(post.imageAlt || post.title)}"${eager ? "" : ' loading="lazy"'} decoding="async" referrerpolicy="no-referrer">
+        <figcaption><span>${esc(post.imageAlt || "")}</span><cite>${esc(post.imageCredit || sourceHost(post))}</cite></figcaption>
+      </figure>`;
+  }
+  const source = post.sources[0];
+  const name = source ? source.name : "출처 없음";
+  return `<div class="${className} media-source" role="img" aria-label="공식 출처 카드: ${esc(name)}">
+      <p class="media-label">공식 출처</p>
+      <strong>${esc(name)}</strong>
+      ${source ? `<span>${esc(hostnameOf(source.url))}</span>` : ""}
+    </div>`;
+}
+
+function metaRow(post) {
+  return `<p class="meta-row">
+      <span class="meta-cat">${esc(post.category)}</span>
+      <span>${esc(formatKoreanDate(post.publishedAt))}</span>
+      <span>${readingMinutes(post)}분</span>
+      ${post.status ? `<span>${esc(post.status)}</span>` : ""}
+    </p>`;
+}
+
+function searchText(post) {
+  return unique([
+    post.title,
+    post.summary,
+    post.category,
+    post.status,
+    post.editorNote,
+    ...post.tags,
+    ...post.keyPoints,
+  ])
+    .join(" ")
+    .toLowerCase();
+}
+
+function postCard(post, base, { featured = false } = {}) {
+  const href = pageHref(base, `articles/${post.slug}/`);
+  return `<li class="post-item${featured ? " is-featured" : ""}" data-post-card data-category="${esc(post.category)}" data-search="${esc(searchText(post))}">
+      <a class="post-link" href="${href}">
+        ${mediaFigure(post, base, { className: "post-media", eager: featured })}
+        <div class="post-body">
+          ${metaRow(post)}
+          <h3 class="post-title">${esc(post.title)}</h3>
+          <p class="post-summary">${esc(post.summary)}</p>
+          <p class="post-tags">${post.tags.map((tag) => `<span>${esc(tag)}</span>`).join("")}</p>
+          <span class="post-more">글 읽기</span>
+        </div>
+      </a>
+    </li>`;
+}
+
+function resourceCard(resource) {
+  return `<li class="rail-item">
+      <a class="rail-card" href="${esc(resource.url)}" target="_blank" rel="noopener noreferrer">
+        ${resource.type ? `<span class="rail-type">${esc(resource.type)}</span>` : ""}
+        <strong>${esc(resource.name)}</strong>
+        ${resource.description ? `<span class="rail-desc">${esc(resource.description)}</span>` : ""}
+        <span class="rail-host">${esc(hostnameOf(resource.url))}</span>
+      </a>
+    </li>`;
+}
+
+function mascotNotes(config, base) {
+  return `<div class="mascot-notes" id="mascot-notes" hidden>
+      <div class="mascot-notes-head">
+        <strong>사이트 사용 팁</strong>
+        <button type="button" class="notes-close" data-notes-close aria-label="팁 닫기">닫기</button>
+      </div>
+      <p class="notes-intro">이 로봇은 화면 안내를 맡습니다. 대화형 AI가 아니고, 질문에 답하지 않습니다.</p>
+      <ul>
+        <li>레이더에서 카테고리 버튼과 검색창으로 글을 좁힐 수 있습니다.</li>
+        <li>글의 <strong>확인</strong> 시각과 <strong>확인한 출처</strong>를 함께 보면 발표와 실제 사용 가능 상태를 구분하기 쉽습니다.</li>
+        <li>화면 오른쪽 위 <strong>동작 줄이기</strong>로 애니메이션과 별 움직임을 끌 수 있습니다. 브라우저 설정도 함께 반영합니다.</li>
+        <li>각 글의 <strong>링크 복사</strong>로 주소를 공유할 수 있습니다.</li>
+        <li>오류 제보는 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 받습니다.</li>
+      </ul>
+    </div>`;
+}
+
+export function renderHome({ config, base, posts, generatedAt, heroImageUrl = "" }) {
+  const indexable = posts.filter(isIndexable);
+  const categories = unique(indexable.map((post) => post.category));
+  const [featured, ...rest] = indexable;
+  const heroImage = heroImageUrl;
+  const mascotNotesHtml = mascotNotes(config, base);
+  const listItems = [
+    ...(featured ? [postCard(featured, base, { featured: true })] : []),
+    ...rest.map((post) => postCard(post, base)),
+  ].join("\n      ");
+
+  const content = `<main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <img class="hero-photo" src="${assetHref(base, "earth-night.jpg")}" alt="" onerror="this.closest('.hero-bg').classList.add('no-photo')">
+        <span class="hero-stars"></span>
+        <span class="hero-horizon"></span>
+      </div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="hero-kicker">${esc(config.siteName)}</p>
+          <h1 id="hero-title">AI, 직접 써보기 전에.</h1>
+          <p class="hero-lead">모델·개발 도구·오픈소스의 사용 조건과 실제 차이를 정리합니다.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#radar">최신 글 보기</a>
+            <a class="btn btn-ghost" href="${pageHref(base, "editorial.html")}">편집 원칙</a>
+          </div>
+        </div>
+        <div class="hero-scene" data-parallax>
+          <span class="scene-layer scene-stars" style="--depth:6"></span>
+          <div class="scene-layer scene-mascot" style="--depth:15">
+            <button class="mascot-button" type="button" aria-expanded="false" aria-controls="mascot-notes">
+              <span class="mascot-float">
+                <img class="mascot-img" src="${assetHref(base, "mascot.webp")}" alt="" onerror="this.closest('.hero-scene').classList.add('no-mascot')">
+                ${mascotFallbackSvg()}
+              </span>
+              <span class="mascot-hint">클릭하면 사이트 사용 팁</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    ${mascotNotesHtml}
+
+    <section class="radar wrap" id="radar" aria-labelledby="radar-title">
+      <div class="radar-head">
+        <div>
+          <h2 id="radar-title">레이더</h2>
+          <p class="radar-note">발표 내용부터 실제 사용 조건까지. 관심 있는 주제부터 읽어보세요.</p>
+        </div>
+        <div class="search-field">
+          <label for="post-search">글 검색</label>
+          <input id="post-search" type="search" placeholder="모델, 도구, 태그로 검색" autocomplete="off">
+        </div>
+      </div>
+      <div class="filters" role="group" aria-label="카테고리 필터">
+        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
+        ${categories.map((category) => `<button class="filter" type="button" data-filter="${esc(category)}" aria-pressed="false">${esc(category)}</button>`).join("\n        ")}
+      </div>
+      <p class="list-status" id="list-status" aria-live="polite">글 ${indexable.length}편</p>
+      <ol class="post-list" id="post-list">
+      ${listItems}
+      </ol>
+      <p class="empty-state" id="empty-state" hidden>조건에 맞는 글을 찾지 못했습니다. 검색어를 지우거나 다른 카테고리를 골라 보세요.</p>
+    </section>
+
+    <section class="rail" aria-labelledby="rail-title">
+      <div class="wrap">
+        <div class="rail-head">
+          <h2 id="rail-title">바로 쓰는 자료</h2>
+          <p>원문을 직접 확인할 때 쓰는 공식 페이지입니다. 사이트와 함께 바뀌지 않습니다.</p>
+        </div>
+        <ul class="rail-grid">
+          ${config.resources.map(resourceCard).join("\n          ")}
+        </ul>
+      </div>
+    </section>
+  </main>`;
+
+  return layout({
+    config,
+    base,
+    active: "home",
+    title: `${config.tagline} | ${config.siteName}`,
+    description: config.description,
+    canonicalPath: "/",
+    ogType: "website",
+    ogImage: heroImage,
+    bodyClass: "page-home",
+    content,
+    jsonLd: [websiteJsonLd(config), orgJsonLd(config)],
+    generatedAt,
+  });
+}
+
+function citations(refs, sources) {
+  const valid = refs.filter((ref) => ref >= 1 && ref <= sources.length);
+  if (!valid.length) return "";
+  return `<p class="source-refs">근거 ${valid
+    .map((ref) => `<a href="#source-${ref}">[${ref}]</a>`)
+    .join(" ")}</p>`;
+}
+
+function renderSections(post) {
+  return post.sections
+    .map((section, index) => {
+      const id = `sec-${index + 1}`;
+      const paragraphs = sectionParagraphs(section);
+      const body = paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("\n        ");
+      return `<section class="prose-section" id="${id}">
+        <h2>${esc(section.title)}</h2>
+        ${body}
+        ${articleExtras(section)}
+        ${citations(section.sourceRefs, post.sources)}
+      </section>`;
+    })
+    .join("\n      ");
+}
+
+function renderToc(post) {
+  if (!post.sections.length) return "";
+  return `<details class="toc" open>
+      <summary>이 글의 목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          ${post.sections
+            .map(
+              (section, index) =>
+                `<li><a href="#sec-${index + 1}">${esc(section.title)}</a></li>`,
+            )
+            .join("\n          ")}
+        </ol>
+      </nav>
+    </details>`;
+}
+
+function renderSources(post) {
+  if (!post.sources.length) return "";
+  return `<section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">확인한 출처</h2>
+      <ol>
+        ${post.sources
+          .map(
+            (source, index) => `<li id="source-${index + 1}">
+          <a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">
+            <strong>${esc(source.name)}</strong>
+            <span>${esc(hostnameOf(source.url))}</span>
+          </a>
+        </li>`,
+          )
+          .join("\n        ")}
+      </ol>
+    </section>`;
+}
+
+function renderKeyPoints(post) {
+  if (!post.keyPoints.length) return "";
+  return `<section class="key-points" aria-labelledby="keys-title">
+      <h2 id="keys-title">먼저 볼 것</h2>
+      <ul>
+        ${post.keyPoints.map((point) => `<li>${esc(point)}</li>`).join("\n        ")}
+      </ul>
+    </section>`;
+}
+
+function renderEditorNote(post) {
+  if (!post.editorNote) return "";
+  return `<section class="editor-note">
+      <h2>편집 메모</h2>
+      <p>${esc(post.editorNote)}</p>
+    </section>`;
+}
+
+function renderCorrections(post) {
+  if (!post.corrections.length) return "";
+  return `<section class="corrections" aria-labelledby="corrections-title">
+      <h2 id="corrections-title">정정 기록</h2>
+      <ul>
+        ${post.corrections
+          .map(
+            (entry) => `<li>
+          ${entry.date ? `<time datetime="${esc(entry.date)}">${esc(formatKoreanDate(entry.date))}</time>` : ""}
+          <p>${esc(entry.text)}</p>
+          ${entry.url ? `<a href="${esc(entry.url)}" target="_blank" rel="noopener noreferrer">관련 링크</a>` : ""}
+        </li>`,
+          )
+          .join("\n        ")}
+      </ul>
+    </section>`;
+}
+
+function renderVideos(post) {
+  if (!post.videos.length) return "";
+  return `<section class="videos" aria-labelledby="videos-title">
+      <h2 id="videos-title">영상</h2>
+      ${post.videos
+        .map(
+          (video) => `<div class="video" data-video data-youtube-id="${esc(video.youtubeId)}">
+        <button class="video-load" type="button" data-video-load aria-label="영상 재생: ${esc(video.title || "공식 영상")}">
+          <span class="video-play" aria-hidden="true">재생</span>
+          <span class="video-text">
+            <strong>${esc(video.title || "공식 영상")}</strong>
+            <span>${esc(video.channel || "")}${video.sourceUrl ? ` (${esc(hostnameOf(video.sourceUrl))})` : ""}</span>
+          </span>
+        </button>
+        <p class="video-note">재생하기 전까지는 YouTube에 요청을 보내지 않습니다. 누르면 개인정보 보호 모드로 불러옵니다.</p>
+      </div>`,
+        )
+        .join("\n      ")}
+    </section>`;
+}
+
+function renderRelated(post, posts, base) {
+  const related = relatedPosts(post, posts, 3);
+  if (!related.length) return "";
+  return `<section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">이어 읽기</h2>
+      <ul class="related-list">
+        ${related
+          .map(
+            (item) => `<li>
+          <a href="${pageHref(base, `articles/${item.slug}/`)}">
+            <span class="related-cat">${esc(item.category)}</span>
+            <strong>${esc(item.title)}</strong>
+            <span>${esc(formatKoreanDate(item.publishedAt))}</span>
+          </a>
+        </li>`,
+          )
+          .join("\n        ")}
+      </ul>
+    </section>`;
+}
+
+function renderArticleRail(post, posts, base, config, canonical) {
+  const resources = post.resources.length ? post.resources : config.resources.slice(0, 5);
+  return `<aside class="article-aside aside-right" aria-label="자료와 도구">
+      <div class="rail-panel">
+        <p class="rail-title">${post.resources.length ? "이 글의 자료" : "바로 쓰는 자료"}</p>
+        <ul class="rail-list">
+          ${resources.map(resourceCard).join("\n          ")}
+        </ul>
+        <div class="article-tools">
+          <button type="button" class="copy-link" data-copy-url="${esc(canonical)}">링크 복사</button>
+          <span class="copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </aside>`;
+}
+
+export function renderArticle({ config, base, post, posts, generatedAt, heroImageUrl = "" }) {
+  const canonical = joinUrl(config.baseUrl, `/articles/${post.slug}/`);
+  const indexable = isIndexable(post);
+  const breadcrumb = breadcrumbJsonLd(config, [
+    { name: "홈", path: "/" },
+    { name: "글 목록", path: "/articles/" },
+    { name: post.title, path: `/articles/${post.slug}/` },
+  ]);
+  const imageUrl = post.image || heroImageUrl;
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.summary,
+    url: canonical,
+    mainEntityOfPage: canonical,
+    datePublished: toIso(post.publishedAt),
+    dateModified: toIso(post.verifiedAt || post.publishedAt),
+    author: { "@type": "Organization", name: config.byline },
+    publisher: { "@type": "Organization", name: config.shortName },
+    inLanguage: "ko-KR",
+    articleSection: post.category,
+    keywords: post.tags.join(", "),
+    isAccessibleForFree: true,
+    ...(imageUrl ? { image: imageUrl } : {}),
+  };
+
+  const content = `<main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    ${articleCover(post, base)}
+    ${mascotNotes(config, base)}
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="${pageHref(base, "/")}">홈</a></li>
+          <li><a href="${pageHref(base, "articles/")}">글 목록</a></li>
+          <li aria-current="page">${esc(post.title)}</li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          ${renderToc(post)}
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <p class="article-kicker">
+              <span class="kicker-cat">${esc(post.category)}</span>
+              ${post.status ? `<span class="kicker-status">${esc(post.status)}</span>` : ""}
+            </p>
+            <meta itemprop="headline" content="${esc(post.title)}">
+            <p class="article-dek" itemprop="description">${esc(post.summary)}</p>
+            <p class="article-byline">글 작성: <span>${esc(config.byline)}</span></p>
+            <dl class="article-meta">
+              <div><dt>발표</dt><dd>${esc(formatKoreanDate(post.publishedAt))}</dd></div>
+              <div><dt>확인</dt><dd>${esc(formatKoreanDateTime(post.verifiedAt) || formatKoreanDate(post.publishedAt))}</dd></div>
+              <div><dt>분량</dt><dd>${readingMinutes(post)}분</dd></div>
+            </dl>
+            ${indexable ? "" : `<p class="review-flag">검토 중인 글입니다. 근거와 표현을 다시 확인하고 있으며 검색 노출에서 제외했습니다.</p>`}
+          </header>
+          ${mediaFigure(post, base, { className: "source-media", eager: true })}
+          ${renderKeyPoints(post)}
+          ${renderEditorNote(post)}
+          <div class="article-body" itemprop="articleBody">
+            ${renderSections(post)}
+          </div>
+          ${post.sourceRefs.length ? `<p class="source-refs body-refs">전체 근거 ${post.sourceRefs
+            .filter((ref) => ref >= 1 && ref <= post.sources.length)
+            .map((ref) => `<a href="#source-${ref}">[${ref}]</a>`)
+            .join(" ")}</p>` : ""}
+          ${renderCorrections(post)}
+          ${renderVideos(post)}
+          ${renderSources(post)}
+          ${renderRelated(post, posts, base)}
+          <p class="article-back"><a href="${pageHref(base, "articles/")}">글 목록으로</a></p>
+        </article>
+        ${renderArticleRail(post, posts, base, config, canonical)}
+      </div>
+    </div>
+  </main>`;
+
+  return layout({
+    config,
+    base,
+    active: "articles",
+    title: `${post.title} | ${config.siteName}`,
+    description: post.summary || config.description,
+    canonicalPath: `/articles/${post.slug}/`,
+    ogType: "article",
+    ogImage: imageUrl,
+    robots: indexable ? "" : "noindex,follow",
+    bodyClass: "page-article",
+    content,
+    jsonLd: [articleJsonLd, breadcrumb],
+    generatedAt,
+  });
+}
+
+export function renderArticlesIndex({ config, base, posts, generatedAt }) {
+  const sorted = posts.slice().sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
+  const rows = sorted
+    .map((post) => {
+      const state = isIndexable(post) ? "" : `<span class="archive-flag">검토 중</span>`;
+      return `<li>
+        <a href="${pageHref(base, `articles/${post.slug}/`)}">
+          <span class="archive-cat">${esc(post.category)}</span>
+          <strong>${esc(post.title)}</strong>
+          <span class="archive-date">${esc(formatKoreanDate(post.publishedAt))}</span>
+          ${state}
+        </a>
+      </li>`;
+    })
+    .join("\n        ");
+
+  const content = `<main id="main">
+    <div class="wrap simple-wrap">
+      <header class="simple-head">
+        <h1>글 목록</h1>
+        <p>발표일 기준으로 정리한 전체 글입니다. 검토가 끝나지 않은 글은 표시를 달고 검색 노출에서 제외합니다.</p>
+      </header>
+      <ol class="archive-list">
+        ${rows}
+      </ol>
+    </div>
+  </main>`;
+
+  return layout({
+    config,
+    base,
+    active: "articles",
+    title: `글 목록 | ${config.siteName}`,
+    description: `BlueBWorks AI Radar에 실린 전체 글 목록입니다.`,
+    canonicalPath: "/articles/",
+    ogType: "website",
+    bodyClass: "page-simple",
+    content,
+    jsonLd: [
+      breadcrumbJsonLd(config, [
+        { name: "홈", path: "/" },
+        { name: "글 목록", path: "/articles/" },
+      ]),
+    ],
+    generatedAt,
+  });
+}
+
+function simplePage({ config, base, active, path, heading, lead, body, jsonLd = [] }) {
+  const content = `<main id="main">
+    <div class="wrap simple-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="${pageHref(base, "/")}">홈</a></li>
+          <li aria-current="page">${esc(heading)}</li>
+        </ol>
+      </nav>
+      <article class="simple-body">
+        <header class="simple-head">
+          <h1>${esc(heading)}</h1>
+          <p>${esc(lead)}</p>
+        </header>
+        ${body}
+      </article>
+    </div>
+  </main>`;
+  return layout({
+    config,
+    base,
+    active,
+    title: `${heading} | ${config.siteName}`,
+    description: lead,
+    canonicalPath: path,
+    ogType: "website",
+    bodyClass: "page-simple",
+    content,
+    jsonLd: [
+      ...jsonLd,
+      breadcrumbJsonLd(config, [
+        { name: "홈", path: "/" },
+        { name: heading, path },
+      ]),
+    ],
+  });
+}
+
+export function renderAbout({ config, base, generatedAt }) {
+  const body = `<section>
+        <h2>무엇을 하는 곳인가</h2>
+        <p>BlueBWorks AI Radar는 AI 모델, 개발 도구, 오픈소스 프로젝트의 발표와 변경을 한국어로 정리하는 정적 사이트입니다. 뉴스를 빠르게 옮기는 대신, 공식 원문에서 확인한 사실과 그 사실이 실제 사용에서 무엇을 바꾸는지를 함께 적습니다.</p>
+        <p>모든 글은 정적 HTML로 미리 생성됩니다. 자바스크립트가 없어도 본문과 출처를 읽을 수 있습니다.</p>
+      </section>
+      <section>
+        <h2>누가 쓰는가</h2>
+        <p>글의 바이라인은 <strong>${esc(config.byline)}</strong>입니다. 이 사이트는 사람 편집자 팀을 두지 않으며, 문장은 AI 보조로 작성하고 공개 데이터에 확인 시각과 출처를 함께 남기는 방식으로 운영합니다. 감수자를 따로 두지 않았다는 점을 숨기지 않습니다.</p>
+      </section>
+      <section>
+        <h2>사이트 상태</h2>
+        <ul class="fact-list">
+          <li>운영 형태: 개인 프로젝트, 광고 없음, 후원 없음</li>
+          <li>호스팅: GitHub Pages의 정적 파일</li>
+          <li>구독자 수나 방문자 통계는 이 사이트가 수집하거나 공개하지 않습니다.</li>
+          <li>문의와 오류 제보: <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>마스코트</h2>
+        <p>고양이 귀가 달린 흰색 로봇은 사이트 안내를 맡습니다. 홈 화면에서 로봇을 누르면 검색, 목차, 동작 줄이기 같은 사용 팁이 열립니다. 대화형 AI가 아니고 질문에 답하지 않습니다.</p>
+      </section>`;
+  return simplePage({
+    config,
+    base,
+    active: "about",
+    path: "/about.html",
+    heading: "소개",
+    lead: "공식 출처를 먼저 확인하고, 실제 사용 조건과 한계까지 함께 적는 AI 큐레이션 사이트입니다.",
+    body,
+  });
+}
+
+export function renderEditorial({ config, base }) {
+  const body = `<section>
+        <h2>확인 순서</h2>
+        <p>기업 공식 블로그, 제품 문서, 릴리스 노트, 원 저장소를 1차 근거로 씁니다. 커뮤니티 반응은 맥락을 보는 보조 자료로만 둡니다.</p>
+        <p>글은 사실, 맥락, 실무 영향, 한계 순서로 구성합니다. 추정이나 해석은 사실 문장과 섞지 않고 편집 메모에서 구분합니다.</p>
+      </section>
+      <section>
+        <h2>발표와 사용 가능 구분</h2>
+        <p>공개 발표, 프리뷰, 제한 배포, 일반 제공(GA)을 같은 의미로 쓰지 않습니다. 각 글에는 상태(status)와 확인 시각(verifiedAt)을 따로 적습니다.</p>
+      </section>
+      <section>
+        <h2>수치와 벤치마크</h2>
+        <p>공급자가 자체 측정한 수치는 그 공급자의 측정값이라고 밝힙니다. 도입 판단에는 완료율, 재시도, 지연, 총비용처럼 워크플로 단위 지표를 우선하도록 안내합니다.</p>
+      </section>
+      <section>
+        <h2>이미지</h2>
+        <p>공식 발표의 대표 이미지나 제품 스크린샷을 우선하고, 이미지 출처를 캡션에 적습니다. 공식 이미지를 확보하지 못하면 이미지를 늘리지 않고 출처 카드로 대체합니다. 관계없는 스톡 이미지나 스크린샷 프록시는 쓰지 않습니다.</p>
+      </section>
+      <section>
+        <h2>검토 중인 글</h2>
+        <p>근거가 부족하거나 확인이 끝나지 않은 글은 reviewStatus를 unverified로 두고, 홈 목록과 사이트맵에서 빼며 noindex로 표시합니다. 주소를 아는 사람은 계속 읽을 수 있습니다. 사실 오류를 확인하면 새 글을 더하기 전에 기존 글을 먼저 정정하고 정정 기록을 남깁니다.</p>
+      </section>
+      <section>
+        <h2>영상</h2>
+        <p>공식 출처이고 검증된 영상 정보가 있을 때만 싣습니다. 영상은 누르기 전까지 YouTube에 요청을 보내지 않고, 재생할 때 개인정보 보호 모드(no-cookie)로 불러옵니다. 검증된 영상이 없으면 영상 영역을 만들지 않습니다.</p>
+      </section>
+      <section>
+        <h2>정정 요청</h2>
+        <p>오류는 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 알려 주세요. 확인되면 글의 정정 기록에 날짜와 내용을 남깁니다.</p>
+      </section>`;
+  return simplePage({
+    config,
+    base,
+    active: "editorial",
+    path: "/editorial.html",
+    heading: "편집 원칙",
+    lead: "무엇을 싣고 무엇을 빼는지, 어떤 순서로 확인하는지 정리했습니다.",
+    body,
+  });
+}
+
+export function renderContact({ config, base }) {
+  const body = `<section>
+        <h2>받는 것</h2>
+        <ul class="fact-list">
+          <li>사실 오류와 오래된 상태 정보 제보</li>
+          <li>깨진 링크와 잘못된 출처 제보</li>
+          <li>정정 요청과 근거 자료</li>
+        </ul>
+      </section>
+      <section>
+        <h2>보내는 곳</h2>
+        <p>이 사이트는 별도 이메일 주소를 운영하지 않습니다. 제보는 저장소의 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 보내 주세요. 공개된 이슈라서 근거 링크를 함께 남기기 좋습니다.</p>
+        <p>이슈에는 글 주소, 잘못된 부분, 확인할 수 있는 공식 링크를 적어 주시면 확인이 빠릅니다.</p>
+      </section>
+      <section>
+        <h2>응답 범위</h2>
+        <p>모든 제보에 답을 보장하지는 않습니다. 근거가 확인되면 글을 고치고 정정 기록을 남깁니다. 개인적인 사용법 질문이나 제품 지원 요청은 받지 않습니다.</p>
+      </section>`;
+  return simplePage({
+    config,
+    base,
+    active: "contact",
+    path: "/contact.html",
+    heading: "문의",
+    lead: "오류 제보와 정정 요청은 GitHub 이슈로 받습니다. 별도 이메일은 두지 않습니다.",
+    body,
+  });
+}
+
+export function renderPrivacy({ config, base }) {
+  const body = `<section>
+        <h2>수집하는 것</h2>
+        <p>이 사이트는 회원 가입, 댓글, 로그인 기능이 없고 자체 분석 도구나 광고 스크립트를 넣지 않습니다. 사이트가 직접 쿠키를 설정하지 않습니다.</p>
+      </section>
+      <section>
+        <h2>브라우저에 남는 값</h2>
+        <p>동작 줄이기 설정을 기억하기 위해 브라우저의 로컬 저장소에 값 하나를 저장합니다. 이 값은 서버로 전송되지 않고 브라우저에서 지우면 사라집니다.</p>
+      </section>
+      <section>
+        <h2>외부 요청</h2>
+        <ul class="fact-list">
+          <li>호스팅: GitHub Pages가 접속 기록을 처리합니다. 처리 방식은 GitHub의 정책을 따릅니다.</li>
+          <li>글꼴: 선택적으로 Google Fonts에서 서체를 받습니다. 이때 Google이 접속 IP를 기록할 수 있습니다. 브라우저가 막으면 시스템 글꼴로 표시됩니다.</li>
+          <li>영상: 검증된 공식 영상이 있는 글에서 재생을 누를 때만 YouTube no-cookie 도메인으로 요청을 보냅니다.</li>
+          <li>출처 링크: 각 글의 출처와 자료 링크는 외부 사이트로 이동하며, 그 사이트의 정책이 적용됩니다.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>바뀌면</h2>
+        <p>수집 항목이나 외부 요청이 바뀌면 이 페이지를 먼저 고칩니다. 이 페이지의 내용은 저장소의 공개 기록으로 확인할 수 있습니다.</p>
+      </section>`;
+  return simplePage({
+    config,
+    base,
+    active: "privacy",
+    path: "/privacy.html",
+    heading: "개인정보",
+    lead: "계정도, 자체 분석도, 광고도 두지 않습니다. 실제로 일어나는 외부 요청만 적었습니다.",
+    body,
+  });
+}
+
+export function render404({ config, base }) {
+  const content = `<main id="main">
+    <div class="wrap simple-wrap not-found">
+      <p class="not-found-mark" aria-hidden="true">404</p>
+      <h1>페이지를 찾지 못했습니다.</h1>
+      <p>주소가 바뀌었거나 글이 내려갔을 수 있습니다. 글 목록에서 다시 찾아보세요.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="${pageHref(base, "articles/")}">글 목록 보기</a>
+        <a class="btn btn-ghost" href="${pageHref(base, "/")}">레이더로 돌아가기</a>
+      </div>
+    </div>
+  </main>`;
+  return layout({
+    config,
+    base,
+    active: "",
+    title: `페이지를 찾지 못했습니다 | ${config.siteName}`,
+    description: "요청한 페이지를 찾지 못했습니다.",
+    canonicalPath: "/404.html",
+    ogType: "website",
+    robots: "noindex",
+    bodyClass: "page-simple",
+    content,
+    jsonLd: [],
+  });
+}
+
+// Old post.html?slug= links keep working. The script redirects when it can,
+// and the static list below stays readable when JavaScript is unavailable.
+export function renderPostCompat({ config, base, posts }) {
+  const map = {};
+  for (const post of posts) map[post.slug] = pageHref(base, `articles/${post.slug}/`);
+  const rows = posts
+    .map(
+      (post) => `<li>
+        <a href="${pageHref(base, `articles/${post.slug}/`)}">
+          <strong>${esc(post.title)}</strong>
+          <span>${esc(post.category)}</span>
+        </a>
+      </li>`,
+    )
+    .join("\n        ");
+
+  const content = `<main id="main">
+    <div class="wrap simple-wrap">
+      <article class="simple-body">
+        <header class="simple-head">
+          <h1>글 주소가 바뀌었습니다</h1>
+          <p>예전 주소로 들어오셨습니다. 잠시 뒤 해당 글로 이동합니다. 이동하지 않으면 아래 목록에서 글을 고르세요.</p>
+        </header>
+        <p class="compat-status" id="compat-status" role="status" aria-live="polite"></p>
+        <ol class="archive-list">
+          ${rows}
+        </ol>
+      </article>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var map = ${jsonEmbed(map)};
+      var slug = new URLSearchParams(location.search).get("slug");
+      var target = slug && map[slug];
+      var status = document.getElementById("compat-status");
+      if (target) {
+        if (status) status.textContent = "해당 글로 이동합니다: " + slug;
+        location.replace(target);
+      } else if (status) {
+        status.textContent = "주소에서 글을 찾지 못했습니다. 아래 전체 목록을 확인하세요.";
+      }
+    })();
+  </script>`;
+
+  return layout({
+    config,
+    base,
+    active: "",
+    title: `글 주소 안내 | ${config.siteName}`,
+    description: "예전 글 주소를 새 주소로 연결합니다.",
+    canonicalPath: "/post.html",
+    ogType: "website",
+    robots: "noindex,follow",
+    bodyClass: "page-simple",
+    content,
+    jsonLd: [],
+  });
+}
+
+export function renderFeed({ config, posts }) {
+  const items = posts
+    .filter(isIndexable)
+    .map((post) => {
+      const url = joinUrl(config.baseUrl, `/articles/${post.slug}/`);
+      return `<item>
+      <title>${esc(post.title)}</title>
+      <link>${esc(url)}</link>
+      <guid isPermaLink="true">${esc(url)}</guid>
+      <pubDate>${esc(toRfc822(post.publishedAt))}</pubDate>
+      <category>${esc(post.category)}</category>
+      <description>${esc(post.summary)}</description>
+    </item>`;
+    })
+    .join("\n    ");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>${esc(config.rssTitle)}</title>
+    <link>${esc(joinUrl(config.baseUrl, "/"))}</link>
+    <description>${esc(config.description)}</description>
+    <language>ko-KR</language>
+    <lastBuildDate>${esc(toRfc822(posts[0]?.publishedAt || new Date().toISOString()))}</lastBuildDate>
+    ${items}
+  </channel>
+</rss>
+`;
+}
+
+export function renderSitemap({ config, paths }) {
+  const urls = paths
+    .map((entry) => {
+      const lines = [`    <loc>${esc(joinUrl(config.baseUrl, entry.path))}</loc>`];
+      if (entry.lastmod) lines.push(`    <lastmod>${esc(entry.lastmod)}</lastmod>`);
+      return `  <url>\n${lines.join("\n")}\n  </url>`;
+    })
+    .join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
+`;
+}
