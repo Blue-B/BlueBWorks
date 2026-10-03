@@ -9,7 +9,8 @@
 - `docs/data/posts.json`: 게시물 데이터
 - `docs/feed.xml`: RSS
 - `AUTOMATION.md`: 자동 발행 규칙
+- `vercel.json`: Vercel 정적 배포 설정
 
-GitHub Actions는 사용하지 않습니다. GitHub Pages는 `main /docs`를 게시 소스로 사용합니다.
+GitHub Actions는 사용하지 않습니다. 저장소는 Private으로 유지하고, 예약작업이 `main`에 새 글을 반영하면 연결된 Vercel 프로젝트가 자동으로 다시 배포하는 구조입니다.
 
-예상 Pages 주소: https://blue-b.github.io/BlueBWorks/
+Vercel은 저장소 루트의 `vercel.json`에 따라 `docs/`를 사이트 루트로 배포합니다.
