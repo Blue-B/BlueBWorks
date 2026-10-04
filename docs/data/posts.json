@@ -496,7 +496,7 @@
       }
     ],
     "status": "Rolling out",
-    "image": "https://images.ctfassets.net/kftzwdyauwt9/KKSjto3MtJguvsLQsM1Bp/1704a6937d22b1bb3cac38dc5f43f9df/dots-o.svg",
+    "image": "",
     "imageAlt": "OpenAI dots 공식 그래픽",
     "imageCredit": "OpenAI",
     "editorNote": "Dots를 단순한 ‘더 똑똑한 챗봇’으로 보면 핵심을 놓친다. 독립 클라우드 컴퓨터·고유 권한·지속 작업을 기본 단위로 둔다는 점에서 제품의 중심이 대화 세션에서 책임 단위로 이동했다. 실제 활용에서는 능력보다 어떤 앱을 연결하고 어떤 행동을 사전 승인할지 정하는 운영 설계가 더 중요해진다.",

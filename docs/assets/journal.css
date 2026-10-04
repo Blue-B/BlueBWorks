@@ -299,4 +299,34 @@ html.reduce-motion .mascot-img,html[data-motion=reduced] .mascot-img,body.reduce
 .secondary-story:not(.has-thumb){grid-template-columns:minmax(0,1fr)}
 .journal-posts>li.text-only>a{grid-template-columns:36px minmax(0,1fr) 70px}
 @media(max-width:640px){.journal-posts>li.text-only>a{grid-template-columns:minmax(0,1fr)}.home-intro-line{font-size:21px}.home-mascot,.home-mascot .mascot-img{width:48px}.home-lead{padding-top:22px!important}.home-intro-copy{flex:1}.topic-links{column-gap:12px}.lead-story-copy h1{font-size:28px}}
-@media print{.journal-header,.journal-tools,.home-mascot,.journal-filters,.journal-search{display:none!important}.journal-home,.page-article{background:white!important}.journal-posts>li>a{break-inside:avoid}}
+/* Article media preserves the complete screenshot, not a cropped hero. */
+.page-article .source-media{display:block;margin:0 0 30px;background:transparent;border:0;overflow:visible;aspect-ratio:auto}
+.page-article .source-media>a{display:block}
+.page-article .source-media img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;background:#fff}
+.page-article .source-media figcaption{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;position:static;padding:12px 0;color:var(--j-muted);font-size:12px;line-height:1.7;background:none}
+.page-article .source-media figcaption a{text-decoration:underline;text-underline-offset:3px;white-space:normal}
+.page-article .source-media figcaption span{flex:1 1 240px}
+.page-article .article-figure img{max-width:100%;height:auto;object-fit:contain}
+
+/* Archive rows use the same real media as the article, with no empty placeholder. */
+.archive-list .archive-entry>a{display:grid;grid-template-columns:168px minmax(0,1fr);align-items:center;gap:26px;padding:26px 0}
+.archive-list .archive-entry.text-only>a{grid-template-columns:minmax(0,1fr)}
+.archive-thumb{display:block;width:100%;aspect-ratio:4/3;overflow:hidden;background:#eeeee9}
+.archive-thumb img{display:block;width:100%;height:100%;object-fit:contain}
+/* Narrow UI strips show their action area only in small thumbnails; article images remain complete. */
+.archive-thumb.is-wide img,.journal-thumb.is-wide:not(.lead-thumb)>img{object-fit:cover;object-position:right center;transform:none}
+.archive-copy{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.archive-list .archive-copy strong{font-size:21px;line-height:1.5;word-break:keep-all;overflow-wrap:anywhere}
+.archive-list .archive-copy .archive-cat{width:auto;margin:0;color:var(--j-accent);font-size:12px}
+.archive-list .archive-copy .archive-date{margin:2px 0 0;font-size:12px;white-space:normal}
+.archive-summary{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;font-size:14px;line-height:1.7;color:var(--j-muted)}
+@media(max-width:640px){
+ .archive-list .archive-entry>a{grid-template-columns:96px minmax(0,1fr);gap:16px;padding:22px 0;align-items:start}
+ .archive-list .archive-copy strong{font-size:16.5px;line-height:1.55}
+ .archive-list .archive-copy .archive-cat,.archive-list .archive-copy .archive-date{font-size:11px}
+ .archive-thumb{margin-top:5px;aspect-ratio:1}
+ .archive-summary{font-size:12px}
+ .page-article .source-media figcaption{font-size:11px}
+}
+@media(max-width:360px){.archive-list .archive-entry>a{grid-template-columns:76px minmax(0,1fr);gap:12px}.archive-list .archive-copy strong{font-size:16px}}
+@media print{.journal-header,.journal-tools,.home-mascot,.journal-filters,.journal-search{display:none!important}.journal-home,.page-article{background:white!important}.journal-posts>li>a,.archive-entry{break-inside:avoid}}

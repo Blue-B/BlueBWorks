@@ -18,6 +18,10 @@
   "image": "https://blue-b.github.io/BlueBWorks/assets/microsoft-audio-official.png",
   "imageAlt": "Microsoft 음성 모델을 연결하는 Vercel AI Gateway",
   "imageCredit": "Vercel 공식 자료",
+  "imageWidth": 1600,
+  "imageHeight": 837,
+  "imageSourceUrl": "https://vercel.com/changelog/microsoft-ai-models-are-now-available-on-ai-gateway",
+  "imageCaption": "Vercel AI Gateway 발표에 실린 Microsoft MAI 음성 모델 안내 이미지. 음성 생성과 실시간 전사 모델이 Gateway에 추가된 범위를 보여 준다.",
   "editorNote": "이번 발표만으로 한국어 음성 품질의 우열을 판단할 수는 없다. 확인된 변화는 Microsoft의 음성 생성과 실시간 전사를 Vercel의 인증·사용량 관리 흐름에서 연결할 수 있다는 점이다. 아래에서는 공식 사양과 가격을 먼저 정리하고, 실제 서비스에 붙일 때 필요한 판단은 별도로 설명한다. 직접 성능을 측정한 리뷰가 아니라 공식 문서 기반의 기술 해설이다.",
   "keyPoints": [
     "Voice-2.1은 음성 생성, Flash는 낮은 지연을 목표로 한 음성 생성, Transcribe-2 Streaming은 실시간 음성 인식용이다.",

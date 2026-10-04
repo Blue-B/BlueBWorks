@@ -12,6 +12,10 @@
   "image": "https://blue-b.github.io/BlueBWorks/assets/editorial/claude-mods-blast-radius.png",
   "imageAlt": "Claude Code 공식 Blast Radius 예제가 명령 실행 전에 영향받는 파일과 Proceed·Cancel 선택지를 보여 주는 터미널 화면",
   "imageCredit": "Anthropic · claude.dev 공식 튜토리얼",
+  "imageWidth": 1100,
+  "imageHeight": 811,
+  "imageSourceUrl": "https://claude.dev/blog/getting-started-with-claude-code-mods/",
+  "imageCaption": "claude.dev 공식 튜토리얼의 Blast Radius 예제 화면. 명령을 실행하기 전에 영향받는 파일과 Proceed·Cancel 선택지를 보여 준다.",
   "editorNote": "모드의 필요성은 더 많은 기능을 붙일 수 있느냐보다, 반복해서 확인하던 정보를 작업 화면에 얼마나 가깝게 둘 수 있느냐에 있다. 사용량을 보여 주는 표시 하나와 명령을 막는 보안 장치는 요구하는 검증 수준이 다르다. 처음에는 관찰용 기능으로 범위를 좁히는 편이 구조를 이해하기 쉽다.",
   "keyPoints": [
     "공식 시작 가이드는 Claude Code 2.1.287 이상을 기준으로 한다. 모드는 플러그인 안의 JavaScript·TypeScript 모듈로 배포한다.",

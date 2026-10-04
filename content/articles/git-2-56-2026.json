@@ -8,6 +8,13 @@
   "verifiedAt": "2026-10-04T13:50:04+09:00",
   "status": "Git 2.56.0 released",
   "reviewStatus": "reviewed",
+  "image": "https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-resolve-merge-conflicts.png",
+  "imageAlt": "GitHub 웹 UI에서 merge conflict를 해결할 때 나타나는 Resolve conflicts 버튼 (GitHub 공식 문서 화면)",
+  "imageCredit": "GitHub Docs · CC BY 4.0",
+  "imageWidth": 1668,
+  "imageHeight": 248,
+  "imageSourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github",
+  "imageCaption": "GitHub 공식 문서의 충돌 해결 안내에 나오는 Resolve conflicts 버튼. Git 2.56의 새 git add --resolved CLI 화면이 아니라, 기존 GUI 흐름을 비교하기 위한 문서 화면이다.",
   "tags": [
     "Git",
     "Open Source",
@@ -25,13 +32,35 @@
     {
       "title": "가장 눈에 띄는 사용성 변화는 git add --resolved다",
       "paragraphs": [
-        "merge conflict를 해결할 때 개발자는 파일을 수정한 뒤 Git에게 어떤 경로가 해결됐는지 알려야 한다. 이전에는 git add -u나 git add -A처럼 범위가 넓은 명령을 쓰다가 같은 작업 디렉터리에 있던 unrelated local change까지 stage하는 일이 생길 수 있었다. Git 2.56의 새 git add --resolved는 이 단계를 위해 범위를 좁힌 명령이다.",
-        "이 옵션은 index에서 현재 unmerged인 경로만 본다. 텍스트 파일에 conflict marker가 남아 있으면 대상 경로를 보고하고 stage 자체를 중단한다. 선택한 경로 중 하나라도 marker가 남아 있으면 그 선택 범위 전체를 stage하지 않는 all-or-nothing 동작을 한다. unrelated tracked file은 애초에 후보가 아니므로 merge 전부터 있던 로컬 수정이 함께 올라가는 위험을 줄인다.",
-        "바이너리 충돌이나 삭제 해결처럼 텍스트 marker가 없는 경우는 정상적으로 stage할 수 있고 pathspec으로 검사 범위를 좁힐 수도 있다. 이 기능은 conflict resolution이라는 좁은 단계에 맞춰져 있어서 git add -u 또는 -A와 함께 사용할 수 없다. 팀 문서에서 '충돌 해결 뒤 add -u'를 관행처럼 쓰고 있다면 2.56 이후에는 이 명령으로 바꿀 이유가 생겼다."
+        "브랜치를 합치다가 충돌이 나면 파일을 고치는 것만으로는 끝나지 않는다. 어떤 파일을 해결했는지 Git에도 알려야 한다. 이때 git add -u나 git add -A를 쓰면 충돌과 관계없는 수정까지 다음 커밋에 포함할 수 있다. Git 2.56의 git add --resolved는 충돌을 해결하는 작업에 맞춰 대상을 좁힌 명령이다.",
+        "명령은 Git이 아직 충돌 상태로 기록한 파일만 확인한다. 선택한 파일 중 하나라도 텍스트 충돌 표시가 남아 있으면, 그 파일을 알려 주고 선택 범위 전체를 다음 커밋의 준비 영역에 올리지 않는다. 일부만 처리한 뒤 넘어가는 방식이 아니다. 충돌과 무관한 파일은 처음부터 대상에서 제외되므로 합치기 전부터 작업하던 수정이 섞일 위험을 줄인다.",
+        "바이너리 충돌이나 삭제 해결처럼 텍스트 marker가 없는 경우는 정상적으로 stage할 수 있고 pathspec으로 검사 범위를 좁힐 수도 있다. 이 기능은 conflict resolution이라는 좁은 단계에 맞춰져 있어서 git add -u 또는 -A와 함께 사용할 수 없다. 팀 문서에서 '충돌 해결 뒤 add -u'를 관행처럼 쓰고 있다면 2.56 이후에는 이 명령으로 바꿀 이유가 생겼다.",
+        "웹에서 비슷한 작업을 해 봤다면 아래 화면이 익숙할 수 있다. GitHub에서는 Resolve conflicts로 편집기를 열고, 수정한 파일을 Mark as resolved로 표시한다. 아래 그림은 이 기존 웹 작업의 비교 자료다. 이번에 추가된 git add --resolved는 별도의 명령줄 기능이며, 그림 속 버튼이 새로 생겼다는 뜻은 아니다."
+      ],
+      "figures": [
+        {
+          "src": "https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-mark-as-resolved.png",
+          "alt": "GitHub 웹 UI의 Mark as resolved 버튼 (GitHub 공식 문서 화면)",
+          "caption": "GitHub 웹 편집기에서 충돌을 정리한 뒤 누르는 Mark as resolved 버튼. 기존 GUI 흐름을 보여 주는 공식 문서 화면이며, Git 2.56 CLI의 git add --resolved 실행 화면이 아니다.",
+          "credit": "GitHub Docs · CC BY 4.0",
+          "sourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github",
+          "width": 2148,
+          "height": 418
+        },
+        {
+          "src": "https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-merge-conflict-commit.png",
+          "alt": "충돌을 모두 해결한 뒤 GitHub 웹 UI에서 merge commit을 만드는 화면 (GitHub 공식 문서)",
+          "caption": "모든 충돌을 해결한 뒤 GitHub 웹 UI에서 merge commit을 만드는 단계. 웹 UI의 자동 커밋과 달리 명령줄에서는 git add --resolved로 stage한 뒤 직접 commit한다.",
+          "credit": "GitHub Docs · CC BY 4.0",
+          "sourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github",
+          "width": 2806,
+          "height": 414
+        }
       ],
       "sourceRefs": [
         1,
-        2
+        2,
+        4
       ]
     },
     {
@@ -111,6 +140,11 @@
       "name": "Git BreakingChanges 문서",
       "url": "https://git-scm.com/docs/BreakingChanges",
       "description": "2.56.0에서 별도 breaking change 항목이 추가되지 않았는지 확인한 공식 문서."
+    },
+    {
+      "name": "GitHub Docs · Resolving a merge conflict on GitHub",
+      "url": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github",
+      "description": "GitHub 웹 UI의 Resolve conflicts·Mark as resolved 흐름을 보여 주는 공식 문서. 본문 그림의 원문이며 github/docs 저장소의 CC BY 4.0 조건으로 배포된다."
     }
   ],
   "resources": [
@@ -136,6 +170,12 @@
       "name": "Git 공식 문서",
       "url": "https://git-scm.com/docs",
       "description": "업그레이드 후 새 옵션과 현재 문서를 명령별로 확인.",
+      "type": "문서"
+    },
+    {
+      "name": "GitHub Docs · 충돌 해결 화면",
+      "url": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github",
+      "description": "Resolve conflicts·Mark as resolved 등 기존 GUI 흐름을 보여 주는 공식 문서. 본문 비교 그림의 원문.",
       "type": "문서"
     }
   ],

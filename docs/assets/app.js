@@ -285,7 +285,7 @@
   // Article figures zoom into an accessible dialog. The markup is a normal
   // link to the full-size image, so it keeps working when this never runs.
   var zoomTargets = Array.prototype.slice.call(
-    document.querySelectorAll(".article-figure [data-zoom-image]"),
+    document.querySelectorAll(".article-figure [data-zoom-image], .source-media [data-zoom-image]"),
   );
   var supportsDialog = typeof HTMLDialogElement === "function" && "showModal" in HTMLDialogElement.prototype;
   if (zoomTargets.length && supportsDialog) {

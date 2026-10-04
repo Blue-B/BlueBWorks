@@ -18,7 +18,8 @@ const hasThumbnail = post => Boolean(post.image) && !/mshots|favicon|apple-touch
 function thumbnail(post, base, className = '') {
   const isSnapshot = /s\.wordpress\.com\/mshots|favicon|apple-touch-icon/.test(post.image || '');
   if (post.image && !isSnapshot) {
-    return `<figure class="journal-thumb ${className}"><img src="${esc(post.image)}" alt="${esc(post.imageAlt || post.title)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>`;
+    const dimensions = post.imageWidth && post.imageHeight ? ` width="${post.imageWidth}" height="${post.imageHeight}"` : '';
+    return `<figure class="journal-thumb ${className}${post.imageWidth > post.imageHeight * 3 && post.imageHeight ? ' is-wide' : ''}"><img src="${esc(post.image)}" alt="${esc(post.imageAlt || post.title)}"${dimensions} loading="lazy" decoding="async" referrerpolicy="no-referrer"></figure>`;
   }
   return '';
 }

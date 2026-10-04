@@ -28,7 +28,7 @@ export function articleExtras(section) {
         <img src="${esc(figure.src)}" alt="${esc(figure.alt)}" width="${figure.width}" height="${figure.height}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
-      <figcaption><span>${esc(figure.caption || figure.alt)}</span><a href="${esc(figure.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(figure.credit)} · 원문</a></figcaption>
+      <figcaption><span>${esc(figure.caption || figure.alt)}</span><a href="${esc(figure.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(figure.credit)} · 원문</a>${/CC BY 4\.0/i.test(figure.credit) ? '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">이미지 이용 조건</a>' : ''}</figcaption>
     </figure>`;
   }
   if (section.video) {

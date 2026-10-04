@@ -1,0 +1,91 @@
+{
+  "note": "Media audit for all 15 existing slugs (main ef5f77f). All five newly added images have verified reuse terms; pre-existing media is identified separately and is not represented as newly licensed. Held items link to the original source instead. Sizes are the actual intrinsic pixel sizes measured from the files.",
+  "verifiedSources": [
+    {
+      "source": "github/docs repository (assets, content, data)",
+      "license": "CC BY 4.0 (per github/docs README)",
+      "used": true
+    },
+    {
+      "source": "cloudflare/cloudflare-docs repository",
+      "license": "CC BY 4.0 (per README, trademarks/logos excluded)",
+      "used": false,
+      "reason": "No images exist for ohttp-relay, k2 or clef in the repository (verified with the full git tree), so no reusable Cloudflare Docs diagram was available."
+    },
+    {
+      "source": "blog.cloudflare.com",
+      "license": "Not explicitly reusable (website terms, section 6)",
+      "used": false,
+      "reason": "No new Cloudflare blog images were copied. The two pre-existing quick-tunnels images are retained from the earlier build only, with an honest rights note in site/editorial-media.json."
+    }
+  ],
+  "authoredArticles": [
+    {
+      "slug": "git-2-56-2026",
+      "decision": "added cover + 2 body figures",
+      "media": [
+        {"file": "gh-docs-resolve-merge-conflicts.png", "url": "https://docs.github.com/assets/cb-69649/images/help/pull_requests/resolve-merge-conflicts-button.png", "sourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github", "license": "CC BY 4.0", "width": 1668, "height": 248, "role": "cover"},
+        {"file": "gh-docs-mark-as-resolved.png", "url": "https://docs.github.com/assets/cb-148198/images/help/pull_requests/mark-as-resolved-button.png", "sourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github", "license": "CC BY 4.0", "width": 2148, "height": 418, "role": "figure"},
+        {"file": "gh-docs-merge-conflict-commit.png", "url": "https://docs.github.com/assets/cb-198808/images/help/pull_requests/merge-conflict-commit-changes.png", "sourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github", "license": "CC BY 4.0", "width": 2806, "height": 414, "role": "figure"}
+      ],
+      "caveat": "Captions state these are the existing GitHub web GUI flow, not the new git add --resolved CLI screen."
+    },
+    {
+      "slug": "github-copilot-code-review-api-2026",
+      "decision": "cover metadata added + 2 body figures",
+      "media": [
+        {"file": "copilot-review-settings.jpg", "url": "https://github.blog/wp-content/uploads/2026/10/663343489-d0f10d32-3726-4507-9ede-10407ea30715.jpg?w=1600", "sourceUrl": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level/", "license": "No explicit reuse license (github.blog)", "width": 1600, "height": 840, "role": "cover (kept)"},
+        {"file": "gh-docs-copilot-request-review.png", "url": "https://docs.github.com/assets/cb-22907/images/help/copilot/code-review/request-review@2x.png", "sourceUrl": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review", "license": "CC BY 4.0", "width": 800, "height": 148, "role": "figure"},
+        {"file": "gh-docs-copilot-feedback-controls.png", "url": "https://docs.github.com/assets/cb-19709/images/help/copilot/code-review/feedback-controls@2x.png", "sourceUrl": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review", "license": "CC BY 4.0", "width": 1554, "height": 398, "role": "figure"}
+      ]
+    },
+    {
+      "slug": "claude-code-mods-2026",
+      "decision": "kept existing cover, figure and native video; added cover metadata",
+      "media": [
+        {"file": "claude-mods-blast-radius.png", "sourceUrl": "https://claude.dev/blog/getting-started-with-claude-code-mods/", "license": "No explicit reuse license found on claude.dev", "width": 1100, "height": 811, "role": "cover (kept)"},
+        {"file": "claude-mods-replay-theater.png", "sourceUrl": "https://claude.dev/blog/getting-started-with-claude-code-mods/", "license": "No explicit reuse license found on claude.dev", "width": 840, "height": 1019, "role": "figure (kept)"},
+        {"file": "claude-mods-terminal-demo.mp4", "sourceUrl": "https://claude.dev/blog/getting-started-with-claude-code-mods/", "license": "No explicit reuse license found on claude.dev", "role": "verified native video (kept)"}
+      ],
+      "caveat": "Rights are now recorded honestly; no new claude.dev image was added."
+    },
+    {
+      "slug": "cloudflare-protected-quick-tunnels-2026",
+      "decision": "kept existing cover and body diagram; added cover metadata",
+      "media": [
+        {"file": "cloudflare-protected-tunnels.png", "sourceUrl": "https://blog.cloudflare.com/protected-quick-tunnels/", "license": "Not explicitly reusable (blog.cloudflare.com terms section 6)", "width": 1999, "height": 1125, "role": "cover (kept)"},
+        {"file": "cloudflare-email-flow.png", "sourceUrl": "https://blog.cloudflare.com/protected-quick-tunnels/", "license": "Not explicitly reusable (blog.cloudflare.com terms section 6)", "width": 1999, "height": 983, "role": "figure (kept)"}
+      ],
+      "caveat": "No CC BY 4.0 cloudflare/cloudflare-docs equivalent diagram exists for this topic; images are pre-existing, attributed, and not newly copied."
+    },
+    {
+      "slug": "microsoft-mai-audio-vercel-ai-gateway-2026",
+      "decision": "kept existing cover; added cover metadata",
+      "media": [
+        {"file": "microsoft-audio-official.png", "url": "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/4VUQPah80J1WYBwplwXQjh/341d68a8100d89550907348d511d49db/image__111_.png", "sourceUrl": "https://vercel.com/changelog/microsoft-ai-models-are-now-available-on-ai-gateway", "license": "Vercel official changelog asset; no explicit reuse license stated", "width": 1600, "height": 837, "role": "cover (kept)"}
+      ],
+      "caveat": "The Vercel changelog page contains only this one image; no additional reusable diagram was available."
+    },
+    {
+      "slug": "cloudflare-ohttp-gateway-2026",
+      "decision": "hold (no image); added a link to the original diagram",
+      "heldCandidate": {"url": "https://blog.cloudflare.com/_emdash/api/media/file/01M3XZ8QDSM1TSSYPVFW13B39E.01M3XZ8RDWEX6N8XXP6ZRDY0DK.png", "sourceUrl": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/", "width": 1200, "height": 628, "reason": "Only appears in the Cloudflare blog; reuse/embed permission not stated (website terms section 6) and no CC BY 4.0 equivalent exists in cloudflare/cloudflare-docs."},
+      "articleChange": "A body link now points readers to the original Relay/Gateway diagram instead of copying it."
+    },
+    {
+      "slug": "cloudflare-k2-serverless-event-streams-2026",
+      "decision": "hold (no image)",
+      "reason": "The K2 docs pages in cloudflare/cloudflare-docs contain no diagrams, and the blog images are not reusable. Text and the existing official docs links are kept."
+    }
+  ],
+  "legacyArticles": [
+    {"slug": "github-copilot-dynamic-workflows-2026", "decision": "hold", "reason": "github/docs use-dynamic-workflows.md references no images."},
+    {"slug": "github-copilot-computer-use-2026", "decision": "hold", "reason": "github/docs computer-use pages reference no images."},
+    {"slug": "github-copilot-hydrafusion-vscode-2026", "decision": "hold", "reason": "No HydraFusion docs page or image exists in github/docs."},
+    {"slug": "cloudflare-clef-decision-models-2026", "decision": "hold", "reason": "No clef image exists in cloudflare/cloudflare-docs, and no reusable official product screen was found."},
+    {"slug": "olmo-core-3-moe-training-2026", "decision": "keep existing cover only", "reason": "The allenai/olmo-core repo is Apache-2.0, but its README diagrams lack clear per-image attribution; the existing opengraph social card was left untouched rather than risk an uncertain derivative."},
+    {"slug": "gemini-4-argon-2026", "decision": "hold", "reason": "No official key art with confirmed reuse terms was found."},
+    {"slug": "openai-dots-2026", "decision": "remove oversized logo cover; retain original article links", "reason": "Browser inspection found an 81x81 logo expanded to a 720px article image. It is not an explanatory product screen, so the image field was cleared without changing the article dates or source links."},
+    {"slug": "gpt-6-1-sol-2026", "decision": "hold", "reason": "No official image with confirmed reuse terms was found."}
+  ]
+}

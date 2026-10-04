@@ -5,6 +5,8 @@
     "sourceUrl": "https://claude.dev/blog/getting-started-with-claude-code-mods/",
     "credit": "Anthropic / claude.dev",
     "purpose": "Original tutorial screenshot discussed in the accompanying article",
+    "license": "No explicit reuse license found on claude.dev",
+    "rightsBasis": "Official Anthropic claude.dev tutorial screen. Retained from the earlier build with attribution and a link to the original page; no explicit reuse permission was found in the site terms.",
     "bytes": 116996,
     "sha256": "ac53d89fc2dbe36603c30639b12fdc7edcfba5072b9b417e656a65a2d196cc37"
   },
@@ -14,6 +16,8 @@
     "sourceUrl": "https://claude.dev/blog/getting-started-with-claude-code-mods/",
     "credit": "Anthropic / claude.dev",
     "purpose": "Original tutorial screenshot discussed in the accompanying article",
+    "license": "No explicit reuse license found on claude.dev",
+    "rightsBasis": "Official Anthropic claude.dev tutorial screen. Retained from the earlier build with attribution and a link to the original page; no explicit reuse permission was found in the site terms.",
     "bytes": 94738,
     "sha256": "bb2b908077c752f4e43672b5d5e7b0d262756bf27303d0884634cd142487f996"
   },
@@ -23,6 +27,8 @@
     "sourceUrl": "https://claude.dev/blog/getting-started-with-claude-code-mods/",
     "credit": "Anthropic / claude.dev",
     "purpose": "Original short terminal demonstration, credited and linked to its source; no autoplay",
+    "license": "No explicit reuse license found on claude.dev",
+    "rightsBasis": "Official Anthropic claude.dev tutorial demonstration. Retained from the earlier build with attribution and a link to the original page; no explicit reuse permission was found in the site terms.",
     "bytes": 4489873,
     "sha256": "a4e8983c1c68c9549dbf74a7478c8e2b7932e65d881a978d51a5191e2c7ce5ac"
   },
@@ -32,6 +38,8 @@
     "sourceUrl": "https://blog.cloudflare.com/protected-quick-tunnels/",
     "credit": "Cloudflare",
     "purpose": "Official announcement image accompanying commentary",
+    "license": "Not explicitly licensed for reuse (blog.cloudflare.com website terms, section 6)",
+    "rightsBasis": "Cloudflare blog announcement image. Retained from the earlier build with attribution and a source link because cloudflare/cloudflare-docs has no CC BY 4.0 equivalent diagram for this quick-tunnels topic; no new Cloudflare blog images were copied.",
     "bytes": 298815,
     "sha256": "52b112fdb2c47bec6fa0072be115bdfa102307f06b3e726ed4f55ca34caf30f8"
   },
@@ -41,6 +49,8 @@
     "sourceUrl": "https://blog.cloudflare.com/protected-quick-tunnels/",
     "credit": "Cloudflare",
     "purpose": "Original four-step diagram explained in the article",
+    "license": "Not explicitly licensed for reuse (blog.cloudflare.com website terms, section 6)",
+    "rightsBasis": "Cloudflare blog four-step diagram. Retained from the earlier build with attribution and a source link because cloudflare/cloudflare-docs has no CC BY 4.0 equivalent diagram for this quick-tunnels topic; no new Cloudflare blog images were copied.",
     "bytes": 185261,
     "sha256": "9229e63981905216644560a2f22bede9e2bb8528ccc6835c4a9e5a3c6df4d165"
   },
@@ -50,7 +60,64 @@
     "sourceUrl": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level/",
     "credit": "GitHub Changelog",
     "purpose": "Official settings screenshot discussed in the article",
+    "license": "Not explicitly licensed for reuse (github.blog changelog)",
+    "rightsBasis": "GitHub Changelog announcement screenshot. Retained from the earlier build with attribution. Additional CC BY 4.0 figures from github/docs are added separately for the article body.",
     "bytes": 82210,
     "sha256": "d35b18f695110dbaa3cfa3550d710e3f49706b4bc8b4128e2150a0155e3ce006"
+  },
+  {
+    "file": "gh-docs-resolve-merge-conflicts.png",
+    "url": "https://docs.github.com/assets/cb-69649/images/help/pull_requests/resolve-merge-conflicts-button.png",
+    "sourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github",
+    "credit": "GitHub Docs, CC BY 4.0",
+    "purpose": "Official GitHub Docs screenshot of the Resolve conflicts button, used as the Git 2.56 article cover to contrast the existing GUI flow with the new git add --resolved CLI option",
+    "license": "CC BY 4.0 (github/docs repository: assets, content and data)",
+    "rightsBasis": "github/docs README states the assets, content and data folders are CC BY 4.0. Figure is an official docs screen, reused with attribution and a source link. It is NOT presented as the new git add --resolved screen.",
+    "bytes": 69649,
+    "sha256": "5af80b9d3116c090063d53c6c86882d84ffe04d1dad6ab75d2a81939fbe923e4"
+  },
+  {
+    "file": "gh-docs-mark-as-resolved.png",
+    "url": "https://docs.github.com/assets/cb-148198/images/help/pull_requests/mark-as-resolved-button.png",
+    "sourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github",
+    "credit": "GitHub Docs, CC BY 4.0",
+    "purpose": "Official GitHub Docs screenshot of the Mark as resolved button, used in the Git 2.56 article as comparison material for the existing GitHub web conflict-resolution flow",
+    "license": "CC BY 4.0 (github/docs repository: assets, content and data)",
+    "rightsBasis": "github/docs README states the assets, content and data folders are CC BY 4.0. Figure is an official docs screen, reused with attribution and a source link. It is NOT presented as the new git add --resolved screen.",
+    "bytes": 148198,
+    "sha256": "cfba4431e9f18416d5159328b14bca4c4a367fad870e5d5a7a00948143be52de"
+  },
+  {
+    "file": "gh-docs-merge-conflict-commit.png",
+    "url": "https://docs.github.com/assets/cb-198808/images/help/pull_requests/merge-conflict-commit-changes.png",
+    "sourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-on-github",
+    "credit": "GitHub Docs, CC BY 4.0",
+    "purpose": "Official GitHub Docs screenshot of the merge-commit step after resolving conflicts, used in the Git 2.56 article as comparison material for the existing GitHub web flow",
+    "license": "CC BY 4.0 (github/docs repository: assets, content and data)",
+    "rightsBasis": "github/docs README states the assets, content and data folders are CC BY 4.0. Figure is an official docs screen, reused with attribution and a source link. It is NOT presented as the new git add --resolved screen.",
+    "bytes": 198808,
+    "sha256": "6ec59d1dbce9be8512a3a00c196f0c6c5a20e043a694f7a08ef62694c7d061a1"
+  },
+  {
+    "file": "gh-docs-copilot-request-review.png",
+    "url": "https://docs.github.com/assets/cb-22907/images/help/copilot/code-review/request-review@2x.png",
+    "sourceUrl": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review",
+    "credit": "GitHub Docs, CC BY 4.0",
+    "purpose": "Official GitHub Docs screenshot of requesting a Copilot code review, used in the Copilot code review article to show where a review request is created",
+    "license": "CC BY 4.0 (github/docs repository: assets, content and data)",
+    "rightsBasis": "github/docs README states the assets, content and data folders are CC BY 4.0. Figure is an official docs screen, reused with attribution and a source link.",
+    "bytes": 22907,
+    "sha256": "e0d004054113b9582a7f2a44768dfe566b500283d3635db4558f4ec843d79f1b"
+  },
+  {
+    "file": "gh-docs-copilot-feedback-controls.png",
+    "url": "https://docs.github.com/assets/cb-19709/images/help/copilot/code-review/feedback-controls@2x.png",
+    "sourceUrl": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review",
+    "credit": "GitHub Docs, CC BY 4.0",
+    "purpose": "Official GitHub Docs screenshot of Copilot review feedback controls, used in the Copilot code review article to explain how resolved or downvoted comments behave",
+    "license": "CC BY 4.0 (github/docs repository: assets, content and data)",
+    "rightsBasis": "github/docs README states the assets, content and data folders are CC BY 4.0. Figure is an official docs screen, reused with attribution and a source link.",
+    "bytes": 19709,
+    "sha256": "ed8d23bbc3d5f6d293643ff0a4097c3014457c924776039a54381c94321c8505"
   }
 ]

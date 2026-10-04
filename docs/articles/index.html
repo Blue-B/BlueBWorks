@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap">
     <link rel="stylesheet" href="/BlueBWorks/assets/style.css">
     <link rel="stylesheet" href="/BlueBWorks/assets/prototype.css?v=journal3">
-    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=reading4">
+    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=media5">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"}]}</script>
   </head>
   <body class="page-simple">
@@ -34,7 +34,7 @@
     <div class="wrap simple-wrap" data-filter-scope>
       <header class="simple-head">
         <h1>글 목록</h1>
-        <p>발표일 기준으로 정리한 전체 글입니다. 검토가 끝나지 않은 글은 표시를 달고 검색 노출에서 제외합니다.</p>
+        <p>블로그 게시일순으로 정리한 전체 글입니다. 소식의 발표일과 자료 출처는 각 글에서 확인할 수 있습니다.</p>
       </header>
       <section class="archive-search" id="archive-search" aria-label="글 검색과 분류">
         <div class="search-field">
@@ -53,124 +53,184 @@
         <p class="list-status" data-list-status aria-live="polite">글 15편</p>
       </section>
       <ol class="archive-list" data-post-list>
-        <li data-post-card data-category="보안·인프라" data-search="cloudflare ohttp gateway 공개: ip 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다 cloudflare가 ohttp의 암복호화 지점을 직접 운영하는 ohttp gateway를 closed beta로 공개했다. 기존 relay와 역할을 나누면서, cloudflare 뒤에 있는 앱도 제3자 relay를 통해 ohttp를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 relay 운영이 여전히 필요하다. 보안·인프라 closed beta · 유료 add-on 출시 예정 이번 발표의 핵심은 새 프록시 하나가 추가됐다는 데 있지 않다. relay와 gateway를 서로 다른 주체가 맡아야 하는 ohttp의 신뢰 분리를 cloudflare 사용자가 실제 배포 구조 안에서 선택할 수 있게 됐다는 점이 중요하다. 다만 closed beta이고 숫자로 공개된 가격도 아직 없기 때문에, 당장 일반적인 cdn 기능처럼 쓸 수 있다고 해석하면 안 된다. cloudflare ohttp privacy http 보안 인프라 새 ohttp gateway는 cloudflare zone의 /.well-known/ohttp-gateway에서 암호화된 요청을 받아 복호화하고 앱 서버로 넘긴다. cloudflare ohttp relay와 gateway를 동시에 cloudflare가 맡아 신뢰 분리를 깨지 않도록, gateway는 cloudflare workers나 cloudflare 프록시 호스트에서 온 요청의 복호화를 거부하도록 설계됐다. 현재 closed beta이며 향후 zone의 유료 add-on으로 제공될 예정이다. 공식 발표에는 구체적인 숫자 가격이 공개되지 않았다.">
+        <li class="archive-entry text-only" data-post-card data-category="보안·인프라" data-search="cloudflare ohttp gateway 공개: ip 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다 cloudflare가 ohttp의 암복호화 지점을 직접 운영하는 ohttp gateway를 closed beta로 공개했다. 기존 relay와 역할을 나누면서, cloudflare 뒤에 있는 앱도 제3자 relay를 통해 ohttp를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 relay 운영이 여전히 필요하다. 보안·인프라 closed beta · 유료 add-on 출시 예정 이번 발표의 핵심은 새 프록시 하나가 추가됐다는 데 있지 않다. relay와 gateway를 서로 다른 주체가 맡아야 하는 ohttp의 신뢰 분리를 cloudflare 사용자가 실제 배포 구조 안에서 선택할 수 있게 됐다는 점이 중요하다. 다만 closed beta이고 숫자로 공개된 가격도 아직 없기 때문에, 당장 일반적인 cdn 기능처럼 쓸 수 있다고 해석하면 안 된다. cloudflare ohttp privacy http 보안 인프라 새 ohttp gateway는 cloudflare zone의 /.well-known/ohttp-gateway에서 암호화된 요청을 받아 복호화하고 앱 서버로 넘긴다. cloudflare ohttp relay와 gateway를 동시에 cloudflare가 맡아 신뢰 분리를 깨지 않도록, gateway는 cloudflare workers나 cloudflare 프록시 호스트에서 온 요청의 복호화를 거부하도록 설계됐다. 현재 closed beta이며 향후 zone의 유료 add-on으로 제공될 예정이다. 공식 발표에는 구체적인 숫자 가격이 공개되지 않았다.">
         <a href="/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/">
-          <span class="archive-cat">보안·인프라</span>
-          <strong>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</strong>
-          <span class="archive-date">게시 2026년 10월 4일</span>
 
+          <div class="archive-copy">
+            <span class="archive-cat">보안·인프라</span>
+            <strong>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</strong>
+            <span class="archive-summary">Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 Relay 운영이 여전히 필요하다.</span>
+            <span class="archive-date">게시 2026년 10월 4일</span>
+
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="오픈소스·개발도구" data-search="git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다 git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다. 오픈소스·개발도구 git 2.56.0 released ai 코딩 도구가 주목받는 시기에도 실제 변경 이력과 대형 저장소 성능의 바닥에는 git이 있다. 2.56은 겉보기에는 점진적 릴리스지만, 충돌 해결 중 실수로 unrelated change를 stage하는 문제와 대형 저장소의 특정 o(n²) 병목처럼 오래 쌓인 마찰을 줄이는 변화가 많다. 성능 수치는 github와 git 프로젝트가 제시한 특정 저장소·테스트 결과이므로 모든 저장소의 속도 향상으로 일반화하지 않는다. git open source version control 개발도구 monorepo 새 git add --resolved는 현재 unmerged 상태인 경로만 대상으로 하고 남은 conflict marker가 있으면 아무 것도 stage하지 않는다. merge-base 탐색과 reftable, working-tree diff 등 여러 내부 경로에서 큰 저장소의 비효율을 줄였다. 일부 공개 벤치마크는 수십 배 이상 차이를 보이지만 환경별 결과는 달라질 수 있다. git branch --delete-merged, git bisect --reset-when-found, git refs 하위 명령, partial clone의 --drop-filtered 등 운영·정리 작업도 확장됐다.">
+        <li class="archive-entry has-thumb" data-post-card data-category="오픈소스·개발도구" data-search="git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다 git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다. 오픈소스·개발도구 git 2.56.0 released ai 코딩 도구가 주목받는 시기에도 실제 변경 이력과 대형 저장소 성능의 바닥에는 git이 있다. 2.56은 겉보기에는 점진적 릴리스지만, 충돌 해결 중 실수로 unrelated change를 stage하는 문제와 대형 저장소의 특정 o(n²) 병목처럼 오래 쌓인 마찰을 줄이는 변화가 많다. 성능 수치는 github와 git 프로젝트가 제시한 특정 저장소·테스트 결과이므로 모든 저장소의 속도 향상으로 일반화하지 않는다. git open source version control 개발도구 monorepo 새 git add --resolved는 현재 unmerged 상태인 경로만 대상으로 하고 남은 conflict marker가 있으면 아무 것도 stage하지 않는다. merge-base 탐색과 reftable, working-tree diff 등 여러 내부 경로에서 큰 저장소의 비효율을 줄였다. 일부 공개 벤치마크는 수십 배 이상 차이를 보이지만 환경별 결과는 달라질 수 있다. git branch --delete-merged, git bisect --reset-when-found, git refs 하위 명령, partial clone의 --drop-filtered 등 운영·정리 작업도 확장됐다.">
         <a href="/BlueBWorks/articles/git-2-56-2026/">
-          <span class="archive-cat">오픈소스·개발도구</span>
-          <strong>Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다</strong>
-          <span class="archive-date">게시 2026년 10월 4일</span>
+          <span class="archive-thumb is-wide"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-resolve-merge-conflicts.png" alt="GitHub 웹 UI에서 merge conflict를 해결할 때 나타나는 Resolve conflicts 버튼 (GitHub 공식 문서 화면)" width="1668" height="248" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">오픈소스·개발도구</span>
+            <strong>Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다</strong>
+            <span class="archive-summary">Git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다.</span>
+            <span class="archive-date">게시 2026년 10월 4일</span>
 
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="개발도구" data-search="로컬 앱 공유 링크에 이메일 잠금이 생겼다: protected quick tunnels cloudflare quick tunnels에 이메일 인증이 추가됐다. 계정이나 도메인 없이 개발 중인 앱을 공유하되, 지정한 사람만 접속하게 할 수 있다. 다만 임시 링크라는 성격과 스트리밍·자동 호출의 제약까지 달라진 것은 아니다. 개발도구 제공 중 · 개발·테스트용 휴대전화에서 개발 화면을 확인하거나 고객에게 짧게 시연할 때는 유용한 변화다. 반면 검색으로 방문자를 모을 블로그의 배포 수단으로 고르기에는 맞지 않는다. 이메일 잠금은 방문자 범위를 정하는 기능이고, 상시 운영은 여전히 별도의 문제다. cloudflare quick tunnels 개발 환경 접근 제어 cloudflared 2026.9.3부터 --allowed-mail로 접속 가능한 이메일을 지정할 수 있다. 공개 링크가 기본이므로 옵션을 빼면 보호되지 않는다. 초대한 사람은 이메일로 받은 일회용 pin으로 접속한다. 링크를 만드는 쪽과 방문하는 쪽 모두 cloudflare 계정이 없어도 된다. quick tunnel은 개발·테스트용이다. 실행을 끝내면 접속도 끝나며, 고정 주소·가동 시간 보장·sse를 제공하지 않는다.">
+        <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="로컬 앱 공유 링크에 이메일 잠금이 생겼다: protected quick tunnels cloudflare quick tunnels에 이메일 인증이 추가됐다. 계정이나 도메인 없이 개발 중인 앱을 공유하되, 지정한 사람만 접속하게 할 수 있다. 다만 임시 링크라는 성격과 스트리밍·자동 호출의 제약까지 달라진 것은 아니다. 개발도구 제공 중 · 개발·테스트용 휴대전화에서 개발 화면을 확인하거나 고객에게 짧게 시연할 때는 유용한 변화다. 반면 검색으로 방문자를 모을 블로그의 배포 수단으로 고르기에는 맞지 않는다. 이메일 잠금은 방문자 범위를 정하는 기능이고, 상시 운영은 여전히 별도의 문제다. cloudflare quick tunnels 개발 환경 접근 제어 cloudflared 2026.9.3부터 --allowed-mail로 접속 가능한 이메일을 지정할 수 있다. 공개 링크가 기본이므로 옵션을 빼면 보호되지 않는다. 초대한 사람은 이메일로 받은 일회용 pin으로 접속한다. 링크를 만드는 쪽과 방문하는 쪽 모두 cloudflare 계정이 없어도 된다. quick tunnel은 개발·테스트용이다. 실행을 끝내면 접속도 끝나며, 고정 주소·가동 시간 보장·sse를 제공하지 않는다.">
         <a href="/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/">
-          <span class="archive-cat">개발도구</span>
-          <strong>로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels</strong>
-          <span class="archive-date">게시 2026년 10월 4일</span>
+          <span class="archive-thumb"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-protected-tunnels.png" alt="Cloudflare의 Protected Quick Tunnels 공식 발표 이미지" width="1999" height="1125" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels</strong>
+            <span class="archive-summary">Cloudflare Quick Tunnels에 이메일 인증이 추가됐다. 계정이나 도메인 없이 개발 중인 앱을 공유하되, 지정한 사람만 접속하게 할 수 있다. 다만 임시 링크라는 성격과 스트리밍·자동 호출의 제약까지 달라진 것은 아니다.</span>
+            <span class="archive-date">게시 2026년 10월 4일</span>
 
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="개발도구" data-search="copilot 코드 리뷰를 api로 부를 때 달라지는 설정과 비용 github가 copilot 코드 리뷰의 rest·graphql 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다. 개발도구 api 정식 제공 · 자동 승인은 별도 프리뷰 api가 생겼다는 사실보다 팀에서 리뷰를 언제 요청할지 정하는 일이 먼저다. 빌드 성공, 사람 리뷰 요청, 병합 승인 중 어느 단계에 붙일지 구분하면 중복 실행과 불필요한 사용량을 줄이기 쉽다. 이 글은 공식 동작과 설정을 정리한 해설이며 직접 측정한 리뷰 품질 비교는 아니다. github copilot 코드 리뷰 api 개발 자동화 rest·graphql에서 리뷰를 요청하고 요청별 분석 수준을 지정할 수 있다. pro·pro+·max·business·enterprise에 정식 제공된다. default가 balanced로 바뀐 것은 2026년 9월 28일이다. lite를 직접 선택한 설정은 유지되며, api 발표일인 10월 2일과 구분해야 한다. ai 사용료와 실행 환경 비용, 다시 push했을 때의 재리뷰, copilot 승인 효력은 각각 따로 확인해야 한다.">
+        <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="copilot 코드 리뷰를 api로 부를 때 달라지는 설정과 비용 github가 copilot 코드 리뷰의 rest·graphql 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다. 개발도구 api 정식 제공 · 자동 승인은 별도 프리뷰 api가 생겼다는 사실보다 팀에서 리뷰를 언제 요청할지 정하는 일이 먼저다. 빌드 성공, 사람 리뷰 요청, 병합 승인 중 어느 단계에 붙일지 구분하면 중복 실행과 불필요한 사용량을 줄이기 쉽다. 이 글은 공식 동작과 설정을 정리한 해설이며 직접 측정한 리뷰 품질 비교는 아니다. github copilot 코드 리뷰 api 개발 자동화 rest·graphql에서 리뷰를 요청하고 요청별 분석 수준을 지정할 수 있다. pro·pro+·max·business·enterprise에 정식 제공된다. default가 balanced로 바뀐 것은 2026년 9월 28일이다. lite를 직접 선택한 설정은 유지되며, api 발표일인 10월 2일과 구분해야 한다. ai 사용료와 실행 환경 비용, 다시 push했을 때의 재리뷰, copilot 승인 효력은 각각 따로 확인해야 한다.">
         <a href="/BlueBWorks/articles/github-copilot-code-review-api-2026/">
-          <span class="archive-cat">개발도구</span>
-          <strong>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</strong>
-          <span class="archive-date">게시 2026년 10월 3일</span>
+          <span class="archive-thumb"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/copilot-review-settings.jpg" alt="GitHub 공식 발표에 실린 Default Balanced 코드 리뷰 설정 화면" width="1600" height="840" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</strong>
+            <span class="archive-summary">GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.</span>
+            <span class="archive-date">게시 2026년 10월 3일</span>
 
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="모델" data-search="microsoft 음성 ai, vercel에서 어디까지 쓸 수 있나 mai-voice-2.1, flash, 실시간 전사가 vercel ai gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, api 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다. 모델 gateway 제공 · 오디오 기능 베타 이번 발표만으로 한국어 음성 품질의 우열을 판단할 수는 없다. 확인된 변화는 microsoft의 음성 생성과 실시간 전사를 vercel의 인증·사용량 관리 흐름에서 연결할 수 있다는 점이다. 아래에서는 공식 사양과 가격을 먼저 정리하고, 실제 서비스에 붙일 때 필요한 판단은 별도로 설명한다. 직접 성능을 측정한 리뷰가 아니라 공식 문서 기반의 기술 해설이다. microsoft ai vercel 음성 합성 실시간 전사 ai sdk voice-2.1은 음성 생성, flash는 낮은 지연을 목표로 한 음성 생성, transcribe-2 streaming은 실시간 음성 인식용이다. 확인 시점의 표시 가격은 각각 100만 글자당 22달러·15달러, 전사 오디오 1시간당 0.54달러다. 토큰 단가가 아니다. 음성 모델 세 개가 추가됐다고 해서 대화 이해·도구 실행까지 한 번에 처리되는 것은 아니다. 사용 목적에 따라 별도 대화 모델과 서버 처리가 필요하다.">
+        <li class="archive-entry has-thumb" data-post-card data-category="모델" data-search="microsoft 음성 ai, vercel에서 어디까지 쓸 수 있나 mai-voice-2.1, flash, 실시간 전사가 vercel ai gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, api 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다. 모델 gateway 제공 · 오디오 기능 베타 이번 발표만으로 한국어 음성 품질의 우열을 판단할 수는 없다. 확인된 변화는 microsoft의 음성 생성과 실시간 전사를 vercel의 인증·사용량 관리 흐름에서 연결할 수 있다는 점이다. 아래에서는 공식 사양과 가격을 먼저 정리하고, 실제 서비스에 붙일 때 필요한 판단은 별도로 설명한다. 직접 성능을 측정한 리뷰가 아니라 공식 문서 기반의 기술 해설이다. microsoft ai vercel 음성 합성 실시간 전사 ai sdk voice-2.1은 음성 생성, flash는 낮은 지연을 목표로 한 음성 생성, transcribe-2 streaming은 실시간 음성 인식용이다. 확인 시점의 표시 가격은 각각 100만 글자당 22달러·15달러, 전사 오디오 1시간당 0.54달러다. 토큰 단가가 아니다. 음성 모델 세 개가 추가됐다고 해서 대화 이해·도구 실행까지 한 번에 처리되는 것은 아니다. 사용 목적에 따라 별도 대화 모델과 서버 처리가 필요하다.">
         <a href="/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/">
-          <span class="archive-cat">모델</span>
-          <strong>Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
+          <span class="archive-thumb"><img src="https://blue-b.github.io/BlueBWorks/assets/microsoft-audio-official.png" alt="Microsoft 음성 모델을 연결하는 Vercel AI Gateway" width="1600" height="837" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">모델</span>
+            <strong>Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나</strong>
+            <span class="archive-summary">MAI-Voice-2.1, Flash, 실시간 전사가 Vercel AI Gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, API 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
 
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="개발도구" data-search="cloudflare k2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법 주문·클릭 기록을 여러 시스템에 전달하다 한쪽이 멈추면 어떻게 될까. cloudflare k2는 기록을 먼저 보관하고 각 시스템이 자기 속도로 읽게 한다. 구독을 나누는 방식부터 중복 처리, 보관 기간, 베타 요금까지 살펴본다. 개발도구 공개 베타 · workers paid 필요 kafka 클러스터를 관리하지 않아도 된다는 점과, 기존 kafka 프로그램을 그대로 연결할 수 있다는 말은 다르다. k2는 현재의 http·workers 인터페이스와 재처리 조건으로 판단해야 한다. 아래 구현 흐름은 공식 문서에 근거한 설명이며 유료 환경에서 실행한 벤치마크는 아니다. cloudflare k2 이벤트 처리 r2 데이터 파이프라인 하나의 기록을 여러 구독이 독립적으로 읽는다. 같은 구독 안의 작업자들은 처리할 묶음을 나눠 맡는다. 최소 한 번 전달하므로 중복 수신이 가능하다. 기록의 저장 순서와 여러 작업자의 처리 완료 순서도 구분해야 한다. 베타 사용량은 과금하지 않지만 workers paid가 필요하다. 기본 보관은 7일, 일반 설정 범위는 1시간부터 30일까지다.">
+        <li class="archive-entry text-only" data-post-card data-category="개발도구" data-search="cloudflare k2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법 주문·클릭 기록을 여러 시스템에 전달하다 한쪽이 멈추면 어떻게 될까. cloudflare k2는 기록을 먼저 보관하고 각 시스템이 자기 속도로 읽게 한다. 구독을 나누는 방식부터 중복 처리, 보관 기간, 베타 요금까지 살펴본다. 개발도구 공개 베타 · workers paid 필요 kafka 클러스터를 관리하지 않아도 된다는 점과, 기존 kafka 프로그램을 그대로 연결할 수 있다는 말은 다르다. k2는 현재의 http·workers 인터페이스와 재처리 조건으로 판단해야 한다. 아래 구현 흐름은 공식 문서에 근거한 설명이며 유료 환경에서 실행한 벤치마크는 아니다. cloudflare k2 이벤트 처리 r2 데이터 파이프라인 하나의 기록을 여러 구독이 독립적으로 읽는다. 같은 구독 안의 작업자들은 처리할 묶음을 나눠 맡는다. 최소 한 번 전달하므로 중복 수신이 가능하다. 기록의 저장 순서와 여러 작업자의 처리 완료 순서도 구분해야 한다. 베타 사용량은 과금하지 않지만 workers paid가 필요하다. 기본 보관은 7일, 일반 설정 범위는 1시간부터 30일까지다.">
         <a href="/BlueBWorks/articles/cloudflare-k2-serverless-event-streams-2026/">
-          <span class="archive-cat">개발도구</span>
-          <strong>Cloudflare K2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
 
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>Cloudflare K2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법</strong>
+            <span class="archive-summary">주문·클릭 기록을 여러 시스템에 전달하다 한쪽이 멈추면 어떻게 될까. Cloudflare K2는 기록을 먼저 보관하고 각 시스템이 자기 속도로 읽게 한다. 구독을 나누는 방식부터 중복 처리, 보관 기간, 베타 요금까지 살펴본다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
+
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="개발도구" data-search="claude code mods로 바꿀 수 있는 것: 상태 표시부터 명령 확인 화면까지 claude code의 모드는 테마나 프롬프트 모음이 아니다. 세션의 이벤트를 받아 동작을 바꾸고 화면도 그리는 플러그인 코드다. 공식 튜토리얼의 영상과 실제 화면을 따라, 기존 설정으로 충분한 일과 모드가 필요한 일을 나눠 봤다. 개발도구 제공 중 · api는 버전별 변경 가능 모드의 필요성은 더 많은 기능을 붙일 수 있느냐보다, 반복해서 확인하던 정보를 작업 화면에 얼마나 가깝게 둘 수 있느냐에 있다. 사용량을 보여 주는 표시 하나와 명령을 막는 보안 장치는 요구하는 검증 수준이 다르다. 처음에는 관찰용 기능으로 범위를 좁히는 편이 구조를 이해하기 쉽다. anthropic claude code mods 플러그인 개발 환경 공식 시작 가이드는 claude code 2.1.287 이상을 기준으로 한다. 모드는 플러그인 안의 javascript·typescript 모듈로 배포한다. 이벤트를 관찰하거나 다음 단계로 보낼 값을 바꾸고, 직접 응답할 수 있다. ui를 그리는 이벤트도 같은 방식으로 다룬다. 공식 예제 영상과 화면은 아래에 포함했다. 실제 설치 전에는 제작자와 코드를 확인해야 하며, 예제 보호 화면을 완전한 보안 경계로 취급해서는 안 된다.">
+        <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="claude code mods로 바꿀 수 있는 것: 상태 표시부터 명령 확인 화면까지 claude code의 모드는 테마나 프롬프트 모음이 아니다. 세션의 이벤트를 받아 동작을 바꾸고 화면도 그리는 플러그인 코드다. 공식 튜토리얼의 영상과 실제 화면을 따라, 기존 설정으로 충분한 일과 모드가 필요한 일을 나눠 봤다. 개발도구 제공 중 · api는 버전별 변경 가능 모드의 필요성은 더 많은 기능을 붙일 수 있느냐보다, 반복해서 확인하던 정보를 작업 화면에 얼마나 가깝게 둘 수 있느냐에 있다. 사용량을 보여 주는 표시 하나와 명령을 막는 보안 장치는 요구하는 검증 수준이 다르다. 처음에는 관찰용 기능으로 범위를 좁히는 편이 구조를 이해하기 쉽다. anthropic claude code mods 플러그인 개발 환경 공식 시작 가이드는 claude code 2.1.287 이상을 기준으로 한다. 모드는 플러그인 안의 javascript·typescript 모듈로 배포한다. 이벤트를 관찰하거나 다음 단계로 보낼 값을 바꾸고, 직접 응답할 수 있다. ui를 그리는 이벤트도 같은 방식으로 다룬다. 공식 예제 영상과 화면은 아래에 포함했다. 실제 설치 전에는 제작자와 코드를 확인해야 하며, 예제 보호 화면을 완전한 보안 경계로 취급해서는 안 된다.">
         <a href="/BlueBWorks/articles/claude-code-mods-2026/">
-          <span class="archive-cat">개발도구</span>
-          <strong>Claude Code Mods로 바꿀 수 있는 것: 상태 표시부터 명령 확인 화면까지</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
+          <span class="archive-thumb"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/claude-mods-blast-radius.png" alt="Claude Code 공식 Blast Radius 예제가 명령 실행 전에 영향받는 파일과 Proceed·Cancel 선택지를 보여 주는 터미널 화면" width="1100" height="811" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>Claude Code Mods로 바꿀 수 있는 것: 상태 표시부터 명령 확인 화면까지</strong>
+            <span class="archive-summary">Claude Code의 모드는 테마나 프롬프트 모음이 아니다. 세션의 이벤트를 받아 동작을 바꾸고 화면도 그리는 플러그인 코드다. 공식 튜토리얼의 영상과 실제 화면을 따라, 기존 설정으로 충분한 일과 모드가 필요한 일을 나눠 봤다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
 
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="개발도구" data-search="github copilot dynamic workflows 공개 — 멀티에이전트 절차를 코드로 고정한다 github가 copilot cli·copilot 앱·copilot sdk에 dynamic workflows를 공개 프리뷰로 추가했다. 자동화 단계와 여러 에이전트를 코드로 조합해 순차·병렬 실행, 구조화된 결과 전달, 검토 체크포인트까지 반복 가능한 절차로 만들 수 있다. 개발도구 public preview 멀티에이전트의 약점은 모델 수가 아니라 절차가 재현되지 않는 데서 자주 생긴다. dynamic workflows는 에이전트에게 전부 맡기는 대신 순서·병렬성·검증 단계를 코드로 고정한다. 장애 조사나 릴리스 점검처럼 ‘누가 어떤 순서로 무엇을 확인했는가’가 중요한 작업에 특히 맞는 방향이다. github copilot dynamic workflows multi-agent 에이전트와 도구 호출을 코드 기반 워크플로로 조합한다. 순차·병렬 실행과 구조화된 결과 전달을 지원한다. copilot cli에서는 실험 기능을 별도로 켜야 한다.">
+        <li class="archive-entry text-only" data-post-card data-category="개발도구" data-search="github copilot dynamic workflows 공개 — 멀티에이전트 절차를 코드로 고정한다 github가 copilot cli·copilot 앱·copilot sdk에 dynamic workflows를 공개 프리뷰로 추가했다. 자동화 단계와 여러 에이전트를 코드로 조합해 순차·병렬 실행, 구조화된 결과 전달, 검토 체크포인트까지 반복 가능한 절차로 만들 수 있다. 개발도구 public preview 멀티에이전트의 약점은 모델 수가 아니라 절차가 재현되지 않는 데서 자주 생긴다. dynamic workflows는 에이전트에게 전부 맡기는 대신 순서·병렬성·검증 단계를 코드로 고정한다. 장애 조사나 릴리스 점검처럼 ‘누가 어떤 순서로 무엇을 확인했는가’가 중요한 작업에 특히 맞는 방향이다. github copilot dynamic workflows multi-agent 에이전트와 도구 호출을 코드 기반 워크플로로 조합한다. 순차·병렬 실행과 구조화된 결과 전달을 지원한다. copilot cli에서는 실험 기능을 별도로 켜야 한다.">
         <a href="/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/">
-          <span class="archive-cat">개발도구</span>
-          <strong>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
 
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</strong>
+            <span class="archive-summary">GitHub가 Copilot CLI·Copilot 앱·Copilot SDK에 Dynamic Workflows를 공개 프리뷰로 추가했다. 자동화 단계와 여러 에이전트를 코드로 조합해 순차·병렬 실행, 구조화된 결과 전달, 검토 체크포인트까지 반복 가능한 절차로 만들 수 있다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
+
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="개발도구" data-search="github copilot에 컴퓨터 사용 추가 — api 없는 데스크톱 앱도 직접 조작한다 github가 copilot cli와 copilot 앱의 macos·windows 버전에 컴퓨터 사용 기능을 공개 프리뷰로 추가했다. 화면을 읽고 클릭·입력·스크롤·드래그를 수행할 수 있어 api나 cli, mcp가 없는 gui 전용 업무까지 자동화 범위가 넓어진다. 개발도구 public preview api와 mcp가 없는 오래된 사내 프로그램까지 자동화 범위에 들어온다는 점이 가장 크다. 반대로 화면 조작은 구조화된 api 호출보다 실패 원인이 많고 권한 범위도 넓다. 처음부터 전사 자동화를 노리기보다 반복적이고 되돌릴 수 있는 gui 업무부터 붙이는 편이 맞다. github copilot computer use automation copilot cli와 macos·windows 앱에서 데스크톱 앱을 조작한다. 클릭·입력·스크롤·드래그 같은 gui 행동을 수행할 수 있다. 앱 제어 전에 승인을 요구하며 조직 관리자가 기능을 끌 수 있다.">
+        <li class="archive-entry text-only" data-post-card data-category="개발도구" data-search="github copilot에 컴퓨터 사용 추가 — api 없는 데스크톱 앱도 직접 조작한다 github가 copilot cli와 copilot 앱의 macos·windows 버전에 컴퓨터 사용 기능을 공개 프리뷰로 추가했다. 화면을 읽고 클릭·입력·스크롤·드래그를 수행할 수 있어 api나 cli, mcp가 없는 gui 전용 업무까지 자동화 범위가 넓어진다. 개발도구 public preview api와 mcp가 없는 오래된 사내 프로그램까지 자동화 범위에 들어온다는 점이 가장 크다. 반대로 화면 조작은 구조화된 api 호출보다 실패 원인이 많고 권한 범위도 넓다. 처음부터 전사 자동화를 노리기보다 반복적이고 되돌릴 수 있는 gui 업무부터 붙이는 편이 맞다. github copilot computer use automation copilot cli와 macos·windows 앱에서 데스크톱 앱을 조작한다. 클릭·입력·스크롤·드래그 같은 gui 행동을 수행할 수 있다. 앱 제어 전에 승인을 요구하며 조직 관리자가 기능을 끌 수 있다.">
         <a href="/BlueBWorks/articles/github-copilot-computer-use-2026/">
-          <span class="archive-cat">개발도구</span>
-          <strong>GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
 
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다</strong>
+            <span class="archive-summary">GitHub가 Copilot CLI와 Copilot 앱의 macOS·Windows 버전에 컴퓨터 사용 기능을 공개 프리뷰로 추가했다. 화면을 읽고 클릭·입력·스크롤·드래그를 수행할 수 있어 API나 CLI, MCP가 없는 GUI 전용 업무까지 자동화 범위가 넓어진다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
+
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="오픈소스" data-search="cloudflare clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델 cloudflare가 clef와 clef-flash라는 결정 모델을 공개하고 workers ai에서 바로 쓸 수 있게 했다. 자유문장을 생성하는 대신 정해진 선택지의 확률을 반환해 라우팅·도구 선택·분류처럼 에이전트 내부의 반복 결정을 더 짧고 예측 가능한 흐름으로 처리하는 데 초점을 맞춘다. 오픈소스 open source 에이전트 시스템에서 의외로 비싼 부분은 ‘답변 생성’이 아니라 수없이 반복되는 작은 결정이다. clef는 도구 선택·라우팅·분류처럼 선택지가 정해진 판단을 생성형 llm에서 떼어내려는 시도다. 모델 크기보다 실제 업무 데이터에서 오분류 비용이 얼마나 줄어드는지 보는 게 중요하다. cloudflare clef decision model agents 자유문장 대신 선택지별 확률을 반환하는 decision model이다. weights가 apache 2.0으로 공개됐다. 라우팅·분류·가드레일 같은 좁은 판단 단계에 초점을 맞춘다.">
+        <li class="archive-entry text-only" data-post-card data-category="오픈소스" data-search="cloudflare clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델 cloudflare가 clef와 clef-flash라는 결정 모델을 공개하고 workers ai에서 바로 쓸 수 있게 했다. 자유문장을 생성하는 대신 정해진 선택지의 확률을 반환해 라우팅·도구 선택·분류처럼 에이전트 내부의 반복 결정을 더 짧고 예측 가능한 흐름으로 처리하는 데 초점을 맞춘다. 오픈소스 open source 에이전트 시스템에서 의외로 비싼 부분은 ‘답변 생성’이 아니라 수없이 반복되는 작은 결정이다. clef는 도구 선택·라우팅·분류처럼 선택지가 정해진 판단을 생성형 llm에서 떼어내려는 시도다. 모델 크기보다 실제 업무 데이터에서 오분류 비용이 얼마나 줄어드는지 보는 게 중요하다. cloudflare clef decision model agents 자유문장 대신 선택지별 확률을 반환하는 decision model이다. weights가 apache 2.0으로 공개됐다. 라우팅·분류·가드레일 같은 좁은 판단 단계에 초점을 맞춘다.">
         <a href="/BlueBWorks/articles/cloudflare-clef-decision-models-2026/">
-          <span class="archive-cat">오픈소스</span>
-          <strong>Cloudflare Clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
 
+          <div class="archive-copy">
+            <span class="archive-cat">오픈소스</span>
+            <strong>Cloudflare Clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델</strong>
+            <span class="archive-summary">Cloudflare가 Clef와 Clef-flash라는 결정 모델을 공개하고 Workers AI에서 바로 쓸 수 있게 했다. 자유문장을 생성하는 대신 정해진 선택지의 확률을 반환해 라우팅·도구 선택·분류처럼 에이전트 내부의 반복 결정을 더 짧고 예측 가능한 흐름으로 처리하는 데 초점을 맞춘다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
+
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="오픈소스" data-search="olmo-core 3 공개 — 대형 moe 학습 인프라를 오픈소스로 확장했다 ai2가 대규모 mixture-of-experts(moe) 모델 학습을 위한 olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다. 오픈소스 open source 일반 개발자가 당장 가져다 쓸 앱은 아니지만 공개 모델 생태계에서는 중요한 인프라 자료다. 대형 moe를 어떻게 라우팅하고 분산시키는지 코드와 시스템 벤치마크가 함께 공개되기 때문에 모델 가중치만 공개하는 프로젝트보다 학습 인프라를 이해하는 데 훨씬 가치가 있다. ai2 olmo-core 3 moe open source moe용 expert·pipeline parallelism과 분산 옵티마이저를 다룬다. 조 단위 파라미터 구성을 염두에 둔 학습 스택이다. 공개 성능 수치는 특정 b300 환경이므로 다른 하드웨어에 그대로 적용하면 안 된다.">
+        <li class="archive-entry has-thumb" data-post-card data-category="오픈소스" data-search="olmo-core 3 공개 — 대형 moe 학습 인프라를 오픈소스로 확장했다 ai2가 대규모 mixture-of-experts(moe) 모델 학습을 위한 olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다. 오픈소스 open source 일반 개발자가 당장 가져다 쓸 앱은 아니지만 공개 모델 생태계에서는 중요한 인프라 자료다. 대형 moe를 어떻게 라우팅하고 분산시키는지 코드와 시스템 벤치마크가 함께 공개되기 때문에 모델 가중치만 공개하는 프로젝트보다 학습 인프라를 이해하는 데 훨씬 가치가 있다. ai2 olmo-core 3 moe open source moe용 expert·pipeline parallelism과 분산 옵티마이저를 다룬다. 조 단위 파라미터 구성을 염두에 둔 학습 스택이다. 공개 성능 수치는 특정 b300 환경이므로 다른 하드웨어에 그대로 적용하면 안 된다.">
         <a href="/BlueBWorks/articles/olmo-core-3-moe-training-2026/">
-          <span class="archive-cat">오픈소스</span>
-          <strong>Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
+          <span class="archive-thumb"><img src="https://opengraph.githubassets.com/1/allenai/olmo-core" alt="Ai2 olmo-core GitHub 저장소 미리보기" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">오픈소스</span>
+            <strong>Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다</strong>
+            <span class="archive-summary">Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
 
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="모델" data-search="gemini 4 argon 발표 — 100만 컨텍스트로 장기 코딩·사이버 방어를 겨냥한다 google이 복잡한 장기 작업을 겨냥한 gemini 4 argon을 발표했다. 공식 발표에서 강조한 것은 ‘100만 출력 토큰’이 아니라 100만 토큰 컨텍스트와 장기 추론이며, 현재는 fairwind 프로그램의 신뢰된 사이버 방어 조직부터 제한적으로 배포 중이다. 모델 limited rollout argon은 지금 당장 누구나 api 키로 호출할 수 있는 모델이 아니다. 그래서 벤치마크보다 중요한 정보는 접근 범위와 google이 실제 내부 장기 작업에 어떻게 쓰고 있는지다. 대규모 코드 마이그레이션과 보안 작업을 모델 한 번의 응답이 아니라 긴 실행 궤적으로 다루는 방향이 더 뚜렷해졌다. google gemini 4 argon coding agent 공식 설명 기준 100만 토큰 컨텍스트를 지원한다. 코딩·기업 지식 업무·방어적 사이버 보안을 장기 작업 사례로 제시한다. 초기 가격은 입력 $2·출력 $10/100만 토큰으로 예고됐지만 일반 공개 전 단계다.">
+        <li class="archive-entry text-only" data-post-card data-category="모델" data-search="gemini 4 argon 발표 — 100만 컨텍스트로 장기 코딩·사이버 방어를 겨냥한다 google이 복잡한 장기 작업을 겨냥한 gemini 4 argon을 발표했다. 공식 발표에서 강조한 것은 ‘100만 출력 토큰’이 아니라 100만 토큰 컨텍스트와 장기 추론이며, 현재는 fairwind 프로그램의 신뢰된 사이버 방어 조직부터 제한적으로 배포 중이다. 모델 limited rollout argon은 지금 당장 누구나 api 키로 호출할 수 있는 모델이 아니다. 그래서 벤치마크보다 중요한 정보는 접근 범위와 google이 실제 내부 장기 작업에 어떻게 쓰고 있는지다. 대규모 코드 마이그레이션과 보안 작업을 모델 한 번의 응답이 아니라 긴 실행 궤적으로 다루는 방향이 더 뚜렷해졌다. google gemini 4 argon coding agent 공식 설명 기준 100만 토큰 컨텍스트를 지원한다. 코딩·기업 지식 업무·방어적 사이버 보안을 장기 작업 사례로 제시한다. 초기 가격은 입력 $2·출력 $10/100만 토큰으로 예고됐지만 일반 공개 전 단계다.">
         <a href="/BlueBWorks/articles/gemini-4-argon-2026/">
-          <span class="archive-cat">모델</span>
-          <strong>Gemini 4 Argon 발표 — 100만 컨텍스트로 장기 코딩·사이버 방어를 겨냥한다</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
 
+          <div class="archive-copy">
+            <span class="archive-cat">모델</span>
+            <strong>Gemini 4 Argon 발표 — 100만 컨텍스트로 장기 코딩·사이버 방어를 겨냥한다</strong>
+            <span class="archive-summary">Google이 복잡한 장기 작업을 겨냥한 Gemini 4 Argon을 발표했다. 공식 발표에서 강조한 것은 ‘100만 출력 토큰’이 아니라 100만 토큰 컨텍스트와 장기 추론이며, 현재는 Fairwind 프로그램의 신뢰된 사이버 방어 조직부터 제한적으로 배포 중이다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
+
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="개발도구" data-search="hydrafusion이 vs code로 확대 — copilot이 한 요청 안에서 여러 모델을 조합한다 github가 copilot cli에서 시험하던 hydrafusion을 vs code와 github copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다. 개발도구 research preview hydrafusion은 ‘가장 좋은 모델 하나’를 고르는 문제를 런타임이 해결하려는 시도다. 요청마다 single·cascade·critique 흐름을 달리 쓰기 때문에, 앞으로 코딩 도구의 차별점이 모델 목록보다 모델을 조합하고 검증하는 오케스트레이션으로 이동할 가능성을 보여준다. github copilot hydrafusion vs code 한 요청 안에서 여러 모델을 조합할 수 있다. single·cascade·critique 실행 흐름을 작업에 맞게 선택한다. vs code와 copilot 앱으로 연구 프리뷰 범위가 확대됐다.">
+        <li class="archive-entry text-only" data-post-card data-category="개발도구" data-search="hydrafusion이 vs code로 확대 — copilot이 한 요청 안에서 여러 모델을 조합한다 github가 copilot cli에서 시험하던 hydrafusion을 vs code와 github copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다. 개발도구 research preview hydrafusion은 ‘가장 좋은 모델 하나’를 고르는 문제를 런타임이 해결하려는 시도다. 요청마다 single·cascade·critique 흐름을 달리 쓰기 때문에, 앞으로 코딩 도구의 차별점이 모델 목록보다 모델을 조합하고 검증하는 오케스트레이션으로 이동할 가능성을 보여준다. github copilot hydrafusion vs code 한 요청 안에서 여러 모델을 조합할 수 있다. single·cascade·critique 실행 흐름을 작업에 맞게 선택한다. vs code와 copilot 앱으로 연구 프리뷰 범위가 확대됐다.">
         <a href="/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/">
-          <span class="archive-cat">개발도구</span>
-          <strong>HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
 
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다</strong>
+            <span class="archive-summary">GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
+
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="에이전트" data-search="openai dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다 openai가 devday 2026에서 장기 작업을 맡길 수 있는 always-on 에이전트 dots를 공개했다. 자체 클라우드 컴퓨터와 플러그인 연결을 사용하고, 피드백을 통해 사용자의 작업 방식을 익히는 형태다. 에이전트 rolling out dots를 단순한 ‘더 똑똑한 챗봇’으로 보면 핵심을 놓친다. 독립 클라우드 컴퓨터·고유 권한·지속 작업을 기본 단위로 둔다는 점에서 제품의 중심이 대화 세션에서 책임 단위로 이동했다. 실제 활용에서는 능력보다 어떤 앱을 연결하고 어떤 행동을 사전 승인할지 정하는 운영 설계가 더 중요해진다. openai dots agent gpt-6 astra gpt-6 astra 기반의 상시 작동 에이전트다. 자체 클라우드 컴퓨터와 브라우저를 갖고 여러 프로젝트를 이어서 수행한다. openai는 플러그인 생태계를 통해 4,000개 이상 앱 연결을 설명하고 있다.">
+        <li class="archive-entry text-only" data-post-card data-category="에이전트" data-search="openai dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다 openai가 devday 2026에서 장기 작업을 맡길 수 있는 always-on 에이전트 dots를 공개했다. 자체 클라우드 컴퓨터와 플러그인 연결을 사용하고, 피드백을 통해 사용자의 작업 방식을 익히는 형태다. 에이전트 rolling out dots를 단순한 ‘더 똑똑한 챗봇’으로 보면 핵심을 놓친다. 독립 클라우드 컴퓨터·고유 권한·지속 작업을 기본 단위로 둔다는 점에서 제품의 중심이 대화 세션에서 책임 단위로 이동했다. 실제 활용에서는 능력보다 어떤 앱을 연결하고 어떤 행동을 사전 승인할지 정하는 운영 설계가 더 중요해진다. openai dots agent gpt-6 astra gpt-6 astra 기반의 상시 작동 에이전트다. 자체 클라우드 컴퓨터와 브라우저를 갖고 여러 프로젝트를 이어서 수행한다. openai는 플러그인 생태계를 통해 4,000개 이상 앱 연결을 설명하고 있다.">
         <a href="/BlueBWorks/articles/openai-dots-2026/">
-          <span class="archive-cat">에이전트</span>
-          <strong>OpenAI Dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
 
+          <div class="archive-copy">
+            <span class="archive-cat">에이전트</span>
+            <strong>OpenAI Dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다</strong>
+            <span class="archive-summary">OpenAI가 DevDay 2026에서 장기 작업을 맡길 수 있는 always-on 에이전트 Dots를 공개했다. 자체 클라우드 컴퓨터와 플러그인 연결을 사용하고, 피드백을 통해 사용자의 작업 방식을 익히는 형태다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
+
+          </div>
         </a>
       </li>
-        <li data-post-card data-category="모델" data-search="gpt‑6.1 sol 출시 — 코딩·컴퓨터 사용 중심으로 sol이 업데이트됐다 openai가 gpt‑6.1 sol을 공개했다. 에이전트형 코딩, 컴퓨터 사용, 전문 업무 성능을 강화하고 astra 대비 낮은 표준 api 가격을 강조한 업데이트다. 모델 available gpt‑6.1 sol의 포지션은 ‘최고 성능’보다 ‘긴 에이전트 작업을 감당할 비용대’에 가깝다. 공식 api 문서 기준 105만 컨텍스트와 12.8만 최대 출력, 여러 reasoning effort를 지원한다. 모델 비교 시 토큰 단가만 보지 말고 한 작업이 끝날 때까지의 재시도와 도구 호출까지 합친 총비용을 보는 게 맞다. openai gpt-6.1 sol coding api api 문서 기준 1,050,000 컨텍스트와 128,000 최대 출력 토큰을 지원한다. 코딩·컴퓨터 사용·전문 업무를 비용 효율 중심으로 겨냥한다. responses api에서 도구 호출을 지원하고 reasoning effort를 조절할 수 있다.">
+        <li class="archive-entry text-only" data-post-card data-category="모델" data-search="gpt‑6.1 sol 출시 — 코딩·컴퓨터 사용 중심으로 sol이 업데이트됐다 openai가 gpt‑6.1 sol을 공개했다. 에이전트형 코딩, 컴퓨터 사용, 전문 업무 성능을 강화하고 astra 대비 낮은 표준 api 가격을 강조한 업데이트다. 모델 available gpt‑6.1 sol의 포지션은 ‘최고 성능’보다 ‘긴 에이전트 작업을 감당할 비용대’에 가깝다. 공식 api 문서 기준 105만 컨텍스트와 12.8만 최대 출력, 여러 reasoning effort를 지원한다. 모델 비교 시 토큰 단가만 보지 말고 한 작업이 끝날 때까지의 재시도와 도구 호출까지 합친 총비용을 보는 게 맞다. openai gpt-6.1 sol coding api api 문서 기준 1,050,000 컨텍스트와 128,000 최대 출력 토큰을 지원한다. 코딩·컴퓨터 사용·전문 업무를 비용 효율 중심으로 겨냥한다. responses api에서 도구 호출을 지원하고 reasoning effort를 조절할 수 있다.">
         <a href="/BlueBWorks/articles/gpt-6-1-sol-2026/">
-          <span class="archive-cat">모델</span>
-          <strong>GPT‑6.1 Sol 출시 — 코딩·컴퓨터 사용 중심으로 Sol이 업데이트됐다</strong>
-          <span class="archive-date">게시 2026년 10월 2일</span>
 
+          <div class="archive-copy">
+            <span class="archive-cat">모델</span>
+            <strong>GPT‑6.1 Sol 출시 — 코딩·컴퓨터 사용 중심으로 Sol이 업데이트됐다</strong>
+            <span class="archive-summary">OpenAI가 GPT‑6.1 Sol을 공개했다. 에이전트형 코딩, 컴퓨터 사용, 전문 업무 성능을 강화하고 Astra 대비 낮은 표준 API 가격을 강조한 업데이트다.</span>
+            <span class="archive-date">게시 2026년 10월 2일</span>
+
+          </div>
         </a>
       </li>
       </ol>
@@ -194,7 +254,7 @@
     </div>
     <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.<br>캐릭터 AI 생성 일러스트 · 제품 이미지는 각 글의 공식 출처 표시를 따릅니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
-  <script src="/BlueBWorks/assets/app.js?v=journal3" defer></script>
+  <script src="/BlueBWorks/assets/app.js?v=media5" defer></script>
   <script src="/BlueBWorks/assets/journal.js?v=reading4" defer></script>
   </body>
 </html>

@@ -13,8 +13,7 @@
     <meta property="og:description" content="Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 Relay 운영이 여전히 필요하다.">
     <meta property="og:url" content="https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/">
     <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="https://blue-b.github.io/BlueBWorks/assets/earth-night.jpg">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" href="/BlueBWorks/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks AI Radar" href="/BlueBWorks/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,8 +21,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap">
     <link rel="stylesheet" href="/BlueBWorks/assets/style.css">
     <link rel="stylesheet" href="/BlueBWorks/assets/prototype.css?v=journal3">
-    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=reading4">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다","description":"Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 Relay 운영이 여전히 필요하다.","url":"https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/","datePublished":"2026-10-04T05:06:28.000Z","dateModified":"2026-10-04T05:06:28.000Z","author":{"@type":"Organization","name":"AI-assisted BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"보안·인프라","keywords":"Cloudflare, OHTTP, Privacy, HTTP, 보안, 인프라","isAccessibleForFree":true,"image":"https://blue-b.github.io/BlueBWorks/assets/earth-night.jpg"}</script>
+    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=media5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다","description":"Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 Relay 운영이 여전히 필요하다.","url":"https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/","datePublished":"2026-10-04T05:06:28.000Z","dateModified":"2026-10-04T05:06:28.000Z","author":{"@type":"Organization","name":"AI-assisted BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"보안·인프라","keywords":"Cloudflare, OHTTP, Privacy, HTTP, 보안, 인프라","isAccessibleForFree":true}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다","item":"https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/"}]}</script>
   </head>
   <body class="page-article">
@@ -104,7 +103,8 @@
         <p>일반 HTTPS 연결은 요청 본문을 암호화해도 서버가 연결 상대의 IP 주소와 일부 연결 메타데이터를 볼 수 있다. 서버가 그 정보를 장기간 연결하면 같은 사용자의 여러 요청을 묶어 추적할 수 있다. Oblivious HTTP, 즉 OHTTP는 이 문제를 줄이기 위해 클라이언트와 애플리케이션 서버 사이에 Relay와 Gateway라는 두 역할을 둔다. Relay는 클라이언트의 네트워크 식별자를 보지만 암호화된 요청의 내용은 읽지 못하고, Gateway는 암호화된 내부 요청을 풀어 애플리케이션에 전달하지만 원래 클라이언트의 IP 주소는 보지 못하는 구조다.</p>
         <p>RFC 9458이 요구하는 핵심은 어느 한 중간 사업자도 클라이언트 식별 정보와 평문 요청 내용을 동시에 갖지 않도록 신뢰를 분리하는 데 있다. Relay와 Gateway가 서로 결탁하지 않는다는 전제가 중요하고, 이 전제가 무너지면 단순히 프록시를 두 번 거치는 것만으로 원하는 프라이버시 특성이 생기지 않는다. 그래서 OHTTP는 VPN이나 일반 역방향 프록시와 비슷해 보여도 설계 목적과 운영 조건이 다르다.</p>
         <p>Cloudflare는 이미 Privacy Gateway라는 이름으로 Relay 역할을 제공해 왔다. 이번 발표와 함께 기존 제품 이름을 Cloudflare OHTTP Relay로 바꾸고, 반대편 암복호화 지점인 OHTTP Gateway를 별도 제품으로 추가했다. 이름을 나눈 이유도 두 역할의 신뢰 경계를 제품 이름에서부터 명확히 하려는 것이다.</p>
-
+        <p>Relay와 Gateway가 요청 흐름에서 어디에 놓이는지는 원문 발표의 구조 도식이 가장 분명하다. 이 글에서는 그 도식의 재사용·임베드 조건이 명시적으로 확인되지 않아 그림을 복제하지 않고 원문으로 연결한다. 아래 링크에서 원래 도식을 그대로 확인할 수 있다.</p>
+        <div class="section-links"><a href="https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/" target="_blank" rel="noopener noreferrer">원문 Relay·Gateway 구조 도식 (재사용 조건 미확인, 원문에서 보기) <span aria-hidden="true">↗</span></a></div>
         <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p>
       </section>
       <section class="prose-section" id="sec-2">
@@ -279,7 +279,7 @@
     </div>
     <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.<br>캐릭터 AI 생성 일러스트 · 제품 이미지는 각 글의 공식 출처 표시를 따릅니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
-  <script src="/BlueBWorks/assets/app.js?v=journal3" defer></script>
+  <script src="/BlueBWorks/assets/app.js?v=media5" defer></script>
   <script src="/BlueBWorks/assets/journal.js?v=reading4" defer></script>
   </body>
 </html>

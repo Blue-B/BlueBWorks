@@ -80,7 +80,7 @@ function head({
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap">
     <link rel="stylesheet" href="${assetHref(base, "style.css")}">
     <link rel="stylesheet" href="${assetHref(base, "prototype.css")}?v=journal3">
-    <link rel="stylesheet" href="${assetHref(base, "journal.css")}?v=reading4">
+    <link rel="stylesheet" href="${assetHref(base, "journal.css")}?v=media5">
     ${ld}
   </head>`;
 }
@@ -115,7 +115,7 @@ function layout({ config, base, active, ...page }) {
   ${header({ config, base, active })}
   ${page.content}
   ${footer({ config, base })}
-  <script src="${assetHref(base, "app.js")}?v=journal3" defer></script>
+  <script src="${assetHref(base, "app.js")}?v=media5" defer></script>
   <script src="${assetHref(base, "journal.js")}?v=reading4" defer></script>
   </body>
 </html>
@@ -164,9 +164,17 @@ function sourceHost(post) {
 
 function mediaFigure(post, base, { className = "post-media", eager = false } = {}) {
   if (post.image) {
+    const dimensions = post.imageWidth && post.imageHeight ? ` width="${post.imageWidth}" height="${post.imageHeight}"` : '';
+    const image = `<img src="${esc(post.image)}" alt="${esc(post.imageAlt || post.title)}"${dimensions}${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async" referrerpolicy="no-referrer">`;
+    // Cards already have an outer link. Only the article cover gets zoom/source links.
+    const isCover = className === 'source-media';
+    const credit = esc(post.imageCredit || sourceHost(post));
+    const sourceLink = isCover && post.imageSourceUrl
+      ? `<a href="${esc(post.imageSourceUrl)}" target="_blank" rel="noopener noreferrer">${credit} · 원문</a>`
+      : `<cite>${credit}</cite>`;
     return `<figure class="${className}">
-        <img src="${esc(post.image)}" alt="${esc(post.imageAlt || post.title)}"${eager ? "" : ' loading="lazy"'} decoding="async" referrerpolicy="no-referrer">
-        <figcaption><span>${esc(post.imageAlt || "")}</span><cite>${esc(post.imageCredit || sourceHost(post))}</cite></figcaption>
+        ${isCover ? `<a href="${esc(post.image)}" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: ${esc(post.imageAlt || post.title)}">${image}</a>` : image}
+        <figcaption><span>${esc(post.imageCaption || post.imageAlt || '')}</span>${sourceLink}${isCover && /CC BY 4\.0/i.test(post.imageCredit) ? '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">이미지 이용 조건</a>' : ''}</figcaption>
       </figure>`;
   }
   const source = post.sources[0];
@@ -410,7 +418,8 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
     { name: "글 목록", path: "/articles/" },
     { name: post.title, path: `/articles/${post.slug}/` },
   ]);
-  const imageUrl = post.image || heroImageUrl;
+  // A missing product image must not become an unrelated site illustration in shares.
+  const imageUrl = post.image || '';
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -505,12 +514,18 @@ export function renderArticlesIndex({ config, base, posts, generatedAt }) {
   const rows = sorted
     .map((post) => {
       const state = isIndexable(post) ? "" : `<span class="archive-flag">검토 중</span>`;
-      return `<li data-post-card data-category="${esc(post.category)}" data-search="${esc(searchText(post))}">
+      const hasImage = Boolean(post.image) && !/mshots|favicon|apple-touch-icon/.test(post.image);
+      const dimensions = post.imageWidth && post.imageHeight ? ` width="${post.imageWidth}" height="${post.imageHeight}"` : '';
+      return `<li class="archive-entry${hasImage ? ' has-thumb' : ' text-only'}" data-post-card data-category="${esc(post.category)}" data-search="${esc(searchText(post))}">
         <a href="${pageHref(base, `articles/${post.slug}/`)}">
-          <span class="archive-cat">${esc(post.category)}</span>
-          <strong>${esc(post.title)}</strong>
-          <span class="archive-date">게시 ${esc(formatKoreanDate(post.publishedAt))}</span>
-          ${state}
+          ${hasImage ? `<span class="archive-thumb${post.imageWidth > post.imageHeight * 3 && post.imageHeight ? ' is-wide' : ''}"><img src="${esc(post.image)}" alt="${esc(post.imageAlt || post.title)}"${dimensions} loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>` : ''}
+          <div class="archive-copy">
+            <span class="archive-cat">${esc(post.category)}</span>
+            <strong>${esc(post.title)}</strong>
+            <span class="archive-summary">${esc(post.summary)}</span>
+            <span class="archive-date">게시 ${esc(formatKoreanDate(post.publishedAt))}</span>
+            ${state}
+          </div>
         </a>
       </li>`;
     })
@@ -520,7 +535,7 @@ export function renderArticlesIndex({ config, base, posts, generatedAt }) {
     <div class="wrap simple-wrap" data-filter-scope>
       <header class="simple-head">
         <h1>글 목록</h1>
-        <p>발표일 기준으로 정리한 전체 글입니다. 검토가 끝나지 않은 글은 표시를 달고 검색 노출에서 제외합니다.</p>
+        <p>블로그 게시일순으로 정리한 전체 글입니다. 소식의 발표일과 자료 출처는 각 글에서 확인할 수 있습니다.</p>
       </header>
       <section class="archive-search" id="archive-search" aria-label="글 검색과 분류">
         <div class="search-field">

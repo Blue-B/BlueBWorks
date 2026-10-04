@@ -12,6 +12,10 @@
   "image": "https://blue-b.github.io/BlueBWorks/assets/editorial/copilot-review-settings.jpg",
   "imageAlt": "GitHub 공식 발표에 실린 Default Balanced 코드 리뷰 설정 화면",
   "imageCredit": "GitHub Changelog · 실제 설정 화면",
+  "imageWidth": 1600,
+  "imageHeight": 840,
+  "imageSourceUrl": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level/",
+  "imageCaption": "GitHub Changelog에 실린 Default Balanced 코드 리뷰 설정 화면. 기본값이 Balanced로 바뀐 2026-09-28 적용 내용을 보여 주는 공식 발표 이미지다.",
   "editorNote": "API가 생겼다는 사실보다 팀에서 리뷰를 언제 요청할지 정하는 일이 먼저다. 빌드 성공, 사람 리뷰 요청, 병합 승인 중 어느 단계에 붙일지 구분하면 중복 실행과 불필요한 사용량을 줄이기 쉽다. 이 글은 공식 동작과 설정을 정리한 해설이며 직접 측정한 리뷰 품질 비교는 아니다.",
   "keyPoints": [
     "REST·GraphQL에서 리뷰를 요청하고 요청별 분석 수준을 지정할 수 있다. Pro·Pro+·Max·Business·Enterprise에 정식 제공된다.",
@@ -26,7 +30,8 @@
         "예를 들어 팀이 자체 릴리스 화면을 운영한다면 그 화면에서 검토 요청을 보낼 수 있다. 변경 파일의 종류를 보고 추가 점검이 필요할 때만 요청하거나, 사내 검사 결과와 함께 리뷰 상태를 표시하는 구성도 생각할 수 있다. 이것은 API를 활용하는 설계 예시이지, 발표와 함께 그런 정책이 자동으로 적용된다는 의미는 아니다.",
         "지원 플랜과 기능 상태도 나눠 봐야 한다. 발표는 Pro, Pro+, Max, Business, Enterprise에서 API 지원이 일반 제공된다고 명시한다. 무료 플랜에도 같은 조건으로 열렸다고 확대해 읽으면 안 된다. 또 API로 리뷰를 부르는 기능과 Copilot이 병합 요건을 충족하는 승인까지 남기는 기능은 서로 다른 설정이다."
       ],
-      "sourceRefs": [1],
+      "sourceRefs": [1, 4],
+      "figures": [{"src":"https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-copilot-request-review.png","alt":"GitHub 웹 UI에서 Copilot 코드 리뷰를 리뷰어로 요청하는 화면 (GitHub 공식 문서)","caption":"GitHub 공식 문서의 리뷰 요청 화면. 브라우저 PR 화면에서 리뷰어를 고르는 흐름은 그대로이고, 이 글은 같은 리뷰를 REST·GraphQL API로도 요청할 수 있게 된 변화를 다룬다.","credit":"GitHub Docs · CC BY 4.0","sourceUrl":"https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review","width":800,"height":148}],
       "links": [{"label":"API 지원 공식 발표","url":"https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level/"}]
     },
     {
@@ -68,6 +73,7 @@
         "재리뷰가 언제나 새로운 피드백만 남기는 것도 아니다. 공식 안내에는 사용자가 해결 표시를 했거나 부정적인 반응을 남긴 의견이 다시 나올 수 있다고 적혀 있다. 자동화의 목표를 ‘댓글 수를 늘리는 것’으로 잡기보다, 최신 커밋에서 아직 유효한 문제를 사람이 쉽게 구분하게 하는 쪽으로 두는 편이 낫다."
       ],
       "sourceRefs": [3, 4],
+      "figures": [{"src":"https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-copilot-feedback-controls.png","alt":"Copilot 리뷰 봇글에 남길 수 있는 피드백 컨트롤 (GitHub 공식 문서)","caption":"GitHub 공식 문서의 Copilot 리뷰 피드백 컨트롤. 해결 표시를 하거나 부정적인 반응을 남긴 의견은 이후 재리뷰에서 다시 나올 수 있다고 문서가 안내한다.","credit":"GitHub Docs · CC BY 4.0","sourceUrl":"https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review","width":1554,"height":398}],
       "links": [{"label":"재리뷰 동작과 새 push 설정","url":"https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review"}]
     },
     {

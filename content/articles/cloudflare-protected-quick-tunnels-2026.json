@@ -12,6 +12,10 @@
   "image": "https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-protected-tunnels.png",
   "imageAlt": "Cloudflare의 Protected Quick Tunnels 공식 발표 이미지",
   "imageCredit": "Cloudflare · Protected Quick Tunnels 공식 발표",
+  "imageWidth": 1999,
+  "imageHeight": 1125,
+  "imageSourceUrl": "https://blog.cloudflare.com/protected-quick-tunnels/",
+  "imageCaption": "Cloudflare Protected Quick Tunnels 공식 발표 이미지. 계정이나 도메인 없이 이메일 확인을 거쳐 임시 링크를 공유하는 흐름을 알린다.",
   "editorNote": "휴대전화에서 개발 화면을 확인하거나 고객에게 짧게 시연할 때는 유용한 변화다. 반면 검색으로 방문자를 모을 블로그의 배포 수단으로 고르기에는 맞지 않는다. 이메일 잠금은 방문자 범위를 정하는 기능이고, 상시 운영은 여전히 별도의 문제다.",
   "keyPoints": [
     "cloudflared 2026.9.3부터 --allowed-mail로 접속 가능한 이메일을 지정할 수 있다. 공개 링크가 기본이므로 옵션을 빼면 보호되지 않는다.",
