@@ -1,26 +1,21 @@
-import { escapeHtml as esc, assetHref, pageHref, formatKoreanDate, readingMinutes } from './util.mjs';
+import { escapeHtml as esc, pageHref, formatKoreanDate, readingMinutes } from './util.mjs';
 
 export function articleCover(post, base) {
-  return `<section class="article-cover" aria-labelledby="article-title">
-    <div class="cover-backdrop" aria-hidden="true"></div>
+  const meta = [
+    `<span>${esc(formatKoreanDate(post.publishedAt))}</span>`,
+    `<span>${readingMinutes(post)}분 읽기</span>`,
+    post.status ? `<span>${esc(post.status)}</span>` : '',
+    post.verifiedAt ? `<span>확인 ${esc(formatKoreanDate(post.verifiedAt))}</span>` : '',
+  ].filter(Boolean).join('');
+  return `<section class="article-cover article-cover-compact" aria-labelledby="article-title">
     <div class="wrap cover-inner">
       <header class="cover-copy">
-        <p class="cover-eyebrow"><a href="${pageHref(base, 'articles/')}">AI RADAR</a><span>${esc(post.category)}</span></p>
+        <p class="cover-eyebrow"><span>${esc(post.category)}</span><a href="${pageHref(base, 'articles/')}">글 목록</a></p>
         <h1 id="article-title">${esc(post.title)}</h1>
         <p class="cover-dek">${esc(post.summary)}</p>
-        <div class="cover-meta"><span class="author-monogram">B</span><span>BlueBWorks</span><span>${esc(formatKoreanDate(post.publishedAt))}</span><span>${readingMinutes(post)}분 읽기</span></div>
-        <p class="cover-status">${esc(post.status)} · 확인 ${esc(formatKoreanDate(post.verifiedAt))}</p>
+        <p class="cover-meta">${meta}</p>
       </header>
-      <div class="hero-scene cover-character" data-parallax>
-        <div class="scene-layer scene-mascot" style="--depth:12">
-          <button class="mascot-button" type="button" aria-expanded="false" aria-controls="mascot-notes" aria-label="캐릭터를 눌러 사이트 사용 팁 보기">
-            <span class="mascot-float"><img class="mascot-img" src="${assetHref(base, 'mascot.webp')}" width="320" height="320" alt="파란 눈과 남색 스카프의 BlueBWorks 로봇 캐릭터"></span>
-            <span class="mascot-hint">사이트 사용 안내</span>
-          </button>
-        </div>
-      </div>
     </div>
-    <p class="scene-credit">배경 NASA / Jessica Meir · 캐릭터 AI 생성 이미지</p>
   </section>`;
 }
 

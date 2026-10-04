@@ -78,7 +78,7 @@ function head({
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap">
     <link rel="stylesheet" href="${assetHref(base, "style.css")}">
     <link rel="stylesheet" href="${assetHref(base, "prototype.css")}?v=journal3">
-    <link rel="stylesheet" href="${assetHref(base, "journal.css")}">
+    <link rel="stylesheet" href="${assetHref(base, "journal.css")}?v=reading4">
     ${ld}
   </head>`;
 }
@@ -103,7 +103,7 @@ function footer({ config, base }) {
         <a href="${esc(config.repoUrl)}" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
-    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.<br>배경 NASA / Jessica Meir · 캐릭터 AI 생성 일러스트</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.<br>캐릭터 AI 생성 일러스트 · 제품 이미지는 각 글의 공식 출처 표시를 따릅니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>`;
 }
 
@@ -114,7 +114,7 @@ function layout({ config, base, active, ...page }) {
   ${page.content}
   ${footer({ config, base })}
   <script src="${assetHref(base, "app.js")}?v=journal3" defer></script>
-  <script src="${assetHref(base, "journal.js")}" defer></script>
+  <script src="${assetHref(base, "journal.js")}?v=reading4" defer></script>
   </body>
 </html>
 `;
@@ -308,20 +308,20 @@ function renderSources(post) {
 
 function renderKeyPoints(post) {
   if (!post.keyPoints.length) return "";
-  return `<section class="key-points" aria-labelledby="keys-title">
-      <h2 id="keys-title">먼저 볼 것</h2>
+  return `<details class="key-points">
+      <summary>먼저 볼 것 <span class="detail-count">${post.keyPoints.length}가지</span></summary>
       <ul>
         ${post.keyPoints.map((point) => `<li>${esc(point)}</li>`).join("\n        ")}
       </ul>
-    </section>`;
+    </details>`;
 }
 
 function renderEditorNote(post) {
   if (!post.editorNote) return "";
-  return `<section class="editor-note">
-      <h2>편집 메모</h2>
+  return `<details class="editor-note">
+      <summary>편집 메모</summary>
       <p>${esc(post.editorNote)}</p>
-    </section>`;
+    </details>`;
 }
 
 function renderCorrections(post) {
@@ -430,7 +430,6 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
   const content = `<main id="main">
     <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
     ${articleCover(post, base)}
-    ${mascotNotes(config, base)}
     <div class="wrap article-wrap">
       <nav class="breadcrumb" aria-label="현재 위치">
         <ol>
@@ -459,7 +458,7 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
             </dl>
             ${indexable ? "" : `<p class="review-flag">검토 중인 글입니다. 근거와 표현을 다시 확인하고 있으며 검색 노출에서 제외했습니다.</p>`}
           </header>
-          ${mediaFigure(post, base, { className: "source-media", eager: true })}
+          ${post.image && !/mshots|favicon|apple-touch-icon/.test(post.image) ? mediaFigure(post, base, { className: "source-media", eager: true }) : ''}
           ${renderKeyPoints(post)}
           ${renderEditorNote(post)}
           <div class="article-body" itemprop="articleBody">

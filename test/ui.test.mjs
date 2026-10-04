@@ -20,12 +20,14 @@ function buildToTemp() {
   return outDir;
 }
 
-test("header exposes a typographic wordmark, real search link and menu toggle", () => {
+test("header keeps the editorial wordmark, Korean tagline and working menu", () => {
   const outDir = buildToTemp();
   try {
     const home = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
     assert.match(home, /class="brand-name">BlueBWorks</);
-    assert.match(home, /class="brand-label">AI Radar</);
+    // The English "AI Radar" eyebrow is replaced by the Korean tagline.
+    assert.doesNotMatch(home, /class="brand-label">AI Radar</);
+    assert.match(home, /class="brand-label">[^<]*[가-힣][^<]*</);
     assert.match(home, /data-nav-toggle/);
     assert.match(home, /aria-controls="site-nav"/);
     assert.match(home, /class="site-nav" id="site-nav" data-nav/);
@@ -36,26 +38,38 @@ test("header exposes a typographic wordmark, real search link and menu toggle", 
   }
 });
 
-test("home hero cues the latest article and keeps the mascot scene", () => {
+test("home opens on a real lead article with media and two secondary stories", () => {
   const outDir = buildToTemp();
   try {
     const home = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
-    assert.match(home, /class="[^"]*hero-latest/);
-    assert.match(home, /data-design="journal-orbit-v3"/);
-    assert.match(home, /class="site-header journal-header"/);
-    assert.match(home, /data-topic-target=/);
-    assert.match(home, /assets\/journal\.css/);
-    assert.match(home, /class="hero-latest-link" href="[^"]*articles\/[^"]+\/"/);
+    assert.match(home, /data-design="journal-editorial-v1"/);
+    assert.match(home, /class="home-lead journal-section"/);
+    // The lead is a real story, not a giant slogan/hero. It owns the page h1.
+    assert.match(home, /class="lead-grid"/);
+    assert.match(home, /class="lead-story"/);
+    assert.match(home, /class="lead-story-media" href="[^"]*articles\/[^"]+\/"/);
+    assert.match(home, /<h1 id="lead-title">/);
+    assert.equal((home.match(/<h1[\s>]/g) || []).length, 1, "home should have one h1");
+    // Two secondary stories with category and date.
+    const secondary = home.match(/class="secondary-story"/g) || [];
+    assert.ok(secondary.length >= 1, "at least one secondary story is rendered");
+    assert.match(home, /class="secondary-copy"[\s\S]*?class="journal-meta"[\s\S]*?<time>/);
+    // Small mascot is an optional brand detail, not a hero.
+    assert.match(home, /class="home-mascot"/);
     assert.match(home, /class="mascot-img"/);
-    assert.match(home, /assets\/earth-night\.jpg/);
-    // The generic, repeated hero CTA is gone.
-    assert.ok(!home.includes("최신 글 보기"));
+    // Orbit / giant RADAR / space backdrop are gone.
+    assert.doesNotMatch(home, /class="observatory"/);
+    assert.doesNotMatch(home, /journal-orbit-v3/);
+    assert.doesNotMatch(home, /planet-window/);
+    assert.doesNotMatch(home, /orbital-scene/);
+    assert.doesNotMatch(home, /hero-latest/);
+    assert.doesNotMatch(home, /orbit-track/);
   } finally {
     fs.rmSync(outDir, { recursive: true, force: true });
   }
 });
 
-test("home and archive share the searchable filter scope", () => {
+test("home topic links and archive stay valid without JavaScript", () => {
   const outDir = buildToTemp();
   try {
     const home = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
@@ -64,6 +78,12 @@ test("home and archive share the searchable filter scope", () => {
     assert.match(home, /data-post-list/);
     assert.match(home, /data-list-status/);
     assert.match(home, /data-empty-state/);
+    // Topic links jump to the plain anchor so they work without JS.
+    const topicLink = home.match(/<a href="#radar" data-topic-target="[^"]+">/);
+    assert.ok(topicLink, "topic links anchor to #radar");
+    // Filters are real buttons and the search input is labelled.
+    assert.match(home, /<label for="post-search">/);
+    assert.match(home, /<button class="is-active" type="button" data-filter="all"/);
 
     const archive = fs.readFileSync(path.join(outDir, "articles", "index.html"), "utf8");
     assert.match(archive, /id="archive-search"/);
@@ -71,8 +91,6 @@ test("home and archive share the searchable filter scope", () => {
     assert.match(archive, /class="archive-list" data-post-list/);
     assert.match(archive, /data-post-card/);
     assert.match(archive, /data-search="[^"]+"/);
-    // The search input, filters and the list must share one filter scope so
-    // the client script can wire them together.
     const scopeBlock = archive.match(/<div class="wrap simple-wrap" data-filter-scope>[\s\S]*?<\/ol>/);
     assert.ok(scopeBlock, "archive filter scope wrapper not found");
     assert.ok(scopeBlock[0].includes("data-search-input") && scopeBlock[0].includes("data-post-list"));
@@ -81,20 +99,66 @@ test("home and archive share the searchable filter scope", () => {
   }
 });
 
-test("article pages keep the static body and a single article title", () => {
+test("article pages use a compact typographic header and collapsible notes", () => {
   const outDir = buildToTemp();
   try {
     const posts = JSON.parse(fs.readFileSync(realContent, "utf8"));
     const post = posts[0];
     const html = fs.readFileSync(path.join(outDir, "articles", post.slug, "index.html"), "utf8");
+    // Single title, preserved id, compact cream header instead of the space/robot cover.
     assert.equal((html.match(/<h1[\s>]/g) || []).length, 1);
-    assert.match(html, /class="article-figure|class="prose-section/);
+    assert.match(html, /class="article-cover article-cover-compact" aria-labelledby="article-title"/);
+    assert.match(html, /<h1 id="article-title">/);
+    assert.match(html, /class="cover-dek"/);
+    assert.match(html, /class="cover-meta"/);
+    assert.doesNotMatch(html, /class="cover-character"/);
+    assert.doesNotMatch(html, /class="cover-backdrop"/);
+    assert.doesNotMatch(html, /scene-credit/);
+    // Summary and editor note are collapsible details, contents retained.
+    assert.match(html, /<details class="key-points">/);
+    assert.match(html, /<summary>먼저 볼 것/);
+    assert.match(html, /<details class="editor-note">/);
+    assert.match(html, /<summary>편집 메모<\/summary>/);
+    // Reading furniture still works.
     assert.match(html, /itemprop="articleBody"/);
     assert.match(html, /class="article-aside aside-right"/);
+    assert.match(html, /class="article-aside aside-left"/);
     assert.match(html, /class="toc"/);
+    assert.match(html, /id="sources"|class="sources"/);
+    assert.match(html, /class="prose-section/);
   } finally {
     fs.rmSync(outDir, { recursive: true, force: true });
   }
+});
+
+test("articleExtras keeps figure and video markup safe for every section", () => {
+  const rich = fs.readFileSync(path.join(root, "build", "lib", "rich.mjs"), "utf8");
+  assert.match(rich, /class="article-figure"/);
+  assert.match(rich, /data-zoom-image/);
+  assert.match(rich, /class="article-video"/);
+  assert.match(rich, /class="table-scroll"/);
+  assert.match(rich, /class="code-example"/);
+  assert.match(rich, /class="section-links"/);
+});
+
+test("journal stylesheet defines the content-first layouts at each breakpoint", () => {
+  const css = fs.readFileSync(path.join(root, "site", "assets", "journal.css"), "utf8");
+  assert.match(css, /\.lead-grid\{[^}]*minmax\(0,1\.55fr\)/);
+  assert.match(css, /\.home-mascot\{/);
+  assert.match(css, /\.secondary-stories\{/);
+  // Compact article column and readable 680-760px measure.
+  assert.match(css, /\.page-article \.article-layout\{grid-template-columns:180px minmax\(0,720px\) 260px/);
+  assert.match(css, /\.page-article \.prose-section p\{font-size:17\.5px;line-height:1\.85/);
+  assert.match(css, /\.key-points>summary/);
+  assert.match(css, /\.editor-note>summary/);
+  // The old orbit/deep-space home is gone.
+  assert.doesNotMatch(css, /observatory/);
+  assert.doesNotMatch(css, /orbit-track/);
+  // Responsive coverage for the required widths.
+  for (const width of ["1200px", "960px", "880px", "820px", "640px"]) {
+    assert.ok(css.includes(`max-width:${width}`), `missing ${width} breakpoint`);
+  }
+  assert.match(css, /\.journal-header\[data-nav-open=true\] \.site-nav\{display:flex/);
 });
 
 test("progressive enhancement hooks are present in app.js and both stylesheets", () => {

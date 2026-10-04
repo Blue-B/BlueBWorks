@@ -22,53 +22,28 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap">
     <link rel="stylesheet" href="/BlueBWorks/assets/style.css">
     <link rel="stylesheet" href="/BlueBWorks/assets/prototype.css?v=journal3">
-    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css">
+    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=reading4">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나","description":"MAI-Voice-2.1, Flash, 실시간 전사가 Vercel AI Gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, API 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다.","url":"https://blue-b.github.io/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/","datePublished":"2026-09-30T15:00:00.000Z","dateModified":"2026-10-03T13:40:39.000Z","author":{"@type":"Organization","name":"AI-assisted BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"모델","keywords":"Microsoft AI, Vercel, 음성 합성, 실시간 전사, AI SDK","isAccessibleForFree":true,"image":"https://blue-b.github.io/BlueBWorks/assets/microsoft-audio-official.png"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나","item":"https://blue-b.github.io/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a><header class="site-header journal-header" data-nav-ready="false">
   <div class="publication-line"><span>AI와 개발 도구를 다루는 한국어 저널</span><a href="/BlueBWorks/feed.xml">RSS로 읽기 ↗</a></div>
-  <div class="journal-masthead"><a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks AI Radar 홈"><span class="brand-name">BlueBWorks</span><span class="brand-label">AI Radar</span><span class="brand-punctuation" aria-hidden="true">✳</span></a>
-  <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/" aria-current="page">최신 글</a><a href="/BlueBWorks/editorial.html">편집 노트</a><a href="/BlueBWorks/about.html">소개</a></nav>
+  <div class="journal-masthead"><a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks AI Radar 홈"><span class="brand-name">BlueBWorks</span><span class="brand-label">AI, 직접 써보기 전에</span><span class="brand-punctuation" aria-hidden="true">✳</span></a>
+  <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/" aria-current="page">최신 글</a><a href="/BlueBWorks/editorial.html">편집 원칙</a><a href="/BlueBWorks/about.html">소개</a></nav>
   <div class="journal-tools"><a class="header-search" href="/BlueBWorks/articles/#archive-search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="m12.5 12.5 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 22 16" aria-hidden="true"><path d="M1 3h20M1 13h20"/></svg><span>메뉴</span></button></div></div></header>
   <main id="main">
     <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
-    <section class="article-cover" aria-labelledby="article-title">
-    <div class="cover-backdrop" aria-hidden="true"></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
     <div class="wrap cover-inner">
       <header class="cover-copy">
-        <p class="cover-eyebrow"><a href="/BlueBWorks/articles/">AI RADAR</a><span>모델</span></p>
+        <p class="cover-eyebrow"><span>모델</span><a href="/BlueBWorks/articles/">글 목록</a></p>
         <h1 id="article-title">Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나</h1>
         <p class="cover-dek">MAI-Voice-2.1, Flash, 실시간 전사가 Vercel AI Gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, API 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다.</p>
-        <div class="cover-meta"><span class="author-monogram">B</span><span>BlueBWorks</span><span>2026년 10월 1일</span><span>7분 읽기</span></div>
-        <p class="cover-status">Gateway 제공 · 오디오 기능 베타 · 확인 2026년 10월 3일</p>
+        <p class="cover-meta"><span>2026년 10월 1일</span><span>7분 읽기</span><span>Gateway 제공 · 오디오 기능 베타</span><span>확인 2026년 10월 3일</span></p>
       </header>
-      <div class="hero-scene cover-character" data-parallax>
-        <div class="scene-layer scene-mascot" style="--depth:12">
-          <button class="mascot-button" type="button" aria-expanded="false" aria-controls="mascot-notes" aria-label="캐릭터를 눌러 사이트 사용 팁 보기">
-            <span class="mascot-float"><img class="mascot-img" src="/BlueBWorks/assets/mascot.webp" width="320" height="320" alt="파란 눈과 남색 스카프의 BlueBWorks 로봇 캐릭터"></span>
-            <span class="mascot-hint">사이트 사용 안내</span>
-          </button>
-        </div>
-      </div>
     </div>
-    <p class="scene-credit">배경 NASA / Jessica Meir · 캐릭터 AI 생성 이미지</p>
   </section>
-    <div class="mascot-notes" id="mascot-notes" hidden>
-      <div class="mascot-notes-head">
-        <strong>사이트 사용 팁</strong>
-        <button type="button" class="notes-close" data-notes-close aria-label="팁 닫기">닫기</button>
-      </div>
-      <p class="notes-intro">이 로봇은 화면 안내를 맡습니다. 대화형 AI가 아니고, 질문에 답하지 않습니다.</p>
-      <ul>
-        <li>레이더에서 카테고리 버튼과 검색창으로 글을 좁힐 수 있습니다.</li>
-        <li>글의 <strong>확인</strong> 시각과 <strong>확인한 출처</strong>를 함께 보면 발표와 실제 사용 가능 상태를 구분하기 쉽습니다.</li>
-        <li>페이지 아래 <strong>동작 줄이기</strong>로 애니메이션과 별 움직임을 끌 수 있습니다. 브라우저 설정도 함께 반영합니다.</li>
-        <li>각 글의 <strong>링크 복사</strong>로 주소를 공유할 수 있습니다.</li>
-        <li>오류 제보는 <a href="https://github.com/Blue-B/BlueBWorks/issues" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 받습니다.</li>
-      </ul>
-    </div>
     <div class="wrap article-wrap">
       <nav class="breadcrumb" aria-label="현재 위치">
         <ol>
@@ -106,7 +81,7 @@
             <p class="article-byline">글 작성: <span>AI-assisted BlueBWorks</span></p>
             <dl class="article-meta">
               <div><dt>발표</dt><dd>2026년 10월 1일</dd></div>
-              <div><dt>확인</dt><dd>2026년 10월 3일 오후 10:40</dd></div>
+              <div><dt>확인</dt><dd>2026년 10월 3일 PM 10:40</dd></div>
               <div><dt>분량</dt><dd>7분</dd></div>
             </dl>
 
@@ -115,18 +90,18 @@
         <img src="https://blue-b.github.io/BlueBWorks/assets/microsoft-audio-official.png" alt="Microsoft 음성 모델을 연결하는 Vercel AI Gateway" decoding="async" referrerpolicy="no-referrer">
         <figcaption><span>Microsoft 음성 모델을 연결하는 Vercel AI Gateway</span><cite>Vercel 공식 자료</cite></figcaption>
       </figure>
-          <section class="key-points" aria-labelledby="keys-title">
-      <h2 id="keys-title">먼저 볼 것</h2>
+          <details class="key-points">
+      <summary>먼저 볼 것 <span class="detail-count">3가지</span></summary>
       <ul>
         <li>Voice-2.1은 음성 생성, Flash는 낮은 지연을 목표로 한 음성 생성, Transcribe-2 Streaming은 실시간 음성 인식용이다.</li>
         <li>확인 시점의 표시 가격은 각각 100만 글자당 22달러·15달러, 전사 오디오 1시간당 0.54달러다. 토큰 단가가 아니다.</li>
         <li>음성 모델 세 개가 추가됐다고 해서 대화 이해·도구 실행까지 한 번에 처리되는 것은 아니다. 사용 목적에 따라 별도 대화 모델과 서버 처리가 필요하다.</li>
       </ul>
-    </section>
-          <section class="editor-note">
-      <h2>편집 메모</h2>
+    </details>
+          <details class="editor-note">
+      <summary>편집 메모</summary>
       <p>이번 발표만으로 한국어 음성 품질의 우열을 판단할 수는 없다. 확인된 변화는 Microsoft의 음성 생성과 실시간 전사를 Vercel의 인증·사용량 관리 흐름에서 연결할 수 있다는 점이다. 아래에서는 공식 사양과 가격을 먼저 정리하고, 실제 서비스에 붙일 때 필요한 판단은 별도로 설명한다. 직접 성능을 측정한 리뷰가 아니라 공식 문서 기반의 기술 해설이다.</p>
-    </section>
+    </details>
           <div class="article-body" itemprop="articleBody">
             <section class="prose-section" id="sec-1">
         <h2>이번에 추가된 것은 음성 모델 세 개다</h2>
@@ -378,9 +353,9 @@ await writeFile(&#39;connection-test.mp3&#39;, result.audio.uint8Array);</code><
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
-    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.<br>배경 NASA / Jessica Meir · 캐릭터 AI 생성 일러스트</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.<br>캐릭터 AI 생성 일러스트 · 제품 이미지는 각 글의 공식 출처 표시를 따릅니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
   <script src="/BlueBWorks/assets/app.js?v=journal3" defer></script>
-  <script src="/BlueBWorks/assets/journal.js" defer></script>
+  <script src="/BlueBWorks/assets/journal.js?v=reading4" defer></script>
   </body>
 </html>

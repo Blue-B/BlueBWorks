@@ -1,6 +1,10 @@
 // Topic links remain normal anchors without JavaScript.
 (() => {
   'use strict';
+  // Keep the first paragraph within reach on narrow screens. The contents
+  // remain available through the native, keyboard-accessible details control.
+  const toc = document.querySelector('details.toc');
+  if (toc && window.matchMedia('(max-width: 960px)').matches) toc.open = false;
   const archive = document.querySelector('#radar[data-filter-scope]');
   if (!archive) return;
   const topicLinks = [...document.querySelectorAll('[data-topic-target]')];

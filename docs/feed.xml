@@ -39,12 +39,12 @@
       <description>MAI-Voice-2.1, Flash, 실시간 전사가 Vercel AI Gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, API 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다.</description>
     </item>
     <item>
-      <title>Cloudflare K2 공개 — Kafka 없이 쓰는 서버리스 이벤트 스트림</title>
+      <title>Cloudflare K2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법</title>
       <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-k2-serverless-event-streams-2026/</link>
       <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-k2-serverless-event-streams-2026/</guid>
       <pubDate>Wed, 30 Sep 2026 15:00:00 GMT</pubDate>
       <category>개발도구</category>
-      <description>Cloudflare가 R2 위에 구축한 서버리스 이벤트 스트리밍 서비스 K2를 공개 베타로 내놨다. 이벤트를 순서가 있는 로그로 장기간 보관하고 여러 소비자가 독립적으로 읽을 수 있어 엣지 환경에서 대규모 데이터 파이프라인을 만들 때 Kafka 같은 별도 클러스터 운영 부담을 줄이는 선택지가 생겼다.</description>
+      <description>주문·클릭 기록을 여러 시스템에 전달하다 한쪽이 멈추면 어떻게 될까. Cloudflare K2는 기록을 먼저 보관하고 각 시스템이 자기 속도로 읽게 한다. 구독을 나누는 방식부터 중복 처리, 보관 기간, 베타 요금까지 살펴본다.</description>
     </item>
     <item>
       <title>Claude Code Mods로 바꿀 수 있는 것: 상태 표시부터 명령 확인 화면까지</title>
