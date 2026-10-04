@@ -8,6 +8,32 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 function httpsUrl(value) {
   try { return new URL(value).protocol === 'https:'; } catch { return false; }
 }
+
+const DATE_ONLY = /^\d{4}-\d{2}-\d{2}$/;
+const OFFSET_TIMESTAMP = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.\d+)?)?(?:Z|([+-])(\d{2}):(\d{2}))$/;
+
+function realCalendarDay(value) {
+  const [year, month, day] = value.split('-').map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
+}
+
+// Announcement dates are date-only (YYYY-MM-DD, interpreted in Asia/Seoul).
+function validAnnouncedAt(value) {
+  return DATE_ONLY.test(value || '') && realCalendarDay(value);
+}
+
+// Blog publish/verification must carry an explicit timezone; no bare local time.
+// 24:00 and other rolled-over parts are rejected so the calendar day cannot shift.
+function validTimestamp(value) {
+  const match = OFFSET_TIMESTAMP.exec(value || '');
+  if (!match) return false;
+  const [, year, month, day, hour, minute, second, , offsetHour, offsetMinute] = match;
+  if (Number(hour) > 23 || Number(minute) > 59 || Number(second ?? 0) > 59) return false;
+  if (offsetHour != null && (Number(offsetHour) > 23 || Number(offsetMinute) > 59)) return false;
+  return realCalendarDay(`${year}-${month}-${day}`) && Number.isFinite(Date.parse(value));
+}
+
 export function inspectArticle(article, filename = '') {
   const errors = [];
   const fail = message => errors.push(`${article?.slug || filename}: ${message}`);
@@ -20,8 +46,10 @@ export function inspectArticle(article, filename = '') {
   if (body.length < 3000) fail(`body is ${body.length} characters; at least 3000 required (excluding summary, code and sources)`);
   if (sections.length < 4) fail('at least four substantive sections required');
   if (article.reviewStatus !== 'reviewed') fail('explicit reviewStatus=reviewed required');
-  for (const field of ['title', 'summary', 'publishedAt', 'verifiedAt', 'category']) if (!article[field]) fail(`missing ${field}`);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(article.publishedAt || '') || !Number.isFinite(Date.parse(article.verifiedAt))) fail('invalid publication or verification date');
+  for (const field of ['title', 'summary', 'announcedAt', 'publishedAt', 'verifiedAt', 'category']) if (!article[field]) fail(`missing ${field}`);
+  if (!validAnnouncedAt(article.announcedAt)) fail('announcedAt must be a real YYYY-MM-DD announcement date');
+  if (!validTimestamp(article.publishedAt)) fail('publishedAt must be an ISO 8601 timestamp with a timezone offset');
+  if (!validTimestamp(article.verifiedAt)) fail('verifiedAt must be an ISO 8601 timestamp with a timezone offset');
   const sources = Array.isArray(article.sources) ? article.sources : [];
   if (sources.length < 2) fail('at least two primary-source links required');
   if (new Set(sources.map(source => source.url)).size !== sources.length) fail('duplicate source URLs');

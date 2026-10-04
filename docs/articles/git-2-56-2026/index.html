@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/BlueBWorks/assets/style.css">
     <link rel="stylesheet" href="/BlueBWorks/assets/prototype.css?v=journal3">
     <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=reading4">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다","description":"Git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다.","url":"https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/","datePublished":"2026-09-27T15:00:00.000Z","dateModified":"2026-10-04T04:50:04.000Z","author":{"@type":"Organization","name":"AI-assisted BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스·개발도구","keywords":"Git, Open Source, Version Control, 개발도구, Monorepo","isAccessibleForFree":true,"image":"https://blue-b.github.io/BlueBWorks/assets/earth-night.jpg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다","description":"Git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다.","url":"https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/","datePublished":"2026-10-04T05:06:28.000Z","dateModified":"2026-10-04T05:06:28.000Z","author":{"@type":"Organization","name":"AI-assisted BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스·개발도구","keywords":"Git, Open Source, Version Control, 개발도구, Monorepo","isAccessibleForFree":true,"image":"https://blue-b.github.io/BlueBWorks/assets/earth-night.jpg"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다","item":"https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/"}]}</script>
   </head>
   <body class="page-article">
@@ -40,7 +40,7 @@
         <p class="cover-eyebrow"><span>오픈소스·개발도구</span><a href="/BlueBWorks/articles/">글 목록</a></p>
         <h1 id="article-title">Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다</h1>
         <p class="cover-dek">Git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다.</p>
-        <p class="cover-meta"><span>2026년 9월 28일</span><span>7분 읽기</span><span>Git 2.56.0 released</span><span>확인 2026년 10월 4일</span></p>
+        <p class="cover-meta"><span>블로그 게시 2026년 10월 4일</span><span>소식 발표 2026년 9월 28일</span><span>7분 읽기</span><span>Git 2.56.0 released</span><span>확인 2026년 10월 4일</span></p>
       </header>
     </div>
   </section>
@@ -78,7 +78,8 @@
             <p class="article-dek" itemprop="description">Git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다.</p>
             <p class="article-byline">글 작성: <span>AI-assisted BlueBWorks</span></p>
             <dl class="article-meta">
-              <div><dt>발표</dt><dd>2026년 9월 28일</dd></div>
+              <div><dt>블로그 게시</dt><dd>2026년 10월 4일</dd></div>
+              <div><dt>소식 발표</dt><dd>2026년 9월 28일</dd></div>
               <div><dt>확인</dt><dd>2026년 10월 4일 PM 01:50</dd></div>
               <div><dt>분량</dt><dd>7분</dd></div>
             </dl>
@@ -180,21 +181,21 @@
           <a href="/BlueBWorks/articles/olmo-core-3-moe-training-2026/">
             <span class="related-cat">오픈소스</span>
             <strong>Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다</strong>
-            <span>2026년 10월 1일</span>
-          </a>
-        </li>
-        <li>
-          <a href="/BlueBWorks/articles/github-copilot-code-review-api-2026/">
-            <span class="related-cat">개발도구</span>
-            <strong>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</strong>
-            <span>2026년 10월 2일</span>
+            <span>게시 2026년 10월 2일</span>
           </a>
         </li>
         <li>
           <a href="/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/">
             <span class="related-cat">보안·인프라</span>
             <strong>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</strong>
-            <span>2026년 10월 2일</span>
+            <span>게시 2026년 10월 4일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels</strong>
+            <span>게시 2026년 10월 4일</span>
           </a>
         </li>
       </ul>

@@ -24,7 +24,7 @@ function thumbnail(post, base, className = '') {
 }
 
 function postMeta(post) {
-  return `<p class="journal-meta"><span>${esc(readableCategory(post.category))}</span><time>${esc(formatKoreanDate(post.publishedAt))}</time><span>${readingMinutes(post)}분 읽기</span></p>`;
+  return `<p class="journal-meta"><span>${esc(readableCategory(post.category))}</span><time datetime="${esc(post.publishedAt)}">게시 ${esc(formatKoreanDate(post.publishedAt))}</time><span>${readingMinutes(post)}분 읽기</span></p>`;
 }
 
 function leadStory(post, base) {
@@ -81,7 +81,7 @@ export function journalHome({ base, config, posts, notes }) {
       <div class="section-heading"><div><p class="section-index">모든 글</p><h2 id="radar-title">쌓아둔 기록<span>.</span></h2></div><p>제목, 모델, 도구 이름으로 찾아보세요.</p><a class="section-link" href="${pageHref(base, 'articles/')}">글 목록 ${arrow}</a></div>
       <div class="archive-controls"><div class="journal-search"><label for="post-search">글 검색</label><div><input id="post-search" type="search" data-search-input placeholder="제목, 모델, 도구 이름" autocomplete="off"><span aria-hidden="true">⌕</span></div></div><p class="list-status" data-list-status id="list-status" aria-live="polite">글 ${posts.length}편</p></div>
       <div class="journal-filters" role="group" aria-label="카테고리 필터"><button class="is-active" type="button" data-filter="all" aria-pressed="true">전체</button>${categories.map(c => `<button type="button" data-filter="${esc(c)}" aria-pressed="false">${esc(readableCategory(c))}</button>`).join('')}</div>
-      <ol class="journal-posts" id="post-list" data-post-list>${posts.map((p, i) => `<li class="${hasThumbnail(p) ? 'has-thumb' : 'text-only'}" data-post-card data-category="${esc(p.category)}" data-search="${esc(searchable(p))}"><a href="${articleHref(base, p)}"><span class="note-number">${String(i + 1).padStart(2, '0')}</span>${thumbnail(p, base)}<div class="note-copy"><p class="journal-meta"><span>${esc(readableCategory(p.category))}</span><time>${esc(formatKoreanDate(p.publishedAt))}</time></p><h3>${esc(p.title)}</h3><p class="note-summary">${esc(p.summary)}</p></div><span class="note-read">${readingMinutes(p)}분 ${arrow}</span></a></li>`).join('')}</ol>
+      <ol class="journal-posts" id="post-list" data-post-list>${posts.map((p, i) => `<li class="${hasThumbnail(p) ? 'has-thumb' : 'text-only'}" data-post-card data-category="${esc(p.category)}" data-search="${esc(searchable(p))}"><a href="${articleHref(base, p)}"><span class="note-number">${String(i + 1).padStart(2, '0')}</span>${thumbnail(p, base)}<div class="note-copy"><p class="journal-meta"><span>${esc(readableCategory(p.category))}</span><time datetime="${esc(p.publishedAt)}">게시 ${esc(formatKoreanDate(p.publishedAt))}</time></p><h3>${esc(p.title)}</h3><p class="note-summary">${esc(p.summary)}</p></div><span class="note-read">${readingMinutes(p)}분 ${arrow}</span></a></li>`).join('')}</ol>
       <p class="empty-state" data-empty-state id="empty-state" hidden>찾는 글이 없어. 다른 검색어나 주제로 찾아봐.</p>
     </section>
     <section class="journal-sources" aria-labelledby="rail-title"><div class="journal-section"><div class="section-heading"><div><p class="section-index">공식 자료</p><h2 id="rail-title">원문으로 가기<span>↗</span></h2></div><p>직접 확인하고 싶을 때 여는<br>공식 문서와 변경 기록.</p></div><ul>${config.resources.map((r,i) => `<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><span>${String(i+1).padStart(2,'0')}</span><div><strong>${esc(r.name)}</strong><small>${esc(r.type || '공식 자료')}</small></div>${arrow}</a></li>`).join('')}</ul></div></section>

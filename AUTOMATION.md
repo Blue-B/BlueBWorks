@@ -6,7 +6,7 @@
 기존 예약은 하루 두 번, 회차당 새 기사 1편을 발행해 하루 2편을 목표로 한다. 사용자가 변경을 요청하지 않는 한 실행 시각·활성 상태를 바꾸거나 중복 예약을 만들지 않는다. 한 번 실패했다고 자동발행을 임의로 끄지 않는다. 실패 위치와 실제 반영 여부를 보고한다.
 
 ## 실행 시작과 중복 방지
-최신 원격 main의 이 문서, `site.config.json`, `docs/data/posts.json`, `content/reviewed-posts.json`, `content/articles/`를 읽는다. main SHA를 기록하고 발표 내용·공식 URL·slug 기준으로 중복을 확인한다. 직전 실행이 실제 반영됐는지는 원격 기록으로 확인하며 이전 답변의 성공 표현만 믿지 않는다.
+최신 원격 main의 이 문서, `site.config.json`, `docs/data/posts.json`, `content/reviewed-posts.json`, `content/articles/`를 읽는다. main SHA를 기록하고 발표 내용·공식 URL·slug 기준으로 중복을 확인한다. 직전 실행이 실제 반영됐는지는 원격 기록으로 확인하며 이전 답변의 성공 표현만 믿지 않는다. 사람이 수동으로 보완한 변경을 정기 예약 실행이 성공한 것으로 보고하지 않는다.
 
 `build/editorial-check.mjs`와 개별 기사 파일을 읽는 `build/lib/data.mjs`가 있는 현재 구조를 사용한다. 호환되지 않는 구버전으로 되돌아가 있으면 새 스키마를 밀어 넣지 않는다. 이전 작업의 수정이 남았다면 덮어쓰지 않고 별도 깨끗한 worktree 또는 격리 환경에서 최신 main 기준으로 작업한다. 미반영 디자인 작업을 기사 발행에 끼워 넣지 않는다.
 
@@ -57,9 +57,13 @@ YouTube는 공식 원문·채널에서 영상 내용과 임베드 가능 여부�
 ## 작성 데이터
 새 기사와 기존 글의 장문 개정본은 **`content/articles/<slug>.json` 한 파일당 한 기사**로 저장한다. 파일명과 slug를 일치시키고 기존 slug·발표일을 보존한다. 정정은 `corrections`에 남긴다. 다른 기존 글은 지우지 않는다.
 
-읽는 순서는 `docs/data/posts.json` → `content/reviewed-posts.json` → `content/articles/*.json`이며 같은 slug는 뒤쪽 정밀 작성본이 우선한다. 새 글을 legacy JSON에만 넣지 않는다. `content/reviewed-posts.json`을 새 글 저장소로 되돌리지 않는다.
+읽는 순서는 `docs/data/posts.json` → `content/reviewed-posts.json` → `content/articles/*.json`이며 같은 slug는 뒤쪽 정밀 작성본이 우선한다. 새 글을 legacy JSON에만 넣지 않는다. `content/reviewed-posts.json`을 새 글 저장소로 되돌리지 않는다. legacy와 작성본이 같은 slug로 겹치면 두 파일의 날짜 필드를 같은 값으로 맞춰, 덮어쓰기 우선순위에서 과거 발표일이 되살아나지 않게 한다.
 
-필수: slug, title, summary, category, publishedAt, verifiedAt, status, reviewStatus='reviewed', tags, editorNote, keyPoints, sections, sources, resources. verifiedAt은 실제 확인 시각이며 원문 발표일과 다르다.
+날짜 필드는 세 가지로 구분한다. `announcedAt`은 공식 원문에 표시된 소식 발표의 달력 날짜(`YYYY-MM-DD`, 기존 `publishedAt` 값을 그대로 보존하며 날짜만 있는 원문에 시간대를 추측해 더하지 않음), `publishedAt`은 이 블로그가 글을 처음 게시한 시각(ISO 8601, 시간대 오프셋 포함, `+09:00` 권장), `verifiedAt`은 원문 사실을 확인한 시각이다. 새 글을 처음 발행할 때만 `publishedAt`을 실제 게시 시각으로 정하고, 이미 게시된 글의 개정·재빌드·재검증에서는 값을 바꾸지 않는다.
+
+최신 글 정렬과 홈·목록의 기준 시각은 `publishedAt`이다. 원문 발표일(`announcedAt`)로 최신 글을 정렬하지 않는다. 같은 시각이면 기존 순서를 유지한다. 기사 화면에는 발표와 게시를 함께 표시하고, RSS `pubDate`와 JSON-LD `datePublished`는 게시일을 쓴다. `dateModified`·`lastmod`는 `publishedAt`과 `verifiedAt` 중 늦은 값이며 게시일보다 앞설 수 없다.
+
+필수: slug, title, summary, category, announcedAt, publishedAt, verifiedAt, status, reviewStatus='reviewed', tags, editorNote, keyPoints, sections, sources, resources. 시간대 없는 `publishedAt`·`verifiedAt`, 실재하지 않는 날짜는 `npm run editorial:check`에서 거절한다.
 
 - sections: title, paragraphs[], sourceRefs[] (sources의 1부터 시작하는 번호).
 - table: {headers, rows, caption}. 단위·기준·추정 여부를 설명한다.

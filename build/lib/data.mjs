@@ -66,9 +66,13 @@ export function normalizePost(raw) {
     .filter(video => video && video.verified === true && /^[\w-]{6,}$/.test(txt(video.youtubeId)))
     .map(video => ({ youtubeId: txt(video.youtubeId), title: txt(video.title), channel: txt(video.channel), sourceUrl: txt(video.sourceUrl), verified: true }));
   const corrections = (Array.isArray(raw.corrections) ? raw.corrections : []).map(normalizeCorrection).filter(entry => entry && entry.text);
+  const publishedAt = txt(raw.publishedAt);
+  // announcedAt is the original news announcement date. Legacy entries only
+  // carry a date-only publishedAt, so mirror it there instead of losing it.
+  const announcedAt = txt(raw.announcedAt) || (/^\d{4}-\d{2}-\d{2}$/.test(publishedAt) ? publishedAt : "");
   return {
     slug: txt(raw.slug), title: txt(raw.title), summary: txt(raw.summary), category: txt(raw.category) || "기타",
-    publishedAt: txt(raw.publishedAt), verifiedAt: txt(raw.verifiedAt), status: txt(raw.status),
+    announcedAt, publishedAt, verifiedAt: txt(raw.verifiedAt), status: txt(raw.status),
     tags: (Array.isArray(raw.tags) ? raw.tags : []).map(txt).filter(Boolean),
     image: txt(raw.image), imageAlt: txt(raw.imageAlt), imageCredit: txt(raw.imageCredit),
     editorNote: txt(raw.editorNote), keyPoints: (Array.isArray(raw.keyPoints) ? raw.keyPoints : []).map(txt).filter(Boolean),

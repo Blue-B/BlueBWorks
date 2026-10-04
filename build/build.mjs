@@ -6,7 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { isIndexable, loadPosts, sortPosts } from "./lib/data.mjs";
-import { basePathFromUrl, joinUrl, normalizeBaseUrl } from "./lib/util.mjs";
+import { basePathFromUrl, joinUrl, kstDate, laterDate, normalizeBaseUrl, sortKey } from "./lib/util.mjs";
 import {
   render404,
   renderAbout,
@@ -86,10 +86,15 @@ function cleanupPreviousBuild(outDir, generated) {
 
 function sitemapPaths(config, posts) {
   const indexable = posts.filter(isIndexable);
-  const latest = indexable[0]?.verifiedAt || indexable[0]?.publishedAt || "";
+  // Compare real instants, then render each lastmod as a KST calendar day so
+  // timestamps with different offsets cannot disagree about the date.
+  const latestInstant = indexable
+    .map((post) => laterDate(post.publishedAt, post.verifiedAt))
+    .reduce((best, value) => (sortKey(value) > sortKey(best) ? value : best), "");
+  const latest = kstDate(latestInstant);
   const paths = [
-    { path: "/", lastmod: latest.slice(0, 10) },
-    { path: "/articles/", lastmod: latest.slice(0, 10) },
+    { path: "/", lastmod: latest },
+    { path: "/articles/", lastmod: latest },
     { path: "/about.html" },
     { path: "/editorial.html" },
     { path: "/contact.html" },
@@ -98,7 +103,7 @@ function sitemapPaths(config, posts) {
   for (const post of indexable) {
     paths.push({
       path: `/articles/${post.slug}/`,
-      lastmod: (post.verifiedAt || post.publishedAt || "").slice(0, 10),
+      lastmod: kstDate(laterDate(post.publishedAt, post.verifiedAt)),
     });
   }
   return paths;

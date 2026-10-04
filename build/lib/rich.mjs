@@ -2,7 +2,8 @@ import { escapeHtml as esc, pageHref, formatKoreanDate, readingMinutes } from '.
 
 export function articleCover(post, base) {
   const meta = [
-    `<span>${esc(formatKoreanDate(post.publishedAt))}</span>`,
+    `<span>블로그 게시 ${esc(formatKoreanDate(post.publishedAt))}</span>`,
+    post.announcedAt ? `<span>소식 발표 ${esc(formatKoreanDate(post.announcedAt))}</span>` : '',
     `<span>${readingMinutes(post)}분 읽기</span>`,
     post.status ? `<span>${esc(post.status)}</span>` : '',
     post.verifiedAt ? `<span>확인 ${esc(formatKoreanDate(post.verifiedAt))}</span>` : '',

@@ -70,7 +70,8 @@ export function formatKoreanDate(value) {
 
 export function formatKoreanDateTime(value) {
   if (!value) return "";
-  const date = new Date(value);
+  const iso = /^\d{4}-\d{2}-\d{2}$/.test(value) ? `${value}T00:00:00+09:00` : value;
+  const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return String(value);
   return new Intl.DateTimeFormat("ko-KR", {
     year: "numeric",
@@ -110,6 +111,29 @@ export function sortKey(value) {
       : value;
   const date = new Date(iso);
   return Number.isNaN(date.getTime()) ? 0 : date.getTime();
+}
+
+// The later of two date/timestamp values, returned in its original form.
+// Used so dateModified/lastmod never move before the article's publish time.
+export function laterDate(a, b) {
+  return sortKey(a) >= sortKey(b) ? a : b;
+}
+
+// A value rendered as a calendar day in Asia/Seoul. Timestamps with different
+// offsets cannot be sliced directly, so convert through the actual instant.
+export function kstDate(value) {
+  if (!value) return "";
+  const iso = /^\d{4}-\d{2}-\d{2}$/.test(value) ? `${value}T00:00:00+09:00` : value;
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "";
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const get = (type) => parts.find((part) => part.type === type)?.value || "";
+  return `${get("year")}-${get("month")}-${get("day")}`;
 }
 
 export function splitParagraphs(body) {

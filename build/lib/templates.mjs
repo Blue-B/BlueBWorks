@@ -4,16 +4,18 @@ import {
   hostnameOf,
   jsonEmbed,
   joinUrl,
+  laterDate,
   pageHref,
   readingMinutes,
   sectionParagraphs,
+  sortKey,
   toIso,
   toRfc822,
   formatKoreanDate,
   formatKoreanDateTime,
   unique,
 } from "./util.mjs";
-import { isIndexable, relatedPosts } from "./data.mjs";
+import { isIndexable, relatedPosts, sortPosts } from "./data.mjs";
 import { articleCover, articleExtras } from "./rich.mjs";
 import { journalHome, journalHeader } from "./home.mjs";
 
@@ -179,7 +181,7 @@ function mediaFigure(post, base, { className = "post-media", eager = false } = {
 function metaRow(post) {
   return `<p class="meta-row">
       <span class="meta-cat">${esc(post.category)}</span>
-      <span>${esc(formatKoreanDate(post.publishedAt))}</span>
+      <span>게시 ${esc(formatKoreanDate(post.publishedAt))}</span>
       <span>${readingMinutes(post)}분</span>
       ${post.status ? `<span>${esc(post.status)}</span>` : ""}
     </p>`;
@@ -375,7 +377,7 @@ function renderRelated(post, posts, base) {
           <a href="${pageHref(base, `articles/${item.slug}/`)}">
             <span class="related-cat">${esc(item.category)}</span>
             <strong>${esc(item.title)}</strong>
-            <span>${esc(formatKoreanDate(item.publishedAt))}</span>
+            <span>게시 ${esc(formatKoreanDate(item.publishedAt))}</span>
           </a>
         </li>`,
           )
@@ -417,7 +419,7 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
     url: canonical,
     mainEntityOfPage: canonical,
     datePublished: toIso(post.publishedAt),
-    dateModified: toIso(post.verifiedAt || post.publishedAt),
+    dateModified: toIso(laterDate(post.publishedAt, post.verifiedAt)),
     author: { "@type": "Organization", name: config.byline },
     publisher: { "@type": "Organization", name: config.shortName },
     inLanguage: "ko-KR",
@@ -452,7 +454,8 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
             <p class="article-dek" itemprop="description">${esc(post.summary)}</p>
             <p class="article-byline">글 작성: <span>${esc(config.byline)}</span></p>
             <dl class="article-meta">
-              <div><dt>발표</dt><dd>${esc(formatKoreanDate(post.publishedAt))}</dd></div>
+              <div><dt>블로그 게시</dt><dd>${esc(formatKoreanDate(post.publishedAt))}</dd></div>
+              ${post.announcedAt ? `<div><dt>소식 발표</dt><dd>${esc(formatKoreanDate(post.announcedAt))}</dd></div>` : ''}
               <div><dt>확인</dt><dd>${esc(formatKoreanDateTime(post.verifiedAt) || formatKoreanDate(post.publishedAt))}</dd></div>
               <div><dt>분량</dt><dd>${readingMinutes(post)}분</dd></div>
             </dl>
@@ -497,7 +500,7 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
 }
 
 export function renderArticlesIndex({ config, base, posts, generatedAt }) {
-  const sorted = posts.slice().sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
+  const sorted = sortPosts(posts);
   const categories = unique(sorted.map((post) => post.category));
   const rows = sorted
     .map((post) => {
@@ -506,7 +509,7 @@ export function renderArticlesIndex({ config, base, posts, generatedAt }) {
         <a href="${pageHref(base, `articles/${post.slug}/`)}">
           <span class="archive-cat">${esc(post.category)}</span>
           <strong>${esc(post.title)}</strong>
-          <span class="archive-date">${esc(formatKoreanDate(post.publishedAt))}</span>
+          <span class="archive-date">게시 ${esc(formatKoreanDate(post.publishedAt))}</span>
           ${state}
         </a>
       </li>`;
@@ -820,8 +823,11 @@ export function renderPostCompat({ config, base, posts }) {
 }
 
 export function renderFeed({ config, posts }) {
-  const items = posts
-    .filter(isIndexable)
+  const indexable = sortPosts(posts.filter(isIndexable));
+  const latest = indexable
+    .map((post) => laterDate(post.publishedAt, post.verifiedAt))
+    .reduce((best, value) => (sortKey(value) > sortKey(best) ? value : best), "");
+  const items = indexable
     .map((post) => {
       const url = joinUrl(config.baseUrl, `/articles/${post.slug}/`);
       return `<item>
@@ -841,7 +847,7 @@ export function renderFeed({ config, posts }) {
     <link>${esc(joinUrl(config.baseUrl, "/"))}</link>
     <description>${esc(config.description)}</description>
     <language>ko-KR</language>
-    <lastBuildDate>${esc(toRfc822(posts[0]?.publishedAt || new Date().toISOString()))}</lastBuildDate>
+    <lastBuildDate>${esc(toRfc822(latest))}</lastBuildDate>
     ${items}
   </channel>
 </rss>

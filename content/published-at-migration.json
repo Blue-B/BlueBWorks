@@ -1,0 +1,22 @@
+{
+  "reason": "게시 시각(publishedAt)과 원문 소식 발표일(announcedAt)을 분리했다. 기존 publishedAt(YYYY-MM-DD)은 announcedAt으로 그대로 보존하고, 이 블로그가 글을 처음 게시한 시각을 publishedAt에 기록했다.",
+  "source": "origin/main first-parent 최초 등장 스냅샷의 committer 시각으로 복원했다. CDN 공개 시각이 아니라 main 콘텐츠 반영 기록을 근거로 한 게시 시각이다.",
+  "generatedFrom": "git log --first-parent --reverse origin/main",
+  "correctedSlugs": {
+    "openai-dots-2026": { "announcedAt": "2026-09-29", "publishedAt": "2026-10-02T00:09:15+09:00", "commit": "7a2f660180b12e788152404c68ed4c17b0e929aa" },
+    "gpt-6-1-sol-2026": { "announcedAt": "2026-09-29", "publishedAt": "2026-10-02T00:09:15+09:00", "commit": "7a2f660180b12e788152404c68ed4c17b0e929aa" },
+    "olmo-core-3-moe-training-2026": { "announcedAt": "2026-10-01", "publishedAt": "2026-10-02T03:00:09+09:00", "commit": "3cd4f6927af42695a80f89a07fb1f5e68aef7245" },
+    "gemini-4-argon-2026": { "announcedAt": "2026-09-30", "publishedAt": "2026-10-02T03:00:09+09:00", "commit": "3cd4f6927af42695a80f89a07fb1f5e68aef7245" },
+    "github-copilot-hydrafusion-vscode-2026": { "announcedAt": "2026-09-30", "publishedAt": "2026-10-02T03:00:09+09:00", "commit": "3cd4f6927af42695a80f89a07fb1f5e68aef7245" },
+    "github-copilot-computer-use-2026": { "announcedAt": "2026-10-01", "publishedAt": "2026-10-02T12:07:48+09:00", "commit": "63b1518ae3a4c0de02fb62e68d38cc59d7b93406" },
+    "cloudflare-clef-decision-models-2026": { "announcedAt": "2026-10-01", "publishedAt": "2026-10-02T12:07:48+09:00", "commit": "63b1518ae3a4c0de02fb62e68d38cc59d7b93406" },
+    "claude-code-mods-2026": { "announcedAt": "2026-10-01", "publishedAt": "2026-10-02T15:05:13+09:00", "commit": "edaa5af4610f7f2b483f1d4153d052e8b3f66552" },
+    "github-copilot-dynamic-workflows-2026": { "announcedAt": "2026-10-01", "publishedAt": "2026-10-02T15:05:13+09:00", "commit": "edaa5af4610f7f2b483f1d4153d052e8b3f66552" },
+    "microsoft-mai-audio-vercel-ai-gateway-2026": { "announcedAt": "2026-10-01", "publishedAt": "2026-10-02T18:06:51+09:00", "commit": "24c3921aefca640c42f1d5c63bb605e266b080f2" },
+    "cloudflare-k2-serverless-event-streams-2026": { "announcedAt": "2026-10-01", "publishedAt": "2026-10-02T18:06:51+09:00", "commit": "24c3921aefca640c42f1d5c63bb605e266b080f2" },
+    "github-copilot-code-review-api-2026": { "announcedAt": "2026-10-02", "publishedAt": "2026-10-03T20:43:12+09:00", "commit": "fda9a15c72d27382a009b599d5d248588841c673" },
+    "cloudflare-protected-quick-tunnels-2026": { "announcedAt": "2026-10-02", "publishedAt": "2026-10-04T03:09:44+09:00", "commit": "c654f557c8b15f44f97aa10a26fafe5b0a7d15d2" },
+    "cloudflare-ohttp-gateway-2026": { "announcedAt": "2026-10-02", "publishedAt": "2026-10-04T14:06:28+09:00", "commit": "f20409b1d1291bc0cfd66fcefb99b3373ed26f74" },
+    "git-2-56-2026": { "announcedAt": "2026-09-28", "publishedAt": "2026-10-04T14:06:28+09:00", "commit": "f20409b1d1291bc0cfd66fcefb99b3373ed26f74" }
+  }
+}

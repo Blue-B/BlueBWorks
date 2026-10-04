@@ -53,7 +53,7 @@ test("home opens on a real lead article with media and two secondary stories", (
     // Two secondary stories with category and date.
     const secondary = home.match(/class="secondary-story"/g) || [];
     assert.ok(secondary.length >= 1, "at least one secondary story is rendered");
-    assert.match(home, /class="secondary-copy"[\s\S]*?class="journal-meta"[\s\S]*?<time>/);
+    assert.match(home, /class="secondary-copy"[\s\S]*?class="journal-meta"[\s\S]*?<time[\s>]/);
     // Small mascot is an optional brand detail, not a hero.
     assert.match(home, /class="home-mascot"/);
     assert.match(home, /class="mascot-img"/);
