@@ -44,17 +44,27 @@
         <div class="filters" role="group" aria-label="카테고리 필터">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
           <button class="filter" type="button" data-filter="개발도구" aria-pressed="false">개발도구</button>
+          <button class="filter" type="button" data-filter="보안·인프라" aria-pressed="false">보안·인프라</button>
           <button class="filter" type="button" data-filter="모델" aria-pressed="false">모델</button>
           <button class="filter" type="button" data-filter="오픈소스" aria-pressed="false">오픈소스</button>
           <button class="filter" type="button" data-filter="에이전트" aria-pressed="false">에이전트</button>
+          <button class="filter" type="button" data-filter="오픈소스·개발도구" aria-pressed="false">오픈소스·개발도구</button>
         </div>
-        <p class="list-status" data-list-status aria-live="polite">글 13편</p>
+        <p class="list-status" data-list-status aria-live="polite">글 15편</p>
       </section>
       <ol class="archive-list" data-post-list>
         <li data-post-card data-category="개발도구" data-search="copilot 코드 리뷰를 api로 부를 때 달라지는 설정과 비용 github가 copilot 코드 리뷰의 rest·graphql 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다. 개발도구 api 정식 제공 · 자동 승인은 별도 프리뷰 api가 생겼다는 사실보다 팀에서 리뷰를 언제 요청할지 정하는 일이 먼저다. 빌드 성공, 사람 리뷰 요청, 병합 승인 중 어느 단계에 붙일지 구분하면 중복 실행과 불필요한 사용량을 줄이기 쉽다. 이 글은 공식 동작과 설정을 정리한 해설이며 직접 측정한 리뷰 품질 비교는 아니다. github copilot 코드 리뷰 api 개발 자동화 rest·graphql에서 리뷰를 요청하고 요청별 분석 수준을 지정할 수 있다. pro·pro+·max·business·enterprise에 정식 제공된다. default가 balanced로 바뀐 것은 2026년 9월 28일이다. lite를 직접 선택한 설정은 유지되며, api 발표일인 10월 2일과 구분해야 한다. ai 사용료와 실행 환경 비용, 다시 push했을 때의 재리뷰, copilot 승인 효력은 각각 따로 확인해야 한다.">
         <a href="/BlueBWorks/articles/github-copilot-code-review-api-2026/">
           <span class="archive-cat">개발도구</span>
           <strong>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</strong>
+          <span class="archive-date">2026년 10월 2일</span>
+
+        </a>
+      </li>
+        <li data-post-card data-category="보안·인프라" data-search="cloudflare ohttp gateway 공개: ip 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다 cloudflare가 ohttp의 암복호화 지점을 직접 운영하는 ohttp gateway를 closed beta로 공개했다. 기존 relay와 역할을 나누면서, cloudflare 뒤에 있는 앱도 제3자 relay를 통해 ohttp를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 relay 운영이 여전히 필요하다. 보안·인프라 closed beta · 유료 add-on 출시 예정 이번 발표의 핵심은 새 프록시 하나가 추가됐다는 데 있지 않다. relay와 gateway를 서로 다른 주체가 맡아야 하는 ohttp의 신뢰 분리를 cloudflare 사용자가 실제 배포 구조 안에서 선택할 수 있게 됐다는 점이 중요하다. 다만 closed beta이고 숫자로 공개된 가격도 아직 없기 때문에, 당장 일반적인 cdn 기능처럼 쓸 수 있다고 해석하면 안 된다. cloudflare ohttp privacy http 보안 인프라 새 ohttp gateway는 cloudflare zone의 /.well-known/ohttp-gateway에서 암호화된 요청을 받아 복호화하고 앱 서버로 넘긴다. cloudflare ohttp relay와 gateway를 동시에 cloudflare가 맡아 신뢰 분리를 깨지 않도록, gateway는 cloudflare workers나 cloudflare 프록시 호스트에서 온 요청의 복호화를 거부하도록 설계됐다. 현재 closed beta이며 향후 zone의 유료 add-on으로 제공될 예정이다. 공식 발표에는 구체적인 숫자 가격이 공개되지 않았다.">
+        <a href="/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/">
+          <span class="archive-cat">보안·인프라</span>
+          <strong>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</strong>
           <span class="archive-date">2026년 10월 2일</span>
 
         </a>
@@ -152,6 +162,14 @@
           <span class="archive-cat">모델</span>
           <strong>GPT‑6.1 Sol 출시 — 코딩·컴퓨터 사용 중심으로 Sol이 업데이트됐다</strong>
           <span class="archive-date">2026년 9월 29일</span>
+
+        </a>
+      </li>
+        <li data-post-card data-category="오픈소스·개발도구" data-search="git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다 git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다. 오픈소스·개발도구 git 2.56.0 released ai 코딩 도구가 주목받는 시기에도 실제 변경 이력과 대형 저장소 성능의 바닥에는 git이 있다. 2.56은 겉보기에는 점진적 릴리스지만, 충돌 해결 중 실수로 unrelated change를 stage하는 문제와 대형 저장소의 특정 o(n²) 병목처럼 오래 쌓인 마찰을 줄이는 변화가 많다. 성능 수치는 github와 git 프로젝트가 제시한 특정 저장소·테스트 결과이므로 모든 저장소의 속도 향상으로 일반화하지 않는다. git open source version control 개발도구 monorepo 새 git add --resolved는 현재 unmerged 상태인 경로만 대상으로 하고 남은 conflict marker가 있으면 아무 것도 stage하지 않는다. merge-base 탐색과 reftable, working-tree diff 등 여러 내부 경로에서 큰 저장소의 비효율을 줄였다. 일부 공개 벤치마크는 수십 배 이상 차이를 보이지만 환경별 결과는 달라질 수 있다. git branch --delete-merged, git bisect --reset-when-found, git refs 하위 명령, partial clone의 --drop-filtered 등 운영·정리 작업도 확장됐다.">
+        <a href="/BlueBWorks/articles/git-2-56-2026/">
+          <span class="archive-cat">오픈소스·개발도구</span>
+          <strong>Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다</strong>
+          <span class="archive-date">2026년 9월 28일</span>
 
         </a>
       </li>

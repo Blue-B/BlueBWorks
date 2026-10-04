@@ -1,0 +1,156 @@
+{
+  "slug": "cloudflare-ohttp-gateway-2026",
+  "title": "Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다",
+  "summary": "Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 Relay 운영이 여전히 필요하다.",
+  "category": "보안·인프라",
+  "publishedAt": "2026-10-02",
+  "verifiedAt": "2026-10-04T13:50:04+09:00",
+  "status": "Closed beta · 유료 add-on 출시 예정",
+  "reviewStatus": "reviewed",
+  "tags": [
+    "Cloudflare",
+    "OHTTP",
+    "Privacy",
+    "HTTP",
+    "보안",
+    "인프라"
+  ],
+  "editorNote": "이번 발표의 핵심은 새 프록시 하나가 추가됐다는 데 있지 않다. Relay와 Gateway를 서로 다른 주체가 맡아야 하는 OHTTP의 신뢰 분리를 Cloudflare 사용자가 실제 배포 구조 안에서 선택할 수 있게 됐다는 점이 중요하다. 다만 closed beta이고 숫자로 공개된 가격도 아직 없기 때문에, 당장 일반적인 CDN 기능처럼 쓸 수 있다고 해석하면 안 된다.",
+  "keyPoints": [
+    "새 OHTTP Gateway는 Cloudflare zone의 /.well-known/ohttp-gateway에서 암호화된 요청을 받아 복호화하고 앱 서버로 넘긴다.",
+    "Cloudflare OHTTP Relay와 Gateway를 동시에 Cloudflare가 맡아 신뢰 분리를 깨지 않도록, Gateway는 Cloudflare Workers나 Cloudflare 프록시 호스트에서 온 요청의 복호화를 거부하도록 설계됐다.",
+    "현재 closed beta이며 향후 zone의 유료 add-on으로 제공될 예정이다. 공식 발표에는 구체적인 숫자 가격이 공개되지 않았다."
+  ],
+  "sections": [
+    {
+      "title": "OHTTP에서 Relay와 Gateway를 굳이 둘로 나누는 이유",
+      "paragraphs": [
+        "일반 HTTPS 연결은 요청 본문을 암호화해도 서버가 연결 상대의 IP 주소와 일부 연결 메타데이터를 볼 수 있다. 서버가 그 정보를 장기간 연결하면 같은 사용자의 여러 요청을 묶어 추적할 수 있다. Oblivious HTTP, 즉 OHTTP는 이 문제를 줄이기 위해 클라이언트와 애플리케이션 서버 사이에 Relay와 Gateway라는 두 역할을 둔다. Relay는 클라이언트의 네트워크 식별자를 보지만 암호화된 요청의 내용은 읽지 못하고, Gateway는 암호화된 내부 요청을 풀어 애플리케이션에 전달하지만 원래 클라이언트의 IP 주소는 보지 못하는 구조다.",
+        "RFC 9458이 요구하는 핵심은 어느 한 중간 사업자도 클라이언트 식별 정보와 평문 요청 내용을 동시에 갖지 않도록 신뢰를 분리하는 데 있다. Relay와 Gateway가 서로 결탁하지 않는다는 전제가 중요하고, 이 전제가 무너지면 단순히 프록시를 두 번 거치는 것만으로 원하는 프라이버시 특성이 생기지 않는다. 그래서 OHTTP는 VPN이나 일반 역방향 프록시와 비슷해 보여도 설계 목적과 운영 조건이 다르다.",
+        "Cloudflare는 이미 Privacy Gateway라는 이름으로 Relay 역할을 제공해 왔다. 이번 발표와 함께 기존 제품 이름을 Cloudflare OHTTP Relay로 바꾸고, 반대편 암복호화 지점인 OHTTP Gateway를 별도 제품으로 추가했다. 이름을 나눈 이유도 두 역할의 신뢰 경계를 제품 이름에서부터 명확히 하려는 것이다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "title": "새 Gateway가 필요한 사람은 Cloudflare 뒤에 서버를 둔 팀이다",
+      "paragraphs": [
+        "기존 Cloudflare OHTTP Relay를 쓰는 고객은 Gateway를 직접 운영해야 했다. 애플리케이션 서버가 Cloudflare가 아닌 다른 인프라에 있고 자체 Gateway를 안정적으로 운영할 수 있다면 이 구조는 여전히 가능하다. 반대로 애플리케이션 자체가 Cloudflare CDN 뒤에 있거나 Workers 위에서 동작하면 Cloudflare가 Relay까지 맡는 순간 한 사업자가 클라이언트 측 네트워크 정보와 복호화 이후의 요청 내용을 모두 볼 수 있는 구조가 될 수 있다.",
+        "새 OHTTP Gateway는 이 반대 조합을 위한 제품이다. 앱 서버는 Cloudflare 뒤에 그대로 두되 Relay는 별도의 제3자가 맡는다. Cloudflare Gateway는 Relay에서 넘어온 암호화 요청을 풀고 내부 HTTP 요청을 원래 앱으로 전달한 뒤 응답을 다시 암호화한다. Cloudflare는 Apple LiveCallerID처럼 외부 클라이언트와 Relay가 이미 정해져 있는 시나리오도 Gateway가 맞는 사례로 제시한다.",
+        "즉 이번 제품은 OHTTP를 모든 웹사이트에 자동 적용하는 기능이 아니다. 어떤 쪽에서 Relay를 운영할지, 앱 서버는 어디에 둘지, 누가 서로 독립된 주체인지 먼저 결정해야 한다. 제품 선택은 CDN 설정 하나보다 아키텍처 결정에 가깝다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "title": "zone에 붙는 /.well-known/ohttp-gateway와 자동 키 관리",
+      "paragraphs": [
+        "Cloudflare 설명에 따르면 Gateway는 Cloudflare zone의 기능으로 붙으며 클라이언트는 https://your-zone.com/.well-known/ohttp-gateway 같은 표준 경로로 요청을 보낸다. OHTTP 요청만 Gateway가 가로채 처리하고, 일반 HTTP 요청은 기존처럼 애플리케이션 서버로 간다. 한 도메인에서 OHTTP와 보통 HTTP를 병행할 수 있도록 애플리케이션이 암복호화 프로토콜 세부 구현을 직접 떠안지 않게 만든 부분이다.",
+        "Gateway는 표준 OHTTP와 chunked OHTTP를 모두 지원한다고 발표됐다. Cloudflare는 요청을 청크 단위로 점진적으로 처리할 수 있다는 이유로 chunked OHTTP를 권장한다. 추가 홉과 암복호화 때문에 OHTTP는 직접 연결보다 비용과 지연이 늘 수밖에 없으므로, 실제 도입 시에는 프라이버시 이득과 추가 지연을 함께 측정해야 한다.",
+        "공개 키 관리도 서비스가 맡는다. OHTTP 클라이언트는 Gateway의 HPKE 공개 키 설정을 알아야 요청을 암호화할 수 있는데, Cloudflare Gateway가 키를 관리하고 well-known 엔드포인트의 GET 응답으로 공개 설정을 제공한다. 직접 Gateway를 운영할 때 필요한 키 회전과 배포 작업 일부를 제품 계층으로 올린 셈이다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "Relay 인증은 복호화 전에 하고, 같은 사업자 양쪽 사용은 막는다",
+      "paragraphs": [
+        "Gateway는 클라이언트의 원래 신원을 거의 모르는 구조이므로 어떤 Relay의 트래픽을 받아들일지가 별도 보안 문제가 된다. Cloudflare는 Access를 요청 복호화보다 앞단에 배치해 mutual TLS, 정적 서비스 자격 증명, 외부 정책 로직 같은 표준 정책으로 Relay를 인증할 수 있게 설계했다고 설명한다. 여기서 중요한 것은 인증 판단이 내부 요청 내용을 보기 전에 일어난다는 점이다.",
+        "더 흥미로운 안전장치는 신뢰 분리를 실수로 깨는 배치를 거부하는 부분이다. Cloudflare는 새 Gateway가 Cloudflare Workers나 Cloudflare 프록시 호스트에서 들어온 요청을 복호화하지 않도록 한다고 밝혔다. Cloudflare가 Relay 역할을 하는 경로와 Cloudflare Gateway를 동시에 연결해 한 사업자가 양쪽 정보를 볼 수 있는 상황을 기술적으로 줄이려는 조치다.",
+        "이 보호 장치가 OHTTP 배포 전체의 신뢰성을 보증하는 것은 아니다. 제3자 Relay 운영자가 로그를 얼마나 보관하는지, 조직 내부에서 Relay와 앱 로그를 다시 결합할 수 있는지, 애플리케이션이 사용자 식별 정보를 요청 본문에 넣는지까지는 별개의 문제다. 프로토콜 경계와 데이터 거버넌스를 함께 봐야 한다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "요청 본문에 이메일을 넣으면 네트워크 익명화만으로는 부족하다",
+      "paragraphs": [
+        "Cloudflare도 시작 안내에서 OHTTP가 네트워크 계층의 프라이버시를 제공할 뿐 내부 HTTP 요청 본문을 자동으로 익명화하지 않는다고 경고한다. 예를 들어 요청 본문에 이메일 주소, 사용자명, 계정 ID처럼 특정 사용자를 직접 가리키는 값을 넣으면 서버가 IP 주소를 몰라도 해당 요청을 사용자와 연결할 수 있다. transport metadata를 숨기는 것과 애플리케이션 데이터에서 식별자를 제거하는 것은 서로 다른 작업이다.",
+        "RFC 9458도 적용 범위에 제한이 있다고 설명한다. 쿠키나 인증 상태처럼 요청 사이의 상태를 유지하는 애플리케이션은 사용자를 다시 연결할 단서를 스스로 만들 수 있다. OHTTP는 모든 프라이버시 문제를 해결하는 범용 익명 네트워크가 아니라, 요청 간 연결 가능성을 줄이는 목적이 충분히 중요한 특정 트래픽에서 가치가 큰 프로토콜이다.",
+        "따라서 도입 전에 어떤 데이터가 Relay에 보이고 어떤 데이터가 Gateway와 앱 서버에 보이는지를 표로 적어 보는 편이 좋다. 그다음 요청 본문의 식별 정보, 로그 보존, 오류 추적 도구, 분석 SDK까지 포함해 다시 확인해야 한다. 프로토콜 도입만으로 개인정보 설계 검토를 생략할 수는 없다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "지금 당장 할 수 있는 일과 아직 기다려야 하는 일",
+      "paragraphs": [
+        "2026년 10월 4일 확인 기준 OHTTP Gateway는 closed beta다. Cloudflare는 waitlist를 받고 있고, 향후 zone의 유료 add-on으로 출시할 계획이라고 설명하지만 구체적인 숫자 가격은 발표문에 없다. 따라서 운영 예산에 확정 단가를 넣거나 모든 계정에서 대시보드 옵션이 보일 것이라고 가정하면 안 된다.",
+        "제품 공개를 기다리는 동안에는 RFC 9458과 Cloudflare의 샘플 클라이언트·Gateway 구현으로 프로토콜 구조를 먼저 확인할 수 있다. 샘플 서버 저장소는 참조 구현이며 운영 환경에서 그대로 쓰라는 보증이 아니라는 점도 명시돼 있다. 자체 구현을 검토한다면 키 관리, Relay 인증, 장애 시 재시도와 로그 정책까지 제품 코드와 별도로 설계해야 한다.",
+        "팀이 실제로 확인해야 할 질문은 간단하다. 서버가 정말로 사용자 IP를 알 필요가 없는 트래픽인지, 요청 본문에 직접 식별자가 남지 않는지, Relay와 Gateway를 독립된 주체로 운영할 수 있는지, 추가 홉의 지연을 받아들일 수 있는지다. 이 네 조건이 맞는 서비스라면 새 Gateway는 OHTTP 도입 장벽을 낮추는 선택지가 될 수 있다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        4
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Cloudflare · Announcing Cloudflare OHTTP Gateway",
+      "url": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/",
+      "description": "2026-10-02 공식 발표. closed beta, 제품 역할, endpoint, 키 관리, Access와 신뢰 분리 안전장치를 확인했다."
+    },
+    {
+      "name": "RFC 9458 · Oblivious HTTP",
+      "url": "https://www.rfc-editor.org/rfc/rfc9458.html",
+      "description": "OHTTP의 Relay/Gateway 역할, HPKE 기반 캡슐화, 적용 범위와 프라이버시 전제를 확인한 IETF 표준."
+    },
+    {
+      "name": "Cloudflare OHTTP Relay 공식 문서",
+      "url": "https://developers.cloudflare.com/ohttp-relay/",
+      "description": "기존 Privacy Gateway의 새 이름과 Relay 역할, closed beta 상태를 확인했다."
+    },
+    {
+      "name": "Cloudflare · privacy-gateway-server-go",
+      "url": "https://github.com/cloudflare/privacy-gateway-server-go",
+      "description": "OHTTP Gateway 참조 구현과 운영 사용 주의 문구를 확인한 공식 저장소."
+    }
+  ],
+  "resources": [
+    {
+      "name": "OHTTP Gateway 공식 발표",
+      "url": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/",
+      "description": "신제품 상태, 아키텍처, waitlist와 도입 순서를 확인하는 원문.",
+      "type": "발표"
+    },
+    {
+      "name": "RFC 9458",
+      "url": "https://www.rfc-editor.org/rfc/rfc9458.html",
+      "description": "Relay와 Gateway의 신뢰 경계, HPKE 캡슐화와 적용 한계를 확인하는 표준.",
+      "type": "표준"
+    },
+    {
+      "name": "Cloudflare OHTTP Relay 문서",
+      "url": "https://developers.cloudflare.com/ohttp-relay/",
+      "description": "Cloudflare가 Relay 쪽을 운영하는 반대 구조와 현재 제공 상태를 비교.",
+      "type": "문서"
+    },
+    {
+      "name": "Cloudflare 샘플 클라이언트",
+      "url": "https://github.com/cloudflare/privacy-gateway-client-library",
+      "description": "iOS/macOS용 OHTTP 클라이언트 인터페이스 참조 구현.",
+      "type": "저장소"
+    },
+    {
+      "name": "Cloudflare Gateway 참조 구현",
+      "url": "https://github.com/cloudflare/privacy-gateway-server-go",
+      "description": "Go 기반 OHTTP Gateway 구현 구조를 코드로 확인.",
+      "type": "저장소"
+    }
+  ],
+  "videos": []
+}

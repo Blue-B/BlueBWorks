@@ -15,6 +15,14 @@
       <description>GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.</description>
     </item>
     <item>
+      <title>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/</guid>
+      <pubDate>Thu, 01 Oct 2026 15:00:00 GMT</pubDate>
+      <category>보안·인프라</category>
+      <description>Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 Relay 운영이 여전히 필요하다.</description>
+    </item>
+    <item>
       <title>로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels</title>
       <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/</link>
       <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/</guid>
@@ -109,6 +117,14 @@
       <pubDate>Mon, 28 Sep 2026 15:00:00 GMT</pubDate>
       <category>모델</category>
       <description>OpenAI가 GPT‑6.1 Sol을 공개했다. 에이전트형 코딩, 컴퓨터 사용, 전문 업무 성능을 강화하고 Astra 대비 낮은 표준 API 가격을 강조한 업데이트다.</description>
+    </item>
+    <item>
+      <title>Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/</guid>
+      <pubDate>Sun, 27 Sep 2026 15:00:00 GMT</pubDate>
+      <category>오픈소스·개발도구</category>
+      <description>Git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다.</description>
     </item>
   </channel>
 </rss>

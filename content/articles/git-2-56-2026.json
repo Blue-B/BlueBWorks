@@ -1,0 +1,142 @@
+{
+  "slug": "git-2-56-2026",
+  "title": "Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다",
+  "summary": "Git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다.",
+  "category": "오픈소스·개발도구",
+  "publishedAt": "2026-09-28",
+  "verifiedAt": "2026-10-04T13:50:04+09:00",
+  "status": "Git 2.56.0 released",
+  "reviewStatus": "reviewed",
+  "tags": [
+    "Git",
+    "Open Source",
+    "Version Control",
+    "개발도구",
+    "Monorepo"
+  ],
+  "editorNote": "AI 코딩 도구가 주목받는 시기에도 실제 변경 이력과 대형 저장소 성능의 바닥에는 Git이 있다. 2.56은 겉보기에는 점진적 릴리스지만, 충돌 해결 중 실수로 unrelated change를 stage하는 문제와 대형 저장소의 특정 O(N²) 병목처럼 오래 쌓인 마찰을 줄이는 변화가 많다. 성능 수치는 GitHub와 Git 프로젝트가 제시한 특정 저장소·테스트 결과이므로 모든 저장소의 속도 향상으로 일반화하지 않는다.",
+  "keyPoints": [
+    "새 git add --resolved는 현재 unmerged 상태인 경로만 대상으로 하고 남은 conflict marker가 있으면 아무 것도 stage하지 않는다.",
+    "merge-base 탐색과 reftable, working-tree diff 등 여러 내부 경로에서 큰 저장소의 비효율을 줄였다. 일부 공개 벤치마크는 수십 배 이상 차이를 보이지만 환경별 결과는 달라질 수 있다.",
+    "git branch --delete-merged, git bisect --reset-when-found, git refs 하위 명령, partial clone의 --drop-filtered 등 운영·정리 작업도 확장됐다."
+  ],
+  "sections": [
+    {
+      "title": "가장 눈에 띄는 사용성 변화는 git add --resolved다",
+      "paragraphs": [
+        "merge conflict를 해결할 때 개발자는 파일을 수정한 뒤 Git에게 어떤 경로가 해결됐는지 알려야 한다. 이전에는 git add -u나 git add -A처럼 범위가 넓은 명령을 쓰다가 같은 작업 디렉터리에 있던 unrelated local change까지 stage하는 일이 생길 수 있었다. Git 2.56의 새 git add --resolved는 이 단계를 위해 범위를 좁힌 명령이다.",
+        "이 옵션은 index에서 현재 unmerged인 경로만 본다. 텍스트 파일에 conflict marker가 남아 있으면 대상 경로를 보고하고 stage 자체를 중단한다. 선택한 경로 중 하나라도 marker가 남아 있으면 그 선택 범위 전체를 stage하지 않는 all-or-nothing 동작을 한다. unrelated tracked file은 애초에 후보가 아니므로 merge 전부터 있던 로컬 수정이 함께 올라가는 위험을 줄인다.",
+        "바이너리 충돌이나 삭제 해결처럼 텍스트 marker가 없는 경우는 정상적으로 stage할 수 있고 pathspec으로 검사 범위를 좁힐 수도 있다. 이 기능은 conflict resolution이라는 좁은 단계에 맞춰져 있어서 git add -u 또는 -A와 함께 사용할 수 없다. 팀 문서에서 '충돌 해결 뒤 add -u'를 관행처럼 쓰고 있다면 2.56 이후에는 이 명령으로 바꿀 이유가 생겼다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "merge-base 탐색은 더 일찍 멈추고, 큰 히스토리에서 효과가 커질 수 있다",
+      "paragraphs": [
+        "merge, three-dot diff, PR 비교 같은 작업은 두 commit의 가장 좋은 공통 조상을 찾는 merge-base 계산에 의존한다. 복잡하게 갈라졌다 다시 합쳐진 히스토리에서는 여러 merge base 후보가 있을 수 있어 Git이 오래된 공통 히스토리를 상당히 멀리까지 걷는 경우가 있었다. 2.56은 양쪽에서만 도달 가능한 commit이 queue에 얼마나 남았는지 추적해 더 이상 새 meeting point가 나올 수 없는 시점에 탐색을 끝내도록 바꿨다.",
+        "GitHub가 공개한 사례에서는 한 실제 monorepo 쿼리가 0.68초에서 0.01초로 줄었고, 두 대형 monorepo의 production evaluation에서 한쪽은 많은 사례가 약 70배, 다른 쪽은 평균 약 20배 개선됐다고 설명한다. Linux kernel 사례의 git merge-base --all v4.8 v4.9도 167,441 traversal step과 0.29초에서 3,887 step과 0.01초로 줄었다고 보고됐다.",
+        "이 숫자는 특정 히스토리와 commit-graph 조건에서 측정한 결과다. 작은 저장소에서 모든 명령이 갑자기 수십 배 빨라진다는 뜻은 아니다. 하지만 PR 계산이나 merge 가능성 확인을 매우 자주 수행하는 hosting 환경과 대형 monorepo에서는 작은 탐색 개선이 반복 비용을 크게 줄일 수 있다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "path-walk repack과 내부 병목 제거가 서버 운영에도 닿는다",
+      "paragraphs": [
+        "Git 2.56은 path-walk repacking이 reachability bitmap과 delta islands를 함께 사용할 수 있도록 확장했다. GitHub가 Fluent UI 저장소로 소개한 벤치마크에서는 일반 bitmapped repack이 558.5MB pack을 만든 반면 --path-walk를 사용한 repack은 164.4MB로 약 71% 작았다. 이 역시 특정 입력에서 delta를 다시 계산한 결과라 모든 repository의 절감률을 예측하는 수치로 쓰면 안 된다.",
+        "더 낮은 층에서도 scaling cliff를 없애는 수정이 들어갔다. reftable 쓰기에서 lock을 얻은 뒤 중복 reload를 줄여 filesystem stat 호출을 선형에서 상수 수준으로 낮추고, 이미 새 packfile이라는 사실을 아는 경우 기존 목록을 매번 훑지 않도록 해 많은 pack을 가진 저장소에서 O(N²) 회귀를 피했다.",
+        "GitHub가 정리한 테스트에서는 tombstone-heavy reftable 성능 테스트가 약 13초에서 0.2초로 줄었고, 약 50만 index entry가 있는 Chromium checkout의 한 path-limited git diff 사례는 약 8분에서 0.07초로 줄었다. 이런 수치는 드물지만 극단적으로 느린 경로가 실제로 존재했다는 점을 보여 준다. 대형 저장소 운영자는 평균 명령 시간만이 아니라 tail latency가 줄어드는지 확인할 가치가 있다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "브랜치 정리와 bisect 종료도 한 명령에 가까워졌다",
+      "paragraphs": [
+        "로컬 topic branch를 여러 개 쓰는 개발자는 upstream에 이미 병합된 브랜치를 정리할 때 하나씩 비교하거나 스크립트를 만들곤 한다. 2.56은 git branch --delete-merged를 추가해 지정한 upstream 패턴과 후보 branch 패턴을 기준으로 병합이 끝난 로컬 브랜치를 한 번에 찾고 삭제할 수 있게 했다. --dry-run으로 먼저 대상만 확인할 수 있다.",
+        "Git은 active worktree에서 checkout된 branch, upstream이 없는 branch, 일부 모호한 push 설정을 건너뛴다. branch.<name>.deleteMerged = false로 특정 branch를 보호하는 방법도 제공된다. 무조건 패턴에 맞는 branch를 지우는 단순 glob 삭제와 달리 reachability를 확인한다는 점이 핵심이다.",
+        "git bisect run에는 --reset-when-found[=<where>] 옵션이 생겼다. 자동화된 이분 탐색이 culprit를 찾은 뒤 기존 상태로 돌아가기 위해 별도의 git bisect reset을 호출하던 흐름을 한 단계 줄일 수 있다. 기본값 original은 bisect 시작 전 commit으로 돌아가고, found를 선택하면 bisect 상태는 정리하되 찾은 commit에 머문다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "partial clone은 큰 blob을 다시 원격에 맡길 수 있게 됐다",
+      "paragraphs": [
+        "partial clone은 필요한 object만 처음 내려받고 나머지는 필요할 때 promisor remote에서 가져오는 방식이다. 하지만 한 번 가져온 큰 blob은 이후 계속 로컬에 남아 저장 공간을 차지할 수 있었다. Git 2.56은 git repack에 --drop-filtered를 추가해 특정 조건의 recoverable blob을 로컬에서 제거하고 다음 접근 때 원격에서 다시 받게 할 수 있다.",
+        "현재 공개된 범위는 blob:limit 필터다. promisor remote가 필요하며 index가 참조하는 object를 지우는 등 안전하지 않은 경우는 Git이 거부한다. GitHub 기사도 이 기능이 자동으로 local cache 크기를 계속 제한하는 기능이 아니라 사람이 실행하는 cleanup mechanism이라고 명확히 설명한다.",
+        "대용량 asset이 섞인 repository를 partial clone으로 쓰는 팀이라면 로컬 디스크를 회수할 수 있는 수단이 하나 늘어난 셈이다. 반대로 네트워크가 느리거나 다시 내려받을 가능성이 큰 blob을 무작정 떨어뜨리면 이후 작업 지연이 늘 수 있다. dry-run으로 후보를 확인하고 개발 패턴에 맞는 limit을 정하는 편이 안전하다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "refs와 log --follow까지 바뀌었지만 업그레이드는 단계적으로 확인한다",
+      "paragraphs": [
+        "low-level ref 작업은 git update-ref, git symbolic-ref 등 여러 plumbing 명령에 나뉘어 있었다. 2.56은 git refs create, update, delete, rename 하위 명령을 추가해 reference 관리 인터페이스를 한 toolbox 쪽으로 모으고 있다. update와 delete에는 old value를 선택적으로 줘 compare-and-swap 성격의 보호를 걸 수 있다. 다만 git refs rename은 ref와 reflog를 옮길 뿐 git branch -m처럼 branch 설정까지 조정하지 않는 low-level 명령이다.",
+        "git log --follow는 비선형 히스토리에서 여러 부모가 같은 파일을 서로 다르게 rename한 경우 각 parent별 경로를 따로 추적하도록 수정됐다. 이전처럼 하나의 global current path에 의존해 traversal 순서에 따라 결과가 흔들리는 문제를 줄인 변화다. 오래된 monorepo나 subtree merge가 많은 저장소에서 history 조사 품질에 직접 닿을 수 있다.",
+        "Git의 BreakingChanges 문서에는 2.56에서 새로 추가된 일반 사용자용 breaking change가 따로 적혀 있지 않다. 그래도 운영 환경을 한 번에 전부 올리기보다 CI 이미지, 개발자 PC, server-side tooling 순으로 실제 사용하는 명령을 확인하는 편이 좋다. 특히 새 옵션을 팀 스크립트에 넣을 때는 최소 지원 Git 버전을 함께 올려야 구버전 환경에서 unknown option 오류가 나지 않는다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "GitHub Blog · Highlights from Git 2.56",
+      "url": "https://github.blog/open-source/git/highlights-from-git-2-56/",
+      "description": "2026-09-28 공개된 주요 기능과 성능 사례를 정리한 GitHub의 Git 릴리스 해설."
+    },
+    {
+      "name": "Git v2.56.0 공식 Release Notes",
+      "url": "https://github.com/git/git/blob/v2.56.0/Documentation/RelNotes/2.56.0.adoc",
+      "description": "Git 프로젝트의 v2.56.0 태그에 포함된 공식 변경 목록."
+    },
+    {
+      "name": "Git BreakingChanges 문서",
+      "url": "https://git-scm.com/docs/BreakingChanges",
+      "description": "2.56.0에서 별도 breaking change 항목이 추가되지 않았는지 확인한 공식 문서."
+    }
+  ],
+  "resources": [
+    {
+      "name": "Git 2.56 주요 변화 해설",
+      "url": "https://github.blog/open-source/git/highlights-from-git-2-56/",
+      "description": "git add --resolved, merge-base, repack과 대형 저장소 성능 사례를 빠르게 확인.",
+      "type": "해설"
+    },
+    {
+      "name": "Git 2.56.0 전체 Release Notes",
+      "url": "https://github.com/git/git/blob/v2.56.0/Documentation/RelNotes/2.56.0.adoc",
+      "description": "기능·성능·수정 사항 전체 목록을 확인하는 원문.",
+      "type": "릴리스 노트"
+    },
+    {
+      "name": "Git 2.56.0 소스 태그",
+      "url": "https://github.com/git/git/tree/v2.56.0",
+      "description": "실제 v2.56.0 소스와 Documentation을 확인.",
+      "type": "저장소"
+    },
+    {
+      "name": "Git 공식 문서",
+      "url": "https://git-scm.com/docs",
+      "description": "업그레이드 후 새 옵션과 현재 문서를 명령별로 확인.",
+      "type": "문서"
+    }
+  ],
+  "videos": []
+}
