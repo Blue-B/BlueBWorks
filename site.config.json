@@ -1,14 +1,14 @@
 {
   "baseUrl": "https://blue-b.github.io/BlueBWorks",
-  "siteName": "BlueBWorks AI Radar",
+  "siteName": "BlueBWorks",
   "shortName": "BlueBWorks",
-  "tagline": "AI, 직접 써보기 전에",
-  "description": "모델, 개발 도구, 오픈소스의 사용 조건과 실제 차이를 공식 출처 중심으로 정리하는 BlueBWorks AI Radar.",
+  "tagline": "개발 도구 · 오픈소스 · AI",
+  "description": "개발 도구, 오픈소스, AI 소식을 소개합니다.",
   "language": "ko-KR",
-  "byline": "AI-assisted BlueBWorks",
+  "byline": "BlueBWorks (AI 보조)",
   "repoUrl": "https://github.com/Blue-B/BlueBWorks",
   "issuesUrl": "https://github.com/Blue-B/BlueBWorks/issues",
-  "rssTitle": "BlueBWorks AI Radar",
+  "rssTitle": "BlueBWorks",
   "resources": [
     {
       "name": "OpenAI 플랫폼 문서",

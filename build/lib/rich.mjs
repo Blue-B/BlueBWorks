@@ -1,17 +1,17 @@
-import { escapeHtml as esc, pageHref, formatKoreanDate, readingMinutes } from './util.mjs';
+import { escapeHtml as esc, formatKoreanDate, readingMinutes } from './util.mjs';
 
 export function articleCover(post, base) {
   const meta = [
     `<span>블로그 게시 ${esc(formatKoreanDate(post.publishedAt))}</span>`,
     post.announcedAt ? `<span>소식 발표 ${esc(formatKoreanDate(post.announcedAt))}</span>` : '',
-    `<span>${readingMinutes(post)}분 읽기</span>`,
-    post.status ? `<span>${esc(post.status)}</span>` : '',
     post.verifiedAt ? `<span>확인 ${esc(formatKoreanDate(post.verifiedAt))}</span>` : '',
+    post.status ? `<span>${esc(post.status)}</span>` : '',
+    `<span>${readingMinutes(post)}분 읽기</span>`,
   ].filter(Boolean).join('');
   return `<section class="article-cover article-cover-compact" aria-labelledby="article-title">
     <div class="wrap cover-inner">
       <header class="cover-copy">
-        <p class="cover-eyebrow"><span>${esc(post.category)}</span><a href="${pageHref(base, 'articles/')}">글 목록</a></p>
+        <p class="cover-eyebrow"><span>${esc(post.category)}</span></p>
         <h1 id="article-title">${esc(post.title)}</h1>
         <p class="cover-dek">${esc(post.summary)}</p>
         <p class="cover-meta">${meta}</p>

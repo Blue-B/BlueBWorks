@@ -303,8 +303,8 @@ test("a valid new synthetic article builds clean and becomes the newest entry", 
       path.join(options.outDir, "articles", "synthetic-next-2026", "index.html"),
       "utf8",
     );
-    assert.match(html, /<dt>블로그 게시<\/dt><dd>2026년 10월 6일<\/dd>/);
-    assert.match(html, /<dt>소식 발표<\/dt><dd>2026년 10월 5일<\/dd>/);
+    assert.match(html, /<span>블로그 게시 2026년 10월 6일<\/span>/);
+    assert.match(html, /<span>소식 발표 2026년 10월 5일<\/span>/);
   } finally {
     fs.rmSync(options.outDir, { recursive: true, force: true });
   }
@@ -375,8 +375,8 @@ test("built real content shows both dates and the feed uses the publish day", ()
     }
     const git = posts.find((post) => post.slug === "git-2-56-2026");
     const html = fs.readFileSync(path.join(outDir, "articles", "git-2-56-2026", "index.html"), "utf8");
-    assert.match(html, /<dt>블로그 게시<\/dt><dd>2026년 10월 4일<\/dd>/);
-    assert.match(html, /<dt>소식 발표<\/dt><dd>2026년 9월 28일<\/dd>/);
+    assert.match(html, /<span>블로그 게시 2026년 10월 4일<\/span>/);
+    assert.match(html, /<span>소식 발표 2026년 9월 28일<\/span>/);
     const feed = fs.readFileSync(path.join(outDir, "feed.xml"), "utf8");
     assert.ok(feed.includes(`<pubDate>${toRfc822(git.publishedAt)}</pubDate>`));
     assert.ok(fs.readFileSync(path.join(outDir, "index.html"), "utf8").includes(`articles/${posts[0].slug}/`));

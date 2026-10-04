@@ -107,28 +107,6 @@
     });
   }
 
-  // Cursor parallax, scoped to the mascot scene only.
-  var scene = document.querySelector("[data-parallax]");
-  if (scene && !motionReduced()) {
-    var frame = 0;
-    scene.addEventListener("pointermove", function (event) {
-      if (event.pointerType === "touch") return;
-      var rect = scene.getBoundingClientRect();
-      var mx = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-      var my = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
-      if (frame) return;
-      frame = requestAnimationFrame(function () {
-        frame = 0;
-        scene.style.setProperty("--mx", mx.toFixed(3));
-        scene.style.setProperty("--my", my.toFixed(3));
-      });
-    });
-    scene.addEventListener("pointerleave", function () {
-      scene.style.setProperty("--mx", "0");
-      scene.style.setProperty("--my", "0");
-    });
-  }
-
   // Search + category filter. Every [data-filter-scope] block wraps its own
   // search input, filters, list and status text, so home and the archive
   // share one implementation.

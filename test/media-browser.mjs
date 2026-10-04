@@ -45,16 +45,42 @@ const selector = '.source-media img, .article-figure img, .archive-thumb img, .j
 try {
   for (const width of widths) {
     await ab('set', 'viewport', String(width), '960');
-    for (const item of [{ slug: 'home', route: '/' }, { slug: 'archive', route: '/articles/' }, ...posts.map(p => ({ slug: p.slug, title: p.title, route: `/articles/${p.slug}/` }))]) {
+    const selected = process.env.MEDIA_FILTER ? process.env.MEDIA_FILTER.split(',') : null;
+    for (const item of [{ slug: 'home', route: '/' }, { slug: 'archive', route: '/articles/' }, ...posts.map(p => ({ slug: p.slug, title: p.title, route: `/articles/${p.slug}/` }))].filter(item => !selected || selected.includes(item.slug))) {
       await ab('open', base + item.route);
       await ab('eval', 'document.fonts.ready.then(()=>true)');
       const images = await ab('eval', `Promise.all([...document.querySelectorAll(${JSON.stringify(selector)})].map(async i=>{i.loading='eager';try{await Promise.race([i.decode(),new Promise((_,reject)=>setTimeout(()=>reject(new Error('image timeout')),12000))])}catch{}const r=i.getBoundingClientRect();return {src:i.currentSrc,loaded:i.complete&&i.naturalWidth>0,naturalWidth:i.naturalWidth,naturalHeight:i.naturalHeight,renderedWidth:Math.round(r.width),renderedHeight:Math.round(r.height),alt:i.alt}}))`);
       const state = await ab('eval', `({title:document.querySelector('h1')?.textContent,h1:document.querySelectorAll('h1').length,viewport:innerWidth,scroll:document.documentElement.scrollWidth,figures:document.querySelectorAll('.article-figure').length,captions:[...document.querySelectorAll('.article-figure figcaption,.source-media figcaption')].map(c=>c.textContent.trim())})`);
+      const theme = await ab('eval', `({sheets:[...document.querySelectorAll('link[rel="stylesheet"]')].map(x=>x.href),background:getComputedStyle(document.body).backgroundColor,rejected:['쌓아둔 기록','제목, 모델, 도구 이름으로 찾아보세요','모델과 도구, 지금 읽을 이야기'].filter(x=>document.body.innerText.includes(x))})`);
+      assert.equal(theme.sheets.length, 1, item.slug + ': one active theme');
+      assert(theme.sheets[0].includes('journal.css?v=edition6'), item.slug + ': edition6 stylesheet');
+      assert.equal(theme.background, 'rgb(255, 255, 255)', item.slug + ': white reading canvas');
+      assert.deepEqual(theme.rejected, [], item.slug + ': rejected interface copy');
       assert.equal(state.h1, 1, item.slug + ': single title');
       if (item.title) assert.equal(state.title, item.title);
       assert(state.scroll <= state.viewport + 1, item.slug + ': horizontal overflow ' + JSON.stringify(state));
       assert(images.every(i => i.loaded && i.alt && i.renderedWidth > 0), item.slug + ': image did not render ' + JSON.stringify(images));
       assert(state.captions.every(Boolean), item.slug + ': missing captions');
+      if (item.slug === 'home') {
+        await ab('snapshot', '-i');
+        const firstHref = await ab('eval', `document.querySelector('.journal-posts [data-post-card] a')?.getAttribute('href')`);
+        assert(firstHref.endsWith(`/articles/${posts[0].slug}/`), 'home chronological list must start with newest post');
+        await ab('click', '.mascot-button');
+        assert.equal(await ab('eval', 'document.querySelector("#mascot-notes").hidden'), false);
+        await ab('press', 'Escape');
+        assert.equal(await ab('eval', 'document.querySelector("#mascot-notes").hidden'), true);
+        await ab('fill', '#post-search', '__no_article_47__');
+        assert.equal(await ab('eval', 'document.querySelector("[data-empty-state]").hidden'), false);
+        await ab('fill', '#post-search', '');
+        if (width <= 720) {
+          await ab('click', '[data-nav-toggle]');
+          assert.equal(await ab('eval', 'document.querySelector("[data-nav-toggle]").getAttribute("aria-expanded")'), 'true');
+          assert.notEqual(await ab('eval', 'getComputedStyle(document.querySelector("#site-nav")).display'), 'none');
+          await ab('press', 'Escape');
+          assert.equal(await ab('eval', 'document.querySelector("[data-nav-toggle]").getAttribute("aria-expanded")'), 'false');
+        }
+        await ab('eval', 'window.scrollTo(0,0)');
+      }
       if (item.slug === 'archive') {
         const count = await ab('eval', `document.querySelectorAll('.archive-thumb img').length`);
         assert.equal(count, posts.filter(p => p.image && !/mshots|favicon|apple-touch-icon/.test(p.image)).length);

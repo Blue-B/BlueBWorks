@@ -12,7 +12,6 @@ import {
   toIso,
   toRfc822,
   formatKoreanDate,
-  formatKoreanDateTime,
   unique,
 } from "./util.mjs";
 import { isIndexable, relatedPosts, sortPosts } from "./data.mjs";
@@ -75,12 +74,7 @@ function head({
     ${cards}
     <link rel="icon" href="${assetHref(base, "favicon.svg")}" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="${esc(config.rssTitle)}" href="${pageHref(base, "feed.xml")}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600&display=swap">
-    <link rel="stylesheet" href="${assetHref(base, "style.css")}">
-    <link rel="stylesheet" href="${assetHref(base, "prototype.css")}?v=journal3">
-    <link rel="stylesheet" href="${assetHref(base, "journal.css")}?v=media5">
+    <link rel="stylesheet" href="${assetHref(base, "journal.css")}?v=edition6">
     ${ld}
   </head>`;
 }
@@ -94,7 +88,6 @@ function footer({ config, base }) {
     <div class="wrap footer-inner">
       <div class="footer-brand">
         <strong>${esc(config.siteName)}</strong>
-        <p>${esc(config.description)}</p>
       </div>
       <nav class="footer-nav" aria-label="바닥글">
         <a href="${pageHref(base, "about.html")}">소개</a>
@@ -105,7 +98,7 @@ function footer({ config, base }) {
         <a href="${esc(config.repoUrl)}" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
-    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.<br>캐릭터 AI 생성 일러스트 · 제품 이미지는 각 글의 공식 출처 표시를 따릅니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>`;
 }
 
@@ -115,8 +108,8 @@ function layout({ config, base, active, ...page }) {
   ${header({ config, base, active })}
   ${page.content}
   ${footer({ config, base })}
-  <script src="${assetHref(base, "app.js")}?v=media5" defer></script>
-  <script src="${assetHref(base, "journal.js")}?v=reading4" defer></script>
+  <script src="${assetHref(base, "app.js")}?v=edition6" defer></script>
+  <script src="${assetHref(base, "journal.js")}?v=edition6" defer></script>
   </body>
 </html>
 `;
@@ -243,9 +236,9 @@ function mascotNotes(config, base) {
       </div>
       <p class="notes-intro">이 로봇은 화면 안내를 맡습니다. 대화형 AI가 아니고, 질문에 답하지 않습니다.</p>
       <ul>
-        <li>레이더에서 카테고리 버튼과 검색창으로 글을 좁힐 수 있습니다.</li>
-        <li>글의 <strong>확인</strong> 시각과 <strong>확인한 출처</strong>를 함께 보면 발표와 실제 사용 가능 상태를 구분하기 쉽습니다.</li>
-        <li>페이지 아래 <strong>동작 줄이기</strong>로 애니메이션과 별 움직임을 끌 수 있습니다. 브라우저 설정도 함께 반영합니다.</li>
+        <li>글 목록에서 카테고리 버튼과 검색창으로 글을 좁힐 수 있습니다.</li>
+        <li>글의 <strong>확인</strong> 시각과 <strong>출처</strong>를 함께 보면 발표와 실제 사용 가능 상태를 구분하기 쉽습니다.</li>
+        <li>페이지 아래 <strong>동작 줄이기</strong>로 애니메이션을 끌 수 있습니다. 브라우저 설정도 함께 반영합니다.</li>
         <li>각 글의 <strong>링크 복사</strong>로 주소를 공유할 수 있습니다.</li>
         <li>오류 제보는 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 받습니다.</li>
       </ul>
@@ -253,7 +246,7 @@ function mascotNotes(config, base) {
 }
 
 export function renderHome({ config, base, posts, generatedAt, heroImageUrl = "" }) {
-  return layout({ config, base, active: "home", title: `AI Radar | ${config.siteName}`, description: config.description, canonicalPath: "/", ogType: "website", ogImage: heroImageUrl, bodyClass: "page-home", content: journalHome({ config, base, posts: posts.filter(isIndexable), notes: mascotNotes(config, base) }), jsonLd: [websiteJsonLd(config), orgJsonLd(config)], generatedAt });
+  return layout({ config, base, active: "home", title: config.siteName, description: config.description, canonicalPath: "/", ogType: "website", ogImage: heroImageUrl, bodyClass: "page-home", content: journalHome({ config, base, posts: posts.filter(isIndexable), notes: mascotNotes(config, base) }), jsonLd: [websiteJsonLd(config), orgJsonLd(config)], generatedAt });
 }
 
 function citations(refs, sources) {
@@ -283,7 +276,7 @@ function renderSections(post) {
 function renderToc(post) {
   if (!post.sections.length) return "";
   return `<details class="toc" open>
-      <summary>이 글의 목차</summary>
+      <summary>목차</summary>
       <nav aria-label="글 목차">
         <ol>
           ${post.sections
@@ -300,7 +293,7 @@ function renderToc(post) {
 function renderSources(post) {
   if (!post.sources.length) return "";
   return `<section class="sources" id="sources" aria-labelledby="sources-title">
-      <h2 id="sources-title">확인한 출처</h2>
+      <h2 id="sources-title">출처</h2>
       <ol>
         ${post.sources
           .map(
@@ -319,7 +312,7 @@ function renderSources(post) {
 function renderKeyPoints(post) {
   if (!post.keyPoints.length) return "";
   return `<details class="key-points">
-      <summary>먼저 볼 것 <span class="detail-count">${post.keyPoints.length}가지</span></summary>
+      <summary>요약</summary>
       <ul>
         ${post.keyPoints.map((point) => `<li>${esc(point)}</li>`).join("\n        ")}
       </ul>
@@ -329,7 +322,7 @@ function renderKeyPoints(post) {
 function renderEditorNote(post) {
   if (!post.editorNote) return "";
   return `<details class="editor-note">
-      <summary>편집 메모</summary>
+      <summary>덧붙임</summary>
       <p>${esc(post.editorNote)}</p>
     </details>`;
 }
@@ -377,7 +370,7 @@ function renderRelated(post, posts, base) {
   const related = relatedPosts(post, posts, 3);
   if (!related.length) return "";
   return `<section class="related" aria-labelledby="related-title">
-      <h2 id="related-title">이어 읽기</h2>
+      <h2 id="related-title">관련 글</h2>
       <ul class="related-list">
         ${related
           .map(
@@ -396,16 +389,15 @@ function renderRelated(post, posts, base) {
 
 function renderArticleRail(post, posts, base, config, canonical) {
   const resources = post.resources.length ? post.resources : config.resources.slice(0, 5);
-  return `<aside class="article-aside aside-right" aria-label="자료와 도구">
-      <div class="rail-panel">
-        <p class="rail-title">${post.resources.length ? "이 글의 자료" : "바로 쓰는 자료"}</p>
-        <ul class="rail-list">
-          ${resources.map(resourceCard).join("\n          ")}
-        </ul>
-        <div class="article-tools">
-          <button type="button" class="copy-link" data-copy-url="${esc(canonical)}">링크 복사</button>
-          <span class="copy-status" role="status" aria-live="polite"></span>
-        </div>
+  if (!resources.length) return '';
+  return `<aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        ${resources.map(resourceCard).join("\n        ")}
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="${esc(canonical)}">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>`;
 }
@@ -446,7 +438,6 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
         <ol>
           <li><a href="${pageHref(base, "/")}">홈</a></li>
           <li><a href="${pageHref(base, "articles/")}">글 목록</a></li>
-          <li aria-current="page">${esc(post.title)}</li>
         </ol>
       </nav>
       <div class="article-layout">
@@ -455,19 +446,9 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
         </aside>
         <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
           <header class="article-head">
-            <p class="article-kicker">
-              <span class="kicker-cat">${esc(post.category)}</span>
-              ${post.status ? `<span class="kicker-status">${esc(post.status)}</span>` : ""}
-            </p>
             <meta itemprop="headline" content="${esc(post.title)}">
-            <p class="article-dek" itemprop="description">${esc(post.summary)}</p>
+            <meta itemprop="description" content="${esc(post.summary)}">
             <p class="article-byline">글 작성: <span>${esc(config.byline)}</span></p>
-            <dl class="article-meta">
-              <div><dt>블로그 게시</dt><dd>${esc(formatKoreanDate(post.publishedAt))}</dd></div>
-              ${post.announcedAt ? `<div><dt>소식 발표</dt><dd>${esc(formatKoreanDate(post.announcedAt))}</dd></div>` : ''}
-              <div><dt>확인</dt><dd>${esc(formatKoreanDateTime(post.verifiedAt) || formatKoreanDate(post.publishedAt))}</dd></div>
-              <div><dt>분량</dt><dd>${readingMinutes(post)}분</dd></div>
-            </dl>
             ${indexable ? "" : `<p class="review-flag">검토 중인 글입니다. 근거와 표현을 다시 확인하고 있으며 검색 노출에서 제외했습니다.</p>`}
           </header>
           ${post.image && !/mshots|favicon|apple-touch-icon/.test(post.image) ? mediaFigure(post, base, { className: "source-media", eager: true }) : ''}
@@ -535,12 +516,12 @@ export function renderArticlesIndex({ config, base, posts, generatedAt }) {
     <div class="wrap simple-wrap" data-filter-scope>
       <header class="simple-head">
         <h1>글 목록</h1>
-        <p>블로그 게시일순으로 정리한 전체 글입니다. 소식의 발표일과 자료 출처는 각 글에서 확인할 수 있습니다.</p>
+        <p>새로 게시한 글부터 보여줍니다.</p>
       </header>
       <section class="archive-search" id="archive-search" aria-label="글 검색과 분류">
         <div class="search-field">
           <label for="archive-search-input">글 검색</label>
-          <input id="archive-search-input" type="search" data-search-input placeholder="제목, 요약, 태그로 검색" autocomplete="off">
+          <input id="archive-search-input" type="search" data-search-input placeholder="검색어 입력" autocomplete="off">
         </div>
         <div class="filters" role="group" aria-label="카테고리 필터">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
@@ -551,7 +532,7 @@ export function renderArticlesIndex({ config, base, posts, generatedAt }) {
       <ol class="archive-list" data-post-list>
         ${rows}
       </ol>
-      <p class="empty-state" data-empty-state hidden>조건에 맞는 글을 찾지 못했습니다. 검색어를 지우거나 다른 카테고리를 골라 보세요.</p>
+      <p class="empty-state" data-empty-state hidden>검색 결과가 없습니다.</p>
     </div>
   </main>`;
 
@@ -560,7 +541,7 @@ export function renderArticlesIndex({ config, base, posts, generatedAt }) {
     base,
     active: "articles",
     title: `글 목록 | ${config.siteName}`,
-    description: `BlueBWorks AI Radar에 실린 전체 글 목록입니다.`,
+    description: `BlueBWorks에 실린 전체 글 목록입니다.`,
     canonicalPath: "/articles/",
     ogType: "website",
     bodyClass: "page-simple",
@@ -615,12 +596,12 @@ function simplePage({ config, base, active, path, heading, lead, body, jsonLd = 
 
 export function renderAbout({ config, base, generatedAt }) {
   const body = `<section>
-        <h2>무엇을 하는 곳인가</h2>
-        <p>BlueBWorks AI Radar는 AI 모델, 개발 도구, 오픈소스 프로젝트의 발표와 변경을 한국어로 정리하는 정적 사이트입니다. 뉴스를 빠르게 옮기는 대신, 공식 원문에서 확인한 사실과 그 사실이 실제 사용에서 무엇을 바꾸는지를 함께 적습니다.</p>
+        <h2>다루는 내용</h2>
+        <p>개발 도구와 오픈소스, AI 제품의 새 기능과 사용 방법을 소개합니다. 비용과 지원 범위도 함께 다루며, 각 글에 발표일과 원문 링크를 남깁니다.</p>
         <p>모든 글은 정적 HTML로 미리 생성됩니다. 자바스크립트가 없어도 본문과 출처를 읽을 수 있습니다.</p>
       </section>
       <section>
-        <h2>누가 쓰는가</h2>
+        <h2>운영</h2>
         <p>글의 바이라인은 <strong>${esc(config.byline)}</strong>입니다. 이 사이트는 사람 편집자 팀을 두지 않으며, 문장은 AI 보조로 작성하고 공개 데이터에 확인 시각과 출처를 함께 남기는 방식으로 운영합니다. 감수자를 따로 두지 않았다는 점을 숨기지 않습니다.</p>
       </section>
       <section>
@@ -642,7 +623,7 @@ export function renderAbout({ config, base, generatedAt }) {
     active: "about",
     path: "/about.html",
     heading: "소개",
-    lead: "공식 출처를 먼저 확인하고, 실제 사용 조건과 한계까지 함께 적는 AI 큐레이션 사이트입니다.",
+    lead: "공식 출처를 확인하고, 실제 사용 조건과 한계까지 함께 적는 사이트입니다.",
     body,
   });
 }
@@ -651,7 +632,7 @@ export function renderEditorial({ config, base }) {
   const body = `<section>
         <h2>확인 순서</h2>
         <p>기업 공식 블로그, 제품 문서, 릴리스 노트, 원 저장소를 1차 근거로 씁니다. 커뮤니티 반응은 맥락을 보는 보조 자료로만 둡니다.</p>
-        <p>글은 사실, 맥락, 실무 영향, 한계 순서로 구성합니다. 추정이나 해석은 사실 문장과 섞지 않고 편집 메모에서 구분합니다.</p>
+        <p>글은 사실, 맥락, 실무 영향, 한계 순서로 구성합니다. 추정이나 해석은 사실 문장과 섞지 않고 '덧붙임'에서 구분합니다.</p>
       </section>
       <section>
         <h2>발표와 사용 가능 구분</h2>
@@ -730,7 +711,6 @@ export function renderPrivacy({ config, base }) {
         <h2>외부 요청</h2>
         <ul class="fact-list">
           <li>호스팅: GitHub Pages가 접속 기록을 처리합니다. 처리 방식은 GitHub의 정책을 따릅니다.</li>
-          <li>글꼴: 선택적으로 Google Fonts에서 서체를 받습니다. 이때 Google이 접속 IP를 기록할 수 있습니다. 브라우저가 막으면 시스템 글꼴로 표시됩니다.</li>
           <li>영상: 검증된 공식 영상이 있는 글에서 재생을 누를 때만 YouTube no-cookie 도메인으로 요청을 보냅니다.</li>
           <li>출처 링크: 각 글의 출처와 자료 링크는 외부 사이트로 이동하며, 그 사이트의 정책이 적용됩니다.</li>
         </ul>
@@ -757,8 +737,8 @@ export function render404({ config, base }) {
       <h1>페이지를 찾지 못했습니다.</h1>
       <p>주소가 바뀌었거나 글이 내려갔을 수 있습니다. 글 목록에서 다시 찾아보세요.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="${pageHref(base, "articles/")}">글 목록 보기</a>
-        <a class="btn btn-ghost" href="${pageHref(base, "/")}">레이더로 돌아가기</a>
+        <a class="btn btn-primary" href="${pageHref(base, "articles/")}">글 목록</a>
+        <a class="btn btn-ghost" href="${pageHref(base, "/")}">홈으로 가기</a>
       </div>
     </div>
   </main>`;

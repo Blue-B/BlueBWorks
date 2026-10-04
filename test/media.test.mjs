@@ -41,7 +41,7 @@ test('archive has a linked real thumbnail and no blank image for text-only posts
   assert.match(rows[0], /href="\/BlueBWorks\/articles\/media-example\/"/);
   assert.match(rows[1], /text-only/);
   assert.doesNotMatch(rows[1], /<img|archive-thumb|mascot|media-source/);
-  assert.match(html, /블로그 게시일순/);
+  assert.match(html, /새로 게시한 글부터 보여줍니다/);
 });
 
 test('article cover links the source and full image and escapes the caption', () => {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>BlueBWorks AI Radar</title>
+    <title>BlueBWorks</title>
     <link>https://blue-b.github.io/BlueBWorks/</link>
-    <description>모델, 개발 도구, 오픈소스의 사용 조건과 실제 차이를 공식 출처 중심으로 정리하는 BlueBWorks AI Radar.</description>
+    <description>개발 도구, 오픈소스, AI 소식을 소개합니다.</description>
     <language>ko-KR</language>
     <lastBuildDate>Sun, 04 Oct 2026 08:46:05 GMT</lastBuildDate>
     <item>
