@@ -41,16 +41,28 @@
         </div>
         <div class="filters" role="group" aria-label="카테고리 필터">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
+          <button class="filter" type="button" data-filter="개발도구" aria-pressed="false">개발도구</button>
           <button class="filter" type="button" data-filter="보안·인프라" aria-pressed="false">보안·인프라</button>
           <button class="filter" type="button" data-filter="오픈소스·개발도구" aria-pressed="false">오픈소스·개발도구</button>
-          <button class="filter" type="button" data-filter="개발도구" aria-pressed="false">개발도구</button>
           <button class="filter" type="button" data-filter="모델" aria-pressed="false">모델</button>
           <button class="filter" type="button" data-filter="오픈소스" aria-pressed="false">오픈소스</button>
           <button class="filter" type="button" data-filter="에이전트" aria-pressed="false">에이전트</button>
         </div>
-        <p class="list-status" data-list-status aria-live="polite">글 15편</p>
+        <p class="list-status" data-list-status aria-live="polite">글 16편</p>
       </section>
       <ol class="archive-list" data-post-list>
+        <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="cloudflare traces로 waf부터 원본 서버까지 한 요청을 이어서 본다 cloudflare가 실제 운영 요청이 보안 규칙, 변환, 캐시, workers, 원본 서버를 어떻게 지나갔는지 한 타임라인에서 보여 주는 cloudflare traces를 오픈 베타로 공개했다. 별도 계측 없이 cloudflare 구간을 자동으로 기록하고, 필요한 요청만 더 촘촘하게 수집하거나 opentelemetry로 외부 도구와 연결할 수 있다. 개발도구 open beta 이번 변화의 핵심은 worker 내부만 보는 추적이 아니라 cloudflare 앞단에서 원본까지 이어지는 플랫폼 구간을 같은 요청 단위로 볼 수 있게 된 점이다. 장애가 애플리케이션 코드인지, 캐시·라우팅·보안 규칙인지부터 구분하는 시간이 줄어드는지가 실제 도입 가치다. cloudflare observability tracing opentelemetry 도메인에서 traces를 켜면 지원되는 cloudflare 처리 단계를 별도 sdk 없이 자동으로 span으로 기록한다. 기본 샘플링 비율은 낮게 두고 trace rules로 특정 경로·헤더·ip 같은 문제 요청만 더 높은 비율로 추적할 수 있다. 2026년 12월 1일부터 logs와 traces가 통합 observability 사용량에 포함된다. 현재 공식 가격 문서는 free 0.5gb/일, paid 50gb/청구 주기를 기준으로 안내한다.">
+        <a href="/BlueBWorks/articles/cloudflare-traces-request-path-2026/">
+          <span class="archive-thumb"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-traces-overview.png" alt="Cloudflare Traces 대시보드에서 한 요청의 처리 단계를 span으로 펼쳐 본 화면" width="2638" height="1124" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다</strong>
+            <span class="archive-summary">Cloudflare가 실제 운영 요청이 보안 규칙, 변환, 캐시, Workers, 원본 서버를 어떻게 지나갔는지 한 타임라인에서 보여 주는 Cloudflare Traces를 오픈 베타로 공개했다. 별도 계측 없이 Cloudflare 구간을 자동으로 기록하고, 필요한 요청만 더 촘촘하게 수집하거나 OpenTelemetry로 외부 도구와 연결할 수 있다.</span>
+            <span class="archive-date">게시 2026년 10월 5일</span>
+
+          </div>
+        </a>
+      </li>
         <li class="archive-entry text-only" data-post-card data-category="보안·인프라" data-search="cloudflare ohttp gateway 공개: ip 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다 cloudflare가 ohttp의 암복호화 지점을 직접 운영하는 ohttp gateway를 closed beta로 공개했다. 기존 relay와 역할을 나누면서, cloudflare 뒤에 있는 앱도 제3자 relay를 통해 ohttp를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 relay 운영이 여전히 필요하다. 보안·인프라 closed beta · 유료 add-on 출시 예정 이번 발표의 핵심은 새 프록시 하나가 추가됐다는 데 있지 않다. relay와 gateway를 서로 다른 주체가 맡아야 하는 ohttp의 신뢰 분리를 cloudflare 사용자가 실제 배포 구조 안에서 선택할 수 있게 됐다는 점이 중요하다. 다만 closed beta이고 숫자로 공개된 가격도 아직 없기 때문에, 당장 일반적인 cdn 기능처럼 쓸 수 있다고 해석하면 안 된다. cloudflare ohttp privacy http 보안 인프라 새 ohttp gateway는 cloudflare zone의 /.well-known/ohttp-gateway에서 암호화된 요청을 받아 복호화하고 앱 서버로 넘긴다. cloudflare ohttp relay와 gateway를 동시에 cloudflare가 맡아 신뢰 분리를 깨지 않도록, gateway는 cloudflare workers나 cloudflare 프록시 호스트에서 온 요청의 복호화를 거부하도록 설계됐다. 현재 closed beta이며 향후 zone의 유료 add-on으로 제공될 예정이다. 공식 발표에는 구체적인 숫자 가격이 공개되지 않았다.">
         <a href="/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/">
 

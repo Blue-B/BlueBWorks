@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/about.html</loc>
@@ -19,6 +19,10 @@
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/</loc>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/</loc>

@@ -119,5 +119,38 @@
     "rightsBasis": "github/docs README states the assets, content and data folders are CC BY 4.0. Figure is an official docs screen, reused with attribution and a source link.",
     "bytes": 19709,
     "sha256": "ed8d23bbc3d5f6d293643ff0a4097c3014457c924776039a54381c94321c8505"
+  },
+  {
+    "file": "cloudflare-traces-overview.png",
+    "url": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/03f58703df62daa18049b7e0043bb6e25c659670/src/assets/images/observability/full-cloudflare-trace.png",
+    "sourceUrl": "https://developers.cloudflare.com/observability/traces/",
+    "credit": "Cloudflare Developer Docs, CC BY 4.0",
+    "purpose": "Official Cloudflare Traces dashboard screenshot used as article cover",
+    "license": "CC BY 4.0",
+    "rightsBasis": "cloudflare/cloudflare-docs README licenses repository documentation and other content under CC BY 4.0 unless noted otherwise.",
+    "bytes": 271995,
+    "sha256": "cba657b8b68832c686d9da86d0bd402467dc3780ba8d50e7d78537fe0e679c2b"
+  },
+  {
+    "file": "cloudflare-traces-configuration.png",
+    "url": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/03f58703df62daa18049b7e0043bb6e25c659670/src/assets/images/observability/trace-configuration.png",
+    "sourceUrl": "https://developers.cloudflare.com/observability/traces/configuration/",
+    "credit": "Cloudflare Developer Docs, CC BY 4.0",
+    "purpose": "Official Traces configuration screen used to explain sampling, persistence, export and context settings",
+    "license": "CC BY 4.0",
+    "rightsBasis": "cloudflare/cloudflare-docs README licenses repository documentation and other content under CC BY 4.0 unless noted otherwise.",
+    "bytes": 135286,
+    "sha256": "ab41a9ce10d65267949c2e3d3ba0fb2e43b144f4734adc6c55b2a0082190872b"
+  },
+  {
+    "file": "cloudflare-trace-rule.png",
+    "url": "https://raw.githubusercontent.com/cloudflare/cloudflare-docs/03f58703df62daa18049b7e0043bb6e25c659670/src/assets/images/observability/create-trace-rule.png",
+    "sourceUrl": "https://developers.cloudflare.com/observability/traces/configuration/",
+    "credit": "Cloudflare Developer Docs, CC BY 4.0",
+    "purpose": "Official Trace Rule screen used to explain targeted sampling for matching requests",
+    "license": "CC BY 4.0",
+    "rightsBasis": "cloudflare/cloudflare-docs README licenses repository documentation and other content under CC BY 4.0 unless noted otherwise.",
+    "bytes": 97304,
+    "sha256": "5ecf88b3c270451150c41db4781eec345d75cb557877fa2c69c9aa9bb988eb27"
   }
 ]

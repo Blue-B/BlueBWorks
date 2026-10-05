@@ -5,7 +5,15 @@
     <link>https://blue-b.github.io/BlueBWorks/</link>
     <description>개발 도구, 오픈소스, AI 소식을 소개합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 04 Oct 2026 08:46:05 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 11:37:39 GMT</lastBuildDate>
+    <item>
+      <title>Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/</guid>
+      <pubDate>Mon, 05 Oct 2026 11:37:39 GMT</pubDate>
+      <category>개발도구</category>
+      <description>Cloudflare가 실제 운영 요청이 보안 규칙, 변환, 캐시, Workers, 원본 서버를 어떻게 지나갔는지 한 타임라인에서 보여 주는 Cloudflare Traces를 오픈 베타로 공개했다. 별도 계측 없이 Cloudflare 구간을 자동으로 기록하고, 필요한 요청만 더 촘촘하게 수집하거나 OpenTelemetry로 외부 도구와 연결할 수 있다.</description>
+    </item>
     <item>
       <title>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</title>
       <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/</link>
