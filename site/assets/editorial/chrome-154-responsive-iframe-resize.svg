@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">동적 iframe 콘텐츠 변경 뒤 requestResize 흐름</title>
+<desc id="desc">댓글 추가 같은 동적 변경 후 requestResize 호출과 브라우저의 크기 재계산, 부모 iframe 높이 갱신 과정을 보여 주는 BlueBWorks 도식</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<text x="100" y="105" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#111827">콘텐츠가 나중에 늘어나면 requestResize()</text>
+<text x="100" y="155" font-family="Arial, sans-serif" font-size="24" fill="#4b5563">모든 레이아웃 변화를 계속 감시하지 않고, 필요한 시점에 재계산을 요청한다.</text>
+<g font-family="Arial, sans-serif">
+<rect x="110" y="280" width="300" height="190" rx="24" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="150" y="345" font-size="28" font-weight="700" fill="#0f172a">1. 콘텐츠 변경</text>
+<text x="150" y="395" font-size="22" fill="#475569">댓글 더 보기</text>
+<text x="150" y="430" font-size="22" fill="#475569">패널 펼치기</text>
+
+<rect x="500" y="280" width="300" height="190" rx="24" fill="#eff6ff" stroke="#60a5fa" stroke-width="3"/>
+<text x="540" y="345" font-size="28" font-weight="700" fill="#1d4ed8">2. 앱이 요청</text>
+<text x="540" y="405" font-family="monospace" font-size="23" fill="#0f172a">window.requestResize()</text>
+
+<rect x="890" y="280" width="300" height="190" rx="24" fill="#eff6ff" stroke="#60a5fa" stroke-width="3"/>
+<text x="930" y="345" font-size="28" font-weight="700" fill="#1d4ed8">3. 브라우저</text>
+<text x="930" y="395" font-size="22" fill="#475569">새 layout overflow</text>
+<text x="930" y="430" font-size="22" fill="#475569">크기 재계산</text>
+
+<rect x="1280" y="280" width="230" height="190" rx="24" fill="#f0fdf4" stroke="#4ade80" stroke-width="3"/>
+<text x="1320" y="345" font-size="28" font-weight="700" fill="#166534">4. 부모</text>
+<text x="1320" y="395" font-size="22" fill="#475569">iframe 높이</text>
+<text x="1320" y="430" font-size="22" fill="#475569">새 값 반영</text>
+
+<path d="M420 375 L485 375" stroke="#64748b" stroke-width="5" marker-end="url(#arrow)"/>
+<path d="M810 375 L875 375" stroke="#2563eb" stroke-width="5" marker-end="url(#arrowBlue)"/>
+<path d="M1200 375 L1265 375" stroke="#2563eb" stroke-width="5" marker-end="url(#arrowBlue)"/>
+
+<rect x="110" y="575" width="1400" height="160" rx="24" fill="#fff7ed" stroke="#fb923c" stroke-width="3"/>
+<text x="155" y="635" font-size="27" font-weight="700" fill="#9a3412">적용할 때 같이 보는 조건</text>
+<text x="155" y="685" font-size="22" fill="#7c2d12">• 임베드 문서가 responsive-embedded-sizing으로 opt-in해야 한다.</text>
+<text x="790" y="685" font-size="22" fill="#7c2d12">• 미지원 브라우저는 @supports와 기존 fallback을 유지한다.</text>
+<text x="110" y="825" font-size="22" fill="#64748b">BlueBWorks 도식 · Chrome for Developers 공식 가이드와 CSS Sizing Level 4 설명을 바탕으로 재구성</text>
+</g>
+<defs>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#64748b"/></marker>
+<marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#2563eb"/></marker>
+</defs>
+</svg>

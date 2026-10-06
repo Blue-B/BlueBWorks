@@ -1,1 +1,154 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>BlueBWorks</title><link>https://blue-b.github.io/BlueBWorks/</link><description>개발 도구, 오픈소스, AI 소식을 소개합니다.</description><language>ko-KR</language><lastBuildDate>Tue, 06 Oct 2026 00:10:45 GMT</lastBuildDate><item><title>mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커</title><link>https://blue-b.github.io/BlueBWorks/articles/mold-3-0-rust-rewrite-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/mold-3-0-rust-rewrite-2026/</guid><pubDate>Tue, 06 Oct 2026 00:10:45 GMT</pubDate><category>개발도구</category><description>고속 링커 mold가 3.0에서 구현 언어를 C++에서 Rust로 전면 교체했다. 사용자 입장에서는 2.42.1과 같은 명령행 옵션·지원 아키텍처·출력을 유지하는 드롭인 교체를 목표로 하지만, 직접 빌드하는 사람에게는 CMake에서 Cargo로 바뀌고 Rust 1.95 이상이 필요해졌다.</description></item><item><title>Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다</title><link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/</guid><pubDate>Mon, 05 Oct 2026 11:37:39 GMT</pubDate><category>개발도구</category><description>Cloudflare가 실제 운영 요청이 보안 규칙, 변환, 캐시, Workers, 원본 서버를 어떻게 지나갔는지 한 타임라인에서 보여 주는 Cloudflare Traces를 오픈 베타로 공개했다. 별도 계측 없이 Cloudflare 구간을 자동으로 기록하고, 필요한 요청만 더 촘촘하게 수집하거나 OpenTelemetry로 외부 도구와 연결할 수 있다.</description></item><item><title>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</title><link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/</guid><pubDate>Sun, 04 Oct 2026 05:06:28 GMT</pubDate><category>보안·인프라</category><description>Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 Relay 운영이 여전히 필요하다.</description></item><item><title>Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다</title><link>https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/</guid><pubDate>Sun, 04 Oct 2026 05:06:28 GMT</pubDate><category>오픈소스·개발도구</category><description>Git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다.</description></item><item><title>로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels</title><link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/</guid><pubDate>Sat, 03 Oct 2026 18:09:44 GMT</pubDate><category>개발도구</category><description>Cloudflare Quick Tunnels에 이메일 인증이 추가됐다. 계정이나 도메인 없이 개발 중인 앱을 공유하되, 지정한 사람만 접속하게 할 수 있다. 다만 임시 링크라는 성격과 스트리밍·자동 호출의 제약까지 달라진 것은 아니다.</description></item><item><title>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</title><link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/</guid><pubDate>Sat, 03 Oct 2026 11:43:12 GMT</pubDate><category>개발도구</category><description>GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.</description></item><item><title>Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나</title><link>https://blue-b.github.io/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/</guid><pubDate>Fri, 02 Oct 2026 09:06:51 GMT</pubDate><category>모델</category><description>MAI-Voice-2.1, Flash, 실시간 전사가 Vercel AI Gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, API 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다.</description></item><item><title>Cloudflare K2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법</title><link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-k2-serverless-event-streams-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-k2-serverless-event-streams-2026/</guid><pubDate>Fri, 02 Oct 2026 09:06:51 GMT</pubDate><category>개발도구</category><description>주문·클릭 기록을 여러 시스템에 전달하다 한쪽이 멈추면 어떻게 될까. Cloudflare K2는 기록을 먼저 보관하고 각 시스템이 자기 속도로 읽게 한다. 구독을 나누는 방식부터 중복 처리, 보관 기간, 베타 요금까지 살펴본다.</description></item><item><title>Claude Code Mods로 바꿀 수 있는 것: 상태 표시부터 명령 확인 화면까지</title><link>https://blue-b.github.io/BlueBWorks/articles/claude-code-mods-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/claude-code-mods-2026/</guid><pubDate>Fri, 02 Oct 2026 06:05:13 GMT</pubDate><category>개발도구</category><description>Claude Code의 모드는 테마나 프롬프트 모음이 아니다. 세션의 이벤트를 받아 동작을 바꾸고 화면도 그리는 플러그인 코드다. 공식 튜토리얼의 영상과 실제 화면을 따라, 기존 설정으로 충분한 일과 모드가 필요한 일을 나눠 봤다.</description></item><item><title>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</title><link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/</guid><pubDate>Fri, 02 Oct 2026 06:05:13 GMT</pubDate><category>개발도구</category><description>GitHub가 Copilot CLI·Copilot 앱·Copilot SDK에 Dynamic Workflows를 공개 프리뷰로 추가했다. 자동화 단계와 여러 에이전트를 코드로 조합해 순차·병렬 실행, 구조화된 결과 전달, 검토 체크포인트까지 반복 가능한 절차로 만들 수 있다.</description></item><item><title>GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다</title><link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-computer-use-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-computer-use-2026/</guid><pubDate>Fri, 02 Oct 2026 03:07:48 GMT</pubDate><category>개발도구</category><description>GitHub가 Copilot CLI와 Copilot 앱의 macOS·Windows 버전에 컴퓨터 사용 기능을 공개 프리뷰로 추가했다. 화면을 읽고 클릭·입력·스크롤·드래그를 수행할 수 있어 API나 CLI, MCP가 없는 GUI 전용 업무까지 자동화 범위가 넓어진다.</description></item><item><title>Cloudflare Clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델</title><link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-clef-decision-models-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-clef-decision-models-2026/</guid><pubDate>Fri, 02 Oct 2026 03:07:48 GMT</pubDate><category>오픈소스</category><description>Cloudflare가 Clef와 Clef-flash라는 결정 모델을 공개하고 Workers AI에서 바로 쓸 수 있게 했다. 자유문장을 생성하는 대신 정해진 선택지의 확률을 반환해 라우팅·도구 선택·분류처럼 에이전트 내부의 반복 결정을 더 짧고 예측 가능한 흐름으로 처리하는 데 초점을 맞춘다.</description></item><item><title>Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다</title><link>https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/</guid><pubDate>Thu, 01 Oct 2026 18:00:09 GMT</pubDate><category>오픈소스</category><description>Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.</description></item><item><title>Gemini 4 Argon 발표 — 100만 컨텍스트로 장기 코딩·사이버 방어를 겨냥한다</title><link>https://blue-b.github.io/BlueBWorks/articles/gemini-4-argon-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/gemini-4-argon-2026/</guid><pubDate>Thu, 01 Oct 2026 18:00:09 GMT</pubDate><category>모델</category><description>Google이 복잡한 장기 작업을 겨냥한 Gemini 4 Argon을 발표했다. 공식 발표에서 강조한 것은 ‘100만 출력 토큰’이 아니라 100만 토큰 컨텍스트와 장기 추론이며, 현재는 Fairwind 프로그램의 신뢰된 사이버 방어 조직부터 제한적으로 배포 중이다.</description></item><item><title>HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다</title><link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/</guid><pubDate>Thu, 01 Oct 2026 18:00:09 GMT</pubDate><category>개발도구</category><description>GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.</description></item><item><title>OpenAI Dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다</title><link>https://blue-b.github.io/BlueBWorks/articles/openai-dots-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/openai-dots-2026/</guid><pubDate>Thu, 01 Oct 2026 15:09:15 GMT</pubDate><category>에이전트</category><description>OpenAI가 DevDay 2026에서 장기 작업을 맡길 수 있는 always-on 에이전트 Dots를 공개했다. 자체 클라우드 컴퓨터와 플러그인 연결을 사용하고, 피드백을 통해 사용자의 작업 방식을 익히는 형태다.</description></item><item><title>GPT‑6.1 Sol 출시 — 코딩·컴퓨터 사용 중심으로 Sol이 업데이트됐다</title><link>https://blue-b.github.io/BlueBWorks/articles/gpt-6-1-sol-2026/</link><guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/gpt-6-1-sol-2026/</guid><pubDate>Thu, 01 Oct 2026 15:09:15 GMT</pubDate><category>모델</category><description>OpenAI가 GPT‑6.1 Sol을 공개했다. 에이전트형 코딩, 컴퓨터 사용, 전문 업무 성능을 강화하고 Astra 대비 낮은 표준 API 가격을 강조한 업데이트다.</description></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>BlueBWorks</title>
+    <link>https://blue-b.github.io/BlueBWorks/</link>
+    <description>개발 도구, 오픈소스, AI 소식을 소개합니다.</description>
+    <language>ko-KR</language>
+    <lastBuildDate>Tue, 06 Oct 2026 05:30:52 GMT</lastBuildDate>
+    <item>
+      <title>Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/</guid>
+      <pubDate>Tue, 06 Oct 2026 05:30:52 GMT</pubDate>
+      <category>브라우저</category>
+      <description>Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다. 부모 페이지가 자식 문서의 높이를 재서 `postMessage()`로 전달하던 코드를 줄일 수 있지만, 임베드 문서의 명시적 opt-in과 동적 변경 시 `requestResize()` 호출, 기존 브라우저용 fallback은 여전히 필요하다.</description>
+    </item>
+    <item>
+      <title>mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/mold-3-0-rust-rewrite-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/mold-3-0-rust-rewrite-2026/</guid>
+      <pubDate>Tue, 06 Oct 2026 00:10:45 GMT</pubDate>
+      <category>개발도구</category>
+      <description>고속 링커 mold가 3.0에서 구현 언어를 C++에서 Rust로 전면 교체했다. 사용자 입장에서는 2.42.1과 같은 명령행 옵션·지원 아키텍처·출력을 유지하는 드롭인 교체를 목표로 하지만, 직접 빌드하는 사람에게는 CMake에서 Cargo로 바뀌고 Rust 1.95 이상이 필요해졌다.</description>
+    </item>
+    <item>
+      <title>Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/</guid>
+      <pubDate>Mon, 05 Oct 2026 11:37:39 GMT</pubDate>
+      <category>개발도구</category>
+      <description>Cloudflare가 실제 운영 요청이 보안 규칙, 변환, 캐시, Workers, 원본 서버를 어떻게 지나갔는지 한 타임라인에서 보여 주는 Cloudflare Traces를 오픈 베타로 공개했다. 별도 계측 없이 Cloudflare 구간을 자동으로 기록하고, 필요한 요청만 더 촘촘하게 수집하거나 OpenTelemetry로 외부 도구와 연결할 수 있다.</description>
+    </item>
+    <item>
+      <title>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/</guid>
+      <pubDate>Sun, 04 Oct 2026 05:06:28 GMT</pubDate>
+      <category>보안·인프라</category>
+      <description>Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다. 다만 프라이버시는 구조만으로 완성되지 않고, 요청 본문에 식별자를 넣지 않는 애플리케이션 설계와 독립된 Relay 운영이 여전히 필요하다.</description>
+    </item>
+    <item>
+      <title>Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/git-2-56-2026/</guid>
+      <pubDate>Sun, 04 Oct 2026 05:06:28 GMT</pubDate>
+      <category>오픈소스·개발도구</category>
+      <description>Git 2.56은 merge conflict 처리에 특화된 git add --resolved를 추가하고, merge-base 탐색·reftable·working-tree diff 등 큰 저장소에서 눈에 띄던 병목을 줄였다. 브랜치 정리, bisect 종료, partial clone 공간 회수처럼 일상 작업에 직접 닿는 기능도 함께 들어갔다.</description>
+    </item>
+    <item>
+      <title>로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/</guid>
+      <pubDate>Sat, 03 Oct 2026 18:09:44 GMT</pubDate>
+      <category>개발도구</category>
+      <description>Cloudflare Quick Tunnels에 이메일 인증이 추가됐다. 계정이나 도메인 없이 개발 중인 앱을 공유하되, 지정한 사람만 접속하게 할 수 있다. 다만 임시 링크라는 성격과 스트리밍·자동 호출의 제약까지 달라진 것은 아니다.</description>
+    </item>
+    <item>
+      <title>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/</guid>
+      <pubDate>Sat, 03 Oct 2026 11:43:12 GMT</pubDate>
+      <category>개발도구</category>
+      <description>GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.</description>
+    </item>
+    <item>
+      <title>Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/microsoft-mai-audio-vercel-ai-gateway-2026/</guid>
+      <pubDate>Fri, 02 Oct 2026 09:06:51 GMT</pubDate>
+      <category>모델</category>
+      <description>MAI-Voice-2.1, Flash, 실시간 전사가 Vercel AI Gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, API 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다.</description>
+    </item>
+    <item>
+      <title>Cloudflare K2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-k2-serverless-event-streams-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-k2-serverless-event-streams-2026/</guid>
+      <pubDate>Fri, 02 Oct 2026 09:06:51 GMT</pubDate>
+      <category>개발도구</category>
+      <description>주문·클릭 기록을 여러 시스템에 전달하다 한쪽이 멈추면 어떻게 될까. Cloudflare K2는 기록을 먼저 보관하고 각 시스템이 자기 속도로 읽게 한다. 구독을 나누는 방식부터 중복 처리, 보관 기간, 베타 요금까지 살펴본다.</description>
+    </item>
+    <item>
+      <title>Claude Code Mods로 바꿀 수 있는 것: 상태 표시부터 명령 확인 화면까지</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/claude-code-mods-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/claude-code-mods-2026/</guid>
+      <pubDate>Fri, 02 Oct 2026 06:05:13 GMT</pubDate>
+      <category>개발도구</category>
+      <description>Claude Code의 모드는 테마나 프롬프트 모음이 아니다. 세션의 이벤트를 받아 동작을 바꾸고 화면도 그리는 플러그인 코드다. 공식 튜토리얼의 영상과 실제 화면을 따라, 기존 설정으로 충분한 일과 모드가 필요한 일을 나눠 봤다.</description>
+    </item>
+    <item>
+      <title>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/</guid>
+      <pubDate>Fri, 02 Oct 2026 06:05:13 GMT</pubDate>
+      <category>개발도구</category>
+      <description>GitHub가 Copilot CLI·Copilot 앱·Copilot SDK에 Dynamic Workflows를 공개 프리뷰로 추가했다. 자동화 단계와 여러 에이전트를 코드로 조합해 순차·병렬 실행, 구조화된 결과 전달, 검토 체크포인트까지 반복 가능한 절차로 만들 수 있다.</description>
+    </item>
+    <item>
+      <title>GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-computer-use-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-computer-use-2026/</guid>
+      <pubDate>Fri, 02 Oct 2026 03:07:48 GMT</pubDate>
+      <category>개발도구</category>
+      <description>GitHub가 Copilot CLI와 Copilot 앱의 macOS·Windows 버전에 컴퓨터 사용 기능을 공개 프리뷰로 추가했다. 화면을 읽고 클릭·입력·스크롤·드래그를 수행할 수 있어 API나 CLI, MCP가 없는 GUI 전용 업무까지 자동화 범위가 넓어진다.</description>
+    </item>
+    <item>
+      <title>Cloudflare Clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/cloudflare-clef-decision-models-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/cloudflare-clef-decision-models-2026/</guid>
+      <pubDate>Fri, 02 Oct 2026 03:07:48 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>Cloudflare가 Clef와 Clef-flash라는 결정 모델을 공개하고 Workers AI에서 바로 쓸 수 있게 했다. 자유문장을 생성하는 대신 정해진 선택지의 확률을 반환해 라우팅·도구 선택·분류처럼 에이전트 내부의 반복 결정을 더 짧고 예측 가능한 흐름으로 처리하는 데 초점을 맞춘다.</description>
+    </item>
+    <item>
+      <title>Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/</guid>
+      <pubDate>Thu, 01 Oct 2026 18:00:09 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.</description>
+    </item>
+    <item>
+      <title>Gemini 4 Argon 발표 — 100만 컨텍스트로 장기 코딩·사이버 방어를 겨냥한다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/gemini-4-argon-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/gemini-4-argon-2026/</guid>
+      <pubDate>Thu, 01 Oct 2026 18:00:09 GMT</pubDate>
+      <category>모델</category>
+      <description>Google이 복잡한 장기 작업을 겨냥한 Gemini 4 Argon을 발표했다. 공식 발표에서 강조한 것은 ‘100만 출력 토큰’이 아니라 100만 토큰 컨텍스트와 장기 추론이며, 현재는 Fairwind 프로그램의 신뢰된 사이버 방어 조직부터 제한적으로 배포 중이다.</description>
+    </item>
+    <item>
+      <title>HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/</guid>
+      <pubDate>Thu, 01 Oct 2026 18:00:09 GMT</pubDate>
+      <category>개발도구</category>
+      <description>GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.</description>
+    </item>
+    <item>
+      <title>OpenAI Dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/openai-dots-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/openai-dots-2026/</guid>
+      <pubDate>Thu, 01 Oct 2026 15:09:15 GMT</pubDate>
+      <category>에이전트</category>
+      <description>OpenAI가 DevDay 2026에서 장기 작업을 맡길 수 있는 always-on 에이전트 Dots를 공개했다. 자체 클라우드 컴퓨터와 플러그인 연결을 사용하고, 피드백을 통해 사용자의 작업 방식을 익히는 형태다.</description>
+    </item>
+    <item>
+      <title>GPT‑6.1 Sol 출시 — 코딩·컴퓨터 사용 중심으로 Sol이 업데이트됐다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/gpt-6-1-sol-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/gpt-6-1-sol-2026/</guid>
+      <pubDate>Thu, 01 Oct 2026 15:09:15 GMT</pubDate>
+      <category>모델</category>
+      <description>OpenAI가 GPT‑6.1 Sol을 공개했다. 에이전트형 코딩, 컴퓨터 사용, 전문 업무 성능을 강화하고 Astra 대비 낮은 표준 API 가격을 강조한 업데이트다.</description>
+    </item>
+  </channel>
+</rss>

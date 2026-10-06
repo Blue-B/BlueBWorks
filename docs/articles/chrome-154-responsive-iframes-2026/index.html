@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ko" data-base="/BlueBWorks">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다 | BlueBWorks</title>
+    <meta name="description" content="Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다. 부모 페이지가 자식 문서의 높이를 재서 `postMessage()`로 전달하던 코드를 줄일 수 있지만, 임베드 문서의 명시적 opt-in과 동적 변경 시 `requestResize()` 호출, 기존 브라우저용 fallback은 여전히 필요하다.">
+    <link rel="canonical" href="https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다 | BlueBWorks">
+    <meta property="og:description" content="Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다. 부모 페이지가 자식 문서의 높이를 재서 `postMessage()`로 전달하던 코드를 줄일 수 있지만, 임베드 문서의 명시적 opt-in과 동적 변경 시 `requestResize()` 호출, 기존 브라우저용 fallback은 여전히 필요하다.">
+    <meta property="og:url" content="https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://blue-b.github.io/BlueBWorks/assets/editorial/chrome-154-responsive-iframe-flow.svg">
+    <link rel="icon" href="/BlueBWorks/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/BlueBWorks/feed.xml">
+    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다","description":"Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다. 부모 페이지가 자식 문서의 높이를 재서 `postMessage()`로 전달하던 코드를 줄일 수 있지만, 임베드 문서의 명시적 opt-in과 동적 변경 시 `requestResize()` 호출, 기존 브라우저용 fallback은 여전히 필요하다.","url":"https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/","datePublished":"2026-10-06T05:30:52.000Z","dateModified":"2026-10-06T05:30:52.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"브라우저","keywords":"Chrome, iframe, CSS, Web Platform","isAccessibleForFree":true,"image":"https://blue-b.github.io/BlueBWorks/assets/editorial/chrome-154-responsive-iframe-flow.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다","item":"https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/" aria-current="page">글 목록</a><a href="/BlueBWorks/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/BlueBWorks/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>브라우저</span></p>
+        <h1 id="article-title">Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다</h1>
+        <p class="cover-dek">Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다. 부모 페이지가 자식 문서의 높이를 재서 `postMessage()`로 전달하던 코드를 줄일 수 있지만, 임베드 문서의 명시적 opt-in과 동적 변경 시 `requestResize()` 호출, 기존 브라우저용 fallback은 여전히 필요하다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 10월 6일</span><span>소식 발표 2026년 9월 16일</span><span>확인 2026년 10월 6일</span><span>Stable in Chrome 154</span><span>10분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/BlueBWorks/">홈</a></li>
+          <li><a href="/BlueBWorks/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">iframe 높이 하나 때문에 부모와 자식이 메시지를 주고받던 이유</a></li>
+          <li><a href="#sec-2">부모는 frame-sizing을 쓰고, 자식은 메타 태그로 동의한다</a></li>
+          <li><a href="#sec-3">댓글이 나중에 늘어나면 requestResize가 필요한 이유</a></li>
+          <li><a href="#sec-4">기존 브라우저용 높이 코드는 바로 지우면 안 된다</a></li>
+          <li><a href="#sec-5">첫 화면에 넣는 iframe은 레이아웃 이동을 따로 확인해야 한다</a></li>
+          <li><a href="#sec-6">표준 초안에 들어간 기능이라도 지금은 Chrome 지원 범위를 기준으로 적용해야 한다</a></li>
+          <li><a href="#sec-7">실제 마이그레이션은 한 위젯에서 부모·자식·fallback 순서로 확인한다</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다">
+            <meta itemprop="description" content="Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다. 부모 페이지가 자식 문서의 높이를 재서 `postMessage()`로 전달하던 코드를 줄일 수 있지만, 임베드 문서의 명시적 opt-in과 동적 변경 시 `requestResize()` 호출, 기존 브라우저용 fallback은 여전히 필요하다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/chrome-154-responsive-iframe-flow.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 기존 postMessage 기반 iframe 높이 동기화와 Chrome 154 frame-sizing 방식의 차이를 비교한 기술 도식"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/chrome-154-responsive-iframe-flow.svg" alt="기존 postMessage 기반 iframe 높이 동기화와 Chrome 154 frame-sizing 방식의 차이를 비교한 기술 도식" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>기존에는 자식 문서가 높이를 측정해 부모에게 전달해야 했지만, Chrome 154에서는 양쪽 문서가 명시적으로 설정하면 브라우저가 콘텐츠 크기를 iframe 계산에 사용할 수 있다.</span><a href="https://developer.chrome.com/blog/responsive-iframes" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · Chrome for Developers 공식 문서 기반 · 원문</a></figcaption>
+      </figure>
+          <details class="key-points">
+      <summary>요약</summary>
+      <ul>
+        <li>`frame-sizing: content-height`를 쓰면 부모 문서의 iframe이 임베드 문서의 콘텐츠 높이를 기준으로 크기를 잡을 수 있다.</li>
+        <li>임베드 문서는 `responsive-embedded-sizing` 메타 태그로 허용 origin을 명시해야 하고, 동적 콘텐츠 변경 뒤에는 `window.requestResize()`로 재계산을 요청한다.</li>
+        <li>Chrome 154는 2026년 9월 22일 stable로 출시됐으며, 다른 브라우저를 위해 기존 높이 지정·메시지 기반 코드를 fallback으로 남기는 점진적 적용이 권장된다.</li>
+      </ul>
+    </details>
+          <details class="editor-note">
+      <summary>덧붙임</summary>
+      <p>이 기능의 가치는 iframe 자체가 새로워진 데보다, 부모·자식 문서 사이에 높이를 전달하기 위해 별도 메시지 프로토콜을 만들던 흔한 코드를 브라우저 레이아웃 기능으로 옮겼다는 데 있다. 다만 동적 콘텐츠와 구형 브라우저 대응까지 자동으로 사라지는 것은 아니다.</p>
+    </details>
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>iframe 높이 하나 때문에 부모와 자식이 메시지를 주고받던 이유</h2>
+        <p>댓글 위젯이나 결제 폼, 사내 도구를 iframe으로 넣어 본 적이 있으면 높이 조절이 생각보다 번거롭다. iframe은 기본적으로 자기만의 viewport를 가지기 때문에 내부 문서가 길어져도 바깥 페이지의 요소 높이가 저절로 늘어나지 않는다. 고정 높이를 크게 잡으면 빈 공간이 생기고, 작게 잡으면 iframe 안쪽에 별도 스크롤바가 나타난다.</p>
+        <p>그래서 실무에서는 자식 문서가 `scrollHeight` 같은 값을 재고 `postMessage()`로 부모에게 보내고, 부모가 메시지를 받아 iframe의 style height를 바꾸는 코드를 자주 썼다. 내용이 비동기로 늘어나거나 글꼴이 늦게 로드되면 다시 측정해야 하고, 여러 종류의 위젯을 받는 페이지에서는 메시지 형식과 origin 검증까지 관리해야 했다. 단순히 높이를 맞추는 문제인데도 부모와 자식 사이에 작은 통신 규약이 하나 생기는 셈이다.</p>
+        <p>Chrome 154의 responsively-sized iframe은 이 문제를 CSS sizing 쪽으로 옮긴다. 부모 문서가 `frame-sizing`을 지정하고 임베드 문서가 허용 의사를 밝히면, 브라우저가 자식 문서의 layout overflow 크기를 iframe의 크기 계산에 사용할 수 있다. Chrome 팀은 이 기능이 수동 측정과 `postMessage()`로 치수를 전달하던 일반적인 패턴을 대체하기 위한 것이라고 설명한다.</p>
+        <div class="section-links"><a href="https://developer.chrome.com/blog/responsive-iframes" target="_blank" rel="noopener noreferrer">Chrome 공식 설명 <span aria-hidden="true">↗</span></a><a href="https://developer.chrome.com/release-notes/154" target="_blank" rel="noopener noreferrer">Chrome 154 릴리스 노트 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>부모는 frame-sizing을 쓰고, 자식은 메타 태그로 동의한다</h2>
+        <p>가장 단순한 경우 부모 페이지의 iframe에 `frame-sizing: content-height`를 지정하면 된다. 이 값은 가로 크기는 기존 CSS 규칙을 따르면서 세로 크기를 자식 문서의 콘텐츠 높이에 맞추겠다는 뜻이다. `content-width`, `content-inline-size`, `content-block-size`도 지원되며, 일반적인 가로쓰기 페이지에서 세로로 늘어나는 위젯에는 `content-height`나 `content-block-size`가 가장 직접적이다.</p>
+        <p>하지만 부모가 CSS 한 줄을 넣었다고 아무 iframe이나 바깥 레이아웃을 바꿀 수 있는 것은 아니다. 임베드되는 문서의 `&lt;head&gt;` 안에도 `&lt;meta name=&quot;responsive-embedded-sizing&quot; content=&quot;allow-origins=...&quot;&gt;`를 넣어 명시적으로 opt-in해야 한다. 같은 문서를 여러 사이트가 임베드할 수 있다면 `*` 대신 실제 허용할 부모 origin을 공백으로 나열할 수 있다.</p>
+        <p>이 동의 절차는 특히 서드파티 위젯에서 중요하다. 자식 문서의 내부 레이아웃이 부모 페이지의 크기에 영향을 주는 기능이므로, 어느 사이트에서 그 동작을 허용할지 임베드 제공자가 통제할 수 있게 한 것이다. Chrome 문서는 이 설정이 CSP의 `frame-ancestors`를 대체하는 것이 아니라 보완한다고 설명한다. `frame-ancestors`는 누가 문서를 iframe으로 넣을 수 있는지를 통제하고, `allow-origins`는 그중 누가 반응형 크기 계산을 사용할 수 있는지를 제한한다.</p>
+        <p>여기서 중요한 점은 부모 페이지가 교차 출처 iframe의 DOM을 읽을 수 있게 된 것이 아니라는 데 있다. 동일 출처 정책은 그대로 유지되고, 부모가 자식의 `document.body.scrollHeight`를 직접 가져오는 통로가 새로 열린 것도 아니다. 자식 문서가 반응형 크기 계산을 허용하고 브라우저가 레이아웃 엔진 안에서 그 크기를 계산하는 방식이라, 높이 전달을 위해 별도의 애플리케이션 메시지를 만들 필요가 줄어드는 것이다.</p>
+        <figure class="code-example"><figcaption>html · 부모의 `frame-sizing`과 자식의 `responsive-embedded-sizing` opt-in이 함께 있어야 하는 기본 구성.</figcaption><pre tabindex="0"><code>&lt;style&gt;
+  .embed {
+    width: 100%;
+    frame-sizing: content-height;
+  }
+&lt;/style&gt;
+&lt;iframe class=&quot;embed&quot; src=&quot;/comments.html&quot; title=&quot;Comments&quot;&gt;&lt;/iframe&gt;
+
+&lt;!-- /comments.html --&gt;
+&lt;meta name=&quot;responsive-embedded-sizing&quot; content=&quot;allow-origins=https://publisher.example&quot;&gt;</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>댓글이 나중에 늘어나면 requestResize가 필요한 이유</h2>
+        <p>처음 문서가 배치될 때의 높이만 맞으면 끝나는 위젯도 있지만, 실제 서비스는 그렇지 않은 경우가 많다. 댓글 더 보기를 누르거나 접힌 패널을 펼치고, 네트워크 응답 뒤에 항목을 추가하면 iframe 내부 높이가 나중에 달라진다. Chrome은 이런 모든 layout 변화를 계속 감시해 부모 크기를 즉시 바꾸는 방식 대신, 자식 문서가 필요할 때 `window.requestResize()`를 호출하도록 설계했다.</p>
+        <p>명시적인 재계산 요청은 resize loop를 피하기 위한 선택이다. iframe 높이가 바뀌면 자식 viewport 폭이나 줄바꿈이 달라지고, 그 변화가 다시 콘텐츠 높이를 바꿀 수 있다. 브라우저가 모든 변경마다 자동 재측정하면 크기 변경이 서로를 다시 촉발하는 상황이 생길 수 있으므로, 앱이 실제 콘텐츠 변경을 끝낸 뒤 한 번 재계산을 요청하는 편이 예측하기 쉽다.</p>
+        <p>Chrome 문서는 DOM 변경을 모두 끝낸 뒤 layout 전에 `requestResize()`를 호출하는 패턴을 권한다. 즉 API를 `ResizeObserver`의 대체재처럼 매 프레임 호출하는 것이 아니라, 목록 추가나 패널 확장처럼 높이가 달라질 것을 애플리케이션이 이미 아는 시점에 쓰는 방식이다. 기존 위젯이 `postMessage({height})`를 보내고 있었다면 그 메시지 전송 지점을 `requestResize()`로 단순화할 수 있는지 검토할 만하다.</p>
+        <p>이미지나 웹폰트처럼 늦게 준비되는 자원이 레이아웃을 바꾸는 위젯이라면 호출 시점을 제품 코드가 알고 있는지도 확인해야 한다. 브라우저가 내부의 모든 레이아웃 변화를 영구적으로 감시하는 기능이 아니므로, 비동기 렌더링이 끝났는데 `requestResize()`가 호출되지 않으면 초기 계산 높이가 그대로 남을 수 있다. 따라서 기존에 &#39;콘텐츠가 바뀌었으니 부모에게 새 높이를 알린다&#39;고 판단하던 지점이 있다면, 그 지점을 새 API 호출로 옮기는 식으로 마이그레이션하는 편이 명확하다.</p>
+        <figure class="article-figure">
+      <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/chrome-154-responsive-iframe-resize.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 동적 iframe 콘텐츠 변경 뒤 requestResize 호출과 브라우저의 크기 재계산 과정을 네 단계로 보여 주는 도식">
+        <img src="https://blue-b.github.io/BlueBWorks/assets/editorial/chrome-154-responsive-iframe-resize.svg" alt="동적 iframe 콘텐츠 변경 뒤 requestResize 호출과 브라우저의 크기 재계산 과정을 네 단계로 보여 주는 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>댓글 추가나 패널 확장처럼 콘텐츠가 실제로 바뀐 뒤 자식 문서가 `requestResize()`를 호출하면 브라우저가 새 콘텐츠 크기를 다시 계산한다. BlueBWorks가 공식 가이드의 동작 설명을 재구성한 도식.</span><a href="https://developer.chrome.com/blog/responsive-iframes" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · Chrome for Developers 및 CSSWG 설명 기반 · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>javascript · 동적 콘텐츠를 반영한 뒤 지원 브라우저에서 iframe 크기 재계산을 요청하는 예시.</figcaption><pre tabindex="0"><code>async function loadMore() {
+  const items = await fetchMoreItems();
+  renderItems(items);
+  if (&quot;requestResize&quot; in window) {
+    window.requestResize();
+  }
+}</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>기존 브라우저용 높이 코드는 바로 지우면 안 된다</h2>
+        <p>Chrome 154에서 stable로 들어갔다고 해서 모든 사용자에게 바로 같은 동작을 기대할 수 있는 것은 아니다. Chrome 릴리스 노트는 이 기능을 154 stable의 CSS·UI 변경으로 명시하지만, Chrome for Developers의 기능 설명도 점진적 향상을 전제로 기존 fallback을 유지하는 예시를 함께 제공한다. 다른 브라우저의 지원 상황까지 확인하지 않고 기존 코드를 제거하면 지원하지 않는 환경에서 다시 고정 높이 iframe으로 돌아갈 수 있다.</p>
+        <p>가장 단순한 방법은 기본값으로 기존 `height`를 남겨 두고 `@supports (frame-sizing: content-height)` 안에서만 `height: auto`와 `frame-sizing`을 적용하는 것이다. 동적 갱신도 `&quot;requestResize&quot; in window`로 기능 여부를 확인할 수 있다. 이렇게 하면 새 Chrome에서는 메시지 기반 코드를 덜 쓰면서도, 지원하지 않는 브라우저에는 지금 운영 중인 로직을 계속 제공할 수 있다.</p>
+        <p>마이그레이션 순서도 한 번에 갈아엎는 것보다 단계적으로 잡는 편이 낫다. 먼저 정적이거나 변경 빈도가 낮은 iframe에서 `frame-sizing`을 적용하고, 실제 레이아웃 이동과 fallback 동작을 확인한다. 그다음 댓글·피드처럼 높이가 자주 바뀌는 위젯에서 `requestResize()`를 붙이고, 마지막으로 기존 `postMessage` 높이 전달 코드를 제거할 수 있는 브라우저 범위를 정하는 식이다.</p>
+        <p>지원 범위를 나눌 때는 &#39;Chrome 154 이상이면 새 방식, 그 외에는 기존 방식&#39;처럼 브라우저 이름을 직접 판별하기보다 실제 기능을 확인하는 편이 낫다. CSS는 `@supports (frame-sizing: content-height)`로 분기하고 자바스크립트는 `requestResize` 존재 여부를 확인하면, 이후 다른 브라우저가 기능을 구현해도 별도 사용자 에이전트 규칙을 추가할 필요가 없다. 기존 메시지 경로를 언제 제거할지는 서비스의 실제 브라우저 분포를 보고 결정해야 한다.</p>
+        <figure class="code-example"><figcaption>css · 지원하지 않는 브라우저에는 기존 높이를 남기는 점진적 적용 예시.</figcaption><pre tabindex="0"><code>.widget {
+  width: 100%;
+  height: 500px;
+}
+
+@supports (frame-sizing: content-height) {
+  .widget {
+    height: auto;
+    frame-sizing: content-height;
+  }
+}</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>첫 화면에 넣는 iframe은 레이아웃 이동을 따로 확인해야 한다</h2>
+        <p>반응형 높이가 생겼다고 해서 성능 문제가 자동으로 해결되는 것도 아니다. 임베드 문서가 네트워크를 통해 늦게 로드되고 실제 높이가 초기 예상보다 크다면, 부모 문서의 iframe 높이가 뒤늦게 바뀌면서 아래 콘텐츠를 밀어낼 수 있다. Chrome 팀은 특히 첫 viewport 안에 반응형 iframe을 배치할 경우 Core Web Vitals에 부정적인 영향을 줄 수 있다고 별도로 경고한다.</p>
+        <p>따라서 광고·댓글·소셜 위젯처럼 높이 편차가 큰 콘텐츠는 초기 공간을 어느 정도 예약할지 함께 결정해야 한다. `frame-sizing`은 콘텐츠 크기를 알 수 없던 문제를 해결해 주지만, 로딩 전의 예상 공간까지 대신 설계해 주지는 않는다. 사용자가 페이지를 읽기 시작한 뒤 큰 폭으로 레이아웃이 움직이는지 실제 RUM이나 개발자 도구로 확인하는 단계가 필요하다.</p>
+        <p>`max-height` 같은 제약과 함께 쓰는 것도 가능하다. Chrome 문서 예시처럼 `max-height: 80vh`를 걸고 `frame-sizing: content-height`를 조합하면, 콘텐츠가 너무 길어지는 경우 부모 레이아웃을 무한정 밀어내지 않도록 상한을 둘 수 있다. 다만 상한을 넘긴 뒤의 overflow 동작은 제품 UX에 맞게 다시 확인해야 하므로, CSS 속성 하나를 넣은 뒤 모든 스크롤 문제를 해결했다고 보기는 어렵다.</p>
+        <p>특히 상단 뉴스레터 가입 폼이나 상품 추천 위젯처럼 첫 화면에서 바로 보이는 iframe은 기능 지원 여부보다 &#39;로드 전과 후의 높이 차이&#39;가 더 크게 체감될 수 있다. 기존에 서버나 제품 데이터로 예상 높이를 알 수 있다면 초기 공간을 어느 정도 확보하고, 실제 콘텐츠 크기가 계산된 뒤 변화 폭을 확인하는 방식이 필요하다. 반응형 iframe은 중첩 스크롤을 줄이는 도구이지, 늦게 로드되는 외부 콘텐츠의 레이아웃 이동까지 자동으로 없애는 기능은 아니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>표준 초안에 들어간 기능이라도 지금은 Chrome 지원 범위를 기준으로 적용해야 한다</h2>
+        <p>`frame-sizing`은 Chrome 전용 아이디어로만 문서화된 기능은 아니다. CSS Box Sizing Module Level 4 편집자 초안에는 responsively-sized iframes와 `frame-sizing`이 별도 절로 정의돼 있고, `Window` 인터페이스의 resize 요청 동작도 함께 논의되고 있다. Chrome 154 릴리스 노트도 해당 CSSWG 초안을 사양 링크로 연결한다.</p>
+        <p>다만 CSSWG 문서 자체가 편집자 초안이며 작업 중인 문서라고 명시하고 있다는 점은 구분해야 한다. Chrome에서 stable로 제공되는 사실과 여러 브라우저에서 상호운용 가능한 표준이 완전히 굳었다는 말은 같은 뜻이 아니다. 운영 코드에서는 현재 사용자의 브라우저 지원과 실제 동작을 기준으로 feature detection을 남겨 두는 게 안전하다.</p>
+        <p>이 기능이 특히 잘 맞는 대상은 임베드 제공자와 임베드 소비자가 모두 코드 수정이 가능한 위젯이다. 사내 대시보드, 댓글 컴포넌트, 파트너용 폼처럼 양쪽 문서를 함께 관리할 수 있으면 opt-in과 fallback을 일관되게 배포할 수 있다. 반대로 수정할 수 없는 외부 iframe은 자식 문서에 메타 태그를 넣을 수 없으므로 부모 CSS만으로 반응형 크기 계산을 강제할 수 없다.</p>
+        <p>결국 Chrome 154에서 줄어드는 것은 iframe이라는 격리 경계가 아니라 그 경계 너머의 높이를 전달하기 위해 직접 만들던 코드다. 새 기능을 지원하는 환경에서는 CSS와 명시적 resize 요청으로 단순화하고, 지원하지 않는 환경에서는 기존 방식을 유지하는 구조가 당분간 가장 실용적이다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-7">
+        <h2>실제 마이그레이션은 한 위젯에서 부모·자식·fallback 순서로 확인한다</h2>
+        <p>기존 iframe을 바꿀 때는 먼저 부모와 자식 코드를 모두 수정할 수 있는 위젯 하나를 고르는 편이 좋다. 부모 쪽에 `frame-sizing: content-height`를 추가하고 자식 문서의 `&lt;head&gt;`에 `responsive-embedded-sizing` 메타 태그를 넣은 뒤, 정적인 초기 콘텐츠가 스크롤바 없이 예상 높이로 표시되는지 확인한다. 이 단계에서 부모가 관리하지 않는 외부 iframe까지 한꺼번에 바꾸려고 하면 opt-in 여부를 통제할 수 없어 결과를 비교하기 어렵다.</p>
+        <p>다음으로 댓글 추가나 목록 확장처럼 높이가 실제로 달라지는 동작을 하나씩 실행해 `requestResize()` 호출 지점을 잡는다. 기존 코드가 ResizeObserver나 MutationObserver로 높이를 계산하고 `postMessage()`를 보내고 있었다면, 새 기능 지원 환경에서는 그 계산과 메시지 전송이 정말 필요한지 분리해서 본다. 반대로 메시지에 높이 외의 다른 상태나 이벤트도 함께 실어 보내고 있다면, 크기 조정 기능이 생겼다는 이유만으로 전체 메시지 통신을 제거해서는 안 된다.</p>
+        <p>마지막으로 미지원 브라우저에서 기존 동작이 유지되는지 확인한다. 기본 `height` 또는 기존 메시지 기반 크기 조정을 fallback으로 남기고, 기능 감지가 성공한 환경에서만 새 방식으로 전환하면 배포 위험을 낮출 수 있다. Chrome 공식 문서가 제공하는 CodePen 데모는 문법과 기본 동작을 빠르게 확인하는 출발점으로 쓸 수 있지만, 실제 서비스에서는 자체 위젯의 비동기 렌더링과 초기 레이아웃 이동까지 별도로 확인해야 한다.</p>
+        <p>이 순서대로 보면 이 기능의 범위도 선명해진다. `frame-sizing`은 iframe 격리를 없애거나 외부 문서의 내용을 부모가 읽게 하는 기능이 아니라, 양쪽이 동의했을 때 브라우저가 크기 계산을 맡는 기능이다. 그래서 적용 성공 여부는 코드 몇 줄을 줄였는지가 아니라, 중첩 스크롤과 높이 동기화 오류가 줄었는지, 기존 브라우저 fallback이 유지되는지, 첫 화면의 레이아웃 이동이 허용 가능한지를 함께 보고 판단하는 편이 맞다.</p>
+        <div class="section-links"><a href="https://codepen.io/web-dot-dev/pen/emmpvOe" target="_blank" rel="noopener noreferrer">Chrome 공식 CodePen 데모 <span aria-hidden="true">↗</span></a><a href="https://drafts.csswg.org/css-sizing-4/#frame-sizing" target="_blank" rel="noopener noreferrer">CSS Sizing Level 4 frame-sizing <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://developer.chrome.com/blog/responsive-iframes" target="_blank" rel="noopener noreferrer">
+            <strong>Chrome for Developers · Responsive iframes in Chrome 154</strong>
+            <span>developer.chrome.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://developer.chrome.com/release-notes/154" target="_blank" rel="noopener noreferrer">
+            <strong>Chrome for Developers · Chrome 154 release notes</strong>
+            <span>developer.chrome.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://drafts.csswg.org/css-sizing-4/" target="_blank" rel="noopener noreferrer">
+            <strong>CSSWG · CSS Box Sizing Module Level 4</strong>
+            <span>drafts.csswg.org</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/BlueBWorks/articles/mold-3-0-rust-rewrite-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커</strong>
+            <span>게시 2026년 10월 6일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/BlueBWorks/articles/cloudflare-traces-request-path-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다</strong>
+            <span>게시 2026년 10월 5일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/">
+            <span class="related-cat">보안·인프라</span>
+            <strong>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</strong>
+            <span>게시 2026년 10월 4일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/BlueBWorks/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://developer.chrome.com/blog/responsive-iframes" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">가이드</span>
+        <strong>반응형 iframe 공식 가이드</strong>
+        <span class="rail-desc">부모·자식 문서 설정과 동적 resize, cross-origin 제한, 점진적 적용 예제를 확인할 수 있다.</span>
+        <span class="rail-host">developer.chrome.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://developer.chrome.com/release-notes/154" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">릴리스 노트</span>
+        <strong>Chrome 154 릴리스 노트</strong>
+        <span class="rail-desc">stable 제공 범위와 같은 버전의 다른 웹 플랫폼 변경을 확인할 수 있다.</span>
+        <span class="rail-host">developer.chrome.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://drafts.csswg.org/css-sizing-4/#frame-sizing" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">사양</span>
+        <strong>CSS Sizing Level 4 초안</strong>
+        <span class="rail-desc">frame-sizing의 표준 문법과 iframe 세부 동작, 관련 테스트를 확인하는 사양 초안.</span>
+        <span class="rail-host">drafts.csswg.org</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://codepen.io/web-dot-dev/pen/emmpvOe" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">데모</span>
+        <strong>Chrome 공식 CodePen 데모</strong>
+        <span class="rail-desc">Chrome 문서가 연결한 반응형 iframe 동작 데모. 지원 브라우저에서 실제 크기 변화를 시험할 수 있다.</span>
+        <span class="rail-host">codepen.io</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/BlueBWorks/about.html">소개</a>
+        <a href="/BlueBWorks/editorial.html">편집 원칙</a>
+        <a href="/BlueBWorks/contact.html">문의</a>
+        <a href="/BlueBWorks/privacy.html">개인정보</a>
+        <a href="/BlueBWorks/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/BlueBWorks/assets/app.js?v=edition6" defer></script>
+  <script src="/BlueBWorks/assets/journal.js?v=edition6" defer></script>
+  </body>
+</html>
