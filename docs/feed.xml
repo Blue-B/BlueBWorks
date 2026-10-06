@@ -5,7 +5,15 @@
     <link>https://blue-b.github.io/BlueBWorks/</link>
     <description>개발 도구, 오픈소스, AI 소식을 소개합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 06 Oct 2026 05:30:52 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 06:09:52 GMT</lastBuildDate>
+    <item>
+      <title>GitHub가 Lovable·Supabase 키 유출 탐지를 확대했다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/</guid>
+      <pubDate>Tue, 06 Oct 2026 06:09:52 GMT</pubDate>
+      <category>보안·인프라</category>
+      <description>10월 공지에 나온 인증정보 다섯 유형을 살펴보고, 경고 확인부터 키 교체·폐기와 푸시 차단까지 연결해 설명한다. 탐지됐다는 사실과 자동 폐기는 다르며, Lovable의 최초 지원 시점은 앞선 공식 공지와 구분해야 한다.</description>
+    </item>
     <item>
       <title>Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다</title>
       <link>https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/</link>
