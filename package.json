@@ -6,10 +6,12 @@
   "description": "BlueBWorks AI Radar static site builder and tests",
   "engines": { "node": ">=18" },
   "scripts": {
-    "editorial:check": "node build/editorial-check.mjs",
+    "editorial:check": "node build/editorial-check.mjs && node build/publication-check.mjs",
     "build": "npm run editorial:check && node build/prepare-assets.mjs && node build/prepare-editorial-media.mjs && node build/build.mjs",
     "check": "node build/check.mjs",
     "test": "node --test test/*.test.mjs",
-    "verify": "npm run build && npm run check && npm test"
+    "verify": "npm run build && npm run check && npm test",
+    "x:listen": "node tools/x-inbox.mjs serve",
+    "x:export": "node tools/x-inbox.mjs export"
   }
 }

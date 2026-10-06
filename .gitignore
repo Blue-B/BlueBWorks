@@ -5,3 +5,11 @@ Thumbs.db
 __pycache__/
 .venv/
 .verify/
+# X credentials and notification state must remain outside the repository.
+angelic-angel.toml
+.env
+.env.*
+!.env.example
+x-inbox.json
+.x-inbox-*
+.local/
