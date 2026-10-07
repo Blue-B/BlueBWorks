@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">EmbeddingGemma 2 공통 벡터 공간</title>
+<desc id="desc">텍스트, 코드, 이미지, 비디오, 오디오가 모듈형 인코더를 거쳐 같은 768차원 벡터 공간으로 들어가는 설명 도식</desc>
+<rect width="1200" height="675" fill="#fff"/>
+<g font-family="Arial, sans-serif">
+<text x="64" y="76" font-size="34" font-weight="700" fill="#111827">서로 다른 미디어를 같은 좌표로</text>
+<text x="64" y="111" font-size="18" fill="#4b5563">EmbeddingGemma 2 · 공통 768차원 임베딩 공간</text>
+<g fill="#f8fafc" stroke="#cbd5e1">
+<rect x="64" y="165" width="190" height="62" rx="10"/><rect x="64" y="242" width="190" height="62" rx="10"/>
+<rect x="64" y="319" width="190" height="62" rx="10"/><rect x="64" y="396" width="190" height="62" rx="10"/>
+</g>
+<g text-anchor="middle" font-size="20" font-weight="600" fill="#111827">
+<text x="159" y="204">텍스트 · 코드</text><text x="159" y="281">이미지</text>
+<text x="159" y="358">비디오 프레임</text><text x="159" y="435">오디오</text>
+</g>
+<g stroke="#2563eb" stroke-width="3" fill="none">
+<path d="M270 196 H358 M270 273 H358 M270 350 H358 M270 427 H358"/>
+<path d="M350 188 L365 196 L350 204 M350 265 L365 273 L350 281 M350 342 L365 350 L350 358 M350 419 L365 427 L350 435"/>
+</g>
+<rect x="380" y="175" width="330" height="270" rx="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="545" y="220" text-anchor="middle" font-size="26" font-weight="700" fill="#1d4ed8">EmbeddingGemma 2</text>
+<text x="545" y="258" text-anchor="middle" font-size="18" fill="#111827">텍스트 기반 270M</text>
+<line x1="430" y1="279" x2="660" y2="279" stroke="#bfdbfe"/>
+<text x="545" y="315" text-anchor="middle" font-size="18" fill="#111827">+ 비전 인코더 170M</text>
+<text x="545" y="350" text-anchor="middle" font-size="18" fill="#111827">+ 오디오 인코더 300M</text>
+<text x="545" y="397" text-anchor="middle" font-size="16" fill="#4b5563">필요한 인코더만 선택해 로드</text>
+<path d="M728 310 H806" stroke="#2563eb" stroke-width="4"/><path d="M798 301 L815 310 L798 319" fill="none" stroke="#2563eb" stroke-width="4"/>
+<rect x="830" y="190" width="306" height="240" rx="18" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+<text x="983" y="236" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">공통 벡터 공간</text>
+<text x="983" y="270" text-anchor="middle" font-size="19" fill="#2563eb">768 dimensions</text>
+<g fill="#dbeafe" stroke="#60a5fa"><circle cx="905" cy="327" r="18"/><circle cx="957" cy="306" r="13"/><circle cx="1005" cy="346" r="16"/><circle cx="1057" cy="316" r="12"/><circle cx="930" cy="377" r="12"/><circle cx="982" cy="386" r="18"/><circle cx="1042" cy="371" r="14"/></g>
+<text x="983" y="416" text-anchor="middle" font-size="15" fill="#64748b">의미가 가까우면 가까운 좌표</text>
+<rect x="132" y="520" width="936" height="92" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="600" y="554" text-anchor="middle" font-size="18" font-weight="700" fill="#111827">이 벡터를 로컬에서 비교해</text>
+<text x="600" y="588" text-anchor="middle" font-size="18" fill="#475569">미디어 검색 · 코드 검색 · RAG 검색 · 분류/라우팅에 사용</text>
+</g></svg>
