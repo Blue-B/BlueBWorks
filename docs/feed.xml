@@ -5,7 +5,15 @@
     <link>https://blue-b.github.io/BlueBWorks/</link>
     <description>개발 도구, 오픈소스, AI 소식을 소개합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 06 Oct 2026 06:09:52 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 16:20:00 GMT</lastBuildDate>
+    <item>
+      <title>GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/</guid>
+      <pubDate>Thu, 08 Oct 2026 16:20:00 GMT</pubDate>
+      <category>개발도구</category>
+      <description>GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다. GitHub CLI의 `gh stack`과 웹, API·웹훅까지 연결되는 실제 사용 흐름과 아직 남은 제약을 정리했다.</description>
+    </item>
     <item>
       <title>GitHub가 Lovable·Supabase 키 유출 탐지를 확대했다</title>
       <link>https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/</link>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Stacked Pull Requests의 부분 병합과 자동 재정렬</title>
+<desc id="desc">세 개의 풀 리퀘스트 중 아래 두 개를 병합하면 main에 두 변경이 들어가고, 남은 위쪽 풀 리퀘스트가 새로운 main 위로 다시 연결되는 과정을 보여 주는 도식</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<text x="100" y="105" font-family="Arial, Noto Sans KR, sans-serif" font-size="48" font-weight="700" fill="#111827">아래쪽을 합치면 위쪽 PR은 남아서 다시 이어진다</text>
+<text x="100" y="160" font-family="Arial, Noto Sans KR, sans-serif" font-size="26" fill="#4b5563">스택 일부만 병합해도 위쪽 변경을 닫지 않고 새 base 위로 재배치한다.</text>
+
+<text x="170" y="245" font-family="Arial, Noto Sans KR, sans-serif" font-size="30" font-weight="700" fill="#111827">병합 전</text>
+<rect x="150" y="640" width="260" height="115" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="280" y="710" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="30" font-weight="700" fill="#111827">main</text>
+<rect x="195" y="500" width="260" height="115" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="325" y="550" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="25" font-weight="700" fill="#1e3a8a">PR #1</text>
+<text x="325" y="585" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="20" fill="#475569">인증</text>
+<rect x="240" y="360" width="260" height="115" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="370" y="410" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="25" font-weight="700" fill="#1e3a8a">PR #2</text>
+<text x="370" y="445" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="20" fill="#475569">API</text>
+<rect x="285" y="220" width="260" height="115" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="415" y="270" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="25" font-weight="700" fill="#1e3a8a">PR #3</text>
+<text x="415" y="305" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="20" fill="#475569">프런트엔드</text>
+<line x1="280" y1="640" x2="325" y2="615" stroke="#2563eb" stroke-width="6"/>
+<line x1="325" y1="500" x2="370" y2="475" stroke="#2563eb" stroke-width="6"/>
+<line x1="370" y1="360" x2="415" y2="335" stroke="#2563eb" stroke-width="6"/>
+
+<path d="M650 450 L930 450" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+<path d="M900 425 L935 450 L900 475" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+<text x="790" y="410" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="24" font-weight="700" fill="#334155">PR #2까지 병합</text>
+<text x="790" y="500" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="20" fill="#64748b">아래 PR들도 함께 들어감</text>
+
+<text x="1010" y="245" font-family="Arial, Noto Sans KR, sans-serif" font-size="30" font-weight="700" fill="#111827">병합 후</text>
+<rect x="1010" y="570" width="430" height="150" rx="22" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+<text x="1225" y="625" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="28" font-weight="700" fill="#065f46">main</text>
+<text x="1225" y="670" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="21" fill="#475569">PR #1 + PR #2 반영</text>
+<rect x="1060" y="340" width="330" height="150" rx="22" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="1225" y="395" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="28" font-weight="700" fill="#1e3a8a">PR #3 유지</text>
+<text x="1225" y="438" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="21" fill="#475569">새 main 위로 retarget / rebase</text>
+<line x1="1225" y1="570" x2="1225" y2="490" stroke="#2563eb" stroke-width="7" stroke-linecap="round"/>
+<rect x="1020" y="760" width="410" height="72" rx="18" fill="#f8fafc"/>
+<text x="1225" y="804" text-anchor="middle" font-family="Arial, Noto Sans KR, sans-serif" font-size="22" fill="#334155">리뷰 가능한 상위 층을 계속 열어 둔다</text>
+</svg>

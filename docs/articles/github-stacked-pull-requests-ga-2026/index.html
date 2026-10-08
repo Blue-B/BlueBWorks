@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ko" data-base="/BlueBWorks">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다 | BlueBWorks</title>
+    <meta name="description" content="GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다. GitHub CLI의 `gh stack`과 웹, API·웹훅까지 연결되는 실제 사용 흐름과 아직 남은 제약을 정리했다.">
+    <link rel="canonical" href="https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다 | BlueBWorks">
+    <meta property="og:description" content="GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다. GitHub CLI의 `gh stack`과 웹, API·웹훅까지 연결되는 실제 사용 흐름과 아직 남은 제약을 정리했다.">
+    <meta property="og:url" content="https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://blue-b.github.io/BlueBWorks/assets/editorial/github-stacked-prs-flow.svg">
+    <link rel="icon" href="/BlueBWorks/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/BlueBWorks/feed.xml">
+    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다","description":"GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다. GitHub CLI의 `gh stack`과 웹, API·웹훅까지 연결되는 실제 사용 흐름과 아직 남은 제약을 정리했다.","url":"https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/","datePublished":"2026-10-08T16:20:00.000Z","dateModified":"2026-10-08T16:20:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Pull Request, Code Review, GitHub CLI, CI","isAccessibleForFree":true,"image":"https://blue-b.github.io/BlueBWorks/assets/editorial/github-stacked-prs-flow.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다","item":"https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/" aria-current="page">글 목록</a><a href="/BlueBWorks/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/BlueBWorks/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>개발도구</span></p>
+        <h1 id="article-title">GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다</h1>
+        <p class="cover-dek">GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다. GitHub CLI의 `gh stack`과 웹, API·웹훅까지 연결되는 실제 사용 흐름과 아직 남은 제약을 정리했다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 10월 9일</span><span>소식 발표 2026년 10월 6일</span><span>확인 2026년 10월 7일</span><span>Generally available on github.com</span><span>10분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/BlueBWorks/">홈</a></li>
+          <li><a href="/BlueBWorks/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">큰 PR 하나를 기다리지 않고 다음 변경을 이어 간다</a></li>
+          <li><a href="#sec-2">스택의 핵심은 PR 개수가 아니라 base branch의 사슬이다</a></li>
+          <li><a href="#sec-3">gh stack은 브랜치 순서와 제출 과정을 한 흐름으로 묶는다</a></li>
+          <li><a href="#sec-4">정식 제공에서 달라진 핵심은 리베이스와 병합 처리다</a></li>
+          <li><a href="#sec-5">리뷰 규칙과 CI는 중간 PR도 trunk 기준을 따른다</a></li>
+          <li><a href="#sec-6">일부만 합치면 위쪽 PR은 닫지 않고 새 base에 다시 연결한다</a></li>
+          <li><a href="#sec-7">웹 화면을 넘어 API·웹훅·에이전트 흐름에도 스택 정보가 들어간다</a></li>
+          <li><a href="#sec-8">같은 저장소 안에서 의존 변경이 길어질 때 가장 잘 맞는다</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다">
+            <meta itemprop="description" content="GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다. GitHub CLI의 `gh stack`과 웹, API·웹훅까지 연결되는 실제 사용 흐름과 아직 남은 제약을 정리했다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/github-stacked-prs-flow.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/github-stacked-prs-flow.svg" alt="main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>스택에서는 첫 PR이 main 같은 trunk를 향하고, 그 위 PR들은 바로 아래 PR의 브랜치를 base로 삼는다. 그래서 리뷰어는 전체 기능이 아니라 해당 층의 변경만 볼 수 있다.</span><a href="https://docs.github.com/en/pull-requests/get-started/about-stacked-prs" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · GitHub Docs 공식 설명 기반 · 원문</a></figcaption>
+      </figure>
+          <details class="key-points">
+      <summary>요약</summary>
+      <ul>
+        <li>Stacked Pull Requests는 의존하는 변경을 여러 PR로 나눠 각 층의 diff를 독립적으로 리뷰하면서도 전체를 연결된 작업으로 관리한다.</li>
+        <li>정식 제공에서는 승인 유지, 서명된 리베이스 커밋, 머지 큐의 단일 merge group, 분기 스택 자동 retarget 등 병합·재배치 동작이 강화됐다.</li>
+        <li>github.com 모든 플랜에서 쓸 수 있지만 같은 저장소 안의 브랜치만 스택으로 묶을 수 있고 GitHub Desktop은 아직 지원하지 않는다.</li>
+      </ul>
+    </details>
+          <details class="editor-note">
+      <summary>덧붙임</summary>
+      <p>이번 정식 제공에서 중요한 변화는 &#39;PR을 여러 개 만든다&#39;는 아이디어 자체보다, 그 여러 PR을 GitHub가 하나의 연결된 단위로 이해해 리베이스·머지 큐·규칙·자동화까지 이어 주기 시작했다는 점이다.</p>
+    </details>
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>큰 PR 하나를 기다리지 않고 다음 변경을 이어 간다</h2>
+        <p>백엔드 스키마를 바꾸고 API를 추가한 뒤 프런트엔드까지 고치는 기능을 한 번에 개발하면, 마지막에는 리뷰하기 부담스러운 큰 PR 하나가 남기 쉽다. 반대로 PR을 억지로 잘게 나누면 앞 PR이 합쳐질 때까지 다음 작업을 기다리거나, 서로 의존하는 브랜치를 사람이 계속 리베이스해야 한다. Stacked Pull Requests는 이 두 문제 사이를 겨냥한 GitHub의 기본 PR 흐름이다.</p>
+        <p>스택은 서로 의존하는 두 개 이상의 PR을 순서가 있는 하나의 묶음으로 취급한다. 맨 아래 PR은 보통 `main`을 base로 삼고, 두 번째 PR은 첫 번째 PR의 브랜치를, 세 번째 PR은 두 번째 PR의 브랜치를 base로 삼는다. 각 PR 화면에서는 바로 아래 층과의 차이만 보이기 때문에 인증·API·UI를 하나의 거대한 diff로 읽지 않아도 된다.</p>
+        <p>GitHub는 2026년 7월 공개 프리뷰를 시작한 뒤 10월 6일 정식 제공으로 전환했다. 정식 제공 공지에서 GitHub는 스택을 사용한 저장소가 비교 대상보다 병합된 코드가 9% 늘었고, 상위 1% 저장소 가운데 3분의 2 이상이 스택을 사용하며 병합까지 걸리는 시간이 5% 개선됐다고 밝혔다. 이 수치는 GitHub 자체 제품 사용 데이터이며 독립 벤치마크로 확인된 결과는 아니다.</p>
+        <p>이제 기능은 github.com의 모든 플랜에서 제공된다. GitHub Enterprise Server에는 향후 릴리스에 포함될 예정이라고 공지돼 있어, 자체 호스팅 GHES 사용자는 현재 github.com과 같은 시점에 이미 쓸 수 있다고 가정하면 안 된다.</p>
+        <div class="section-links"><a href="https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available/" target="_blank" rel="noopener noreferrer">GitHub 정식 제공 공지 <span aria-hidden="true">↗</span></a><a href="https://docs.github.com/en/pull-requests/get-started/about-stacked-prs" target="_blank" rel="noopener noreferrer">Stacked Pull Requests 개념 설명 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>스택의 핵심은 PR 개수가 아니라 base branch의 사슬이다</h2>
+        <p>예를 들어 첫 층을 `feat/auth`, 두 번째를 `feat/api`, 세 번째를 `feat/frontend`라고 하자. 첫 PR은 `feat/auth → main`, 두 번째는 `feat/api → feat/auth`, 세 번째는 `feat/frontend → feat/api` 형태가 된다. 위쪽 브랜치는 아래쪽 변경을 포함하지만, PR의 비교 기준 자체가 바로 아래 브랜치이므로 리뷰 화면에는 그 층에서 새로 더한 부분이 중심으로 나타난다.</p>
+        <p>이 구조는 단순히 PR 세 개에 라벨을 붙이는 방식과 다르다. GitHub는 어떤 PR이 스택의 아래·위에 있는지 알고, PR 페이지에 스택 맵을 표시하고, 이동과 병합을 스택 관계에 맞춰 처리한다. 아래 변경에 의존하는 코드는 같은 브랜치나 더 위의 브랜치에 있어야 하므로, 실제 작업 순서가 의존성 순서와 맞아야 한다.</p>
+        <p>리뷰 측면에서는 큰 기능 전체가 준비될 때까지 기다릴 필요가 줄어든다. 데이터 모델과 인증 로직이 먼저 끝났다면 그 층을 먼저 검토하고, 개발자는 그 위에서 API나 UI 작업을 계속할 수 있다. 리뷰어는 작은 diff를 보면서도 스택 맵으로 이 PR이 전체 변경의 어느 위치인지 확인할 수 있다.</p>
+        <p>특히 AI 코딩 도구처럼 짧은 시간에 여러 작업 단위를 빠르게 만들어 내는 환경에서는 이 구분이 더 실용적이다. GitHub 공식 문서도 에이전트가 한 작업을 끝내고 그 결과에 의존하는 다음 작업을 이어 갈 때, 작업 하나당 PR 한 층으로 대응시키는 흐름을 예로 든다. 다만 작은 PR을 많이 만든다고 자동으로 좋은 설계가 되는 것은 아니므로, 서로 독립적인 변경까지 억지로 하나의 스택에 묶을 필요는 없다.</p>
+
+        <p class="source-refs">근거 <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>gh stack은 브랜치 순서와 제출 과정을 한 흐름으로 묶는다</h2>
+        <p>터미널에서는 GitHub CLI 확장인 `gh stack`을 쓸 수 있다. 공식 빠른 시작 문서의 요구 사항은 GitHub CLI 2.90.0 이상과 Git 2.20 이상이며, 확장은 `gh extension install github/gh-stack`으로 설치한다. 이 글에서 명령을 실제 저장소에 실행한 것은 아니고, 아래 흐름은 GitHub 공식 문서에 나온 사용 순서를 바탕으로 정리한 것이다.</p>
+        <p>`gh stack init`으로 첫 브랜치를 만들고 작업을 커밋한 다음, 다음 논리 단위로 넘어갈 때 `gh stack add BRANCH-NAME`을 실행한다. 여러 층을 만든 뒤 `gh stack push`로 원격 브랜치를 보내고 `gh stack submit`을 실행하면 각 PR의 base가 올바른 아래 브랜치로 설정되고 GitHub에서 하나의 스택으로 연결된다. `gh stack view`에서는 브랜치와 연결된 PR, 상태, 최신 커밋을 한 번에 확인할 수 있다.</p>
+        <p>정식 제공 공지에는 `gh stack`이 Git worktree도 지원한다고 적혀 있다. 하나의 작업 디렉터리에서 브랜치를 계속 갈아타는 대신 여러 worktree를 나란히 쓰는 팀도 스택 흐름을 유지할 수 있다는 뜻이다. GitHub는 초기화·체크아웃·탐색 속도 개선도 함께 언급했지만, 구체적인 성능 수치를 공개한 것은 아니므로 여기서 별도의 속도 향상 비율을 만들 수는 없다.</p>
+        <p>CLI가 필수인 것은 아니다. 웹에서 첫 PR을 만든 뒤 다음 PR의 base를 아래 PR 브랜치로 지정하고 `Create stack`을 선택할 수 있고, 이미 base 관계가 맞게 열린 PR들이 있으면 GitHub가 스택으로 연결할 수 있는 추천을 보여 줄 수 있다. 그래서 기존 Git 브랜치 작업 방식을 유지하면서 GitHub 쪽에서만 스택 관계를 붙이는 사용도 가능하다.</p>
+        <figure class="code-example"><figcaption>shell · GitHub 공식 빠른 시작 문서에 나온 명령을 한 흐름으로 정리한 예시. 이 기사 작성 과정에서 실제 저장소에 실행한 결과는 아니다.</figcaption><pre tabindex="0"><code>gh extension install github/gh-stack
+
+gh stack init auth-layer
+# 작업 후 git add / git commit
+
+gh stack add api-endpoints
+# 다음 작업 후 커밋
+
+gh stack push
+gh stack submit
+gh stack view</code></pre></figure><div class="section-links"><a href="https://docs.github.com/en/pull-requests/get-started/stacked-prs-quickstart" target="_blank" rel="noopener noreferrer">gh stack 빠른 시작 <span aria-hidden="true">↗</span></a><a href="https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/creating-stacked-pull-requests" target="_blank" rel="noopener noreferrer">웹·CLI에서 스택 만들기 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-3">[3]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>정식 제공에서 달라진 핵심은 리베이스와 병합 처리다</h2>
+        <p>스택에서 가장 귀찮은 순간은 아래 브랜치가 바뀌었을 때다. `main`이 앞으로 움직이거나 아래 PR이 수정되면 위의 여러 브랜치를 차례로 다시 맞춰야 한다. GitHub의 `Rebase stack`은 이 재배치를 서버에서 연쇄적으로 처리하며, 정식 제공에서는 내용이 바뀌지 않은 코드의 기존 승인을 보존하도록 동작이 개선됐다. 저장소가 오래된 승인을 자동 무효화하도록 설정돼 있어도, 단순히 base 이동 때문에 동일한 코드를 다시 승인하는 일을 줄이려는 변화다.</p>
+        <p>리베이스 뒤 만들어지는 대체 커밋도 서명을 유지하는 방향으로 바뀌었다. GitHub는 `Rebase stack`에서 서명된 대체 커밋을 만들고 원 저자 정보를 유지하며, 일부 PR을 먼저 병합한 뒤 자동으로 리베이스할 때도 브랜치 규칙이 서명을 요구하거나 원래 커밋이 서명돼 있었다면 새 커밋에 서명한다고 설명한다. 서명 규칙을 쓰는 저장소에서 스택 자동화가 규칙과 충돌하던 지점을 줄인 셈이다.</p>
+        <p>머지 큐에서는 스택을 여러 개의 독립 merge group으로 쪼개지 않고 하나의 merge group으로 넣는다. 즉 스택 전체가 필요한 검사와 병합 조건을 함께 통과하도록 다룰 수 있다. 규칙 우회 권한이 있는 사용자는 가장 아래의 아직 병합되지 않은 PR에 그 권한을 적용할 수 있고, base 브랜치가 삭제되는 분기형 스택은 맨 아래 PR을 닫는 대신 새 base로 자동 retarget한다.</p>
+        <p>자동 병합은 정식 제공 공지 시점에 모든 계정에 즉시 완료된 기능으로 쓰면 안 된다. GitHub는 스택용 auto-merge가 &#39;앞으로 몇 주에 걸쳐&#39; 순차 배포된다고 명시했다. 따라서 10월 6일 공지를 보고 바로 모든 저장소에 같은 UI가 있다고 단정하기보다, 실제 저장소에서 기능이 나타났는지 확인하는 편이 맞다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-5">[5]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>리뷰 규칙과 CI는 중간 PR도 trunk 기준을 따른다</h2>
+        <p>중간 PR의 base가 `main`이 아니라 다른 feature 브랜치라고 해서 품질 규칙이 느슨해지는 것은 아니다. GitHub 문서에 따르면 스택 안의 모든 PR은 맨 아래 PR의 base, 즉 보통 `main`에 적용되는 병합 요구 사항을 따른다. CODEOWNERS 승인이나 필수 리뷰, 브랜치 보호 규칙 같은 조건이 중간 층에도 적용된다.</p>
+        <p>GitHub Actions의 pull request 워크플로도 스택 각 PR에 대해 실행된다. 기본 브랜치를 대상으로 한 PR에만 동작하도록 구성된 기존 검사라도 스택의 각 층에서 품질 조건을 확인할 수 있게 GitHub가 스택 관계를 처리한다. 다만 PR 수가 늘면 동일한 비싼 작업이 여러 층에서 반복될 수 있으므로, 공식 문서는 워크플로 이벤트의 `pull_request.stack` 메타데이터를 이용해 스택 전용 최적화를 할 수 있다고 안내한다.</p>
+        <p>여기서 중요한 점은 스택이 CI 비용을 자동으로 줄여 주는 기능은 아니라는 것이다. 같은 빌드와 통합 테스트를 PR마다 모두 수행하면 작업 수는 오히려 늘 수 있다. 반대로 빠른 정적 검사와 해당 층의 테스트는 각 PR에 두고, 비용이 큰 전체 테스트는 스택의 특정 위치나 병합 직전에만 실행하도록 워크플로를 조정하면 작은 리뷰 단위의 장점을 유지하면서 중복 실행을 줄일 여지가 있다.</p>
+        <p>리뷰 승인 보존도 모든 수정에 무조건 적용되는 것은 아니다. 정식 제공 공지가 강조한 것은 base 이동 때문에 코드 내용이 변하지 않은 경우다. 리뷰 뒤 해당 PR의 실제 코드가 바뀌었다면 저장소 정책에 따라 다시 검토해야 하며, 스택 기능을 승인 우회 수단으로 이해하면 안 된다.</p>
+        <div class="section-links"><a href="https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests" target="_blank" rel="noopener noreferrer">스택 CI 최적화 문서 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-7">[7]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>일부만 합치면 위쪽 PR은 닫지 않고 새 base에 다시 연결한다</h2>
+        <p>스택은 항상 전부를 한 번에 합쳐야 하는 구조가 아니다. GitHub는 아래에서 위 순서를 지키면서 한 PR, 여러 개의 연속된 하위 PR, 또는 전체 스택을 병합할 수 있게 한다. 예를 들어 PR #1과 #2가 준비됐지만 #3의 UI 리뷰가 남아 있다면, #2까지 병합하고 #3을 계속 열어 둘 수 있다.</p>
+        <p>이때 아래 두 PR의 변경은 trunk에 들어가고, 위쪽 PR은 새 trunk를 기준으로 자동 재배치된다. 개발자가 PR #3 브랜치를 수동으로 닫고 다시 만들 필요가 없고, 스택 관계도 남는다. 아래 변경을 먼저 출시해야 하거나 큰 기능의 인프라 부분을 선행 병합해야 할 때 특히 유용한 동작이다.</p>
+        <p>반대로 맨 위의 준비된 PR을 통해 전체 스택을 병합하면 아래의 준비된 층들도 함께 들어갈 수 있다. GitHub는 merge commit, squash, rebase 방식과 스택을 함께 지원하며 merge queue도 인식한다. API로 스택 병합을 자동화할 때는 일반 동기 병합 호출 대신 스택용 비동기 병합 API를 사용해야 한다는 주의사항도 공식 문서에 있다.</p>
+        <p>부분 병합 뒤 자동 리베이스가 편리하더라도 충돌 가능성이 사라지는 것은 아니다. 아래쪽 인터페이스를 크게 바꾸면 위쪽 변경이 충돌하거나 테스트가 다시 실패할 수 있다. 스택은 의존 관계와 반복 작업을 관리해 주는 도구이지, 서로 맞지 않는 코드까지 자동으로 의미 있게 합쳐 주는 충돌 해결기는 아니다.</p>
+        <figure class="article-figure">
+      <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/github-stacked-prs-merge.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 세 개의 stacked pull request 중 아래 두 개를 병합한 뒤 위쪽 PR이 새 main 위로 다시 연결되는 과정을 보여 주는 도식">
+        <img src="https://blue-b.github.io/BlueBWorks/assets/editorial/github-stacked-prs-merge.svg" alt="세 개의 stacked pull request 중 아래 두 개를 병합한 뒤 위쪽 PR이 새 main 위로 다시 연결되는 과정을 보여 주는 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>PR #2까지 병합하면 아래 PR들이 trunk에 들어가고, 아직 열려 있는 PR #3은 새 base 위로 다시 연결된다. 실제 충돌과 테스트 실패 가능성까지 없어지는 것은 아니다.</span><a href="https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/merging-stacked-pull-requests" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · GitHub Docs 공식 병합 규칙 기반 · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-2">[2]</a> <a href="#source-5">[5]</a></p>
+      </section>
+      <section class="prose-section" id="sec-7">
+        <h2>웹 화면을 넘어 API·웹훅·에이전트 흐름에도 스택 정보가 들어간다</h2>
+        <p>정식 제공 기능은 PR 화면에만 머물지 않는다. REST API에서는 PR의 스택 소속을 읽고 스택을 생성·확장·해제하는 엔드포인트를 사용할 수 있으며, GraphQL은 PR의 `stack`과 스택 안 위치를 읽는 필드를 제공한다. GitHub 문서상 GraphQL의 스택 조작은 읽기 중심이고, 생성·변경 작업은 REST 경로를 사용한다.</p>
+        <p>웹훅도 스택 수명 주기를 알 수 있다. `pull_request` 이벤트에 stack 정보가 포함되고, PR이 스택에 들어갈 때 `stacked` 액션을 받을 수 있다. 사내 배포 봇이나 리뷰 대시보드가 &#39;이 PR 하나가 준비됐는가&#39;만 보던 구조라면, 이제 같은 스택의 다른 층 상태를 함께 읽어 배포 조건이나 알림 방식을 조정할 수 있다.</p>
+        <p>에이전트 기반 코딩 흐름을 위해 GitHub는 `gh-stack` skill 설치 경로도 문서화했다. `gh skill install github/gh-stack`을 통해 도구가 스택 명령과 규칙을 이해하도록 할 수 있다. 다만 skill을 설치했다고 에이전트가 알아서 적절한 변경 경계를 설계해 주는 것은 아니고, 어떤 작업을 한 층으로 묶을지는 여전히 저장소 구조와 리뷰 전략에 맞춰 정해야 한다.</p>
+        <p>PR 페이지 자체도 스택 정보를 항상 보이는 헤더에 두고 `Shift+J`, `Shift+K`로 층 사이를 이동할 수 있게 바뀌었다. 타임라인에는 PR이 스택에 들어오거나 빠진 기록이 남는다. 여러 PR을 하나의 기능 단위로 보되, 각 PR의 리뷰 기록과 상태는 독립적으로 유지하려는 방향이 UI와 자동화 인터페이스에 함께 반영된 것이다.</p>
+        <div class="section-links"><a href="https://docs.github.com/en/pull-requests/reference/stacked-pull-requests-apis-and-webhooks" target="_blank" rel="noopener noreferrer">Stacked PR API·웹훅 문서 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-6">[6]</a></p>
+      </section>
+      <section class="prose-section" id="sec-8">
+        <h2>같은 저장소 안에서 의존 변경이 길어질 때 가장 잘 맞는다</h2>
+        <p>스택이 가장 잘 맞는 상황은 하나의 큰 기능을 논리적인 의존 순서로 나눌 수 있고, 아래 변경이 리뷰 중이어도 위 작업을 계속해야 할 때다. 데이터베이스 스키마 → 백엔드 API → 클라이언트 UI처럼 경계가 비교적 명확하거나, 대규모 리팩터링을 기반 코드·호출부·정리 단계로 나눌 때 작은 리뷰 단위를 유지하기 쉽다.</p>
+        <p>제약도 분명하다. GitHub 문서상 스택의 모든 브랜치는 같은 저장소 안에 있어야 하므로 fork를 넘나드는 cross-fork stack은 지원하지 않는다. GitHub Desktop도 현재 stacked pull requests를 지원하지 않는다. 오픈소스 프로젝트에서 외부 기여자가 자신의 fork에서 여러 PR을 이어 올리는 흐름이라면 이 기능만으로 기존 방식을 대체할 수 없다.</p>
+        <p>팀에 도입할 때는 먼저 두세 층짜리 실제 기능 하나로 시험하는 편이 낫다. 각 PR이 독립적으로 리뷰 가능한 크기인지, CI가 불필요하게 반복되지 않는지, squash나 rebase 같은 기존 병합 정책과 어울리는지 확인한다. 리뷰어가 스택 맵을 보지 않고 위 PR만 따로 읽어도 맥락을 이해할 수 있게 PR 설명과 커밋 경계를 유지하는 것도 중요하다.</p>
+        <p>GitHub가 스택의 반복 작업을 기본 기능으로 흡수하면서, 별도 도구 없이도 &#39;작은 PR을 계속 이어서 개발한다&#39;는 흐름의 진입 장벽은 낮아졌다. 그렇다고 모든 PR을 스택으로 만들 이유는 없다. 서로 의존하지 않는 변경은 평범한 독립 PR이 더 단순하고, 의존 관계가 실제로 존재하면서 큰 PR의 리뷰 부담이 문제일 때 스택의 이점이 가장 분명하다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-4">[4]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available/" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub Changelog · Stacked pull requests generally available</strong>
+            <span>github.blog</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://docs.github.com/en/pull-requests/get-started/about-stacked-prs" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub Docs · About stacked pull requests</strong>
+            <span>docs.github.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://docs.github.com/en/pull-requests/get-started/stacked-prs-quickstart" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub Docs · Quickstart for stacked pull requests</strong>
+            <span>docs.github.com</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/creating-stacked-pull-requests" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub Docs · Creating stacked pull requests</strong>
+            <span>docs.github.com</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/merging-stacked-pull-requests" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub Docs · Merging stacked pull requests</strong>
+            <span>docs.github.com</span>
+          </a>
+        </li>
+        <li id="source-6">
+          <a href="https://docs.github.com/en/pull-requests/reference/stacked-pull-requests-apis-and-webhooks" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub Docs · Stacked pull requests APIs and webhooks</strong>
+            <span>docs.github.com</span>
+          </a>
+        </li>
+        <li id="source-7">
+          <a href="https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub Docs · Optimizing CI for stacked pull requests</strong>
+            <span>docs.github.com</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/BlueBWorks/articles/github-copilot-code-review-api-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</strong>
+            <span>게시 2026년 10월 3일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</strong>
+            <span>게시 2026년 10월 2일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/BlueBWorks/articles/github-copilot-computer-use-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다</strong>
+            <span>게시 2026년 10월 2일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/BlueBWorks/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 발표</span>
+        <strong>Stacked Pull Requests 정식 제공 공지</strong>
+        <span class="rail-desc">정식 제공 시점과 새 병합·리베이스 동작, 배포 상태를 가장 먼저 확인할 공식 변경 기록.</span>
+        <span class="rail-host">github.blog</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://docs.github.com/en/pull-requests/get-started/stacked-prs-quickstart" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">가이드</span>
+        <strong>Stacked Pull Requests 빠른 시작</strong>
+        <span class="rail-desc">필요한 GitHub CLI/Git 버전부터 gh-stack 설치와 첫 스택 제출까지 따라 할 수 있다.</span>
+        <span class="rail-host">docs.github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/creating-stacked-pull-requests" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>스택 생성 방법</strong>
+        <span class="rail-desc">CLI뿐 아니라 github.com에서 직접 스택을 만들거나 기존 PR을 연결하는 절차를 확인할 수 있다.</span>
+        <span class="rail-host">docs.github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/merging-stacked-pull-requests" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>스택 병합 방법</strong>
+        <span class="rail-desc">전체·부분 병합과 병합 뒤 남는 PR의 처리 방식을 확인할 수 있다.</span>
+        <span class="rail-host">docs.github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://docs.github.com/en/pull-requests/reference/stacked-pull-requests-apis-and-webhooks" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">API 문서</span>
+        <strong>Stacked PR API와 웹훅</strong>
+        <span class="rail-desc">사내 자동화나 대시보드에서 스택 상태를 읽고 REST로 관리할 때 필요한 인터페이스.</span>
+        <span class="rail-host">docs.github.com</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/BlueBWorks/about.html">소개</a>
+        <a href="/BlueBWorks/editorial.html">편집 원칙</a>
+        <a href="/BlueBWorks/contact.html">문의</a>
+        <a href="/BlueBWorks/privacy.html">개인정보</a>
+        <a href="/BlueBWorks/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/BlueBWorks/assets/app.js?v=edition6" defer></script>
+  <script src="/BlueBWorks/assets/journal.js?v=edition6" defer></script>
+  </body>
+</html>

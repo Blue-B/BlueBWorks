@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/about.html</loc>
@@ -19,6 +19,14 @@
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/</loc>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/chrome-154-responsive-iframes-2026/</loc>
@@ -91,9 +99,5 @@
   <url>
     <loc>https://blue-b.github.io/BlueBWorks/articles/gpt-6-1-sol-2026/</loc>
     <lastmod>2026-10-02</lastmod>
-  </url>
-  <url>
-    <loc>https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/</loc>
-    <lastmod>2026-10-06</lastmod>
   </url>
 </urlset>
