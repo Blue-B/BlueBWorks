@@ -1,0 +1,14 @@
+[Unit]
+Description=BlueBWorks morning and evening publication with one recovery window
+
+[Timer]
+OnCalendar=*-*-* 09:20:00 Asia/Seoul
+OnCalendar=*-*-* 10:30:00 Asia/Seoul
+OnCalendar=*-*-* 20:20:00 Asia/Seoul
+OnCalendar=*-*-* 21:30:00 Asia/Seoul
+Persistent=true
+AccuracySec=1min
+Unit=bluebworks-publisher.service
+
+[Install]
+WantedBy=timers.target

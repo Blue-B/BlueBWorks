@@ -1,0 +1,18 @@
+[Unit]
+Description=BlueBWorks article publisher (isolated Git checkout)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/ubuntu/projects/BlueBWorks
+ExecStart=/usr/bin/node /home/ubuntu/projects/BlueBWorks/ops/oracle/publisher.mjs
+TimeoutStartSec=10min
+Restart=on-failure
+RestartSec=3min
+StartLimitIntervalSec=60min
+StartLimitBurst=2
+UMask=0077
+
+[Install]
+WantedBy=default.target
