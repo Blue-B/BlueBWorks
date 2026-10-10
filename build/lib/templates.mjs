@@ -20,6 +20,23 @@ import { journalHome, journalHeader } from "./home.mjs";
 
 const esc = escapeHtml;
 
+function searchDescription(value, maxLength = 160) {
+  const text = String(value || "").replace(/\s+/gu, " ").trim();
+  if (Array.from(text).length <= maxLength) return text;
+  const sentences = text.match(/[^.!?]+[.!?](?=\s|$)/gu) || [];
+  let short = "";
+  for (const sentence of sentences) {
+    const next = (short + " " + sentence.trim()).trim();
+    if (Array.from(next).length > maxLength) break;
+    short = next;
+  }
+  if (Array.from(short).length >= 65) return short;
+  const cut = Array.from(text).slice(0, maxLength - 1).join("");
+  const space = cut.lastIndexOf(" ");
+  return (space >= 75 ? cut.slice(0, space) : cut).trim() + "…";
+}
+
+
 function svgMark() {
   return `<svg class="brand-mark" viewBox="0 0 40 34" role="img" aria-label="고양이 귀 로봇 마스코트" focusable="false"><path d="M8 13 5 3l9 6h12l9-6-3 10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><rect x="4" y="12" width="32" height="20" rx="7" fill="currentColor"/><circle cx="14" cy="21" r="3.1" fill="#79d2ff"/><circle cx="26" cy="21" r="3.1" fill="#79d2ff"/><path d="M15 27h10" stroke="#0b1224" stroke-width="2.4" stroke-linecap="round"/></svg>`;
 }
@@ -48,6 +65,7 @@ function head({
   jsonLd = [],
 }) {
   const canonical = joinUrl(config.baseUrl, canonicalPath);
+  const searchSummary = searchDescription(description || config.description);
   const cards = ogImage
     ? `<meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="${esc(ogImage)}">`
@@ -62,13 +80,13 @@ function head({
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
+    <meta name="description" content="${esc(searchSummary)}">
     <link rel="canonical" href="${esc(canonical)}">
     ${robots ? `<meta name="robots" content="${esc(robots)}">` : ""}
     <meta property="og:type" content="${esc(ogType)}">
     <meta property="og:site_name" content="${esc(config.siteName)}">
     <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:description" content="${esc(searchSummary)}">
     <meta property="og:url" content="${esc(canonical)}">
     <meta property="og:locale" content="ko_KR">
     ${cards}
@@ -246,7 +264,7 @@ function mascotNotes(config, base) {
 }
 
 export function renderHome({ config, base, posts, generatedAt, heroImageUrl = "" }) {
-  return layout({ config, base, active: "home", title: config.siteName, description: config.description, canonicalPath: "/", ogType: "website", ogImage: heroImageUrl, bodyClass: "page-home", content: journalHome({ config, base, posts: posts.filter(isIndexable), notes: mascotNotes(config, base) }), jsonLd: [websiteJsonLd(config), orgJsonLd(config)], generatedAt });
+  return layout({ config, base, active: "home", title: config.homeTitle || config.siteName, description: config.description, canonicalPath: "/", ogType: "website", ogImage: heroImageUrl, bodyClass: "page-home", content: journalHome({ config, base, posts: posts.filter(isIndexable), notes: mascotNotes(config, base) }), jsonLd: [websiteJsonLd(config), orgJsonLd(config)], generatedAt });
 }
 
 function citations(refs, sources) {
@@ -540,8 +558,8 @@ export function renderArticlesIndex({ config, base, posts, generatedAt }) {
     config,
     base,
     active: "articles",
-    title: `글 목록 | ${config.siteName}`,
-    description: `BlueBWorks에 실린 전체 글 목록입니다.`,
+    title: `AI·개발 도구·오픈소스 글 모음 | ${config.siteName}`,
+    description: "AI 모델, 개발 도구, 오픈소스, 브라우저, 클라우드와 보안에 관한 글을 주제별로 찾아보세요. 사용 방법과 지원 범위를 공식 출처와 함께 정리했습니다.",
     canonicalPath: "/articles/",
     ogType: "website",
     bodyClass: "page-simple",
