@@ -29,6 +29,8 @@ node --test /home/ubuntu/projects/BlueBWorks/ops/oracle/publisher.test.mjs
 
 ## 24시간 타이머 활성화
 
+Oracle VM에서 초기 1회 `bash /home/ubuntu/projects/BlueBWorks/ops/oracle/setup.sh`를 실행하면 사전 검증 후 아래 설정을 등록한다. 로그인하지 않아도 동작하게 하려면 아래의 linger 설정도 확인해야 한다.
+
 단일 사용자 Ubuntu 기준으로 `systemd --user`를 사용한다. 다음은 Oracle VM에서 **초기 1회 실행해야 하는 관리자 설정**이다. 템플릿 파일을 저장소에 추가한 것만으로 OS의 예약 기능이 활성화되는 것은 아니다.
 
 ```bash

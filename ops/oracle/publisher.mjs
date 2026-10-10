@@ -179,7 +179,9 @@ async function run() {
     spawn("git", ["push", "origin", "HEAD:refs/heads/main"], workspace, 120000);
     pushed = true;
     phase = "public_verify";
-    const proof = await publicProof(slug);
+    const proof = process.env.BLUEBWORKS_PUBLISHER_INTEGRATION === "1" && path.isAbsolute(defaults.repo)
+      ? { url: "local-test://" + slug, confirmed: false, reason: "Local Git push confirmed; public Pages check intentionally skipped" }
+      : await publicProof(slug);
     const result = { status: proof.confirmed ? "published" : "pushed_unverified", slug, slot, phase, mainBefore, commit, ...proof };
     statusLog(state, result); return exit(result, proof.confirmed ? 0 : 2);
   } catch (error) {

@@ -49,6 +49,22 @@ if (process.env.BLUEBWORKS_PUBLISHER_INTEGRATION === "1") {
       assert.match(log, /dry_run_ok/);
       const stillPending = run("git", ["--git-dir=" + remote, "ls-tree", "-r", "--name-only", "HEAD"], dir);
       assert.match(stillPending, /pending\/articles\/publisher-synthetic-dry-run\.json/);
+      const env = {
+        ...process.env, BLUEBWORKS_REPO: remote, BLUEBWORKS_STATE_DIR: state,
+        BLUEBWORKS_PUBLISHER_INTEGRATION: "1", GIT_TERMINAL_PROMPT: "0"
+      };
+      const published = spawnSync("node", [path.join(root, "ops/oracle/publisher.mjs")], {
+        cwd: root, env, encoding: "utf8", timeout: 240000, maxBuffer: 2 * 1024 * 1024
+      });
+      assert.equal(published.status, 2, (published.stderr || published.stdout).slice(-1000));
+      assert.match(published.stdout, /"status":"pushed_unverified"/);
+      const paths = run("git", ["--git-dir=" + remote, "ls-tree", "-r", "--name-only", "HEAD"], dir);
+      assert.match(paths, /content\/articles\/publisher-synthetic-dry-run\.json/);
+      assert.doesNotMatch(paths, /pending\/articles\/publisher-synthetic-dry-run\.json/);
+      const feed = run("git", ["--git-dir=" + remote, "show", "HEAD:docs/feed.xml"], dir);
+      assert.match(feed, /publisher-synthetic-dry-run/);
+      const again = run("node", [path.join(root, "ops/oracle/publisher.mjs")], root, env);
+      assert.match(again, /already_published_this_slot/);
     } finally { fs.rmSync(dir, { recursive: true, force: true }); }
   });
 }
