@@ -11,6 +11,8 @@
     "check": "node build/check.mjs",
     "test": "node --test test/*.test.mjs",
     "verify": "npm run build && npm run check && npm test",
+    "radar": "node tools/discover-sources.mjs",
+    "remote:check": "node tools/remote-publication-check.mjs",
     "x:listen": "node tools/x-inbox.mjs serve",
     "x:export": "node tools/x-inbox.mjs export"
   }

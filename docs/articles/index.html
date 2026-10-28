@@ -41,6 +41,7 @@
         </div>
         <div class="filters" role="group" aria-label="카테고리 필터">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
+          <button class="filter" type="button" data-filter="AI·개발도구" aria-pressed="false">AI·개발도구</button>
           <button class="filter" type="button" data-filter="개발도구" aria-pressed="false">개발도구</button>
           <button class="filter" type="button" data-filter="보안·인프라" aria-pressed="false">보안·인프라</button>
           <button class="filter" type="button" data-filter="브라우저" aria-pressed="false">브라우저</button>
@@ -49,9 +50,21 @@
           <button class="filter" type="button" data-filter="오픈소스" aria-pressed="false">오픈소스</button>
           <button class="filter" type="button" data-filter="에이전트" aria-pressed="false">에이전트</button>
         </div>
-        <p class="list-status" data-list-status aria-live="polite">글 20편</p>
+        <p class="list-status" data-list-status aria-live="polite">글 21편</p>
       </section>
       <ol class="archive-list" data-post-list>
+        <li class="archive-entry text-only" data-post-card data-category="AI·개발도구" data-search="github copilot sdk, 이제 사람 로그인 없이 조직의 ai 에이전트를 실행한다 2026년 10월 27일 github가 copilot sdk의 서버 간 인증을 공개 프리뷰로 발표했다. github app 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, github actions와의 차이를 정리한다. ai·개발도구 public preview 핵심은 새 ai 모델이 아니라 인증과 비용의 소유 주체가 개인 사용자에서 조직의 워크로드로 옮겨갈 수 있다는 점이다. 운영 자동화에 특히 중요하지만 아직 공개 프리뷰여서 도입 전 조직 정책을 확인해야 한다. github copilot copilot sdk github app ai 에이전트 인증 자동화 조직에 설치한 github app의 짧은 수명 설치 토큰으로 copilot sdk 요청을 보낼 수 있다. 이용량과 비용은 앱을 설치한 조직에 귀속되고 조직의 모델 정책과 지출 제한이 적용된다. github actions에서는 별도 github app 대신 적절한 권한의 기본 github_token을 사용할 수 있다.">
+        <a href="/BlueBWorks/articles/github-copilot-server-to-server-auth-2026/">
+
+          <div class="archive-copy">
+            <span class="archive-cat">AI·개발도구</span>
+            <strong>GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다</strong>
+            <span class="archive-summary">2026년 10월 27일 GitHub가 Copilot SDK의 서버 간 인증을 공개 프리뷰로 발표했다. GitHub App 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, GitHub Actions와의 차이를 정리한다.</span>
+            <span class="archive-date">게시 2026년 10월 28일</span>
+
+          </div>
+        </a>
+      </li>
         <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="github stacked pull requests 정식 제공: 큰 변경을 작은 pr 체인으로 나눠 합친다 github가 stacked pull requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 pr 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 github가 스택 단위로 처리한다. github cli의 `gh stack`과 웹, api·웹훅까지 연결되는 실제 사용 흐름과 아직 남은 제약을 정리했다. 개발도구 generally available on github.com 이번 정식 제공에서 중요한 변화는 &#39;pr을 여러 개 만든다&#39;는 아이디어 자체보다, 그 여러 pr을 github가 하나의 연결된 단위로 이해해 리베이스·머지 큐·규칙·자동화까지 이어 주기 시작했다는 점이다. github pull request code review github cli ci stacked pull requests는 의존하는 변경을 여러 pr로 나눠 각 층의 diff를 독립적으로 리뷰하면서도 전체를 연결된 작업으로 관리한다. 정식 제공에서는 승인 유지, 서명된 리베이스 커밋, 머지 큐의 단일 merge group, 분기 스택 자동 retarget 등 병합·재배치 동작이 강화됐다. github.com 모든 플랜에서 쓸 수 있지만 같은 저장소 안의 브랜치만 스택으로 묶을 수 있고 github desktop은 아직 지원하지 않는다.">
         <a href="/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/">
           <span class="archive-thumb"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/github-stacked-prs-flow.svg" alt="main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>

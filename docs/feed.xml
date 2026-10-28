@@ -5,7 +5,15 @@
     <link>https://blue-b.github.io/BlueBWorks/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 08 Oct 2026 16:20:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 10:32:00 GMT</lastBuildDate>
+    <item>
+      <title>GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다</title>
+      <link>https://blue-b.github.io/BlueBWorks/articles/github-copilot-server-to-server-auth-2026/</link>
+      <guid isPermaLink="true">https://blue-b.github.io/BlueBWorks/articles/github-copilot-server-to-server-auth-2026/</guid>
+      <pubDate>Wed, 28 Oct 2026 10:32:00 GMT</pubDate>
+      <category>AI·개발도구</category>
+      <description>2026년 10월 27일 GitHub가 Copilot SDK의 서버 간 인증을 공개 프리뷰로 발표했다. GitHub App 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, GitHub Actions와의 차이를 정리한다.</description>
+    </item>
     <item>
       <title>GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다</title>
       <link>https://blue-b.github.io/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/</link>
