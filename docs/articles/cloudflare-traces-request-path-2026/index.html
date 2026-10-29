@@ -15,6 +15,7 @@
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://bluebworks.com/assets/editorial/cloudflare-traces-overview.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/cloudflare-traces-overview.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
@@ -76,8 +77,8 @@
         <a href="https://bluebworks.com/assets/editorial/cloudflare-traces-overview.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: Cloudflare Traces 대시보드에서 한 요청의 처리 단계를 span으로 펼쳐 본 화면"><img src="https://bluebworks.com/assets/editorial/cloudflare-traces-overview.png" alt="Cloudflare Traces 대시보드에서 한 요청의 처리 단계를 span으로 펼쳐 본 화면" width="2638" height="1124" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
         <figcaption><span>실제 요청 하나를 보안 규칙, 라우팅, Worker, 원본 연결 등의 span으로 나눠 보여 주는 Cloudflare Traces 공식 문서 화면.</span><a href="https://developers.cloudflare.com/observability/traces/" target="_blank" rel="noopener noreferrer">Cloudflare Developer Docs · CC BY 4.0 · 원문</a><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">이미지 이용 조건</a></figcaption>
       </figure>
-          <details class="key-points">
-      <summary>요약</summary>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
       <ul>
         <li>도메인에서 Traces를 켜면 지원되는 Cloudflare 처리 단계를 별도 SDK 없이 자동으로 span으로 기록한다.</li>
         <li>기본 샘플링 비율은 낮게 두고 Trace Rules로 특정 경로·헤더·IP 같은 문제 요청만 더 높은 비율로 추적할 수 있다.</li>
@@ -282,5 +283,6 @@
   </footer>
   <script src="/assets/app.js?v=edition6" defer></script>
   <script src="/assets/journal.js?v=edition6" defer></script>
+
   </body>
 </html>

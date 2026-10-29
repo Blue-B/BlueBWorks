@@ -15,6 +15,7 @@
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
@@ -77,8 +78,8 @@
         <a href="https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 기존 postMessage 기반 iframe 높이 동기화와 Chrome 154 frame-sizing 방식의 차이를 비교한 기술 도식"><img src="https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg" alt="기존 postMessage 기반 iframe 높이 동기화와 Chrome 154 frame-sizing 방식의 차이를 비교한 기술 도식" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
         <figcaption><span>기존에는 자식 문서가 높이를 측정해 부모에게 전달해야 했지만, Chrome 154에서는 양쪽 문서가 명시적으로 설정하면 브라우저가 콘텐츠 크기를 iframe 계산에 사용할 수 있다.</span><a href="https://developer.chrome.com/blog/responsive-iframes" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · Chrome for Developers 공식 문서 기반 · 원문</a></figcaption>
       </figure>
-          <details class="key-points">
-      <summary>요약</summary>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
       <ul>
         <li>`frame-sizing: content-height`를 쓰면 부모 문서의 iframe이 임베드 문서의 콘텐츠 높이를 기준으로 크기를 잡을 수 있다.</li>
         <li>임베드 문서는 `responsive-embedded-sizing` 메타 태그로 허용 origin을 명시해야 하고, 동적 콘텐츠 변경 뒤에는 `window.requestResize()`로 재계산을 요청한다.</li>
@@ -216,7 +217,7 @@
         <li>
           <a href="/articles/gemini-4-carbon-2026/">
             <span class="related-cat">모델</span>
-            <strong>Gemini 4 Carbon 발표, Argon보다 나아진 점과 아직 바로 쓸 수 없는 이유</strong>
+            <strong>제미나이 4 카본 출시일·성능·가격 정리: 지금 무료로 쓸 수 있을까</strong>
             <span>게시 2026년 10월 29일</span>
           </a>
         </li>
@@ -300,5 +301,6 @@
   </footer>
   <script src="/assets/app.js?v=edition6" defer></script>
   <script src="/assets/journal.js?v=edition6" defer></script>
+
   </body>
 </html>

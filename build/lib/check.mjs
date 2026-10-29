@@ -173,6 +173,21 @@ export function runChecks({ outDir, config, base, posts, assetsDir }) {
     for (const section of post.sections) {
       const paragraphs = sectionParagraphs(section);
       required.push(section.title, ...paragraphs);
+      for (const item of section.faq || []) required.push(item.question, item.answer);
+      for (const stat of section.stats || []) required.push(stat.value, stat.label);
+    }
+    // X embeds: static quote + original link without JS, and widgets.js only where needed.
+    const embeds = post.sections.flatMap((section) => section.embeds || []);
+    const widgetLoads = (html.match(/platform\.twitter\.com\/widgets\.js/g) || []).length;
+    if (embeds.length) {
+      if (widgetLoads !== 1) errors.push(`articles/${post.slug}: X embeds need widgets.js exactly once (found ${widgetLoads})`);
+      for (const embed of embeds) {
+        if (!html.includes(`href="${escapeHtml(embed.url)}"`) || !html.includes(escapeHtml(embed.text))) {
+          errors.push(`articles/${post.slug}: X embed fallback quote or link missing for ${embed.url}`);
+        }
+      }
+    } else if (widgetLoads) {
+      errors.push(`articles/${post.slug}: widgets.js loaded without an X embed`);
     }
     for (const source of post.sources) required.push(source.name);
     for (const text of required) {

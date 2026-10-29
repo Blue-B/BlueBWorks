@@ -295,3 +295,22 @@ pre{background:#f3f5f8;border:1px solid var(--line);padding:22px;overflow:auto;m
 html[data-motion=reduced]{scroll-behavior:auto}html[data-motion=reduced] *,html[data-motion=reduced] *::before,html[data-motion=reduced] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media print{.site-header,.site-footer,.article-aside,.article-tools,.journal-tools,.mascot-button,.mascot-notes,.progress,.archive-controls,.filters,.archive-search{display:none!important}body{background:white;color:black}.wrap,.article-wrap,.cover-inner{width:100%;max-width:none}.article-layout{display:block}.cover-copy h1{font-size:28px}.prose-section p{font-size:11pt;line-height:1.7}.article-figure,.source-media{break-inside:avoid}.key-points,.editor-note{display:none}}
+
+/* Article rhythm blocks: number cards, official X quotes, FAQ. */
+.stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:30px 0}
+.stat-card{border:1px solid var(--line);border-top:3px solid var(--accent);padding:16px 16px 14px;background:var(--wash)}
+.stat-card strong{display:block;font-size:30px;line-height:1.2;letter-spacing:-.03em;color:var(--ink)}
+.stat-card span{display:block;font-size:14px;line-height:1.6;margin-top:6px;font-weight:650}
+.stat-card small{display:block;font-size:12px;line-height:1.6;color:var(--muted);margin-top:4px}
+.article-embed{margin:30px 0}
+.x-embed blockquote.twitter-tweet{margin:0;border-left:3px solid var(--ink);padding:16px 20px;background:var(--wash);font-size:15px;line-height:1.8}
+.x-embed blockquote.twitter-tweet p{font-size:16px;line-height:1.8;margin:0 0 10px}
+.x-embed blockquote.twitter-tweet a{color:var(--accent);text-decoration:underline}
+.x-embed .twitter-tweet-rendered{margin:0 auto!important}
+.x-embed figcaption{display:flex;flex-wrap:wrap;gap:8px 16px;padding:12px 0;font-size:12px;line-height:1.8;color:var(--muted)}
+.x-embed figcaption a{color:var(--muted);text-decoration:underline}
+.faq-list{margin:26px 0 0;border-top:2px solid var(--ink)}
+.faq-item{border-bottom:1px solid var(--line);padding:20px 0}
+.prose-section .faq-item h3{font-size:19px;line-height:1.6;font-weight:750;margin:0 0 8px}
+.prose-section .faq-item p{font-size:17px;line-height:1.9;margin:0}
+@media(max-width:560px){.stat-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stat-card{padding:12px}.stat-card strong{font-size:24px}.prose-section .faq-item h3{font-size:17px}.prose-section .faq-item p{font-size:16px}}

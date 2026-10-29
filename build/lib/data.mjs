@@ -48,8 +48,21 @@ function normalizeSection(raw) {
     links: (Array.isArray(raw.links) ? raw.links : []).map(link => ({ label: txt(link?.label), url: mediaUrl(link?.url) })).filter(link => link.label && link.url),
     video: raw.video?.verified === true && mediaUrl(raw.video.src) && mediaUrl(raw.video.sourceUrl)
       ? { src: mediaUrl(raw.video.src), poster: mediaUrl(raw.video.poster), sourceUrl: mediaUrl(raw.video.sourceUrl), caption: txt(raw.video.caption), credit: txt(raw.video.credit), verified: true } : null,
+    stats: (Array.isArray(raw.stats) ? raw.stats : []).map(stat => ({ value: txt(stat?.value), label: txt(stat?.label), note: txt(stat?.note) })).filter(stat => stat.value && stat.label),
+    embeds: (Array.isArray(raw.embeds) ? raw.embeds : []).map(normalizeEmbed).filter(Boolean),
+    faq: (Array.isArray(raw.faq) ? raw.faq : []).map(item => ({ question: txt(item?.question), answer: txt(item?.answer) })).filter(item => item.question && item.answer),
     sourceRefs: toRefList(raw.sourceRefs),
   };
+}
+
+const X_STATUS = /^https:\/\/(?:x|twitter)\.com\/[A-Za-z0-9_]{1,15}\/status\/\d+$/;
+
+// Only official X status URLs with the quoted text are embedded; anything else is dropped.
+export function normalizeEmbed(raw) {
+  if (!raw || typeof raw !== "object" || raw.type !== "x") return null;
+  const url = txt(raw.url);
+  if (!X_STATUS.test(url) || !raw.text || !raw.author || !raw.handle) return null;
+  return { type: "x", url, text: txt(raw.text), author: txt(raw.author), handle: txt(raw.handle), lang: txt(raw.lang) || "en", postedAt: txt(raw.postedAt), dateLabel: txt(raw.dateLabel), caption: txt(raw.caption) };
 }
 
 function hasSectionContent(section) {

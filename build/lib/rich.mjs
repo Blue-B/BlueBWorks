@@ -20,8 +20,27 @@ export function articleCover(post, base) {
   </section>`;
 }
 
+// Official X posts are shown as a static quote first. widgets.js (loaded only on pages
+// with embeds) may upgrade it; without JavaScript the quote and original link remain.
+export function xEmbed(embed) {
+  return `<figure class="article-embed x-embed">
+      <blockquote class="twitter-tweet" data-dnt="true" data-lang="ko">
+        <p lang="${esc(embed.lang || 'en')}" dir="ltr">${esc(embed.text)}</p>
+        &mdash; ${esc(embed.author)} (@${esc(embed.handle)}) <a href="${esc(embed.url)}">${esc(embed.dateLabel || formatKoreanDate(embed.postedAt))}</a>
+      </blockquote>
+      <figcaption><span>${esc(embed.caption || `${embed.author} 공식 X 게시물`)}</span><a href="${esc(embed.url)}" target="_blank" rel="noopener noreferrer">X에서 원문 보기</a></figcaption>
+    </figure>`;
+}
+
+export function hasEmbeds(post) {
+  return (post.sections || []).some(section => (section.embeds || []).length > 0);
+}
+
 export function articleExtras(section) {
   let html = '';
+  if (section.stats?.length) {
+    html += `<div class="stat-cards" role="list" aria-label="${esc(section.title || '핵심 숫자')}">${section.stats.map(stat => `<div class="stat-card" role="listitem"><strong>${esc(stat.value)}</strong><span>${esc(stat.label)}</span>${stat.note ? `<small>${esc(stat.note)}</small>` : ''}</div>`).join('')}</div>`;
+  }
   for (const figure of section.figures || []) {
     html += `<figure class="article-figure">
       <a href="${esc(figure.src)}" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: ${esc(figure.alt)}">
@@ -31,6 +50,7 @@ export function articleExtras(section) {
       <figcaption><span>${esc(figure.caption || figure.alt)}</span><a href="${esc(figure.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(figure.credit)} · 원문</a>${/CC BY 4\.0/i.test(figure.credit) ? '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">이미지 이용 조건</a>' : ''}</figcaption>
     </figure>`;
   }
+  for (const embed of section.embeds || []) html += xEmbed(embed);
   if (section.video) {
     const video = section.video;
     html += `<figure class="article-video">
@@ -47,6 +67,9 @@ export function articleExtras(section) {
   }
   if (section.diagram === 'transcription-flow') {
     html += `<figure class="flow-figure"><figcaption>실시간 자막이 화면에 남기까지</figcaption><ol class="flow-steps"><li><span>01</span><strong>마이크 입력</strong><small>음성을 연속 전송</small></li><li><span>02</span><strong>임시 자막</strong><small>새 결과로 교체</small></li><li><span>03</span><strong>확정 자막</strong><small>최종 구간만 보관</small></li></ol><p>동작을 설명하기 위한 구성도입니다. 실제 API 응답 화면은 아닙니다.</p></figure>`;
+  }
+  if (section.faq?.length) {
+    html += `<div class="faq-list">${section.faq.map(item => `<div class="faq-item"><h3>${esc(item.question)}</h3><p>${esc(item.answer)}</p></div>`).join('')}</div>`;
   }
   if (section.code) {
     html += `<figure class="code-example"><figcaption>${esc(section.code.language)} · ${esc(section.code.caption || '문서 기반 구성 예시')}</figcaption><pre tabindex="0"><code>${esc(section.code.text)}</code></pre></figure>`;

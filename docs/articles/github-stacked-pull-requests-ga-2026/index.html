@@ -15,6 +15,7 @@
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
@@ -78,8 +79,8 @@
         <a href="https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식"><img src="https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg" alt="main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
         <figcaption><span>스택에서는 첫 PR이 main 같은 trunk를 향하고, 그 위 PR들은 바로 아래 PR의 브랜치를 base로 삼는다. 그래서 리뷰어는 전체 기능이 아니라 해당 층의 변경만 볼 수 있다.</span><a href="https://docs.github.com/en/pull-requests/get-started/about-stacked-prs" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · GitHub Docs 공식 설명 기반 · 원문</a></figcaption>
       </figure>
-          <details class="key-points">
-      <summary>요약</summary>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
       <ul>
         <li>Stacked Pull Requests는 의존하는 변경을 여러 PR로 나눠 각 층의 diff를 독립적으로 리뷰하면서도 전체를 연결된 작업으로 관리한다.</li>
         <li>정식 제공에서는 승인 유지, 서명된 리베이스 커밋, 머지 큐의 단일 merge group, 분기 스택 자동 retarget 등 병합·재배치 동작이 강화됐다.</li>
@@ -328,5 +329,6 @@ gh stack view</code></pre></figure><div class="section-links"><a href="https://d
   </footer>
   <script src="/assets/app.js?v=edition6" defer></script>
   <script src="/assets/journal.js?v=edition6" defer></script>
+
   </body>
 </html>

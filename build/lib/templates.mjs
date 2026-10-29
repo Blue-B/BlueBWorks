@@ -15,7 +15,9 @@ import {
   unique,
 } from "./util.mjs";
 import { isIndexable, relatedPosts, sortPosts } from "./data.mjs";
-import { articleCover, articleExtras } from "./rich.mjs";
+import { articleCover, articleExtras, hasEmbeds } from "./rich.mjs";
+
+export const X_WIDGETS_SRC = "https://platform.twitter.com/widgets.js";
 import { journalHome, journalHeader } from "./home.mjs";
 
 const esc = escapeHtml;
@@ -68,7 +70,8 @@ function head({
   const searchSummary = searchDescription(description || config.description);
   const cards = ogImage
     ? `<meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="${esc(ogImage)}">`
+    <meta property="og:image" content="${esc(ogImage)}">
+    <meta name="twitter:image" content="${esc(ogImage)}">`
     : `<meta name="twitter:card" content="summary">`;
   const ld = jsonLd
     .filter(Boolean)
@@ -128,6 +131,7 @@ function layout({ config, base, active, ...page }) {
   ${footer({ config, base })}
   <script src="${assetHref(base, "app.js")}?v=edition6" defer></script>
   <script src="${assetHref(base, "journal.js")}?v=edition6" defer></script>
+  ${page.embedScript ? `<script async src="${X_WIDGETS_SRC}" charset="utf-8"></script>` : ""}
   </body>
 </html>
 `;
@@ -329,8 +333,9 @@ function renderSources(post) {
 
 function renderKeyPoints(post) {
   if (!post.keyPoints.length) return "";
-  return `<details class="key-points">
-      <summary>요약</summary>
+  const label = post.keyPoints.length === 3 ? "3줄 요약" : "요약";
+  return `<details class="key-points" open>
+      <summary>${label}</summary>
       <ul>
         ${post.keyPoints.map((point) => `<li>${esc(point)}</li>`).join("\n        ")}
       </ul>
@@ -420,6 +425,21 @@ function renderArticleRail(post, posts, base, config, canonical) {
     </aside>`;
 }
 
+// FAQ items already visible in the article body are mirrored as FAQPage data.
+function faqJsonLd(post) {
+  const items = post.sections.flatMap((section) => section.faq || []);
+  if (!items.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+}
+
 export function renderArticle({ config, base, post, posts, generatedAt, heroImageUrl = "" }) {
   const canonical = joinUrl(config.baseUrl, `/articles/${post.slug}/`);
   const indexable = isIndexable(post);
@@ -502,7 +522,8 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
     robots: indexable ? "" : "noindex,follow",
     bodyClass: "page-article",
     content,
-    jsonLd: [articleJsonLd, breadcrumb],
+    embedScript: hasEmbeds(post),
+    jsonLd: [articleJsonLd, breadcrumb, faqJsonLd(post)],
     generatedAt,
   });
 }
@@ -730,6 +751,7 @@ export function renderPrivacy({ config, base }) {
         <ul class="fact-list">
           <li>호스팅: GitHub Pages가 접속 기록을 처리합니다. 처리 방식은 GitHub의 정책을 따릅니다.</li>
           <li>영상: 검증된 공식 영상이 있는 글에서 재생을 누를 때만 YouTube no-cookie 도메인으로 요청을 보냅니다.</li>
+          <li>X 게시물: 공식 X 게시물을 인용한 글을 열 때만 X(platform.twitter.com)의 임베드 스크립트를 불러옵니다. 추적 안 함(data-dnt) 설정을 켜 두며, X의 정책이 적용됩니다. 스크립트가 차단돼도 인용문과 원문 링크는 그대로 보입니다.</li>
           <li>출처 링크: 각 글의 출처와 자료 링크는 외부 사이트로 이동하며, 그 사이트의 정책이 적용됩니다.</li>
         </ul>
       </section>

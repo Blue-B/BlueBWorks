@@ -21,7 +21,8 @@ export function inspectPublication(article) {
   if (Number.isFinite(published) && published < POLICY_START && article.editorialVersion !== 2) return [];
   if (article.editorialVersion !== 2) fail('new articles require editorialVersion=2');
   const sections = Array.isArray(article.sections) ? article.sections : [];
-  const blocks = sections.map(section => (Array.isArray(section.paragraphs) ? section.paragraphs : [section.body || '']).map(prose));
+  // FAQ answers are visible explanatory prose; questions, cards and quotes are not counted.
+  const blocks = sections.map(section => [...(Array.isArray(section.paragraphs) ? section.paragraphs : [section.body || '']), ...(Array.isArray(section.faq) ? section.faq.map(item => item?.answer || '') : [])].map(prose));
   const count = blocks.flat().join('').length;
   if (count < 4000) fail(`explanatory body has ${count} characters; at least 4000 required, excluding links/code/captions`);
   if (sections.length < 5) fail('at least five substantive sections required');

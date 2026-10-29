@@ -71,6 +71,12 @@ export function inspectArticle(article, filename = '') {
       if (!(figure.width > 0 && figure.height > 0)) fail('figure dimensions missing');
       if (!sources.some(source => source.url === figure.sourceUrl)) fail('figure source must be in the article sources');
     }
+    for (const embed of section.embeds || []) {
+      if (embed?.type !== 'x' || !/^https:\/\/(?:x|twitter)\.com\/[A-Za-z0-9_]{1,15}\/status\/\d+$/.test(embed.url || '') || !embed.text || !embed.author || !embed.handle) fail(`X embed needs a status URL, quoted text, author and handle in ${section.title}`);
+      else if (!sources.some(source => source.url === embed.url)) fail('X embed URL must be in the article sources');
+    }
+    for (const stat of section.stats || []) if (!stat?.value || !stat?.label) fail(`stat card needs value and label in ${section.title}`);
+    for (const item of section.faq || []) if (!item?.question || !item?.answer) fail(`FAQ item needs question and answer in ${section.title}`);
     if (section.video && (section.video.verified !== true || !httpsUrl(section.video.src) || !section.video.caption || !section.video.credit || !sources.some(source => source.url === section.video.sourceUrl))) fail('native video needs a verified original source, caption and credit');
   }
   return errors;

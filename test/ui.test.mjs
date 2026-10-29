@@ -59,7 +59,7 @@ test('article has one visible title and summary, with content, sources and both 
   assert.match(html, /id="article-title"/);
   assert.equal((html.match(/class="cover-dek"/g) || []).length, 1);
   assert.doesNotMatch(html, /<p class="article-dek"/);
-  assert.match(html, /<details class="key-points">[\s\S]*?<summary>요약/);
+  assert.match(html, /<details class="key-points" open>[\s\S]*?<summary>(?:3줄 )?요약/);
   assert.match(html, /<details class="editor-note">[\s\S]*?<summary>덧붙임/);
   for (const token of ['itemprop="articleBody"', 'aside-right', 'aside-left', 'class="toc"', 'id="sources"', 'data-zoom-image', '블로그 게시', '소식 발표']) assert.ok(html.includes(token), `missing ${token}`);
   assert.doesNotMatch(html, /class="section-number"|class="cover-character"|class="cover-backdrop"/);
