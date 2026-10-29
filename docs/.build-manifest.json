@@ -1,6 +1,7 @@
 [
   "index.html",
   "articles/index.html",
+  "articles/vercel-ci-beta-turborepo-2026/index.html",
   "articles/github-agentic-workflows-ga-2026/index.html",
   "articles/github-copilot-server-to-server-auth-2026/index.html",
   "articles/github-stacked-pull-requests-ga-2026/index.html",

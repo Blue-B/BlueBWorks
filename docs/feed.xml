@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 29 Oct 2026 04:11:50 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 08:06:54 GMT</lastBuildDate>
+    <item>
+      <title>Vercel CI 베타 공개: 변경된 코드의 테스트만 실행하는 방법</title>
+      <link>https://bluebworks.com/articles/vercel-ci-beta-turborepo-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/vercel-ci-beta-turborepo-2026/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:06:54 GMT</pubDate>
+      <category>개발도구</category>
+      <description>Vercel CI가 2026년 10월 28일 베타로 공개됐다. Turborepo의 작업 그래프와 캐시를 활용해 변경 영향이 있는 테스트만 실행한다. 설정 절차, GitHub 연동 조건, CPU 분당 과금과 제약을 정리했다.</description>
+    </item>
     <item>
       <title>GitHub Agentic Workflows 정식 출시: Markdown으로 저장소 작업 자동화하기</title>
       <link>https://bluebworks.com/articles/github-agentic-workflows-ga-2026/</link>
