@@ -82,6 +82,7 @@ function head({
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${config.adsensePublisherId ? `<meta name="google-adsense-account" content="ca-${esc(config.adsensePublisherId)}">` : ""}
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(searchSummary)}">
     <link rel="canonical" href="${esc(canonical)}">

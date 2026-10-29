@@ -141,6 +141,7 @@ export function build(options = resolveOptions()) {
   emit("404.html", render404({ config, base }));
   emit("feed.xml", renderFeed({ config, posts }));
   emit("sitemap.xml", renderSitemap({ config, paths: sitemapPaths(config, posts) }));
+  if (config.adsensePublisherId) emit("ads.txt", `google.com, ${config.adsensePublisherId}, DIRECT, f08c47fec0942fa0\n`);
   emit("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${joinUrl(config.baseUrl, "/sitemap.xml")}\n`);
 
   cleanupPreviousBuild(outDir, generated);
