@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 29 Oct 2026 10:02:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 11:58:36 GMT</lastBuildDate>
+    <item>
+      <title>Vercel AI Gateway Virtual Models 출시: 모델 교체·요금·설정 방법</title>
+      <link>https://bluebworks.com/articles/vercel-ai-gateway-virtual-models-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/vercel-ai-gateway-virtual-models-2026/</guid>
+      <pubDate>Thu, 29 Oct 2026 11:58:36 GMT</pubDate>
+      <category>개발도구</category>
+      <description>Vercel AI Gateway가 Virtual Models를 공개했다. 앱과 코딩 에이전트는 vmc/ 이름만 사용하고 실제 모델·대체 경로·보안 설정은 중앙에서 바꿀 수 있다. 설정 명령, 무료 크레딧, 과금과 운영 시 주의점을 정리했다.</description>
+    </item>
     <item>
       <title>제미나이 4 카본 출시일·성능·가격 정리: 지금 무료로 쓸 수 있을까</title>
       <link>https://bluebworks.com/articles/gemini-4-carbon-2026/</link>
