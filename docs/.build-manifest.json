@@ -30,5 +30,6 @@
   "privacy.html",
   "404.html",
   "feed.xml",
-  "sitemap.xml"
+  "sitemap.xml",
+  "robots.txt"
 ]
