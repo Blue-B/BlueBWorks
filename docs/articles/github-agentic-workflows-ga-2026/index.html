@@ -129,7 +129,7 @@ gh aw add-wizard githubnext/agentics/repo-status
         <p>GitHub Agentic Workflows는 기본적으로 에이전트 작업에 읽기 전용 접근을 적용하고 샌드박스 안에서 실행한다. 네트워크 접근은 Agent Workflow Firewall이 제한하며, 결과는 `safe-outputs` 절차로 검증한다. 공식 발표에 따르면 별도 위협 탐지 작업이 적용 전에 제안된 변경을 검사한다. 이런 장치는 위험을 낮추지만 모든 프롬프트 주입이나 잘못된 제안을 막는 보증은 아니다.</p>
         <p>예를 들어 CI 실패 원인을 조사하는 에이전트에게는 로그와 변경 내역을 읽을 권한이면 충분할 수 있다. 새 이슈를 생성해야 한다면 `create-issue` 같은 결과 유형만 허용하고, 저장소 전체에 무제한 쓰기 권한을 주지 않는다. 수정 PR을 만들 때도 에이전트가 제안한 diff를 사람이 검토한 뒤 병합하는 흐름이 안전하다.</p>
         <p>특히 공개 저장소의 외부 기여 PR을 다룰 때는 `pull_request_target`의 높은 권한과 신뢰할 수 없는 코드 실행을 섞지 않아야 한다. GitHub 빠른 시작 문서도 가능한 경우 일반 `pull_request` 이벤트를 권한다. 안전 장치가 있다는 이유로 트리거·토큰·비밀키 설정을 검토하지 않아도 된다는 뜻은 아니다.</p>
-        <div class="section-links"><a href="https://github.github.com/gh-aw/reference/safe-outputs/" target="_blank" rel="noopener noreferrer">Safe Outputs 구조 <span aria-hidden="true">↗</span></a><a href="https://github.github.com/gh-aw/introduction/security-architecture/" target="_blank" rel="noopener noreferrer">GitHub 보안 안내 <span aria-hidden="true">↗</span></a></div>
+        <div class="section-links"><a href="https://github.github.com/gh-aw/reference/safe-outputs/" target="_blank" rel="noopener noreferrer">Safe Outputs 구조 <span aria-hidden="true">↗</span></a><a href="https://github.github.com/gh-aw/introduction/architecture/" target="_blank" rel="noopener noreferrer">GitHub 보안 안내 <span aria-hidden="true">↗</span></a></div>
         <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-5">[5]</a> <a href="#source-6">[6]</a></p>
       </section>
       <section class="prose-section" id="sec-5">
