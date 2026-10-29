@@ -128,7 +128,73 @@
     "purpose": "Original 1600x900 Korean editorial thumbnail with plan amounts and eligibility, based on verified OpenAI facts; no copied logos or product UI",
     "license": "BlueBWorks original editorial artwork",
     "rightsBasis": "BlueBWorks original editorial thumbnail",
-    "bytes": 59749,
-    "sha256": "b2008047c9d62890628228f639eedd37d0fe0a5525c433b16e79806cf7e76bec"
+    "bytes": 61406,
+    "sha256": "91483781a83938eff35156cd243340594bf66e23dc30a220eb3cd99762ac0974"
+  },
+  {
+    "file": "chatgpt-api-credits-2026-help-amounts.webp",
+    "url": "https://bluebworks.com/assets/editorial/chatgpt-api-credits-2026-help-amounts.webp",
+    "sourceUrl": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+    "credit": "OpenAI 공식 도움말 화면 캡처",
+    "purpose": "Cropped capture of the public OpenAI help article quoted in the article",
+    "license": "OpenAI public documentation, quoted with attribution",
+    "rightsBasis": "로그인 없이 공개된 OpenAI 공식 도움말의 일부를 출처와 함께 인용한 화면 캡처.",
+    "bytes": 127676,
+    "sha256": "f232009ce09f72811010a8a2df18dd937576e7d1a42dfea51019f6ec92a1ea98"
+  },
+  {
+    "file": "chatgpt-api-credits-2026-chatgpt-billing-menu.webp",
+    "url": "https://bluebworks.com/assets/editorial/chatgpt-api-credits-2026-chatgpt-billing-menu.webp",
+    "sourceUrl": "https://chatgpt.com/settings/billing",
+    "credit": "OpenAI 화면, BlueBWorks 직접 캡처",
+    "purpose": "First-hand screen capture of the OpenAI service with personal data and amounts masked",
+    "license": "BlueBWorks first-hand screenshot",
+    "rightsBasis": "BlueBWorks가 Plus 계정으로 직접 찍은 OpenAI 서비스 화면 캡처. 해설과 인용 목적으로 출처를 밝혔고 개인정보와 금액은 가렸다.",
+    "bytes": 25142,
+    "sha256": "0608e6142ca728471a33748b424d2df3cd3720df185a9c8a38239f19752a9678"
+  },
+  {
+    "file": "chatgpt-api-credits-2026-platform-billing.webp",
+    "url": "https://bluebworks.com/assets/editorial/chatgpt-api-credits-2026-platform-billing.webp",
+    "sourceUrl": "https://platform.openai.com/settings/organization/billing/overview",
+    "credit": "OpenAI 화면, BlueBWorks 직접 캡처",
+    "purpose": "First-hand screen capture of the OpenAI service with personal data and amounts masked",
+    "license": "BlueBWorks first-hand screenshot",
+    "rightsBasis": "BlueBWorks가 Plus 계정으로 직접 찍은 OpenAI 서비스 화면 캡처. 해설과 인용 목적으로 출처를 밝혔고 개인정보와 금액은 가렸다.",
+    "bytes": 34160,
+    "sha256": "7523b2b9fbbc7f1fcfa92b53d6e2c65c639190d87d49dd148e1444aa133f66c1"
+  },
+  {
+    "file": "chatgpt-api-credits-2026-credit-grants.webp",
+    "url": "https://bluebworks.com/assets/editorial/chatgpt-api-credits-2026-credit-grants.webp",
+    "sourceUrl": "https://platform.openai.com/settings/organization/billing/credit-grants",
+    "credit": "OpenAI 화면, BlueBWorks 직접 캡처",
+    "purpose": "First-hand screen capture of the OpenAI service with personal data and amounts masked",
+    "license": "BlueBWorks first-hand screenshot",
+    "rightsBasis": "BlueBWorks가 Plus 계정으로 직접 찍은 OpenAI 서비스 화면 캡처. 해설과 인용 목적으로 출처를 밝혔고 개인정보와 금액은 가렸다.",
+    "bytes": 16282,
+    "sha256": "1d66917d7b71477dc80a62a55f126555a5c0032e5178dc71de23345f7283071b"
+  },
+  {
+    "file": "chatgpt-api-credits-2026-help-activate.webp",
+    "url": "https://bluebworks.com/assets/editorial/chatgpt-api-credits-2026-help-activate.webp",
+    "sourceUrl": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+    "credit": "OpenAI 공식 도움말 화면 캡처",
+    "purpose": "Cropped capture of the public OpenAI help article quoted in the article",
+    "license": "OpenAI public documentation, quoted with attribution",
+    "rightsBasis": "로그인 없이 공개된 OpenAI 공식 도움말의 일부를 출처와 함께 인용한 화면 캡처.",
+    "bytes": 127380,
+    "sha256": "7acd4168d6d6f503eb2073b4b11b765b3b45c7a4c17b320074696ca83e35fe7d"
+  },
+  {
+    "file": "chatgpt-api-credits-2026-usage.webp",
+    "url": "https://bluebworks.com/assets/editorial/chatgpt-api-credits-2026-usage.webp",
+    "sourceUrl": "https://platform.openai.com/usage",
+    "credit": "OpenAI 화면, BlueBWorks 직접 캡처",
+    "purpose": "First-hand screen capture of the OpenAI service with personal data and amounts masked",
+    "license": "BlueBWorks first-hand screenshot",
+    "rightsBasis": "BlueBWorks가 Plus 계정으로 직접 찍은 OpenAI 서비스 화면 캡처. 해설과 인용 목적으로 출처를 밝혔고 개인정보와 금액은 가렸다.",
+    "bytes": 52644,
+    "sha256": "d92b7f05c6638e00ed22a8848531437d08b3ee2b57103a345e9dc43ac6ecc975"
   }
 ]
