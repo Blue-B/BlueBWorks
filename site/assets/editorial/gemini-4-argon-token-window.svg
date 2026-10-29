@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Gemini 4 Argon의 통합 100만 토큰 창과 출력 한도</title>
+<desc id="desc">이전 Gemini 모델의 최대 출력은 64K 토큰이었다. Gemini 4 Argon은 입력, 사고, 출력이 1,048,576 토큰 창을 함께 쓰며, 기본 출력은 65,536 토큰이고 long decode를 켜면 창에서 입력을 뺀 만큼까지 출력할 수 있다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<text x="100" y="92" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="42" font-weight="700" fill="#111827">아르곤의 100만 토큰은 입력과 출력이 함께 쓰는 창</text>
+<text x="100" y="138" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#4b5563">막대 전체 = 1,048,576 토큰. Gemini API 모델 문서·개발자 가이드 기준(2026-10-29 확인)</text>
+
+<text x="100" y="235" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="28" font-weight="700" fill="#334155">이전 Gemini 모델</text>
+<text x="100" y="270" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#64748b">최대 출력(사고+응답) 64K 토큰에서 멈춤</text>
+<rect x="100" y="290" width="1300" height="64" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="10 8"/>
+<rect x="100" y="290" width="81" height="64" rx="10" fill="#94a3b8"/>
+<text x="200" y="332" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">출력 상한 64K</text>
+
+<text x="100" y="430" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="28" font-weight="700" fill="#334155">아르곤 기본 호출</text>
+<text x="100" y="465" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#64748b">코드를 바꾸지 않으면 출력은 65,536 토큰이 기본값</text>
+<rect x="100" y="485" width="1300" height="64" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+<rect x="100" y="485" width="248" height="64" rx="10" fill="#1d4ed8"/>
+<text x="124" y="527" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" font-weight="700" fill="#ffffff">입력 200K(예시)</text>
+<rect x="348" y="485" width="81" height="64" fill="#60a5fa"/>
+<text x="450" y="527" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#1e3a8a">출력 기본 65,536 토큰</text>
+
+<text x="100" y="625" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="28" font-weight="700" fill="#334155">아르곤 long decode (background=True)</text>
+<text x="100" y="660" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#64748b">max_output_tokens를 65,536보다 크게 지정하면 창에서 입력을 뺀 만큼까지 출력</text>
+<rect x="100" y="680" width="1300" height="64" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+<rect x="100" y="680" width="248" height="64" rx="10" fill="#1d4ed8"/>
+<text x="124" y="722" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" font-weight="700" fill="#ffffff">입력 200K(예시)</text>
+<rect x="348" y="680" width="1052" height="64" rx="10" fill="#60a5fa"/>
+<text x="380" y="722" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" font-weight="700" fill="#0f172a">사고+출력 최대 약 848K = 1,048,576 − 입력</text>
+
+<text x="100" y="830" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#4b5563">입력 200K는 설명을 위한 가정값이다. 사고(thinking) 토큰도 출력으로 계산되고 출력 요금이 붙는다.</text>
+<text x="1500" y="870" text-anchor="end" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</svg>

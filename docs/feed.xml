@@ -5,7 +5,7 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 29 Oct 2026 08:59:43 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 09:55:00 GMT</lastBuildDate>
     <item>
       <title>제미나이 4 카본 출시일·성능·가격 정리: 지금 무료로 쓸 수 있을까</title>
       <link>https://bluebworks.com/articles/gemini-4-carbon-2026/</link>
@@ -167,12 +167,12 @@
       <description>Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.</description>
     </item>
     <item>
-      <title>Gemini 4 Argon 발표 — 100만 컨텍스트로 장기 코딩·사이버 방어를 겨냥한다</title>
+      <title>제미나이 4 아르곤 100만 토큰 출력·가격·사용법 정리: 64K 한도에서 무엇이 달라졌나</title>
       <link>https://bluebworks.com/articles/gemini-4-argon-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/gemini-4-argon-2026/</guid>
       <pubDate>Thu, 01 Oct 2026 18:00:09 GMT</pubDate>
       <category>모델</category>
-      <description>Google이 복잡한 장기 작업을 겨냥한 Gemini 4 Argon을 발표했다. 공식 발표에서 강조한 것은 ‘100만 출력 토큰’이 아니라 100만 토큰 컨텍스트와 장기 추론이며, 현재는 Fairwind 프로그램의 신뢰된 사이버 방어 조직부터 제한적으로 배포 중이다.</description>
+      <description>제미나이 4 아르곤(Gemini 4 Argon)의 100만 토큰은 이전 64K에서 늘어난 출력 한도다. 9월 30일 발표, 10월 13일 유료 API 공개, 11월 30일까지 도입가와 long decode 사용법을 정리했다.</description>
     </item>
     <item>
       <title>HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다</title>

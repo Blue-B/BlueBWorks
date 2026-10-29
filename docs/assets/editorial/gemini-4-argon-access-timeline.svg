@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Gemini 4 Argon 발표부터 가격 인상까지의 일정</title>
+<desc id="desc">2026년 9월 30일 발표와 Fairwind 사이버 방어 조직 제한 제공, 10월 13일 Gemini API 유료 등급과 AI Ultra 구독자 제공, 11월 30일까지 도입가 입력 2달러 출력 10달러, 12월 1일부터 입력 4달러 출력 20달러.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<text x="100" y="92" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="42" font-weight="700" fill="#111827">제미나이 4 아르곤, 발표에서 가격 인상까지</text>
+<text x="100" y="138" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#4b5563">가격은 Gemini API 유료 등급, 100만 토큰당 미국 달러. 2026-10-29 공식 페이지 확인 기준</text>
+<line x1="180" y1="300" x2="1420" y2="300" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+<circle cx="200" cy="300" r="22" fill="#1d4ed8"/>
+<circle cx="600" cy="300" r="22" fill="#1d4ed8"/>
+<circle cx="1000" cy="300" r="22" fill="#f59e0b"/>
+<circle cx="1400" cy="300" r="22" fill="#b91c1c"/>
+<text x="200" y="250" text-anchor="middle" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="30" font-weight="700" fill="#111827">9월 30일</text>
+<text x="600" y="250" text-anchor="middle" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="30" font-weight="700" fill="#111827">10월 13일</text>
+<text x="1000" y="250" text-anchor="middle" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="30" font-weight="700" fill="#111827">11월 30일</text>
+<text x="1400" y="250" text-anchor="middle" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="30" font-weight="700" fill="#111827">12월 1일</text>
+
+<rect x="60" y="360" width="290" height="330" rx="18" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="84" y="410" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">발표</text>
+<text x="84" y="455" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">Fairwind 프로그램의</text>
+<text x="84" y="487" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">신뢰된 사이버 방어</text>
+<text x="84" y="519" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">조직부터 제한 제공</text>
+<text x="84" y="575" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">출력 한도 64K →</text>
+<text x="84" y="607" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">100만 토큰 예고</text>
+
+<rect x="430" y="360" width="340" height="330" rx="18" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+<text x="454" y="410" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">개발자 공개</text>
+<text x="454" y="455" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">Gemini API 유료 등급</text>
+<text x="454" y="487" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">(AI Studio, Android Studio)</text>
+<text x="454" y="519" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">AI Ultra 구독자는</text>
+<text x="454" y="551" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">AI Studio·Antigravity</text>
+<text x="454" y="607" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" font-weight="700" fill="#b91c1c">무료 등급은 사용 불가</text>
+
+<rect x="850" y="360" width="300" height="330" rx="18" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+<text x="874" y="410" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">도입가 마지막 날</text>
+<text x="874" y="465" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#334155">입력 $2</text>
+<text x="874" y="505" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#334155">출력 $10</text>
+<text x="874" y="545" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#334155">캐시 입력 $0.10</text>
+
+<rect x="1240" y="360" width="300" height="330" rx="18" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+<text x="1264" y="410" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">표준가 적용</text>
+<text x="1264" y="465" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#334155">입력 $4</text>
+<text x="1264" y="505" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#334155">출력 $20</text>
+<text x="1264" y="545" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#334155">캐시 입력 $0.20</text>
+<text x="1264" y="607" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#334155">단가가 두 배</text>
+
+<text x="100" y="800" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="21" fill="#4b5563">출력 요금에는 사고(thinking) 토큰이 포함된다. 캐시는 자동(암시적) 캐싱만 지원한다.</text>
+<text x="1500" y="870" text-anchor="end" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</svg>
