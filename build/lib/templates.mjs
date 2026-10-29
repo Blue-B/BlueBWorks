@@ -646,7 +646,8 @@ export function renderAbout({ config, base, generatedAt }) {
       <section>
         <h2>사이트 상태</h2>
         <ul class="fact-list">
-          <li>운영 형태: 개인 프로젝트, 광고 없음, 후원 없음</li>
+          <li>운영 형태: 개인 프로젝트, 후원 없음</li>
+          <li>광고: Google AdSense 광고를 게재할 예정입니다. 2026년 10월 29일 현재는 광고를 게재하지 않습니다. 광고는 본문과 구분해 표시하며, 글의 주제·내용·출처 선택에 관여하지 않습니다. 광고 쿠키에 관한 내용은 <a href="${pageHref(base, "privacy.html")}">개인정보 처리방침</a>에 적었습니다.</li>
           <li>호스팅: GitHub Pages의 정적 파일</li>
           <li>구독자 수나 방문자 통계는 이 사이트가 수집하거나 공개하지 않습니다.</li>
           <li>문의와 오류 제보: <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a></li>
@@ -688,6 +689,10 @@ export function renderEditorial({ config, base }) {
       <section>
         <h2>검토 중인 글</h2>
         <p>근거가 부족하거나 확인이 끝나지 않은 글은 reviewStatus를 unverified로 두고, 홈 목록과 사이트맵에서 빼며 noindex로 표시합니다. 주소를 아는 사람은 계속 읽을 수 있습니다. 사실 오류를 확인하면 새 글을 더하기 전에 기존 글을 먼저 정정하고 정정 기록을 남깁니다.</p>
+      </section>
+      <section>
+        <h2>광고와 협찬</h2>
+        <p>이 사이트는 Google AdSense 광고를 게재할 예정입니다(2026년 10월 29일 현재 미게재). 광고는 본문과 구분되는 영역에 표시하며, 광고 사업자나 광고주는 글의 주제, 평가, 출처 선택에 관여하지 않습니다. 대가를 받고 쓰는 협찬 글은 싣지 않습니다. 광고 쿠키와 맞춤 광고 해제 방법은 <a href="${pageHref(base, "privacy.html")}">개인정보 처리방침</a>에 있습니다.</p>
       </section>
       <section>
         <h2>영상</h2>
@@ -740,7 +745,26 @@ export function renderContact({ config, base }) {
 export function renderPrivacy({ config, base }) {
   const body = `<section>
         <h2>수집하는 것</h2>
-        <p>이 사이트는 회원 가입, 댓글, 로그인 기능이 없고 자체 분석 도구나 광고 스크립트를 넣지 않습니다. 사이트가 직접 쿠키를 설정하지 않습니다.</p>
+        <p>이 사이트는 회원 가입, 댓글, 로그인 기능이 없습니다. 운영자는 이름, 이메일 주소 같은 개인정보를 직접 받거나 보관하지 않습니다. 자체 방문 분석 도구도 두지 않으며, 사이트 자체 코드는 쿠키를 설정하지 않습니다.</p>
+        <p>다만 아래 '광고와 쿠키'에 적은 것처럼 Google AdSense 광고가 게재되면 Google과 제3자 광고 사업자가 쿠키를 사용할 수 있습니다.</p>
+      </section>
+      <section>
+        <h2>광고와 쿠키 (Google AdSense)</h2>
+        <p>이 사이트는 Google AdSense 광고를 게재할 예정입니다. 2026년 10월 29일 현재는 광고 스크립트를 넣지 않았고 광고를 게재하지 않습니다. 광고 게재를 시작하면 다음 내용이 적용됩니다.</p>
+        <ul class="fact-list">
+          <li>Google을 포함한 제3자 광고 사업자는 쿠키를 사용해, 방문자가 이 사이트나 다른 웹사이트를 이전에 방문한 기록을 바탕으로 광고를 게재할 수 있습니다.</li>
+          <li>Google은 광고 쿠키를 사용합니다. 이를 통해 Google과 파트너는 이 사이트와 인터넷의 다른 사이트 방문 기록을 바탕으로 방문자에게 광고를 게재할 수 있습니다.</li>
+          <li>광고를 불러올 때 브라우저는 Google 광고 서버에 요청을 보냅니다. 이때 전송되는 정보는 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google 개인정보처리방침</a>에 따라 처리됩니다.</li>
+          <li>Google이 파트너 사이트에서 수집한 정보를 어떻게 사용하는지는 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google 파트너 사이트 데이터 사용 안내</a>에서 확인할 수 있습니다.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>맞춤 광고를 끄는 방법</h2>
+        <ul class="fact-list">
+          <li>Google 맞춤 광고: <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google 광고 설정(adssettings.google.com)</a>에서 맞춤 광고를 끌 수 있습니다.</li>
+          <li>다른 제3자 광고 사업자의 맞춤 광고: <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>에서 쿠키 사용을 해제할 수 있습니다.</li>
+          <li>브라우저 설정에서 쿠키를 차단하거나 지울 수도 있습니다. 맞춤 광고를 꺼도 광고는 표시될 수 있으며, 방문 기록과 관계없는 광고가 나옵니다.</li>
+        </ul>
       </section>
       <section>
         <h2>브라우저에 남는 값</h2>
@@ -750,22 +774,28 @@ export function renderPrivacy({ config, base }) {
         <h2>외부 요청</h2>
         <ul class="fact-list">
           <li>호스팅: GitHub Pages가 접속 기록을 처리합니다. 처리 방식은 GitHub의 정책을 따릅니다.</li>
+          <li>광고: 광고 게재를 시작한 뒤에는 페이지를 열 때 Google 광고 서버로 요청을 보냅니다. 현재는 이 요청이 없습니다.</li>
           <li>영상: 검증된 공식 영상이 있는 글에서 재생을 누를 때만 YouTube no-cookie 도메인으로 요청을 보냅니다.</li>
           <li>X 게시물: 공식 X 게시물을 인용한 글을 열 때만 X(platform.twitter.com)의 임베드 스크립트를 불러옵니다. 추적 안 함(data-dnt) 설정을 켜 두며, X의 정책이 적용됩니다. 스크립트가 차단돼도 인용문과 원문 링크는 그대로 보입니다.</li>
           <li>출처 링크: 각 글의 출처와 자료 링크는 외부 사이트로 이동하며, 그 사이트의 정책이 적용됩니다.</li>
         </ul>
       </section>
       <section>
+        <h2>문의</h2>
+        <p>개인정보와 광고 쿠키에 관한 문의, 정정 요청은 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 보내 주세요. 이슈는 공개되므로 이름, 연락처 같은 개인정보는 적지 마세요. 자세한 방법은 <a href="${pageHref(base, "contact.html")}">문의</a> 페이지에 있습니다.</p>
+      </section>
+      <section>
         <h2>바뀌면</h2>
-        <p>수집 항목이나 외부 요청이 바뀌면 이 페이지를 먼저 고칩니다. 이 페이지의 내용은 저장소의 공개 기록으로 확인할 수 있습니다.</p>
+        <p>수집 항목, 광고 게재 여부, 외부 요청이 바뀌면 이 페이지를 먼저 고칩니다. 이 페이지의 변경 내용은 저장소의 공개 기록으로 확인할 수 있습니다.</p>
+        <p>최종 수정: 2026년 10월 29일 (Google AdSense 광고 게재 예정과 광고 쿠키 안내 추가)</p>
       </section>`;
   return simplePage({
     config,
     base,
     active: "privacy",
     path: "/privacy.html",
-    heading: "개인정보",
-    lead: "계정도, 자체 분석도, 광고도 두지 않습니다. 실제로 일어나는 외부 요청만 적었습니다.",
+    heading: "개인정보 처리방침",
+    lead: "계정과 자체 분석 도구는 두지 않습니다. 게재 예정인 Google AdSense 광고의 쿠키 사용과 실제로 일어나는 외부 요청을 적었습니다.",
     body,
   });
 }
