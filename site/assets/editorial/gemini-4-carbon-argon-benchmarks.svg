@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Gemini 4 Argon과 Carbon의 공개 벤치마크 비교</title>
+<desc id="desc">Google DeepMind 모델 페이지 표에 실린 Argon과 Carbon 점수 여섯 가지를 막대로 비교한 도식. AA Intelligence Index는 50에서 59, Terminal-Bench 4.0은 57.1%에서 65.2%, GraphWalks는 84.2%에서 96.2%, SEC-bench Pro는 83.4%에서 88.2%, ExploitGym은 42.0%에서 54.8%, CWE-bench는 68.0%에서 71.0%다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<text x="100" y="92" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="44" font-weight="700" fill="#111827">Argon에서 Carbon으로, 공개된 점수는 어디서 가장 많이 올랐나</text>
+<text x="100" y="140" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#4b5563">Google DeepMind 모델 페이지 표의 수치. AA Index만 0~100점, 나머지는 %(가장 높은 사고 설정, pass@1 기준)</text>
+<rect x="100" y="172" width="34" height="22" rx="4" fill="#94a3b8"/><text x="146" y="191" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">Gemini 4 Argon</text>
+<rect x="340" y="172" width="34" height="22" rx="4" fill="#2563eb"/><text x="386" y="191" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#1e3a8a" font-weight="700">Gemini 4 Carbon</text>
+<line x1="640" y1="215" x2="640" y2="800" stroke="#cbd5e1" stroke-width="2"/>
+<text x="100" y="263" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">AA Intelligence Index v5.0</text>
+<text x="100" y="295" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#64748b">점수 · Artificial Analysis 측정</text>
+<rect x="640" y="241" width="395.0" height="26" rx="5" fill="#94a3b8"/>
+<text x="1047" y="262" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#334155">50</text>
+<rect x="640" y="275" width="466.1" height="26" rx="5" fill="#2563eb"/>
+<text x="1118.1" y="296" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">59  (+9점)</text>
+<text x="100" y="358" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">Terminal-Bench 4.0 (AA)</text>
+<text x="100" y="390" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#64748b">에이전트 코딩 · AA 결과 인용</text>
+<rect x="640" y="336" width="451.1" height="26" rx="5" fill="#94a3b8"/>
+<text x="1103.0900000000001" y="357" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#334155">57.1%</text>
+<rect x="640" y="370" width="515.1" height="26" rx="5" fill="#2563eb"/>
+<text x="1167.08" y="391" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">65.2%  (+8.1p)</text>
+<text x="100" y="453" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">GraphWalks 256k~1M</text>
+<text x="100" y="485" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#64748b">긴 컨텍스트 · BFS F1</text>
+<rect x="640" y="431" width="665.2" height="26" rx="5" fill="#94a3b8"/>
+<text x="1317.18" y="452" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#334155">84.2%</text>
+<rect x="640" y="465" width="760.0" height="26" rx="5" fill="#2563eb"/>
+<text x="1411.98" y="486" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">96.2%  (+12.0p)</text>
+<text x="100" y="548" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">SEC-bench Pro</text>
+<text x="100" y="580" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#64748b">취약점 찾기</text>
+<rect x="640" y="526" width="658.9" height="26" rx="5" fill="#94a3b8"/>
+<text x="1310.8600000000001" y="547" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#334155">83.4%</text>
+<rect x="640" y="560" width="696.8" height="26" rx="5" fill="#2563eb"/>
+<text x="1348.7800000000002" y="581" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">88.2%  (+4.8p)</text>
+<text x="100" y="643" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">ExploitGym</text>
+<text x="100" y="675" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#64748b">악용 가능성 검증</text>
+<rect x="640" y="621" width="331.8" height="26" rx="5" fill="#94a3b8"/>
+<text x="983.8" y="642" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#334155">42.0%</text>
+<rect x="640" y="655" width="432.9" height="26" rx="5" fill="#2563eb"/>
+<text x="1084.92" y="676" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">54.8%  (+12.8p)</text>
+<text x="100" y="738" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#111827">CWE-bench</text>
+<text x="100" y="770" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#64748b">근본 원인 패치</text>
+<rect x="640" y="716" width="537.2" height="26" rx="5" fill="#94a3b8"/>
+<text x="1189.2" y="737" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#334155">68.0%</text>
+<rect x="640" y="750" width="560.9" height="26" rx="5" fill="#2563eb"/>
+<text x="1212.9" y="771" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">71.0%  (+3.0p)</text>
+<line x1="100" y1="815" x2="1500" y2="815" stroke="#e2e8f0" stroke-width="2"/>
+<text x="100" y="850" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#64748b">BlueBWorks 도식 · 수치 출처: Google DeepMind Gemini 모델 페이지(2026-10-29 확인). 비Gemini 모델 점수와 독립 재현 결과는 포함하지 않았다.</text>
+</svg>

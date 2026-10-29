@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Gemini 4 Argon과 Carbon의 제공 경로와 가격 비교</title>
+<desc id="desc">Argon은 9월 30일 발표 뒤 10월 13일 Gemini API 유료 등급으로 개발자에게 열렸고 11월 30일까지 입력 2달러, 출력 10달러, 12월 1일부터 4달러와 20달러다. Carbon은 10월 28일 발표 뒤 일부 사이버 방어 조직에만 제공되며 개발자 제공 시점과 할인 종료일은 확인되지 않았다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<text x="100" y="92" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="44" font-weight="700" fill="#111827">같은 가격표, 다른 문 · Argon과 Carbon의 제공 경로</text>
+<text x="100" y="140" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="24" fill="#4b5563">가격은 입력/출력 100만 토큰당 미국 달러. 2026-10-29 공식 페이지 확인 기준</text>
+<text x="100" y="215" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="30" font-weight="700" fill="#334155">Gemini 4 Argon</text>
+<rect x="100" y="240" width="400" height="220" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="128" y="290" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="27" font-weight="700" fill="#111827">9월 30일 발표</text>
+<text x="128" y="326" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">Fairwind 프로그램의</text>
+<text x="128" y="362" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">신뢰된 사이버 방어 조직부터</text>
+<text x="128" y="398" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">제한 제공</text>
+
+<line x1="510" y1="350" x2="576" y2="350" stroke="#64748b" stroke-width="5" stroke-linecap="round"/><path d="M572 338 L590 350 L572 362 Z" fill="#64748b"/>
+
+<rect x="600" y="240" width="400" height="220" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="628" y="290" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="27" font-weight="700" fill="#111827">10월 13일 개발자 공개</text>
+<text x="628" y="326" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">Gemini API 유료 등급</text>
+<text x="628" y="362" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">Google AI Studio·Android Studio</text>
+<text x="628" y="398" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">Antigravity(AI Ultra)</text>
+
+<line x1="1010" y1="350" x2="1076" y2="350" stroke="#64748b" stroke-width="5" stroke-linecap="round"/><path d="M1072 338 L1090 350 L1072 362 Z" fill="#64748b"/>
+
+<rect x="1100" y="240" width="400" height="220" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="1128" y="290" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="27" font-weight="700" fill="#111827">가격 페이지 표기</text>
+<text x="1128" y="326" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">11월 30일까지 $2 / $10</text>
+<text x="1128" y="362" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">12월 1일부터 $4 / $20</text>
+<text x="1128" y="398" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">무료 등급 사용 불가</text>
+
+<text x="100" y="535" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="30" font-weight="700" fill="#1e3a8a">Gemini 4 Carbon</text>
+<rect x="100" y="560" width="400" height="220" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="128" y="610" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="27" font-weight="700" fill="#1e3a8a">10월 28일 발표</text>
+<text x="128" y="646" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">이번 주부터 일부</text>
+<text x="128" y="682" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">사이버 방어 조직에 제공</text>
+<text x="128" y="718" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">(Fairwind 프로그램)</text>
+
+<line x1="510" y1="670" x2="576" y2="670" stroke="#64748b" stroke-width="5" stroke-linecap="round"/><path d="M572 658 L590 670 L572 682 Z" fill="#64748b"/>
+
+<rect x="600" y="560" width="400" height="220" rx="20" fill="#ffffff" stroke="#2563eb" stroke-width="3" stroke-dasharray="12 8"/>
+<text x="628" y="610" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="27" font-weight="700" fill="#1e3a8a">개발자·기업·소비자</text>
+<text x="628" y="646" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">제공 시점: 확인되지 않음</text>
+<text x="628" y="682" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">Google은 "가능한 한 빨리"</text>
+<text x="628" y="718" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">라고만 밝혔다</text>
+
+<line x1="1010" y1="670" x2="1076" y2="670" stroke="#64748b" stroke-width="5" stroke-linecap="round"/><path d="M1072 658 L1090 670 L1072 682 Z" fill="#64748b"/>
+
+<rect x="1100" y="560" width="400" height="220" rx="20" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="1128" y="610" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="27" font-weight="700" fill="#1e3a8a">발표된 가격</text>
+<text x="1128" y="646" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">도입가 $2 / $10 (Google)</text>
+<text x="1128" y="682" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">표준가 $4 / $20 (AA 기준)</text>
+<text x="1128" y="718" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="22" fill="#334155">할인 종료일: 확인되지 않음</text>
+
+<line x1="100" y1="815" x2="1500" y2="815" stroke="#e2e8f0" stroke-width="2"/>
+<text x="100" y="850" font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif" font-size="20" fill="#64748b">BlueBWorks 도식 · 출처: Google 블로그, Gemini API 가격 페이지, Artificial Analysis. 가격 페이지에는 아직 Carbon 항목이 없다.</text>
+</svg>

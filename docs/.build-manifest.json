@@ -1,6 +1,7 @@
 [
   "index.html",
   "articles/index.html",
+  "articles/gemini-4-carbon-2026/index.html",
   "articles/vercel-ci-beta-turborepo-2026/index.html",
   "articles/github-agentic-workflows-ga-2026/index.html",
   "articles/github-copilot-server-to-server-auth-2026/index.html",

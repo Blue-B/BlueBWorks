@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gemini 4 Carbon 발표, Argon보다 나아진 점과 아직 바로 쓸 수 없는 이유 | BlueBWorks</title>
+    <meta name="description" content="Google이 Gemini 4 Carbon을 발표했다. AA Intelligence Index v5.0 59점과 보안 벤치마크 향상을 내세웠지만, 10월 29일 기준 일부 사이버 방어 조직에만 제공되고 개발자 공개 시점은 확인되지 않았다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/gemini-4-carbon-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="Gemini 4 Carbon 발표, Argon보다 나아진 점과 아직 바로 쓸 수 없는 이유 | BlueBWorks">
+    <meta property="og:description" content="Google이 Gemini 4 Carbon을 발표했다. AA Intelligence Index v5.0 59점과 보안 벤치마크 향상을 내세웠지만, 10월 29일 기준 일부 사이버 방어 조직에만 제공되고 개발자 공개 시점은 확인되지 않았다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/gemini-4-carbon-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/gemini-4-carbon-cover.webp">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Gemini 4 Carbon 발표, Argon보다 나아진 점과 아직 바로 쓸 수 없는 이유","description":"Google이 Gemini 4 Carbon을 발표했다. AA Intelligence Index v5.0 59점과 보안 벤치마크 향상을 내세웠지만, 10월 29일 기준 일부 사이버 방어 조직에만 제공되고 개발자 공개 시점은 확인되지 않았다.","url":"https://bluebworks.com/articles/gemini-4-carbon-2026/","mainEntityOfPage":"https://bluebworks.com/articles/gemini-4-carbon-2026/","datePublished":"2026-10-29T08:36:43.000Z","dateModified":"2026-10-29T08:36:43.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"모델","keywords":"Google, Gemini 4 Carbon, Gemini 4 Argon, Coding, Agent, Security","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/gemini-4-carbon-cover.webp"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Gemini 4 Carbon 발표, Argon보다 나아진 점과 아직 바로 쓸 수 없는 이유","item":"https://bluebworks.com/articles/gemini-4-carbon-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>모델</span></p>
+        <h1 id="article-title">Gemini 4 Carbon 발표, Argon보다 나아진 점과 아직 바로 쓸 수 없는 이유</h1>
+        <p class="cover-dek">Google이 Gemini 4 Carbon을 발표했다. AA Intelligence Index v5.0 59점과 보안 벤치마크 향상을 내세웠지만, 10월 29일 기준 일부 사이버 방어 조직에만 제공되고 개발자 공개 시점은 확인되지 않았다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 10월 29일</span><span>소식 발표 2026년 10월 28일</span><span>확인 2026년 10월 29일</span><span>Limited rollout</span><span>10분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">Carbon 소식을 보고 바로 모델을 바꿔도 되는가</a></li>
+          <li><a href="#sec-2">Argon 이후 4주, 같은 계열 안에서 바뀐 것과 그대로인 것</a></li>
+          <li><a href="#sec-3">벤치마크 숫자는 측정한 주체부터 나눠 읽는다</a></li>
+          <li><a href="#sec-4">보안 쪽 변화는 찾기, 검증, 패치를 한 흐름으로 묶는 데 있다</a></li>
+          <li><a href="#sec-5">며칠씩 이어지는 작업에서 중요한 것은 테스트를 속이지 않는 태도다</a></li>
+          <li><a href="#sec-6">가격은 같아 보여도 할인 기간과 작업당 비용은 따로 확인한다</a></li>
+          <li><a href="#sec-7">Argon을 쓰는 팀이 Carbon 공개 전에 해 둘 일</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="Gemini 4 Carbon 발표, Argon보다 나아진 점과 아직 바로 쓸 수 없는 이유">
+            <meta itemprop="description" content="Google이 Gemini 4 Carbon을 발표했다. AA Intelligence Index v5.0 59점과 보안 벤치마크 향상을 내세웠지만, 10월 29일 기준 일부 사이버 방어 조직에만 제공되고 개발자 공개 시점은 확인되지 않았다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/gemini-4-carbon-cover.webp" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 어두운 남색 배경 위로 육각형 탄소 결정 같은 노드가 길게 이어지고 그중 하나를 반투명 방패가 감싼 추상 일러스트"><img src="https://bluebworks.com/assets/editorial/gemini-4-carbon-cover.webp" alt="어두운 남색 배경 위로 육각형 탄소 결정 같은 노드가 길게 이어지고 그중 하나를 반투명 방패가 감싼 추상 일러스트" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>AI 생성 이미지. 긴 작업(long-horizon)과 보안 방어를 강조한 Carbon 발표 내용을 상징적으로 표현한 일러스트로, 실제 제품 화면이나 Google 공식 이미지가 아니다.</span><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener noreferrer">AI 생성 이미지 · BlueBWorks · 원문</a></figcaption>
+      </figure>
+          <details class="key-points">
+      <summary>요약</summary>
+      <ul>
+        <li>Artificial Analysis Intelligence Index v5.0에서 Carbon은 59점으로 1위이고 Argon은 50점이다. SEC-bench Pro 88.2%, ExploitGym 54.8%, CWE-bench 71.0% 등 보안 점수도 Argon보다 높다.</li>
+        <li>2026년 10월 29일 기준 Carbon은 Fairwind 프로그램의 일부 사이버 방어 조직에만 제공되며, 개발자·기업·소비자 제공 시점과 모델 ID는 확인되지 않았다.</li>
+        <li>도입가는 Argon과 같은 입력 2달러·출력 10달러(100만 토큰당)지만, Carbon의 할인 종료일은 공식 가격 페이지에서 확인되지 않는다.</li>
+      </ul>
+    </details>
+          <details class="editor-note">
+      <summary>덧붙임</summary>
+      <p>Carbon은 점수표만 보면 바로 갈아탈 모델처럼 보이지만, 지금 일반 개발자가 할 수 있는 일은 호출이 아니라 준비다. 그래서 숫자를 옮기기보다 각 수치를 누가 어떤 조건에서 쟀는지와, Argon 사용자가 공개 전에 해 둘 일을 중심으로 정리했다.</p>
+    </details>
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>Carbon 소식을 보고 바로 모델을 바꿔도 되는가</h2>
+        <p>Gemini 4 Argon을 이제 막 Gemini API에 붙여 본 개발자라면 2주 만에 나온 Carbon 소식이 반갑기보다 혼란스러울 수 있다. 지금 쓰는 모델을 바꿔야 하는지, 가격이 같다면 공개되는 날 이름만 바꾸면 되는지가 먼저 궁금해진다. Google은 10월 28일 공식 블로그와 X 계정에서 Carbon을 자사에서 가장 강한 모델로 소개했고, 사이버 보안과 긴 작업(long-horizon) 능력을 전면에 내세웠다.</p>
+        <p>결론부터 말하면 2026년 10월 29일 기준으로 일반 개발자가 Carbon을 호출할 공개 경로는 확인되지 않는다. Google은 이번 주부터 Fairwind 프로그램에 속한 일부 사이버 방어 조직에 먼저 열고, 신뢰할 수 있는 파트너를 단계적으로 늘린 뒤 개발자·기업·소비자에게 제공하겠다고만 밝혔다. Gemini API 가격 페이지에도 아직 Carbon 항목은 없다.</p>
+        <p>그래서 이 글은 성능 홍보 문구를 옮기기보다 세 가지를 정리한다. 9월 말 발표된 Argon과 비교해 무엇이 실제로 달라졌는지, 숫자마다 누가 어떤 조건에서 쟀는지, 그리고 지금 Argon을 쓰는 팀이 공개 전에 무엇을 준비하면 되는지다. Argon 자체의 발표 내용과 초기 제한 공개는 이전 글에서 다뤘다.</p>
+        <div class="section-links"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener noreferrer">Google 공식 발표: Gemini 4 Carbon <span aria-hidden="true">↗</span></a><a href="https://bluebworks.com/articles/gemini-4-argon-2026/" target="_blank" rel="noopener noreferrer">이전 글: Gemini 4 Argon 발표 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-8">[8]</a> <a href="#source-5">[5]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>Argon 이후 4주, 같은 계열 안에서 바뀐 것과 그대로인 것</h2>
+        <p>Argon은 9월 30일 발표 당시 Fairwind 참여 조직부터 제한적으로 제공됐다. 이후 10월 13일에는 Gemini API 유료 등급과 Google AI Studio, Android Studio에서 개발자도 쓸 수 있게 됐고, Google AI Ultra 구독자는 에이전트 중심 개발 도구 Antigravity에서도 써 볼 수 있다. 발표일 기준으로 Carbon은 Argon보다 약 4주 늦고, 개발자 공개일 기준으로는 약 2주 뒤에 나왔다. Google 발표문도 Argon을 2주 전에 출시된 모델이라고 적었다.</p>
+        <p>Google이 밝힌 Carbon의 변화는 크게 세 갈래다. 첫째, 코딩과 에이전트 작업 점수가 올랐다. 둘째, 취약점을 찾고 실제로 악용 가능한지 확인하고 패치하는 보안 작업 전반에서 최고 수준이라고 주장한다. 셋째, 모델이 테스트를 속이는 지름길을 택하거나 근거 없는 주장을 하는 비율을 줄였다고 설명한다.</p>
+        <p>바뀌지 않은 부분도 있다. Artificial Analysis가 정리한 모델 정보에 따르면 Carbon의 컨텍스트 창은 Argon과 같은 100만 토큰이고, 텍스트·이미지·영상·음성을 입력받아 텍스트로 답한다. 도입 가격도 Argon과 똑같이 책정됐다. 매개변수 규모나 구조가 Argon과 어떻게 다른지는 Google 발표문과 모델 페이지에 설명이 없어 확인되지 않는다.</p>
+        <div class="section-links"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/" target="_blank" rel="noopener noreferrer">Google: Gemini 4 Argon 개발자 제공 안내 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-4">[4]</a> <a href="#source-6">[6]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>벤치마크 숫자는 측정한 주체부터 나눠 읽는다</h2>
+        <p>Google이 가장 앞에 세운 숫자는 Artificial Analysis Intelligence Index v5.0의 59점이다. 이 지수는 독립 평가 업체 Artificial Analysis가 여러 평가를 묶어 내는 종합 점수이고, 10월 27일 v5로 개편됐다. Google DeepMind 모델 페이지 표에서 Carbon은 59점, Claude Opus 5.5는 58점, GPT-6 Astra는 57점, Argon은 50점이다. 1위이긴 하지만 2위와 차이는 1점이라는 점도 같이 봐야 한다.</p>
+        <p>Artificial Analysis의 설명을 보면 1위의 내용도 고르지 않다. Carbon은 지수를 이루는 9개 평가 중 HLE-Diamond, Terminal-Bench-Science, AA-Omniscience, AutomationBench-AA 4개에서 1위였고, 코딩과 지식 업무에서는 선두가 아니었다. 코딩 에이전트 지수에서는 Antigravity CLI와 함께 59점으로, Claude Code와 Claude Opus 5.5 조합의 62점에 이어 2위다.</p>
+        <p>보안 점수 세 개는 측정 방식이 서로 다르다. DeepMind 평가 방법 문서에 따르면 SEC-bench Pro 88.2%는 2026년 5월 JavaScript 엔진 분할의 183개 과제를 Google이 Antigravity 하네스로 직접 돌려 과제당 세 번의 시도를 평균한 값이다. ExploitGym 54.8%도 Google이 직접 잰 값으로, 인터넷 없이 과제당 한 번만 시도하고 완화 장치를 끈 기본 설정에서 측정했다. CWE-bench 71.0%는 Collinear AI가 공개 리더보드에서 모든 모델을 같은 방식으로 평가한 결과다.</p>
+        <p>경쟁 모델 숫자의 출처도 섞여 있다. 같은 방법 문서는 Gemini가 아닌 모델의 점수를 대부분 각 회사가 스스로 밝힌 값에서 가져왔다고 적었다. 한 표에 나란히 있어도 같은 조건에서 동시에 돌린 결과가 아닌 칸이 있다는 뜻이다. 출처 사이의 작은 차이도 있다. Terminal-Bench 4.0은 DeepMind 표에 65.2%로, Artificial Analysis 기사에는 64%로 적혀 있다.</p>
+        <p>아래 도식은 DeepMind 표에서 Argon과 Carbon을 함께 비교할 수 있는 여섯 항목만 골라 그렸다. 상승 폭이 가장 큰 것은 ExploitGym(12.8%포인트)과 긴 컨텍스트 평가 GraphWalks(12.0%포인트)이고, 패치 능력을 보는 CWE-bench는 3.0%포인트 오르는 데 그쳤다. GraphWalks는 256k~1M 토큰 길이의 문제 200개를 Google이 모든 모델에 대해 직접 계산한 값이라는 점도 함께 기억해 둘 만하다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/gemini-4-carbon-argon-benchmarks.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: AA Intelligence Index, Terminal-Bench 4.0, GraphWalks, SEC-bench Pro, ExploitGym, CWE-bench 여섯 항목에서 Gemini 4 Argon과 Carbon 점수를 나란히 비교한 막대 도식">
+        <img src="https://bluebworks.com/assets/editorial/gemini-4-carbon-argon-benchmarks.svg" alt="AA Intelligence Index, Terminal-Bench 4.0, GraphWalks, SEC-bench Pro, ExploitGym, CWE-bench 여섯 항목에서 Gemini 4 Argon과 Carbon 점수를 나란히 비교한 막대 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>Google DeepMind 모델 페이지 표의 Argon·Carbon 수치를 BlueBWorks가 다시 그린 도식. AA Index와 Terminal-Bench 4.0은 Artificial Analysis 결과를, SEC-bench Pro·ExploitGym·GraphWalks는 Google 자체 측정을, CWE-bench는 Collinear AI 평가를 인용한 값이다.</span><a href="https://deepmind.google/models/gemini/" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · Google DeepMind 모델 페이지 수치 기반 · 원문</a></figcaption>
+    </figure><div class="section-links"><a href="https://deepmind.google/models/gemini/" target="_blank" rel="noopener noreferrer">Google DeepMind Gemini 모델 페이지(성능 표) <span aria-hidden="true">↗</span></a><a href="https://deepmind.google/models/evals-methodology/gemini-4-carbon" target="_blank" rel="noopener noreferrer">Carbon 평가 방법 문서 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-2">[2]</a> <a href="#source-3">[3]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>보안 쪽 변화는 찾기, 검증, 패치를 한 흐름으로 묶는 데 있다</h2>
+        <p>사이버 방어 작업은 보통 세 단계로 나뉜다. 코드에서 취약점을 찾고, 그 취약점이 실제로 악용 가능한지 확인해 먼저 고칠 순서를 정하고, 근본 원인을 고치는 패치를 만든다. Google은 Carbon이 세 단계 모두에서 최고 수준이라고 주장하며 앞의 세 벤치마크를 각 단계에 대응시켰다. 이 평가들은 안전 장치를 끈 상태에서 측정했다고 밝혔다.</p>
+        <p>내부 사례도 함께 제시됐다. Google 내부 평가에서 안전한 코드를 생성하는 성공률이 Argon보다 2배 이상 높았고, Chrome 팀은 고품질 패치 생성에서 Carbon이 다른 연구소의 대형 프런티어 모델보다 10배 넘게 나았다고 보고했다고 한다. Google 계열 클라우드 보안 업체 Wiz도 웹 침투 테스트 벤치마크에서 Carbon이 앞섰다고 밝혔다. 다만 비교한 모델의 이름과 측정 조건은 공개되지 않아 독립 결과로 받아들이기는 어렵다.</p>
+        <p>Fairwind는 정부, 의료, 통신처럼 우선순위가 높은 방어 조직에 고급 모델을 먼저 제공하는 Google DeepMind 프로그램이다. 프로그램 페이지에 따르면 현재 전 세계 650곳이 넘는 파트너가 있다. 참여 조직은 사용자 단위 인증과 피싱에 강한 다중 인증을 갖춰야 하고, 내부 보안·침해 대응·침투 테스트 팀에만 접근을 허용하며, 접근 권한을 공유하거나 재판매할 수 없다.</p>
+        <p>같은 능력이 공격에도 쓰일 수 있다는 점이 제한 공개의 배경이다. Google은 미국 정부의 자발적인 출시 전 모델 시험 절차에 참여하고 있으며, 안전 장치를 다듬은 뒤 제공 범위를 넓히겠다고 했다. 10월 29일에 확인한 Fairwind 페이지는 여전히 Argon과 보안 에이전트 CodeMender 위주로 설명돼 있고, Carbon을 어떤 조건으로 받는지는 따로 적혀 있지 않았다.</p>
+        <div class="section-links"><a href="https://deepmind.google/fairwind-program/" target="_blank" rel="noopener noreferrer">Google DeepMind Fairwind 프로그램 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-7">[7]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>며칠씩 이어지는 작업에서 중요한 것은 테스트를 속이지 않는 태도다</h2>
+        <p>긴 작업은 한 번 답하고 끝나는 질문이 아니라 여러 단계를 이어 가며 상태를 유지해야 하는 일을 뜻한다. Google은 내부 팀이 Carbon을 며칠 동안 실행해, 막다른 길을 만나도 다시 방향을 잡으며 대형 코드베이스와 저수준 시스템에 숨은 미묘한 버그의 원인을 찾아 고쳤다고 설명했다. 웹 개발 쪽에서는 WebDev Arena 점수가 89점 올라 1768점, 4위가 됐다.</p>
+        <p>이런 작업에서는 성능만큼 모델의 태도가 중요하다. 에이전트가 테스트를 통과하려고 검사 코드를 고치거나 결과를 지어내면, 사람이 며칠치 실행 기록을 검토해 문제를 찾아내기가 매우 어렵다. Google은 Terminal-Bench 4.0에서 Carbon의 부정행위 성공률이 0.0%, 시도율이 0.4%였고, 내부 팀의 실제 코딩 환경에서 심각도가 높은 정렬 이탈 경고가 80% 가까이 줄었다고 밝혔다.</p>
+        <p>그 밖의 수치도 같은 방향을 가리킨다. 내부 시험에서 근거 없는 주장은 Argon보다 약 2배 줄었고, 요청 범위를 넘는 행동은 26%, 해야 할 일을 덜 하는 경우는 29% 줄었다고 한다. 외부 문서에 숨긴 지시로 모델을 조종하는 간접 프롬프트 주입 시험(Gray Swan 벤치마크)에서는 공격 성공률이 Argon의 0.7%에서 0.0%로 내려갔다. 모두 Google이 직접 쟀거나 인용한 값이며 독립 재현 결과는 확인되지 않았다.</p>
+        <p>실무에서는 이 주장들을 그대로 믿기보다 측정 항목으로 바꾸는 편이 낫다. 저장소 작업을 에이전트에게 맡기는 팀이라면, Carbon이 공개됐을 때 완료율과 함께 요청 범위를 벗어난 수정이 몇 번 나왔는지, 실제로 끝나지 않은 일을 끝났다고 보고한 적이 있는지를 같이 세어 보면 된다. Google이 강조한 개선이 내 코드베이스에서도 나타나는지 확인하는 가장 직접적인 방법이다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>가격은 같아 보여도 할인 기간과 작업당 비용은 따로 확인한다</h2>
+        <p>Google은 Carbon을 Argon과 같은 도입가로 내놓겠다고 했다. 입력 100만 토큰당 2달러, 출력 100만 토큰당 10달러이고, 캐시된 입력은 입력 가격에서 95% 할인된다. Argon의 Gemini API 가격 페이지를 보면 이 도입가는 2026년 11월 30일까지이고, 12월 1일부터는 입력 4달러, 출력 20달러, 컨텍스트 캐싱 0.20달러로 두 배가 된다. 출력 가격에는 모델이 답하기 전에 생각하는 데 쓰는 사고 토큰도 포함된다.</p>
+        <p>Carbon의 할인 종료일은 확인되지 않았다. Artificial Analysis는 Carbon에 50% 출시 할인이 적용되지만 종료일이 정해지지 않았다고 적었고, 모든 비교를 Argon과 같은 표준가 4달러·20달러로 계산했다. Carbon이 공개될 때 Argon처럼 11월 30일에 끝나는 할인을 따를지, 별도 기간이 생길지는 공식 가격 페이지가 갱신돼야 알 수 있다.</p>
+        <p>토큰 단가보다 실제로 중요한 것은 작업 하나를 끝내는 데 드는 비용이다. Artificial Analysis 계산에서 Carbon은 표준가 기준 Intelligence Index 과제당 7.76달러로 Argon의 7.68달러와 거의 같으면서 점수는 9점 높았다. Claude Opus 5.5(최대 설정)의 10.04달러보다는 약 23% 낮고, GPT-6 Astra(최대 설정)의 6.25달러보다는 높다. 과제당 출력 토큰은 약 12만 3천 개로, 긴 작업일수록 출력 단가가 총비용을 좌우한다.</p>
+        <p>아래 도식은 두 모델의 제공 경로와 가격 정보를 나란히 놓은 것이다. 위 줄의 Argon은 발표, 개발자 공개, 가격 인상 일정까지 모두 공식 페이지로 확인된다. 아래 줄의 Carbon은 발표와 도입가만 확인되고, 개발자 제공 시점과 할인 종료일은 빈칸으로 남아 있다. 무료 등급에서는 Argon도 쓸 수 없다는 점까지 고려하면, Carbon 역시 처음에는 유료 등급부터 열릴 가능성을 염두에 두고 예산을 잡는 편이 안전하다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/gemini-4-carbon-access-pricing.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Gemini 4 Argon과 Carbon의 발표일, 개발자 제공 경로, 가격 정보를 두 줄의 흐름으로 비교하고 Carbon의 확인되지 않은 항목을 점선으로 표시한 도식">
+        <img src="https://bluebworks.com/assets/editorial/gemini-4-carbon-access-pricing.svg" alt="Gemini 4 Argon과 Carbon의 발표일, 개발자 제공 경로, 가격 정보를 두 줄의 흐름으로 비교하고 Carbon의 확인되지 않은 항목을 점선으로 표시한 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>Argon은 9월 30일 발표, 10월 13일 개발자 공개, 12월 1일 가격 인상까지 공식 페이지로 확인된다. Carbon은 10월 28일 발표와 도입가만 확인되고 개발자 제공 시점과 할인 종료일은 확인되지 않았다. 2026-10-29 기준 BlueBWorks 도식.</span><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · Google 블로그, Gemini API 가격 페이지, Artificial Analysis 기반 · 원문</a></figcaption>
+    </figure><div class="section-links"><a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">Gemini API 가격 페이지 <span aria-hidden="true">↗</span></a><a href="https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1" target="_blank" rel="noopener noreferrer">Artificial Analysis: Gemini 4 Carbon 분석 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-4">[4]</a> <a href="#source-5">[5]</a></p>
+      </section>
+      <section class="prose-section" id="sec-7">
+        <h2>Argon을 쓰는 팀이 Carbon 공개 전에 해 둘 일</h2>
+        <p>가장 먼저 할 일은 모델 이름을 코드에서 떼어 내는 것이다. 현재 Argon의 API 모델 ID는 gemini-4-argon이고, Carbon의 모델 ID는 아직 공개 문서에서 확인되지 않는다. 호출 코드 곳곳에 이름을 직접 적어 두었다면 설정값이나 환경 변수 하나로 모으고, 모델별로 요청 로그를 나눠 남기도록 바꿔 두면 공개 당일 비교가 훨씬 쉬워진다.</p>
+        <p>다음은 자기 코드베이스로 만든 작은 평가 세트다. 실제로 겪었던 버그 수정, 마이그레이션, 보안 점검 과제를 수십 개 골라 Argon으로 먼저 돌려 두고, 완료율과 재시도 횟수, 과제당 총 토큰, 요청 범위를 벗어난 수정 횟수를 기록한다. 공개 벤치마크가 대부분 공급자가 고른 조건에서 측정됐다는 점을 생각하면, 교체 여부는 이 기준선과 비교한 결과로 정하는 편이 확실하다.</p>
+        <p>비용 계획도 미리 고쳐 둔다. Argon만 계속 쓰더라도 12월 1일부터 토큰 단가가 두 배가 되므로, 지금 청구서를 기준으로 잡은 예산은 다음 달에 맞지 않을 수 있다. 캐시 입력 할인이 95%로 크기 때문에, 긴 시스템 지시나 자주 쓰는 문서를 앞쪽에 고정해 캐시를 잘 타게 만드는 구조 정리도 효과가 있다. Argon 가격 페이지는 명시적 캐싱이 아닌 암시적 캐싱만 지원한다고 적고 있다.</p>
+        <p>정부, 의료, 통신 같은 핵심 기반 시설의 보안 조직이라면 Google DeepMind 모델 페이지의 Fairwind 신청 경로를 확인해 볼 만하다. 그 밖의 팀에게 Carbon은 지금 쓰는 도구가 아니라 곧 비교할 후보다. 공개가 확인되면 같은 평가 세트를 다시 돌려 점수 차이가 실제 작업에서도 나오는지, 늘어난 성능이 할인 종료 뒤 가격에도 맞는지를 보고 결정하면 된다.</p>
+        <div class="section-links"><a href="https://deepmind.google/models/gemini/" target="_blank" rel="noopener noreferrer">Google DeepMind Gemini 모델 페이지(Fairwind 신청 안내) <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-5">[5]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener noreferrer">
+            <strong>Google Blog · Gemini 4 Carbon: our next frontier model</strong>
+            <span>blog.google</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://deepmind.google/models/gemini/" target="_blank" rel="noopener noreferrer">
+            <strong>Google DeepMind · Gemini 모델 페이지</strong>
+            <span>deepmind.google</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://deepmind.google/models/evals-methodology/gemini-4-carbon" target="_blank" rel="noopener noreferrer">
+            <strong>Google DeepMind · Gemini 4 Carbon Model evaluation</strong>
+            <span>deepmind.google</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1" target="_blank" rel="noopener noreferrer">
+            <strong>Artificial Analysis · Gemini 4 Carbon is the new #1 on the Intelligence Index v5</strong>
+            <span>artificialanalysis.ai</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">
+            <strong>Google AI for Developers · Gemini Developer API 가격</strong>
+            <span>ai.google.dev</span>
+          </a>
+        </li>
+        <li id="source-6">
+          <a href="https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/" target="_blank" rel="noopener noreferrer">
+            <strong>Google Blog · Gemini 4 Argon is now available for developers</strong>
+            <span>blog.google</span>
+          </a>
+        </li>
+        <li id="source-7">
+          <a href="https://deepmind.google/fairwind-program/" target="_blank" rel="noopener noreferrer">
+            <strong>Google DeepMind · Fairwind Program</strong>
+            <span>deepmind.google</span>
+          </a>
+        </li>
+        <li id="source-8">
+          <a href="https://x.com/Google/status/2115489522603466766" target="_blank" rel="noopener noreferrer">
+            <strong>Google on X · Introducing Gemini 4 Carbon</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/gemini-4-argon-2026/">
+            <span class="related-cat">모델</span>
+            <strong>Gemini 4 Argon 발표 — 100만 컨텍스트로 장기 코딩·사이버 방어를 겨냥한다</strong>
+            <span>게시 2026년 10월 2일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/gpt-6-1-sol-2026/">
+            <span class="related-cat">모델</span>
+            <strong>GPT‑6.1 Sol 출시 — 코딩·컴퓨터 사용 중심으로 Sol이 업데이트됐다</strong>
+            <span>게시 2026년 10월 2일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/openai-dots-2026/">
+            <span class="related-cat">에이전트</span>
+            <strong>OpenAI Dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다</strong>
+            <span>게시 2026년 10월 2일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">발표</span>
+        <strong>Gemini 4 Carbon 공식 발표</strong>
+        <span class="rail-desc">Carbon의 성능 주장, 안전 관련 수치, 단계적 제공 계획과 도입가를 원문으로 확인할 수 있다.</span>
+        <span class="rail-host">blog.google</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://deepmind.google/models/evals-methodology/gemini-4-carbon" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">문서</span>
+        <strong>Carbon 평가 방법 문서</strong>
+        <span class="rail-desc">벤치마크마다 누가 어떤 하네스와 조건으로 측정했는지 확인할 수 있다.</span>
+        <span class="rail-host">deepmind.google</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">가격</span>
+        <strong>Gemini API 가격 페이지</strong>
+        <span class="rail-desc">Argon의 할인 종료일과 이후 가격, 캐싱 요금을 확인하고 Carbon 항목이 추가되는지 지켜볼 수 있다.</span>
+        <span class="rail-host">ai.google.dev</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">평가</span>
+        <strong>Artificial Analysis Carbon 분석</strong>
+        <span class="rail-desc">독립 평가 업체가 계산한 지수 세부 결과와 과제당 비용 비교를 볼 수 있다.</span>
+        <span class="rail-host">artificialanalysis.ai</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://deepmind.google/fairwind-program/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">프로그램</span>
+        <strong>Fairwind 프로그램</strong>
+        <span class="rail-desc">사이버 방어 조직의 조기 접근 조건과 거버넌스 기준을 확인할 수 있다.</span>
+        <span class="rail-host">deepmind.google</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/gemini-4-carbon-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/editorial.html">편집 원칙</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+  </body>
+</html>

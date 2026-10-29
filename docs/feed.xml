@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 29 Oct 2026 08:06:54 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 08:36:43 GMT</lastBuildDate>
+    <item>
+      <title>Gemini 4 Carbon 발표, Argon보다 나아진 점과 아직 바로 쓸 수 없는 이유</title>
+      <link>https://bluebworks.com/articles/gemini-4-carbon-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/gemini-4-carbon-2026/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:36:43 GMT</pubDate>
+      <category>모델</category>
+      <description>Google이 Gemini 4 Carbon을 발표했다. AA Intelligence Index v5.0 59점과 보안 벤치마크 향상을 내세웠지만, 10월 29일 기준 일부 사이버 방어 조직에만 제공되고 개발자 공개 시점은 확인되지 않았다.</description>
+    </item>
     <item>
       <title>Vercel CI 베타 공개: 변경된 코드의 테스트만 실행하는 방법</title>
       <link>https://bluebworks.com/articles/vercel-ci-beta-turborepo-2026/</link>
