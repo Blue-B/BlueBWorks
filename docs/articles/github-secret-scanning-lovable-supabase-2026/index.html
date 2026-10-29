@@ -1,33 +1,33 @@
 <!doctype html>
-<html lang="ko" data-base="/BlueBWorks">
+<html lang="ko" data-base="">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>GitHub가 Lovable·Supabase 키 유출 탐지를 확대했다 | BlueBWorks</title>
     <meta name="description" content="10월 공지에 나온 인증정보 다섯 유형을 살펴보고, 경고 확인부터 키 교체·폐기와 푸시 차단까지 연결해 설명한다. 탐지됐다는 사실과 자동 폐기는 다르며, Lovable의 최초 지원 시점은 앞선 공식 공지와 구분해야 한다.">
-    <link rel="canonical" href="https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/">
+    <link rel="canonical" href="https://bluebworks.dpdns.org/articles/github-secret-scanning-lovable-supabase-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="GitHub가 Lovable·Supabase 키 유출 탐지를 확대했다 | BlueBWorks">
     <meta property="og:description" content="10월 공지에 나온 인증정보 다섯 유형을 살펴보고, 경고 확인부터 키 교체·폐기와 푸시 차단까지 연결해 설명한다. 탐지됐다는 사실과 자동 폐기는 다르며, Lovable의 최초 지원 시점은 앞선 공식 공지와 구분해야 한다.">
-    <meta property="og:url" content="https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/">
+    <meta property="og:url" content="https://bluebworks.dpdns.org/articles/github-secret-scanning-lovable-supabase-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="https://blue-b.github.io/BlueBWorks/assets/editorial/secret-scanning-coverage.svg">
-    <link rel="icon" href="/BlueBWorks/assets/favicon.svg" type="image/svg+xml">
-    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/BlueBWorks/feed.xml">
-    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GitHub가 Lovable·Supabase 키 유출 탐지를 확대했다","description":"10월 공지에 나온 인증정보 다섯 유형을 살펴보고, 경고 확인부터 키 교체·폐기와 푸시 차단까지 연결해 설명한다. 탐지됐다는 사실과 자동 폐기는 다르며, Lovable의 최초 지원 시점은 앞선 공식 공지와 구분해야 한다.","url":"https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/","datePublished":"2026-10-06T06:09:52.000Z","dateModified":"2026-10-06T06:09:52.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"보안·인프라","keywords":"GitHub, Secret scanning, Lovable, Supabase, Pydantic, 인증키","isAccessibleForFree":true,"image":"https://blue-b.github.io/BlueBWorks/assets/editorial/secret-scanning-coverage.svg"}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"GitHub가 Lovable·Supabase 키 유출 탐지를 확대했다","item":"https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/"}]}</script>
+    <meta property="og:image" content="https://bluebworks.dpdns.org/assets/editorial/secret-scanning-coverage.svg">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GitHub가 Lovable·Supabase 키 유출 탐지를 확대했다","description":"10월 공지에 나온 인증정보 다섯 유형을 살펴보고, 경고 확인부터 키 교체·폐기와 푸시 차단까지 연결해 설명한다. 탐지됐다는 사실과 자동 폐기는 다르며, Lovable의 최초 지원 시점은 앞선 공식 공지와 구분해야 한다.","url":"https://bluebworks.dpdns.org/articles/github-secret-scanning-lovable-supabase-2026/","mainEntityOfPage":"https://bluebworks.dpdns.org/articles/github-secret-scanning-lovable-supabase-2026/","datePublished":"2026-10-06T06:09:52.000Z","dateModified":"2026-10-06T06:09:52.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"보안·인프라","keywords":"GitHub, Secret scanning, Lovable, Supabase, Pydantic, 인증키","isAccessibleForFree":true,"image":"https://bluebworks.dpdns.org/assets/editorial/secret-scanning-coverage.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.dpdns.org/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.dpdns.org/articles/"},{"@type":"ListItem","position":3,"name":"GitHub가 Lovable·Supabase 키 유출 탐지를 확대했다","item":"https://bluebworks.dpdns.org/articles/github-secret-scanning-lovable-supabase-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
-      <a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/" aria-current="page">글 목록</a><a href="/BlueBWorks/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
-      <div class="journal-tools"><a class="header-search" href="/BlueBWorks/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
   <main id="main">
@@ -45,8 +45,8 @@
     <div class="wrap article-wrap">
       <nav class="breadcrumb" aria-label="현재 위치">
         <ol>
-          <li><a href="/BlueBWorks/">홈</a></li>
-          <li><a href="/BlueBWorks/articles/">글 목록</a></li>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
         </ol>
       </nav>
       <div class="article-layout">
@@ -73,7 +73,7 @@
 
           </header>
           <figure class="source-media">
-        <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/secret-scanning-coverage.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 10월 5일 공식 공지의 다섯 탐지 유형을 Lovable·Pydantic·Supabase별로 묶은 설명 도식"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/secret-scanning-coverage.svg" alt="10월 5일 공식 공지의 다섯 탐지 유형을 Lovable·Pydantic·Supabase별로 묶은 설명 도식" width="900" height="600" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <a href="https://bluebworks.dpdns.org/assets/editorial/secret-scanning-coverage.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 10월 5일 공식 공지의 다섯 탐지 유형을 Lovable·Pydantic·Supabase별로 묶은 설명 도식"><img src="https://bluebworks.dpdns.org/assets/editorial/secret-scanning-coverage.svg" alt="10월 5일 공식 공지의 다섯 탐지 유형을 Lovable·Pydantic·Supabase별로 묶은 설명 도식" width="900" height="600" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
         <figcaption><span>공지에 나열된 탐지 유형을 정리한 자체 도식이다. 제품 화면이나 모든 유형의 최초 지원 시점을 뜻하지 않는다.</span><a href="https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more/" target="_blank" rel="noopener noreferrer">BlueBWorks 제작 · 공식 공지 기반 설명 도식 · 원문</a></figcaption>
       </figure>
           <details class="key-points">
@@ -132,8 +132,8 @@
         <p>교체 후에는 설정을 저장했다는 사실보다 실제 요청이 새 키로 처리되는지를 확인하는 것이 중요하다. 웹 서버와 작업 스케줄러가 서로 다른 환경변수를 쓰거나, 이전 배포가 계속 실행 중일 수 있기 때문이다. 이어 제공자의 접근·사용 기록에서 의심스러운 활동이 있는지 살펴본다. 여기의 순서는 공식 대응 원칙을 운영 상황에 맞게 풀어 쓴 예시이며, 모든 서비스에 동일한 교체 명령이 있다는 의미는 아니다.</p>
         <p>마지막으로 저장소의 노출 지점을 정리하고 경고를 처리한다. GitHub는 파일에서 키가 삭제됐다는 이유만으로 경고를 자동 종료하지 않는다. 실제 폐기를 확인한 다음 Close as에서 그에 맞는 사유를 고르고, 조사 내용과 조치 시점을 기록한다. 기록에는 키 자체를 넣지 않는다. 과거 Git 기록을 재작성하는 정리는 협업에 영향을 줄 수 있으므로 인증정보 회수와 구분해서 계획해야 한다.</p>
         <figure class="article-figure">
-      <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/secret-scanning-response.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 노출 위치 확인, 제공자 쪽 키 회수·교체, 서비스와 사용 기록 확인, 경고 종료를 구분한 대응 흐름">
-        <img src="https://blue-b.github.io/BlueBWorks/assets/editorial/secret-scanning-response.svg" alt="노출 위치 확인, 제공자 쪽 키 회수·교체, 서비스와 사용 기록 확인, 경고 종료를 구분한 대응 흐름" width="900" height="800" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <a href="https://bluebworks.dpdns.org/assets/editorial/secret-scanning-response.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 노출 위치 확인, 제공자 쪽 키 회수·교체, 서비스와 사용 기록 확인, 경고 종료를 구분한 대응 흐름">
+        <img src="https://bluebworks.dpdns.org/assets/editorial/secret-scanning-response.svg" alt="노출 위치 확인, 제공자 쪽 키 회수·교체, 서비스와 사용 기록 확인, 경고 종료를 구분한 대응 흐름" width="900" height="800" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>키의 권한을 없애는 조치와 GitHub 경고를 닫는 조치는 다르다. 운영 중단 위험과 노출 위험을 고려해 회수·교체 순서를 결정한다. 공식 문서를 바탕으로 직접 구성한 도식이며 실제 관리 화면은 아니다.</span><a href="https://docs.github.com/en/code-security/tutorials/remediate-leaked-secrets/remediating-a-leaked-secret" target="_blank" rel="noopener noreferrer">BlueBWorks 제작 · GitHub Docs 기반 설명 도식 · 원문</a></figcaption>
@@ -222,21 +222,21 @@
       <h2 id="related-title">관련 글</h2>
       <ul class="related-list">
         <li>
-          <a href="/BlueBWorks/articles/github-stacked-pull-requests-ga-2026/">
+          <a href="/articles/github-stacked-pull-requests-ga-2026/">
             <span class="related-cat">개발도구</span>
             <strong>GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다</strong>
             <span>게시 2026년 10월 9일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/github-copilot-code-review-api-2026/">
+          <a href="/articles/github-copilot-code-review-api-2026/">
             <span class="related-cat">개발도구</span>
             <strong>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</strong>
             <span>게시 2026년 10월 3일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/">
+          <a href="/articles/github-copilot-dynamic-workflows-2026/">
             <span class="related-cat">개발도구</span>
             <strong>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</strong>
             <span>게시 2026년 10월 2일</span>
@@ -244,7 +244,7 @@
         </li>
       </ul>
     </section>
-          <p class="article-back"><a href="/BlueBWorks/articles/">글 목록으로</a></p>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
         </article>
         <aside class="article-aside aside-right" aria-labelledby="resources-title">
       <h2 class="rail-title" id="resources-title">참고 자료</h2>
@@ -291,7 +291,7 @@
     </li>
       </ul>
       <div class="article-tools">
-        <button type="button" class="copy-link" data-copy-url="https://blue-b.github.io/BlueBWorks/articles/github-secret-scanning-lovable-supabase-2026/">링크 복사</button>
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.dpdns.org/articles/github-secret-scanning-lovable-supabase-2026/">링크 복사</button>
         <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>
@@ -304,17 +304,17 @@
         <strong>BlueBWorks</strong>
       </div>
       <nav class="footer-nav" aria-label="바닥글">
-        <a href="/BlueBWorks/about.html">소개</a>
-        <a href="/BlueBWorks/editorial.html">편집 원칙</a>
-        <a href="/BlueBWorks/contact.html">문의</a>
-        <a href="/BlueBWorks/privacy.html">개인정보</a>
-        <a href="/BlueBWorks/feed.xml">RSS</a>
+        <a href="/about.html">소개</a>
+        <a href="/editorial.html">편집 원칙</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
     <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
-  <script src="/BlueBWorks/assets/app.js?v=edition6" defer></script>
-  <script src="/BlueBWorks/assets/journal.js?v=edition6" defer></script>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
   </body>
 </html>

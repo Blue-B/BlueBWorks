@@ -19,7 +19,7 @@ const server = http.createServer(async(req,res)=>{
     const file = path.resolve(root,'.'+name);
     if(!file.startsWith(root+path.sep)) throw new Error('outside site');
     let bytes = await fs.readFile(file);
-    if(file.endsWith('.html')) bytes=Buffer.from(bytes.toString().replaceAll('https://blue-b.github.io/BlueBWorks/',`http://${process.env.SITE_TEST_HOST || '127.0.0.1'}:${server.address().port}/BlueBWorks/`));
+    if(file.endsWith('.html')) bytes=Buffer.from(bytes.toString().replaceAll('https://bluebworks.dpdns.org/',`http://${process.env.SITE_TEST_HOST || '127.0.0.1'}:${server.address().port}/BlueBWorks/`));
     res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream'});res.end(bytes);
   } catch {res.writeHead(404);res.end('Not found');}
 });

@@ -1,33 +1,33 @@
 <!doctype html>
-<html lang="ko" data-base="/BlueBWorks">
+<html lang="ko" data-base="">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다 | BlueBWorks</title>
     <meta name="description" content="Cloudflare가 실제 운영 요청이 보안 규칙, 변환, 캐시, Workers, 원본 서버를 어떻게 지나갔는지 한 타임라인에서 보여 주는 Cloudflare Traces를 오픈 베타로 공개했다.">
-    <link rel="canonical" href="https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/">
+    <link rel="canonical" href="https://bluebworks.dpdns.org/articles/cloudflare-traces-request-path-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다 | BlueBWorks">
     <meta property="og:description" content="Cloudflare가 실제 운영 요청이 보안 규칙, 변환, 캐시, Workers, 원본 서버를 어떻게 지나갔는지 한 타임라인에서 보여 주는 Cloudflare Traces를 오픈 베타로 공개했다.">
-    <meta property="og:url" content="https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/">
+    <meta property="og:url" content="https://bluebworks.dpdns.org/articles/cloudflare-traces-request-path-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-traces-overview.png">
-    <link rel="icon" href="/BlueBWorks/assets/favicon.svg" type="image/svg+xml">
-    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/BlueBWorks/feed.xml">
-    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다","description":"Cloudflare가 실제 운영 요청이 보안 규칙, 변환, 캐시, Workers, 원본 서버를 어떻게 지나갔는지 한 타임라인에서 보여 주는 Cloudflare Traces를 오픈 베타로 공개했다. 별도 계측 없이 Cloudflare 구간을 자동으로 기록하고, 필요한 요청만 더 촘촘하게 수집하거나 OpenTelemetry로 외부 도구와 연결할 수 있다.","url":"https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/","datePublished":"2026-10-05T11:37:39.000Z","dateModified":"2026-10-05T11:37:39.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"Cloudflare, Observability, Tracing, OpenTelemetry","isAccessibleForFree":true,"image":"https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-traces-overview.png"}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다","item":"https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/"}]}</script>
+    <meta property="og:image" content="https://bluebworks.dpdns.org/assets/editorial/cloudflare-traces-overview.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다","description":"Cloudflare가 실제 운영 요청이 보안 규칙, 변환, 캐시, Workers, 원본 서버를 어떻게 지나갔는지 한 타임라인에서 보여 주는 Cloudflare Traces를 오픈 베타로 공개했다. 별도 계측 없이 Cloudflare 구간을 자동으로 기록하고, 필요한 요청만 더 촘촘하게 수집하거나 OpenTelemetry로 외부 도구와 연결할 수 있다.","url":"https://bluebworks.dpdns.org/articles/cloudflare-traces-request-path-2026/","mainEntityOfPage":"https://bluebworks.dpdns.org/articles/cloudflare-traces-request-path-2026/","datePublished":"2026-10-05T11:37:39.000Z","dateModified":"2026-10-05T11:37:39.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"Cloudflare, Observability, Tracing, OpenTelemetry","isAccessibleForFree":true,"image":"https://bluebworks.dpdns.org/assets/editorial/cloudflare-traces-overview.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.dpdns.org/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.dpdns.org/articles/"},{"@type":"ListItem","position":3,"name":"Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다","item":"https://bluebworks.dpdns.org/articles/cloudflare-traces-request-path-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
-      <a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/" aria-current="page">글 목록</a><a href="/BlueBWorks/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
-      <div class="journal-tools"><a class="header-search" href="/BlueBWorks/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
   <main id="main">
@@ -45,8 +45,8 @@
     <div class="wrap article-wrap">
       <nav class="breadcrumb" aria-label="현재 위치">
         <ol>
-          <li><a href="/BlueBWorks/">홈</a></li>
-          <li><a href="/BlueBWorks/articles/">글 목록</a></li>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
         </ol>
       </nav>
       <div class="article-layout">
@@ -73,7 +73,7 @@
 
           </header>
           <figure class="source-media">
-        <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-traces-overview.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: Cloudflare Traces 대시보드에서 한 요청의 처리 단계를 span으로 펼쳐 본 화면"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-traces-overview.png" alt="Cloudflare Traces 대시보드에서 한 요청의 처리 단계를 span으로 펼쳐 본 화면" width="2638" height="1124" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <a href="https://bluebworks.dpdns.org/assets/editorial/cloudflare-traces-overview.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: Cloudflare Traces 대시보드에서 한 요청의 처리 단계를 span으로 펼쳐 본 화면"><img src="https://bluebworks.dpdns.org/assets/editorial/cloudflare-traces-overview.png" alt="Cloudflare Traces 대시보드에서 한 요청의 처리 단계를 span으로 펼쳐 본 화면" width="2638" height="1124" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
         <figcaption><span>실제 요청 하나를 보안 규칙, 라우팅, Worker, 원본 연결 등의 span으로 나눠 보여 주는 Cloudflare Traces 공식 문서 화면.</span><a href="https://developers.cloudflare.com/observability/traces/" target="_blank" rel="noopener noreferrer">Cloudflare Developer Docs · CC BY 4.0 · 원문</a><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">이미지 이용 조건</a></figcaption>
       </figure>
           <details class="key-points">
@@ -103,8 +103,8 @@
         <p>예를 들어 차단된 요청이라면 어떤 사용자 정의 규칙이나 관리형 보안 규칙이 실제로 동작했는지 확인할 수 있다. URL이 예상과 다르게 원본에 도착했다면 http_request_transform 구간에서 어떤 Transform Rule이 어떤 값을 바꿨는지 볼 수 있다. Worker 라우팅이 의심될 때는 workers_routing span에서 어떤 경로가 매칭됐는지 확인하는 식이다.</p>
         <p>성능 문제에서도 같은 방식이 쓰인다. Cloudflare는 발표 글에서 총 539ms가 걸린 요청 중 cache miss 이후 원본 응답을 기다리는 데 527ms가 쓰인 예를 보여 줬다. 이 수치는 일반적인 성능을 뜻하는 벤치마크가 아니라 Cloudflare가 기능 설명을 위해 제시한 한 요청의 사례다. 중요한 점은 전체 지연을 한 숫자로 보는 대신 어느 구간에 시간이 몰렸는지 바로 분리할 수 있다는 것이다.</p>
         <figure class="article-figure">
-      <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-traces-configuration.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Cloudflare Traces 설정에서 샘플링, 저장, 내보내기, trace context 항목을 설정하는 화면">
-        <img src="https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-traces-configuration.png" alt="Cloudflare Traces 설정에서 샘플링, 저장, 내보내기, trace context 항목을 설정하는 화면" width="1500" height="892" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <a href="https://bluebworks.dpdns.org/assets/editorial/cloudflare-traces-configuration.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Cloudflare Traces 설정에서 샘플링, 저장, 내보내기, trace context 항목을 설정하는 화면">
+        <img src="https://bluebworks.dpdns.org/assets/editorial/cloudflare-traces-configuration.png" alt="Cloudflare Traces 설정에서 샘플링, 저장, 내보내기, trace context 항목을 설정하는 화면" width="1500" height="892" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>Cloudflare Traces는 도메인별로 샘플링, Cloudflare 저장 여부, 외부 내보내기, trace context 전달을 따로 정한다. 공식 문서의 설정 화면.</span><a href="https://developers.cloudflare.com/observability/traces/configuration/" target="_blank" rel="noopener noreferrer">Cloudflare Developer Docs · CC BY 4.0 · 원문</a><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">이미지 이용 조건</a></figcaption>
@@ -118,8 +118,8 @@
         <p>규칙 순서도 중요하다. 공식 설정 문서는 첫 번째로 일치한 Trace Rule을 사용한다고 설명한다. 여러 규칙을 만들 때는 더 구체적인 조사 조건을 위에 두지 않으면 넓은 규칙이 먼저 매칭돼 예상과 다른 샘플링 비율이 적용될 수 있다.</p>
         <p>이 방식은 오류를 재현할 때 특히 편하다. 임시 디버그 헤더를 넣은 요청만 100% 추적하도록 만들면 전체 트래픽의 수집량을 크게 올리지 않고도 문제 요청의 경로를 자세히 확보할 수 있다. 조사가 끝난 뒤에는 해당 규칙을 끄거나 제거해 평소 수준으로 돌아가면 된다.</p>
         <figure class="article-figure">
-      <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-trace-rule.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: URL 경로 조건과 샘플링 비율을 지정하는 Cloudflare Trace Rule 생성 화면">
-        <img src="https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-trace-rule.png" alt="URL 경로 조건과 샘플링 비율을 지정하는 Cloudflare Trace Rule 생성 화면" width="1350" height="878" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <a href="https://bluebworks.dpdns.org/assets/editorial/cloudflare-trace-rule.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: URL 경로 조건과 샘플링 비율을 지정하는 Cloudflare Trace Rule 생성 화면">
+        <img src="https://bluebworks.dpdns.org/assets/editorial/cloudflare-trace-rule.png" alt="URL 경로 조건과 샘플링 비율을 지정하는 Cloudflare Trace Rule 생성 화면" width="1350" height="878" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>공식 문서의 Trace Rule 예시. 특정 URL 경로처럼 조사하려는 트래픽에만 별도 샘플링 비율을 적용할 수 있다.</span><a href="https://developers.cloudflare.com/observability/traces/configuration/" target="_blank" rel="noopener noreferrer">Cloudflare Developer Docs · CC BY 4.0 · 원문</a><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">이미지 이용 조건</a></figcaption>
@@ -196,21 +196,21 @@
       <h2 id="related-title">관련 글</h2>
       <ul class="related-list">
         <li>
-          <a href="/BlueBWorks/articles/cloudflare-protected-quick-tunnels-2026/">
+          <a href="/articles/cloudflare-protected-quick-tunnels-2026/">
             <span class="related-cat">개발도구</span>
             <strong>로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels</strong>
             <span>게시 2026년 10월 4일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/cloudflare-k2-serverless-event-streams-2026/">
+          <a href="/articles/cloudflare-k2-serverless-event-streams-2026/">
             <span class="related-cat">개발도구</span>
             <strong>Cloudflare K2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법</strong>
             <span>게시 2026년 10월 2일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/cloudflare-ohttp-gateway-2026/">
+          <a href="/articles/cloudflare-ohttp-gateway-2026/">
             <span class="related-cat">보안·인프라</span>
             <strong>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</strong>
             <span>게시 2026년 10월 4일</span>
@@ -218,7 +218,7 @@
         </li>
       </ul>
     </section>
-          <p class="article-back"><a href="/BlueBWorks/articles/">글 목록으로</a></p>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
         </article>
         <aside class="article-aside aside-right" aria-labelledby="resources-title">
       <h2 class="rail-title" id="resources-title">참고 자료</h2>
@@ -257,7 +257,7 @@
     </li>
       </ul>
       <div class="article-tools">
-        <button type="button" class="copy-link" data-copy-url="https://blue-b.github.io/BlueBWorks/articles/cloudflare-traces-request-path-2026/">링크 복사</button>
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.dpdns.org/articles/cloudflare-traces-request-path-2026/">링크 복사</button>
         <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>
@@ -270,17 +270,17 @@
         <strong>BlueBWorks</strong>
       </div>
       <nav class="footer-nav" aria-label="바닥글">
-        <a href="/BlueBWorks/about.html">소개</a>
-        <a href="/BlueBWorks/editorial.html">편집 원칙</a>
-        <a href="/BlueBWorks/contact.html">문의</a>
-        <a href="/BlueBWorks/privacy.html">개인정보</a>
-        <a href="/BlueBWorks/feed.xml">RSS</a>
+        <a href="/about.html">소개</a>
+        <a href="/editorial.html">편집 원칙</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
     <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
-  <script src="/BlueBWorks/assets/app.js?v=edition6" defer></script>
-  <script src="/BlueBWorks/assets/journal.js?v=edition6" defer></script>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
   </body>
 </html>

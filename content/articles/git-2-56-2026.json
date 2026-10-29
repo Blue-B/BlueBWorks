@@ -8,7 +8,7 @@
   "verifiedAt": "2026-10-04T13:50:04+09:00",
   "status": "Git 2.56.0 released",
   "reviewStatus": "reviewed",
-  "image": "https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-resolve-merge-conflicts.png",
+  "image": "https://bluebworks.dpdns.org/assets/editorial/gh-docs-resolve-merge-conflicts.png",
   "imageAlt": "GitHub 웹 UI에서 merge conflict를 해결할 때 나타나는 Resolve conflicts 버튼 (GitHub 공식 문서 화면)",
   "imageCredit": "GitHub Docs · CC BY 4.0",
   "imageWidth": 1668,
@@ -39,7 +39,7 @@
       ],
       "figures": [
         {
-          "src": "https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-mark-as-resolved.png",
+          "src": "https://bluebworks.dpdns.org/assets/editorial/gh-docs-mark-as-resolved.png",
           "alt": "GitHub 웹 UI의 Mark as resolved 버튼 (GitHub 공식 문서 화면)",
           "caption": "GitHub 웹 편집기에서 충돌을 정리한 뒤 누르는 Mark as resolved 버튼. 기존 GUI 흐름을 보여 주는 공식 문서 화면이며, Git 2.56 CLI의 git add --resolved 실행 화면이 아니다.",
           "credit": "GitHub Docs · CC BY 4.0",
@@ -48,7 +48,7 @@
           "height": 418
         },
         {
-          "src": "https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-merge-conflict-commit.png",
+          "src": "https://bluebworks.dpdns.org/assets/editorial/gh-docs-merge-conflict-commit.png",
           "alt": "충돌을 모두 해결한 뒤 GitHub 웹 UI에서 merge commit을 만드는 화면 (GitHub 공식 문서)",
           "caption": "모든 충돌을 해결한 뒤 GitHub 웹 UI에서 merge commit을 만드는 단계. 웹 UI의 자동 커밋과 달리 명령줄에서는 git add --resolved로 stage한 뒤 직접 commit한다.",
           "credit": "GitHub Docs · CC BY 4.0",

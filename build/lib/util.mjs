@@ -25,7 +25,7 @@ export function basePathFromUrl(baseUrl) {
 }
 
 export function normalizeBaseUrl(baseUrl) {
-  const value = txt(baseUrl) || "https://blue-b.github.io/BlueBWorks";
+  const value = txt(baseUrl) || "https://bluebworks.dpdns.org";
   return value.replace(/\/+$/, "");
 }
 

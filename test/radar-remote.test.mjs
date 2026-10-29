@@ -13,7 +13,7 @@ test('RSS and Atom source discovery handles valid dates and rejects stale items'
 
 test('remote publication check rejects a missing public listing', async () => {
   const fetcher = async url => ({ ok: true, text: async () => url.includes('/articles/smoke/')
-    ? '<title>Smoke</title><link rel="canonical" href="https://blue-b.github.io/BlueBWorks/articles/smoke/"><div class="article-body"></div><script type="application/ld+json"></script>'
+    ? '<title>Smoke</title><link rel="canonical" href="https://bluebworks.dpdns.org/articles/smoke/"><div class="article-body"></div><script type="application/ld+json"></script>'
     : '<html>no new article</html>' });
   await assert.rejects(checkRemote({ slug: 'smoke', expectedTitle: 'Smoke', fetcher }), /does not list article/);
 });

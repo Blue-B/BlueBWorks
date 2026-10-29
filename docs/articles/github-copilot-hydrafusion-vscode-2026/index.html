@@ -1,32 +1,32 @@
 <!doctype html>
-<html lang="ko" data-base="/BlueBWorks">
+<html lang="ko" data-base="">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다 | BlueBWorks</title>
     <meta name="description" content="GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.">
-    <link rel="canonical" href="https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/">
+    <link rel="canonical" href="https://bluebworks.dpdns.org/articles/github-copilot-hydrafusion-vscode-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다 | BlueBWorks">
     <meta property="og:description" content="GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.">
-    <meta property="og:url" content="https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/">
+    <meta property="og:url" content="https://bluebworks.dpdns.org/articles/github-copilot-hydrafusion-vscode-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary">
-    <link rel="icon" href="/BlueBWorks/assets/favicon.svg" type="image/svg+xml">
-    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/BlueBWorks/feed.xml">
-    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다","description":"GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.","url":"https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-01T18:00:09.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, HydraFusion, VS Code","isAccessibleForFree":true}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다","item":"https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/"}]}</script>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다","description":"GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.","url":"https://bluebworks.dpdns.org/articles/github-copilot-hydrafusion-vscode-2026/","mainEntityOfPage":"https://bluebworks.dpdns.org/articles/github-copilot-hydrafusion-vscode-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-01T18:00:09.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, HydraFusion, VS Code","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.dpdns.org/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.dpdns.org/articles/"},{"@type":"ListItem","position":3,"name":"HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다","item":"https://bluebworks.dpdns.org/articles/github-copilot-hydrafusion-vscode-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
-      <a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/" aria-current="page">글 목록</a><a href="/BlueBWorks/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
-      <div class="journal-tools"><a class="header-search" href="/BlueBWorks/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
   <main id="main">
@@ -44,8 +44,8 @@
     <div class="wrap article-wrap">
       <nav class="breadcrumb" aria-label="현재 위치">
         <ol>
-          <li><a href="/BlueBWorks/">홈</a></li>
-          <li><a href="/BlueBWorks/articles/">글 목록</a></li>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
         </ol>
       </nav>
       <div class="article-layout">
@@ -119,21 +119,21 @@
       <h2 id="related-title">관련 글</h2>
       <ul class="related-list">
         <li>
-          <a href="/BlueBWorks/articles/github-copilot-code-review-api-2026/">
+          <a href="/articles/github-copilot-code-review-api-2026/">
             <span class="related-cat">개발도구</span>
             <strong>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용</strong>
             <span>게시 2026년 10월 3일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/">
+          <a href="/articles/github-copilot-dynamic-workflows-2026/">
             <span class="related-cat">개발도구</span>
             <strong>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</strong>
             <span>게시 2026년 10월 2일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/github-copilot-computer-use-2026/">
+          <a href="/articles/github-copilot-computer-use-2026/">
             <span class="related-cat">개발도구</span>
             <strong>GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다</strong>
             <span>게시 2026년 10월 2일</span>
@@ -141,7 +141,7 @@
         </li>
       </ul>
     </section>
-          <p class="article-back"><a href="/BlueBWorks/articles/">글 목록으로</a></p>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
         </article>
         <aside class="article-aside aside-right" aria-labelledby="resources-title">
       <h2 class="rail-title" id="resources-title">참고 자료</h2>
@@ -188,7 +188,7 @@
     </li>
       </ul>
       <div class="article-tools">
-        <button type="button" class="copy-link" data-copy-url="https://blue-b.github.io/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/">링크 복사</button>
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.dpdns.org/articles/github-copilot-hydrafusion-vscode-2026/">링크 복사</button>
         <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>
@@ -201,17 +201,17 @@
         <strong>BlueBWorks</strong>
       </div>
       <nav class="footer-nav" aria-label="바닥글">
-        <a href="/BlueBWorks/about.html">소개</a>
-        <a href="/BlueBWorks/editorial.html">편집 원칙</a>
-        <a href="/BlueBWorks/contact.html">문의</a>
-        <a href="/BlueBWorks/privacy.html">개인정보</a>
-        <a href="/BlueBWorks/feed.xml">RSS</a>
+        <a href="/about.html">소개</a>
+        <a href="/editorial.html">편집 원칙</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
     <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
-  <script src="/BlueBWorks/assets/app.js?v=edition6" defer></script>
-  <script src="/BlueBWorks/assets/journal.js?v=edition6" defer></script>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
   </body>
 </html>

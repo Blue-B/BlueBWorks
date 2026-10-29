@@ -1,33 +1,33 @@
 <!doctype html>
-<html lang="ko" data-base="/BlueBWorks">
+<html lang="ko" data-base="">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용 | BlueBWorks</title>
     <meta name="description" content="GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.">
-    <link rel="canonical" href="https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/">
+    <link rel="canonical" href="https://bluebworks.dpdns.org/articles/github-copilot-code-review-api-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용 | BlueBWorks">
     <meta property="og:description" content="GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.">
-    <meta property="og:url" content="https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/">
+    <meta property="og:url" content="https://bluebworks.dpdns.org/articles/github-copilot-code-review-api-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="https://blue-b.github.io/BlueBWorks/assets/editorial/copilot-review-settings.jpg">
-    <link rel="icon" href="/BlueBWorks/assets/favicon.svg" type="image/svg+xml">
-    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/BlueBWorks/feed.xml">
-    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용","description":"GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.","url":"https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/","datePublished":"2026-10-03T11:43:12.000Z","dateModified":"2026-10-03T15:43:28.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, 코드 리뷰, API, 개발 자동화","isAccessibleForFree":true,"image":"https://blue-b.github.io/BlueBWorks/assets/editorial/copilot-review-settings.jpg"}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용","item":"https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/"}]}</script>
+    <meta property="og:image" content="https://bluebworks.dpdns.org/assets/editorial/copilot-review-settings.jpg">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용","description":"GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.","url":"https://bluebworks.dpdns.org/articles/github-copilot-code-review-api-2026/","mainEntityOfPage":"https://bluebworks.dpdns.org/articles/github-copilot-code-review-api-2026/","datePublished":"2026-10-03T11:43:12.000Z","dateModified":"2026-10-03T15:43:28.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, 코드 리뷰, API, 개발 자동화","isAccessibleForFree":true,"image":"https://bluebworks.dpdns.org/assets/editorial/copilot-review-settings.jpg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.dpdns.org/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.dpdns.org/articles/"},{"@type":"ListItem","position":3,"name":"Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용","item":"https://bluebworks.dpdns.org/articles/github-copilot-code-review-api-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
-      <a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/" aria-current="page">글 목록</a><a href="/BlueBWorks/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
-      <div class="journal-tools"><a class="header-search" href="/BlueBWorks/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
   <main id="main">
@@ -45,8 +45,8 @@
     <div class="wrap article-wrap">
       <nav class="breadcrumb" aria-label="현재 위치">
         <ol>
-          <li><a href="/BlueBWorks/">홈</a></li>
-          <li><a href="/BlueBWorks/articles/">글 목록</a></li>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
         </ol>
       </nav>
       <div class="article-layout">
@@ -74,7 +74,7 @@
 
           </header>
           <figure class="source-media">
-        <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/copilot-review-settings.jpg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: GitHub 공식 발표에 실린 Default Balanced 코드 리뷰 설정 화면"><img src="https://blue-b.github.io/BlueBWorks/assets/editorial/copilot-review-settings.jpg" alt="GitHub 공식 발표에 실린 Default Balanced 코드 리뷰 설정 화면" width="1600" height="840" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <a href="https://bluebworks.dpdns.org/assets/editorial/copilot-review-settings.jpg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: GitHub 공식 발표에 실린 Default Balanced 코드 리뷰 설정 화면"><img src="https://bluebworks.dpdns.org/assets/editorial/copilot-review-settings.jpg" alt="GitHub 공식 발표에 실린 Default Balanced 코드 리뷰 설정 화면" width="1600" height="840" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
         <figcaption><span>GitHub Changelog에 실린 Default Balanced 코드 리뷰 설정 화면. 기본값이 Balanced로 바뀐 2026-09-28 적용 내용을 보여 주는 공식 발표 이미지다.</span><a href="https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level/" target="_blank" rel="noopener noreferrer">GitHub Changelog · 실제 설정 화면 · 원문</a></figcaption>
       </figure>
           <details class="key-points">
@@ -96,8 +96,8 @@
         <p>예를 들어 팀이 자체 릴리스 화면을 운영한다면 그 화면에서 검토 요청을 보낼 수 있다. 변경 파일의 종류를 보고 추가 점검이 필요할 때만 요청하거나, 사내 검사 결과와 함께 리뷰 상태를 표시하는 구성도 생각할 수 있다. 이것은 API를 활용하는 설계 예시이지, 발표와 함께 그런 정책이 자동으로 적용된다는 의미는 아니다.</p>
         <p>지원 플랜과 기능 상태도 나눠 봐야 한다. 발표는 Pro, Pro+, Max, Business, Enterprise에서 API 지원이 일반 제공된다고 명시한다. 무료 플랜에도 같은 조건으로 열렸다고 확대해 읽으면 안 된다. 또 API로 리뷰를 부르는 기능과 Copilot이 병합 요건을 충족하는 승인까지 남기는 기능은 서로 다른 설정이다.</p>
         <figure class="article-figure">
-      <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-copilot-request-review.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: GitHub 웹 UI에서 Copilot 코드 리뷰를 리뷰어로 요청하는 화면 (GitHub 공식 문서)">
-        <img src="https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-copilot-request-review.png" alt="GitHub 웹 UI에서 Copilot 코드 리뷰를 리뷰어로 요청하는 화면 (GitHub 공식 문서)" width="800" height="148" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <a href="https://bluebworks.dpdns.org/assets/editorial/gh-docs-copilot-request-review.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: GitHub 웹 UI에서 Copilot 코드 리뷰를 리뷰어로 요청하는 화면 (GitHub 공식 문서)">
+        <img src="https://bluebworks.dpdns.org/assets/editorial/gh-docs-copilot-request-review.png" alt="GitHub 웹 UI에서 Copilot 코드 리뷰를 리뷰어로 요청하는 화면 (GitHub 공식 문서)" width="800" height="148" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>GitHub 공식 문서의 리뷰 요청 화면. 브라우저 PR 화면에서 리뷰어를 고르는 흐름은 그대로이고, 이 글은 같은 리뷰를 REST·GraphQL API로도 요청할 수 있게 된 변화를 다룬다.</span><a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review" target="_blank" rel="noopener noreferrer">GitHub Docs · CC BY 4.0 · 원문</a><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">이미지 이용 조건</a></figcaption>
@@ -135,8 +135,8 @@
         <p>반대로 저장소의 자동 정책과 내부 API 호출을 함께 운영하면 중복 요청을 관리해야 한다. 자체 자동화에서는 같은 PR의 같은 커밋에 이미 요청 중인 검토가 있는지 확인하고, 작업이 끝나기 전에 같은 요청을 반복하지 않도록 구성하는 편이 좋다. 네트워크 오류가 났을 때 무조건 다시 보내는 대신, 앞선 요청의 상태부터 확인하도록 설계할 이유도 여기 있다.</p>
         <p>재리뷰가 언제나 새로운 피드백만 남기는 것도 아니다. 공식 안내에는 사용자가 해결 표시를 했거나 부정적인 반응을 남긴 의견이 다시 나올 수 있다고 적혀 있다. 자동화의 목표를 ‘댓글 수를 늘리는 것’으로 잡기보다, 최신 커밋에서 아직 유효한 문제를 사람이 쉽게 구분하게 하는 쪽으로 두는 편이 낫다.</p>
         <figure class="article-figure">
-      <a href="https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-copilot-feedback-controls.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Copilot 리뷰 봇글에 남길 수 있는 피드백 컨트롤 (GitHub 공식 문서)">
-        <img src="https://blue-b.github.io/BlueBWorks/assets/editorial/gh-docs-copilot-feedback-controls.png" alt="Copilot 리뷰 봇글에 남길 수 있는 피드백 컨트롤 (GitHub 공식 문서)" width="1554" height="398" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <a href="https://bluebworks.dpdns.org/assets/editorial/gh-docs-copilot-feedback-controls.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Copilot 리뷰 봇글에 남길 수 있는 피드백 컨트롤 (GitHub 공식 문서)">
+        <img src="https://bluebworks.dpdns.org/assets/editorial/gh-docs-copilot-feedback-controls.png" alt="Copilot 리뷰 봇글에 남길 수 있는 피드백 컨트롤 (GitHub 공식 문서)" width="1554" height="398" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>GitHub 공식 문서의 Copilot 리뷰 피드백 컨트롤. 해결 표시를 하거나 부정적인 반응을 남긴 의견은 이후 재리뷰에서 다시 나올 수 있다고 문서가 안내한다.</span><a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review" target="_blank" rel="noopener noreferrer">GitHub Docs · CC BY 4.0 · 원문</a><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">이미지 이용 조건</a></figcaption>
@@ -205,21 +205,21 @@
       <h2 id="related-title">관련 글</h2>
       <ul class="related-list">
         <li>
-          <a href="/BlueBWorks/articles/github-copilot-dynamic-workflows-2026/">
+          <a href="/articles/github-copilot-dynamic-workflows-2026/">
             <span class="related-cat">개발도구</span>
             <strong>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</strong>
             <span>게시 2026년 10월 2일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/github-copilot-computer-use-2026/">
+          <a href="/articles/github-copilot-computer-use-2026/">
             <span class="related-cat">개발도구</span>
             <strong>GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다</strong>
             <span>게시 2026년 10월 2일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/github-copilot-hydrafusion-vscode-2026/">
+          <a href="/articles/github-copilot-hydrafusion-vscode-2026/">
             <span class="related-cat">개발도구</span>
             <strong>HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다</strong>
             <span>게시 2026년 10월 2일</span>
@@ -227,7 +227,7 @@
         </li>
       </ul>
     </section>
-          <p class="article-back"><a href="/BlueBWorks/articles/">글 목록으로</a></p>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
         </article>
         <aside class="article-aside aside-right" aria-labelledby="resources-title">
       <h2 class="rail-title" id="resources-title">참고 자료</h2>
@@ -266,7 +266,7 @@
     </li>
       </ul>
       <div class="article-tools">
-        <button type="button" class="copy-link" data-copy-url="https://blue-b.github.io/BlueBWorks/articles/github-copilot-code-review-api-2026/">링크 복사</button>
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.dpdns.org/articles/github-copilot-code-review-api-2026/">링크 복사</button>
         <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>
@@ -279,17 +279,17 @@
         <strong>BlueBWorks</strong>
       </div>
       <nav class="footer-nav" aria-label="바닥글">
-        <a href="/BlueBWorks/about.html">소개</a>
-        <a href="/BlueBWorks/editorial.html">편집 원칙</a>
-        <a href="/BlueBWorks/contact.html">문의</a>
-        <a href="/BlueBWorks/privacy.html">개인정보</a>
-        <a href="/BlueBWorks/feed.xml">RSS</a>
+        <a href="/about.html">소개</a>
+        <a href="/editorial.html">편집 원칙</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
     <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
-  <script src="/BlueBWorks/assets/app.js?v=edition6" defer></script>
-  <script src="/BlueBWorks/assets/journal.js?v=edition6" defer></script>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
   </body>
 </html>

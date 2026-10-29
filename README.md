@@ -2,7 +2,7 @@
 
 개발 도구, 오픈소스, AI 소식을 공식 출처와 함께 정리하는 한국어 정적 사이트입니다.
 
-사이트: https://blue-b.github.io/BlueBWorks/
+사이트: https://bluebworks.dpdns.org/ (이전 주소 https://blue-b.github.io/BlueBWorks/ 에서 자동으로 넘어옴)
 
 ## 구성
 장식을 줄인 밝은 바탕과 본문 중심 화면입니다. 작은 로봇 캐릭터는 브랜드 보조 요소로만 쓰고, 기사 탐색을 중심으로 구성합니다. 헤더 검색, 모바일 메뉴, 카테고리 필터, 이미지 확대, 원문 영상 재생, 오른쪽 목차, 글 끝 참고 자료 목록, 링크 복사, 동작 줄이기를 제공합니다. 모바일 메뉴와 이미지 링크는 JavaScript가 없어도 기본 탐색 경로를 유지합니다.
@@ -39,7 +39,7 @@ DevSpace 전용 프로필과 현재 작업공간 세션만 사용합니다.
 ```sh
 DEVSPACE_WORKSPACE_ID=<현재작업공간> node test/browser-smoke.mjs
 DEVSPACE_WORKSPACE_ID=<현재작업공간> node test/editorial-browser.mjs
-# 공개 배포 검사에는 SITE_TEST_URL=https://blue-b.github.io/BlueBWorks 를 함께 지정
+# 공개 배포 검사에는 SITE_TEST_URL=https://bluebworks.dpdns.org 를 함께 지정
 ```
 
 기본 검사는 기존 주소 호환·검색·캐릭터를, 편집 검사는 새 기사들의 실제 이미지·영상 메타데이터·확대·모바일 메뉴를 확인합니다. 스크린샷은 `.verify/` 또는 임시 폴더에만 기록합니다.

@@ -1,33 +1,33 @@
 <!doctype html>
-<html lang="ko" data-base="/BlueBWorks">
+<html lang="ko" data-base="">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다 | BlueBWorks</title>
     <meta name="description" content="Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.">
-    <link rel="canonical" href="https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/">
+    <link rel="canonical" href="https://bluebworks.dpdns.org/articles/olmo-core-3-moe-training-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다 | BlueBWorks">
     <meta property="og:description" content="Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.">
-    <meta property="og:url" content="https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/">
+    <meta property="og:url" content="https://bluebworks.dpdns.org/articles/olmo-core-3-moe-training-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://opengraph.githubassets.com/1/allenai/olmo-core">
-    <link rel="icon" href="/BlueBWorks/assets/favicon.svg" type="image/svg+xml">
-    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/BlueBWorks/feed.xml">
-    <link rel="stylesheet" href="/BlueBWorks/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다","description":"Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.","url":"https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/","mainEntityOfPage":"https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-01T18:00:09.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"Ai2, Olmo-core 3, MoE, Open Source","isAccessibleForFree":true,"image":"https://opengraph.githubassets.com/1/allenai/olmo-core"}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://blue-b.github.io/BlueBWorks/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://blue-b.github.io/BlueBWorks/articles/"},{"@type":"ListItem","position":3,"name":"Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다","item":"https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/"}]}</script>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다","description":"Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.","url":"https://bluebworks.dpdns.org/articles/olmo-core-3-moe-training-2026/","mainEntityOfPage":"https://bluebworks.dpdns.org/articles/olmo-core-3-moe-training-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-01T18:00:09.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"Ai2, Olmo-core 3, MoE, Open Source","isAccessibleForFree":true,"image":"https://opengraph.githubassets.com/1/allenai/olmo-core"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.dpdns.org/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.dpdns.org/articles/"},{"@type":"ListItem","position":3,"name":"Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다","item":"https://bluebworks.dpdns.org/articles/olmo-core-3-moe-training-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
-      <a class="journal-brand" href="/BlueBWorks/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/BlueBWorks/">홈</a><a href="/BlueBWorks/articles/" aria-current="page">글 목록</a><a href="/BlueBWorks/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
-      <div class="journal-tools"><a class="header-search" href="/BlueBWorks/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
   <main id="main">
@@ -45,8 +45,8 @@
     <div class="wrap article-wrap">
       <nav class="breadcrumb" aria-label="현재 위치">
         <ol>
-          <li><a href="/BlueBWorks/">홈</a></li>
-          <li><a href="/BlueBWorks/articles/">글 목록</a></li>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
         </ol>
       </nav>
       <div class="article-layout">
@@ -129,21 +129,21 @@
       <h2 id="related-title">관련 글</h2>
       <ul class="related-list">
         <li>
-          <a href="/BlueBWorks/articles/git-2-56-2026/">
+          <a href="/articles/git-2-56-2026/">
             <span class="related-cat">오픈소스·개발도구</span>
             <strong>Git 2.56: 충돌 해결만 안전하게 스테이징하고, 큰 저장소 병목도 줄였다</strong>
             <span>게시 2026년 10월 4일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/cloudflare-clef-decision-models-2026/">
+          <a href="/articles/cloudflare-clef-decision-models-2026/">
             <span class="related-cat">오픈소스</span>
             <strong>Cloudflare Clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델</strong>
             <span>게시 2026년 10월 2일</span>
           </a>
         </li>
         <li>
-          <a href="/BlueBWorks/articles/github-copilot-server-to-server-auth-2026/">
+          <a href="/articles/github-copilot-server-to-server-auth-2026/">
             <span class="related-cat">AI·개발도구</span>
             <strong>GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다</strong>
             <span>게시 2026년 10월 28일</span>
@@ -151,7 +151,7 @@
         </li>
       </ul>
     </section>
-          <p class="article-back"><a href="/BlueBWorks/articles/">글 목록으로</a></p>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
         </article>
         <aside class="article-aside aside-right" aria-labelledby="resources-title">
       <h2 class="rail-title" id="resources-title">참고 자료</h2>
@@ -198,7 +198,7 @@
     </li>
       </ul>
       <div class="article-tools">
-        <button type="button" class="copy-link" data-copy-url="https://blue-b.github.io/BlueBWorks/articles/olmo-core-3-moe-training-2026/">링크 복사</button>
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.dpdns.org/articles/olmo-core-3-moe-training-2026/">링크 복사</button>
         <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>
@@ -211,17 +211,17 @@
         <strong>BlueBWorks</strong>
       </div>
       <nav class="footer-nav" aria-label="바닥글">
-        <a href="/BlueBWorks/about.html">소개</a>
-        <a href="/BlueBWorks/editorial.html">편집 원칙</a>
-        <a href="/BlueBWorks/contact.html">문의</a>
-        <a href="/BlueBWorks/privacy.html">개인정보</a>
-        <a href="/BlueBWorks/feed.xml">RSS</a>
+        <a href="/about.html">소개</a>
+        <a href="/editorial.html">편집 원칙</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
     <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
-  <script src="/BlueBWorks/assets/app.js?v=edition6" defer></script>
-  <script src="/BlueBWorks/assets/journal.js?v=edition6" defer></script>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
   </body>
 </html>

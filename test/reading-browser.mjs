@@ -25,7 +25,7 @@ const server = http.createServer(async (req, res) => {
     const target = path.resolve(root, '.' + pathname);
     if (!target.startsWith(root + path.sep)) throw new Error('Invalid path');
     let data = await fs.readFile(target);
-    if (target.endsWith('.html')) data = Buffer.from(data.toString().replaceAll('https://blue-b.github.io/BlueBWorks/', base + '/'));
+    if (target.endsWith('.html')) data = Buffer.from(data.toString().replaceAll('https://bluebworks.dpdns.org/', base + '/'));
     res.writeHead(200, { 'Content-Type': mime[path.extname(target)] || 'application/octet-stream' });
     res.end(data);
   } catch { res.writeHead(404); res.end('Not found'); }

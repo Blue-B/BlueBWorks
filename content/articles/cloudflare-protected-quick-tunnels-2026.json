@@ -9,7 +9,7 @@
   "status": "제공 중 · 개발·테스트용",
   "reviewStatus": "reviewed",
   "tags": ["Cloudflare", "Quick Tunnels", "개발 환경", "접근 제어"],
-  "image": "https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-protected-tunnels.png",
+  "image": "https://bluebworks.dpdns.org/assets/editorial/cloudflare-protected-tunnels.png",
   "imageAlt": "Cloudflare의 Protected Quick Tunnels 공식 발표 이미지",
   "imageCredit": "Cloudflare · Protected Quick Tunnels 공식 발표",
   "imageWidth": 1999,
@@ -52,7 +52,7 @@
         "운영 관점에서 확인할 지점도 분명해진다. 이메일을 받는 데 실패한 문제와 허용 목록에 없어서 거부된 문제는 다르게 살펴봐야 한다. 시연 전에 허용한 주소로 한 번 접속하고, 허용하지 않은 주소로는 들어가지 못하는지 확인하면 명령이 기대한 범위로 적용됐는지 점검할 수 있다. 이는 별도 실험 결과가 아니라 배포 전에 해 볼 수 있는 확인 절차다."
       ],
       "sourceRefs": [1],
-      "figures": [{"src":"https://blue-b.github.io/BlueBWorks/assets/editorial/cloudflare-email-flow.png","alt":"방문자가 링크를 열고 이메일 PIN 인증을 거친 뒤 로컬 cloudflared가 허용 목록을 검사하는 네 단계 도식","caption":"이메일 소유 확인은 Cloudflare Access가, 실제 입장 여부는 로컬 cloudflared가 판단한다. Cloudflare가 공개한 원문 도식.","credit":"Cloudflare","sourceUrl":"https://blog.cloudflare.com/protected-quick-tunnels/","width":1999,"height":983}]
+      "figures": [{"src":"https://bluebworks.dpdns.org/assets/editorial/cloudflare-email-flow.png","alt":"방문자가 링크를 열고 이메일 PIN 인증을 거친 뒤 로컬 cloudflared가 허용 목록을 검사하는 네 단계 도식","caption":"이메일 소유 확인은 Cloudflare Access가, 실제 입장 여부는 로컬 cloudflared가 판단한다. Cloudflare가 공개한 원문 도식.","credit":"Cloudflare","sourceUrl":"https://blog.cloudflare.com/protected-quick-tunnels/","width":1999,"height":983}]
     },
     {
       "title": "보호 옵션을 붙여도 해결되지 않는 제약",
