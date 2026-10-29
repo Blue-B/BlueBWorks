@@ -1,0 +1,39 @@
+# Aside 작성기: X 트렌드 기반 사진 포함 기사 (2026-10-29)
+
+사용자가 2026-10-29에 승인한 두 번째 작성기다. 실행 주체는 사용자 PC의 Aside 예약 작업이며, 하루 최대 한 편을 쓴다. 매 실행 `AUTOMATION.md`, `AUTOMATION-PIPELINE.md`, `AUTOMATION-X.md`와 이 문서를 함께 읽는다. 기존 ChatGPT 예약 작성기의 기준(본문 4,000자 이상, 공식 1차 출처 두 개 이상, `editorialVersion: 2`, `reviewStatus: reviewed`, 미디어 권리 기록)은 그대로 적용한다. 이 문서는 그 기준을 낮추지 않고 X 조사와 이미지 준비 방법만 더한다.
+
+## 두 작성기의 충돌 방지
+
+- 쓰기 직전 최신 원격 `main`을 다시 받는다. 최근 6시간 안에 다른 작성기가 새 기사를 게시했으면 이번 회차는 쓰지 않고 `skipped_recent_publication`으로 끝낸다.
+- 같은 slug, 같은 발표, 같은 제품 버전을 이미 다룬 글이 있으면 쓰지 않는다. 후속 소식이면 기존 글과 다른 내용(실사용 비교, 변경점)이 충분할 때만 쓴다.
+- fast-forward 푸시만 한다. 충돌 시 최신 main 위에서 다시 빌드·검사한다. 강제 푸시하지 않는다.
+- 작성기를 구분할 수 있게 기사 JSON `discovery.writer`에 `aside`를 기록한다.
+
+## X에서 소재 찾기
+
+- Aside의 X 연동(로그인 계정의 검색·타임라인·사용자 글 조회)을 사용한다. 최근 24시간 우선, 부족하면 7일.
+- 조사 대상: AI 모델·개발 도구·오픈소스·에이전트 분야의 공식 계정과 개발자, 반응이 큰 게시물(좋아요·조회수), 한국어 AI 소식 사이트(예: tau-home.com)가 다루는 소재.
+- 고르는 기준: 독자가 실제로 써 볼 수 있는 것(새 기능·오픈소스·가격 변화), 검색 수요가 생길 만한 것, BlueBWorks가 아직 다루지 않은 것. 화제성만 있고 확인할 원문이 없는 루머는 제외한다.
+- X는 소재 발견용이다. 사실은 반드시 공식 원문(발표, 문서, 저장소, 릴리스 노트)으로 확인한다. X 게시물을 근거로 쓰면 `AUTOMATION-X.md`의 `discovery.xPosts` 형식(url, postedAt, verifiedAt, role, verification, officialSourceUrl)을 지킨다. 게시물 ID나 발언을 추측하지 않는다.
+- 다른 사이트 글을 베끼거나 문장을 옮기지 않는다. 원문 확인 뒤 BlueBWorks의 설명, 비교, 사용 순서, 제한 사항으로 새로 쓴다.
+
+## 사진·도식 넣기 (글마다 최소 2장)
+
+우선순위 순서로 준비한다. 모든 이미지는 `mediaReview.candidates`에 실제 결과를 기록한다.
+
+1. **BlueBWorks 자체 도식**: 원문의 사실을 바탕으로 작동 흐름, 전후 비교, 단계, 가격·지원 범위 표를 SVG로 새로 그린다. `site/assets/editorial/<slug>-<내용>.svg`, 1600x900 권장. 타사 로고·제품 화면을 복제하지 않는다. rightsBasis는 `BlueBWorks original editorial diagram`.
+2. **AI 생성 대표 이미지**: 주제를 상징하는 일러스트가 필요하면 기존 WSL 이미지 생성기(`/home/shell/projects/miri-asset-factory/src/gptimg-standalone.mjs`, WSL 내부 경로에 저장 후 복사)로 만든다. 실제 제품 화면처럼 보이게 만들지 않고, 문자·로고·실존 인물 얼굴을 넣지 않는다. 캡션과 credit에 `AI 생성 이미지`를 밝힌다. 사용량 한도가 나오면 우회하지 않고 도식으로 대체한다. 이 생성기는 미리캔버스 작업과 한도를 공유한다.
+3. **공식 이미지**: 이용 조건이 명시적으로 재사용을 허용할 때만(예: CC 라이선스, 보도자료 키트, 저장소 라이선스가 이미지에 명시 적용) 받아서 쓴다. 공식 자료라는 이유만으로 허락을 가정하지 않는다. X 첨부 이미지도 같다. 불분명하면 링크로만 제공한다.
+
+대표 이미지는 `image`, `imageSourceUrl`, `imageCaption`, `imageWidth`, `imageHeight`를 채우고, 본문 이미지는 해당 문단의 `sections[].figures`(src, alt, caption, credit, sourceUrl, width, height)에 넣는다. 같은 이미지를 반복하거나 관계없는 그림으로 자리를 채우지 않는다.
+
+## 애드센스·수익을 위한 기준
+
+- 하루 한 편, 긴 실용 글. 짧은 요약을 여러 개 쓰지 않는다.
+- 제목은 검색어를 고려하되 낚시성 문구를 쓰지 않는다. 요약(summary)은 160자 안팎, 첫 문단에서 핵심 답을 준다.
+- 관련 기존 글을 본문 링크나 관련 글로 연결한다.
+- 수익 관찰: 참고 사이트와 X 계정에서 반응이 큰 주제 유형, 형식(가이드, 비교, 가격 정리 등)을 회차마다 짧게 메모해 Memnest `bluebworks` 프로젝트에 남긴다. 민감정보는 남기지 않는다.
+
+## 발행과 확인
+
+`AUTOMATION-PIPELINE.md`의 6~9단계(`npm run verify`, publication-health, fast-forward 푸시, `npm run remote:check`)를 그대로 따른다. 공개 사이트에서 제목·본문·이미지가 실제로 보이는 것을 확인하기 전에는 발행 완료로 보고하지 않는다. 상태는 `published`, `pushed_unverified`, `skipped_recent_publication`, `skipped_no_candidate`, `failed` 중 하나로 보고한다.
