@@ -119,5 +119,16 @@
     "rightsBasis": "github/docs README states the assets, content and data folders are CC BY 4.0. Figure is an official docs screen, reused with attribution and a source link.",
     "bytes": 19709,
     "sha256": "ed8d23bbc3d5f6d293643ff0a4097c3014457c924776039a54381c94321c8505"
+  },
+  {
+    "file": "chatgpt-pro-business-api-credits-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/chatgpt-pro-business-api-credits-2026-thumb.png",
+    "sourceUrl": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
+    "credit": "BlueBWorks 자체 제작 썸네일",
+    "purpose": "Original 1600x900 Korean editorial thumbnail with plan amounts and eligibility, based on verified OpenAI facts; no copied logos or product UI",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 59749,
+    "sha256": "b2008047c9d62890628228f639eedd37d0fe0a5525c433b16e79806cf7e76bec"
   }
 ]
