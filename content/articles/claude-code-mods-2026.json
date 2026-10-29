@@ -9,7 +9,7 @@
   "status": "제공 중 · API는 버전별 변경 가능",
   "reviewStatus": "reviewed",
   "tags": ["Anthropic", "Claude Code", "Mods", "플러그인", "개발 환경"],
-  "image": "https://bluebworks.dpdns.org/assets/editorial/claude-mods-blast-radius.png",
+  "image": "https://bluebworks.com/assets/editorial/claude-mods-blast-radius.png",
   "imageAlt": "Claude Code 공식 Blast Radius 예제가 명령 실행 전에 영향받는 파일과 Proceed·Cancel 선택지를 보여 주는 터미널 화면",
   "imageCredit": "Anthropic · claude.dev 공식 튜토리얼",
   "imageWidth": 1100,
@@ -31,7 +31,7 @@
         "공식 튜토리얼은 세 예제를 제시한다. Token Weather는 컨텍스트 상태를, Blast Radius는 명령이 미칠 영향을, Replay Theater는 코드 변경을 순서대로 보여 준다. 아래 영상은 해당 원문에서 제공하는 실제 터미널 데모다. 이 사이트에서 따로 제작한 제품 시연이나 실행 결과가 아니다."
       ],
       "sourceRefs": [1, 2],
-      "video": {"src":"https://bluebworks.dpdns.org/assets/editorial/claude-mods-terminal-demo.mp4","poster":"https://bluebworks.dpdns.org/assets/editorial/claude-mods-blast-radius.png","caption":"공식 터미널 시연: Token Weather, Blast Radius, Replay Theater. 원문에는 데스크톱 앱 버전도 있다.","credit":"Anthropic / claude.dev","sourceUrl":"https://claude.dev/blog/getting-started-with-claude-code-mods/","verified":true},
+      "video": {"src":"https://bluebworks.com/assets/editorial/claude-mods-terminal-demo.mp4","poster":"https://bluebworks.com/assets/editorial/claude-mods-blast-radius.png","caption":"공식 터미널 시연: Token Weather, Blast Radius, Replay Theater. 원문에는 데스크톱 앱 버전도 있다.","credit":"Anthropic / claude.dev","sourceUrl":"https://claude.dev/blog/getting-started-with-claude-code-mods/","verified":true},
       "links": [{"label":"원문과 데스크톱 버전 시연","url":"https://claude.dev/blog/getting-started-with-claude-code-mods/"}]
     },
     {
@@ -64,7 +64,7 @@
         "세 예제를 자신의 작업에 적용할 때도 이 관점이 도움이 된다. 꾸미고 싶은 화면을 먼저 고르기보다, 작업 중 반복해서 찾는 정보 하나를 정하고 그 정보를 어느 시점에 보여 줄지 결정하는 것이다. 그러면 같은 API로도 토큰 계기판, 변경 파일 목록, 팀의 확인 절차처럼 서로 다른 결과를 만들 수 있다."
       ],
       "sourceRefs": [2],
-      "figures": [{"src":"https://bluebworks.dpdns.org/assets/editorial/claude-mods-replay-theater.png","alt":"Replay Theater 공식 터미널 화면. 단계 표시, greet.js의 변경, Prev·Next·Close 버튼이 보인다","caption":"Replay Theater는 변경 내용을 단계별로 읽는 예제다. 이미지 자체는 Anthropic 공식 튜토리얼의 실제 화면이며, 클릭하면 원본 크기로 볼 수 있다.","credit":"Anthropic / claude.dev","sourceUrl":"https://claude.dev/blog/getting-started-with-claude-code-mods/","width":840,"height":1019}]
+      "figures": [{"src":"https://bluebworks.com/assets/editorial/claude-mods-replay-theater.png","alt":"Replay Theater 공식 터미널 화면. 단계 표시, greet.js의 변경, Prev·Next·Close 버튼이 보인다","caption":"Replay Theater는 변경 내용을 단계별로 읽는 예제다. 이미지 자체는 Anthropic 공식 튜토리얼의 실제 화면이며, 클릭하면 원본 크기로 볼 수 있다.","credit":"Anthropic / claude.dev","sourceUrl":"https://claude.dev/blog/getting-started-with-claude-code-mods/","width":840,"height":1019}]
     },
     {
       "title": "만들기 전에 버전과 재로딩 동작부터 맞춘다",

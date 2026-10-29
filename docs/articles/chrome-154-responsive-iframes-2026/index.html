@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다 | BlueBWorks</title>
     <meta name="description" content="Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다.">
-    <link rel="canonical" href="https://bluebworks.dpdns.org/articles/chrome-154-responsive-iframes-2026/">
+    <link rel="canonical" href="https://bluebworks.com/articles/chrome-154-responsive-iframes-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다 | BlueBWorks">
     <meta property="og:description" content="Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다.">
-    <meta property="og:url" content="https://bluebworks.dpdns.org/articles/chrome-154-responsive-iframes-2026/">
+    <meta property="og:url" content="https://bluebworks.com/articles/chrome-154-responsive-iframes-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-flow.svg">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다","description":"Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다. 부모 페이지가 자식 문서의 높이를 재서 `postMessage()`로 전달하던 코드를 줄일 수 있지만, 임베드 문서의 명시적 opt-in과 동적 변경 시 `requestResize()` 호출, 기존 브라우저용 fallback은 여전히 필요하다.","url":"https://bluebworks.dpdns.org/articles/chrome-154-responsive-iframes-2026/","mainEntityOfPage":"https://bluebworks.dpdns.org/articles/chrome-154-responsive-iframes-2026/","datePublished":"2026-10-06T05:30:52.000Z","dateModified":"2026-10-06T05:30:52.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"브라우저","keywords":"Chrome, iframe, CSS, Web Platform","isAccessibleForFree":true,"image":"https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-flow.svg"}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.dpdns.org/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.dpdns.org/articles/"},{"@type":"ListItem","position":3,"name":"Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다","item":"https://bluebworks.dpdns.org/articles/chrome-154-responsive-iframes-2026/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다","description":"Chrome 154가 iframe의 높이·너비를 임베드된 문서의 실제 콘텐츠 크기에 맞춰 계산하는 `frame-sizing`을 정식 채널에 넣었다. 부모 페이지가 자식 문서의 높이를 재서 `postMessage()`로 전달하던 코드를 줄일 수 있지만, 임베드 문서의 명시적 opt-in과 동적 변경 시 `requestResize()` 호출, 기존 브라우저용 fallback은 여전히 필요하다.","url":"https://bluebworks.com/articles/chrome-154-responsive-iframes-2026/","mainEntityOfPage":"https://bluebworks.com/articles/chrome-154-responsive-iframes-2026/","datePublished":"2026-10-06T05:30:52.000Z","dateModified":"2026-10-06T05:30:52.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"브라우저","keywords":"Chrome, iframe, CSS, Web Platform","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Chrome 154의 반응형 iframe, postMessage 없이 콘텐츠 높이에 맞춘다","item":"https://bluebworks.com/articles/chrome-154-responsive-iframes-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -74,7 +74,7 @@
 
           </header>
           <figure class="source-media">
-        <a href="https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-flow.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 기존 postMessage 기반 iframe 높이 동기화와 Chrome 154 frame-sizing 방식의 차이를 비교한 기술 도식"><img src="https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-flow.svg" alt="기존 postMessage 기반 iframe 높이 동기화와 Chrome 154 frame-sizing 방식의 차이를 비교한 기술 도식" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <a href="https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 기존 postMessage 기반 iframe 높이 동기화와 Chrome 154 frame-sizing 방식의 차이를 비교한 기술 도식"><img src="https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg" alt="기존 postMessage 기반 iframe 높이 동기화와 Chrome 154 frame-sizing 방식의 차이를 비교한 기술 도식" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
         <figcaption><span>기존에는 자식 문서가 높이를 측정해 부모에게 전달해야 했지만, Chrome 154에서는 양쪽 문서가 명시적으로 설정하면 브라우저가 콘텐츠 크기를 iframe 계산에 사용할 수 있다.</span><a href="https://developer.chrome.com/blog/responsive-iframes" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · Chrome for Developers 공식 문서 기반 · 원문</a></figcaption>
       </figure>
           <details class="key-points">
@@ -123,8 +123,8 @@
         <p>Chrome 문서는 DOM 변경을 모두 끝낸 뒤 layout 전에 `requestResize()`를 호출하는 패턴을 권한다. 즉 API를 `ResizeObserver`의 대체재처럼 매 프레임 호출하는 것이 아니라, 목록 추가나 패널 확장처럼 높이가 달라질 것을 애플리케이션이 이미 아는 시점에 쓰는 방식이다. 기존 위젯이 `postMessage({height})`를 보내고 있었다면 그 메시지 전송 지점을 `requestResize()`로 단순화할 수 있는지 검토할 만하다.</p>
         <p>이미지나 웹폰트처럼 늦게 준비되는 자원이 레이아웃을 바꾸는 위젯이라면 호출 시점을 제품 코드가 알고 있는지도 확인해야 한다. 브라우저가 내부의 모든 레이아웃 변화를 영구적으로 감시하는 기능이 아니므로, 비동기 렌더링이 끝났는데 `requestResize()`가 호출되지 않으면 초기 계산 높이가 그대로 남을 수 있다. 따라서 기존에 &#39;콘텐츠가 바뀌었으니 부모에게 새 높이를 알린다&#39;고 판단하던 지점이 있다면, 그 지점을 새 API 호출로 옮기는 식으로 마이그레이션하는 편이 명확하다.</p>
         <figure class="article-figure">
-      <a href="https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-resize.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 동적 iframe 콘텐츠 변경 뒤 requestResize 호출과 브라우저의 크기 재계산 과정을 네 단계로 보여 주는 도식">
-        <img src="https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-resize.svg" alt="동적 iframe 콘텐츠 변경 뒤 requestResize 호출과 브라우저의 크기 재계산 과정을 네 단계로 보여 주는 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <a href="https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-resize.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 동적 iframe 콘텐츠 변경 뒤 requestResize 호출과 브라우저의 크기 재계산 과정을 네 단계로 보여 주는 도식">
+        <img src="https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-resize.svg" alt="동적 iframe 콘텐츠 변경 뒤 requestResize 호출과 브라우저의 크기 재계산 과정을 네 단계로 보여 주는 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>댓글 추가나 패널 확장처럼 콘텐츠가 실제로 바뀐 뒤 자식 문서가 `requestResize()`를 호출하면 브라우저가 새 콘텐츠 크기를 다시 계산한다. BlueBWorks가 공식 가이드의 동작 설명을 재구성한 도식.</span><a href="https://developer.chrome.com/blog/responsive-iframes" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · Chrome for Developers 및 CSSWG 설명 기반 · 원문</a></figcaption>
@@ -275,7 +275,7 @@
     </li>
       </ul>
       <div class="article-tools">
-        <button type="button" class="copy-link" data-copy-url="https://bluebworks.dpdns.org/articles/chrome-154-responsive-iframes-2026/">링크 복사</button>
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/chrome-154-responsive-iframes-2026/">링크 복사</button>
         <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>

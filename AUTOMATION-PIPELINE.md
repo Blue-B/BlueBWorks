@@ -22,7 +22,7 @@ ChatGPT 예약 작업이 기사 후보 조사, 공식 자료 확인, 원고 작�
 
 현재 빌더는 고유 URL, canonical, 각 글 제목·설명, BlogPosting JSON-LD, 내부 관련 글, RSS·sitemap을 생성한다. 이는 검색엔진이 이해하기 쉬운 기본 설정일 뿐 검색 결과 노출이나 순위는 보장하지 않는다. 사용자의 AdSense 승인을 위해 원문과 다른 실용 설명, 방문자를 위한 탐색과 정책·운영자 정보의 정확성을 우선한다. 자동 발행량을 늘리기 위해 반복·저품질 글을 만들지 않는다.
 
-현재 사이트는 사용자 지정 도메인 `https://bluebworks.dpdns.org/` 루트에 있다(2026-10-29 전환, DigitalPlat 무료 도메인, docs/CNAME). 이전 `https://blue-b.github.io/BlueBWorks/` 경로는 GitHub Pages가 새 주소로 넘긴다. 실제 호스트 루트 `https://blue-b.github.io/robots.txt`와 `https://blue-b.github.io/ads.txt`는 별도의 개인 사이트 저장소 관할이므로 이 저장소에서 바꾸지 않는다. Search Console 소유권 확인, AdSense 사이트 연결·심사, ads.txt 게시자 ID, 개인정보 처리 및 동의 설정은 계정 주인이 제공·승인해야 할 별도 단계이다. **승인이나 색인 등록을 자동으로 달성했다고 주장하지 않는다.**
+현재 사이트는 사용자 지정 도메인 `https://bluebworks.com/` 루트에 있다(2026-10-29 전환, Cloudflare Registrar에서 구매한 도메인, docs/CNAME). 이전 `https://blue-b.github.io/BlueBWorks/` 경로는 GitHub Pages가 새 주소로 넘긴다. 실제 호스트 루트 `https://blue-b.github.io/robots.txt`와 `https://blue-b.github.io/ads.txt`는 별도의 개인 사이트 저장소 관할이므로 이 저장소에서 바꾸지 않는다. Search Console 소유권 확인, AdSense 사이트 연결·심사, ads.txt 게시자 ID, 개인정보 처리 및 동의 설정은 계정 주인이 제공·승인해야 할 별도 단계이다. **승인이나 색인 등록을 자동으로 달성했다고 주장하지 않는다.**
 
 ## 로컬 확인 명령
 

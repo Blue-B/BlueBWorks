@@ -9,7 +9,7 @@
   "status": "Open beta",
   "reviewStatus": "reviewed",
   "tags": ["Cloudflare", "Observability", "Tracing", "OpenTelemetry"],
-  "image": "https://bluebworks.dpdns.org/assets/editorial/cloudflare-traces-overview.png",
+  "image": "https://bluebworks.com/assets/editorial/cloudflare-traces-overview.png",
   "imageAlt": "Cloudflare Traces 대시보드에서 한 요청의 처리 단계를 span으로 펼쳐 본 화면",
   "imageCredit": "Cloudflare Developer Docs · CC BY 4.0",
   "imageWidth": 2638,
@@ -46,7 +46,7 @@
       "sourceRefs": [1, 2],
       "figures": [
         {
-          "src": "https://bluebworks.dpdns.org/assets/editorial/cloudflare-traces-configuration.png",
+          "src": "https://bluebworks.com/assets/editorial/cloudflare-traces-configuration.png",
           "alt": "Cloudflare Traces 설정에서 샘플링, 저장, 내보내기, trace context 항목을 설정하는 화면",
           "caption": "Cloudflare Traces는 도메인별로 샘플링, Cloudflare 저장 여부, 외부 내보내기, trace context 전달을 따로 정한다. 공식 문서의 설정 화면.",
           "credit": "Cloudflare Developer Docs · CC BY 4.0",
@@ -67,7 +67,7 @@
       "sourceRefs": [1, 3],
       "figures": [
         {
-          "src": "https://bluebworks.dpdns.org/assets/editorial/cloudflare-trace-rule.png",
+          "src": "https://bluebworks.com/assets/editorial/cloudflare-trace-rule.png",
           "alt": "URL 경로 조건과 샘플링 비율을 지정하는 Cloudflare Trace Rule 생성 화면",
           "caption": "공식 문서의 Trace Rule 예시. 특정 URL 경로처럼 조사하려는 트래픽에만 별도 샘플링 비율을 적용할 수 있다.",
           "credit": "Cloudflare Developer Docs · CC BY 4.0",

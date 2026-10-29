@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커 | BlueBWorks</title>
     <meta name="description" content="고속 링커 mold가 3.0에서 구현 언어를 C++에서 Rust로 전면 교체했다. 사용자 입장에서는 2.42.1과 같은 명령행 옵션·지원 아키텍처·출력을 유지하는 드롭인 교체를 목표로 하지만, 직접 빌드하는 사람에게는 CMake에서 Cargo로 바뀌고 Rust 1.95 이상이…">
-    <link rel="canonical" href="https://bluebworks.dpdns.org/articles/mold-3-0-rust-rewrite-2026/">
+    <link rel="canonical" href="https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커 | BlueBWorks">
     <meta property="og:description" content="고속 링커 mold가 3.0에서 구현 언어를 C++에서 Rust로 전면 교체했다. 사용자 입장에서는 2.42.1과 같은 명령행 옵션·지원 아키텍처·출력을 유지하는 드롭인 교체를 목표로 하지만, 직접 빌드하는 사람에게는 CMake에서 Cargo로 바뀌고 Rust 1.95 이상이…">
-    <meta property="og:url" content="https://bluebworks.dpdns.org/articles/mold-3-0-rust-rewrite-2026/">
+    <meta property="og:url" content="https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커","description":"고속 링커 mold가 3.0에서 구현 언어를 C++에서 Rust로 전면 교체했다. 사용자 입장에서는 2.42.1과 같은 명령행 옵션·지원 아키텍처·출력을 유지하는 드롭인 교체를 목표로 하지만, 직접 빌드하는 사람에게는 CMake에서 Cargo로 바뀌고 Rust 1.95 이상이 필요해졌다.","url":"https://bluebworks.dpdns.org/articles/mold-3-0-rust-rewrite-2026/","mainEntityOfPage":"https://bluebworks.dpdns.org/articles/mold-3-0-rust-rewrite-2026/","datePublished":"2026-10-06T00:10:45.000Z","dateModified":"2026-10-06T00:10:45.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"mold, Rust, Linker, Build","isAccessibleForFree":true}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.dpdns.org/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.dpdns.org/articles/"},{"@type":"ListItem","position":3,"name":"mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커","item":"https://bluebworks.dpdns.org/articles/mold-3-0-rust-rewrite-2026/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커","description":"고속 링커 mold가 3.0에서 구현 언어를 C++에서 Rust로 전면 교체했다. 사용자 입장에서는 2.42.1과 같은 명령행 옵션·지원 아키텍처·출력을 유지하는 드롭인 교체를 목표로 하지만, 직접 빌드하는 사람에게는 CMake에서 Cargo로 바뀌고 Rust 1.95 이상이 필요해졌다.","url":"https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/","mainEntityOfPage":"https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/","datePublished":"2026-10-06T00:10:45.000Z","dateModified":"2026-10-06T00:10:45.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"mold, Rust, Linker, Build","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커","item":"https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -245,7 +245,7 @@ clang -fuse-ld=mold main.o -o app</code></pre></figure><div class="section-links
     </li>
       </ul>
       <div class="article-tools">
-        <button type="button" class="copy-link" data-copy-url="https://bluebworks.dpdns.org/articles/mold-3-0-rust-rewrite-2026/">링크 복사</button>
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/">링크 복사</button>
         <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>

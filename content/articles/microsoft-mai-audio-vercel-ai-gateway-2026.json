@@ -15,7 +15,7 @@
     "실시간 전사",
     "AI SDK"
   ],
-  "image": "https://bluebworks.dpdns.org/assets/microsoft-audio-official.png",
+  "image": "https://bluebworks.com/assets/microsoft-audio-official.png",
   "imageAlt": "Microsoft 음성 모델을 연결하는 Vercel AI Gateway",
   "imageCredit": "Vercel 공식 자료",
   "imageWidth": 1600,

@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다 | BlueBWorks</title>
     <meta name="description" content="2026년 10월 27일 GitHub가 Copilot SDK의 서버 간 인증을 공개 프리뷰로 발표했다. GitHub App 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, GitHub Actions와의 차이를 정리한다.">
-    <link rel="canonical" href="https://bluebworks.dpdns.org/articles/github-copilot-server-to-server-auth-2026/">
+    <link rel="canonical" href="https://bluebworks.com/articles/github-copilot-server-to-server-auth-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다 | BlueBWorks">
     <meta property="og:description" content="2026년 10월 27일 GitHub가 Copilot SDK의 서버 간 인증을 공개 프리뷰로 발표했다. GitHub App 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, GitHub Actions와의 차이를 정리한다.">
-    <meta property="og:url" content="https://bluebworks.dpdns.org/articles/github-copilot-server-to-server-auth-2026/">
+    <meta property="og:url" content="https://bluebworks.com/articles/github-copilot-server-to-server-auth-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다","description":"2026년 10월 27일 GitHub가 Copilot SDK의 서버 간 인증을 공개 프리뷰로 발표했다. GitHub App 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, GitHub Actions와의 차이를 정리한다.","url":"https://bluebworks.dpdns.org/articles/github-copilot-server-to-server-auth-2026/","mainEntityOfPage":"https://bluebworks.dpdns.org/articles/github-copilot-server-to-server-auth-2026/","datePublished":"2026-10-28T10:32:00.000Z","dateModified":"2026-10-28T10:32:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"AI·개발도구","keywords":"GitHub Copilot, Copilot SDK, GitHub App, AI 에이전트, 인증, 자동화","isAccessibleForFree":true}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.dpdns.org/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.dpdns.org/articles/"},{"@type":"ListItem","position":3,"name":"GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다","item":"https://bluebworks.dpdns.org/articles/github-copilot-server-to-server-auth-2026/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다","description":"2026년 10월 27일 GitHub가 Copilot SDK의 서버 간 인증을 공개 프리뷰로 발표했다. GitHub App 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, GitHub Actions와의 차이를 정리한다.","url":"https://bluebworks.com/articles/github-copilot-server-to-server-auth-2026/","mainEntityOfPage":"https://bluebworks.com/articles/github-copilot-server-to-server-auth-2026/","datePublished":"2026-10-28T10:32:00.000Z","dateModified":"2026-10-28T10:32:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"AI·개발도구","keywords":"GitHub Copilot, Copilot SDK, GitHub App, AI 에이전트, 인증, 자동화","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다","item":"https://bluebworks.com/articles/github-copilot-server-to-server-auth-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -217,7 +217,7 @@
     </li>
       </ul>
       <div class="article-tools">
-        <button type="button" class="copy-link" data-copy-url="https://bluebworks.dpdns.org/articles/github-copilot-server-to-server-auth-2026/">링크 복사</button>
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/github-copilot-server-to-server-auth-2026/">링크 복사</button>
         <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>

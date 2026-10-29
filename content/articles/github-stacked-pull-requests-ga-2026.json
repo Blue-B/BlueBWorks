@@ -15,7 +15,7 @@
     "GitHub CLI",
     "CI"
   ],
-  "image": "https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-flow.svg",
+  "image": "https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg",
   "imageAlt": "main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식",
   "imageCredit": "BlueBWorks 도식 · GitHub Docs 공식 설명 기반",
   "imageWidth": 1600,
@@ -140,7 +140,7 @@
       ],
       "figures": [
         {
-          "src": "https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-merge.svg",
+          "src": "https://bluebworks.com/assets/editorial/github-stacked-prs-merge.svg",
           "alt": "세 개의 stacked pull request 중 아래 두 개를 병합한 뒤 위쪽 PR이 새 main 위로 다시 연결되는 과정을 보여 주는 도식",
           "caption": "PR #2까지 병합하면 아래 PR들이 trunk에 들어가고, 아직 열려 있는 PR #3은 새 base 위로 다시 연결된다. 실제 충돌과 테스트 실패 가능성까지 없어지는 것은 아니다.",
           "credit": "BlueBWorks 도식 · GitHub Docs 공식 병합 규칙 기반",
@@ -267,14 +267,14 @@
       },
       {
         "sourceUrl": "https://docs.github.com/en/pull-requests/get-started/about-stacked-prs",
-        "assetUrl": "https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-flow.svg",
+        "assetUrl": "https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg",
         "decision": "included",
         "reason": "공식 문서가 설명하는 main→PR #1→PR #2→PR #3 base 의존 관계를 이해하기 쉽게 BlueBWorks가 독자적으로 다시 그린 도식이다. GitHub 제품 화면·로고·원문 도형을 복제하지 않았다.",
         "rightsBasis": "BlueBWorks original editorial SVG based only on factual branch relationships described in GitHub Docs; no GitHub visual asset was copied."
       },
       {
         "sourceUrl": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/merging-stacked-pull-requests",
-        "assetUrl": "https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-merge.svg",
+        "assetUrl": "https://bluebworks.com/assets/editorial/github-stacked-prs-merge.svg",
         "decision": "included",
         "reason": "공식 병합 규칙의 일부 병합 후 상위 PR 유지·재배치 흐름을 BlueBWorks가 새 도식으로 재구성했다. 원문 UI 캡처나 브랜드 그래픽을 사용하지 않았다.",
         "rightsBasis": "BlueBWorks original editorial SVG based only on factual merge behavior documented by GitHub; no third-party image or UI screenshot reused."

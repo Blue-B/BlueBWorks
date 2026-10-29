@@ -14,7 +14,7 @@
     "CSS",
     "Web Platform"
   ],
-  "image": "https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-flow.svg",
+  "image": "https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg",
   "imageAlt": "기존 postMessage 기반 iframe 높이 동기화와 Chrome 154 frame-sizing 방식의 차이를 비교한 기술 도식",
   "imageCredit": "BlueBWorks 도식 · Chrome for Developers 공식 문서 기반",
   "imageWidth": 1600,
@@ -87,7 +87,7 @@
       },
       "figures": [
         {
-          "src": "https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-resize.svg",
+          "src": "https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-resize.svg",
           "alt": "동적 iframe 콘텐츠 변경 뒤 requestResize 호출과 브라우저의 크기 재계산 과정을 네 단계로 보여 주는 도식",
           "caption": "댓글 추가나 패널 확장처럼 콘텐츠가 실제로 바뀐 뒤 자식 문서가 `requestResize()`를 호출하면 브라우저가 새 콘텐츠 크기를 다시 계산한다. BlueBWorks가 공식 가이드의 동작 설명을 재구성한 도식.",
           "credit": "BlueBWorks 도식 · Chrome for Developers 및 CSSWG 설명 기반",
@@ -218,14 +218,14 @@
     "candidates": [
       {
         "sourceUrl": "https://developer.chrome.com/blog/responsive-iframes",
-        "assetUrl": "https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-flow.svg",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow.svg",
         "decision": "included",
         "reason": "공식 가이드의 기존 postMessage 방식과 frame-sizing 동작 설명을 바탕으로 BlueBWorks가 새로 그린 비교 도식이다. Google 또는 Chrome의 기존 이미지·로고·제품 화면을 복제하지 않았다.",
         "rightsBasis": "BlueBWorks original editorial diagram; third-party visual assets were not copied. The linked Chrome page is used only as the factual source for the depicted behavior."
       },
       {
         "sourceUrl": "https://developer.chrome.com/blog/responsive-iframes",
-        "assetUrl": "https://bluebworks.dpdns.org/assets/editorial/chrome-154-responsive-iframe-resize.svg",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-resize.svg",
         "decision": "included",
         "reason": "공식 가이드의 requestResize() 재계산 흐름을 바탕으로 BlueBWorks가 새로 그린 기술 도식이다. 원문 영상 프레임이나 스크린샷을 캡처하지 않았다.",
         "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or video frame reused. Chrome documentation supplies only the technical facts."

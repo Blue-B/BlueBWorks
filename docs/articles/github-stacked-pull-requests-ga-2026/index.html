@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다 | BlueBWorks</title>
     <meta name="description" content="GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다.">
-    <link rel="canonical" href="https://bluebworks.dpdns.org/articles/github-stacked-pull-requests-ga-2026/">
+    <link rel="canonical" href="https://bluebworks.com/articles/github-stacked-pull-requests-ga-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다 | BlueBWorks">
     <meta property="og:description" content="GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다.">
-    <meta property="og:url" content="https://bluebworks.dpdns.org/articles/github-stacked-pull-requests-ga-2026/">
+    <meta property="og:url" content="https://bluebworks.com/articles/github-stacked-pull-requests-ga-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-flow.svg">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다","description":"GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다. GitHub CLI의 `gh stack`과 웹, API·웹훅까지 연결되는 실제 사용 흐름과 아직 남은 제약을 정리했다.","url":"https://bluebworks.dpdns.org/articles/github-stacked-pull-requests-ga-2026/","mainEntityOfPage":"https://bluebworks.dpdns.org/articles/github-stacked-pull-requests-ga-2026/","datePublished":"2026-10-08T16:20:00.000Z","dateModified":"2026-10-08T16:20:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Pull Request, Code Review, GitHub CLI, CI","isAccessibleForFree":true,"image":"https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-flow.svg"}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.dpdns.org/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.dpdns.org/articles/"},{"@type":"ListItem","position":3,"name":"GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다","item":"https://bluebworks.dpdns.org/articles/github-stacked-pull-requests-ga-2026/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다","description":"GitHub가 Stacked Pull Requests를 2026년 10월 6일 정식 제공으로 전환했다. 큰 기능을 서로 의존하는 작은 PR 여러 개로 나누고 각 층을 따로 리뷰하면서, 리베이스·부분 병합·머지 큐·규칙 적용은 GitHub가 스택 단위로 처리한다. GitHub CLI의 `gh stack`과 웹, API·웹훅까지 연결되는 실제 사용 흐름과 아직 남은 제약을 정리했다.","url":"https://bluebworks.com/articles/github-stacked-pull-requests-ga-2026/","mainEntityOfPage":"https://bluebworks.com/articles/github-stacked-pull-requests-ga-2026/","datePublished":"2026-10-08T16:20:00.000Z","dateModified":"2026-10-08T16:20:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Pull Request, Code Review, GitHub CLI, CI","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"GitHub Stacked Pull Requests 정식 제공: 큰 변경을 작은 PR 체인으로 나눠 합친다","item":"https://bluebworks.com/articles/github-stacked-pull-requests-ga-2026/"}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -75,7 +75,7 @@
 
           </header>
           <figure class="source-media">
-        <a href="https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-flow.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식"><img src="https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-flow.svg" alt="main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <a href="https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식"><img src="https://bluebworks.com/assets/editorial/github-stacked-prs-flow.svg" alt="main 위에 인증, API, 프런트엔드 변경을 각각 별도 풀 리퀘스트로 쌓은 GitHub Stacked Pull Requests 구조 도식" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
         <figcaption><span>스택에서는 첫 PR이 main 같은 trunk를 향하고, 그 위 PR들은 바로 아래 PR의 브랜치를 base로 삼는다. 그래서 리뷰어는 전체 기능이 아니라 해당 층의 변경만 볼 수 있다.</span><a href="https://docs.github.com/en/pull-requests/get-started/about-stacked-prs" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · GitHub Docs 공식 설명 기반 · 원문</a></figcaption>
       </figure>
           <details class="key-points">
@@ -153,8 +153,8 @@ gh stack view</code></pre></figure><div class="section-links"><a href="https://d
         <p>반대로 맨 위의 준비된 PR을 통해 전체 스택을 병합하면 아래의 준비된 층들도 함께 들어갈 수 있다. GitHub는 merge commit, squash, rebase 방식과 스택을 함께 지원하며 merge queue도 인식한다. API로 스택 병합을 자동화할 때는 일반 동기 병합 호출 대신 스택용 비동기 병합 API를 사용해야 한다는 주의사항도 공식 문서에 있다.</p>
         <p>부분 병합 뒤 자동 리베이스가 편리하더라도 충돌 가능성이 사라지는 것은 아니다. 아래쪽 인터페이스를 크게 바꾸면 위쪽 변경이 충돌하거나 테스트가 다시 실패할 수 있다. 스택은 의존 관계와 반복 작업을 관리해 주는 도구이지, 서로 맞지 않는 코드까지 자동으로 의미 있게 합쳐 주는 충돌 해결기는 아니다.</p>
         <figure class="article-figure">
-      <a href="https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-merge.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 세 개의 stacked pull request 중 아래 두 개를 병합한 뒤 위쪽 PR이 새 main 위로 다시 연결되는 과정을 보여 주는 도식">
-        <img src="https://bluebworks.dpdns.org/assets/editorial/github-stacked-prs-merge.svg" alt="세 개의 stacked pull request 중 아래 두 개를 병합한 뒤 위쪽 PR이 새 main 위로 다시 연결되는 과정을 보여 주는 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <a href="https://bluebworks.com/assets/editorial/github-stacked-prs-merge.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 세 개의 stacked pull request 중 아래 두 개를 병합한 뒤 위쪽 PR이 새 main 위로 다시 연결되는 과정을 보여 주는 도식">
+        <img src="https://bluebworks.com/assets/editorial/github-stacked-prs-merge.svg" alt="세 개의 stacked pull request 중 아래 두 개를 병합한 뒤 위쪽 PR이 새 main 위로 다시 연결되는 과정을 보여 주는 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>PR #2까지 병합하면 아래 PR들이 trunk에 들어가고, 아직 열려 있는 PR #3은 새 base 위로 다시 연결된다. 실제 충돌과 테스트 실패 가능성까지 없어지는 것은 아니다.</span><a href="https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/merging-stacked-pull-requests" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · GitHub Docs 공식 병합 규칙 기반 · 원문</a></figcaption>
@@ -303,7 +303,7 @@ gh stack view</code></pre></figure><div class="section-links"><a href="https://d
     </li>
       </ul>
       <div class="article-tools">
-        <button type="button" class="copy-link" data-copy-url="https://bluebworks.dpdns.org/articles/github-stacked-pull-requests-ga-2026/">링크 복사</button>
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/github-stacked-pull-requests-ga-2026/">링크 복사</button>
         <span class="copy-status" role="status" aria-live="polite"></span>
       </div>
     </aside>

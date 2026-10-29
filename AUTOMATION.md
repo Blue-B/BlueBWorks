@@ -103,13 +103,13 @@ YouTube는 공식 원문·채널에서 제목·내용·임베드 가능 여부�
 4. 빌드한 홈·목록·해당 기사를 실제 브라우저로 확인한다. 데스크톱 약 1440px와 모바일 약 390px에서 제목 가림, 가로 넘침, 줄바꿈, 글자 크기, 이미지 표시·크기, 캡션, 목차·검색·자료 링크를 확인한다. 가능하면 320px도 확인한다. 캡처를 실제로 열어 검토하고 보지 않은 화면을 검수 완료로 기록하지 않는다.
 5. 기사 JSON뿐 아니라 생성된 `docs/articles/<slug>/index.html`, 메인, 목록, RSS, sitemap 등 배포 결과를 같은 변경에 포함한다. 기존 `post.html?slug=` 링크를 보존한다. 디자인 원본은 `site/assets/`와 `build/lib/`이며 생성 HTML만 임시 수정해 다음 빌드에 사라지는 변경을 만들지 않는다.
 6. 쓰기 직전 최신 main을 다시 읽어 다른 변경을 보존한다. 충돌은 해소하고 다시 검사한다. 정상 commit/push 또는 GitHub 연결 도구의 `force=false` 반영만 사용한다. 차단된 쓰기를 우회하지 않는다.
-7. 최종 원격 커밋과 기사 JSON·빌드 HTML·RSS·sitemap을 재조회한다. Pages 상태를 조회할 수 있으면 확인하고 공개 `https://bluebworks.dpdns.org/articles/<slug>/`에서 실제 제목·본문·이미지·자료 링크를 확인한다. 지원하지 않는 API를 추측해 호출하거나 저장소 파일 존재만으로 공개 배포 완료를 선언하지 않는다.
+7. 최종 원격 커밋과 기사 JSON·빌드 HTML·RSS·sitemap을 재조회한다. Pages 상태를 조회할 수 있으면 확인하고 공개 `https://bluebworks.com/articles/<slug>/`에서 실제 제목·본문·이미지·자료 링크를 확인한다. 지원하지 않는 API를 추측해 호출하거나 저장소 파일 존재만으로 공개 배포 완료를 선언하지 않는다.
 8. 공개 페이지까지 확인한 경우에만 제목·핵심 이유·읽을 주소로 발행 성공을 짧게 알린다. main에만 반영됐으면 'main 반영, 공개 배포 확인 미완료'로 구분한다. 편집·빌드·브라우저·공개 배포 중 실패한 지점과 변경 반영 여부를 알린다.
 
 ## 실행 환경 참고
 DevSpace가 가능하면 깨끗한 프로젝트/worktree에서 작업한다. `workspaceId`와 `workspace_id` 호환 문제는 현행 도구 규격에 맞춰 처리한다. 연결이 불가능하면 다른 사용 가능한 실행 환경으로 빌드하고 허용된 GitHub 도구로 반영한다. 실행 환경·인증이 없으면 JSON만 올리거나 성공으로 꾸미지 않는다. 안전 차단은 환경 장애와 구분하며 다른 경로로 우회하지 않는다.
 
-기준 주소: https://bluebworks.dpdns.org/ (이전 주소 https://blue-b.github.io/BlueBWorks/ 는 GitHub Pages가 새 주소로 넘겨준다).
+기준 주소: https://bluebworks.com/ (이전 주소 https://blue-b.github.io/BlueBWorks/ 는 GitHub Pages가 새 주소로 넘겨준다).
 
 ## 자동발행 확인 및 검색 설명 (2026-10-10)
 
