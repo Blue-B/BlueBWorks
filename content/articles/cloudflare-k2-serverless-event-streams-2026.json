@@ -1,22 +1,28 @@
 {
   "slug": "cloudflare-k2-serverless-event-streams-2026",
-  "title": "Cloudflare K2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법",
+  "title": "Cloudflare K2 사용법·요금·한도 정리: 분석 서버가 멈춰도 이벤트를 이어 받는 방법",
   "summary": "주문·클릭 기록을 여러 시스템에 전달하다 한쪽이 멈추면 어떻게 될까. Cloudflare K2는 기록을 먼저 보관하고 각 시스템이 자기 속도로 읽게 한다. 구독을 나누는 방식부터 중복 처리, 보관 기간, 베타 요금까지 살펴본다.",
   "category": "개발도구",
   "announcedAt": "2026-10-01",
   "publishedAt": "2026-10-02T18:06:51+09:00",
-  "verifiedAt": "2026-10-04T17:46:05+09:00",
+  "verifiedAt": "2026-10-29T19:02:00+09:00",
   "status": "공개 베타 · Workers Paid 필요",
   "reviewStatus": "reviewed",
-  "tags": ["Cloudflare", "K2", "이벤트 처리", "R2", "데이터 파이프라인"],
+  "tags": [
+    "Cloudflare",
+    "K2",
+    "이벤트 처리",
+    "R2",
+    "데이터 파이프라인"
+  ],
   "image": "",
   "imageAlt": "",
   "imageCredit": "",
   "editorNote": "Kafka 클러스터를 관리하지 않아도 된다는 점과, 기존 Kafka 프로그램을 그대로 연결할 수 있다는 말은 다르다. K2는 현재의 HTTP·Workers 인터페이스와 재처리 조건으로 판단해야 한다. 아래 구현 흐름은 공식 문서에 근거한 설명이며 유료 환경에서 실행한 벤치마크는 아니다.",
   "keyPoints": [
-    "하나의 기록을 여러 구독이 독립적으로 읽는다. 같은 구독 안의 작업자들은 처리할 묶음을 나눠 맡는다.",
-    "최소 한 번 전달하므로 중복 수신이 가능하다. 기록의 저장 순서와 여러 작업자의 처리 완료 순서도 구분해야 한다.",
-    "베타 사용량은 과금하지 않지만 Workers Paid가 필요하다. 기본 보관은 7일, 일반 설정 범위는 1시간부터 30일까지다."
+    "구조: 하나의 기록을 여러 구독이 독립적으로 읽고, 같은 구독 안의 작업자들은 처리할 묶음을 나눠 맡는다. 최소 한 번 전달이라 중복 수신이 가능하다.",
+    "한도: 공개 베타에서 계정당 저장 10GB, 스트림 20개, 스트림당 쓰기 30MB/s, 기본 보관 7일(1시간~30일)이다.",
+    "요금: 베타 사용량은 과금하지 않지만 Workers Paid가 필요하다. 과금 시작 후 예상 가격은 쓰기·읽기 GB당 0.04달러, 보관 GB당 월 0.02달러다."
   ],
   "sections": [
     {
@@ -26,8 +32,28 @@
         "Cloudflare가 10월 1일 공개 베타로 발표한 K2는 이런 사이에 놓는 이벤트 저장 서비스다. 이벤트를 만드는 쪽은 기록을 추가하고, 읽는 쪽은 자신의 처리 위치를 옮긴다. 누군가 읽었다고 기록이 바로 없어지지 않으므로 다른 시스템도 같은 데이터를 읽거나, 보관 중인 과거 기록부터 다시 처리할 수 있다.",
         "이 구조를 로그라고 부르지만 사람이 보는 오류 메시지 파일에 한정되는 말은 아니다. 클릭, 주문, 센서 관측값처럼 시간에 따라 들어오는 기록을 계속 덧붙이는 구조를 뜻한다. 분석 서버가 잠시 멈춘 뒤 따라잡을 여지가 생기되, 무기한 보관을 약속하는 것은 아니다. 복구에 필요한 시간이 설정한 보관 기간 안에 들어오는지 먼저 계산해야 한다."
       ],
-      "sourceRefs": [1, 2, 6],
-      "links": [{"label": "K2의 스트림·레코드·구독 개념", "url": "https://developers.cloudflare.com/k2/concepts/"}]
+      "sourceRefs": [
+        1,
+        2,
+        6
+      ],
+      "links": [
+        {
+          "label": "K2의 스트림·레코드·구독 개념",
+          "url": "https://developers.cloudflare.com/k2/concepts/"
+        }
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/cloudflare-k2-subscriptions.svg",
+          "alt": "생산자가 K2 스트림에 기록을 쓰고, 분석 구독과 이상 거래 구독이 각각 전체 기록을 독립적으로 읽는 구조를 화살표로 이은 도식",
+          "caption": "구독마다 전체 기록을 독립적으로 읽고, 같은 구독의 작업자는 묶음을 나눠 처리한다. 숫자는 공개 베타 한도와 발표 기준이다.",
+          "credit": "BlueBWorks 도식 · Cloudflare K2 발표와 공식 문서 기반",
+          "sourceUrl": "https://blog.cloudflare.com/cloudflare-k2-streams/",
+          "width": 1600,
+          "height": 900
+        }
+      ]
     },
     {
       "title": "같은 기록을 두 번 쓰려면 작업자가 아니라 구독을 나눈다",
@@ -37,15 +63,34 @@
         "예를 들어 일별 매출 집계가 늦어져도 이상 거래 탐지는 자기 구독에서 계속 처리하게 할 수 있다. 다만 독립 구독을 추가하면 같은 데이터가 다시 읽히는 만큼 소비량도 늘어난다. 아래 표는 문서의 구독 구조를 주문 처리에 적용한 예시다. 실제 운영 사례나 처리 성능 측정값은 아니다."
       ],
       "table": {
-        "headers": ["원하는 동작", "구독 구성", "작업자의 역할"],
+        "headers": [
+          "원하는 동작",
+          "구독 구성",
+          "작업자의 역할"
+        ],
         "rows": [
-          ["분석 서버 두 대로 나눠 처리", "분석 구독 1개", "서로 다른 기록 묶음을 분담"],
-          ["분석과 이상 거래 탐지가 모두 읽기", "서로 다른 구독 2개", "각 시스템이 전체 기록을 독립적으로 처리"],
-          ["남은 과거 기록으로 집계 다시 만들기", "earliest로 새 구독 생성", "보관 중인 가장 오래된 기록부터 시작"]
+          [
+            "분석 서버 두 대로 나눠 처리",
+            "분석 구독 1개",
+            "서로 다른 기록 묶음을 분담"
+          ],
+          [
+            "분석과 이상 거래 탐지가 모두 읽기",
+            "서로 다른 구독 2개",
+            "각 시스템이 전체 기록을 독립적으로 처리"
+          ],
+          [
+            "남은 과거 기록으로 집계 다시 만들기",
+            "earliest로 새 구독 생성",
+            "보관 중인 가장 오래된 기록부터 시작"
+          ]
         ],
         "caption": "공식 구독 동작을 바탕으로 정리한 설계 예시. 구독 수와 작업자 수는 서로 다른 설정이다."
       },
-      "sourceRefs": [2, 3]
+      "sourceRefs": [
+        2,
+        3
+      ]
     },
     {
       "title": "처리 성공을 알리기 전에 멈추면 같은 기록이 다시 온다",
@@ -54,18 +99,61 @@
         "여기서 서버가 데이터베이스 저장은 끝냈지만 ack를 보내기 전에 죽는 경우를 생각해 봐야 한다. 다음 작업자는 같은 주문을 다시 받는다. 주문 이벤트를 받을 때마다 무조건 매출에 더하면 집계가 두 번 올라간다. 이벤트 식별자를 저장하고 이미 처리한 식별자를 걸러내는 등, 반복 수신이 결과를 바꾸지 않도록 애플리케이션을 설계해야 한다.",
         "또 하나는 순서다. 순서가 있는 로그라는 설명이 여러 작업자의 완료 순서까지 보장한다는 뜻은 아니다. 공식 소비 문서는 같은 구독을 공유하는 작업자 사이의 처리 순서를 보장하지 않는다고 명시한다. 서로 의존하는 상태 변경을 병렬 처리한다면 이벤트의 버전이나 발생 시점을 별도로 검토해야 한다. 작업자를 늘리는 것만으로 처리량과 정합성을 동시에 해결했다고 볼 수 없다."
       ],
-      "sourceRefs": [3],
-      "links": [{"label": "lease·ack·nack와 중복 전달 규칙", "url": "https://developers.cloudflare.com/k2/features/consume/"}]
+      "sourceRefs": [
+        3
+      ],
+      "links": [
+        {
+          "label": "lease·ack·nack와 중복 전달 규칙",
+          "url": "https://developers.cloudflare.com/k2/features/consume/"
+        }
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/cloudflare-k2-lease-ack.svg",
+          "alt": "consume으로 받은 묶음의 5분 lease, 처리 중 연장, ack와 nack, ack 전 중단 시 재전달 흐름을 세 단계로 보여 주는 도식",
+          "caption": "5분 lease 안에 ack하지 않으면 같은 묶음이 다시 전달된다. 중복을 견디는 저장 설계가 필요하다.",
+          "credit": "BlueBWorks 도식 · Cloudflare K2 발표와 공식 문서 기반",
+          "sourceUrl": "https://developers.cloudflare.com/k2/features/consume/",
+          "width": 1600,
+          "height": 900
+        }
+      ]
     },
     {
       "title": "R2에 묶어서 저장하는 대신 즉시 응답과는 거리가 있다",
       "paragraphs": [
         "Cloudflare는 K2의 저장 기반으로 R2 객체 스토리지를 사용한다. 개별 기록을 파일 뒤에 계속 붙이는 대신 잠시 모았다가 묶음 파일로 기록하는 방식이다. 회사가 공개한 초기 버전의 쓰기 지연은 p99에서 약 1초다. 이는 공급자가 설명한 측정값이며 모든 요청의 지연이나 한국 사용자의 응답 시간을 보증하는 수치는 아니다.",
         "따라서 오래 보관하고 여러 소비자가 읽는 분석 기록과, 사용자의 요청에 즉시 결과를 돌려줘야 하는 동작을 구분해야 한다. 이미지 변환 작업처럼 항목별 재시도와 실패 처리가 중요한 경우에는 Queues, 최종 목적지가 R2나 Iceberg 테이블인 수집 작업에는 Basin Pipelines가 더 맞을 수 있다. K2는 직접 만든 소비자가 여러 목적지로 처리하는 경우를 먼저 검토할 만하다.",
-        "기존 Kafka 프로그램의 연결 주소만 바꿔 쓸 수 있다고 가정해서도 안 된다. 발표에서 Kafka 클라이언트 호환과 낮은 지연의 Express 계층은 향후 계획으로 제시됐다. 도입 검토는 계획된 기능이 아니라 현재 제공되는 HTTP API와 Workers 연결을 기준으로 해야 한다."
+        "기존 Kafka 프로그램의 연결 주소만 바꿔 쓸 수 있다고 가정해서도 안 된다. 발표에서 Kafka 클라이언트 호환과 낮은 지연의 Express 계층은 향후 계획으로 제시됐다. 도입 검토는 계획된 기능이 아니라 현재 제공되는 HTTP API와 Workers 연결을 기준으로 해야 한다.",
+        "Cloudflare는 Queues, Basin Pipelines와의 구분도 밝혔다. Queues는 재시도·지연·실패 큐처럼 작업 하나하나를 추적해야 하는 비싼 작업에 맞고, K2는 대량 데이터 이동과 긴 보관, 여러 소비자에게 나눠 주는 용도에 맞는다. 이벤트를 객체 스토리지나 Iceberg 테이블에 쓰는 것이 최종 목적이면 Pipelines를, 직접 처리하거나 다른 곳으로 보낼 때는 K2를 권한다."
       ],
-      "sourceRefs": [1],
-      "links": [{"label": "K2·Queues·Pipelines 비교와 초기 설계 설명", "url": "https://blog.cloudflare.com/cloudflare-k2-streams/"}]
+      "sourceRefs": [
+        1
+      ],
+      "links": [
+        {
+          "label": "K2·Queues·Pipelines 비교와 초기 설계 설명",
+          "url": "https://blog.cloudflare.com/cloudflare-k2-streams/"
+        }
+      ],
+      "stats": [
+        {
+          "value": "약 1초",
+          "label": "p99 쓰기 지연",
+          "note": "초기 릴리스 · R2 묶음 저장 때문"
+        },
+        {
+          "value": "11 9s",
+          "label": "R2 내구성",
+          "note": "Cloudflare 발표"
+        },
+        {
+          "value": "335곳+",
+          "label": "Cloudflare 엣지 도시",
+          "note": "K2가 동작하는 기반"
+        }
+      ]
     },
     {
       "title": "첫 실험은 인증을 켠 스트림 하나부터",
@@ -79,10 +167,20 @@
         "caption": "공식 인터페이스를 사용한 생성 요청 예시. 이 글에서는 실행하지 않았으며 Workers Paid 계정과 권한이 있는 토큰이 필요하다.",
         "text": "# ACCOUNT_ID와 CLOUDFLARE_API_TOKEN은 서버 환경 변수로 설정\ncurl --fail-with-body --silent --show-error \\\n  \"https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/k2/streams\" \\\n  --request POST \\\n  --header \"Authorization: Bearer ${CLOUDFLARE_API_TOKEN}\" \\\n  --header \"Content-Type: application/json\" \\\n  --data '{\n    \"name\": \"order_events_test\",\n    \"retention_seconds\": 86400,\n    \"http\": {\"enabled\": true, \"authentication\": true}\n  }'"
       },
-      "sourceRefs": [4, 5, 6],
+      "sourceRefs": [
+        4,
+        5,
+        6
+      ],
       "links": [
-        {"label": "생성 → 전송 → 구독 → 완료 확인 전체 절차", "url": "https://developers.cloudflare.com/k2/get-started/"},
-        {"label": "HTTP와 Workers에서 기록 보내기", "url": "https://developers.cloudflare.com/k2/features/produce/"}
+        {
+          "label": "생성 → 전송 → 구독 → 완료 확인 전체 절차",
+          "url": "https://developers.cloudflare.com/k2/get-started/"
+        },
+        {
+          "label": "HTTP와 Workers에서 기록 보내기",
+          "url": "https://developers.cloudflare.com/k2/features/produce/"
+        }
       ]
     },
     {
@@ -92,38 +190,232 @@
         "현재 제한 문서에서 우선 확인할 숫자는 계정 전체 저장 10GB, 기본 보관 7일, 일반 설정의 최대 보관 30일이다. 스트림당 용량이라고 착각하면 여러 스트림을 만든 뒤 계획보다 빨리 계정 한도에 닿을 수 있다. 보관 기간을 짧게 잡으면 저장 부담은 줄지만 장애 후 되돌아갈 수 있는 시간도 짧아진다.",
         "요청 크기도 제한된다. 쓰기 요청은 5MB, 레코드 하나는 내용과 헤더를 포함해 약 1MB가 기준이다. 긴 본문이나 바이너리 파일까지 이벤트에 넣기보다, 별도 저장한 자료의 식별자와 처리에 필요한 정보만 보낼 수 있는지 검토할 만하다. 또한 보관 기간이 끝난 기록은 백그라운드에서 지워지므로 정확히 특정 초에 삭제되는 장치로 쓰지 않아야 한다."
       ],
-      "sourceRefs": [1, 6, 7, 8],
+      "sourceRefs": [
+        1,
+        6,
+        7,
+        8
+      ],
       "links": [
-        {"label": "계정·레코드·구독의 실제 한도", "url": "https://developers.cloudflare.com/k2/platform/limits/"},
-        {"label": "Workers Paid 요금 확인", "url": "https://developers.cloudflare.com/workers/platform/pricing/"}
-      ]
+        {
+          "label": "계정·레코드·구독의 실제 한도",
+          "url": "https://developers.cloudflare.com/k2/platform/limits/"
+        },
+        {
+          "label": "Workers Paid 요금 확인",
+          "url": "https://developers.cloudflare.com/workers/platform/pricing/"
+        }
+      ],
+      "stats": [
+        {
+          "value": "10GB",
+          "label": "계정당 저장 한도",
+          "note": "공개 베타 · 증설 요청 가능"
+        },
+        {
+          "value": "30MB/s",
+          "label": "스트림당 쓰기 처리량",
+          "note": "모든 생산자 합계"
+        },
+        {
+          "value": "$0.04/GB",
+          "label": "예상 쓰기·읽기 요금",
+          "note": "베타 중 미과금"
+        }
+      ],
+      "table": {
+        "headers": [
+          "항목",
+          "공개 베타 (2026-10-29 확인)"
+        ],
+        "rows": [
+          [
+            "계정 저장량",
+            "최대 10GB (요청 시 증설)"
+          ],
+          [
+            "스트림 수",
+            "계정당 최대 20개"
+          ],
+          [
+            "보관 기간",
+            "기본 7일, 최소 1시간, 최대 30일"
+          ],
+          [
+            "쓰기",
+            "스트림당 30MB/s, 요청 5MB, 레코드 약 1MB, 헤더 32개"
+          ],
+          [
+            "읽기",
+            "consume당 최대 10,000개·10MB, 구독당 활성 lease 128개, 스트림당 구독 100개"
+          ],
+          [
+            "요금",
+            "베타 미과금, Workers Paid 필요. 예상: 쓰기·읽기 GB당 0.04달러, 보관 GB당 월 0.02달러"
+          ]
+        ],
+        "caption": "K2 플랫폼 한도 문서와 2026-10-01 발표의 예상 요금 기준이다. 예상 요금은 과금 시작 전 바뀔 수 있다."
+      }
     },
     {
       "title": "갈아타기 전에 재처리 한 번을 끝까지 해 본다",
       "paragraphs": [
         "첫 검증에서는 정상 전달보다 중간에 멈추는 상황을 넣는 것이 유용하다. 몇 개의 식별 가능한 시험 이벤트를 보내고, 소비자가 저장한 뒤 ack만 하지 않은 상태로 중단해 본다. 다시 전달됐을 때 결과가 중복되지 않는지 확인하면 애플리케이션이 맡아야 할 처리가 드러난다. 이는 권하는 시험 절차이지 이 글에서 측정한 결과는 아니다.",
         "다음으로 구독 두 개를 만들어 한쪽만 멈췄을 때 다른 쪽이 계속 진행하는지, 오래된 기록부터 시작했을 때 필요한 구간이 남아 있는지 점검한다. 관찰할 것은 단순 수신 건수보다 원래 이벤트 수와 최종 처리 수의 차이, 재처리 시간, 실패한 묶음의 상태다. 데이터가 도착했다는 사실과 목적지에 정확히 반영됐다는 사실을 분리해서 보아야 한다.",
-        "K2는 이벤트를 여러 시스템에 전달하면서 생기는 시간 차이를 흡수하는 선택지다. 기존 파이프라인 전체를 한꺼번에 교체하기보다, 즉시 응답이 필요하지 않고 중복 처리 방식을 통제할 수 있는 기록부터 병행 시험하는 편이 비교하기 쉽다. 그 시험에서 실제로 줄어든 운영 작업과 새로 생긴 소비자 처리 코드를 함께 봐야 전환의 이익을 판단할 수 있다."
+        "K2는 이벤트를 여러 시스템에 전달하면서 생기는 시간 차이를 흡수하는 선택지다. 기존 파이프라인 전체를 한꺼번에 교체하기보다, 즉시 응답이 필요하지 않고 중복 처리 방식을 통제할 수 있는 기록부터 병행 시험하는 편이 비교하기 쉽다. 그 시험에서 실제로 줄어든 운영 작업과 새로 생긴 소비자 처리 코드를 함께 봐야 전환의 이익을 판단할 수 있다.",
+        "Cloudflare가 밝힌 다음 계획도 판단에 참고할 만하다. 수 GB/s까지 쓰기 병렬성을 높이고, 메시지 키와 키 기준 순서 보장, 작업자에게 밀어 주는 소비 방식, 더 낮은 지연의 Express 등급, Apache Kafka 클라이언트를 그대로 붙이는 지원을 준비한다고 했다. 모두 아직 나오지 않은 기능이므로 지금 설계에서는 없는 것으로 보고, 나오면 다시 확인하는 편이 안전하다."
       ],
-      "sourceRefs": [2, 3, 4]
+      "sourceRefs": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "title": "자주 묻는 질문: Cloudflare K2 요금, 한도, Kafka 호환",
+      "paragraphs": [
+        "검색으로 많이 찾는 질문을 Cloudflare 공식 자료 기준으로 짧게 정리했다. 2026년 10월 29일 확인 기준이다."
+      ],
+      "sourceRefs": [
+        1,
+        3,
+        7
+      ],
+      "faq": [
+        {
+          "question": "Cloudflare K2는 무료인가요?",
+          "answer": "공개 베타 기간에는 K2 사용량을 과금하지 않지만 Workers Paid 구독이 필요합니다. 과금이 시작되면 쓰기·읽기 GB당 0.04달러, 보관 GB당 월 0.02달러가 예상 가격으로 발표됐습니다."
+        },
+        {
+          "question": "K2에 기록은 얼마나 오래 보관되나요?",
+          "answer": "기본 7일이고 스트림마다 1시간에서 30일 사이로 정할 수 있습니다. 더 긴 보관은 요청으로 가능하며, 베타 중 계정 전체 저장량은 10GB입니다."
+        },
+        {
+          "question": "기존 Kafka 클라이언트를 그대로 쓸 수 있나요?",
+          "answer": "아직은 아닙니다. Kafka 클라이언트를 그대로 붙이는 지원은 Cloudflare가 밝힌 향후 계획에 있고, 현재는 HTTP API와 Workers 바인딩을 씁니다."
+        },
+        {
+          "question": "같은 기록이 두 번 올 수 있나요?",
+          "answer": "네. 최소 한 번 전달 방식이라 5분 lease 안에 ack하지 못하면 같은 묶음이 다시 전달됩니다. 저장 쪽에서 중복을 걸러 내도록 설계해야 합니다."
+        }
+      ]
     }
   ],
   "sources": [
-    {"name": "Cloudflare · K2 공개 베타 발표", "url": "https://blog.cloudflare.com/cloudflare-k2-streams/", "description": "2026년 10월 1일 발표. R2 기반 설계, 초기 지연, 제품 간 구분, 베타 예상 요금과 향후 계획."},
-    {"name": "K2 · 기본 개념", "url": "https://developers.cloudflare.com/k2/concepts/", "description": "로그, 레코드, 구독과 독립 소비의 의미."},
-    {"name": "K2 · 레코드 소비", "url": "https://developers.cloudflare.com/k2/features/consume/", "description": "구독 시작점, 5분 lease, 중복 전달, ack·nack·연장, 작업자 간 순서 제약."},
-    {"name": "K2 · 시작 가이드", "url": "https://developers.cloudflare.com/k2/get-started/", "description": "계정과 권한 준비, 스트림 생성부터 완료 확인까지의 공식 절차."},
-    {"name": "K2 · 레코드 전송", "url": "https://developers.cloudflare.com/k2/features/produce/", "description": "바이트·base64 형식, 묶음 쓰기, 서버 타임스탬프와 브라우저 사용 조건."},
-    {"name": "K2 · 스트림 설정", "url": "https://developers.cloudflare.com/k2/configuration/", "description": "입력 인증, 보관 기간, 갱신 방법과 만료 기록 삭제 특성."},
-    {"name": "K2 · 플랫폼 한도", "url": "https://developers.cloudflare.com/k2/platform/limits/", "description": "계정 저장량, 보관 기간, 요청·레코드 크기와 구독 한도."},
-    {"name": "Workers · 가격 정책", "url": "https://developers.cloudflare.com/workers/platform/pricing/", "description": "K2 베타 사용료와 분리해서 확인할 Workers Paid 계정 비용."}
+    {
+      "name": "Cloudflare · K2 공개 베타 발표",
+      "url": "https://blog.cloudflare.com/cloudflare-k2-streams/",
+      "description": "2026년 10월 1일 발표. R2 기반 설계, 초기 지연, 제품 간 구분, 베타 예상 요금과 향후 계획."
+    },
+    {
+      "name": "K2 · 기본 개념",
+      "url": "https://developers.cloudflare.com/k2/concepts/",
+      "description": "로그, 레코드, 구독과 독립 소비의 의미."
+    },
+    {
+      "name": "K2 · 레코드 소비",
+      "url": "https://developers.cloudflare.com/k2/features/consume/",
+      "description": "구독 시작점, 5분 lease, 중복 전달, ack·nack·연장, 작업자 간 순서 제약."
+    },
+    {
+      "name": "K2 · 시작 가이드",
+      "url": "https://developers.cloudflare.com/k2/get-started/",
+      "description": "계정과 권한 준비, 스트림 생성부터 완료 확인까지의 공식 절차."
+    },
+    {
+      "name": "K2 · 레코드 전송",
+      "url": "https://developers.cloudflare.com/k2/features/produce/",
+      "description": "바이트·base64 형식, 묶음 쓰기, 서버 타임스탬프와 브라우저 사용 조건."
+    },
+    {
+      "name": "K2 · 스트림 설정",
+      "url": "https://developers.cloudflare.com/k2/configuration/",
+      "description": "입력 인증, 보관 기간, 갱신 방법과 만료 기록 삭제 특성."
+    },
+    {
+      "name": "K2 · 플랫폼 한도",
+      "url": "https://developers.cloudflare.com/k2/platform/limits/",
+      "description": "계정 저장량, 보관 기간, 요청·레코드 크기와 구독 한도."
+    },
+    {
+      "name": "Workers · 가격 정책",
+      "url": "https://developers.cloudflare.com/workers/platform/pricing/",
+      "description": "K2 베타 사용료와 분리해서 확인할 Workers Paid 계정 비용."
+    }
   ],
   "resources": [
-    {"name": "K2 시작 가이드", "url": "https://developers.cloudflare.com/k2/get-started/", "description": "첫 스트림을 만들고 테스트 기록을 읽는 전체 순서", "type": "시작"},
-    {"name": "구독과 재처리 API", "url": "https://developers.cloudflare.com/k2/features/consume/", "description": "ack·nack·lease 연장과 오류 처리", "type": "구현"},
-    {"name": "인증·보관 기간 설정", "url": "https://developers.cloudflare.com/k2/configuration/", "description": "쓰기 인증과 보관 기간을 명시적으로 선택", "type": "설정"},
-    {"name": "현재 한도", "url": "https://developers.cloudflare.com/k2/platform/limits/", "description": "계정 저장량과 레코드·요청 크기 확인", "type": "운영"},
-    {"name": "공식 발표와 향후 계획", "url": "https://blog.cloudflare.com/cloudflare-k2-streams/", "description": "제품 비교, 베타 요금, Kafka 호환 계획 구분", "type": "원문"}
+    {
+      "name": "K2 시작 가이드",
+      "url": "https://developers.cloudflare.com/k2/get-started/",
+      "description": "첫 스트림을 만들고 테스트 기록을 읽는 전체 순서",
+      "type": "시작"
+    },
+    {
+      "name": "구독과 재처리 API",
+      "url": "https://developers.cloudflare.com/k2/features/consume/",
+      "description": "ack·nack·lease 연장과 오류 처리",
+      "type": "구현"
+    },
+    {
+      "name": "인증·보관 기간 설정",
+      "url": "https://developers.cloudflare.com/k2/configuration/",
+      "description": "쓰기 인증과 보관 기간을 명시적으로 선택",
+      "type": "설정"
+    },
+    {
+      "name": "현재 한도",
+      "url": "https://developers.cloudflare.com/k2/platform/limits/",
+      "description": "계정 저장량과 레코드·요청 크기 확인",
+      "type": "운영"
+    },
+    {
+      "name": "공식 발표와 향후 계획",
+      "url": "https://blog.cloudflare.com/cloudflare-k2-streams/",
+      "description": "제품 비교, 베타 요금, Kafka 호환 계획 구분",
+      "type": "원문"
+    }
   ],
-  "corrections": [{"date": "2026-10-04", "text": "기존 짧은 소개를 장문 해설로 개정했다. 무제한 보관으로 오해하지 않도록 보관 범위를 명시하고, 최소 한 번 전달과 병렬 처리 순서의 제약, Workers Paid 조건 및 예상 요금과 현재 과금을 구분했다."}]
+  "corrections": [
+    {
+      "date": "2026-10-04",
+      "text": "기존 짧은 소개를 장문 해설로 개정했다. 무제한 보관으로 오해하지 않도록 보관 범위를 명시하고, 최소 한 번 전달과 병렬 처리 순서의 제약, Workers Paid 조건 및 예상 요금과 현재 과금을 구분했다."
+    },
+    {
+      "date": "2026-10-29",
+      "text": "편집 기준(editorialVersion 2)에 맞춰 보강했다. 제목에 요금·한도를 드러내고, 3줄 요약, 구독 구조와 lease·ack 흐름 도식, 한도·예상 요금 표와 숫자 카드, Queues·Pipelines와의 구분, 향후 계획, 자주 묻는 질문을 더했다. 한도와 예상 요금은 2026-10-29 공식 문서와 발표로 다시 확인했다. 발표일과 최초 게시일은 바꾸지 않았다.",
+      "url": "https://developers.cloudflare.com/k2/platform/limits/"
+    }
+  ],
+  "editorialVersion": 2,
+  "discovery": {
+    "writer": "aside",
+    "xStatus": "unavailable",
+    "notes": "2026-10-29 기존 글의 보강 작업이다. 공개 X 원문은 조회하지 않았고 Cloudflare K2 발표와 플랫폼 한도 문서를 직접 열어 다시 확인했다.",
+    "xPosts": []
+  },
+  "mediaReview": {
+    "checkedAt": "2026-10-29T19:02:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://blog.cloudflare.com/cloudflare-k2-streams/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/cloudflare-k2-subscriptions.svg",
+        "decision": "included",
+        "reason": "발표와 개념 문서의 구독 구조를 BlueBWorks가 흐름 도식으로 새로 그렸다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://developers.cloudflare.com/k2/features/consume/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/cloudflare-k2-lease-ack.svg",
+        "decision": "included",
+        "reason": "레코드 소비 문서의 lease·ack·nack 규칙을 BlueBWorks가 단계 도식으로 새로 그렸다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://blog.cloudflare.com/cloudflare-k2-streams/",
+        "decision": "excluded",
+        "reason": "발표 페이지의 대표 그래픽은 별도 재사용 허가를 확인하지 못해 복사하지 않았다."
+      }
+    ]
+  }
 }

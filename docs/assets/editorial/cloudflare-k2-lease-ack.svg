@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">K2 기록 묶음의 lease, ack, nack 흐름</title>
+<desc id="desc">consume으로 기록 묶음을 받으면 5분 lease가 생긴다. 처리 후 ack하면 다시 전달되지 않고, nack하면 다시 전달되며, 시간이 더 필요하면 lease를 연장한다. ack 전에 작업자가 멈추면 lease가 끝난 뒤 묶음이 다시 전달된다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="40" font-weight="700" fill="#111827">5분 lease 안에 ack하지 않으면 같은 묶음이 다시 온다</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">Cloudflare K2 발표와 레코드 소비 문서 기준. 최소 한 번 전달</text>
+<rect x="80" y="200" width="433" height="350" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="106" y="252" font-size="28" font-weight="700" fill="#111827">① consume</text>
+<text x="106" y="305" font-size="22" fill="#334155">worker_id와 max_records</text>
+<text x="106" y="345" font-size="22" fill="#334155">(최대 10,000개)로 요청</text>
+<text x="106" y="385" font-size="22" fill="#334155"></text>
+<text x="106" y="425" font-size="22" font-weight="700" fill="#111827">묶음과 5분 lease 받음</text>
+<text x="106" y="465" font-size="22" fill="#334155">응답 최대 10MB</text>
+<line x1="521" y1="375" x2="561" y2="375" stroke="#64748b" stroke-width="5"/><path d="M557 363 L577 375 L557 387 Z" fill="#64748b"/>
+<rect x="583" y="200" width="433" height="350" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="609" y="252" font-size="28" font-weight="700" fill="#1e3a8a">② 처리</text>
+<text x="609" y="305" font-size="22" fill="#334155">저장·집계 등 작업</text>
+<text x="609" y="345" font-size="22" fill="#334155">시간이 모자라면</text>
+<text x="609" y="385" font-size="22" font-weight="700" fill="#1e3a8a">lease 연장(extend)</text>
+<text x="609" y="425" font-size="22" fill="#334155"></text>
+<text x="609" y="465" font-size="22" fill="#334155">구독당 활성 lease</text>
+<text x="609" y="505" font-size="22" fill="#334155">최대 128개</text>
+<line x1="1024" y1="375" x2="1064" y2="375" stroke="#64748b" stroke-width="5"/><path d="M1060 363 L1080 375 L1060 387 Z" fill="#64748b"/>
+<rect x="1086" y="200" width="433" height="350" rx="20" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+<text x="1112" y="252" font-size="28" font-weight="700" fill="#065f46">③ 결과 알림</text>
+<text x="1112" y="305" font-size="22" font-weight="700" fill="#065f46">ack: 처리 완료</text>
+<text x="1112" y="345" font-size="22" fill="#334155">  다시 전달 안 됨</text>
+<text x="1112" y="385" font-size="22" font-weight="700" fill="#065f46">nack: 실패</text>
+<text x="1112" y="425" font-size="22" fill="#334155">  다시 전달 요청</text>
+<text x="1112" y="465" font-size="22" fill="#334155">ack 전에 멈추면</text>
+<text x="1112" y="505" font-size="22" fill="#334155">  lease 만료 후 재전달</text>
+<text x="80" y="620" font-size="21" fill="#4b5563">같은 기록이 두 번 올 수 있으므로 저장 쪽에서 중복을 걸러 내는 설계(예: 이벤트 ID 기준 덮어쓰기)가 필요하다.</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

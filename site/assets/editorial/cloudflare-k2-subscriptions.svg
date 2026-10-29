@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Cloudflare K2에서 구독과 작업자로 읽기를 나누는 방법</title>
+<desc id="desc">생산자가 K2 스트림에 기록을 쓰면 순서 있는 로그로 R2에 저장된다. 구독마다 전체 기록을 독립적으로 읽고, 같은 구독 안의 작업자들은 기록 묶음을 나눠 처리한다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="40" font-weight="700" fill="#111827">같은 기록을 여러 시스템이 읽으려면 구독을 나눈다</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">Cloudflare K2 발표(2026-10-01)와 개념 문서 기준. 공개 베타</text>
+<rect x="80" y="200" width="433" height="350" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="106" y="252" font-size="28" font-weight="700" fill="#111827">생산자</text>
+<text x="106" y="305" font-size="22" fill="#334155">주문·클릭·센서 기록</text>
+<text x="106" y="345" font-size="22" fill="#334155">HTTP API 또는</text>
+<text x="106" y="385" font-size="22" fill="#334155">Workers 바인딩으로 쓰기</text>
+<text x="106" y="425" font-size="22" fill="#334155"></text>
+<text x="106" y="465" font-size="22" fill="#334155">요청 최대 5MB</text>
+<text x="106" y="505" font-size="22" fill="#334155">레코드 약 1MB</text>
+<line x1="521" y1="375" x2="561" y2="375" stroke="#64748b" stroke-width="5"/><path d="M557 363 L577 375 L557 387 Z" fill="#64748b"/>
+<rect x="583" y="200" width="433" height="350" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="609" y="252" font-size="28" font-weight="700" fill="#1e3a8a">K2 스트림</text>
+<text x="609" y="305" font-size="22" fill="#334155">순서 있는 로그</text>
+<text x="609" y="345" font-size="22" fill="#334155">R2에 묶음 파일로 저장</text>
+<text x="609" y="385" font-size="22" fill="#334155">기본 보관 7일</text>
+<text x="609" y="425" font-size="22" fill="#334155">(1시간~30일)</text>
+<text x="609" y="465" font-size="22" fill="#334155"></text>
+<text x="609" y="505" font-size="22" font-weight="700" fill="#1e3a8a">p99 쓰기 지연 약 1초</text>
+<line x1="1024" y1="375" x2="1064" y2="375" stroke="#64748b" stroke-width="5"/><path d="M1060 363 L1080 375 L1060 387 Z" fill="#64748b"/>
+<rect x="1086" y="200" width="433" height="350" rx="20" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+<text x="1112" y="252" font-size="28" font-weight="700" fill="#065f46">구독별 독립 읽기</text>
+<text x="1112" y="305" font-size="22" font-weight="700" fill="#065f46">분석 구독: 전체 기록</text>
+<text x="1112" y="345" font-size="22" fill="#334155">  작업자 2대가 묶음 분담</text>
+<text x="1112" y="385" font-size="22" font-weight="700" fill="#065f46">이상 거래 구독: 전체 기록</text>
+<text x="1112" y="425" font-size="22" fill="#334155">  한쪽이 멈춰도 다른 쪽 진행</text>
+<text x="1112" y="465" font-size="22" fill="#334155"></text>
+<text x="1112" y="505" font-size="22" fill="#334155">스트림당 구독 최대 100개</text>
+<text x="80" y="620" font-size="21" fill="#4b5563">구독 수와 작업자 수는 다른 설정이다. 구독을 늘리면 같은 기록을 여러 번 읽고, 작업자를 늘리면 같은 구독의 일을 나눈다.</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

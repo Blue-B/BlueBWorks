@@ -5,7 +5,7 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 29 Oct 2026 09:58:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 10:02:00 GMT</lastBuildDate>
     <item>
       <title>제미나이 4 카본 출시일·성능·가격 정리: 지금 무료로 쓸 수 있을까</title>
       <link>https://bluebworks.com/articles/gemini-4-carbon-2026/</link>
@@ -119,7 +119,7 @@
       <description>MAI-Voice-2.1, Flash, 실시간 전사가 Vercel AI Gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, API 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다.</description>
     </item>
     <item>
-      <title>Cloudflare K2: 분석 서버가 멈춰도 이벤트를 이어 받는 방법</title>
+      <title>Cloudflare K2 사용법·요금·한도 정리: 분석 서버가 멈춰도 이벤트를 이어 받는 방법</title>
       <link>https://bluebworks.com/articles/cloudflare-k2-serverless-event-streams-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/cloudflare-k2-serverless-event-streams-2026/</guid>
       <pubDate>Fri, 02 Oct 2026 09:06:51 GMT</pubDate>
