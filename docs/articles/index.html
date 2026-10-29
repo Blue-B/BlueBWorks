@@ -269,25 +269,25 @@
           </div>
         </a>
       </li>
-        <li class="archive-entry text-only" data-post-card data-category="오픈소스" data-search="cloudflare clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델 cloudflare가 clef와 clef-flash라는 결정 모델을 공개하고 workers ai에서 바로 쓸 수 있게 했다. 자유문장을 생성하는 대신 정해진 선택지의 확률을 반환해 라우팅·도구 선택·분류처럼 에이전트 내부의 반복 결정을 더 짧고 예측 가능한 흐름으로 처리하는 데 초점을 맞춘다. 오픈소스 open source 에이전트 시스템에서 의외로 비싼 부분은 ‘답변 생성’이 아니라 수없이 반복되는 작은 결정이다. clef는 도구 선택·라우팅·분류처럼 선택지가 정해진 판단을 생성형 llm에서 떼어내려는 시도다. 모델 크기보다 실제 업무 데이터에서 오분류 비용이 얼마나 줄어드는지 보는 게 중요하다. cloudflare clef decision model agents 자유문장 대신 선택지별 확률을 반환하는 decision model이다. weights가 apache 2.0으로 공개됐다. 라우팅·분류·가드레일 같은 좁은 판단 단계에 초점을 맞춘다.">
+        <li class="archive-entry text-only" data-post-card data-category="오픈소스" data-search="cloudflare clef 결정 모델 사용법·가격: 에이전트의 분류·라우팅을 llm에서 떼어내기 cloudflare clef와 clef-flash는 글 대신 선택지별 확률을 돌려주는 결정 모델로, workers ai에서 쓰고 apache 2.0 가중치도 공개됐다. 요청 형식, 입력 100만 토큰당 0.24달러, 지연·정확도 수치와 한계를 정리했다. 오픈소스 open source 결정 모델은 llm을 대체하는 것이 아니라 llm 앞에서 갈림길을 정리하는 부품이다. 그래서 벤치마크 순위보다 요청 형식과 확률을 코드에서 어떻게 쓰는지, 어떤 평가에서는 약했는지를 함께 정리했다. cloudflare clef decision model workers ai agents 모델: clef(27b, 이미지 입력 지원)와 지연 중심의 clef-flash를 2026년 10월 1일 workers ai에 공개했고, 가중치는 apache 2.0으로 hugging face에 있다. 사용법: state(판단할 내용)와 noul·choice·score 타입 질문 1~64개를 보내면 선택지마다 확률이 돌아온다. jev system one api와 호환된다. 가격·성능: workers ai의 clef는 입력 100만 토큰당 0.24달러다. cloudflare 측정으로 clef-flash 지연 중앙값은 38.8ms이고, 일부 평가에서는 jev보다 낮았다.">
         <a href="/articles/cloudflare-clef-decision-models-2026/">
 
           <div class="archive-copy">
             <span class="archive-cat">오픈소스</span>
-            <strong>Cloudflare Clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델</strong>
-            <span class="archive-summary">Cloudflare가 Clef와 Clef-flash라는 결정 모델을 공개하고 Workers AI에서 바로 쓸 수 있게 했다. 자유문장을 생성하는 대신 정해진 선택지의 확률을 반환해 라우팅·도구 선택·분류처럼 에이전트 내부의 반복 결정을 더 짧고 예측 가능한 흐름으로 처리하는 데 초점을 맞춘다.</span>
+            <strong>Cloudflare Clef 결정 모델 사용법·가격: 에이전트의 분류·라우팅을 LLM에서 떼어내기</strong>
+            <span class="archive-summary">Cloudflare Clef와 Clef-flash는 글 대신 선택지별 확률을 돌려주는 결정 모델로, Workers AI에서 쓰고 Apache 2.0 가중치도 공개됐다. 요청 형식, 입력 100만 토큰당 0.24달러, 지연·정확도 수치와 한계를 정리했다.</span>
             <span class="archive-date">게시 2026년 10월 2일</span>
 
           </div>
         </a>
       </li>
-        <li class="archive-entry has-thumb" data-post-card data-category="오픈소스" data-search="olmo-core 3 공개 — 대형 moe 학습 인프라를 오픈소스로 확장했다 ai2가 대규모 mixture-of-experts(moe) 모델 학습을 위한 olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다. 오픈소스 open source 일반 개발자가 당장 가져다 쓸 앱은 아니지만 공개 모델 생태계에서는 중요한 인프라 자료다. 대형 moe를 어떻게 라우팅하고 분산시키는지 코드와 시스템 벤치마크가 함께 공개되기 때문에 모델 가중치만 공개하는 프로젝트보다 학습 인프라를 이해하는 데 훨씬 가치가 있다. ai2 olmo-core 3 moe open source moe용 expert·pipeline parallelism과 분산 옵티마이저를 다룬다. 조 단위 파라미터 구성을 염두에 둔 학습 스택이다. 공개 성능 수치는 특정 b300 환경이므로 다른 하드웨어에 그대로 적용하면 안 된다.">
+        <li class="archive-entry text-only" data-post-card data-category="오픈소스" data-search="ai2 olmo-core 3 정리: 오픈소스 moe 학습 스택이 처리량을 2.7배 높인 방법 ai2 olmo-core 3는 전문가를 gpu에 상주시키고 데이터를 보내는 ddp 기반 moe 학습 스택이다. 2.7배 처리량, 조 단위 파라미터 시험, mxfp8, 설치 방법과 수치의 측정 조건을 정리했다. 오픈소스 open source olmo-core 3의 숫자는 대부분 b300 클러스터에서 잰 시스템 시험값이라 그대로 옮기면 과장이 된다. 그래서 각 수치의 하드웨어와 시험 조건을 붙이고, ai2가 기술 보고서에서 밝힌 실패한 시도까지 함께 정리했다. ai2 olmo-core 3 moe open source distributed training 구조: 2026년 10월 1일 공개된 olmo-core 3는 이전 fsdp 방식 대신 전문가를 gpu에 상주시키고 데이터를 라우팅하는 ddp 기반 moe 학습 스택이다. 성능: b300 8장 예비 시험에서 47b moe 처리량이 gpu당 초당 19,400토큰에서 52,000토큰으로 약 2.7배가 됐다. 모두 ai2 측정값이다. 규모: 1.2조 파라미터(활성 583.6억) 구성을 gpu 512장에서 시험했지만 무작위 라우팅을 쓴 시스템 시험이라 학습된 모델 품질과는 무관하다.">
         <a href="/articles/olmo-core-3-moe-training-2026/">
-          <span class="archive-thumb"><img src="https://opengraph.githubassets.com/1/allenai/olmo-core" alt="Ai2 olmo-core GitHub 저장소 미리보기" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+
           <div class="archive-copy">
             <span class="archive-cat">오픈소스</span>
-            <strong>Olmo-core 3 공개 — 대형 MoE 학습 인프라를 오픈소스로 확장했다</strong>
-            <span class="archive-summary">Ai2가 대규모 Mixture-of-Experts(MoE) 모델 학습을 위한 Olmo-core 3를 공개했다. 전문가 라우팅과 분산 학습 구조를 다시 설계해 조 단위 파라미터 규모까지 실험할 수 있는 공개 학습 스택을 제공한다.</span>
+            <strong>Ai2 Olmo-core 3 정리: 오픈소스 MoE 학습 스택이 처리량을 2.7배 높인 방법</strong>
+            <span class="archive-summary">Ai2 Olmo-core 3는 전문가를 GPU에 상주시키고 데이터를 보내는 DDP 기반 MoE 학습 스택이다. 2.7배 처리량, 조 단위 파라미터 시험, MXFP8, 설치 방법과 수치의 측정 조건을 정리했다.</span>
             <span class="archive-date">게시 2026년 10월 2일</span>
 
           </div>

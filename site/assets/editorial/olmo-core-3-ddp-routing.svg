@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Olmo-core 3의 MoE 학습 방식 변화</title>
+<desc id="desc">이전 Olmo-core의 MoE 구현은 FSDP로 작은 배치마다 가중치를 모으고 다시 나눴다. Olmo-core 3는 DDP 기반으로 전문가를 GPU에 상주시키고 필요한 데이터를 전문가로 라우팅한다. B300 8장 예비 시험에서 47B MoE 처리량이 GPU당 초당 19,400토큰에서 52,000토큰으로 약 2.7배가 됐다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="40" font-weight="700" fill="#111827">가중치를 모으는 대신, 데이터를 전문가에게 보낸다</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">Ai2 Olmo-core 3 발표(2026-10-01) 기준. 처리량은 NVIDIA B300 8장 예비 시험 결과</text>
+<rect x="80" y="200" width="433" height="310" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="106" y="252" font-size="28" font-weight="700" fill="#111827">이전: FSDP 기반</text>
+<text x="106" y="305" font-size="22" fill="#334155">작은 배치마다</text>
+<text x="106" y="345" font-size="22" fill="#334155">모델 가중치를 모으고</text>
+<text x="106" y="385" font-size="22" fill="#334155">다시 나눔</text>
+<text x="106" y="425" font-size="22" fill="#334155"></text>
+<text x="106" y="465" font-size="22" font-weight="700" fill="#111827">GPU당 19,400 토큰/초</text>
+<line x1="521" y1="355" x2="561" y2="355" stroke="#64748b" stroke-width="5"/><path d="M557 343 L577 355 L557 367 Z" fill="#64748b"/>
+<rect x="583" y="200" width="433" height="310" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="609" y="252" font-size="28" font-weight="700" fill="#1e3a8a">Olmo-core 3: DDP 기반</text>
+<text x="609" y="305" font-size="22" fill="#334155">전문가를 GPU에 상주</text>
+<text x="609" y="345" font-size="22" fill="#334155">필요한 데이터만</text>
+<text x="609" y="385" font-size="22" fill="#334155">해당 전문가로 라우팅</text>
+<text x="609" y="425" font-size="22" fill="#334155">반복적인 가중치 수집 없음</text>
+<line x1="1024" y1="355" x2="1064" y2="355" stroke="#64748b" stroke-width="5"/><path d="M1060 343 L1080 355 L1060 367 Z" fill="#64748b"/>
+<rect x="1086" y="200" width="433" height="310" rx="20" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+<text x="1112" y="252" font-size="28" font-weight="700" fill="#065f46">결과 (47B MoE)</text>
+<text x="1112" y="305" font-size="22" font-weight="700" fill="#065f46">GPU당 52,000 토큰/초</text>
+<text x="1112" y="345" font-size="22" font-weight="700" fill="#065f46">약 2.7배</text>
+<text x="1112" y="385" font-size="22" fill="#334155"></text>
+<text x="1112" y="425" font-size="22" fill="#334155">B300 8장 예비 시험</text>
+<text x="1112" y="465" font-size="22" fill="#334155">다른 하드웨어는 다를 수 있음</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

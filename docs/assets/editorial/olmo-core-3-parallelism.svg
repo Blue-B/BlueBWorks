@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Olmo-core 3가 MoE를 GPU에 나누는 방법</title>
+<desc id="desc">전문가 병렬화는 전문가를 여러 GPU에 나누고, 파이프라인 병렬화는 층을 GPU 묶음에 나누며, 분산 옵티마이저는 옵티마이저 상태를 나눈다. 행 단위 전문가 병렬화, GPU 상주 라우팅, grouped GEMM, MXFP8이 라우팅과 계산 비용을 줄인다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="40" font-weight="700" fill="#111827">세 가지 분산 방식과 네 가지 최적화</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">Ai2 Olmo-core 3 발표 기준. MXFP8 수치는 B300 4장 통제 시험</text>
+<rect x="80" y="200" width="337" height="350" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="106" y="252" font-size="28" font-weight="700" fill="#1e3a8a">전문가 병렬화</text>
+<text x="106" y="305" font-size="22" fill="#334155">전문가를 여러 GPU에 분산</text>
+<text x="106" y="345" font-size="22" fill="#334155">GPU마다 일부 전문가만</text>
+<text x="106" y="385" font-size="22" fill="#334155">보관</text>
+<text x="106" y="425" font-size="22" fill="#334155"></text>
+<text x="106" y="465" font-size="22" font-weight="700" fill="#1e3a8a">메모리 분산</text>
+<rect x="447" y="200" width="337" height="350" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="473" y="252" font-size="28" font-weight="700" fill="#1e3a8a">파이프라인 병렬화</text>
+<text x="473" y="305" font-size="22" fill="#334155">모델 층을</text>
+<text x="473" y="345" font-size="22" fill="#334155">GPU 묶음에 나눔</text>
+<text x="473" y="385" font-size="22" fill="#334155">GPU마다 모델 일부만</text>
+<text x="473" y="425" font-size="22" fill="#334155"></text>
+<text x="473" y="465" font-size="22" font-weight="700" fill="#1e3a8a">메모리 분산</text>
+<rect x="814" y="200" width="337" height="350" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="840" y="252" font-size="28" font-weight="700" fill="#1e3a8a">분산 옵티마이저</text>
+<text x="840" y="305" font-size="22" fill="#334155">옵티마이저 상태를</text>
+<text x="840" y="345" font-size="22" fill="#334155">GPU에 나눠 보관</text>
+<text x="840" y="385" font-size="22" fill="#334155">전체 사본을 두지 않음</text>
+<text x="840" y="425" font-size="22" fill="#334155"></text>
+<text x="840" y="465" font-size="22" font-weight="700" fill="#1e3a8a">메모리 분산</text>
+<rect x="1181" y="200" width="337" height="350" rx="20" fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+<text x="1207" y="252" font-size="28" font-weight="700" fill="#92400e">계산·라우팅 최적화</text>
+<text x="1207" y="305" font-size="22" fill="#334155">행 단위 전문가 병렬화</text>
+<text x="1207" y="345" font-size="22" fill="#334155">GPU 상주 라우팅</text>
+<text x="1207" y="385" font-size="22" fill="#334155">grouped GEMM</text>
+<text x="1207" y="425" font-size="22" fill="#334155">MXFP8: BF16 대비</text>
+<text x="1207" y="465" font-size="22" fill="#334155">처리량 약 21%↑</text>
+<text x="1207" y="505" font-size="22" fill="#334155">메모리 103→95GiB</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

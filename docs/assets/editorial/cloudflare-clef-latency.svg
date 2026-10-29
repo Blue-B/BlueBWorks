@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Clef, Clef-flash, Jev의 지연 시간 비교</title>
+<desc id="desc">Cloudflare가 43개 평가에서 잰 지연 시간. Clef 중앙값 209.3ms, p95 238.6ms. Clef-flash 중앙값 38.8ms, p95 122.4ms. Jev 중앙값 524.1ms, p95 536.0ms.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="40" font-weight="700" fill="#111827">지연 시간: Clef-flash 중앙값 38.8ms, Jev 524.1ms</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">Cloudflare 자체 측정, 43개 평가 벤치마크 기준. 네트워크 지연은 별도</text>
+<rect x="80" y="200" width="460" height="310" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="106" y="252" font-size="28" font-weight="700" fill="#1e3a8a">Clef (27B)</text>
+<text x="106" y="305" font-size="22" font-weight="700" fill="#1e3a8a">중앙값 209.3ms</text>
+<text x="106" y="345" font-size="22" font-weight="700" fill="#1e3a8a">p95 238.6ms</text>
+<text x="106" y="385" font-size="22" fill="#334155"></text>
+<text x="106" y="425" font-size="22" fill="#334155">정확도 우선</text>
+<text x="106" y="465" font-size="22" fill="#334155">Qwen3.8-27B 기반</text>
+<rect x="570" y="200" width="460" height="310" rx="20" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+<text x="596" y="252" font-size="28" font-weight="700" fill="#065f46">Clef-flash</text>
+<text x="596" y="305" font-size="22" font-weight="700" fill="#065f46">중앙값 38.8ms</text>
+<text x="596" y="345" font-size="22" font-weight="700" fill="#065f46">p95 122.4ms</text>
+<text x="596" y="385" font-size="22" fill="#334155"></text>
+<text x="596" y="425" font-size="22" fill="#334155">지연이 중요한 판단</text>
+<text x="596" y="465" font-size="22" fill="#334155">Qwen3.5-9B 기반</text>
+<rect x="1060" y="200" width="460" height="310" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="1086" y="252" font-size="28" font-weight="700" fill="#111827">Jev (비교 대상)</text>
+<text x="1086" y="305" font-size="22" font-weight="700" fill="#111827">중앙값 524.1ms</text>
+<text x="1086" y="345" font-size="22" font-weight="700" fill="#111827">p95 536.0ms</text>
+<text x="1086" y="385" font-size="22" fill="#334155"></text>
+<text x="1086" y="425" font-size="22" fill="#334155">Typesafe AI의</text>
+<text x="1086" y="465" font-size="22" fill="#334155">System One 결정 모델</text>
+<text x="80" y="580" font-size="21" fill="#4b5563">Laya는 중앙값 5.8ms로 가장 빨랐지만 품질 점수가 크게 낮았다고 Cloudflare는 밝혔다.</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

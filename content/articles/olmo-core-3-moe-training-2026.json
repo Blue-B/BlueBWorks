@@ -1,0 +1,174 @@
+{
+  "slug": "olmo-core-3-moe-training-2026",
+  "title": "Ai2 Olmo-core 3 정리: 오픈소스 MoE 학습 스택이 처리량을 2.7배 높인 방법",
+  "summary": "Ai2 Olmo-core 3는 전문가를 GPU에 상주시키고 데이터를 보내는 DDP 기반 MoE 학습 스택이다. 2.7배 처리량, 조 단위 파라미터 시험, MXFP8, 설치 방법과 수치의 측정 조건을 정리했다.",
+  "category": "오픈소스",
+  "announcedAt": "2026-10-01",
+  "publishedAt": "2026-10-02T03:00:09+09:00",
+  "verifiedAt": "2026-10-29T18:58:00+09:00",
+  "status": "Open source",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": ["Ai2", "Olmo-core 3", "MoE", "Open Source", "Distributed Training"],
+  "image": "",
+  "imageAlt": "",
+  "imageCredit": "",
+  "editorNote": "Olmo-core 3의 숫자는 대부분 B300 클러스터에서 잰 시스템 시험값이라 그대로 옮기면 과장이 된다. 그래서 각 수치의 하드웨어와 시험 조건을 붙이고, Ai2가 기술 보고서에서 밝힌 실패한 시도까지 함께 정리했다.",
+  "keyPoints": [
+    "구조: 2026년 10월 1일 공개된 Olmo-core 3는 이전 FSDP 방식 대신 전문가를 GPU에 상주시키고 데이터를 라우팅하는 DDP 기반 MoE 학습 스택이다.",
+    "성능: B300 8장 예비 시험에서 47B MoE 처리량이 GPU당 초당 19,400토큰에서 52,000토큰으로 약 2.7배가 됐다. 모두 Ai2 측정값이다.",
+    "규모: 1.2조 파라미터(활성 583.6억) 구성을 GPU 512장에서 시험했지만 무작위 라우팅을 쓴 시스템 시험이라 학습된 모델 품질과는 무관하다."
+  ],
+  "sections": [
+    {
+      "title": "Olmo-core 3는 무엇인가: 대형 MoE를 위한 공개 학습 스택",
+      "paragraphs": [
+        "공개 모델은 많아졌지만 그 모델을 어떻게 학습시켰는지는 여전히 잘 보이지 않는다. 특히 전문가 혼합(Mixture-of-Experts, MoE) 모델은 가중치만 받아서는 수백 장의 GPU에 전문가를 어떻게 나누고 데이터를 어떻게 보내는지 알 수 없다. 대학 연구실이나 작은 연구팀이 대형 MoE를 직접 실험하기 어려운 이유다.",
+        "Ai2는 2026년 10월 1일 Hugging Face 블로그에서 Olmo-core 3를 공개했다. Olmo 언어모델을 개발하는 프레임워크의 큰 업그레이드로, MoE 학습 시스템을 새로 설계했다. 조 단위 파라미터까지 MoE 학습을 늘리면서 계산 효율을 지키는 것이 목표이고, 차세대 Olmo의 핵심 시스템이기도 하다.",
+        "MoE는 입력마다 모델의 일부 전문가만 쓰기 때문에 파라미터를 많이 두면서도 계산량을 줄일 수 있다. 하지만 전체 모델은 여전히 GPU 메모리에 저장하고 학습 중에 갱신해야 하며, 클러스터 전체에서 입력을 맞는 전문가에게 보내는 통신 비용이 생긴다. Ai2는 MoE가 커질수록 이 비용이 효율 이점을 상당 부분 갉아먹는다고 설명한다.",
+        "Olmo-core 3가 겨냥한 것이 바로 이 격차다. Ai2가 든 시험에서 전문가 수를 8개에서 128개로 늘리면서 토큰마다 4개만 고르게 해 활성 파라미터를 약 32억으로 유지했더니, 전체 파라미터는 46억에서 470억으로 커졌지만 학습 처리량은 5% 미만으로만 줄었다.",
+        "Ai2는 다음 세대 Olmo가 MoE 구조를 쓰고, 지금까지 가장 큰 데이터셋과 가장 긴 컨텍스트 창으로 학습해 가장 능력 있는 Olmo가 되는 것을 목표로 한다고 밝혔다. 또 모델 가중치는 그 뒤의 인프라와 학습 결정이 함께 공개될 때 더 쓸모 있다며, 새 스택도 누구나 쓸 수 있게 완전히 공개했다고 설명했다."
+      ],
+      "sourceRefs": [1, 2],
+      "stats": [
+        {"value": "8 → 128개", "label": "전문가 수", "note": "토큰당 4개 선택"},
+        {"value": "46억 → 470억", "label": "전체 파라미터", "note": "활성 약 32억 유지"},
+        {"value": "5% 미만", "label": "처리량 감소", "note": "Ai2 시험 결과"}
+      ],
+      "links": [
+        {"label": "Hugging Face 블로그: Introducing Olmo-core 3", "url": "https://huggingface.co/blog/allenai/olmocore3"}
+      ]
+    },
+    {
+      "title": "무엇이 바뀌었나: FSDP에서 DDP 기반 라우팅으로",
+      "paragraphs": [
+        "Ai2의 희소 모델 작업은 64개 전문가를 쓴 OlmoE에서 시작했다. 반면 Olmo 3는 거의 모든 파라미터가 매 토큰에 쓰이는 밀집(dense) 구조였고 학습 스택도 그에 맞춰져 있었다. Olmo-core 3는 훨씬 큰 MoE를 위한 학습 시스템을 프레임워크에 더한 것이다.",
+        "이전 Olmo-core의 MoE 구현은 완전 분할 데이터 병렬화(FSDP)를 썼다. 작은 학습 배치마다 모델 가중치를 모았다가 다시 나누는 방식이다. Olmo-core 3는 분산 데이터 병렬화(DDP) 기반으로 바꿔, 전문가를 GPU에 그대로 두고 필요한 데이터를 전문가에게 보낸다. 가중치를 반복해서 모으는 비용이 사라진다.",
+        "효과는 Ai2의 예비 시험에 나온다. NVIDIA B300 GPU 8장에서 470억 파라미터 MoE를 학습할 때, 새 스택은 GPU당 초당 52,000토큰을 처리했고 이전 구현은 19,400토큰이었다. 약 2.7배다. Ai2는 대형 MoE 학습에서 이미 자리 잡은 NVIDIA Megatron-Core를 언급하며, Olmo-core 3는 Olmo를 만드는 프레임워크 안에 통합 MoE 학습 스택을 들인 것이라고 설명했다."
+      ],
+      "sourceRefs": [1],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/olmo-core-3-ddp-routing.svg",
+          "alt": "이전 FSDP 방식과 Olmo-core 3의 DDP 기반 라우팅 방식, 그리고 GPU당 처리량 19,400에서 52,000토큰으로 늘어난 결과를 화살표로 이은 도식",
+          "caption": "Olmo-core 3는 가중치를 매번 모으는 대신 전문가를 GPU에 두고 데이터를 보낸다. 2.7배 처리량은 B300 8장 예비 시험 결과다.",
+          "credit": "BlueBWorks 도식 · Ai2 Olmo-core 3 발표 수치 기반",
+          "sourceUrl": "https://huggingface.co/blog/allenai/olmocore3",
+          "width": 1600,
+          "height": 900
+        }
+      ]
+    },
+    {
+      "title": "MoE를 GPU에 나누는 세 가지 방법과 계산 최적화",
+      "paragraphs": [
+        "모델과 학습 상태를 하드웨어에 나누는 방법은 세 가지가 함께 쓰인다. 전문가 병렬화는 전문가를 여러 GPU에 나눠 각 GPU가 전문가 일부만 갖게 한다. 파이프라인 병렬화는 입력을 차례로 변환하는 모델 층을 GPU 묶음에 나눈다. 분산 옵티마이저는 학습 중 업데이트 계산에 쓰는 옵티마이저 상태를 모든 GPU에 복사하지 않고 나눠 둔다.",
+        "라우팅과 계산 비용을 줄이는 장치도 있다. 행 단위 전문가 병렬화는 라우팅된 데이터를 전문가 입력 버퍼에 바로 넣어 재배열 작업을 줄인다. GPU 상주 라우팅은 라우팅 정보를 GPU에 둬 CPU가 그 정보를 기다리지 않고 작업을 넣을 수 있게 한다. grouped GEMM은 여러 작은 전문가 계산을 묶어 GPU가 효율적으로 처리하게 한다.",
+        "숫자를 적은 비트로 표현하는 MXFP8 형식도 지원한다. Ai2가 B300 4장에서 전문가에 작업을 고르게 나눈 통제 시험을 했을 때, 효과가 큰 부분에 MXFP8을 켜자 기준인 BF16보다 학습 처리량이 약 21% 높았고 최대 활성 메모리는 103GiB에서 95GiB로 줄었다. 이득은 주로 피드포워드 계산과 전문가 간 데이터 이동에서 나왔다.",
+        "Ai2는 이 기법들이 서로 맞물려야 한다고 강조한다. 계산을 빠르게 하면 데이터 이동이 늘 수 있고, 비트를 줄여도 형식 변환이 오래 걸리면 이득이 없다. Olmo-core 3는 전체 학습 과정에서 이런 맞교환을 조절할 수 있게 설계했다는 설명이다. 데이터·전문가·파이프라인 병렬화가 GPU 한 장에서 여러 장으로 넓어가며 어떻게 함께 작동하는지는 Ai2가 공개한 인터랙티브 설명에서 단계별로 볼 수 있다."
+      ],
+      "sourceRefs": [1],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/olmo-core-3-parallelism.svg",
+          "alt": "전문가 병렬화, 파이프라인 병렬화, 분산 옵티마이저와 계산·라우팅 최적화 네 가지를 네 상자로 나눈 도식",
+          "caption": "Olmo-core 3는 세 가지 분산 방식으로 메모리를 나누고, 행 단위 전문가 병렬화·GPU 상주 라우팅·grouped GEMM·MXFP8로 계산 비용을 줄인다.",
+          "credit": "BlueBWorks 도식 · Ai2 Olmo-core 3 발표 기반",
+          "sourceUrl": "https://huggingface.co/blog/allenai/olmocore3",
+          "width": 1600,
+          "height": 900
+        }
+      ]
+    },
+    {
+      "title": "조 단위 파라미터 시험, 숫자를 어떻게 읽어야 하나",
+      "paragraphs": [
+        "Ai2는 B300 GPU에서 여러 구성을 시험했다. 가장 큰 정식 시험은 전체 1.2조 파라미터, 토큰당 활성 583.6억 파라미터 구성을 GPU 512장에서 돌린 것이고, 최고 처리량은 GPU당 858 TFLOP/s였다. 전문가 간 통신을 다른 방식으로 처리하는 DeepEP v2로는 2.38조 파라미터 구성까지 시험했다.",
+        "조건을 같이 읽어야 한다. 이 시험들은 시스템 성능을 재려고 무작위 라우팅을 썼고, 학습된 모델의 품질을 잰 것이 아니다. 2.38조 구성은 짧은 용량 시험이지 전체 학습 실행이 아니어서, 도달할 수 있는 규모를 보여 줄 뿐 지속적인 학습 성능을 뜻하지는 않는다고 Ai2가 직접 적었다.",
+        "기술 보고서에는 실패하거나 채택하지 않은 시도도 담겼다. 라우팅 균형을 높이려는 점수가 좋아지는데 실제 부하는 오히려 불균형해지는 현상을 Ai2는 토큰 게리맨더링이라고 불렀다. 전문가가 처리하는 토큰이 적다는 이유로 학습률을 낮춰도 결과가 좋아지지 않았고, 행렬 크기가 같아도 값에 따라 GPU 계산 시간이 달라 성능 비교에는 같은 입력값이 필요했다.",
+        "통신과 계산을 별도 GPU 스트림에서 겹치는 것도 항상 빠르지 않았고, 일부 시험에서는 오히려 전체 실행을 느리게 했다고 한다. 대형 학습을 준비하는 팀이라면 성능 수치보다 이런 실패 기록이 더 쓸모 있을 수 있다. 같은 시행착오를 반복하지 않아도 되기 때문이다."
+      ],
+      "sourceRefs": [1],
+      "table": {
+        "headers": ["시험", "구성", "결과", "조건"],
+        "rows": [
+          ["FSDP → DDP 비교", "47B MoE, B300 8장", "GPU당 19,400 → 52,000 토큰/초 (약 2.7배)", "예비 시험"],
+          ["전문가 수 확대", "8 → 128개, 토큰당 4개", "전체 4.6B → 47B, 처리량 감소 5% 미만", "활성 약 3.2B 고정"],
+          ["MXFP8", "B300 4장", "BF16 대비 처리량 약 21%↑, 메모리 103 → 95GiB", "전문가에 작업 균등 분배"],
+          ["최대 정식 시험", "1.2조(활성 583.6억), GPU 512장", "GPU당 최고 858 TFLOP/s", "무작위 라우팅, 품질 무관"],
+          ["DeepEP v2", "2.38조 파라미터", "구성 도달", "짧은 용량 시험, 전체 학습 아님"]
+        ],
+        "caption": "Ai2 Olmo-core 3 발표(2026-10-01) 기준. 모두 Ai2가 NVIDIA B300에서 잰 값이며 다른 하드웨어의 학습 성능으로 일반화하면 안 된다."
+      },
+      "links": [
+        {"label": "Olmo-core 3 기술 보고서", "url": "https://allenai.org/papers/olmocore3"}
+      ]
+    },
+    {
+      "title": "Olmo-core 설치와 시작: 누가 써야 하나",
+      "paragraphs": [
+        "Olmo-core는 개인 PC에서 모델을 돌려 보는 도구가 아니라 대규모 학습 인프라다. 자체 MoE를 학습하려는 연구팀, 라우팅과 병렬화를 실험하려는 인프라 엔지니어, 다른 하드웨어에 학습 스택을 옮기려는 개발자가 주 대상이다. Ai2는 연구자와 개발자가 Olmo-core 3로 자기 MoE를 학습하고, 다른 하드웨어에 맞추고, 라우팅과 병렬화를 실험할 수 있다고 밝혔다.",
+        "GitHub README에 따르면 먼저 운영체제와 하드웨어에 맞게 PyTorch를 설치한 뒤, 개발용으로는 저장소를 받아 pip install -e .[all]로 설치하고, 그냥 쓰려면 PyPI의 ai2-olmo-core 패키지를 설치한다. flash-attn, TransformerEngine, torchao, grouped_gemm 같은 선택 의존성은 기능에 따라 따로 필요하다.",
+        "Ai2가 배포하는 Docker 이미지에는 핵심·선택 의존성이 모두 들어 있고 사내 H100 클러스터에서 정기적으로 시험한다. 다만 Olmo-core 패키지 자체는 들어 있지 않고, 하드웨어나 드라이버·CUDA 버전이 다르면 동작하지 않을 수 있다. 그럴 때는 저장소의 Dockerfile을 고쳐 직접 이미지를 만든다.",
+        "공개된 모델의 공식 학습 스크립트는 src/scripts/official/에 있고 torchrun으로 실행한다. README 기준으로는 OLMo-2와 OLMo-3 스크립트가 정리돼 있다. 학습뿐 아니라 Hugging Face Transformers나 vLLM으로 Olmo 체크포인트를 추론하는 방법도 함께 안내돼 있다.",
+        "코드를 고쳐 기여하거나 자체 하드웨어에 맞춰 바꾸려는 경우에는 저장소의 검사 도구를 그대로 쓰면 된다. README에 따르면 테스트는 pytest, 형식 검사는 isort와 black, 린트는 ruff, 타입 검사는 mypy로 하고, 문서는 make docs로 로컬에서 만들 수 있다. 라우팅이나 병렬화 설정을 바꾸는 실험이라면 작은 GPU 구성에서 먼저 처리량과 메모리를 재고 규모를 키우는 편이 비용을 아끼는 방법이다."
+      ],
+      "sourceRefs": [2],
+      "code": {
+        "language": "shell",
+        "text": "# PyTorch를 먼저 설치한 뒤\npip install ai2-olmo-core\n\n# 개발용 설치\ngit clone https://github.com/allenai/Olmo-core.git\ncd Olmo-core\npip install -e .[all]",
+        "caption": "allenai/olmo-core README의 설치 명령. BlueBWorks가 직접 실행한 결과는 아니다."
+      },
+      "table": {
+        "headers": ["항목", "내용"],
+        "rows": [
+          ["PyPI 패키지", "ai2-olmo-core"],
+          ["선택 의존성", "flash-attn, ring-flash-attn, TransformerEngine, Liger-Kernel, torchao, grouped_gemm, QuACK"],
+          ["Docker 이미지", "의존성만 포함, 사내 H100에서 시험, 하드웨어·CUDA가 다르면 직접 빌드"],
+          ["공식 학습 스크립트", "src/scripts/official/ (OLMo-2, OLMo-3), torchrun으로 실행"],
+          ["추론", "Transformers, vLLM, Olmo-core 채팅 데모(베타)"]
+        ],
+        "caption": "allenai/olmo-core GitHub README를 2026-10-29에 확인한 기준이다."
+      },
+      "links": [
+        {"label": "GitHub: allenai/olmo-core", "url": "https://github.com/allenai/olmo-core"}
+      ]
+    },
+    {
+      "title": "자주 묻는 질문: Olmo-core 3",
+      "paragraphs": [
+        "검색으로 많이 찾는 질문을 Ai2 공식 자료 기준으로 짧게 정리했다. 2026년 10월 29일 확인 기준이다."
+      ],
+      "sourceRefs": [1, 2],
+      "faq": [
+        {"question": "Olmo-core 3는 모델인가요?", "answer": "아닙니다. Olmo 언어모델을 개발하고 학습하는 프레임워크이고, 이번 판에서 대형 MoE 학습 시스템을 새로 설계했습니다. Ai2의 차세대 Olmo가 이 스택으로 학습될 예정입니다."},
+        {"question": "2.7배 빨라졌다는 수치는 어디서 나왔나요?", "answer": "NVIDIA B300 GPU 8장에서 470억 파라미터 MoE를 학습한 Ai2의 예비 시험에서 GPU당 초당 19,400토큰이 52,000토큰으로 늘었습니다. 이전 Olmo-core 구현과의 비교이며 다른 하드웨어에서는 다를 수 있습니다."},
+        {"question": "정말 1조 파라미터 모델을 학습했나요?", "answer": "1.2조 파라미터 구성을 GPU 512장에서 시험했지만 무작위 라우팅으로 시스템 성능만 잰 것이고, 학습된 모델의 품질을 잰 것은 아닙니다. 2.38조 구성은 짧은 용량 시험이었습니다."},
+        {"question": "어떻게 설치하나요?", "answer": "PyTorch를 먼저 설치한 뒤 pip install ai2-olmo-core로 설치하거나, 저장소를 받아 pip install -e .[all]로 개발용 설치를 합니다. 기능에 따라 선택 의존성이 추가로 필요합니다."}
+      ]
+    }
+  ],
+  "sources": [
+    {"name": "Hugging Face Blog (Ai2) · Introducing Olmo-core 3", "url": "https://huggingface.co/blog/allenai/olmocore3", "description": "2026-10-01 Ai2 발표. FSDP에서 DDP 기반 라우팅으로의 변경, 2.7배 처리량, 전문가 확대 시험, 병렬화·최적화 기법, MXFP8 시험, 조 단위 시험 조건, 기술 보고서의 실패 사례."},
+    {"name": "GitHub · allenai/olmo-core", "url": "https://github.com/allenai/olmo-core", "description": "공식 저장소 README. 설치 방법, 선택 의존성, Docker 이미지 주의점, 공식 학습 스크립트, 추론 방법."}
+  ],
+  "resources": [
+    {"name": "Olmo-core 3 기술 보고서", "url": "https://allenai.org/papers/olmocore3", "description": "시스템 설계, 실험, 채택하지 않은 방법을 자세히 담은 보고서.", "type": "논문"},
+    {"name": "GitHub: allenai/olmo-core", "url": "https://github.com/allenai/olmo-core", "description": "코드, 설치 안내, 공식 학습 스크립트.", "type": "저장소"},
+    {"name": "대형 학습 확장 인터랙티브 설명", "url": "https://narrative.allen.ai/scaling-up-training", "description": "데이터·전문가·파이프라인 병렬화가 함께 작동하는 방식을 단계별로 보여 준다.", "type": "데모"},
+    {"name": "PyPI: ai2-olmo-core", "url": "https://pypi.org/project/ai2-olmo-core/", "description": "pip로 설치하는 패키지.", "type": "설치"}
+  ],
+  "corrections": [
+    {"date": "2026-10-29", "text": "짧은 소개를 장문 해설로 개정했다. FSDP에서 DDP 기반 라우팅으로 바뀐 구조, 2.7배 처리량과 MXFP8 시험 조건, 조 단위 시험이 무작위 라우팅 시스템 시험이라는 점, 설치 방법을 추가했다. 권리가 확인되지 않은 GitHub 미리보기 이미지는 BlueBWorks 도식으로 대체했다. 발표일과 최초 게시일은 바꾸지 않았다.", "url": "https://huggingface.co/blog/allenai/olmocore3"}
+  ],
+  "discovery": {"writer": "aside", "xStatus": "unavailable", "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 Ai2의 Hugging Face 블로그 발표와 GitHub 저장소 README를 직접 열어 확인했다.", "xPosts": []},
+  "mediaReview": {
+    "checkedAt": "2026-10-29T18:58:00+09:00",
+    "status": "included",
+    "candidates": [
+      {"sourceUrl": "https://huggingface.co/blog/allenai/olmocore3", "assetUrl": "https://bluebworks.com/assets/editorial/olmo-core-3-ddp-routing.svg", "decision": "included", "reason": "발표문의 FSDP·DDP 비교와 처리량 수치를 BlueBWorks가 흐름 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
+      {"sourceUrl": "https://huggingface.co/blog/allenai/olmocore3", "assetUrl": "https://bluebworks.com/assets/editorial/olmo-core-3-parallelism.svg", "decision": "included", "reason": "발표문의 병렬화·최적화 설명을 BlueBWorks가 상자 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
+      {"sourceUrl": "https://github.com/allenai/olmo-core", "decision": "excluded", "reason": "이전 판에서 쓰던 GitHub 저장소 미리보기(opengraph) 이미지는 개별 재사용 조건을 확인하지 못해 뺐다."}
+    ]
+  }
+}
