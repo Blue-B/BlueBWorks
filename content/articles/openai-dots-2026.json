@@ -5,7 +5,7 @@
   "category": "에이전트",
   "announcedAt": "2026-09-29",
   "publishedAt": "2026-10-02T00:09:15+09:00",
-  "verifiedAt": "2026-10-29T19:35:00+09:00",
+  "verifiedAt": "2026-10-29T18:45:00+09:00",
   "status": "Rolling out",
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
@@ -168,7 +168,7 @@
   ],
   "discovery": {"writer": "aside", "xStatus": "unavailable", "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 OpenAI dots 소개 글, 안전 설명 글, DevDay 요약을 직접 열어 확인했다.", "xPosts": []},
   "mediaReview": {
-    "checkedAt": "2026-10-29T19:35:00+09:00",
+    "checkedAt": "2026-10-29T18:45:00+09:00",
     "status": "included",
     "candidates": [
       {"sourceUrl": "https://openai.com/index/how-we-build-safety-security-and-privacy-into-dots/", "assetUrl": "https://bluebworks.com/assets/editorial/openai-dots-workspace.svg", "decision": "included", "reason": "안전 설명 글의 작업 공간·자동 검토 구조를 BlueBWorks가 흐름도로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},

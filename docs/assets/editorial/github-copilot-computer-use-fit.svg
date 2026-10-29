@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">컴퓨터 사용을 고를 때와 다른 통합을 고를 때</title>
+<desc id="desc">통합 수단이 있는 도구는 API, CLI, MCP를 쓰는 편이 안정적이다. 레거시 데스크톱 앱이나 GUI 전용 소프트웨어처럼 통합 수단이 없을 때 컴퓨터 사용이 대안이 된다. 화면 해석은 잘못된 버튼 선택, 엉뚱한 위치 입력, 반복 동작 같은 실패 가능성이 있다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="38" font-weight="700" fill="#111827">API·CLI·MCP가 있으면 그쪽이 먼저, 없을 때 컴퓨터 사용</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">GitHub Docs의 용도와 한계 설명을 BlueBWorks가 정리</text>
+<rect x="80" y="200" width="460" height="350" rx="20" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+<text x="106" y="252" font-size="28" font-weight="700" fill="#065f46">API·CLI·MCP가 있다</text>
+<text x="106" y="305" font-size="22" fill="#334155">구조화된 입력과 결과</text>
+<text x="106" y="345" font-size="22" fill="#334155">버전이 바뀌어도 비교적 안정</text>
+<text x="106" y="385" font-size="22" fill="#334155">권한 범위를 좁히기 쉬움</text>
+<text x="106" y="425" font-size="22" fill="#334155"></text>
+<text x="106" y="465" font-size="22" font-weight="700" fill="#065f46">이 경로를 먼저 쓴다</text>
+<rect x="570" y="200" width="460" height="350" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="596" y="252" font-size="28" font-weight="700" fill="#1e3a8a">GUI만 있다</text>
+<text x="596" y="305" font-size="22" fill="#334155">레거시 데스크톱 앱</text>
+<text x="596" y="345" font-size="22" fill="#334155">GUI 전용 사내 소프트웨어</text>
+<text x="596" y="385" font-size="22" fill="#334155">프레젠테이션 내용 수정</text>
+<text x="596" y="425" font-size="22" fill="#334155">앱 사이 정보 옮기기</text>
+<text x="596" y="465" font-size="22" fill="#334155"></text>
+<text x="596" y="505" font-size="22" font-weight="700" fill="#1e3a8a">컴퓨터 사용이 대안</text>
+<rect x="1060" y="200" width="460" height="350" rx="20" fill="#fef2f2" stroke="#b91c1c" stroke-width="3"/>
+<text x="1086" y="252" font-size="28" font-weight="700" fill="#7f1d1d">알려진 한계</text>
+<text x="1086" y="305" font-size="22" fill="#334155">잘못된 컨트롤 선택</text>
+<text x="1086" y="345" font-size="22" fill="#334155">엉뚱한 위치에 입력</text>
+<text x="1086" y="385" font-size="22" fill="#334155">비표준·동적 컨트롤에 약함</text>
+<text x="1086" y="425" font-size="22" fill="#334155">타이밍·창 상태로 결과 달라짐</text>
+<text x="1086" y="465" font-size="22" fill="#334155">동작 반복 또는 중단</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

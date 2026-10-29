@@ -5,7 +5,7 @@
   "category": "모델",
   "announcedAt": "2026-09-29",
   "publishedAt": "2026-10-02T00:09:15+09:00",
-  "verifiedAt": "2026-10-29T19:20:00+09:00",
+  "verifiedAt": "2026-10-29T18:44:00+09:00",
   "status": "Available",
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
@@ -169,7 +169,7 @@
   ],
   "discovery": {"writer": "aside", "xStatus": "unavailable", "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 OpenAI 발표 원문과 API 모델 문서를 직접 열어 확인했다.", "xPosts": []},
   "mediaReview": {
-    "checkedAt": "2026-10-29T19:20:00+09:00",
+    "checkedAt": "2026-10-29T18:44:00+09:00",
     "status": "included",
     "candidates": [
       {"sourceUrl": "https://openai.com/index/introducing-gpt-6-1-sol/", "assetUrl": "https://bluebworks.com/assets/editorial/gpt-6-1-sol-price-tiers.svg", "decision": "included", "reason": "발표문의 세 모델 가격을 BlueBWorks가 막대 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},

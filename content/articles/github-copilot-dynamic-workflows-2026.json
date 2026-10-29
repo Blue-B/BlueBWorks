@@ -1,0 +1,182 @@
+{
+  "slug": "github-copilot-dynamic-workflows-2026",
+  "title": "GitHub Copilot Dynamic Workflows 사용법: 멀티에이전트 절차를 코드로 고정하는 법과 /fleet 차이",
+  "summary": "GitHub Copilot Dynamic Workflows는 에이전트 작업 절차를 코드로 정의해 순차·병렬 실행, 결과 전달, 체크포인트를 반복 가능하게 만든다. 켜는 법, /fleet·Autopilot과 차이, 권한, 비용 제한 설정을 정리했다.",
+  "category": "개발도구",
+  "announcedAt": "2026-10-01",
+  "publishedAt": "2026-10-02T15:05:13+09:00",
+  "verifiedAt": "2026-10-29T18:48:00+09:00",
+  "status": "Public preview",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": ["GitHub", "Copilot", "Dynamic Workflows", "Multi-Agent", "Copilot CLI"],
+  "editorNote": "멀티에이전트 작업은 잘 될 때보다 많이 돌 때가 더 위험하다. 이 기능의 핵심은 절차를 코드로 고정하는 것만큼 실행 수와 AI 크레딧에 상한을 거는 것이라고 보고, 제한 설정과 권한 상속을 자세히 다뤘다.",
+  "keyPoints": [
+    "제공 범위: 2026년 10월 1일 Copilot CLI, GitHub Copilot 앱, Copilot SDK에 공개 프리뷰로 나왔다. 앱은 설정 없이, CLI는 --experimental 또는 /experimental on으로 켠다.",
+    "차이점: Autopilot과 /fleet은 Copilot이 절차를 정하지만, Dynamic workflow는 작성자가 코드로 단계·조건·인계를 정한다.",
+    "비용 관리: 동시·총 하위 에이전트 수, 실행 시간, AI 크레딧 상한을 걸 수 있고, 프롬프트 > 워크플로 코드 > 개인 설정 순으로 우선한다."
+  ],
+  "sections": [
+    {
+      "title": "Copilot Dynamic Workflows란: 에이전트 작업 절차를 프로그램으로 만든다",
+      "paragraphs": [
+        "장애가 나면 할 일은 대체로 정해져 있다. 로그와 지표를 모으고, 시스템별로 원인을 살피고, 결과를 합쳐 타임라인과 원인 보고서를 쓴다. 그런데 에이전트에게 이 일을 맡기면 매번 순서가 달라지고, 어떤 날은 한 시스템을 빠뜨린다. 절차가 재현되지 않으니 결과를 믿기 어렵다.",
+        "GitHub는 2026년 10월 1일 Copilot CLI, GitHub Copilot 앱, GitHub Copilot SDK에 Dynamic Workflows를 추가했다. Dynamic workflow는 작업을 어떻게 수행할지 정의한 프로그램이다. 자동화된 단계와 하나 이상의 에이전트 작업을 섞고, 단계는 차례대로, 동시에, 또는 둘을 섞어 실행할 수 있다.",
+        "핵심은 무엇을 코드가 정하고 무엇을 에이전트가 맡는지 나누는 것이다. 단계, 에이전트를 언제 부를지, 그 결과를 어떻게 쓸지는 모두 코드로 정하고, 에이전트는 분석이나 판단이 필요한 부분만 맡는다. 위의 장애 조사라면 같은 단계가 매번 같은 순서로 실행된다.",
+        "워크플로는 Copilot 확장(extension) 안에 들어 있다. 그래서 Copilot의 확장 API를 그대로 쓸 수 있고, 명령 실행, 도구 사용, 다른 서비스 호출, 하위 에이전트 간 결과 검증, 사용자 입력 요청, 체크포인트에서 멈추기까지 할 수 있다. 에이전트에게 정해진 형식으로 결과를 돌려 달라고 하면 다음 단계가 그 결과를 받아 쓴다."
+      ],
+      "sourceRefs": [1, 2],
+      "stats": [
+        {"value": "3곳", "label": "제공 환경", "note": "Copilot CLI · Copilot 앱 · Copilot SDK"},
+        {"value": "순차·병렬", "label": "실행 방식", "note": "둘을 섞을 수도 있음"},
+        {"value": "공개 프리뷰", "label": "제공 상태", "note": "2026-10-01 발표"}
+      ],
+      "links": [
+        {"label": "GitHub Changelog: Dynamic workflows in Copilot CLI and the Copilot app", "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/"}
+      ]
+    },
+    {
+      "title": "Autopilot, /fleet과 무엇이 다른가",
+      "paragraphs": [
+        "Copilot에는 이미 여러 에이전트를 쓰는 방법이 있다. 그래서 Dynamic workflow가 같은 기능처럼 보일 수 있는데, GitHub 문서는 차이가 에이전트 수가 아니라 작업을 누가 계획하고 통제하느냐에 있다고 설명한다.",
+        "Autopilot은 자율성에 초점을 둔 모드다. Copilot이 단계마다 사용자에게 묻지 않고 다음 단계를 스스로 정하며 계속 일한다. /fleet은 Copilot이 작업을 하위 에이전트에 나눠 맡기고 병렬로 조율하도록 유도하는데, 작업을 어떻게 나눌지는 매번 Copilot이 정한다.",
+        "Dynamic workflow는 코드로 정의한 절차를 수행한다. 워크플로 작성자가 단계, 조건, 인계를 정하고, 에이전트는 하나든 여럿이든 그 절차 안에서 차례로 또는 동시에 일한다. 같은 워크플로를 다시 쓰면 같은 단계와 규칙을 다시 쓰는 것이다.",
+        "그렇다고 결과가 항상 같지는 않다. 문서는 입력이나 중간 결과에 따라 단계 사이의 경로가 달라질 수 있고, 에이전트의 답도 실행마다 다를 수 있다고 분명히 적었다. 고정되는 것은 절차이지 결론이 아니다."
+      ],
+      "sourceRefs": [1, 2],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/github-copilot-dynamic-workflows-compare.svg",
+          "alt": "Autopilot, /fleet, Dynamic workflow를 세 상자로 나눠 누가 절차를 정하는지와 실행 방식을 비교한 도식",
+          "caption": "Autopilot과 /fleet은 Copilot이 다음 단계나 분할 방식을 정하고, Dynamic workflow는 작성자가 코드로 단계·조건·인계를 정한다.",
+          "credit": "BlueBWorks 도식 · GitHub Docs 비교표 기반",
+          "sourceUrl": "https://docs.github.com/copilot/concepts/agents/dynamic-workflows",
+          "width": 1600,
+          "height": 900
+        }
+      ]
+    },
+    {
+      "title": "Dynamic Workflows 켜는 법과 첫 워크플로 만들기",
+      "paragraphs": [
+        "GitHub Copilot 앱에서는 따로 설정할 것 없이 항상 쓸 수 있다. Copilot CLI에서는 최신 버전에서 실험 기능을 켜야 한다. CLI를 --experimental 옵션으로 실행하거나, 대화형 세션에서 /experimental on을 입력한다. CLI 업데이트는 /update로 한다.",
+        "워크플로는 직접 쓰지 않아도 된다. 자주 하는 작업을 설명하며 Copilot에게 워크플로를 만들어 달라고 하면 된다. 기본으로는 현재 세션용 확장으로 만들어지고, 개인 확장이나 프로젝트 확장으로 만들어 달라고 할 수도 있다. 직접 쓰고 싶다면 Copilot에 들어 있는 작성 안내를 참고한다.",
+        "실행도 자연어로 한다. 'java-security-review 워크플로를 현재 디렉터리의 java 파일에 실행해 줘'처럼 이름으로 부르면 Copilot이 백그라운드에서 돌리고 끝나면 알려 준다. 그동안 세션에서 다른 일을 계속할 수 있다. 어떤 워크플로가 있는지는 'What dynamic workflows are available?'이라고 물으면 된다.",
+        "CLI에서는 대화 없이 copilot workflow run 명령으로 바로 실행할 수도 있다. 이 명령은 실행이 끝나거나 멈출 때까지 기다렸다가 셸로 돌아오므로, 스크립트나 CI/CD 파이프라인에서 같은 입력으로 반복 실행하고 결과를 저장하는 데 쓸 수 있다. 다만 이 방식은 권한 승인 창을 띄우지 않으니 필요한 권한을 미리 줘야 한다.",
+        "실행 중인 워크플로는 CLI의 /workflows 명령이나 앱의 Workflows 버튼으로 본다. 사용한 AI 크레딧, 단계, 진행 메시지, 하위 에이전트가 표시되고 여기서 취소하거나 일시 중지할 수 있다. 멈춘 실행을 다시 고르면 완료된 단계의 저장된 결과를 재사용해 이어 간다. 확장에 따라서는 슬래시 명령, 사용자 도구, 훅, 앱의 캔버스 화면으로 워크플로를 시작하게 만들 수도 있다."
+      ],
+      "sourceRefs": [1, 2],
+      "code": {
+        "language": "shell",
+        "text": "# 실험 기능을 켜고 CLI 실행\ncopilot --experimental\n\n# 대화 없이 기존 워크플로 실행 (WORKFLOW-NAME은 워크플로 이름)\ncopilot workflow run WORKFLOW-NAME",
+        "caption": "GitHub Changelog와 Docs에 안내된 명령이다. BlueBWorks가 직접 실행한 결과는 아니다."
+      },
+      "table": {
+        "headers": ["환경", "켜는 방법", "실행 방법"],
+        "rows": [
+          ["GitHub Copilot 앱", "설정 없이 항상 사용 가능", "자연어 요청, Workflows 버튼으로 실행 기록 확인"],
+          ["Copilot CLI", "--experimental 또는 /experimental on (최신 버전)", "자연어 요청, copilot workflow run, /workflows로 확인"],
+          ["Copilot SDK", "SDK 코드에서 호출", "확장의 슬래시 명령·도구·훅 등"]
+        ],
+        "caption": "2026-10-01 GitHub Changelog와 GitHub Docs를 2026-10-29에 확인한 기준이다."
+      }
+    },
+    {
+      "title": "어떤 작업에 쓰면 좋은가: GitHub가 든 예",
+      "paragraphs": [
+        "GitHub는 재사용할 절차를 정하고 싶을 때, 또는 한 작업에 분명한 단계와 점검, 제한이 필요할 때 Dynamic workflow를 쓰라고 권한다. 릴리스 점검을 돌리고 한 에이전트가 실패를 평가하게 한 뒤, 사용자가 결과를 검토할 때까지 멈췄다가 재개하는 흐름이 대표적인 예다.",
+        "병렬 처리가 잘 맞는 일도 있다. 풀 리퀘스트의 변경 파일이 많을 때 파일별로 동시에 리뷰하거나, 큰 코드베이스에서 테스트가 빠진 곳이나 없앨 API를 쓰는 곳을 여러 디렉터리에 걸쳐 한꺼번에 찾는 일이다.",
+        "검증을 코드로 거는 예도 있다. 병합된 풀 리퀘스트에서 해결되지 않은 리뷰 코멘트를 코드로 찾고, 두 모델에게 그 코멘트가 아직 유효한지 묻고, 두 모델이 동의할 때만 보고하게 하는 식이다. 한 모델의 판단을 그대로 믿지 않는 장치를 절차에 넣을 수 있다.",
+        "반대로 빠른 답이나 간단한 수정은 일반 채팅 모드의 평범한 프롬프트로 충분하다고 GitHub는 적었다. 절차를 코드로 만드는 비용이 있으니 반복하거나 단계가 많은 일에만 쓰는 편이 맞다."
+      ],
+      "sourceRefs": [1, 2],
+      "table": {
+        "headers": ["작업 예", "워크플로가 하는 일", "맞는 이유"],
+        "rows": [
+          ["장애 조사", "로그 수집 → 시스템별 에이전트 분석 → 타임라인·원인 보고서", "매번 같은 단계로 빠짐없이"],
+          ["릴리스 점검", "점검 실행 → 실패 평가 → 체크포인트에서 사람 검토 → 재개", "사람 판단 지점을 고정"],
+          ["대형 PR 리뷰", "변경 파일별 병렬 리뷰", "독립 작업을 동시에"],
+          ["오래된 리뷰 코멘트 정리", "코드로 찾기 → 두 모델에 질문 → 둘 다 동의할 때만 보고", "검증 규칙을 절차에 넣음"],
+          ["오래 걸리는 비싼 작업", "중간에 멈추고 나중에 재개", "저장된 결과 재사용"]
+        ],
+        "caption": "GitHub Changelog와 Docs가 든 활용 예를 정리했다. 간단한 질문이나 작은 수정에는 일반 채팅이 권장된다."
+      }
+    },
+    {
+      "title": "권한과 비용 제한: 하위 에이전트 수와 AI 크레딧 상한 걸기",
+      "paragraphs": [
+        "워크플로의 하위 에이전트는 CLI 권한 체계를 쓰고, 워크플로를 시작한 세션의 권한을 물려받는다. 세션에서 이미 허용한 것은 하위 에이전트에도 적용된다. 허용되지 않은 동작을 하려 하면 대화형 CLI 세션에 일반 권한 요청으로 뜨고, 해당 하위 에이전트는 답할 때까지 기다린다. 한 번 세션 동안 허용하면 같은 권한이 필요한 모든 하위 에이전트에 적용된다.",
+        "비용 관리는 제한으로 한다. 동시에 활동하는 하위 에이전트 수, 실행 전체에서 띄울 수 있는 하위 에이전트 총수, 멈춘 시간을 뺀 활성 실행 시간, 그리고 에이전트와 하위 에이전트가 쓸 수 있는 AI 크레딧의 대략적 상한, 이렇게 네 가지다.",
+        "제한은 세 곳에서 정할 수 있다. 실행할 때 프롬프트에 자연어로 적는 것, 워크플로 코드에 넣어 두는 것, 개인 설정에 기본값으로 두는 것이다. 같은 종류의 제한이면 프롬프트가 코드보다, 코드가 개인 설정보다 우선한다. CLI에서는 /settings로 workflows.defaultLimits.maxConcurrentSubagents, maxTotalSubagents, timeoutSeconds, maxAiCredits를 정한다.",
+        "동시 실행 제한에 걸리면 추가 하위 에이전트는 기다릴 뿐 워크플로가 멈추지 않는다. 나머지 제한에 걸리면 실행이 멈추지만 상태와 저장된 결과는 남아 나중에 재개할 수 있다. 재개할 때 늘리는 제한은 멈추기 전 사용량을 포함한 실행 전체 합계라는 점에 주의한다. GitHub는 큰 작업 전에 작은 범위로 먼저 돌려 실제 AI 크레딧 사용량을 보고 상한을 정하라고 권한다."
+      ],
+      "sourceRefs": [2],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/github-copilot-dynamic-workflows-limits.svg",
+          "alt": "프롬프트, 워크플로 코드, 개인 설정 순서로 Dynamic workflow 제한의 우선순위를 화살표로 보여 주고 개인 설정 키 네 가지를 적은 도식",
+          "caption": "제한 우선순위는 프롬프트 > 워크플로 코드 > 개인 설정이다. 개인 설정 키는 /settings로 정한다.",
+          "credit": "BlueBWorks 도식 · GitHub Docs 기반",
+          "sourceUrl": "https://docs.github.com/copilot/concepts/agents/dynamic-workflows",
+          "width": 1600,
+          "height": 900
+        }
+      ],
+      "code": {
+        "language": "text",
+        "text": "/settings workflows.defaultLimits.timeoutSeconds 3600",
+        "caption": "GitHub Docs의 예시. 모든 Dynamic workflow의 기본 실행 시간 제한을 1시간(3,600초)으로 둔다. BlueBWorks가 직접 실행한 결과는 아니다."
+      }
+    },
+    {
+      "title": "공유와 수정, 요금제 조건",
+      "paragraphs": [
+        "Copilot이 만들어 준 워크플로는 기본적으로 현재 세션 범위다. 세션을 넘어 쓰려면 확장을 개인 확장 디렉터리로, 프로젝트 사람들과 공유하려면 저장소의 확장 디렉터리로 복사한다. 공유되는 것은 정의뿐이고, 원래 세션의 실행 기록이나 저장된 진행 상황은 따라가지 않는다. 더 넓게 배포하려면 플러그인으로 묶을 수 있다.",
+        "처음에는 범위를 좁혀 시험하라고 문서는 권한다. 여러 파일을 처리하는 워크플로라면 두세 개 파일로 먼저 돌려 보고, 고칠 점은 자연어로 요청해 저장된 정의 자체를 바꾼다. 저장소에서 공유한 워크플로를 고치면 다른 사람은 저장소를 받아 확장을 다시 불러와야 새 판을 쓴다.",
+        "요금제 조건은 발표 이후 문서에서 더 구체적으로 적혔다. 발표 당시 Changelog는 모든 Copilot 요금제에서 쓸 수 있다고 했고, 10월 29일 확인한 GitHub Docs는 기존 연간 요금제에 남아 예전의 프리미엄 요청 기반 과금을 쓰는 Copilot Pro·Pro+ 구독자는 제외된다고 적고 있다. 연간 요금제 사용자는 자신의 과금 방식을 먼저 확인하는 편이 좋다."
+      ],
+      "sourceRefs": [1, 2],
+      "stats": [
+        {"value": "모든 요금제", "label": "Changelog 발표 기준", "note": "2026-10-01"},
+        {"value": "일부 제외", "label": "Docs 기준 (10-29 확인)", "note": "레거시 요청 과금 연간 Pro·Pro+"},
+        {"value": "세션 범위", "label": "Copilot이 만든 워크플로 기본값", "note": "개인·저장소 확장으로 복사 가능"}
+      ]
+    },
+    {
+      "title": "자주 묻는 질문: Copilot Dynamic Workflows",
+      "paragraphs": [
+        "검색으로 많이 찾는 질문을 GitHub 공식 자료 기준으로 짧게 정리했다. 2026년 10월 29일 확인 기준이다."
+      ],
+      "sourceRefs": [1, 2],
+      "faq": [
+        {"question": "Dynamic Workflows는 어떻게 켜나요?", "answer": "GitHub Copilot 앱에서는 설정 없이 쓸 수 있습니다. Copilot CLI에서는 최신 버전을 --experimental 옵션으로 실행하거나 세션에서 /experimental on을 입력합니다."},
+        {"question": "/fleet과 무엇이 다른가요?", "answer": "/fleet은 Copilot이 매번 작업을 나눠 하위 에이전트에 맡깁니다. Dynamic workflow는 작성자가 코드로 단계, 조건, 인계를 정해 같은 절차를 반복 실행합니다."},
+        {"question": "AI 크레딧이 너무 많이 쓰이지 않게 하려면?", "answer": "동시·총 하위 에이전트 수, 실행 시간, AI 크레딧 상한을 프롬프트, 워크플로 코드, 개인 설정에서 걸 수 있습니다. 큰 작업 전에 작은 범위로 시험해 실제 사용량을 보고 상한을 정하는 것이 권장됩니다."},
+        {"question": "모든 Copilot 요금제에서 쓸 수 있나요?", "answer": "발표 당시에는 모든 요금제라고 했지만, 현재 GitHub Docs는 레거시 프리미엄 요청 과금을 쓰는 기존 연간 Copilot Pro·Pro+ 구독자를 제외한다고 적고 있습니다."}
+      ]
+    }
+  ],
+  "sources": [
+    {"name": "GitHub Changelog · Dynamic workflows in Copilot CLI and the Copilot app", "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/", "description": "2026-10-01 발표. 정의, 할 수 있는 일, /fleet과의 차이, 활용 예, 모든 요금제 제공, 앱·CLI에서 켜는 방법, 공개 프리뷰."},
+    {"name": "GitHub Docs · About dynamic workflows", "url": "https://docs.github.com/copilot/concepts/agents/dynamic-workflows", "description": "개념 문서. 확장 기반 정의, copilot workflow run, 요금제 예외, Autopilot·fleet 비교표, 권한 상속, 네 가지 제한과 우선순위, 실행 확인·중지·재개, 공유와 수정."}
+  ],
+  "resources": [
+    {"name": "Dynamic workflows 사용 방법", "url": "https://docs.github.com/copilot/how-tos/use-copilot-agents/use-dynamic-workflows", "description": "워크플로 만들기, 명령줄 실행, 실행 관리를 단계별로 설명한다.", "type": "문서"},
+    {"name": "About dynamic workflows", "url": "https://docs.github.com/copilot/concepts/agents/dynamic-workflows", "description": "개념, 비교표, 제한 설정의 원문.", "type": "문서"},
+    {"name": "Copilot CLI 플러그인 만들기", "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating", "description": "워크플로를 플러그인으로 묶어 배포할 때 참고.", "type": "문서"},
+    {"name": "레거시 요청 기반 과금 안내", "url": "https://docs.github.com/en/copilot/reference/copilot-billing/request-based-billing-legacy", "description": "연간 요금제 사용자가 제외 대상인지 확인할 때 참고.", "type": "가격"}
+  ],
+  "corrections": [
+    {"date": "2026-10-29", "text": "짧은 소개를 장문 해설로 개정했다. 처음 글의 '모든 Copilot 플랜에서 제공'은 발표 당시 Changelog 기준으로 맞지만, 현재 GitHub Docs가 레거시 프리미엄 요청 과금을 쓰는 기존 연간 Copilot Pro·Pro+ 구독자를 제외한다고 적고 있어 함께 표기했다. Autopilot·/fleet 비교, copilot workflow run, 권한 상속, 제한 설정을 추가했다. 발표일과 최초 게시일은 바꾸지 않았다.", "url": "https://docs.github.com/copilot/concepts/agents/dynamic-workflows"}
+  ],
+  "discovery": {"writer": "aside", "xStatus": "unavailable", "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 GitHub Changelog와 GitHub Docs를 직접 열어 확인했다.", "xPosts": []},
+  "mediaReview": {
+    "checkedAt": "2026-10-29T18:48:00+09:00",
+    "status": "included",
+    "candidates": [
+      {"sourceUrl": "https://docs.github.com/copilot/concepts/agents/dynamic-workflows", "assetUrl": "https://bluebworks.com/assets/editorial/github-copilot-dynamic-workflows-compare.svg", "decision": "included", "reason": "문서의 Autopilot·fleet·Dynamic workflow 비교표를 BlueBWorks가 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
+      {"sourceUrl": "https://docs.github.com/copilot/concepts/agents/dynamic-workflows", "assetUrl": "https://bluebworks.com/assets/editorial/github-copilot-dynamic-workflows-limits.svg", "decision": "included", "reason": "문서의 제한 우선순위와 설정 키를 BlueBWorks가 흐름 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
+      {"sourceUrl": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/", "decision": "excluded", "reason": "Changelog에는 재사용할 별도 이미지가 없어 링크로만 안내했다."}
+    ]
+  }
+}

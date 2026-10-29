@@ -3,22 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다 | BlueBWorks</title>
-    <meta name="description" content="GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.">
+    <title>Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이 | BlueBWorks</title>
+    <meta name="description" content="GitHub Copilot HydraFusion이 VS Code와 Copilot 앱에서 연구 프리뷰로 열렸다. Single·Cascade·Critique 세 실행 방식, 켜는 방법, 쓸 수 있는 요금제, Auto와의 차이, Opus 5 대비 벤치마크를 정리했다.">
     <link rel="canonical" href="https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
-    <meta property="og:title" content="HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다 | BlueBWorks">
-    <meta property="og:description" content="GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.">
+    <meta property="og:title" content="Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이 | BlueBWorks">
+    <meta property="og:description" content="GitHub Copilot HydraFusion이 VS Code와 Copilot 앱에서 연구 프리뷰로 열렸다. Single·Cascade·Critique 세 실행 방식, 켜는 방법, 쓸 수 있는 요금제, Auto와의 차이, Opus 5 대비 벤치마크를 정리했다.">
     <meta property="og:url" content="https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다","description":"GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.","url":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/","mainEntityOfPage":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-01T18:00:09.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, HydraFusion, VS Code","isAccessibleForFree":true}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다","item":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이","description":"GitHub Copilot HydraFusion이 VS Code와 Copilot 앱에서 연구 프리뷰로 열렸다. Single·Cascade·Critique 세 실행 방식, 켜는 방법, 쓸 수 있는 요금제, Auto와의 차이, Opus 5 대비 벤치마크를 정리했다.","url":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/","mainEntityOfPage":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-29T09:48:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, HydraFusion, VS Code, Multi-model","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이","item":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"HydraFusion은 어떤 요금제에서 쓸 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"Copilot Pro, Pro+, Business, Enterprise 사용자가 쓸 수 있습니다. Business와 Enterprise는 관리자가 프리뷰 기능을 허용해야 합니다. 사용 시 요금이 어떻게 계산되는지는 발표에서 확인되지 않았습니다."}},{"@type":"Question","name":"VS Code 모델 선택기에 HydraFusion이 안 보여요.","acceptedAnswer":{"@type":"Answer","text":"VS Code 1.140 이상 또는 Insiders인지 확인하고, 설정에서 chat.copilot.hydraFusion.enabled를 켭니다. 회사 계정이면 관리자가 프리뷰 기능을 허용했는지도 확인해야 합니다."}},{"@type":"Question","name":"HydraFusion과 Auto는 무엇이 다른가요?","acceptedAnswer":{"@type":"Answer","text":"Auto는 요청마다 모델 하나를 고릅니다. HydraFusion은 실행 방식을 고르고 한 요청 안에서 초안, 검토, 승격에 여러 모델을 조율합니다."}},{"@type":"Question","name":"HydraFusion이 Opus 5보다 좋은가요?","acceptedAnswer":{"@type":"Answer","text":"GitHub 자체 평가에서 비용은 36~67% 낮았지만 품질은 벤치마크에 따라 +4.9점에서 -1.5점까지 달랐습니다. 독립 재현 결과는 확인되지 않았습니다."}}]}</script>
   </head>
   <body class="page-article">
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -35,9 +36,9 @@
     <div class="wrap cover-inner">
       <header class="cover-copy">
         <p class="cover-eyebrow"><span>개발도구</span></p>
-        <h1 id="article-title">HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다</h1>
-        <p class="cover-dek">GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.</p>
-        <p class="cover-meta"><span>블로그 게시 2026년 10월 2일</span><span>소식 발표 2026년 9월 30일</span><span>확인 2026년 10월 2일</span><span>Research preview</span><span>2분 읽기</span></p>
+        <h1 id="article-title">Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이</h1>
+        <p class="cover-dek">GitHub Copilot HydraFusion이 VS Code와 Copilot 앱에서 연구 프리뷰로 열렸다. Single·Cascade·Critique 세 실행 방식, 켜는 방법, 쓸 수 있는 요금제, Auto와의 차이, Opus 5 대비 벤치마크를 정리했다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 10월 2일</span><span>소식 발표 2026년 9월 30일</span><span>확인 2026년 10월 29일</span><span>Research preview</span><span>7분 읽기</span></p>
       </header>
     </div>
   </section>
@@ -54,17 +55,20 @@
       <summary>목차</summary>
       <nav aria-label="글 목차">
         <ol>
-          <li><a href="#sec-1">무엇이 나왔나</a></li>
-          <li><a href="#sec-2">개발자에게 왜 중요한가</a></li>
-          <li><a href="#sec-3">직접 써볼 때 알아둘 점</a></li>
+          <li><a href="#sec-1">HydraFusion은 무엇인가: 모델 하나가 아니라 실행 방식을 고른다</a></li>
+          <li><a href="#sec-2">Single, Cascade, Critique: 세 가지 실행 방식의 차이</a></li>
+          <li><a href="#sec-3">VS Code와 Copilot 앱에서 HydraFusion 켜는 법</a></li>
+          <li><a href="#sec-4">HydraFusion과 Auto 모델 선택은 무엇이 다른가</a></li>
+          <li><a href="#sec-5">HydraFusion 성능: Opus 5 대비 비용 36~67% 절감, 어떻게 쟀나</a></li>
+          <li><a href="#sec-6">자주 묻는 질문: Copilot HydraFusion</a></li>
         </ol>
       </nav>
     </details>
         </aside>
         <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
           <header class="article-head">
-            <meta itemprop="headline" content="HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다">
-            <meta itemprop="description" content="GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.">
+            <meta itemprop="headline" content="Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이">
+            <meta itemprop="description" content="GitHub Copilot HydraFusion이 VS Code와 Copilot 앱에서 연구 프리뷰로 열렸다. Single·Cascade·Critique 세 실행 방식, 켜는 방법, 쓸 수 있는 요금제, Auto와의 차이, Opus 5 대비 벤치마크를 정리했다.">
             <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
 
           </header>
@@ -72,44 +76,107 @@
           <details class="key-points" open>
       <summary>3줄 요약</summary>
       <ul>
-        <li>한 요청 안에서 여러 모델을 조합할 수 있다.</li>
-        <li>Single·Cascade·Critique 실행 흐름을 작업에 맞게 선택한다.</li>
-        <li>VS Code와 Copilot 앱으로 연구 프리뷰 범위가 확대됐다.</li>
+        <li>사용 범위: 2026년 9월 30일부터 VS Code 1.140 이상과 GitHub Copilot 앱에서 연구 프리뷰로 쓸 수 있고, Copilot Pro·Pro+·Business·Enterprise가 대상이다(Business·Enterprise는 관리자가 프리뷰 기능을 켜야 함).</li>
+        <li>작동 방식: 한 모델이 바로 푸는 Single, 싼 모델 초안을 필요할 때만 강한 모델로 올리는 Cascade, 다른 모델 계열이 검토하는 Critique 중 하나를 요청마다 고른다.</li>
+        <li>성능: GitHub 오프라인 평가에서 Claude Opus 5 대비 비용은 36~67% 낮았고 품질은 -1.5점에서 +4.9점 사이였다. GitHub 자체 측정이다.</li>
       </ul>
     </details>
           <details class="editor-note">
       <summary>덧붙임</summary>
-      <p>HydraFusion은 ‘가장 좋은 모델 하나’를 고르는 문제를 런타임이 해결하려는 시도다. 요청마다 Single·Cascade·Critique 흐름을 달리 쓰기 때문에, 앞으로 코딩 도구의 차별점이 모델 목록보다 모델을 조합하고 검증하는 오케스트레이션으로 이동할 가능성을 보여준다.</p>
+      <p>HydraFusion은 모델 이름이 아니라 실행 방식을 고르는 기능이라 모델 선택기에 같이 놓여 있어도 비교 기준이 다르다. 그래서 세 실행 방식이 언제 비용을 줄이고 언제 늘리는지, GitHub 벤치마크가 무엇을 쟀는지를 중심으로 정리했다.</p>
     </details>
           <div class="article-body" itemprop="articleBody">
             <section class="prose-section" id="sec-1">
-        <h2>무엇이 나왔나</h2>
-        <p>HydraFusion은 하나의 모델이 아니라 여러 모델과 실행 방식을 조합하는 Copilot의 연구 프리뷰다. 이번 업데이트로 VS Code와 GitHub Copilot 앱에서 사용할 수 있게 됐고, Single·Cascade·Critique 세 가지 흐름 중 작업에 맞는 방식을 선택한다.</p>
-
-
+        <h2>HydraFusion은 무엇인가: 모델 하나가 아니라 실행 방식을 고른다</h2>
+        <p>Copilot에서 모델을 고를 때마다 고민이 생긴다. 비싼 모델은 결과가 좋지만 간단한 작업에도 비용이 들고, 싼 모델은 어려운 작업에서 실패한다. 경험 많은 개발자는 이미 손으로 이 문제를 푼다. 쉬운 일은 가벼운 모델에 맡기고, 결과가 미덥지 않으면 다른 모델에게 검토를 시키거나 더 강한 모델로 다시 돌린다.</p>
+        <p>GitHub의 HydraFusion은 이 과정을 런타임이 대신하게 한 기능이다. 모델 선택기에 HydraFusion이 하나의 항목으로 나타나지만, 실제로는 하나의 모델이 아니라 여러 공급사의 모델을 조합하는 오케스트레이터다. GitHub는 작업 흐름 선택을 최적화 문제로 다룬다고 설명한다. 추론, 코드 생성, 디버깅, 도구 사용에 대한 능력 신호를 보고 품질 기준을 맞추는 가장 효율적인 실행 방식을 고른다는 것이다.</p>
+        <p>HydraFusion은 원래 Copilot CLI에서 연구 프리뷰로 시험하던 기능이다. 2026년 9월 30일 GitHub Changelog는 이 연구 프리뷰를 Visual Studio Code와 GitHub Copilot 앱으로 넓힌다고 발표했다. 초기 피드백에서 가장 많이 나온 요청이 더 많은 곳에서 쓰게 해 달라는 것이었다고 한다.</p>
+        <p>이번 판에서는 화면 표시도 손봤다. 워크플로의 각 단계에서 HydraFusion이 무엇을 하는지 더 잘 보이게 했고, 진행 상황을 더 자주 보내 긴 작업에서도 여전히 일하고 있는지 알 수 있게 했다. 여러 모델이 순서대로 돌면 응답이 늦어질 수 있어 이 표시가 실제 사용에서 중요하다.</p>
+        <div class="stat-cards" role="list" aria-label="HydraFusion은 무엇인가: 모델 하나가 아니라 실행 방식을 고른다"><div class="stat-card" role="listitem"><strong>3가지</strong><span>실행 방식</span><small>Single · Cascade · Critique</small></div><div class="stat-card" role="listitem"><strong>1.140+</strong><span>VS Code 최소 버전</span><small>Insiders도 지원</small></div><div class="stat-card" role="listitem"><strong>연구 프리뷰</strong><span>제공 상태</span><small>동작·이름이 바뀔 수 있음</small></div></div><div class="section-links"><a href="https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/" target="_blank" rel="noopener noreferrer">GitHub Changelog: HydraFusion in VS Code and the GitHub Copilot app <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
       </section>
       <section class="prose-section" id="sec-2">
-        <h2>개발자에게 왜 중요한가</h2>
-        <p>코딩 도구에서 사용자가 매번 모델을 직접 고르는 대신 도구가 비용과 품질을 고려해 모델 조합과 검토 흐름까지 선택하는 방향이 실제 제품으로 들어오고 있다. 특히 긴 구현이나 디버깅에서 &#39;어떤 모델이 최고인가&#39;보다 &#39;어떤 모델들을 어떤 순서로 쓸 것인가&#39;가 중요한 설계 요소가 될 수 있다.</p>
-
-
+        <h2>Single, Cascade, Critique: 세 가지 실행 방식의 차이</h2>
+        <p>Single은 선택된 모델 하나가 작업을 바로 푸는 방식이다. 한 번에 풀 수 있는 작업이라면 다른 모델을 부를 이유가 없으니, 속도와 비용을 아끼는 기본 경로다.</p>
+        <p>Cascade는 효율적인 모델이 먼저 초안을 만들고, 품질 관문이 그 결과를 받아들일지 더 강한 모델로 올릴지 정한다. 첫 시도는 싸게 하고, 결과가 기준을 넘지 못할 때만 비싼 추론을 쓰는 구조다. 대부분의 작업이 쉬운 쪽에 몰려 있다면 비용이 크게 줄어든다.</p>
+        <p>Critique는 한 모델이 초안을 만들면 다른 모델 계열의 독립된 읽기 전용 비평자가 검토하고, 초안을 만든 모델이 한 번 고친다. GitHub는 이것이 Copilot CLI의 Rubber Duck 기능과 같은 검토 방식이라고 설명한다. 같은 모델에게 다시 시키는 것보다 다른 관점의 검토가 더 도움이 되는 작업을 위한 경로다.</p>
+        <p>GitHub 연구 글에 따르면 HydraFusion은 요청마다 필요를 채울 것으로 예상되는 가장 단순한 방식을 고르고, 추가 모델 호출은 결과가 좋아질 가능성이 있을 때만 쓴다. 검토 단계는 도구가 없는 격리된 환경에서 돌아 저장소를 바꾸지 않고, 작업이 취소되거나 검증에 실패하면 패치를 적용하지 않는다고 한다.</p>
+        <p>연구 글은 이를 다섯 가지 운영 원칙으로 정리했다. 초안·비평·수정·승격·재시도·대체 호출의 비용과 사용량을 빠짐없이 합산하고, 단계마다 시간 제한과 취소 동작을 두며, 검토는 격리하고, 실패하면 적용하지 않고, 실행 전에 워크플로 정의와 모델 연결, 대체 경로, 모델 가용 여부를 검증한다는 것이다. 개발자는 여러 모델이 돌아도 하나의 응답과 하나의 변경 묶음을 받는다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-workflows.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: HydraFusion의 Single, Cascade, Critique 세 실행 방식을 세 상자로 나눠 단계와 쓰임을 설명한 도식">
+        <img src="https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-workflows.svg" alt="HydraFusion의 Single, Cascade, Critique 세 실행 방식을 세 상자로 나눠 단계와 쓰임을 설명한 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>HydraFusion은 요청마다 세 방식 중 하나를 고른다. Cascade는 품질 관문을 못 넘을 때만 강한 모델로 올리고, Critique는 다른 모델 계열이 읽기 전용으로 검토한다.</span><a href="https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · GitHub Changelog와 연구 글 기반 · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
       </section>
       <section class="prose-section" id="sec-3">
-        <h2>직접 써볼 때 알아둘 점</h2>
-        <p>VS Code 1.140 이상에서 모델 선택기로 사용할 수 있고, 조직 계정은 관리자가 프리뷰 기능을 허용해야 할 수 있다. 아직 연구 프리뷰이므로 동작 방식과 제공 범위는 바뀔 수 있고, Auto와 달리 한 요청 안에서 여러 모델을 조합한다는 차이를 확인하는 게 좋다.</p>
-
-
+        <h2>VS Code와 Copilot 앱에서 HydraFusion 켜는 법</h2>
+        <p>VS Code에서는 1.140 이상이나 VS Code Insiders가 필요하다. Copilot Chat의 모델 선택기에서 HydraFusion을 고르면 된다. 목록에 보이지 않으면 설정에서 chat.copilot.hydraFusion.enabled를 켠다.</p>
+        <p>GitHub Copilot 앱에서는 먼저 최신 버전으로 업데이트한 뒤 설정에서 HydraFusion을 검색해 켜고, 모델 선택기에서 HydraFusion을 고른다. CLI에서 이미 써 본 사람이라면 같은 기능이 편집기와 앱으로 들어온 것으로 이해하면 된다.</p>
+        <p>회사 계정이라면 한 단계가 더 있다. HydraFusion은 Copilot Pro, Pro+, Business, Enterprise 사용자가 쓸 수 있는데, Business와 Enterprise는 관리자가 조직이나 엔터프라이즈 설정에서 프리뷰 기능을 허용해야 한다. 개인 설정을 다 켰는데도 목록에 없다면 관리자 정책부터 확인한다.</p>
+        <p>GitHub 연구 글은 처음 써 볼 작업으로 범위가 명확하고 분량이 있는 코딩 작업을 프롬프트 하나로 autopilot 모드에 맡기는 경우를 권한다. 여러 번 주고받는 긴 대화형 세션의 성능은 다음 개선 대상이라고 밝혔다. 짧은 질문보다 한 번에 맡길 수 있는 구현 과제로 시험하는 편이 차이를 보기 쉽다.</p>
+        <p>써 본 결과는 Copilot CLI의 /feedback이나 GitHub Community 토론으로 보낼 수 있다. GitHub는 이번 프리뷰가 어떤 작업에 복합 워크플로가 도움이 되는지, 실제 사용에서 지연과 비용이 어떻게 달라지는지 배우기 위한 것이라고 밝혔다. 결과, 모델, 워크플로, 이름까지 바뀔 수 있다는 점도 미리 알고 쓰는 편이 좋다.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="VS Code와 Copilot 앱에서 HydraFusion 켜는 법"><table><thead><tr><th scope="col">환경</th><th scope="col">켜는 방법</th><th scope="col">조건</th></tr></thead><tbody><tr><th scope="row">VS Code</th><td>Copilot Chat 모델 선택기에서 HydraFusion 선택</td><td>1.140 이상 또는 Insiders, 안 보이면 chat.copilot.hydraFusion.enabled</td></tr><tr><th scope="row">GitHub Copilot 앱</th><td>최신 버전 → 설정에서 HydraFusion 켜기 → 모델 선택기</td><td>최신 버전 필요</td></tr><tr><th scope="row">Copilot CLI</th><td>기존 연구 프리뷰</td><td>이번 발표 이전부터 제공</td></tr><tr><th scope="row">Business·Enterprise 계정</th><td>관리자가 프리뷰 기능 허용</td><td>조직·엔터프라이즈 설정</td></tr></tbody></table></div><p class="table-caption">2026-09-30 GitHub Changelog 기준. Copilot Pro·Pro+·Business·Enterprise가 대상이며 연구 프리뷰라 바뀔 수 있다.</p><div class="section-links"><a href="https://docs.github.com/early-access/copilot/hydrafusion" target="_blank" rel="noopener noreferrer">HydraFusion 문서 (GitHub Docs early access) <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>HydraFusion과 Auto 모델 선택은 무엇이 다른가</h2>
+        <p>Copilot에는 이미 Auto 모델 선택이 있다. 작업을 보고 가장 잘 맞는 모델 하나를 골라 주는 기능이다. 이름만 보면 HydraFusion과 비슷해 보이지만, GitHub는 둘의 차이를 분명히 구분했다.</p>
+        <p>Auto는 요청마다 모델을 하나 고른다. HydraFusion은 실행 방식을 고르고, 한 번의 요청 안에서 여러 모델을 함께 조율한다. 초안은 한 모델이, 검토는 다른 모델이, 필요하면 승격은 또 다른 모델이 맡을 수 있다는 점이 다르다.</p>
+        <p>그래서 비용과 응답 시간도 다르게 봐야 한다. Auto는 모델 하나를 고르는 것이라 예측하기 쉽지만, HydraFusion은 Cascade로 승격되거나 Critique로 검토가 붙으면 한 요청에 여러 번의 모델 호출이 생긴다. GitHub는 내부적으로 각 단계의 역할, 결과, 비용, 지연을 기록한다고 밝혔지만, 사용자 요금이 어떻게 계산되는지는 발표에 나오지 않았다.</p>
+        <p>GitHub는 HydraFusion을 로컬, 클라우드, 복합 모델 사이를 자동으로 오가는 라우팅 전략의 한 부분으로 설명한다. 새 모델이 Copilot에 들어오면 평가를 거쳐 HydraFusion의 모델 풀에 넣을 수 있다고 했다. 모델 목록을 계속 바꿔 가며 고르는 대신 런타임이 조합을 맡는 방향이다.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="HydraFusion과 Auto 모델 선택은 무엇이 다른가"><table><thead><tr><th scope="col">항목</th><th scope="col">Auto 모델 선택</th><th scope="col">HydraFusion</th></tr></thead><tbody><tr><th scope="row">고르는 대상</th><td>요청마다 모델 하나</td><td>요청마다 실행 방식</td></tr><tr><th scope="row">한 요청 안의 모델 수</th><td>1개</td><td>1개 이상 (승격·검토 시 여러 개)</td></tr><tr><th scope="row">검토 단계</th><td>없음</td><td>Critique에서 다른 모델 계열이 읽기 전용 검토</td></tr><tr><th scope="row">제공 상태</th><td>정식 기능</td><td>연구 프리뷰</td></tr></tbody></table></div><p class="table-caption">GitHub Changelog와 연구 글 기준으로 정리했다. HydraFusion 사용 시 요금 계산 방식은 발표에서 확인되지 않았다.</p>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>HydraFusion 성능: Opus 5 대비 비용 36~67% 절감, 어떻게 쟀나</h2>
+        <p>GitHub는 연구 글에서 세 개의 코딩 에이전트 벤치마크로 HydraFusion을 평가했다. 터미널 환경의 여러 단계 작업을 재는 TerminalBench 2.1, 큰 저장소의 실제 수정 작업을 재는 DeepSWE, 실제 Copilot 세션으로 만든 내부 벤치마크 CheckpointBench다. 비교 기준은 Claude Opus 5와 GPT-5.6 Sol이었다.</p>
+        <p>가장 좋은 설정 기준으로 Opus 5와 비교하면 TerminalBench 2.1에서 비용은 67% 낮고 검증된 작업 품질은 4.9점 높았다. DeepSWE에서는 비용 36% 낮고 품질 1.5점 낮았으며, CheckpointBench에서는 비용 65% 낮고 품질 0.1점 낮았다. 비용에는 초안, 비평, 수정, 승격, 재시도, 대체 호출까지 모두 포함한 추정 워크플로 비용을 썼다고 한다.</p>
+        <p>읽을 때 조건을 같이 봐야 한다. 모든 모델은 같은 medium 추론 수준으로 평가했고, 결과는 해당 벤치마크 판, 워크플로 설정, 모델 풀, 가격 가정에 한정된다고 GitHub가 직접 적었다. TerminalBench 2.1은 점수가 포화에 가까워 더 어려운 DeepSWE를 함께 봐야 한다는 설명도 있다. 어려운 저장소 작업에서는 품질이 Opus 5보다 약간 낮았다는 점이 중요하다.</p>
+        <p>정책을 만든 방식도 밝혔다. CheckpointBench는 실제 Copilot 코딩 세션을 공개 저장소의 고정된 커밋에 묶어 다시 돌릴 수 있게 만든 내부 평가다. GitHub는 임계값을 손으로 맞추는 대신 빔 서치로 결정 정책을 찾았고, 8월 11일에서 25일 사이 평가 도구 오류로 생긴 무효 실행은 추세에서 뺐다고 밝혔다. 내부 벤치마크가 포함된 만큼 외부에서 같은 결과를 확인하기는 어렵다.</p>
+        <p>결국 HydraFusion의 장점은 최고 점수보다 비용 대비 품질에 있다. 팀에서 시험한다면 같은 과제를 기존 모델과 HydraFusion으로 돌려 완료율, 응답 시간, 사용량을 함께 비교하고, 어떤 작업에서 Cascade나 Critique가 실제로 쓰였는지 진행 표시로 확인해 보는 것이 좋다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-benchmarks.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: TerminalBench 2.1, DeepSWE, CheckpointBench에서 HydraFusion의 Claude Opus 5 대비 비용 절감률과 품질 차이를 세 상자로 보여 주는 도식">
+        <img src="https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-benchmarks.svg" alt="TerminalBench 2.1, DeepSWE, CheckpointBench에서 HydraFusion의 Claude Opus 5 대비 비용 절감률과 품질 차이를 세 상자로 보여 주는 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>GitHub 자체 오프라인 평가 결과(최적 설정). TerminalBench 2.1 비용 67% 낮음·품질 +4.9점, DeepSWE 36% 낮음·-1.5점, CheckpointBench 65% 낮음·-0.1점.</span><a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/" target="_blank" rel="noopener noreferrer">BlueBWorks 도식 · GitHub Project HydraFusion 연구 글 수치 기반 · 원문</a></figcaption>
+    </figure><div class="section-links"><a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/" target="_blank" rel="noopener noreferrer">GitHub 연구 글: Project HydraFusion <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>자주 묻는 질문: Copilot HydraFusion</h2>
+        <p>검색으로 많이 찾는 질문을 GitHub 공식 자료 기준으로 짧게 정리했다. 2026년 10월 29일 확인 기준이다.</p>
+        <div class="faq-list"><div class="faq-item"><h3>HydraFusion은 어떤 요금제에서 쓸 수 있나요?</h3><p>Copilot Pro, Pro+, Business, Enterprise 사용자가 쓸 수 있습니다. Business와 Enterprise는 관리자가 프리뷰 기능을 허용해야 합니다. 사용 시 요금이 어떻게 계산되는지는 발표에서 확인되지 않았습니다.</p></div><div class="faq-item"><h3>VS Code 모델 선택기에 HydraFusion이 안 보여요.</h3><p>VS Code 1.140 이상 또는 Insiders인지 확인하고, 설정에서 chat.copilot.hydraFusion.enabled를 켭니다. 회사 계정이면 관리자가 프리뷰 기능을 허용했는지도 확인해야 합니다.</p></div><div class="faq-item"><h3>HydraFusion과 Auto는 무엇이 다른가요?</h3><p>Auto는 요청마다 모델 하나를 고릅니다. HydraFusion은 실행 방식을 고르고 한 요청 안에서 초안, 검토, 승격에 여러 모델을 조율합니다.</p></div><div class="faq-item"><h3>HydraFusion이 Opus 5보다 좋은가요?</h3><p>GitHub 자체 평가에서 비용은 36~67% 낮았지만 품질은 벤치마크에 따라 +4.9점에서 -1.5점까지 달랐습니다. 독립 재현 결과는 확인되지 않았습니다.</p></div></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
       </section>
           </div>
 
-
+          <section class="corrections" aria-labelledby="corrections-title">
+      <h2 id="corrections-title">정정 기록</h2>
+      <ul>
+        <li>
+          <time datetime="2026-10-29">2026년 10월 29일</time>
+          <p>짧은 소개를 장문 해설로 개정했다. 대상 요금제(Copilot Pro·Pro+·Business·Enterprise), 켜는 방법, Auto와의 차이, GitHub 연구 글의 벤치마크와 평가 조건을 추가했다. 발표일과 최초 게시일은 바꾸지 않았다.</p>
+          <a href="https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/" target="_blank" rel="noopener noreferrer">관련 링크</a>
+        </li>
+      </ul>
+    </section>
 
           <section class="sources" id="sources" aria-labelledby="sources-title">
       <h2 id="sources-title">출처</h2>
       <ol>
         <li id="source-1">
           <a href="https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/" target="_blank" rel="noopener noreferrer">
-            <strong>GitHub Changelog — HydraFusion in VS Code and the GitHub Copilot app</strong>
+            <strong>GitHub Changelog · HydraFusion in VS Code and the GitHub Copilot app</strong>
+            <span>github.blog</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub Blog · Project HydraFusion: Frontier quality via multi-model orchestration</strong>
             <span>github.blog</span>
           </a>
         </li>
@@ -128,14 +195,14 @@
         <li>
           <a href="/articles/github-copilot-dynamic-workflows-2026/">
             <span class="related-cat">개발도구</span>
-            <strong>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</strong>
+            <strong>GitHub Copilot Dynamic Workflows 사용법: 멀티에이전트 절차를 코드로 고정하는 법과 /fleet 차이</strong>
             <span>게시 2026년 10월 2일</span>
           </a>
         </li>
         <li>
           <a href="/articles/github-copilot-computer-use-2026/">
             <span class="related-cat">개발도구</span>
-            <strong>GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다</strong>
+            <strong>GitHub Copilot 컴퓨터 사용 켜는 법: API 없는 데스크톱 앱 자동화와 권한·한계</strong>
             <span>게시 2026년 10월 2일</span>
           </a>
         </li>
@@ -147,43 +214,35 @@
       <h2 class="rail-title" id="resources-title">참고 자료</h2>
       <ul class="rail-list">
         <li class="rail-item">
-      <a class="rail-card" href="https://platform.openai.com/docs" target="_blank" rel="noopener noreferrer">
-        <span class="rail-type">공식 문서</span>
-        <strong>OpenAI 플랫폼 문서</strong>
-        <span class="rail-desc">모델, API, 가격, 사용 제한을 확인하는 공식 문서.</span>
-        <span class="rail-host">platform.openai.com</span>
+      <a class="rail-card" href="https://docs.github.com/early-access/copilot/hydrafusion" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">문서</span>
+        <strong>HydraFusion 문서</strong>
+        <span class="rail-desc">GitHub가 안내하는 HydraFusion 연구 프리뷰 문서.</span>
+        <span class="rail-host">docs.github.com</span>
       </a>
     </li>
         <li class="rail-item">
-      <a class="rail-card" href="https://docs.anthropic.com" target="_blank" rel="noopener noreferrer">
-        <span class="rail-type">공식 문서</span>
-        <strong>Anthropic 개발자 문서</strong>
-        <span class="rail-desc">Claude 모델과 API, 도구 사용 규칙의 원문.</span>
-        <span class="rail-host">docs.anthropic.com</span>
+      <a class="rail-card" href="https://docs.github.com/copilot/concepts/agents/copilot-cli/rubber-duck" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">문서</span>
+        <strong>Rubber Duck (Copilot CLI)</strong>
+        <span class="rail-desc">Critique 방식이 따르는 다른 모델 검토 패턴의 설명.</span>
+        <span class="rail-host">docs.github.com</span>
       </a>
     </li>
         <li class="rail-item">
-      <a class="rail-card" href="https://ai.google.dev" target="_blank" rel="noopener noreferrer">
-        <span class="rail-type">공식 문서</span>
-        <strong>Google AI for Developers</strong>
-        <span class="rail-desc">Gemini 모델과 API의 공식 안내.</span>
-        <span class="rail-host">ai.google.dev</span>
+      <a class="rail-card" href="https://docs.github.com/copilot/concepts/models/auto-model-selection" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">문서</span>
+        <strong>Auto 모델 선택</strong>
+        <span class="rail-desc">요청마다 모델 하나를 고르는 기존 기능과 비교할 때 참고.</span>
+        <span class="rail-host">docs.github.com</span>
       </a>
     </li>
         <li class="rail-item">
-      <a class="rail-card" href="https://github.blog/changelog/" target="_blank" rel="noopener noreferrer">
-        <span class="rail-type">변경 기록</span>
-        <strong>GitHub Changelog</strong>
-        <span class="rail-desc">Copilot과 GitHub 플랫폼 변경의 원문 기록.</span>
-        <span class="rail-host">github.blog</span>
-      </a>
-    </li>
-        <li class="rail-item">
-      <a class="rail-card" href="https://blog.cloudflare.com/" target="_blank" rel="noopener noreferrer">
-        <span class="rail-type">공식 블로그</span>
-        <strong>Cloudflare 블로그</strong>
-        <span class="rail-desc">Workers, R2, AI 제품 발표와 기술 설명.</span>
-        <span class="rail-host">blog.cloudflare.com</span>
+      <a class="rail-card" href="https://github.com/orgs/community/discussions/206492" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">커뮤니티</span>
+        <strong>HydraFusion 피드백 토론</strong>
+        <span class="rail-desc">GitHub Community의 연구 프리뷰 피드백 창구.</span>
+        <span class="rail-host">github.com</span>
       </a>
     </li>
       </ul>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Autopilot, /fleet, Dynamic workflow 비교</title>
+<desc id="desc">Autopilot은 Copilot이 다음 단계를 정하며 자율적으로 계속 일한다. /fleet은 Copilot이 작업을 나눠 하위 에이전트에 병렬로 맡긴다. Dynamic workflow는 작성자가 코드로 단계, 조건, 인계를 정한다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="40" font-weight="700" fill="#111827">누가 절차를 정하나: Autopilot, /fleet, Dynamic workflow</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">GitHub Docs의 비교표를 BlueBWorks가 다시 그림</text>
+<rect x="80" y="200" width="460" height="350" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="106" y="252" font-size="28" font-weight="700" fill="#111827">Autopilot</text>
+<text x="106" y="305" font-size="22" font-weight="700" fill="#111827">Copilot이 다음 단계 결정</text>
+<text x="106" y="345" font-size="22" fill="#334155">단계마다 사용자에게</text>
+<text x="106" y="385" font-size="22" fill="#334155">묻지 않고 계속 진행</text>
+<text x="106" y="425" font-size="22" fill="#334155"></text>
+<text x="106" y="465" font-size="22" fill="#334155">진행 방식은 작업과</text>
+<text x="106" y="505" font-size="22" fill="#334155">Copilot 판단에 따라 달라짐</text>
+<rect x="570" y="200" width="460" height="350" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="596" y="252" font-size="28" font-weight="700" fill="#1e3a8a">/fleet</text>
+<text x="596" y="305" font-size="22" font-weight="700" fill="#1e3a8a">Copilot이 분할·조율 결정</text>
+<text x="596" y="345" font-size="22" fill="#334155">하위 에이전트에 위임</text>
+<text x="596" y="385" font-size="22" fill="#334155">독립 작업은 병렬 실행</text>
+<text x="596" y="425" font-size="22" fill="#334155"></text>
+<text x="596" y="465" font-size="22" fill="#334155">나누는 방식이</text>
+<text x="596" y="505" font-size="22" fill="#334155">매번 달라질 수 있음</text>
+<rect x="1060" y="200" width="460" height="350" rx="20" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+<text x="1086" y="252" font-size="28" font-weight="700" fill="#065f46">Dynamic workflow</text>
+<text x="1086" y="305" font-size="22" font-weight="700" fill="#065f46">작성자가 코드로 정의</text>
+<text x="1086" y="345" font-size="22" fill="#334155">단계·조건·인계가 고정</text>
+<text x="1086" y="385" font-size="22" fill="#334155">순차·병렬·혼합</text>
+<text x="1086" y="425" font-size="22" fill="#334155">에이전트 1개 또는 여러 개</text>
+<text x="1086" y="465" font-size="22" fill="#334155">체크포인트에서 멈추고 재개</text>
+<text x="1086" y="505" font-size="22" fill="#334155">Copilot 확장 안에 저장</text>
+<text x="80" y="620" font-size="21" fill="#4b5563">같은 워크플로를 다시 써도 입력과 중간 결과에 따라 경로가 달라질 수 있고, 에이전트의 답도 실행마다 다를 수 있다.</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

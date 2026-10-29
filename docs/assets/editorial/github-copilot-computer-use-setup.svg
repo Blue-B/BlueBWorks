@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">GitHub Copilot 컴퓨터 사용 켜기와 권한</title>
+<desc id="desc">Copilot CLI는 /computer on, 앱은 설정의 Computer Use에서 켠다. 앱을 제어하기 전에 승인을 요청하며 이번 세션만, 저장, 거부 중 고를 수 있다. macOS는 손쉬운 사용과 화면 기록 권한이 필요하다. 멈출 때 CLI는 Esc 두 번, 앱은 Stop이나 Esc.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="40" font-weight="700" fill="#111827">Copilot 컴퓨터 사용: 켜기, 승인, 멈추기</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">GitHub Changelog(2026-10-01)와 GitHub Docs 기준, macOS·Windows 공개 프리뷰</text>
+<rect x="80" y="200" width="433" height="390" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="106" y="252" font-size="25" font-weight="700" fill="#111827">① 켜기 (기본은 꺼짐)</text>
+<text x="106" y="305" font-size="22" fill="#334155">CLI: /computer on</text>
+<text x="106" y="345" font-size="22" fill="#334155">상태: /computer show</text>
+<text x="106" y="385" font-size="22" fill="#334155">끄기: /computer off</text>
+<text x="106" y="425" font-size="22" fill="#334155">앱: 설정 → Computer Use</text>
+<text x="106" y="465" font-size="22" fill="#334155">→ Enable Computer Use</text>
+<text x="106" y="505" font-size="22" fill="#334155">macOS: 손쉬운 사용·</text>
+<text x="106" y="545" font-size="22" fill="#334155">화면 기록 권한 안내</text>
+<line x1="521" y1="395" x2="561" y2="395" stroke="#64748b" stroke-width="5"/><path d="M557 383 L577 395 L557 407 Z" fill="#64748b"/>
+<rect x="583" y="200" width="433" height="390" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="609" y="252" font-size="25" font-weight="700" fill="#1e3a8a">② 앱별 승인</text>
+<text x="609" y="305" font-size="22" fill="#334155">이번 세션만 허용</text>
+<text x="609" y="345" font-size="22" fill="#334155">저장(Always allow)</text>
+<text x="609" y="385" font-size="22" fill="#334155">거부</text>
+<text x="609" y="425" font-size="22" fill="#334155"></text>
+<text x="609" y="465" font-size="22" fill="#334155">Always allow는 CLI와</text>
+<text x="609" y="505" font-size="22" fill="#334155">앱이 같은 PC에서 공유</text>
+<text x="609" y="545" font-size="22" fill="#334155">거부 규칙이 항상 우선</text>
+<line x1="1024" y1="395" x2="1064" y2="395" stroke="#64748b" stroke-width="5"/><path d="M1060 383 L1080 395 L1060 407 Z" fill="#64748b"/>
+<rect x="1086" y="200" width="433" height="390" rx="20" fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+<text x="1112" y="252" font-size="25" font-weight="700" fill="#92400e">③ 실행과 중단</text>
+<text x="1112" y="305" font-size="22" fill="#334155">접근성 트리·스크린샷 읽기</text>
+<text x="1112" y="345" font-size="22" fill="#334155">클릭·입력·키·스크롤·드래그</text>
+<text x="1112" y="385" font-size="22" fill="#334155">가능하면 백그라운드 실행</text>
+<text x="1112" y="425" font-size="22" fill="#334155"></text>
+<text x="1112" y="465" font-size="22" font-weight="700" fill="#92400e">CLI: Esc 두 번</text>
+<text x="1112" y="505" font-size="22" font-weight="700" fill="#92400e">앱: Stop 또는 Esc</text>
+<text x="1112" y="545" font-size="22" fill="#334155">조직 정책이 끄면 못 켬</text>
+<text x="80" y="660" font-size="21" fill="#4b5563">민감한 정보가 보이는 앱이나 되돌리기 어려운 동작이 있는 앱에는 Always allow를 피하라고 GitHub 문서는 권한다.</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

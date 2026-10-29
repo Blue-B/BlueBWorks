@@ -5,7 +5,7 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 29 Oct 2026 10:35:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 09:48:00 GMT</lastBuildDate>
     <item>
       <title>제미나이 4 카본 출시일·성능·가격 정리: 지금 무료로 쓸 수 있을까</title>
       <link>https://bluebworks.com/articles/gemini-4-carbon-2026/</link>
@@ -135,20 +135,20 @@
       <description>Claude Code의 모드는 테마나 프롬프트 모음이 아니다. 세션의 이벤트를 받아 동작을 바꾸고 화면도 그리는 플러그인 코드다. 공식 튜토리얼의 영상과 실제 화면을 따라, 기존 설정으로 충분한 일과 모드가 필요한 일을 나눠 봤다.</description>
     </item>
     <item>
-      <title>GitHub Copilot Dynamic Workflows 공개 — 멀티에이전트 절차를 코드로 고정한다</title>
+      <title>GitHub Copilot Dynamic Workflows 사용법: 멀티에이전트 절차를 코드로 고정하는 법과 /fleet 차이</title>
       <link>https://bluebworks.com/articles/github-copilot-dynamic-workflows-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/github-copilot-dynamic-workflows-2026/</guid>
       <pubDate>Fri, 02 Oct 2026 06:05:13 GMT</pubDate>
       <category>개발도구</category>
-      <description>GitHub가 Copilot CLI·Copilot 앱·Copilot SDK에 Dynamic Workflows를 공개 프리뷰로 추가했다. 자동화 단계와 여러 에이전트를 코드로 조합해 순차·병렬 실행, 구조화된 결과 전달, 검토 체크포인트까지 반복 가능한 절차로 만들 수 있다.</description>
+      <description>GitHub Copilot Dynamic Workflows는 에이전트 작업 절차를 코드로 정의해 순차·병렬 실행, 결과 전달, 체크포인트를 반복 가능하게 만든다. 켜는 법, /fleet·Autopilot과 차이, 권한, 비용 제한 설정을 정리했다.</description>
     </item>
     <item>
-      <title>GitHub Copilot에 컴퓨터 사용 추가 — API 없는 데스크톱 앱도 직접 조작한다</title>
+      <title>GitHub Copilot 컴퓨터 사용 켜는 법: API 없는 데스크톱 앱 자동화와 권한·한계</title>
       <link>https://bluebworks.com/articles/github-copilot-computer-use-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/github-copilot-computer-use-2026/</guid>
       <pubDate>Fri, 02 Oct 2026 03:07:48 GMT</pubDate>
       <category>개발도구</category>
-      <description>GitHub가 Copilot CLI와 Copilot 앱의 macOS·Windows 버전에 컴퓨터 사용 기능을 공개 프리뷰로 추가했다. 화면을 읽고 클릭·입력·스크롤·드래그를 수행할 수 있어 API나 CLI, MCP가 없는 GUI 전용 업무까지 자동화 범위가 넓어진다.</description>
+      <description>GitHub Copilot CLI와 Copilot 앱(macOS·Windows)에 컴퓨터 사용이 공개 프리뷰로 들어왔다. /computer on으로 켜는 법, 앱별 승인과 Always allow, macOS 권한, 멈추는 법, 알려진 실패 유형을 정리했다.</description>
     </item>
     <item>
       <title>Cloudflare Clef 공개 — 에이전트의 ‘결정’만 빠르게 처리하는 오픈 모델</title>
@@ -175,12 +175,12 @@
       <description>제미나이 4 아르곤(Gemini 4 Argon)의 100만 토큰은 이전 64K에서 늘어난 출력 한도다. 9월 30일 발표, 10월 13일 유료 API 공개, 11월 30일까지 도입가와 long decode 사용법을 정리했다.</description>
     </item>
     <item>
-      <title>HydraFusion이 VS Code로 확대 — Copilot이 한 요청 안에서 여러 모델을 조합한다</title>
+      <title>Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이</title>
       <link>https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/</guid>
       <pubDate>Thu, 01 Oct 2026 18:00:09 GMT</pubDate>
       <category>개발도구</category>
-      <description>GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.</description>
+      <description>GitHub Copilot HydraFusion이 VS Code와 Copilot 앱에서 연구 프리뷰로 열렸다. Single·Cascade·Critique 세 실행 방식, 켜는 방법, 쓸 수 있는 요금제, Auto와의 차이, Opus 5 대비 벤치마크를 정리했다.</description>
     </item>
     <item>
       <title>OpenAI dots 사용법·요금제·안전장치 정리: 상시 작동 에이전트에 무엇을 맡길까</title>

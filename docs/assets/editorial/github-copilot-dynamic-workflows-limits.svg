@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Dynamic workflow 제한 설정의 우선순위</title>
+<desc id="desc">제한은 동시 하위 에이전트 수, 총 하위 에이전트 수, 활성 실행 시간, AI 크레딧 상한 네 가지다. 프롬프트에 적은 제한이 워크플로 코드보다, 워크플로 코드가 개인 설정보다 우선한다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="40" font-weight="700" fill="#111827">워크플로 비용을 묶는 네 가지 제한과 우선순위</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">GitHub Docs 기준. 동시 실행 제한은 대기만 시키고, 나머지 제한은 실행을 멈추지만 결과는 보존</text>
+<rect x="80" y="200" width="433" height="310" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="106" y="252" font-size="26" font-weight="700" fill="#1e3a8a">1순위: 프롬프트</text>
+<text x="106" y="305" font-size="22" fill="#334155">실행할 때 자연어로</text>
+<text x="106" y="345" font-size="22" fill="#334155">"timeout 1시간으로"</text>
+<text x="106" y="385" font-size="22" fill="#334155"></text>
+<text x="106" y="425" font-size="22" font-weight="700" fill="#1e3a8a">같은 종류의 제한이면</text>
+<text x="106" y="465" font-size="22" font-weight="700" fill="#1e3a8a">아래 설정을 덮어씀</text>
+<line x1="521" y1="355" x2="561" y2="355" stroke="#64748b" stroke-width="5"/><path d="M557 343 L577 355 L557 367 Z" fill="#64748b"/>
+<rect x="583" y="200" width="433" height="310" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="609" y="252" font-size="26" font-weight="700" fill="#111827">2순위: 워크플로 코드</text>
+<text x="609" y="305" font-size="22" fill="#334155">작성할 때 선택적으로</text>
+<text x="609" y="345" font-size="22" fill="#334155">기본 제한을 넣어 둠</text>
+<text x="609" y="385" font-size="22" fill="#334155"></text>
+<text x="609" y="425" font-size="22" fill="#334155">프롬프트에 없을 때 적용</text>
+<line x1="1024" y1="355" x2="1064" y2="355" stroke="#64748b" stroke-width="5"/><path d="M1060 343 L1080 355 L1060 367 Z" fill="#64748b"/>
+<rect x="1086" y="200" width="433" height="310" rx="20" fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+<text x="1112" y="252" font-size="26" font-weight="700" fill="#92400e">3순위: 개인 설정</text>
+<text x="1112" y="305" font-size="22" fill="#334155">/settings 키</text>
+<text x="1112" y="345" font-size="22" fill="#334155">maxConcurrentSubagents</text>
+<text x="1112" y="385" font-size="22" fill="#334155">maxTotalSubagents</text>
+<text x="1112" y="425" font-size="22" fill="#334155">timeoutSeconds</text>
+<text x="1112" y="465" font-size="22" fill="#334155">maxAiCredits</text>
+<text x="80" y="580" font-size="21" fill="#4b5563">제한에 걸려 멈춘 실행을 다시 시작할 때 새 제한은 멈추기 전 사용량을 포함한 실행 전체 합계다.</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

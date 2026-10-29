@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">HydraFusion과 Claude Opus 5의 품질·비용 비교</title>
+<desc id="desc">GitHub 오프라인 평가에서 TerminalBench 2.1은 비용 67% 낮고 품질 +4.9점, DeepSWE는 비용 36% 낮고 품질 -1.5점, CheckpointBench는 비용 65% 낮고 품질 -0.1점이었다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="80" y="92" font-size="36" font-weight="700" fill="#111827">Opus 5 대비 HydraFusion: 비용은 36~67% 낮게, 품질은 -1.5~+4.9점</text>
+<text x="80" y="138" font-size="23" fill="#4b5563">GitHub 자체 오프라인 평가, 최적 설정 기준. 모든 모델 medium 추론 수준, 독립 재현 아님</text>
+<rect x="80" y="200" width="460" height="310" rx="20" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+<text x="106" y="252" font-size="26" font-weight="700" fill="#065f46">TerminalBench 2.1</text>
+<text x="106" y="305" font-size="22" font-weight="700" fill="#065f46">비용 67% 낮음</text>
+<text x="106" y="345" font-size="22" font-weight="700" fill="#065f46">품질 +4.9점</text>
+<text x="106" y="385" font-size="22" fill="#334155"></text>
+<text x="106" y="425" font-size="22" fill="#334155">터미널 환경의</text>
+<text x="106" y="465" font-size="22" fill="#334155">여러 단계 작업</text>
+<rect x="570" y="200" width="460" height="310" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="596" y="252" font-size="26" font-weight="700" fill="#1e3a8a">DeepSWE</text>
+<text x="596" y="305" font-size="22" font-weight="700" fill="#1e3a8a">비용 36% 낮음</text>
+<text x="596" y="345" font-size="22" font-weight="700" fill="#1e3a8a">품질 -1.5점</text>
+<text x="596" y="385" font-size="22" fill="#334155"></text>
+<text x="596" y="425" font-size="22" fill="#334155">큰 저장소에서</text>
+<text x="596" y="465" font-size="22" fill="#334155">파일 간 의존성을 푸는 작업</text>
+<rect x="1060" y="200" width="460" height="310" rx="20" fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+<text x="1086" y="252" font-size="26" font-weight="700" fill="#92400e">CheckpointBench</text>
+<text x="1086" y="305" font-size="22" font-weight="700" fill="#92400e">비용 65% 낮음</text>
+<text x="1086" y="345" font-size="22" font-weight="700" fill="#92400e">품질 -0.1점</text>
+<text x="1086" y="385" font-size="22" fill="#334155"></text>
+<text x="1086" y="425" font-size="22" fill="#334155">실제 Copilot 세션으로 만든</text>
+<text x="1086" y="465" font-size="22" fill="#334155">GitHub 내부 벤치마크</text>
+<text x="80" y="580" font-size="21" fill="#4b5563">비용은 초안·비평·수정·승격·재시도·대체 호출을 모두 합친 추정 워크플로 비용이다.</text>
+<text x="1520" y="875" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>
