@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">GPT-6.1 Sol의 272K 입력 기준 장문 요금 배율</title>
+<desc id="desc">입력이 272K 토큰 이하면 표준 가격, 넘으면 요청 전체에 입력과 캐시는 2배, 출력은 1.5배가 적용된다. 입력 250K와 출력 20K는 약 0.70달러, 입력 300K와 출력 20K는 약 1.50달러다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="100" y="92" font-size="42" font-weight="700" fill="#111827">입력 272K를 넘는 순간 요청 전체 요금이 바뀐다</text>
+<text x="100" y="138" font-size="24" fill="#4b5563">GPT-6.1 Sol API 모델 문서 기준. 예시 요금은 BlueBWorks 계산(표준 모드, 캐시 없음)</text>
+<line x1="100" y1="250" x2="1500" y2="250" stroke="#cbd5e1" stroke-width="6"/>
+<line x1="100" y1="250" x2="463" y2="250" stroke="#3b82f6" stroke-width="6"/>
+<line x1="463" y1="215" x2="463" y2="285" stroke="#b91c1c" stroke-width="5"/>
+<text x="463" y="200" text-anchor="middle" font-size="26" font-weight="700" fill="#b91c1c">입력 272K 토큰</text>
+<text x="100" y="320" font-size="22" fill="#64748b">0</text>
+<text x="1500" y="320" text-anchor="end" font-size="22" fill="#64748b">1,050,000 (컨텍스트 창)</text>
+
+<rect x="100" y="370" width="620" height="380" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="135" y="425" font-size="30" font-weight="700" fill="#111827">272K 이하: 표준 가격</text>
+<text x="135" y="480" font-size="24" fill="#334155">입력 $2 · 캐시 입력 $0.10 · 출력 $10</text>
+<text x="135" y="550" font-size="23" font-weight="700" fill="#1e3a8a">예: 입력 250K + 출력 20K</text>
+<text x="135" y="595" font-size="23" fill="#334155">$0.50 + $0.20 = 약 $0.70</text>
+
+<rect x="800" y="370" width="700" height="380" rx="20" fill="#fef2f2" stroke="#b91c1c" stroke-width="3"/>
+<text x="835" y="425" font-size="30" font-weight="700" fill="#111827">272K 초과: 요청 전체에 배율</text>
+<text x="835" y="480" font-size="24" fill="#334155">입력·캐시 2배($4 · $0.20), 출력 1.5배($15)</text>
+<text x="835" y="550" font-size="23" font-weight="700" fill="#7f1d1d">예: 입력 300K + 출력 20K</text>
+<text x="835" y="595" font-size="23" fill="#334155">$1.20 + $0.30 = 약 $1.50</text>
+<text x="835" y="660" font-size="21" fill="#7f1d1d">입력은 20% 늘었는데 요금은 2배 이상</text>
+
+<text x="100" y="820" font-size="21" fill="#4b5563">Codex·ChatGPT Work는 기본 500K 컨텍스트를 쓰며 구독 사용량에는 장문 추가 요금이 없다.</text>
+<text x="1500" y="870" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

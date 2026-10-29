@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">OpenAI dots가 일하는 구조</title>
+<desc id="desc">사용자는 ChatGPT, Slack, Teams로 dot에 목표를 준다. dot은 GPT-6 Astra 기반으로 자체 클라우드 컴퓨터와 브라우저, 사용자가 연결한 앱을 쓴다. 계정에 영향을 주는 행동은 실행 전에 자동 검토를 거치고, 필요하면 사용자 승인을 받는다. 선제적 리서치는 읽기 전용 도구만 쓴다.</desc>
+<rect width="1600" height="900" fill="#ffffff"/>
+<g font-family="Arial, Noto Sans KR, Malgun Gothic, sans-serif">
+<text x="100" y="92" font-size="42" font-weight="700" fill="#111827">dots는 자기 컴퓨터에서 일하고, 행동 전에 검토를 거친다</text>
+<text x="100" y="138" font-size="24" fill="#4b5563">OpenAI dots 소개 글과 안전·보안·개인정보 설명 글 기준(2026-09-29 발표)</text>
+
+<rect x="80" y="220" width="300" height="300" rx="20" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+<text x="110" y="275" font-size="30" font-weight="700" fill="#111827">사용자</text>
+<text x="110" y="325" font-size="22" fill="#334155">ChatGPT(웹·데스크톱·</text>
+<text x="110" y="357" font-size="22" fill="#334155">모바일), Slack, Teams</text>
+<text x="110" y="409" font-size="22" fill="#334155">목표·맞춤 규칙 설정</text>
+<text x="110" y="461" font-size="22" fill="#334155">활동 보기로 확인</text>
+
+<line x1="390" y1="370" x2="470" y2="370" stroke="#64748b" stroke-width="5"/><path d="M466 358 L486 370 L466 382 Z" fill="#64748b"/>
+
+<rect x="500" y="200" width="560" height="340" rx="20" fill="#eff6ff" stroke="#3b82f6" stroke-width="3"/>
+<text x="530" y="255" font-size="30" font-weight="700" fill="#111827">dot (GPT-6 Astra 기반)</text>
+<rect x="530" y="285" width="240" height="110" rx="14" fill="#ffffff" stroke="#93c5fd" stroke-width="2"/>
+<text x="550" y="330" font-size="22" font-weight="700" fill="#1e3a8a">자체 클라우드</text>
+<text x="550" y="364" font-size="22" font-weight="700" fill="#1e3a8a">컴퓨터·브라우저</text>
+<rect x="790" y="285" width="240" height="110" rx="14" fill="#ffffff" stroke="#93c5fd" stroke-width="2"/>
+<text x="810" y="330" font-size="22" font-weight="700" fill="#1e3a8a">연결한 앱</text>
+<text x="810" y="364" font-size="22" fill="#1e3a8a">플러그인 4,000개+</text>
+<text x="530" y="440" font-size="21" fill="#334155">샌드박스로 격리, 사용자 컴퓨터는 연결할 때만 접근</text>
+<text x="530" y="478" font-size="21" fill="#334155">선제적 리서치: 읽기 전용 도구만 사용</text>
+<text x="530" y="516" font-size="21" fill="#334155">보안 로그인: 비밀번호를 모델에 노출하지 않음</text>
+
+<line x1="1070" y1="370" x2="1150" y2="370" stroke="#64748b" stroke-width="5"/><path d="M1146 358 L1166 370 L1146 382 Z" fill="#64748b"/>
+
+<rect x="1180" y="220" width="340" height="300" rx="20" fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+<text x="1210" y="275" font-size="30" font-weight="700" fill="#111827">자동 검토</text>
+<text x="1210" y="325" font-size="22" fill="#334155">이메일 전송·파일 변경 등</text>
+<text x="1210" y="357" font-size="22" fill="#334155">실행 전에 지시·규칙·</text>
+<text x="1210" y="389" font-size="22" fill="#334155">안전 요건과 대조</text>
+<text x="1210" y="441" font-size="22" fill="#334155">허용 → 실행</text>
+<text x="1210" y="473" font-size="22" fill="#334155">차단 → 이유 전달, 승인 요청</text>
+
+<rect x="80" y="620" width="1440" height="150" rx="20" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="110" y="675" font-size="24" font-weight="700" fill="#111827">자동 검토 장치는 dot이 바꿀 수 있는 환경 밖에 있다</text>
+<text x="110" y="720" font-size="22" fill="#334155">dot은 필수 점검을 끄거나 안전 시스템을 수정할 수 없고, 사용자 승인으로도 핵심 안전 요건을 무시할 수 없다.</text>
+<text x="1500" y="860" text-anchor="end" font-size="18" fill="#94a3b8">BlueBWorks 도식</text>
+</g>
+</svg>

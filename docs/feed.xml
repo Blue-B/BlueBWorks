@@ -5,7 +5,7 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 29 Oct 2026 09:55:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 10:35:00 GMT</lastBuildDate>
     <item>
       <title>제미나이 4 카본 출시일·성능·가격 정리: 지금 무료로 쓸 수 있을까</title>
       <link>https://bluebworks.com/articles/gemini-4-carbon-2026/</link>
@@ -183,20 +183,20 @@
       <description>GitHub가 Copilot CLI에서 시험하던 HydraFusion을 VS Code와 GitHub Copilot 앱으로 확대했다. 단일 모델을 고르는 대신 작업에 따라 한 모델, 단계적 승격, 다른 모델의 비평 후 수정 같은 여러 실행 흐름을 자동 선택한다.</description>
     </item>
     <item>
-      <title>OpenAI Dots 공개 — 항상 켜져 있는 에이전트가 제품이 됐다</title>
+      <title>OpenAI dots 사용법·요금제·안전장치 정리: 상시 작동 에이전트에 무엇을 맡길까</title>
       <link>https://bluebworks.com/articles/openai-dots-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/openai-dots-2026/</guid>
       <pubDate>Thu, 01 Oct 2026 15:09:15 GMT</pubDate>
       <category>에이전트</category>
-      <description>OpenAI가 DevDay 2026에서 장기 작업을 맡길 수 있는 always-on 에이전트 Dots를 공개했다. 자체 클라우드 컴퓨터와 플러그인 연결을 사용하고, 피드백을 통해 사용자의 작업 방식을 익히는 형태다.</description>
+      <description>OpenAI dots는 GPT-6 Astra 기반으로 자체 클라우드 컴퓨터에서 계속 일하는 에이전트다. 쓸 수 있는 요금제, 시작 방법, 자동 검토와 승인 규칙, 데이터 학습 설정을 공식 자료로 정리했다.</description>
     </item>
     <item>
-      <title>GPT‑6.1 Sol 출시 — 코딩·컴퓨터 사용 중심으로 Sol이 업데이트됐다</title>
+      <title>GPT-6.1 Sol 가격·성능·사용처 정리: Astra 5분의 1 가격에 무엇을 맡길까</title>
       <link>https://bluebworks.com/articles/gpt-6-1-sol-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/gpt-6-1-sol-2026/</guid>
       <pubDate>Thu, 01 Oct 2026 15:09:15 GMT</pubDate>
       <category>모델</category>
-      <description>OpenAI가 GPT‑6.1 Sol을 공개했다. 에이전트형 코딩, 컴퓨터 사용, 전문 업무 성능을 강화하고 Astra 대비 낮은 표준 API 가격을 강조한 업데이트다.</description>
+      <description>GPT-6.1 Sol은 100만 토큰당 입력 2달러·출력 10달러로 GPT-6 Astra의 5분의 1 가격이다. 코딩·컴퓨터 사용 성능, 105만 컨텍스트와 272K 초과 요금, ChatGPT Work·Codex 제공 범위를 정리했다.</description>
     </item>
   </channel>
 </rss>
