@@ -5,7 +5,15 @@
     <link>https://bluebworks.dpdns.org/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 28 Oct 2026 10:32:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 04:11:50 GMT</lastBuildDate>
+    <item>
+      <title>GitHub Agentic Workflows 정식 출시: Markdown으로 저장소 작업 자동화하기</title>
+      <link>https://bluebworks.dpdns.org/articles/github-agentic-workflows-ga-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.dpdns.org/articles/github-agentic-workflows-ga-2026/</guid>
+      <pubDate>Thu, 29 Oct 2026 04:11:50 GMT</pubDate>
+      <category>개발도구</category>
+      <description>GitHub가 10월 28일 Agentic Workflows를 정식 제공했다. Markdown으로 CI 실패 조사나 이슈 요약 같은 판단 작업을 정의하고 GitHub Actions에서 실행한다. 설치 흐름, 안전한 출력, 엔진 인증과 비용을 공식 문서 기준으로 정리했다.</description>
+    </item>
     <item>
       <title>GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다</title>
       <link>https://bluebworks.dpdns.org/articles/github-copilot-server-to-server-auth-2026/</link>

@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bluebworks.dpdns.org/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.dpdns.org/articles/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.dpdns.org/about.html</loc>
@@ -19,6 +19,10 @@
   </url>
   <url>
     <loc>https://bluebworks.dpdns.org/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://bluebworks.dpdns.org/articles/github-agentic-workflows-ga-2026/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.dpdns.org/articles/github-copilot-server-to-server-auth-2026/</loc>
