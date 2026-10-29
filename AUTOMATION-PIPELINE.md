@@ -37,4 +37,4 @@ npm run remote:check -- --slug=<slug> --title='<title>'
 
 ## 두 번째 작성기 (2026-10-29 추가)
 
-사용자 PC의 Aside 예약 작업도 하루 최대 한 편을 쓴다(`AUTOMATION-ASIDE.md`). 두 작성기 모두 쓰기 직전 최신 원격 `main`을 다시 받고, 최근 6시간 안에 다른 작성기가 새 기사를 게시했거나 같은 발표를 이미 다뤘으면 이번 회차를 건너뛴다. fast-forward 푸시만 사용한다. Aside 작성 글은 `discovery.writer: "aside"`로 구분한다.
+사용자 PC의 Aside 예약 작업도 하루 최대 세 편(09·15·21시)을 쓴다(`AUTOMATION-ASIDE.md`). 두 작성기 모두 쓰기 직전 최신 원격 `main`을 다시 받고, 최근 2시간 안에 다른 작성기가 새 기사를 게시했거나 같은 발표를 이미 다뤘으면 이번 회차를 건너뛴다. fast-forward 푸시만 사용한다. Aside 작성 글은 `discovery.writer: "aside"`로 구분한다.

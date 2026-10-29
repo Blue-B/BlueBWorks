@@ -1,10 +1,10 @@
 # Aside 작성기: X 트렌드 기반 사진 포함 기사 (2026-10-29)
 
-사용자가 2026-10-29에 승인한 두 번째 작성기다. 실행 주체는 사용자 PC의 Aside 예약 작업이며, 하루 최대 한 편을 쓴다. 매 실행 `AUTOMATION.md`, `AUTOMATION-PIPELINE.md`, `AUTOMATION-X.md`와 이 문서를 함께 읽는다. 기존 ChatGPT 예약 작성기의 기준(본문 4,000자 이상, 공식 1차 출처 두 개 이상, `editorialVersion: 2`, `reviewStatus: reviewed`, 미디어 권리 기록)은 그대로 적용한다. 이 문서는 그 기준을 낮추지 않고 X 조사와 이미지 준비 방법만 더한다.
+사용자가 2026-10-29에 승인한 두 번째 작성기다. 실행 주체는 사용자 PC의 Aside 예약 작업이며, 하루 최대 세 편(한국 시간 09시·15시·21시 실행 회차마다 한 편)을 쓴다(사용자 결정 2026-10-29). 매 실행 `AUTOMATION.md`, `AUTOMATION-PIPELINE.md`, `AUTOMATION-X.md`와 이 문서를 함께 읽는다. 기존 ChatGPT 예약 작성기의 기준(본문 4,000자 이상, 공식 1차 출처 두 개 이상, `editorialVersion: 2`, `reviewStatus: reviewed`, 미디어 권리 기록)은 그대로 적용한다. 이 문서는 그 기준을 낮추지 않고 X 조사와 이미지 준비 방법만 더한다.
 
 ## 두 작성기의 충돌 방지
 
-- 쓰기 직전 최신 원격 `main`을 다시 받는다. 최근 6시간 안에 다른 작성기가 새 기사를 게시했으면 이번 회차는 쓰지 않고 `skipped_recent_publication`으로 끝낸다.
+- 쓰기 직전 최신 원격 `main`을 다시 받는다. 최근 2시간 안에 다른 작성기가 새 기사를 게시했으면 이번 회차는 쓰지 않고 `skipped_recent_publication`으로 끝낸다.
 - 같은 slug, 같은 발표, 같은 제품 버전을 이미 다룬 글이 있으면 쓰지 않는다. 후속 소식이면 기존 글과 다른 내용(실사용 비교, 변경점)이 충분할 때만 쓴다.
 - fast-forward 푸시만 한다. 충돌 시 최신 main 위에서 다시 빌드·검사한다. 강제 푸시하지 않는다.
 - 작성기를 구분할 수 있게 기사 JSON `discovery.writer`에 `aside`를 기록한다.
