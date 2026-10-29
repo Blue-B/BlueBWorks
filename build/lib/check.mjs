@@ -12,7 +12,7 @@ function listHtmlFiles(dir, base = dir) {
     if (entry.name === ".git" || entry.name === "data" || entry.name === "assets") continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) files.push(...listHtmlFiles(full, base));
-    else if (entry.name.endsWith(".html")) files.push(path.relative(base, full));
+    else if (entry.name.endsWith(".html") && !/^(naver[0-9a-f]+|google[0-9a-f]+)\.html$/.test(entry.name)) files.push(path.relative(base, full));
   }
   return files.sort();
 }
