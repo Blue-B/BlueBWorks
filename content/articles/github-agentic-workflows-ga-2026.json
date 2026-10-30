@@ -281,9 +281,16 @@
   },
   "mediaReview": {
     "checkedAt": "2026-10-29T13:11:50+09:00",
-    "status": "unavailable",
+    "status": "included",
     "omittedReason": "GitHub 공식 발표의 Actions 실행 화면과 공식 Quick Start의 화면·영상 자료를 확인했지만, 해당 개별 미디어의 기사 내 복제·재배포 허용 조건을 확인하지 못했다. MIT 소프트웨어 라이선스가 발표 이미지까지 적용된다고 추정하지 않고 원문 링크로 대체했다.",
     "candidates": [
+      {
+        "sourceUrl": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/github-agentic-workflows-ga-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial thumbnail. 오른쪽에 로그인 없이 공개된 공식 페이지 상단 일부를 해설 목적으로 축소 인용하고 출처를 연결",
+        "reason": "기사 제목과 본문에 있는 핵심 사실을 담은 대표 이미지"
+      },
       {
         "sourceUrl": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
         "decision": "excluded",
@@ -299,6 +306,15 @@
         "decision": "excluded",
         "reason": "공식 소개의 UI 시연 그림은 기능 설명에 적합하지만 페이지 이미지의 별도 이용 조건을 확인하지 못해 제외"
       }
-    ]
-  }
+    ],
+    "previousStatus": "unavailable",
+    "thumbnailAddedAt": "2026-10-30T05:29:21.391Z"
+  },
+  "image": "https://bluebworks.com/assets/editorial/github-agentic-workflows-ga-2026-thumb.png",
+  "imageAlt": "GitHub Agentic Workflows 정식 출시",
+  "imageCaption": "Agentic Workflows, 2026년 10월 28일 정식 출시. Free, Team, Enterprise에서 사용 가능",
+  "imageCredit": "BlueBWorks",
+  "imageSourceUrl": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+  "imageWidth": 1600,
+  "imageHeight": 900
 }

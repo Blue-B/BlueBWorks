@@ -14,11 +14,13 @@
     <meta property="og:description" content="Vercel AI Gateway가 Virtual Models를 공개했다. 앱과 코딩 에이전트는 vmc/ 이름만 사용하고 실제 모델·대체 경로·보안 설정은 중앙에서 바꿀 수 있다. 설정 명령, 무료 크레딧, 과금과 운영 시 주의점을 정리했다.">
     <meta property="og:url" content="https://bluebworks.com/articles/vercel-ai-gateway-virtual-models-2026/">
     <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/vercel-ai-gateway-virtual-models-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/vercel-ai-gateway-virtual-models-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Vercel AI Gateway Virtual Models 출시: 모델 교체·요금·설정 방법","description":"Vercel AI Gateway가 Virtual Models를 공개했다. 앱과 코딩 에이전트는 vmc/ 이름만 사용하고 실제 모델·대체 경로·보안 설정은 중앙에서 바꿀 수 있다. 설정 명령, 무료 크레딧, 과금과 운영 시 주의점을 정리했다.","url":"https://bluebworks.com/articles/vercel-ai-gateway-virtual-models-2026/","mainEntityOfPage":"https://bluebworks.com/articles/vercel-ai-gateway-virtual-models-2026/","datePublished":"2026-10-29T11:58:36.000Z","dateModified":"2026-10-29T11:58:36.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"Vercel, AI Gateway, Virtual Models, LLM, Claude Code, Codex, AI SDK, 모델 라우팅","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Vercel AI Gateway Virtual Models 출시: 모델 교체·요금·설정 방법","description":"Vercel AI Gateway가 Virtual Models를 공개했다. 앱과 코딩 에이전트는 vmc/ 이름만 사용하고 실제 모델·대체 경로·보안 설정은 중앙에서 바꿀 수 있다. 설정 명령, 무료 크레딧, 과금과 운영 시 주의점을 정리했다.","url":"https://bluebworks.com/articles/vercel-ai-gateway-virtual-models-2026/","mainEntityOfPage":"https://bluebworks.com/articles/vercel-ai-gateway-virtual-models-2026/","datePublished":"2026-10-29T11:58:36.000Z","dateModified":"2026-10-29T11:58:36.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"Vercel, AI Gateway, Virtual Models, LLM, Claude Code, Codex, AI SDK, 모델 라우팅","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/vercel-ai-gateway-virtual-models-2026-thumb.png"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Vercel AI Gateway Virtual Models 출시: 모델 교체·요금·설정 방법","item":"https://bluebworks.com/articles/vercel-ai-gateway-virtual-models-2026/"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Virtual Models를 쓰려면 Vercel에 앱을 배포해야 하나?","acceptedAnswer":{"@type":"Answer","text":"Vercel AI Gateway에 연결해 호출하는 구조라면 외부 앱과 코딩 에이전트에서도 가상 모델 식별자를 사용할 수 있다. 앱 자체를 Vercel에 반드시 배포해야 한다는 요구는 공식 문서에서 확인되지 않는다."}},{"@type":"Question","name":"모델을 바꾸면 기존 앱을 다시 배포해야 하나?","acceptedAnswer":{"@type":"Answer","text":"vmc/ 식별자를 유지하면 실제 모델 변경을 위해 앱 코드를 수정하거나 재배포할 필요가 없다. 다만 변경이 새 요청에 적용되기까지 몇 분 걸릴 수 있다."}},{"@type":"Question","name":"무료 5달러로 Claude Opus 5.5를 사용할 수 있나?","acceptedAnswer":{"@type":"Answer","text":"무료 크레딧은 일부 지정 모델에만 적용된다. Claude Opus 5.5가 현재 무료 대상인지 이 자료만으로 확정할 수 없으므로 AI Gateway 모델 카탈로그에서 확인해야 한다."}},{"@type":"Question","name":"가상 모델로 바꾸면 개인정보가 자동으로 저장되지 않나?","acceptedAnswer":{"@type":"Answer","text":"아니다. Zero Data Retention 같은 정책을 별도로 구성하고 해당 조건을 지원하는 공급자를 선택해야 한다. 가상 모델 생성만으로 모든 요청이 자동으로 데이터 비보존 상태가 되는 것은 아니다."}}]}</script>
   </head>
@@ -74,7 +76,10 @@
             <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
 
           </header>
-
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/vercel-ai-gateway-virtual-models-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: Vercel AI Gateway Virtual Models 출시"><img src="https://bluebworks.com/assets/editorial/vercel-ai-gateway-virtual-models-2026-thumb.png" alt="Vercel AI Gateway Virtual Models 출시" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>Virtual Models, 무료 계정 월 5달러 크레딧. 2026년 10월 28일 출시</span><a href="https://vercel.com/blog/ai-gateway-virtual-models" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
           <details class="key-points" open>
       <summary>3줄 요약</summary>
       <ul>

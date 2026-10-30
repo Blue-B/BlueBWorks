@@ -295,6 +295,13 @@
     "candidates": [
       {
         "sourceUrl": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/cloudflare-glm-53-sglang-kv-cache-leak-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial thumbnail. 오른쪽 그림은 이 기사에 이미 실린 BlueBWorks 자체 도식",
+        "reason": "기사 제목과 본문에 있는 핵심 사실을 담은 대표 이미지"
+      },
+      {
+        "sourceUrl": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
         "decision": "excluded",
         "reason": "Cloudflare 공식 사고 보고서에 실제 그림이 있으나 블로그 이미지의 별도 재사용 권한을 확인하지 못해 원본을 복사하지 않았다."
       },
@@ -317,6 +324,14 @@
         "rightsBasis": "BlueBWorks original editorial diagram; independent checklist design based on SGLang's public operator recommendations",
         "reason": "버전·메모리·중단·메트릭 점검 순서를 설명하기 위해 자체 제작했다."
       }
-    ]
-  }
+    ],
+    "thumbnailAddedAt": "2026-10-30T05:29:21.389Z"
+  },
+  "image": "https://bluebworks.com/assets/editorial/cloudflare-glm-53-sglang-kv-cache-leak-2026-thumb.png",
+  "imageAlt": "Cloudflare GLM-5.3 KV 캐시 데이터 노출 사고 요약",
+  "imageCaption": "GLM-5.3 노출 사고, 긴 입력 155개 응답에 다른 고객 데이터. 2026년 8월 27일부터 9월 9일까지",
+  "imageCredit": "BlueBWorks",
+  "imageSourceUrl": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+  "imageWidth": 1600,
+  "imageHeight": 900
 }

@@ -9,10 +9,16 @@
   "status": "Open source",
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
-  "tags": ["Cloudflare", "Clef", "Decision Model", "Workers AI", "Agents"],
-  "image": "",
-  "imageAlt": "",
-  "imageCredit": "",
+  "tags": [
+    "Cloudflare",
+    "Clef",
+    "Decision Model",
+    "Workers AI",
+    "Agents"
+  ],
+  "image": "https://bluebworks.com/assets/editorial/cloudflare-clef-decision-models-2026-thumb.png",
+  "imageAlt": "Cloudflare Clef 결정 모델 가격과 지연 시간",
+  "imageCredit": "BlueBWorks",
   "editorNote": "결정 모델은 LLM을 대체하는 것이 아니라 LLM 앞에서 갈림길을 정리하는 부품이다. 그래서 벤치마크 순위보다 요청 형식과 확률을 코드에서 어떻게 쓰는지, 어떤 평가에서는 약했는지를 함께 정리했다.",
   "keyPoints": [
     "모델: Clef(27B, 이미지 입력 지원)와 지연 중심의 Clef-flash를 2026년 10월 1일 Workers AI에 공개했고, 가중치는 Apache 2.0으로 Hugging Face에 있다.",
@@ -28,14 +34,31 @@
         "이런 개념은 최근 Typesafe AI의 Jev System One 모델로 주목받았다. Cloudflare는 Clef가 Jev API와 완전히 호환되도록 만들어 바꿔 끼우기 쉽게 했다고 설명한다. 분류 범주가 바뀔 때마다 모델을 다시 학습하지 않아도 되고, 질문과 선택지를 요청에 직접 적으면 된다는 점이 기존 분류기와 다르다.",
         "Cloudflare 위협 인텔리전스 팀은 Clef로 웹사이트 도메인을 분류하는 시험을 했다고 한다. Browser Run으로 사이트를 가져와 렌더링하고 분류하는 데 Clef는 2.2초가 걸렸고, 같은 흐름에서 가장 빠른 범용 LLM인 gpt-oss-120b는 4.7초가 걸리면서 분류도 두 개만 돌려줬다는 것이 Cloudflare의 설명이다."
       ],
-      "sourceRefs": [1],
+      "sourceRefs": [
+        1
+      ],
       "stats": [
-        {"value": "2종", "label": "공개 모델", "note": "Clef · Clef-flash"},
-        {"value": "Apache 2.0", "label": "가중치 라이선스", "note": "Hugging Face 공개"},
-        {"value": "2.2초 vs 4.7초", "label": "도메인 분류 시간", "note": "Clef vs gpt-oss-120b · Cloudflare 측정"}
+        {
+          "value": "2종",
+          "label": "공개 모델",
+          "note": "Clef · Clef-flash"
+        },
+        {
+          "value": "Apache 2.0",
+          "label": "가중치 라이선스",
+          "note": "Hugging Face 공개"
+        },
+        {
+          "value": "2.2초 vs 4.7초",
+          "label": "도메인 분류 시간",
+          "note": "Clef vs gpt-oss-120b · Cloudflare 측정"
+        }
       ],
       "links": [
-        {"label": "Cloudflare 블로그: Introducing Clef", "url": "https://blog.cloudflare.com/clef-decision-models/"}
+        {
+          "label": "Cloudflare 블로그: Introducing Clef",
+          "url": "https://blog.cloudflare.com/clef-decision-models/"
+        }
       ]
     },
     {
@@ -46,7 +69,10 @@
         "답은 질문 id를 키로 한 answers 객체에 담긴다. 그래서 urgent 확률이 0.8을 넘으면 호출기를 울리고, team 답에 따라 큐를 고르고, severity 점수가 일정 이상이면 사람 검토로 보내는 식으로 코드를 짜기 쉽다. 문장을 파싱할 필요가 없다는 점이 LLM과 가장 큰 차이다.",
         "Clef는 Jev API에 없는 확장도 하나 있다. images 배열로 PNG, JPEG, WebP 이미지를 최대 4장까지 state 앞에 넣을 수 있다. 장당 4MiB·1,600만 화소, 전체 디코딩 8MiB, 요청 본문 13MiB가 한도이고 원격 URL은 받지 않는다. 이미지를 넣으려면 바이트를 직접 담아 보내야 한다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "figures": [
         {
           "src": "https://bluebworks.com/assets/editorial/cloudflare-clef-request-flow.svg",
@@ -73,22 +99,60 @@
         "직접 운영하고 싶다면 Hugging Face에서 Apache 2.0 가중치를 받아 로컬에서 실행할 수 있다. Cloudflare는 Workers AI에서 쓰는 요청과 응답을 읽거나 저장하거나 학습에 쓰지 않는다고 밝혔다. 단 뒤에 설명할 미세 조정 서비스를 쓰는 경우는 예외다.",
         "확률을 그대로 믿어도 되는지는 학습 방식과 관련이 있다. Cloudflare는 유효한 스키마 출력에 레이블 스무딩을 적용한 교차 엔트로피와 확률 보정을 위한 Brier 손실을 함께 썼고, 필드 순서·프롬프트·스키마 구조를 바꾼 자체 합성 데이터로 학습했다고 밝혔다. 여기에 인접한 단계 답에 부분 점수를 주는 강화학습 방식(RLCD)을 더했다. 그래도 보정이 내 데이터에서도 맞는지는 직접 확인해야 한다. 학습 데이터가 합성 데이터이기 때문이다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "table": {
-        "headers": ["항목", "Clef", "Clef-flash"],
+        "headers": [
+          "항목",
+          "Clef",
+          "Clef-flash"
+        ],
         "rows": [
-          ["용도", "정확도 중심", "지연이 중요한 결정"],
-          ["기반 모델 (고정)", "Qwen3.8-27B", "Qwen3.5-9B"],
-          ["컨텍스트 창", "65,536 토큰", "이 글에서 확인하지 않음"],
-          ["이미지 입력", "지원 (최대 4장)", "이 글에서 확인하지 않음"],
-          ["Workers AI 가격", "입력 100만 토큰당 0.24달러", "이 글에서 확인하지 않음"],
-          ["지연 중앙값 / p95", "209.3ms / 238.6ms", "38.8ms / 122.4ms"],
-          ["Workers AI 모델 ID", "@cf/cloudflare/clef", "@cf/cloudflare/clef-flash"]
+          [
+            "용도",
+            "정확도 중심",
+            "지연이 중요한 결정"
+          ],
+          [
+            "기반 모델 (고정)",
+            "Qwen3.8-27B",
+            "Qwen3.5-9B"
+          ],
+          [
+            "컨텍스트 창",
+            "65,536 토큰",
+            "이 글에서 확인하지 않음"
+          ],
+          [
+            "이미지 입력",
+            "지원 (최대 4장)",
+            "이 글에서 확인하지 않음"
+          ],
+          [
+            "Workers AI 가격",
+            "입력 100만 토큰당 0.24달러",
+            "이 글에서 확인하지 않음"
+          ],
+          [
+            "지연 중앙값 / p95",
+            "209.3ms / 238.6ms",
+            "38.8ms / 122.4ms"
+          ],
+          [
+            "Workers AI 모델 ID",
+            "@cf/cloudflare/clef",
+            "@cf/cloudflare/clef-flash"
+          ]
         ],
         "caption": "Workers AI Clef 모델 문서와 Cloudflare 블로그(2026-10-01)를 2026-10-29에 확인한 기준이다. 지연은 Cloudflare가 43개 평가에서 잰 값이다."
       },
       "links": [
-        {"label": "Workers AI 모델 문서: Clef", "url": "https://developers.cloudflare.com/workers-ai/models/clef"}
+        {
+          "label": "Workers AI 모델 문서: Clef",
+          "url": "https://developers.cloudflare.com/workers-ai/models/clef"
+        }
       ]
     },
     {
@@ -99,16 +163,53 @@
         "Typesafe의 워크플로 평가에서는 Clef가 청구서 처리와 보안 사고에서, Clef-flash가 고객 서비스에서 Jev보다 높았고, 에이전트 추적 관찰 항목은 Jev가 앞섰다. Cloudflare는 이를 네 영역 중 셋에서 Jev를 이겼다고 요약했다.",
         "이 숫자는 모두 Cloudflare가 직접 돌린 평가다. 쓰려는 작업이 '도구를 부를지 말지' 같은 판단이라면 When2Call 결과처럼 Clef가 불리할 수 있다. 내 데이터에서 라벨이 붙은 과거 결정 몇백 건을 골라 정확도와 확률이 실제 맞는 비율과 일치하는지(보정)를 먼저 확인하는 편이 안전하다."
       ],
-      "sourceRefs": [1],
+      "sourceRefs": [
+        1
+      ],
       "table": {
-        "headers": ["평가", "Clef", "Clef-flash", "Jev"],
+        "headers": [
+          "평가",
+          "Clef",
+          "Clef-flash",
+          "Jev"
+        ],
         "rows": [
-          ["BFCL · case exact (도구 호출)", "98.47", "98.76", "95.75"],
-          ["When2Call · accuracy (호출 여부 판단)", "72.37", "65.58", "80.97"],
-          ["BANKING77 · macro-F1 (의도 분류)", "94.20", "90.93", "79.74"],
-          ["CLINC150+OOS · macro-F1", "97.43", "66.77", "89.27"],
-          ["BRIGHT · nDCG@10 (검색 순위)", "45.91", "39.26", "47.52"],
-          ["PhishNChips · accuracy (피싱)", "79.60", "75.05", "62.55"]
+          [
+            "BFCL · case exact (도구 호출)",
+            "98.47",
+            "98.76",
+            "95.75"
+          ],
+          [
+            "When2Call · accuracy (호출 여부 판단)",
+            "72.37",
+            "65.58",
+            "80.97"
+          ],
+          [
+            "BANKING77 · macro-F1 (의도 분류)",
+            "94.20",
+            "90.93",
+            "79.74"
+          ],
+          [
+            "CLINC150+OOS · macro-F1",
+            "97.43",
+            "66.77",
+            "89.27"
+          ],
+          [
+            "BRIGHT · nDCG@10 (검색 순위)",
+            "45.91",
+            "39.26",
+            "47.52"
+          ],
+          [
+            "PhishNChips · accuracy (피싱)",
+            "79.60",
+            "75.05",
+            "62.55"
+          ]
         ],
         "caption": "Cloudflare 블로그 표에서 발췌(2026-10-01). Cloudflare 자체 측정이며, PhishNChips 최고점은 DiffusionGemma Jev 85.35다."
       },
@@ -132,20 +233,49 @@
         "Cloudflare는 Clef를 특정 업무에 맞게 다듬는 미세 조정 서비스도 발표했다. 처음에는 현장 배치 엔지니어(FDE) 팀이 고객과 직접 작업하고, 이후 셀프서비스 플랫폼으로 넓힐 계획이다. AI Gateway로 요청 데이터를 모으고, Workers AI로 기본 Clef의 결과를 만들고, Containers를 강화학습 샌드박스로 쓰고, 새 Trainer로 가중치를 갱신해 Workers AI에 다시 배포하는 구조다.",
         "미세 조정을 하면 일반 성능을 일부 내주는 대신 특정 영역의 정확도를 높일 수 있다고 Cloudflare는 설명했다. 사내에서는 신뢰·안전 신고 평가, 지원 요청 분류, 좋은 봇과 나쁜 봇 판별 같은 용도를 검토하고 있다고 한다. 셀프서비스 플랫폼의 출시 시점과 가격은 발표되지 않았다."
       ],
-      "sourceRefs": [1],
+      "sourceRefs": [
+        1
+      ],
       "table": {
-        "headers": ["단계", "쓰는 Cloudflare 기능", "역할"],
+        "headers": [
+          "단계",
+          "쓰는 Cloudflare 기능",
+          "역할"
+        ],
         "rows": [
-          ["데이터 수집", "AI Gateway", "AI 요청·응답을 모아 데이터셋 생성"],
-          ["결과 생성", "Workers AI", "기본 Clef로 결과(rollout) 생성"],
-          ["채점·재현", "Containers", "강화학습 샌드박스"],
-          ["가중치 갱신", "Trainer (신규)", "미세 조정 Clef 학습"],
-          ["재배포", "Workers AI + BYO Model", "조정된 모델을 다시 서비스"]
+          [
+            "데이터 수집",
+            "AI Gateway",
+            "AI 요청·응답을 모아 데이터셋 생성"
+          ],
+          [
+            "결과 생성",
+            "Workers AI",
+            "기본 Clef로 결과(rollout) 생성"
+          ],
+          [
+            "채점·재현",
+            "Containers",
+            "강화학습 샌드박스"
+          ],
+          [
+            "가중치 갱신",
+            "Trainer (신규)",
+            "미세 조정 Clef 학습"
+          ],
+          [
+            "재배포",
+            "Workers AI + BYO Model",
+            "조정된 모델을 다시 서비스"
+          ]
         ],
         "caption": "Cloudflare 블로그의 강화학습 미세 조정 서비스 구성(2026-10-01). 초기에는 FDE 팀과 함께하는 방식이며 셀프서비스 일정은 발표되지 않았다."
       },
       "links": [
-        {"label": "Clef 미세 조정 관심 등록", "url": "https://www.cloudflare.com/resource/clef-rl-interest"}
+        {
+          "label": "Clef 미세 조정 관심 등록",
+          "url": "https://www.cloudflare.com/resource/clef-rl-interest"
+        }
       ]
     },
     {
@@ -153,36 +283,116 @@
       "paragraphs": [
         "검색으로 많이 찾는 질문을 Cloudflare 공식 자료 기준으로 짧게 정리했다. 2026년 10월 29일 확인 기준이다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "faq": [
-        {"question": "Cloudflare Clef 가격은 얼마인가요?", "answer": "Workers AI 모델 문서 기준 Clef는 입력 100만 토큰당 0.24달러입니다. Clef-flash 가격은 이 글에서 확인하지 않았습니다. 가중치는 Apache 2.0으로 공개돼 직접 실행할 수도 있습니다."},
-        {"question": "결정 모델은 LLM과 무엇이 다른가요?", "answer": "LLM은 문장을 생성하지만 결정 모델은 미리 정한 선택지마다 확률을 돌려줍니다. Clef는 토큰을 하나씩 생성하지 않고 선택지를 병렬로 점수 매겨 빠르고, 결과를 코드에서 바로 쓸 수 있습니다."},
-        {"question": "Clef와 Clef-flash 중 무엇을 써야 하나요?", "answer": "Cloudflare는 Clef를 정확도 중심, Clef-flash를 지연 중심 모델로 설명합니다. 자체 측정 지연 중앙값은 Clef 209.3ms, Clef-flash 38.8ms였지만 일부 평가에서 Clef-flash 정확도가 크게 낮았습니다."},
-        {"question": "Jev 대신 바로 쓸 수 있나요?", "answer": "Cloudflare는 Clef가 Jev System One API와 완전히 호환된다고 밝혔습니다. 다만 When2Call 같은 일부 평가에서는 Jev 점수가 더 높아 내 작업으로 먼저 비교하는 것이 좋습니다."}
+        {
+          "question": "Cloudflare Clef 가격은 얼마인가요?",
+          "answer": "Workers AI 모델 문서 기준 Clef는 입력 100만 토큰당 0.24달러입니다. Clef-flash 가격은 이 글에서 확인하지 않았습니다. 가중치는 Apache 2.0으로 공개돼 직접 실행할 수도 있습니다."
+        },
+        {
+          "question": "결정 모델은 LLM과 무엇이 다른가요?",
+          "answer": "LLM은 문장을 생성하지만 결정 모델은 미리 정한 선택지마다 확률을 돌려줍니다. Clef는 토큰을 하나씩 생성하지 않고 선택지를 병렬로 점수 매겨 빠르고, 결과를 코드에서 바로 쓸 수 있습니다."
+        },
+        {
+          "question": "Clef와 Clef-flash 중 무엇을 써야 하나요?",
+          "answer": "Cloudflare는 Clef를 정확도 중심, Clef-flash를 지연 중심 모델로 설명합니다. 자체 측정 지연 중앙값은 Clef 209.3ms, Clef-flash 38.8ms였지만 일부 평가에서 Clef-flash 정확도가 크게 낮았습니다."
+        },
+        {
+          "question": "Jev 대신 바로 쓸 수 있나요?",
+          "answer": "Cloudflare는 Clef가 Jev System One API와 완전히 호환된다고 밝혔습니다. 다만 When2Call 같은 일부 평가에서는 Jev 점수가 더 높아 내 작업으로 먼저 비교하는 것이 좋습니다."
+        }
       ]
     }
   ],
   "sources": [
-    {"name": "Cloudflare Blog · Introducing Clef: our open-source decision models, and new RL fine-tuning platform", "url": "https://blog.cloudflare.com/clef-decision-models/", "description": "2026-10-01 발표. 결정 모델 개념, 도메인 분류 사례, Jev 대비 차이(이미지 입력, 64K), 벤치마크·지연 표, 학습 방식, 데이터 비학습 약속, 강화학습 미세 조정 서비스."},
-    {"name": "Cloudflare Docs · Workers AI Clef 모델", "url": "https://developers.cloudflare.com/workers-ai/models/clef", "description": "27B 멀티모달 결정 모델, 65,536 토큰 컨텍스트, 입력 100만 토큰당 0.24달러, 요청 파라미터(model, state, questions 1~64개, images 최대 4장)와 예시 코드."}
+    {
+      "name": "Cloudflare Blog · Introducing Clef: our open-source decision models, and new RL fine-tuning platform",
+      "url": "https://blog.cloudflare.com/clef-decision-models/",
+      "description": "2026-10-01 발표. 결정 모델 개념, 도메인 분류 사례, Jev 대비 차이(이미지 입력, 64K), 벤치마크·지연 표, 학습 방식, 데이터 비학습 약속, 강화학습 미세 조정 서비스."
+    },
+    {
+      "name": "Cloudflare Docs · Workers AI Clef 모델",
+      "url": "https://developers.cloudflare.com/workers-ai/models/clef",
+      "description": "27B 멀티모달 결정 모델, 65,536 토큰 컨텍스트, 입력 100만 토큰당 0.24달러, 요청 파라미터(model, state, questions 1~64개, images 최대 4장)와 예시 코드."
+    }
   ],
   "resources": [
-    {"name": "Workers AI Clef 모델 문서", "url": "https://developers.cloudflare.com/workers-ai/models/clef", "description": "요청 형식과 Workers·Python·curl 예시를 바로 볼 수 있다.", "type": "문서"},
-    {"name": "Hugging Face: Cloudflare/clef", "url": "https://huggingface.co/Cloudflare/clef", "description": "Apache 2.0 가중치와 라이선스 파일.", "type": "모델"},
-    {"name": "Hugging Face: Cloudflare/clef-flash", "url": "https://huggingface.co/Cloudflare/clef-flash", "description": "지연 중심 모델의 가중치.", "type": "모델"},
-    {"name": "Clef 평가 데모 사이트", "url": "https://clef-evals.workers-ai-mle.workers.dev/", "description": "Cloudflare가 공개한 결정 모델 평가 결과 화면.", "type": "데모"}
+    {
+      "name": "Workers AI Clef 모델 문서",
+      "url": "https://developers.cloudflare.com/workers-ai/models/clef",
+      "description": "요청 형식과 Workers·Python·curl 예시를 바로 볼 수 있다.",
+      "type": "문서"
+    },
+    {
+      "name": "Hugging Face: Cloudflare/clef",
+      "url": "https://huggingface.co/Cloudflare/clef",
+      "description": "Apache 2.0 가중치와 라이선스 파일.",
+      "type": "모델"
+    },
+    {
+      "name": "Hugging Face: Cloudflare/clef-flash",
+      "url": "https://huggingface.co/Cloudflare/clef-flash",
+      "description": "지연 중심 모델의 가중치.",
+      "type": "모델"
+    },
+    {
+      "name": "Clef 평가 데모 사이트",
+      "url": "https://clef-evals.workers-ai-mle.workers.dev/",
+      "description": "Cloudflare가 공개한 결정 모델 평가 결과 화면.",
+      "type": "데모"
+    }
   ],
   "corrections": [
-    {"date": "2026-10-29", "text": "짧은 소개를 장문 해설로 개정했다. 요청 형식(질문 타입 세 가지, 1~64개, 이미지 최대 4장), Workers AI 가격(입력 100만 토큰당 0.24달러), 지연·벤치마크 수치와 약한 평가 항목, 미세 조정 서비스를 추가하고 저장소 이미지 대신 BlueBWorks 도식을 넣었다. 발표일과 최초 게시일은 바꾸지 않았다.", "url": "https://blog.cloudflare.com/clef-decision-models/"}
+    {
+      "date": "2026-10-29",
+      "text": "짧은 소개를 장문 해설로 개정했다. 요청 형식(질문 타입 세 가지, 1~64개, 이미지 최대 4장), Workers AI 가격(입력 100만 토큰당 0.24달러), 지연·벤치마크 수치와 약한 평가 항목, 미세 조정 서비스를 추가하고 저장소 이미지 대신 BlueBWorks 도식을 넣었다. 발표일과 최초 게시일은 바꾸지 않았다.",
+      "url": "https://blog.cloudflare.com/clef-decision-models/"
+    }
   ],
-  "discovery": {"writer": "aside", "xStatus": "unavailable", "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 Cloudflare 블로그와 Workers AI 모델 문서를 직접 열어 확인했다.", "xPosts": []},
+  "discovery": {
+    "writer": "aside",
+    "xStatus": "unavailable",
+    "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 Cloudflare 블로그와 Workers AI 모델 문서를 직접 열어 확인했다.",
+    "xPosts": []
+  },
   "mediaReview": {
     "checkedAt": "2026-10-29T18:58:00+09:00",
     "status": "included",
     "candidates": [
-      {"sourceUrl": "https://developers.cloudflare.com/workers-ai/models/clef", "assetUrl": "https://bluebworks.com/assets/editorial/cloudflare-clef-request-flow.svg", "decision": "included", "reason": "모델 문서의 요청·응답 구조를 BlueBWorks가 흐름 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
-      {"sourceUrl": "https://blog.cloudflare.com/clef-decision-models/", "assetUrl": "https://bluebworks.com/assets/editorial/cloudflare-clef-latency.svg", "decision": "included", "reason": "블로그 지연 표의 수치를 BlueBWorks가 도식으로 다시 정리했다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
-      {"sourceUrl": "https://blog.cloudflare.com/clef-decision-models/", "decision": "excluded", "reason": "블로그의 대표 이미지와 로고는 별도 재사용 허가를 확인하지 못해 복사하지 않았다."}
-    ]
-  }
+      {
+        "sourceUrl": "https://blog.cloudflare.com/clef-decision-models/",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/cloudflare-clef-decision-models-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial thumbnail. 오른쪽 그림은 이 기사에 이미 실린 BlueBWorks 자체 도식",
+        "reason": "기사 제목과 본문에 있는 핵심 사실을 담은 대표 이미지"
+      },
+      {
+        "sourceUrl": "https://developers.cloudflare.com/workers-ai/models/clef",
+        "assetUrl": "https://bluebworks.com/assets/editorial/cloudflare-clef-request-flow.svg",
+        "decision": "included",
+        "reason": "모델 문서의 요청·응답 구조를 BlueBWorks가 흐름 도식으로 새로 그렸다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://blog.cloudflare.com/clef-decision-models/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/cloudflare-clef-latency.svg",
+        "decision": "included",
+        "reason": "블로그 지연 표의 수치를 BlueBWorks가 도식으로 다시 정리했다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://blog.cloudflare.com/clef-decision-models/",
+        "decision": "excluded",
+        "reason": "블로그의 대표 이미지와 로고는 별도 재사용 허가를 확인하지 못해 복사하지 않았다."
+      }
+    ],
+    "thumbnailAddedAt": "2026-10-30T05:29:21.388Z"
+  },
+  "imageCaption": "Cloudflare Clef, 입력 100만 토큰당 0.24달러. Clef-flash 지연 중앙값 38.8ms",
+  "imageSourceUrl": "https://blog.cloudflare.com/clef-decision-models/",
+  "imageWidth": 1600,
+  "imageHeight": 900
 }

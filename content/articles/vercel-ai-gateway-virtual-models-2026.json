@@ -314,9 +314,16 @@
   ],
   "mediaReview": {
     "checkedAt": "2026-10-29T20:58:36+09:00",
-    "status": "unavailable",
+    "status": "included",
     "omittedReason": "Vercel 공식 발표의 Virtual Models 대시보드 스크린샷·구성 도식과 Changelog의 제품 화면, 공식 문서의 설정 UI를 확인했다. 이미지별 재배포 권리 또는 라이선스가 명시적으로 확인되지 않아 복제하지 않았다. Vercel 로고·OG 이미지를 기사 대표 이미지로 오용하지 않고 원문 링크로 대체했다.",
     "candidates": [
+      {
+        "sourceUrl": "https://vercel.com/blog/ai-gateway-virtual-models",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/vercel-ai-gateway-virtual-models-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial thumbnail. 오른쪽에 로그인 없이 공개된 공식 페이지 상단 일부를 해설 목적으로 축소 인용하고 출처를 연결",
+        "reason": "기사 제목과 본문에 있는 핵심 사실을 담은 대표 이미지"
+      },
       {
         "sourceUrl": "https://vercel.com/blog/ai-gateway-virtual-models",
         "decision": "excluded",
@@ -332,12 +339,21 @@
         "decision": "excluded",
         "reason": "설정 도식과 CLI 화면의 개별 이미지 재사용 조건을 확인하지 못해 문서 자체를 연결"
       }
-    ]
+    ],
+    "previousStatus": "unavailable",
+    "thumbnailAddedAt": "2026-10-30T05:29:21.396Z"
   },
   "discovery": {
     "xStatus": "public-search",
     "writer": "chatgpt",
     "notes": "2026-10-29 20:55 KST, npm run radar에서 공식 후보를 수집하고 최근 24시간 GitHub Changelog, Vercel, Codex 릴리스와 Cloudflare·Claude 관련 공개 웹 및 X 검색을 확인했다. X에서 날짜·원문이 확인된 관련 게시물을 확보하지 못해 본문 근거로 쓰지 않았다. GitHub Agentic Workflows, Vercel CI, Gemini 4 Carbon 등 기존 발행 주제를 제외했다. Vercel Virtual Models의 공식 발표·변경 기록·제품 문서·가격·보안 원문을 직접 열어 교차 확인했다.",
     "xPosts": []
-  }
+  },
+  "image": "https://bluebworks.com/assets/editorial/vercel-ai-gateway-virtual-models-2026-thumb.png",
+  "imageAlt": "Vercel AI Gateway Virtual Models 출시",
+  "imageCaption": "Virtual Models, 무료 계정 월 5달러 크레딧. 2026년 10월 28일 출시",
+  "imageCredit": "BlueBWorks",
+  "imageSourceUrl": "https://vercel.com/blog/ai-gateway-virtual-models",
+  "imageWidth": 1600,
+  "imageHeight": 900
 }

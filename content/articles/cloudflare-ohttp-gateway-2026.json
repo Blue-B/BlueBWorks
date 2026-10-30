@@ -37,7 +37,10 @@
         3
       ],
       "links": [
-        {"label": "원문 Relay·Gateway 구조 도식 (재사용 조건 미확인, 원문에서 보기)", "url": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/"}
+        {
+          "label": "원문 Relay·Gateway 구조 도식 (재사용 조건 미확인, 원문에서 보기)",
+          "url": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/"
+        }
       ]
     },
     {
@@ -157,5 +160,26 @@
       "type": "저장소"
     }
   ],
-  "videos": []
+  "videos": [],
+  "image": "https://bluebworks.com/assets/editorial/cloudflare-ohttp-gateway-2026-thumb.png",
+  "imageAlt": "Cloudflare OHTTP Gateway 공개와 제공 방식",
+  "imageCaption": "OHTTP Gateway, 지금은 closed beta, 유료 add-on 예정. 2026년 10월 2일 발표",
+  "imageCredit": "BlueBWorks",
+  "imageSourceUrl": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "mediaReview": {
+    "candidates": [
+      {
+        "sourceUrl": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/cloudflare-ohttp-gateway-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial thumbnail. 오른쪽에 로그인 없이 공개된 공식 페이지 상단 일부를 해설 목적으로 축소 인용하고 출처를 연결",
+        "reason": "기사 제목과 본문에 있는 핵심 사실을 담은 대표 이미지"
+      }
+    ],
+    "status": "included",
+    "checkedAt": "2026-10-30T05:29:21.390Z",
+    "thumbnailAddedAt": "2026-10-30T05:29:21.390Z"
+  }
 }

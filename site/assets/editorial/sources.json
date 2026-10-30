@@ -229,5 +229,181 @@
     "rightsBasis": "로그인 없이 공개된 GitHub Docs 일부를 해설에 필요한 범위로 화면 캡처하여 출처와 함께 인용.",
     "bytes": 55904,
     "sha256": "59cd1f53fa8f508f5b356977c3ae8efd56de5fea83037a0b7f159505139811d7"
+  },
+  {
+    "file": "cloudflare-clef-decision-models-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/cloudflare-clef-decision-models-2026-thumb.png",
+    "sourceUrl": "https://blog.cloudflare.com/clef-decision-models/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 219615,
+    "sha256": "8e2806d26bde857779548e487e63545f4e943e87d11ed3310e1cac4417a0a71f"
+  },
+  {
+    "file": "cloudflare-glm-53-sglang-kv-cache-leak-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/cloudflare-glm-53-sglang-kv-cache-leak-2026-thumb.png",
+    "sourceUrl": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 237115,
+    "sha256": "dcf8cd4c80f7e852c3f29bd7470afaf1baee3976312bb3e431572f45585294a4"
+  },
+  {
+    "file": "cloudflare-k2-serverless-event-streams-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/cloudflare-k2-serverless-event-streams-2026-thumb.png",
+    "sourceUrl": "https://blog.cloudflare.com/cloudflare-k2-streams/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 199341,
+    "sha256": "44b40641da1b5fd6de5be56ae46720fe9e3bcb9ca2d9ffbc52f51e7dcc831cb3"
+  },
+  {
+    "file": "cloudflare-ohttp-gateway-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/cloudflare-ohttp-gateway-2026-thumb.png",
+    "sourceUrl": "https://blog.cloudflare.com/announcing-cloudflare-ohttp-gateway/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 296285,
+    "sha256": "433b1bbb8abef8b9896c924acf27e538bd46cbfab78597f5fd731dcb8e52cce0"
+  },
+  {
+    "file": "gemini-4-argon-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/gemini-4-argon-2026-thumb.png",
+    "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 211255,
+    "sha256": "0a84a8a98b41eb32ee78e79e45624e49d2097ea10aeb1ac8bec48d7767a6bb0c"
+  },
+  {
+    "file": "github-agentic-workflows-ga-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/github-agentic-workflows-ga-2026-thumb.png",
+    "sourceUrl": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 211638,
+    "sha256": "f489d582b6cfd9f8ff2398e962e5ce9a65bdb2c11abf4c2ad96bcf08edd2679b"
+  },
+  {
+    "file": "github-copilot-computer-use-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/github-copilot-computer-use-2026-thumb.png",
+    "sourceUrl": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 241162,
+    "sha256": "ccd7572e09eba2beb539affc7b087511fbeb817f1efdc9d1c45809cd6b4d9311"
+  },
+  {
+    "file": "github-copilot-dynamic-workflows-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/github-copilot-dynamic-workflows-2026-thumb.png",
+    "sourceUrl": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 223827,
+    "sha256": "e3a159bfbf995df400d9e651e5e5e90b0c18c76d751b1bc58b2503d7757cc47e"
+  },
+  {
+    "file": "github-copilot-hydrafusion-vscode-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-vscode-2026-thumb.png",
+    "sourceUrl": "https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 217902,
+    "sha256": "2d873a274b42e6e6b12337c843d3ddb1a81d8d0ccd85fce6ae7e192dc4e58afc"
+  },
+  {
+    "file": "github-copilot-server-to-server-auth-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/github-copilot-server-to-server-auth-2026-thumb.png",
+    "sourceUrl": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 286341,
+    "sha256": "fb4a111ee1d7e11764cf5015faff831869cd854f9e403a4a9e67c8ef21ab69b4"
+  },
+  {
+    "file": "gpt-6-1-sol-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/gpt-6-1-sol-2026-thumb.png",
+    "sourceUrl": "https://openai.com/index/introducing-gpt-6-1-sol/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 165433,
+    "sha256": "a3854e8ddd688f7a81fca07e0dfdf385cd5a68a4ca32ab7e95ece671fce52fca"
+  },
+  {
+    "file": "mold-3-0-rust-rewrite-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/mold-3-0-rust-rewrite-2026-thumb.png",
+    "sourceUrl": "https://github.com/rui314/mold/releases/tag/v3.0.0",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 234121,
+    "sha256": "e90fbbd158d61e29cd5988f7af79463ff78c623a51e18a48f5349c71ce9f9ff3"
+  },
+  {
+    "file": "olmo-core-3-moe-training-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/olmo-core-3-moe-training-2026-thumb.png",
+    "sourceUrl": "https://huggingface.co/blog/allenai/olmocore3",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 174944,
+    "sha256": "a7bf1e14ce049bf8b398bc04f72311b71158359624e86d4bd344ebc524e2098e"
+  },
+  {
+    "file": "openai-dots-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/openai-dots-2026-thumb.png",
+    "sourceUrl": "https://openai.com/index/introducing-dots/",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 242008,
+    "sha256": "99dce699ea295b701a2def9f8414fad74fb0c1dbbaf219a4fa2adedd6a472529"
+  },
+  {
+    "file": "vercel-ai-gateway-virtual-models-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/vercel-ai-gateway-virtual-models-2026-thumb.png",
+    "sourceUrl": "https://vercel.com/blog/ai-gateway-virtual-models",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 306328,
+    "sha256": "6cb711d0b42d43389575c3ea8a637667c06989484e313ecd4eeda63397b5fbbc"
+  },
+  {
+    "file": "vercel-ci-beta-turborepo-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/vercel-ci-beta-turborepo-2026-thumb.png",
+    "sourceUrl": "https://vercel.com/blog/introducing-vercel-ci",
+    "credit": "BlueBWorks",
+    "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
+    "license": "BlueBWorks original editorial artwork",
+    "rightsBasis": "BlueBWorks original editorial thumbnail",
+    "bytes": 308304,
+    "sha256": "54bf28153fc511390de4226ff118ade24a0caa35c1bb035dbe35ec7a32e01cda"
   }
 ]

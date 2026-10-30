@@ -14,11 +14,13 @@
     <meta property="og:description" content="Cloudflare Clef와 Clef-flash는 글 대신 선택지별 확률을 돌려주는 결정 모델로, Workers AI에서 쓰고 Apache 2.0 가중치도 공개됐다. 요청 형식, 입력 100만 토큰당 0.24달러, 지연·정확도 수치와 한계를 정리했다.">
     <meta property="og:url" content="https://bluebworks.com/articles/cloudflare-clef-decision-models-2026/">
     <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/cloudflare-clef-decision-models-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/cloudflare-clef-decision-models-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare Clef 결정 모델 사용법·가격: 에이전트의 분류·라우팅을 LLM에서 떼어내기","description":"Cloudflare Clef와 Clef-flash는 글 대신 선택지별 확률을 돌려주는 결정 모델로, Workers AI에서 쓰고 Apache 2.0 가중치도 공개됐다. 요청 형식, 입력 100만 토큰당 0.24달러, 지연·정확도 수치와 한계를 정리했다.","url":"https://bluebworks.com/articles/cloudflare-clef-decision-models-2026/","mainEntityOfPage":"https://bluebworks.com/articles/cloudflare-clef-decision-models-2026/","datePublished":"2026-10-02T03:07:48.000Z","dateModified":"2026-10-29T09:58:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"Cloudflare, Clef, Decision Model, Workers AI, Agents","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare Clef 결정 모델 사용법·가격: 에이전트의 분류·라우팅을 LLM에서 떼어내기","description":"Cloudflare Clef와 Clef-flash는 글 대신 선택지별 확률을 돌려주는 결정 모델로, Workers AI에서 쓰고 Apache 2.0 가중치도 공개됐다. 요청 형식, 입력 100만 토큰당 0.24달러, 지연·정확도 수치와 한계를 정리했다.","url":"https://bluebworks.com/articles/cloudflare-clef-decision-models-2026/","mainEntityOfPage":"https://bluebworks.com/articles/cloudflare-clef-decision-models-2026/","datePublished":"2026-10-02T03:07:48.000Z","dateModified":"2026-10-29T09:58:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"Cloudflare, Clef, Decision Model, Workers AI, Agents","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/cloudflare-clef-decision-models-2026-thumb.png"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Cloudflare Clef 결정 모델 사용법·가격: 에이전트의 분류·라우팅을 LLM에서 떼어내기","item":"https://bluebworks.com/articles/cloudflare-clef-decision-models-2026/"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Cloudflare Clef 가격은 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"Workers AI 모델 문서 기준 Clef는 입력 100만 토큰당 0.24달러입니다. Clef-flash 가격은 이 글에서 확인하지 않았습니다. 가중치는 Apache 2.0으로 공개돼 직접 실행할 수도 있습니다."}},{"@type":"Question","name":"결정 모델은 LLM과 무엇이 다른가요?","acceptedAnswer":{"@type":"Answer","text":"LLM은 문장을 생성하지만 결정 모델은 미리 정한 선택지마다 확률을 돌려줍니다. Clef는 토큰을 하나씩 생성하지 않고 선택지를 병렬로 점수 매겨 빠르고, 결과를 코드에서 바로 쓸 수 있습니다."}},{"@type":"Question","name":"Clef와 Clef-flash 중 무엇을 써야 하나요?","acceptedAnswer":{"@type":"Answer","text":"Cloudflare는 Clef를 정확도 중심, Clef-flash를 지연 중심 모델로 설명합니다. 자체 측정 지연 중앙값은 Clef 209.3ms, Clef-flash 38.8ms였지만 일부 평가에서 Clef-flash 정확도가 크게 낮았습니다."}},{"@type":"Question","name":"Jev 대신 바로 쓸 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"Cloudflare는 Clef가 Jev System One API와 완전히 호환된다고 밝혔습니다. 다만 When2Call 같은 일부 평가에서는 Jev 점수가 더 높아 내 작업으로 먼저 비교하는 것이 좋습니다."}}]}</script>
   </head>
@@ -73,7 +75,10 @@
             <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
 
           </header>
-
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/cloudflare-clef-decision-models-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: Cloudflare Clef 결정 모델 가격과 지연 시간"><img src="https://bluebworks.com/assets/editorial/cloudflare-clef-decision-models-2026-thumb.png" alt="Cloudflare Clef 결정 모델 가격과 지연 시간" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>Cloudflare Clef, 입력 100만 토큰당 0.24달러. Clef-flash 지연 중앙값 38.8ms</span><a href="https://blog.cloudflare.com/clef-decision-models/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
           <details class="key-points" open>
       <summary>3줄 요약</summary>
       <ul>

@@ -14,11 +14,13 @@
     <meta property="og:description" content="GitHub Copilot HydraFusion이 VS Code와 Copilot 앱에서 연구 프리뷰로 열렸다. Single·Cascade·Critique 세 실행 방식, 켜는 방법, 쓸 수 있는 요금제, Auto와의 차이, Opus 5 대비 벤치마크를 정리했다.">
     <meta property="og:url" content="https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/">
     <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-vscode-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-vscode-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이","description":"GitHub Copilot HydraFusion이 VS Code와 Copilot 앱에서 연구 프리뷰로 열렸다. Single·Cascade·Critique 세 실행 방식, 켜는 방법, 쓸 수 있는 요금제, Auto와의 차이, Opus 5 대비 벤치마크를 정리했다.","url":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/","mainEntityOfPage":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-29T09:48:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, HydraFusion, VS Code, Multi-model","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이","description":"GitHub Copilot HydraFusion이 VS Code와 Copilot 앱에서 연구 프리뷰로 열렸다. Single·Cascade·Critique 세 실행 방식, 켜는 방법, 쓸 수 있는 요금제, Auto와의 차이, Opus 5 대비 벤치마크를 정리했다.","url":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/","mainEntityOfPage":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-29T09:48:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, HydraFusion, VS Code, Multi-model","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-vscode-2026-thumb.png"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Copilot HydraFusion VS Code 사용법: 여러 모델을 조합하는 방식과 Auto와의 차이","item":"https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"HydraFusion은 어떤 요금제에서 쓸 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"Copilot Pro, Pro+, Business, Enterprise 사용자가 쓸 수 있습니다. Business와 Enterprise는 관리자가 프리뷰 기능을 허용해야 합니다. 사용 시 요금이 어떻게 계산되는지는 발표에서 확인되지 않았습니다."}},{"@type":"Question","name":"VS Code 모델 선택기에 HydraFusion이 안 보여요.","acceptedAnswer":{"@type":"Answer","text":"VS Code 1.140 이상 또는 Insiders인지 확인하고, 설정에서 chat.copilot.hydraFusion.enabled를 켭니다. 회사 계정이면 관리자가 프리뷰 기능을 허용했는지도 확인해야 합니다."}},{"@type":"Question","name":"HydraFusion과 Auto는 무엇이 다른가요?","acceptedAnswer":{"@type":"Answer","text":"Auto는 요청마다 모델 하나를 고릅니다. HydraFusion은 실행 방식을 고르고 한 요청 안에서 초안, 검토, 승격에 여러 모델을 조율합니다."}},{"@type":"Question","name":"HydraFusion이 Opus 5보다 좋은가요?","acceptedAnswer":{"@type":"Answer","text":"GitHub 자체 평가에서 비용은 36~67% 낮았지만 품질은 벤치마크에 따라 +4.9점에서 -1.5점까지 달랐습니다. 독립 재현 결과는 확인되지 않았습니다."}}]}</script>
   </head>
@@ -73,7 +75,10 @@
             <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
 
           </header>
-
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-vscode-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: Copilot HydraFusion 동작 방식과 비용"><img src="https://bluebworks.com/assets/editorial/github-copilot-hydrafusion-vscode-2026-thumb.png" alt="Copilot HydraFusion 동작 방식과 비용" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>HydraFusion, Opus 5 대비 비용 36~67% 절감. GitHub 오프라인 평가 기준</span><a href="https://github.blog/changelog/2026-09-30-hydrafusion-in-vs-code-and-the-github-copilot-app/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
           <details class="key-points" open>
       <summary>3줄 요약</summary>
       <ul>

@@ -14,11 +14,13 @@
     <meta property="og:description" content="GitHub Copilot CLI와 Copilot 앱(macOS·Windows)에 컴퓨터 사용이 공개 프리뷰로 들어왔다. /computer on으로 켜는 법, 앱별 승인과 Always allow, macOS 권한, 멈추는 법, 알려진 실패 유형을 정리했다.">
     <meta property="og:url" content="https://bluebworks.com/articles/github-copilot-computer-use-2026/">
     <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/github-copilot-computer-use-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/github-copilot-computer-use-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GitHub Copilot 컴퓨터 사용 켜는 법: API 없는 데스크톱 앱 자동화와 권한·한계","description":"GitHub Copilot CLI와 Copilot 앱(macOS·Windows)에 컴퓨터 사용이 공개 프리뷰로 들어왔다. /computer on으로 켜는 법, 앱별 승인과 Always allow, macOS 권한, 멈추는 법, 알려진 실패 유형을 정리했다.","url":"https://bluebworks.com/articles/github-copilot-computer-use-2026/","mainEntityOfPage":"https://bluebworks.com/articles/github-copilot-computer-use-2026/","datePublished":"2026-10-02T03:07:48.000Z","dateModified":"2026-10-29T09:48:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, Computer Use, Automation, Copilot CLI","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"GitHub Copilot 컴퓨터 사용 켜는 법: API 없는 데스크톱 앱 자동화와 권한·한계","description":"GitHub Copilot CLI와 Copilot 앱(macOS·Windows)에 컴퓨터 사용이 공개 프리뷰로 들어왔다. /computer on으로 켜는 법, 앱별 승인과 Always allow, macOS 권한, 멈추는 법, 알려진 실패 유형을 정리했다.","url":"https://bluebworks.com/articles/github-copilot-computer-use-2026/","mainEntityOfPage":"https://bluebworks.com/articles/github-copilot-computer-use-2026/","datePublished":"2026-10-02T03:07:48.000Z","dateModified":"2026-10-29T09:48:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"GitHub, Copilot, Computer Use, Automation, Copilot CLI","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/github-copilot-computer-use-2026-thumb.png"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"GitHub Copilot 컴퓨터 사용 켜는 법: API 없는 데스크톱 앱 자동화와 권한·한계","item":"https://bluebworks.com/articles/github-copilot-computer-use-2026/"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Copilot 컴퓨터 사용은 어디서 쓸 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"Copilot CLI와 GitHub Copilot 앱의 macOS·Windows 버전에서 공개 프리뷰로 쓸 수 있습니다. 기본은 꺼져 있어 직접 켜야 합니다."}},{"@type":"Question","name":"어떻게 켜고 끄나요?","acceptedAnswer":{"@type":"Answer","text":"CLI에서는 /computer on으로 켜고 /computer off로 끕니다. 앱에서는 설정의 Computer Use에서 Enable Computer Use를 켭니다. 실행 중에는 CLI에서 Esc 두 번, 앱에서 Stop이나 Esc로 멈춥니다."}},{"@type":"Question","name":"Copilot이 허락 없이 앱을 조작하나요?","acceptedAnswer":{"@type":"Answer","text":"도구 권한 설정에 따라 앱을 조작하기 전에 승인을 묻습니다. 다만 Always allow를 고른 앱은 이후 다시 묻지 않으므로 민감한 앱에는 쓰지 않는 것이 좋습니다."}},{"@type":"Question","name":"회사 계정에서 켜지지 않아요.","acceptedAnswer":{"@type":"Answer","text":"엔터프라이즈 관리자가 관리 설정으로 기능을 끈 경우 로컬에서 켤 수 없습니다. 관리자에게 정책을 확인해야 합니다."}}]}</script>
   </head>
@@ -73,7 +75,10 @@
             <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
 
           </header>
-
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/github-copilot-computer-use-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: GitHub Copilot 컴퓨터 사용 켜는 법"><img src="https://bluebworks.com/assets/editorial/github-copilot-computer-use-2026-thumb.png" alt="GitHub Copilot 컴퓨터 사용 켜는 법" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>Copilot 컴퓨터 사용, CLI에서는 /computer on으로 켠다. macOS와 Windows, 2026년 10월 1일 공개 프리뷰</span><a href="https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
           <details class="key-points" open>
       <summary>3줄 요약</summary>
       <ul>

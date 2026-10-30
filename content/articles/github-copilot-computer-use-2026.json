@@ -9,7 +9,13 @@
   "status": "Public preview",
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
-  "tags": ["GitHub", "Copilot", "Computer Use", "Automation", "Copilot CLI"],
+  "tags": [
+    "GitHub",
+    "Copilot",
+    "Computer Use",
+    "Automation",
+    "Copilot CLI"
+  ],
   "editorNote": "화면 조작 자동화는 되는지보다 얼마나 넓게 허용하느냐가 위험을 정한다. 그래서 기능 목록보다 승인 단계, Always allow가 저장되는 범위, 문서가 밝힌 실패 유형을 앞에 두고 정리했다.",
   "keyPoints": [
     "제공 범위: 2026년 10월 1일부터 Copilot CLI와 GitHub Copilot 앱의 macOS·Windows 버전에서 공개 프리뷰로 쓸 수 있고, 기본은 꺼져 있다.",
@@ -25,14 +31,32 @@
         "GitHub는 이 기능으로 자동화 범위가 API, 명령줄 인터페이스, MCP 연동을 제공하지 않는 레거시·GUI 전용 소프트웨어까지 넓어진다고 설명한다. Changelog에 실린 시연 영상에서는 Copilot이 Safari에서 경비 보고서 작업 흐름을 따라가며 화면을 조작한다.",
         "문서는 Copilot이 가능하면 백그라운드에서 앱과 상호작용해 사용자가 다른 앱에서 계속 일할 수 있다고 적었다. 앱 내용은 운영체제의 접근성 트리로 읽고, 시각적 맥락이 필요할 때만 스크린샷을 쓴다. 에이전트가 어떤 도구를 썼는지는 세션 기록에서 확인할 수 있다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "stats": [
-        {"value": "macOS·Windows", "label": "지원 운영체제", "note": "Copilot CLI와 Copilot 앱"},
-        {"value": "공개 프리뷰", "label": "제공 상태", "note": "2026-10-01 발표"},
-        {"value": "기본 꺼짐", "label": "초기 설정", "note": "직접 켜야 도구 사용 가능"}
+        {
+          "value": "macOS·Windows",
+          "label": "지원 운영체제",
+          "note": "Copilot CLI와 Copilot 앱"
+        },
+        {
+          "value": "공개 프리뷰",
+          "label": "제공 상태",
+          "note": "2026-10-01 발표"
+        },
+        {
+          "value": "기본 꺼짐",
+          "label": "초기 설정",
+          "note": "직접 켜야 도구 사용 가능"
+        }
       ],
       "links": [
-        {"label": "GitHub Changelog: Copilot can now interact with desktop apps", "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/"}
+        {
+          "label": "GitHub Changelog: Copilot can now interact with desktop apps",
+          "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/"
+        }
       ]
     },
     {
@@ -44,7 +68,10 @@
         "회사에서 관리하는 계정이라면 켜지지 않을 수 있다. 엔터프라이즈 관리자는 관리 설정으로 컴퓨터 사용을 끌 수 있고, 로컬에서 켜도 엔터프라이즈 정책을 덮어쓰지 못한다고 문서는 명시한다.",
         "켜 둔 뒤에도 매 요청에서 화면을 조작하는 것은 아니다. 문서에 따르면 에이전트가 프롬프트를 처리하면서 필요할 때 컴퓨터 사용 도구를 고르고, 어떤 도구를 어떻게 썼는지는 세션의 도구 활동에서 다시 볼 수 있다. 처음 몇 번은 이 기록을 열어 어떤 창을 읽고 어디를 눌렀는지 확인해 두면 나중에 결과가 이상할 때 원인을 찾기 쉽다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "figures": [
         {
           "src": "https://bluebworks.com/assets/editorial/github-copilot-computer-use-setup.svg",
@@ -72,14 +99,37 @@
         "GitHub 문서는 민감한 정보가 있거나 영향이 큰 동작을 할 수 있는 앱에는 Always allow를 쓰지 말라고 권한다. 한 번 항상 허용하면 이후의 컴퓨터 사용 동작이 다시 묻지 않고 그 앱을 조작할 수 있기 때문이다. 처음에는 세션 단위로 허용하고, 같은 작업을 여러 번 검증한 앱만 저장하는 순서가 안전하다.",
         "하나 더 기억할 점은 저장된 승인이 도구를 가리지 않는다는 것이다. 앱에서 Always allow를 주면 같은 컴퓨터의 CLI 세션도 그 앱을 다시 묻지 않고 조작할 수 있다. CLI를 스크립트나 자동화에 묶어 쓰는 컴퓨터라면, 앱에서 허용한 목록을 주기적으로 확인해 필요 없는 항목을 지우는 편이 좋다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "table": {
-        "headers": ["선택", "적용 범위", "주의할 점"],
+        "headers": [
+          "선택",
+          "적용 범위",
+          "주의할 점"
+        ],
         "rows": [
-          ["이번 세션만 허용", "현재 세션", "세션이 끝나면 다시 물음"],
-          ["저장 (Always allow)", "같은 컴퓨터의 CLI와 앱, 이후 세션", "이후 조작은 다시 묻지 않음, 앱에서 목록 확인·삭제"],
-          ["거부", "해당 요청", "거부 규칙은 저장된 승인보다 우선"],
-          ["엔터프라이즈 정책", "조직 관리 기기", "로컬 설정으로 덮어쓸 수 없음"]
+          [
+            "이번 세션만 허용",
+            "현재 세션",
+            "세션이 끝나면 다시 물음"
+          ],
+          [
+            "저장 (Always allow)",
+            "같은 컴퓨터의 CLI와 앱, 이후 세션",
+            "이후 조작은 다시 묻지 않음, 앱에서 목록 확인·삭제"
+          ],
+          [
+            "거부",
+            "해당 요청",
+            "거부 규칙은 저장된 승인보다 우선"
+          ],
+          [
+            "엔터프라이즈 정책",
+            "조직 관리 기기",
+            "로컬 설정으로 덮어쓸 수 없음"
+          ]
         ],
         "caption": "GitHub Docs의 컴퓨터 사용 접근 제어 설명을 2026-10-29에 확인해 정리했다. 저장 승인을 지워도 실행 중인 세션의 권한은 남는다."
       }
@@ -94,7 +144,10 @@
         "BlueBWorks가 제안하는 시험 순서는 이렇다. 먼저 화면을 읽고 요약만 하는 작업으로 시작해 에이전트가 화면을 제대로 읽는지 본다. 다음으로 테스트 데이터에 입력하는 작업을 세션 승인으로 돌리고, 도구 활동 기록과 결과를 대조한다. 같은 작업이 여러 번 안정적으로 끝난 뒤에야 실제 데이터와 저장 승인으로 넘어가는 것이다. 이 순서는 문서가 밝힌 실패 유형을 바탕으로 한 편집부 제안이며 GitHub의 공식 절차는 아니다.",
         "창 상태가 결과를 바꿀 수 있다는 점도 실무에서 중요하다. 작업할 앱을 미리 열어 두고, 팝업이나 업데이트 알림처럼 화면을 가리는 요소를 정리해 두면 에이전트가 엉뚱한 컨트롤을 고를 가능성이 줄어든다. 앱을 업데이트해 화면 배치가 바뀌었다면 이전에 잘 되던 작업도 다시 확인해야 한다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "figures": [
         {
           "src": "https://bluebworks.com/assets/editorial/github-copilot-computer-use-fit.svg",
@@ -115,20 +168,43 @@
         "실행 중 예상과 다르게 움직이면 바로 멈춘다. Copilot CLI에서는 Esc를 두 번 누르고, Copilot 앱에서는 Stop을 누르거나 Esc를 누른다. 책임 있는 사용에 관한 더 자세한 내용은 GitHub의 Copilot 에이전트 애플리케이션 카드에 정리돼 있다.",
         "조직에서 도입한다면 관리자가 먼저 정책을 정하는 편이 좋다. 엔터프라이즈 관리 설정으로 기능 자체를 끌 수 있으므로, 허용할 팀과 용도를 정한 뒤 켜고 Always allow 사용 기준을 함께 안내한다. 기능은 기본으로 꺼져 있어, 정책으로 막지 않아도 사용자가 직접 켜기 전에는 화면 조작이 일어나지 않는다."
       ],
-      "sourceRefs": [2],
+      "sourceRefs": [
+        2
+      ],
       "table": {
-        "headers": ["점검 항목", "이유"],
+        "headers": [
+          "점검 항목",
+          "이유"
+        ],
         "rows": [
-          ["관련 없는 창 닫기", "보이는 내용이 Copilot의 맥락이 됨"],
-          ["민감한 앱은 세션 단위 승인", "Always allow는 이후 다시 묻지 않음"],
-          ["금지 동작을 프롬프트에 명시", "제출·삭제 같은 되돌리기 어려운 동작 방지"],
-          ["중단 방법 숙지", "CLI는 Esc 두 번, 앱은 Stop 또는 Esc"],
-          ["엔터프라이즈 정책 확인", "관리 설정이 로컬 설정보다 우선"]
+          [
+            "관련 없는 창 닫기",
+            "보이는 내용이 Copilot의 맥락이 됨"
+          ],
+          [
+            "민감한 앱은 세션 단위 승인",
+            "Always allow는 이후 다시 묻지 않음"
+          ],
+          [
+            "금지 동작을 프롬프트에 명시",
+            "제출·삭제 같은 되돌리기 어려운 동작 방지"
+          ],
+          [
+            "중단 방법 숙지",
+            "CLI는 Esc 두 번, 앱은 Stop 또는 Esc"
+          ],
+          [
+            "엔터프라이즈 정책 확인",
+            "관리 설정이 로컬 설정보다 우선"
+          ]
         ],
         "caption": "GitHub Docs의 한계와 위험, 접근 제어 설명을 바탕으로 BlueBWorks가 정리한 사용 전 점검표다."
       },
       "links": [
-        {"label": "GitHub Docs: Copilot 에이전트 애플리케이션 카드", "url": "https://docs.github.com/en/copilot/responsible-use/agents"}
+        {
+          "label": "GitHub Docs: Copilot 에이전트 애플리케이션 카드",
+          "url": "https://docs.github.com/en/copilot/responsible-use/agents"
+        }
       ]
     },
     {
@@ -136,36 +212,119 @@
       "paragraphs": [
         "검색으로 많이 찾는 질문을 GitHub 공식 자료 기준으로 짧게 정리했다. 2026년 10월 29일 확인 기준이다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "faq": [
-        {"question": "Copilot 컴퓨터 사용은 어디서 쓸 수 있나요?", "answer": "Copilot CLI와 GitHub Copilot 앱의 macOS·Windows 버전에서 공개 프리뷰로 쓸 수 있습니다. 기본은 꺼져 있어 직접 켜야 합니다."},
-        {"question": "어떻게 켜고 끄나요?", "answer": "CLI에서는 /computer on으로 켜고 /computer off로 끕니다. 앱에서는 설정의 Computer Use에서 Enable Computer Use를 켭니다. 실행 중에는 CLI에서 Esc 두 번, 앱에서 Stop이나 Esc로 멈춥니다."},
-        {"question": "Copilot이 허락 없이 앱을 조작하나요?", "answer": "도구 권한 설정에 따라 앱을 조작하기 전에 승인을 묻습니다. 다만 Always allow를 고른 앱은 이후 다시 묻지 않으므로 민감한 앱에는 쓰지 않는 것이 좋습니다."},
-        {"question": "회사 계정에서 켜지지 않아요.", "answer": "엔터프라이즈 관리자가 관리 설정으로 기능을 끈 경우 로컬에서 켤 수 없습니다. 관리자에게 정책을 확인해야 합니다."}
+        {
+          "question": "Copilot 컴퓨터 사용은 어디서 쓸 수 있나요?",
+          "answer": "Copilot CLI와 GitHub Copilot 앱의 macOS·Windows 버전에서 공개 프리뷰로 쓸 수 있습니다. 기본은 꺼져 있어 직접 켜야 합니다."
+        },
+        {
+          "question": "어떻게 켜고 끄나요?",
+          "answer": "CLI에서는 /computer on으로 켜고 /computer off로 끕니다. 앱에서는 설정의 Computer Use에서 Enable Computer Use를 켭니다. 실행 중에는 CLI에서 Esc 두 번, 앱에서 Stop이나 Esc로 멈춥니다."
+        },
+        {
+          "question": "Copilot이 허락 없이 앱을 조작하나요?",
+          "answer": "도구 권한 설정에 따라 앱을 조작하기 전에 승인을 묻습니다. 다만 Always allow를 고른 앱은 이후 다시 묻지 않으므로 민감한 앱에는 쓰지 않는 것이 좋습니다."
+        },
+        {
+          "question": "회사 계정에서 켜지지 않아요.",
+          "answer": "엔터프라이즈 관리자가 관리 설정으로 기능을 끈 경우 로컬에서 켤 수 없습니다. 관리자에게 정책을 확인해야 합니다."
+        }
       ]
     }
   ],
   "sources": [
-    {"name": "GitHub Changelog · GitHub Copilot can now interact with desktop apps with computer use", "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/", "description": "2026-10-01 발표. 공개 프리뷰 범위, 가능한 동작, 승인 요청, macOS 권한, 조직 설정, 켜는 명령, 사용 예."},
-    {"name": "GitHub Docs · About computer use", "url": "https://docs.github.com/copilot/concepts/agents/computer-use", "description": "기능 범위, 접근성 트리와 스크린샷 사용, 기본 꺼짐, 승인 선택지와 Always allow 저장 범위, 엔터프라이즈 정책, 중단 방법, 한계와 위험."}
+    {
+      "name": "GitHub Changelog · GitHub Copilot can now interact with desktop apps with computer use",
+      "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
+      "description": "2026-10-01 발표. 공개 프리뷰 범위, 가능한 동작, 승인 요청, macOS 권한, 조직 설정, 켜는 명령, 사용 예."
+    },
+    {
+      "name": "GitHub Docs · About computer use",
+      "url": "https://docs.github.com/copilot/concepts/agents/computer-use",
+      "description": "기능 범위, 접근성 트리와 스크린샷 사용, 기본 꺼짐, 승인 선택지와 Always allow 저장 범위, 엔터프라이즈 정책, 중단 방법, 한계와 위험."
+    }
   ],
   "resources": [
-    {"name": "Copilot 앱에서 컴퓨터 사용하기", "url": "https://docs.github.com/en/copilot/how-tos/github-copilot-app/computer-use", "description": "앱에서 기능을 켜고 쓰는 단계별 안내.", "type": "문서"},
-    {"name": "Copilot CLI에서 컴퓨터 사용하기", "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/computer-use", "description": "CLI에서 /computer 명령으로 쓰는 단계별 안내.", "type": "문서"},
-    {"name": "엔터프라이즈 관리 설정", "url": "https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#featurescomputeruse", "description": "관리자가 컴퓨터 사용을 끄는 설정 항목.", "type": "관리"},
-    {"name": "Copilot 에이전트 애플리케이션 카드", "url": "https://docs.github.com/en/copilot/responsible-use/agents", "description": "에이전트 기능의 책임 있는 사용 안내.", "type": "문서"}
+    {
+      "name": "Copilot 앱에서 컴퓨터 사용하기",
+      "url": "https://docs.github.com/en/copilot/how-tos/github-copilot-app/computer-use",
+      "description": "앱에서 기능을 켜고 쓰는 단계별 안내.",
+      "type": "문서"
+    },
+    {
+      "name": "Copilot CLI에서 컴퓨터 사용하기",
+      "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/computer-use",
+      "description": "CLI에서 /computer 명령으로 쓰는 단계별 안내.",
+      "type": "문서"
+    },
+    {
+      "name": "엔터프라이즈 관리 설정",
+      "url": "https://docs.github.com/en/copilot/reference/enterprise-administrators/enterprise-managed-settings#featurescomputeruse",
+      "description": "관리자가 컴퓨터 사용을 끄는 설정 항목.",
+      "type": "관리"
+    },
+    {
+      "name": "Copilot 에이전트 애플리케이션 카드",
+      "url": "https://docs.github.com/en/copilot/responsible-use/agents",
+      "description": "에이전트 기능의 책임 있는 사용 안내.",
+      "type": "문서"
+    }
   ],
   "corrections": [
-    {"date": "2026-10-29", "text": "짧은 소개를 장문 해설로 개정했다. 켜는 명령, 앱별 승인과 Always allow 저장 범위, 엔터프라이즈 정책, 중단 방법, GitHub 문서가 밝힌 실패 유형과 개인정보 주의점을 추가했다. 발표일과 최초 게시일은 바꾸지 않았다.", "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/"}
+    {
+      "date": "2026-10-29",
+      "text": "짧은 소개를 장문 해설로 개정했다. 켜는 명령, 앱별 승인과 Always allow 저장 범위, 엔터프라이즈 정책, 중단 방법, GitHub 문서가 밝힌 실패 유형과 개인정보 주의점을 추가했다. 발표일과 최초 게시일은 바꾸지 않았다.",
+      "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/"
+    }
   ],
-  "discovery": {"writer": "aside", "xStatus": "unavailable", "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 GitHub Changelog와 GitHub Docs를 직접 열어 확인했다.", "xPosts": []},
+  "discovery": {
+    "writer": "aside",
+    "xStatus": "unavailable",
+    "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 GitHub Changelog와 GitHub Docs를 직접 열어 확인했다.",
+    "xPosts": []
+  },
   "mediaReview": {
     "checkedAt": "2026-10-29T18:48:00+09:00",
     "status": "included",
     "candidates": [
-      {"sourceUrl": "https://docs.github.com/copilot/concepts/agents/computer-use", "assetUrl": "https://bluebworks.com/assets/editorial/github-copilot-computer-use-setup.svg", "decision": "included", "reason": "Changelog와 문서의 켜기·승인·중단 절차를 BlueBWorks가 단계 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
-      {"sourceUrl": "https://docs.github.com/copilot/concepts/agents/computer-use", "assetUrl": "https://bluebworks.com/assets/editorial/github-copilot-computer-use-fit.svg", "decision": "included", "reason": "문서의 용도와 한계 설명을 BlueBWorks가 비교 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
-      {"sourceUrl": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/", "decision": "excluded", "reason": "Changelog의 경비 보고서 시연 영상은 GitHub 사용자 첨부 파일로 별도 재사용 허가를 확인하지 못해 복사하지 않고 원문 링크로 안내했다."}
-    ]
-  }
+      {
+        "sourceUrl": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/github-copilot-computer-use-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial thumbnail. 오른쪽 그림은 이 기사에 이미 실린 BlueBWorks 자체 도식",
+        "reason": "기사 제목과 본문에 있는 핵심 사실을 담은 대표 이미지"
+      },
+      {
+        "sourceUrl": "https://docs.github.com/copilot/concepts/agents/computer-use",
+        "assetUrl": "https://bluebworks.com/assets/editorial/github-copilot-computer-use-setup.svg",
+        "decision": "included",
+        "reason": "Changelog와 문서의 켜기·승인·중단 절차를 BlueBWorks가 단계 도식으로 새로 그렸다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://docs.github.com/copilot/concepts/agents/computer-use",
+        "assetUrl": "https://bluebworks.com/assets/editorial/github-copilot-computer-use-fit.svg",
+        "decision": "included",
+        "reason": "문서의 용도와 한계 설명을 BlueBWorks가 비교 도식으로 새로 그렸다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
+        "decision": "excluded",
+        "reason": "Changelog의 경비 보고서 시연 영상은 GitHub 사용자 첨부 파일로 별도 재사용 허가를 확인하지 못해 복사하지 않고 원문 링크로 안내했다."
+      }
+    ],
+    "thumbnailAddedAt": "2026-10-30T05:29:21.391Z"
+  },
+  "image": "https://bluebworks.com/assets/editorial/github-copilot-computer-use-2026-thumb.png",
+  "imageAlt": "GitHub Copilot 컴퓨터 사용 켜는 법",
+  "imageCaption": "Copilot 컴퓨터 사용, CLI에서는 /computer on으로 켠다. macOS와 Windows, 2026년 10월 1일 공개 프리뷰",
+  "imageCredit": "BlueBWorks",
+  "imageSourceUrl": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/",
+  "imageWidth": 1600,
+  "imageHeight": 900
 }

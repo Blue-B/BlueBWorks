@@ -9,7 +9,14 @@
   "status": "Paid API available",
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
-  "tags": ["Google", "Gemini 4 Argon", "제미나이", "Coding", "Agent", "Long decode"],
+  "tags": [
+    "Google",
+    "Gemini 4 Argon",
+    "제미나이",
+    "Coding",
+    "Agent",
+    "Long decode"
+  ],
   "editorNote": "처음 글은 100만 토큰을 컨텍스트 크기로 설명했지만 9월 30일 원문은 출력 한도 확대를 말하고 있었다. 이 차이는 API 기본값 65,536 토큰과 long decode 설정으로 이어지기 때문에, 개정본은 숫자의 뜻과 실제 호출 방법, 출력 요금을 중심으로 다시 썼다.",
   "keyPoints": [
     "출력 한도: 9월 30일 발표의 100만 토큰은 이전 64K에서 늘어난 출력 한도이고, API에서는 입력·사고·출력이 1,048,576 토큰 창을 함께 쓴다.",
@@ -26,11 +33,27 @@
         "그렇다면 입력은 얼마나 넣을 수 있을까. 10월 13일 공개된 Gemini API 모델 문서는 아르곤의 컨텍스트 창을 1,048,576 토큰으로 적고, 이를 '입력과 출력을 합친 통합 한도'라고 설명한다. 입력, 사고, 응답이 같은 창을 나눠 쓴다는 뜻이다. 입력을 많이 넣을수록 출력에 쓸 수 있는 몫은 그만큼 줄어든다.",
         "아래 도식은 이 관계를 막대로 그린 것이다. 이전 모델은 출력이 64K에서 멈췄고, 아르곤은 기본 호출에서도 출력이 65,536 토큰으로 같다. long decode를 켜야 창에서 입력을 뺀 나머지까지 출력을 늘릴 수 있다. 숫자만 보고 바로 100만 토큰 답이 나온다고 기대하면 안 되는 이유다."
       ],
-      "sourceRefs": [1, 3, 4],
+      "sourceRefs": [
+        1,
+        3,
+        4
+      ],
       "stats": [
-        {"value": "64K → 100만", "label": "최대 출력 토큰", "note": "9월 30일 Google 발표"},
-        {"value": "1,048,576", "label": "통합 컨텍스트 창", "note": "입력·사고·출력 합계 · API 문서"},
-        {"value": "65,536", "label": "기본 출력 한도", "note": "long decode를 켜지 않을 때"}
+        {
+          "value": "64K → 100만",
+          "label": "최대 출력 토큰",
+          "note": "9월 30일 Google 발표"
+        },
+        {
+          "value": "1,048,576",
+          "label": "통합 컨텍스트 창",
+          "note": "입력·사고·출력 합계 · API 문서"
+        },
+        {
+          "value": "65,536",
+          "label": "기본 출력 한도",
+          "note": "long decode를 켜지 않을 때"
+        }
       ],
       "figures": [
         {
@@ -44,8 +67,14 @@
         }
       ],
       "links": [
-        {"label": "Google 발표 원문: Introducing Gemini 4 Argon", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"},
-        {"label": "Gemini API 모델 문서: gemini-4-argon", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon"}
+        {
+          "label": "Google 발표 원문: Introducing Gemini 4 Argon",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+        },
+        {
+          "label": "Gemini API 모델 문서: gemini-4-argon",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon"
+        }
       ]
     },
     {
@@ -56,14 +85,21 @@
         "max_output_tokens를 얼마로 둘지는 비용 판단이다. 가이드는 사고가 답을 잘라 먹지 않을 만큼 크게, 어려운 프롬프트가 한도를 다 써도 감당할 만큼 작게 정하라고 권한다. 예를 들어 출력 262,144 토큰을 다 쓰면 도입가 기준 약 2.62달러, 12월 1일 이후 가격으로는 약 5.24달러가 출력 요금으로 나온다.",
         "예전 GenerateContent API를 쓰는 경우에는 방식이 다르다. 가이드는 더 세밀하게 제어하려면 클라이언트가 직접 이어 쓰기를 요청하는 방식(client-side continuation)을 쓸 수 있고, 이 방식은 현재 레거시 GenerateContent API에서만 된다고 설명한다. Interactions API에도 곧 들어온다고 했지만 날짜는 밝히지 않았다."
       ],
-      "sourceRefs": [3, 4, 5],
+      "sourceRefs": [
+        3,
+        4,
+        5
+      ],
       "code": {
         "language": "python",
         "text": "from google import genai\n\nclient = genai.Client()\n\ninteraction = client.interactions.create(\n    model=\"gemini-4-argon\",\n    input=\"Write a complete, rigorous proof of the prime number theorem.\",\n    background=True,\n    generation_config={\n        \"max_output_tokens\": 262144,\n        \"thinking_level\": \"high\",\n    },\n)",
         "caption": "Google 개발자 가이드의 long decode 예시에서 요청 부분만 옮겼다. 이후 상태 조회와 텍스트 합치기는 가이드 원문을 참고한다. BlueBWorks가 직접 실행한 결과는 아니다."
       },
       "links": [
-        {"label": "Gemini 4 Argon 개발자 가이드(long decode 예시)", "url": "https://aistudio.google.com/learn/gemini-4-argon-developer-guide"}
+        {
+          "label": "Gemini 4 Argon 개발자 가이드(long decode 예시)",
+          "url": "https://aistudio.google.com/learn/gemini-4-argon-developer-guide"
+        }
       ]
     },
     {
@@ -74,14 +110,39 @@
         "무료로 써 볼 수 있는지 찾는 사람이 많지만 답은 '아니오'다. Gemini API 가격 페이지는 아르곤이 무료 등급에서 제공되지 않는다고 명시한다. 유료 등급에 결제 수단을 연결해야 API로 호출할 수 있다.",
         "이 글을 처음 쓴 10월 2일에는 일반 개발자가 쓸 방법이 없었다. 개정본은 10월 29일 기준 상태를 반영했다. 같은 계열의 다음 모델인 제미나이 4 카본은 10월 28일 발표됐고 아직 일반 개발자에게 열리지 않았으니, 두 모델의 제공 상태를 혼동하지 않도록 주의한다."
       ],
-      "sourceRefs": [1, 2, 3, 5],
+      "sourceRefs": [
+        1,
+        2,
+        3,
+        5
+      ],
       "table": {
-        "headers": ["날짜", "단계", "누가 쓸 수 있나"],
+        "headers": [
+          "날짜",
+          "단계",
+          "누가 쓸 수 있나"
+        ],
         "rows": [
-          ["2026-09-30", "발표", "Fairwind 프로그램의 신뢰된 사이버 방어 조직"],
-          ["2026-10-13", "개발자 공개", "Gemini API 유료 등급(AI Studio, Android Studio), Google AI Ultra 구독자(AI Studio, Antigravity)"],
-          ["2026-11-30", "도입가 마지막 날", "유료 등급 사용자"],
-          ["2026-12-01", "표준가 적용", "유료 등급 사용자"]
+          [
+            "2026-09-30",
+            "발표",
+            "Fairwind 프로그램의 신뢰된 사이버 방어 조직"
+          ],
+          [
+            "2026-10-13",
+            "개발자 공개",
+            "Gemini API 유료 등급(AI Studio, Android Studio), Google AI Ultra 구독자(AI Studio, Antigravity)"
+          ],
+          [
+            "2026-11-30",
+            "도입가 마지막 날",
+            "유료 등급 사용자"
+          ],
+          [
+            "2026-12-01",
+            "표준가 적용",
+            "유료 등급 사용자"
+          ]
         ],
         "caption": "Google 블로그(9월 30일, 10월 13일), Gemini 4 Argon 개발자 가이드, Gemini API 가격 페이지를 2026-10-29에 확인한 기준이다. 무료 등급은 어느 단계에서도 지원하지 않는다."
       },
@@ -97,8 +158,14 @@
         }
       ],
       "links": [
-        {"label": "Google 블로그: Gemini 4 Argon is now available for developers", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/"},
-        {"label": "이후 글: 제미나이 4 카본 출시일·성능·가격 정리", "url": "https://bluebworks.com/articles/gemini-4-carbon-2026/"}
+        {
+          "label": "Google 블로그: Gemini 4 Argon is now available for developers",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/"
+        },
+        {
+          "label": "이후 글: 제미나이 4 카본 출시일·성능·가격 정리",
+          "url": "https://bluebworks.com/articles/gemini-4-carbon-2026/"
+        }
       ]
     },
     {
@@ -109,20 +176,51 @@
         "캐시는 자동으로 적용되는 암시적 캐싱만 지원한다. 개발자 가이드는 명시적으로 캐시를 만들어 넘기던 코드를 걷어 내라고 안내한다. 같은 저장소 설명이나 긴 문서를 반복해서 넣는 에이전트라면 앞부분을 고정해 캐시 할인을 받는 구조가 유리하다.",
         "Google 검색 그라운딩은 별도 요금이다. Gemini 3 이후 모델이 공유하는 월 5,000건 무료 요청을 넘으면 1,000건당 14달러가 붙는다. 한 요청이 여러 번의 검색으로 이어질 수 있어, 조사형 에이전트는 토큰 요금과 검색 요금을 따로 계산해야 한다."
       ],
-      "sourceRefs": [1, 3, 5],
+      "sourceRefs": [
+        1,
+        3,
+        5
+      ],
       "table": {
-        "headers": ["항목 (100만 토큰당)", "11월 30일까지", "12월 1일부터"],
+        "headers": [
+          "항목 (100만 토큰당)",
+          "11월 30일까지",
+          "12월 1일부터"
+        ],
         "rows": [
-          ["입력", "2달러", "4달러"],
-          ["출력 (사고 토큰 포함)", "10달러", "20달러"],
-          ["캐시 입력 (암시적 캐싱)", "0.10달러", "0.20달러"],
-          ["무료 등급", "사용 불가", "사용 불가"],
-          ["Google 검색 그라운딩", "월 5,000건 무료 후 1,000건당 14달러", "월 5,000건 무료 후 1,000건당 14달러"]
+          [
+            "입력",
+            "2달러",
+            "4달러"
+          ],
+          [
+            "출력 (사고 토큰 포함)",
+            "10달러",
+            "20달러"
+          ],
+          [
+            "캐시 입력 (암시적 캐싱)",
+            "0.10달러",
+            "0.20달러"
+          ],
+          [
+            "무료 등급",
+            "사용 불가",
+            "사용 불가"
+          ],
+          [
+            "Google 검색 그라운딩",
+            "월 5,000건 무료 후 1,000건당 14달러",
+            "월 5,000건 무료 후 1,000건당 14달러"
+          ]
         ],
         "caption": "Gemini API 가격 페이지 유료 등급 Standard 기준, 2026-10-29 확인. 그라운딩 무료 요청은 Gemini 3 이후 모델이 함께 쓰며 하루 1,500건 상한이 있다. Batch·Flex·Priority 가격은 별도다."
       },
       "links": [
-        {"label": "Gemini API 가격 페이지", "url": "https://ai.google.dev/gemini-api/docs/pricing"}
+        {
+          "label": "Gemini API 가격 페이지",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing"
+        }
       ]
     },
     {
@@ -134,12 +232,30 @@
         "벤치마크로는 실제 장기 소프트웨어 작업을 재는 DeepSWE v1.1 77.9%, 비즈니스 업무 자동화를 재는 AutomationBench 51.3%, 긴 영상 이해를 재는 LVBench 91.7%, 취약점 수정 평가 CWE-bench v1 68%(공동 1위)를 제시했다. 모두 Google이 발표한 값이고 측정 조건이 평가마다 다르다. 독립 재현 결과로 읽으면 안 된다.",
         "도입을 판단할 때는 이 숫자보다 내 코드베이스에서의 결과가 중요하다. 이미 겪었던 버그 수정이나 작은 마이그레이션 과제를 몇 개 골라 기존 모델과 같은 조건으로 돌리고, 완료율과 재시도 횟수, 출력 토큰을 포함한 총비용을 함께 비교하는 편이 판단에 쓸모 있다."
       ],
-      "sourceRefs": [1],
+      "sourceRefs": [
+        1
+      ],
       "stats": [
-        {"value": "300TiB+", "label": "확보한 메모리", "note": "Google 데이터센터 · 추정 총 500TiB~1PiB"},
-        {"value": "2.7배", "label": "libgav1 Rust 디코더 속도", "note": "기존 Rust 포팅본 대비 · Google 발표"},
-        {"value": "77.9%", "label": "DeepSWE v1.1", "note": "장기 소프트웨어 작업 · Google 발표"},
-        {"value": "68%", "label": "CWE-bench v1", "note": "취약점 수정 · 공동 1위"}
+        {
+          "value": "300TiB+",
+          "label": "확보한 메모리",
+          "note": "Google 데이터센터 · 추정 총 500TiB~1PiB"
+        },
+        {
+          "value": "2.7배",
+          "label": "libgav1 Rust 디코더 속도",
+          "note": "기존 Rust 포팅본 대비 · Google 발표"
+        },
+        {
+          "value": "77.9%",
+          "label": "DeepSWE v1.1",
+          "note": "장기 소프트웨어 작업 · Google 발표"
+        },
+        {
+          "value": "68%",
+          "label": "CWE-bench v1",
+          "note": "취약점 수정 · 공동 1위"
+        }
       ]
     },
     {
@@ -150,15 +266,42 @@
         "시간 초과 설정도 다시 본다. 가이드는 어려운 추론 요청이 몇 분씩 걸릴 수 있다며 Interactions API의 background=True를 쓰거나 HTTP 클라이언트의 시간 제한을 최소 15~20분으로 늘리라고 권한다. 기존 30초나 60초 제한을 그대로 두면 요청이 중간에 끊긴 것처럼 보인다.",
         "가이드는 긴 작업을 맡기기 전에 목표와 성공 기준을 먼저 합의하고, 테스트 모음이나 검증 스크립트처럼 모델이 스스로 결과를 확인할 수단을 주라고 권한다. 확인 수단이 있으면 기준치를 기록하고 바꿀 때마다 다시 재며 목표에 닿을 때까지 반복할 수 있다는 설명이다."
       ],
-      "sourceRefs": [3, 4],
+      "sourceRefs": [
+        3,
+        4
+      ],
       "table": {
-        "headers": ["이전 설정", "아르곤에서", "이유"],
+        "headers": [
+          "이전 설정",
+          "아르곤에서",
+          "이유"
+        ],
         "rows": [
-          ["thinking_budget", "thinking_level (low/medium/high, 기본 medium)", "thinking_budget은 경고 반환"],
-          ["temperature, top_p, top_k", "삭제", "값을 무시하고 경고 반환"],
-          ["명시적 캐시(cached_content)", "삭제, 암시적 캐싱 사용", "명시적 캐싱 미지원"],
-          ["짧은 HTTP 시간 제한", "background=True 또는 15~20분 이상", "어려운 요청은 몇 분 걸림"],
-          ["출력 64K 가정", "필요하면 max_output_tokens 상향", "기본 65,536, long decode로 확대"]
+          [
+            "thinking_budget",
+            "thinking_level (low/medium/high, 기본 medium)",
+            "thinking_budget은 경고 반환"
+          ],
+          [
+            "temperature, top_p, top_k",
+            "삭제",
+            "값을 무시하고 경고 반환"
+          ],
+          [
+            "명시적 캐시(cached_content)",
+            "삭제, 암시적 캐싱 사용",
+            "명시적 캐싱 미지원"
+          ],
+          [
+            "짧은 HTTP 시간 제한",
+            "background=True 또는 15~20분 이상",
+            "어려운 요청은 몇 분 걸림"
+          ],
+          [
+            "출력 64K 가정",
+            "필요하면 max_output_tokens 상향",
+            "기본 65,536, long decode로 확대"
+          ]
         ],
         "caption": "Gemini 4 Argon 개발자 가이드의 마이그레이션 항목과 Gemini API 모델 문서를 2026-10-29에 확인해 정리했다."
       }
@@ -168,40 +311,143 @@
       "paragraphs": [
         "검색으로 많이 찾는 질문을 공식 자료 기준으로 짧게 정리했다. 날짜와 가격은 2026년 10월 29일 확인 기준이다."
       ],
-      "sourceRefs": [1, 2, 3, 4, 5],
+      "sourceRefs": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
       "faq": [
-        {"question": "제미나이 4 아르곤의 100만 토큰은 컨텍스트 창인가요, 출력 한도인가요?", "answer": "9월 30일 Google 발표의 100만 토큰은 출력 한도로, 이전 64K에서 늘어났습니다. Gemini API 문서는 입력과 출력을 합친 컨텍스트 창도 1,048,576 토큰이라고 적고 있어, 입력·사고·출력이 같은 창을 나눠 씁니다. 기본 출력은 65,536 토큰이고 long decode를 켜야 그 이상 출력합니다."},
-        {"question": "제미나이 4 아르곤은 무료로 쓸 수 있나요?", "answer": "아닙니다. Gemini API 가격 페이지는 아르곤을 무료 등급에서 제공하지 않는다고 명시합니다. 10월 13일부터 Gemini API 유료 등급과 Google AI Ultra 구독자에게 제공됩니다."},
-        {"question": "제미나이 4 아르곤 API 가격은 얼마인가요?", "answer": "100만 토큰당 입력 2달러, 출력 10달러(사고 토큰 포함), 캐시 입력 0.10달러가 11월 30일까지의 도입가입니다. 12월 1일부터 입력 4달러, 출력 20달러, 캐시 입력 0.20달러로 오릅니다."},
-        {"question": "제미나이 4 아르곤 출시일은 언제인가요?", "answer": "Google은 2026년 9월 30일 발표하며 사이버 방어 조직부터 제한 제공했고, 개발자 대상 공개는 2026년 10월 13일입니다."}
+        {
+          "question": "제미나이 4 아르곤의 100만 토큰은 컨텍스트 창인가요, 출력 한도인가요?",
+          "answer": "9월 30일 Google 발표의 100만 토큰은 출력 한도로, 이전 64K에서 늘어났습니다. Gemini API 문서는 입력과 출력을 합친 컨텍스트 창도 1,048,576 토큰이라고 적고 있어, 입력·사고·출력이 같은 창을 나눠 씁니다. 기본 출력은 65,536 토큰이고 long decode를 켜야 그 이상 출력합니다."
+        },
+        {
+          "question": "제미나이 4 아르곤은 무료로 쓸 수 있나요?",
+          "answer": "아닙니다. Gemini API 가격 페이지는 아르곤을 무료 등급에서 제공하지 않는다고 명시합니다. 10월 13일부터 Gemini API 유료 등급과 Google AI Ultra 구독자에게 제공됩니다."
+        },
+        {
+          "question": "제미나이 4 아르곤 API 가격은 얼마인가요?",
+          "answer": "100만 토큰당 입력 2달러, 출력 10달러(사고 토큰 포함), 캐시 입력 0.10달러가 11월 30일까지의 도입가입니다. 12월 1일부터 입력 4달러, 출력 20달러, 캐시 입력 0.20달러로 오릅니다."
+        },
+        {
+          "question": "제미나이 4 아르곤 출시일은 언제인가요?",
+          "answer": "Google은 2026년 9월 30일 발표하며 사이버 방어 조직부터 제한 제공했고, 개발자 대상 공개는 2026년 10월 13일입니다."
+        }
       ]
     }
   ],
   "sources": [
-    {"name": "Google Blog · Introducing Gemini 4 Argon", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/", "description": "2026-09-30 공식 발표. 출력 토큰 한도 64K→100만, Fairwind 우선 제공, 도입가, 내부 사용 사례와 벤치마크, 안전 조치. 2026-09-30 웹 아카이브 사본과 대조해 출력 한도 문장이 발표 당일부터 있었음을 확인했다."},
-    {"name": "Google Blog · Gemini 4 Argon is now available for developers", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/", "description": "2026-10-13 Gemini API 유료 등급, Google AI Studio, Android Studio, AI Ultra 구독자의 Antigravity 제공 안내."},
-    {"name": "Google AI Studio · Gemini 4 Argon: Developer Guide", "url": "https://aistudio.google.com/learn/gemini-4-argon-developer-guide", "description": "2026-10-13 개발자 가이드. 통합 100만 토큰 창, 기본 출력 65,536 토큰, background=True long decode 예시, thinking_level, 마이그레이션 항목."},
-    {"name": "Google AI for Developers · Gemini 4 Argon 모델 문서", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon", "description": "모델 코드, 입력·출력 형식, 컨텍스트 창 1,048,576 토큰, 최대 출력 65,536(기본)·1,048,576(long decode), 지원 기능."},
-    {"name": "Google AI for Developers · Gemini Developer API 가격", "url": "https://ai.google.dev/gemini-api/docs/pricing", "description": "아르곤 무료 등급 미지원, 11월 30일까지 도입가와 12월 1일 이후 가격, 사고 토큰 과금, 암시적 캐싱, 그라운딩 요금."}
+    {
+      "name": "Google Blog · Introducing Gemini 4 Argon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "description": "2026-09-30 공식 발표. 출력 토큰 한도 64K→100만, Fairwind 우선 제공, 도입가, 내부 사용 사례와 벤치마크, 안전 조치. 2026-09-30 웹 아카이브 사본과 대조해 출력 한도 문장이 발표 당일부터 있었음을 확인했다."
+    },
+    {
+      "name": "Google Blog · Gemini 4 Argon is now available for developers",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/",
+      "description": "2026-10-13 Gemini API 유료 등급, Google AI Studio, Android Studio, AI Ultra 구독자의 Antigravity 제공 안내."
+    },
+    {
+      "name": "Google AI Studio · Gemini 4 Argon: Developer Guide",
+      "url": "https://aistudio.google.com/learn/gemini-4-argon-developer-guide",
+      "description": "2026-10-13 개발자 가이드. 통합 100만 토큰 창, 기본 출력 65,536 토큰, background=True long decode 예시, thinking_level, 마이그레이션 항목."
+    },
+    {
+      "name": "Google AI for Developers · Gemini 4 Argon 모델 문서",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon",
+      "description": "모델 코드, 입력·출력 형식, 컨텍스트 창 1,048,576 토큰, 최대 출력 65,536(기본)·1,048,576(long decode), 지원 기능."
+    },
+    {
+      "name": "Google AI for Developers · Gemini Developer API 가격",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "description": "아르곤 무료 등급 미지원, 11월 30일까지 도입가와 12월 1일 이후 가격, 사고 토큰 과금, 암시적 캐싱, 그라운딩 요금."
+    }
   ],
   "resources": [
-    {"name": "Gemini 4 Argon 개발자 가이드", "url": "https://aistudio.google.com/learn/gemini-4-argon-developer-guide", "description": "long decode와 thinking_level 예시 코드, 마이그레이션 체크리스트를 원문으로 볼 수 있다.", "type": "문서"},
-    {"name": "Gemini API 모델 문서: gemini-4-argon", "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon", "description": "토큰 한도와 지원 기능(코드 실행, 함수 호출, 검색 그라운딩 등)을 표로 확인할 수 있다.", "type": "문서"},
-    {"name": "Gemini API 가격 페이지", "url": "https://ai.google.dev/gemini-api/docs/pricing", "description": "도입가 종료일, Batch·Flex·Priority 가격, 그라운딩 요금을 확인할 수 있다.", "type": "가격"},
-    {"name": "Google AI Studio", "url": "https://aistudio.google.com/", "description": "유료 등급 API 키를 만들고 gemini-4-argon을 바로 시험할 수 있는 곳이다.", "type": "도구"},
-    {"name": "Fairwind 프로그램", "url": "https://deepmind.google/fairwind-program/", "description": "사이버 방어 조직 대상 조기 제공 프로그램 안내.", "type": "프로그램"}
+    {
+      "name": "Gemini 4 Argon 개발자 가이드",
+      "url": "https://aistudio.google.com/learn/gemini-4-argon-developer-guide",
+      "description": "long decode와 thinking_level 예시 코드, 마이그레이션 체크리스트를 원문으로 볼 수 있다.",
+      "type": "문서"
+    },
+    {
+      "name": "Gemini API 모델 문서: gemini-4-argon",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon",
+      "description": "토큰 한도와 지원 기능(코드 실행, 함수 호출, 검색 그라운딩 등)을 표로 확인할 수 있다.",
+      "type": "문서"
+    },
+    {
+      "name": "Gemini API 가격 페이지",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "description": "도입가 종료일, Batch·Flex·Priority 가격, 그라운딩 요금을 확인할 수 있다.",
+      "type": "가격"
+    },
+    {
+      "name": "Google AI Studio",
+      "url": "https://aistudio.google.com/",
+      "description": "유료 등급 API 키를 만들고 gemini-4-argon을 바로 시험할 수 있는 곳이다.",
+      "type": "도구"
+    },
+    {
+      "name": "Fairwind 프로그램",
+      "url": "https://deepmind.google/fairwind-program/",
+      "description": "사이버 방어 조직 대상 조기 제공 프로그램 안내.",
+      "type": "프로그램"
+    }
   ],
   "corrections": [
-    {"date": "2026-10-29", "text": "처음 글(2026-10-02)은 공식 발표가 '100만 출력 토큰이 아니라 100만 토큰 컨텍스트'를 강조했다고 썼으나 틀렸다. 9월 30일 Google 발표 원문은 'we are significantly expanding the model's output token limit to an industry-leading 1M tokens, up from the previous 64K tokens'라고 출력 토큰 한도를 64K에서 100만으로 늘린다고 밝혔고, 컨텍스트 창 크기는 발표문에 없었다. 제목·요약·핵심 요약·본문을 고쳤고, 10월 13일 공개된 Gemini API 문서의 통합 1,048,576 토큰 창과 기본 출력 65,536 토큰을 함께 적었다. 같은 날 제공 범위·가격·사용법을 더한 장문 해설로 개정했다. 발표일과 최초 게시일은 바꾸지 않았다.", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"}
+    {
+      "date": "2026-10-29",
+      "text": "처음 글(2026-10-02)은 공식 발표가 '100만 출력 토큰이 아니라 100만 토큰 컨텍스트'를 강조했다고 썼으나 틀렸다. 9월 30일 Google 발표 원문은 'we are significantly expanding the model's output token limit to an industry-leading 1M tokens, up from the previous 64K tokens'라고 출력 토큰 한도를 64K에서 100만으로 늘린다고 밝혔고, 컨텍스트 창 크기는 발표문에 없었다. 제목·요약·핵심 요약·본문을 고쳤고, 10월 13일 공개된 Gemini API 문서의 통합 1,048,576 토큰 창과 기본 출력 65,536 토큰을 함께 적었다. 같은 날 제공 범위·가격·사용법을 더한 장문 해설로 개정했다. 발표일과 최초 게시일은 바꾸지 않았다.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+    }
   ],
-  "discovery": {"writer": "aside", "xStatus": "unavailable", "notes": "2026-10-29 사실 정정과 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고, Google 발표 원문(2026-09-30, 웹 아카이브 당일 사본 포함), 10월 13일 개발자 공개 글, 개발자 가이드, Gemini API 모델 문서와 가격 페이지를 직접 열어 확인했다.", "xPosts": []},
+  "discovery": {
+    "writer": "aside",
+    "xStatus": "unavailable",
+    "notes": "2026-10-29 사실 정정과 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고, Google 발표 원문(2026-09-30, 웹 아카이브 당일 사본 포함), 10월 13일 개발자 공개 글, 개발자 가이드, Gemini API 모델 문서와 가격 페이지를 직접 열어 확인했다.",
+    "xPosts": []
+  },
   "mediaReview": {
     "checkedAt": "2026-10-29T18:38:00+09:00",
     "status": "included",
     "candidates": [
-      {"sourceUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon", "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-argon-token-window.svg", "decision": "included", "reason": "모델 문서와 개발자 가이드의 토큰 한도 수치를 BlueBWorks가 막대 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
-      {"sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing", "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-argon-access-timeline.svg", "decision": "included", "reason": "Google 블로그와 가격 페이지의 날짜·가격을 BlueBWorks가 일정 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
-      {"sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/", "decision": "excluded", "reason": "발표 페이지의 키아트는 별도 재사용 허가를 확인하지 못해 복사하지 않고 원문 링크로만 제공했다."}
-    ]
-  }
+      {
+        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-argon-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial thumbnail. 오른쪽 그림은 이 기사에 이미 실린 BlueBWorks 자체 도식",
+        "reason": "기사 제목과 본문에 있는 핵심 사실을 담은 대표 이미지"
+      },
+      {
+        "sourceUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-argon-token-window.svg",
+        "decision": "included",
+        "reason": "모델 문서와 개발자 가이드의 토큰 한도 수치를 BlueBWorks가 막대 도식으로 새로 그렸다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-argon-access-timeline.svg",
+        "decision": "included",
+        "reason": "Google 블로그와 가격 페이지의 날짜·가격을 BlueBWorks가 일정 도식으로 새로 그렸다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+        "decision": "excluded",
+        "reason": "발표 페이지의 키아트는 별도 재사용 허가를 확인하지 못해 복사하지 않고 원문 링크로만 제공했다."
+      }
+    ],
+    "thumbnailAddedAt": "2026-10-30T05:29:21.390Z"
+  },
+  "image": "https://bluebworks.com/assets/editorial/gemini-4-argon-2026-thumb.png",
+  "imageAlt": "제미나이 4 아르곤 출력 한도와 가격",
+  "imageCaption": "제미나이 4 아르곤, 출력 한도 64K에서 100만 토큰으로. 11월 30일까지 입력 2달러, 출력 10달러",
+  "imageCredit": "BlueBWorks",
+  "imageSourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+  "imageWidth": 1600,
+  "imageHeight": 900
 }

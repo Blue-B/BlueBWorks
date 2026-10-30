@@ -14,11 +14,13 @@
     <meta property="og:description" content="고속 링커 mold가 3.0에서 구현 언어를 C++에서 Rust로 전면 교체했다. 사용자 입장에서는 2.42.1과 같은 명령행 옵션·지원 아키텍처·출력을 유지하는 드롭인 교체를 목표로 하지만, 직접 빌드하는 사람에게는 CMake에서 Cargo로 바뀌고 Rust 1.95 이상이…">
     <meta property="og:url" content="https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/">
     <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/mold-3-0-rust-rewrite-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/mold-3-0-rust-rewrite-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커","description":"고속 링커 mold가 3.0에서 구현 언어를 C++에서 Rust로 전면 교체했다. 사용자 입장에서는 2.42.1과 같은 명령행 옵션·지원 아키텍처·출력을 유지하는 드롭인 교체를 목표로 하지만, 직접 빌드하는 사람에게는 CMake에서 Cargo로 바뀌고 Rust 1.95 이상이 필요해졌다.","url":"https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/","mainEntityOfPage":"https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/","datePublished":"2026-10-06T00:10:45.000Z","dateModified":"2026-10-06T00:10:45.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"mold, Rust, Linker, Build","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커","description":"고속 링커 mold가 3.0에서 구현 언어를 C++에서 Rust로 전면 교체했다. 사용자 입장에서는 2.42.1과 같은 명령행 옵션·지원 아키텍처·출력을 유지하는 드롭인 교체를 목표로 하지만, 직접 빌드하는 사람에게는 CMake에서 Cargo로 바뀌고 Rust 1.95 이상이 필요해졌다.","url":"https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/","mainEntityOfPage":"https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/","datePublished":"2026-10-06T00:10:45.000Z","dateModified":"2026-10-06T00:10:45.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"mold, Rust, Linker, Build","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/mold-3-0-rust-rewrite-2026-thumb.png"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"mold 3.0: C++을 버리고 Rust로 다시 쓴 초고속 링커","item":"https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/"}]}</script>
   </head>
   <body class="page-article">
@@ -72,7 +74,10 @@
             <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
 
           </header>
-
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/mold-3-0-rust-rewrite-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: mold 3.0 Rust 재작성 릴리스"><img src="https://bluebworks.com/assets/editorial/mold-3-0-rust-rewrite-2026-thumb.png" alt="mold 3.0 Rust 재작성 릴리스" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>mold 3.0, LLVM lld보다 중앙값 4.9배 빠름. mold 프로젝트 자체 벤치마크</span><a href="https://github.com/rui314/mold/releases/tag/v3.0.0" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
           <details class="key-points" open>
       <summary>3줄 요약</summary>
       <ul>

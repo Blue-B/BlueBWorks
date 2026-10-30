@@ -247,9 +247,16 @@
   ],
   "mediaReview": {
     "checkedAt": "2026-10-29T17:06:54+09:00",
-    "status": "unavailable",
+    "status": "included",
     "omittedReason": "Vercel 공식 발표·변경 기록의 turbo.json 코드 화면과 문서의 설정 화면을 확인했으나, 제품 이미지·스크린샷을 제3자 기사에 복제·재배포할 수 있다는 개별 권리 조건을 확인하지 못했다. 실제 제품 화면이 아닌 브랜드 로고·문서 자동 OG 이미지를 대표 이미지로 대체하지 않고 공식 링크를 제공했다.",
     "candidates": [
+      {
+        "sourceUrl": "https://vercel.com/blog/introducing-vercel-ci",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/vercel-ci-beta-turborepo-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial thumbnail. 오른쪽에 로그인 없이 공개된 공식 페이지 상단 일부를 해설 목적으로 축소 인용하고 출처를 연결",
+        "reason": "기사 제목과 본문에 있는 핵심 사실을 담은 대표 이미지"
+      },
       {
         "sourceUrl": "https://vercel.com/blog/introducing-vercel-ci",
         "decision": "excluded",
@@ -265,11 +272,20 @@
         "decision": "excluded",
         "reason": "공식 문서의 CI 설정 화면과 문서 OG 이미지는 별도 라이선스가 확인되지 않아 복제하지 않고 링크로 대체"
       }
-    ]
+    ],
+    "previousStatus": "unavailable",
+    "thumbnailAddedAt": "2026-10-30T05:29:21.396Z"
   },
   "discovery": {
     "xStatus": "public-search",
     "notes": "2026-10-29 17시 KST 공식 RSS npm run radar와 GitHub Changelog, Claude/Codex 릴리스, Cloudflare/Vercel, 공개 X 검색을 조사했다. X에서 이 발표의 원 게시일과 실제 본문을 신뢰할 수 있게 확인하지 못해 근거로 사용하지 않았다. Vercel 공식 블로그·Changelog·CI 개요·설정·가격·환경 변수 문서를 직접 확인했다. GitHub Agentic Workflows는 이미 발행돼 제외했고 Codex alpha 패치는 제외했다.",
     "xPosts": []
-  }
+  },
+  "image": "https://bluebworks.com/assets/editorial/vercel-ci-beta-turborepo-2026-thumb.png",
+  "imageAlt": "Vercel CI 베타 공개",
+  "imageCaption": "Vercel CI, Pro 플랜 CPU 분당 0.0035달러. Turborepo 2.11.7 이상 필요",
+  "imageCredit": "BlueBWorks",
+  "imageSourceUrl": "https://vercel.com/blog/introducing-vercel-ci",
+  "imageWidth": 1600,
+  "imageHeight": 900
 }

@@ -9,7 +9,13 @@
   "status": "Available",
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
-  "tags": ["OpenAI", "GPT-6.1 Sol", "Coding", "API", "Codex"],
+  "tags": [
+    "OpenAI",
+    "GPT-6.1 Sol",
+    "Coding",
+    "API",
+    "Codex"
+  ],
   "editorNote": "Sol의 가치는 Astra를 이기는 데 있지 않고, Astra에 가까운 결과를 더 싼 값에 반복할 수 있느냐에 있다. 그래서 벤치마크 문장보다 요금 구조, 특히 272K 입력 경계와 캐시 가격이 실제 비용을 어떻게 바꾸는지에 무게를 뒀다.",
   "keyPoints": [
     "가격: API 표준가는 100만 토큰당 입력 2달러·캐시 입력 0.10달러·출력 10달러로 GPT-6 Astra의 5분의 1이다. 입력 272K를 넘는 요청은 전체에 배율이 붙는다.",
@@ -25,11 +31,26 @@
         "가격 차이는 크다. 100만 토큰당 Astra는 입력 10달러·출력 50달러, Sol은 입력 2달러·출력 10달러, Luna는 입력 0.10달러·출력 0.50달러다. 캐시된 입력은 Sol이 0.10달러로, 표준 입력보다 95% 낮고 이전 GPT-6 Sol의 캐시 입력가보다도 50% 낮다고 OpenAI는 설명한다.",
         "캐시 가격이 중요한 이유는 에이전트의 작동 방식에 있다. 에이전트는 같은 저장소 설명, 도구 정의, 이전 대화를 매 요청마다 다시 보낸다. 이 반복되는 앞부분이 캐시로 처리되면 실제 입력 비용은 표준가보다 훨씬 낮아진다. OpenAI가 캐시 가격을 강조하며 요청 간 컨텍스트를 재사용하는 에이전트를 더 자유롭게 운영할 수 있다고 쓴 것도 이 때문이다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "stats": [
-        {"value": "$2 / $10", "label": "입력 / 출력 (100만 토큰당)", "note": "API 표준가"},
-        {"value": "$0.10", "label": "캐시 입력", "note": "표준 입력보다 95% 낮음"},
-        {"value": "1/5", "label": "GPT-6 Astra 대비 가격", "note": "표준 입력·출력 기준"}
+        {
+          "value": "$2 / $10",
+          "label": "입력 / 출력 (100만 토큰당)",
+          "note": "API 표준가"
+        },
+        {
+          "value": "$0.10",
+          "label": "캐시 입력",
+          "note": "표준 입력보다 95% 낮음"
+        },
+        {
+          "value": "1/5",
+          "label": "GPT-6 Astra 대비 가격",
+          "note": "표준 입력·출력 기준"
+        }
       ],
       "figures": [
         {
@@ -43,7 +64,10 @@
         }
       ],
       "links": [
-        {"label": "OpenAI 발표: Introducing GPT-6.1 Sol", "url": "https://openai.com/index/introducing-gpt-6-1-sol/"}
+        {
+          "label": "OpenAI 발표: Introducing GPT-6.1 Sol",
+          "url": "https://openai.com/index/introducing-gpt-6-1-sol/"
+        }
       ]
     },
     {
@@ -55,15 +79,41 @@
         "이 숫자들은 모두 OpenAI가 자체 연구 환경이나 API로 측정한 값이다. 경쟁사 수치는 공개 보고서에서 인용했고, 시스템 프롬프트와 도구 차이 때문에 ChatGPT의 실제 결과와 다를 수 있다고 OpenAI도 밝혔다. 내 작업에서 같은 결과가 나온다는 보장으로 읽기보다, 어떤 작업에서 Sol로 내려가도 될지 후보를 고르는 참고로 쓰는 편이 맞다.",
         "사실 정확성도 올랐다고 한다. 이전 모델의 오류를 사용자가 신고한 대화를 비식별화해 만든 평가에서, 낮은 추론 강도의 사실 오류 포함 응답 비율이 11.4%에서 7.7%로 약 32% 줄었다. 다만 일부러 어려운 프롬프트를 모은 평가라 일상적인 사용에서의 오류율을 뜻하지는 않는다고 OpenAI는 덧붙였다."
       ],
-      "sourceRefs": [1],
+      "sourceRefs": [
+        1
+      ],
       "table": {
-        "headers": ["평가", "OpenAI가 밝힌 GPT-6.1 Sol 결과", "비용 관련 설명"],
+        "headers": [
+          "평가",
+          "OpenAI가 밝힌 GPT-6.1 Sol 결과",
+          "비용 관련 설명"
+        ],
         "rows": [
-          ["DeepSWE v1.1 (장기 코딩)", "Astra와 대등, 이전 Sol 최고점 대비 +6.4%p", "약 5분의 1 비용"],
-          ["OSWorld 2.0 오프라인 (컴퓨터 사용)", "이전 Sol 대비 +7%p, Astra와 2.1%p 차이", "Astra 대비 작업당 약 7분의 1"],
-          ["AutomationBench (업무 자동화)", "중간 추론 강도에서 이전 Sol 대비 +4.8%p", "Opus 5.5 대비 약 3분의 1 비용"],
-          ["Terminal-Bench Science 0.1", "이전 Sol 점수의 2배 이상", "작업당 5.47달러 (Astra 23.80달러)"],
-          ["사실 오류 응답 비율 (낮은 추론 강도)", "11.4% → 7.7%", "의도적으로 어려운 프롬프트 기준"]
+          [
+            "DeepSWE v1.1 (장기 코딩)",
+            "Astra와 대등, 이전 Sol 최고점 대비 +6.4%p",
+            "약 5분의 1 비용"
+          ],
+          [
+            "OSWorld 2.0 오프라인 (컴퓨터 사용)",
+            "이전 Sol 대비 +7%p, Astra와 2.1%p 차이",
+            "Astra 대비 작업당 약 7분의 1"
+          ],
+          [
+            "AutomationBench (업무 자동화)",
+            "중간 추론 강도에서 이전 Sol 대비 +4.8%p",
+            "Opus 5.5 대비 약 3분의 1 비용"
+          ],
+          [
+            "Terminal-Bench Science 0.1",
+            "이전 Sol 점수의 2배 이상",
+            "작업당 5.47달러 (Astra 23.80달러)"
+          ],
+          [
+            "사실 오류 응답 비율 (낮은 추론 강도)",
+            "11.4% → 7.7%",
+            "의도적으로 어려운 프롬프트 기준"
+          ]
         ],
         "caption": "2026-09-29 OpenAI 발표 기준. 모두 OpenAI 측정값이며 독립 재현 결과가 아니다. %p는 퍼센트포인트."
       }
@@ -77,22 +127,52 @@
         "OpenAI는 발표 당시 며칠 안에 Codex에서 표준 속도보다 최대 8배 빠르게 토큰을 생성하는 GPT-6.1 Sol Ultrafast를 제공할 예정이라고 했다. API 문서 기준으로 Ultrafast 모드 가격은 표준의 6배이고, Fast 모드는 2배, Batch와 Flex는 50% 낮다. 속도를 사는 대신 단가가 크게 오른다는 점을 염두에 둔다.",
         "처리량 한도는 사용 등급에 따라 다르다. 모델 문서 기준 Build 등급은 분당 요청 5,000건과 분당 토큰 100만 개, Launch는 1만 건과 400만 개, Grow는 1만 5천 건과 4,000만 개다. 등급은 요청과 지출이 늘면 자동으로 올라간다. 긴 문서를 한꺼번에 넣는 에이전트라면 분당 토큰 한도에 먼저 걸릴 수 있으니 내 계정 등급부터 확인해 두는 편이 좋다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "table": {
-        "headers": ["항목", "내용"],
+        "headers": [
+          "항목",
+          "내용"
+        ],
         "rows": [
-          ["API 모델 ID", "gpt-6.1-sol"],
-          ["컨텍스트 창 / 최대 출력", "1,050,000 / 128,000 토큰"],
-          ["입력 / 출력 형식", "텍스트·이미지 / 텍스트"],
-          ["추론 강도", "low, medium(기본), high, xhigh, max"],
-          ["도구 호출", "Responses API 필요"],
-          ["ChatGPT", "Plus·Pro·Business·Enterprise·Edu의 ChatGPT Work와 Codex (Chat 제외)"],
-          ["무료 API 등급", "지원 안 함"]
+          [
+            "API 모델 ID",
+            "gpt-6.1-sol"
+          ],
+          [
+            "컨텍스트 창 / 최대 출력",
+            "1,050,000 / 128,000 토큰"
+          ],
+          [
+            "입력 / 출력 형식",
+            "텍스트·이미지 / 텍스트"
+          ],
+          [
+            "추론 강도",
+            "low, medium(기본), high, xhigh, max"
+          ],
+          [
+            "도구 호출",
+            "Responses API 필요"
+          ],
+          [
+            "ChatGPT",
+            "Plus·Pro·Business·Enterprise·Edu의 ChatGPT Work와 Codex (Chat 제외)"
+          ],
+          [
+            "무료 API 등급",
+            "지원 안 함"
+          ]
         ],
         "caption": "OpenAI API 모델 문서와 2026-09-29 발표를 2026-10-29에 확인한 기준이다."
       },
       "links": [
-        {"label": "OpenAI API 모델 문서: gpt-6.1-sol", "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol"}
+        {
+          "label": "OpenAI API 모델 문서: gpt-6.1-sol",
+          "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol"
+        }
       ]
     },
     {
@@ -104,7 +184,9 @@
         "캐시 쓰기도 따로 계산된다. 문서는 캐시 쓰기를 표준 입력 단가의 1.25배인 2.50달러, 캐시된 입력은 5%인 0.10달러로 적고 있다. 지역 처리를 쓰면 10%가 더 붙는다. 반면 Codex와 ChatGPT Work는 기본 500K 컨텍스트를 쓰고, 구독 사용량에는 장문 추가 요금이 없다고 문서는 밝힌다.",
         "급하지 않은 작업은 요금을 절반으로 줄일 수 있다. 문서는 Batch와 Flex 가격이 표준보다 50% 낮다고 적고 있다. 밤사이 돌리는 코드 점검이나 문서 분류처럼 결과를 바로 받지 않아도 되는 일은 이 방식으로 돌리는 편이 비용에 유리하다."
       ],
-      "sourceRefs": [2],
+      "sourceRefs": [
+        2
+      ],
       "figures": [
         {
           "src": "https://bluebworks.com/assets/editorial/gpt-6-1-sol-long-context-pricing.svg",
@@ -125,19 +207,45 @@
         "기존 GPT-6 Sol로 에이전트를 운영하고 있었다면 비교는 간단하다. 같은 과제 묶음을 두 모델로 돌려 완료율, 도구 호출 횟수, 재시도 횟수, 총 토큰 비용을 기록한다. 추론 강도를 한 단계 낮춰도 이전 모델보다 결과가 좋은지 확인하면 비용을 더 줄일 수 있다.",
         "안전 면에서 OpenAI는 Sol이 검색 도구가 작동하지 않을 때 이를 숨기지 않고 알리고, 에이전트 작업 중 승인되지 않은 결과를 막는 항목에서 이전 Sol보다 실패율이 낮았다고 밝혔다. 자세한 평가는 시스템 카드 부록에 있다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "table": {
-        "headers": ["상황", "먼저 시도할 모델", "이유"],
+        "headers": [
+          "상황",
+          "먼저 시도할 모델",
+          "이유"
+        ],
         "rows": [
-          ["테스트로 검증 가능한 코드 수정", "GPT-6.1 Sol", "DeepSWE에서 Astra와 대등, 비용 약 5분의 1"],
-          ["반복 실행하는 업무 자동화", "GPT-6.1 Sol", "캐시 입력 0.10달러로 반복 비용이 낮음"],
-          ["가장 어려운 과학 연구", "GPT-6 Astra", "OpenAI가 직접 권고, Terminal-Bench Science 최고점"],
-          ["대량 분류·간단한 추출", "Luna", "입력 0.10달러·출력 0.50달러"]
+          [
+            "테스트로 검증 가능한 코드 수정",
+            "GPT-6.1 Sol",
+            "DeepSWE에서 Astra와 대등, 비용 약 5분의 1"
+          ],
+          [
+            "반복 실행하는 업무 자동화",
+            "GPT-6.1 Sol",
+            "캐시 입력 0.10달러로 반복 비용이 낮음"
+          ],
+          [
+            "가장 어려운 과학 연구",
+            "GPT-6 Astra",
+            "OpenAI가 직접 권고, Terminal-Bench Science 최고점"
+          ],
+          [
+            "대량 분류·간단한 추출",
+            "Luna",
+            "입력 0.10달러·출력 0.50달러"
+          ]
         ],
         "caption": "OpenAI 발표 내용을 바탕으로 BlueBWorks가 정리한 선택 기준이다. 실제 선택은 자기 과제로 비교해 정해야 한다."
       },
       "links": [
-        {"label": "GPT-6.1 Sol 시스템 카드 부록", "url": "https://deploymentsafety.openai.com/gpt-6-1-sol"}
+        {
+          "label": "GPT-6.1 Sol 시스템 카드 부록",
+          "url": "https://deploymentsafety.openai.com/gpt-6-1-sol"
+        }
       ]
     },
     {
@@ -145,36 +253,119 @@
       "paragraphs": [
         "검색으로 많이 찾는 질문을 OpenAI 발표와 API 문서 기준으로 짧게 정리했다. 2026년 10월 29일 확인 기준이다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "faq": [
-        {"question": "GPT-6.1 Sol API 가격은 얼마인가요?", "answer": "표준 가격은 100만 토큰당 입력 2달러, 캐시된 입력 0.10달러, 출력 10달러입니다. 입력이 272K 토큰을 넘는 요청은 요청 전체에 입력·캐시 2배, 출력 1.5배가 적용됩니다."},
-        {"question": "GPT-6.1 Sol을 무료로 쓸 수 있나요?", "answer": "API 무료 등급은 지원하지 않습니다. ChatGPT에서는 Plus, Pro, Business, Enterprise, Edu 사용자가 ChatGPT Work와 Codex에서 쓸 수 있고, 일반 Chat에서는 아직 제공되지 않습니다."},
-        {"question": "GPT-6.1 Sol의 컨텍스트 창과 최대 출력은?", "answer": "API 기준 컨텍스트 창은 1,050,000 토큰, 최대 출력은 128,000 토큰입니다. Codex와 ChatGPT Work에서는 기본 500K 컨텍스트를 씁니다."},
-        {"question": "GPT-6 Astra와 차이는 무엇인가요?", "answer": "Sol은 Astra 표준 가격의 5분의 1이고, OpenAI 측정으로 DeepSWE에서 대등, OSWorld 2.0에서 2.1%포인트 낮습니다. 가장 어려운 과학 연구에는 OpenAI도 Astra를 권합니다."}
+        {
+          "question": "GPT-6.1 Sol API 가격은 얼마인가요?",
+          "answer": "표준 가격은 100만 토큰당 입력 2달러, 캐시된 입력 0.10달러, 출력 10달러입니다. 입력이 272K 토큰을 넘는 요청은 요청 전체에 입력·캐시 2배, 출력 1.5배가 적용됩니다."
+        },
+        {
+          "question": "GPT-6.1 Sol을 무료로 쓸 수 있나요?",
+          "answer": "API 무료 등급은 지원하지 않습니다. ChatGPT에서는 Plus, Pro, Business, Enterprise, Edu 사용자가 ChatGPT Work와 Codex에서 쓸 수 있고, 일반 Chat에서는 아직 제공되지 않습니다."
+        },
+        {
+          "question": "GPT-6.1 Sol의 컨텍스트 창과 최대 출력은?",
+          "answer": "API 기준 컨텍스트 창은 1,050,000 토큰, 최대 출력은 128,000 토큰입니다. Codex와 ChatGPT Work에서는 기본 500K 컨텍스트를 씁니다."
+        },
+        {
+          "question": "GPT-6 Astra와 차이는 무엇인가요?",
+          "answer": "Sol은 Astra 표준 가격의 5분의 1이고, OpenAI 측정으로 DeepSWE에서 대등, OSWorld 2.0에서 2.1%포인트 낮습니다. 가장 어려운 과학 연구에는 OpenAI도 Astra를 권합니다."
+        }
       ]
     }
   ],
   "sources": [
-    {"name": "OpenAI · Introducing GPT-6.1 Sol", "url": "https://openai.com/index/introducing-gpt-6-1-sol/", "description": "2026-09-29 공식 발표. Astra·Sol·Luna 가격, 벤치마크별 결과와 측정 조건, 안전 평가, ChatGPT Work·Codex·API 제공 범위, Ultrafast 예고."},
-    {"name": "OpenAI API · GPT-6.1 Sol 모델 문서", "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol", "description": "모델 ID, 1,050,000 컨텍스트, 128,000 최대 출력, 지식 기준일, reasoning.effort, 272K 초과 요금 배율, 캐시 쓰기 요금, 모드별 가격, 지원 도구와 속도 제한."}
+    {
+      "name": "OpenAI · Introducing GPT-6.1 Sol",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "description": "2026-09-29 공식 발표. Astra·Sol·Luna 가격, 벤치마크별 결과와 측정 조건, 안전 평가, ChatGPT Work·Codex·API 제공 범위, Ultrafast 예고."
+    },
+    {
+      "name": "OpenAI API · GPT-6.1 Sol 모델 문서",
+      "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "description": "모델 ID, 1,050,000 컨텍스트, 128,000 최대 출력, 지식 기준일, reasoning.effort, 272K 초과 요금 배율, 캐시 쓰기 요금, 모드별 가격, 지원 도구와 속도 제한."
+    }
   ],
   "resources": [
-    {"name": "GPT-6.1 Sol 모델 문서", "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol", "description": "토큰 한도, 요금 배율, 지원 엔드포인트와 도구를 표로 확인할 수 있다.", "type": "문서"},
-    {"name": "OpenAI API 가격 페이지", "url": "https://developers.openai.com/api/docs/pricing", "description": "Batch·Flex·Fast 모드와 도구 호출 요금을 함께 비교할 수 있다.", "type": "가격"},
-    {"name": "GPT-6 프롬프트·마이그레이션 가이드", "url": "https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra", "description": "모델 문서가 안내하는 GPT-6 계열 프롬프트 작성과 이전 모델에서 옮기는 방법.", "type": "가이드"},
-    {"name": "GPT-6.1 Sol 시스템 카드 부록", "url": "https://deploymentsafety.openai.com/gpt-6-1-sol", "description": "정렬과 안전 평가의 세부 결과.", "type": "안전"}
+    {
+      "name": "GPT-6.1 Sol 모델 문서",
+      "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "description": "토큰 한도, 요금 배율, 지원 엔드포인트와 도구를 표로 확인할 수 있다.",
+      "type": "문서"
+    },
+    {
+      "name": "OpenAI API 가격 페이지",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "description": "Batch·Flex·Fast 모드와 도구 호출 요금을 함께 비교할 수 있다.",
+      "type": "가격"
+    },
+    {
+      "name": "GPT-6 프롬프트·마이그레이션 가이드",
+      "url": "https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra",
+      "description": "모델 문서가 안내하는 GPT-6 계열 프롬프트 작성과 이전 모델에서 옮기는 방법.",
+      "type": "가이드"
+    },
+    {
+      "name": "GPT-6.1 Sol 시스템 카드 부록",
+      "url": "https://deploymentsafety.openai.com/gpt-6-1-sol",
+      "description": "정렬과 안전 평가의 세부 결과.",
+      "type": "안전"
+    }
   ],
   "corrections": [
-    {"date": "2026-10-29", "text": "짧은 소개를 장문 해설로 개정했다. 처음 글의 'ChatGPT의 여러 플랜에 제공'을 공식 발표에 맞춰 'Plus·Pro·Business·Enterprise·Edu의 ChatGPT Work와 Codex(일반 Chat 제외)'로 구체화했고, 272K 입력 초과 요금 배율과 캐시 요금을 추가했다. 발표일과 최초 게시일은 바꾸지 않았다.", "url": "https://openai.com/index/introducing-gpt-6-1-sol/"}
+    {
+      "date": "2026-10-29",
+      "text": "짧은 소개를 장문 해설로 개정했다. 처음 글의 'ChatGPT의 여러 플랜에 제공'을 공식 발표에 맞춰 'Plus·Pro·Business·Enterprise·Edu의 ChatGPT Work와 Codex(일반 Chat 제외)'로 구체화했고, 272K 입력 초과 요금 배율과 캐시 요금을 추가했다. 발표일과 최초 게시일은 바꾸지 않았다.",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol/"
+    }
   ],
-  "discovery": {"writer": "aside", "xStatus": "unavailable", "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 OpenAI 발표 원문과 API 모델 문서를 직접 열어 확인했다.", "xPosts": []},
+  "discovery": {
+    "writer": "aside",
+    "xStatus": "unavailable",
+    "notes": "2026-10-29 기존 짧은 글의 장문 개정 작업이다. 공개 X 원문은 조회하지 않았고 OpenAI 발표 원문과 API 모델 문서를 직접 열어 확인했다.",
+    "xPosts": []
+  },
   "mediaReview": {
     "checkedAt": "2026-10-29T18:44:00+09:00",
     "status": "included",
     "candidates": [
-      {"sourceUrl": "https://openai.com/index/introducing-gpt-6-1-sol/", "assetUrl": "https://bluebworks.com/assets/editorial/gpt-6-1-sol-price-tiers.svg", "decision": "included", "reason": "발표문의 세 모델 가격을 BlueBWorks가 막대 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
-      {"sourceUrl": "https://developers.openai.com/api/docs/models/gpt-6.1-sol", "assetUrl": "https://bluebworks.com/assets/editorial/gpt-6-1-sol-long-context-pricing.svg", "decision": "included", "reason": "모델 문서의 272K 요금 배율을 BlueBWorks가 예시 계산과 함께 도식으로 새로 그렸다.", "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."},
-      {"sourceUrl": "https://openai.com/index/introducing-gpt-6-1-sol/", "decision": "excluded", "reason": "발표 페이지의 벤치마크 차트와 그래픽은 별도 재사용 허가를 확인하지 못해 복사하지 않고 수치만 표로 다시 정리했다."}
-    ]
-  }
+      {
+        "sourceUrl": "https://openai.com/index/introducing-gpt-6-1-sol/",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gpt-6-1-sol-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial thumbnail. 오른쪽 그림은 이 기사에 이미 실린 BlueBWorks 자체 도식",
+        "reason": "기사 제목과 본문에 있는 핵심 사실을 담은 대표 이미지"
+      },
+      {
+        "sourceUrl": "https://openai.com/index/introducing-gpt-6-1-sol/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gpt-6-1-sol-price-tiers.svg",
+        "decision": "included",
+        "reason": "발표문의 세 모델 가격을 BlueBWorks가 막대 도식으로 새로 그렸다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gpt-6-1-sol-long-context-pricing.svg",
+        "decision": "included",
+        "reason": "모델 문서의 272K 요금 배율을 BlueBWorks가 예시 계산과 함께 도식으로 새로 그렸다.",
+        "rightsBasis": "BlueBWorks original editorial diagram; no third-party image or logo reused."
+      },
+      {
+        "sourceUrl": "https://openai.com/index/introducing-gpt-6-1-sol/",
+        "decision": "excluded",
+        "reason": "발표 페이지의 벤치마크 차트와 그래픽은 별도 재사용 허가를 확인하지 못해 복사하지 않고 수치만 표로 다시 정리했다."
+      }
+    ],
+    "thumbnailAddedAt": "2026-10-30T05:29:21.393Z"
+  },
+  "image": "https://bluebworks.com/assets/editorial/gpt-6-1-sol-2026-thumb.png",
+  "imageAlt": "GPT-6.1 Sol 가격과 성능",
+  "imageCaption": "GPT-6.1 Sol, GPT-6 Astra의 5분의 1 가격. 100만 토큰당 입력 2달러, 출력 10달러",
+  "imageCredit": "BlueBWorks",
+  "imageSourceUrl": "https://openai.com/index/introducing-gpt-6-1-sol/",
+  "imageWidth": 1600,
+  "imageHeight": 900
 }

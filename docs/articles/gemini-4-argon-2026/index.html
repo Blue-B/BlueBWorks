@@ -14,11 +14,13 @@
     <meta property="og:description" content="제미나이 4 아르곤(Gemini 4 Argon)의 100만 토큰은 이전 64K에서 늘어난 출력 한도다. 9월 30일 발표, 10월 13일 유료 API 공개, 11월 30일까지 도입가와 long decode 사용법을 정리했다.">
     <meta property="og:url" content="https://bluebworks.com/articles/gemini-4-argon-2026/">
     <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/gemini-4-argon-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/gemini-4-argon-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"제미나이 4 아르곤 100만 토큰 출력·가격·사용법 정리: 64K 한도에서 무엇이 달라졌나","description":"제미나이 4 아르곤(Gemini 4 Argon)의 100만 토큰은 이전 64K에서 늘어난 출력 한도다. 9월 30일 발표, 10월 13일 유료 API 공개, 11월 30일까지 도입가와 long decode 사용법을 정리했다.","url":"https://bluebworks.com/articles/gemini-4-argon-2026/","mainEntityOfPage":"https://bluebworks.com/articles/gemini-4-argon-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-29T09:38:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"모델","keywords":"Google, Gemini 4 Argon, 제미나이, Coding, Agent, Long decode","isAccessibleForFree":true}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"제미나이 4 아르곤 100만 토큰 출력·가격·사용법 정리: 64K 한도에서 무엇이 달라졌나","description":"제미나이 4 아르곤(Gemini 4 Argon)의 100만 토큰은 이전 64K에서 늘어난 출력 한도다. 9월 30일 발표, 10월 13일 유료 API 공개, 11월 30일까지 도입가와 long decode 사용법을 정리했다.","url":"https://bluebworks.com/articles/gemini-4-argon-2026/","mainEntityOfPage":"https://bluebworks.com/articles/gemini-4-argon-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-29T09:38:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"모델","keywords":"Google, Gemini 4 Argon, 제미나이, Coding, Agent, Long decode","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/gemini-4-argon-2026-thumb.png"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"제미나이 4 아르곤 100만 토큰 출력·가격·사용법 정리: 64K 한도에서 무엇이 달라졌나","item":"https://bluebworks.com/articles/gemini-4-argon-2026/"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"제미나이 4 아르곤의 100만 토큰은 컨텍스트 창인가요, 출력 한도인가요?","acceptedAnswer":{"@type":"Answer","text":"9월 30일 Google 발표의 100만 토큰은 출력 한도로, 이전 64K에서 늘어났습니다. Gemini API 문서는 입력과 출력을 합친 컨텍스트 창도 1,048,576 토큰이라고 적고 있어, 입력·사고·출력이 같은 창을 나눠 씁니다. 기본 출력은 65,536 토큰이고 long decode를 켜야 그 이상 출력합니다."}},{"@type":"Question","name":"제미나이 4 아르곤은 무료로 쓸 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. Gemini API 가격 페이지는 아르곤을 무료 등급에서 제공하지 않는다고 명시합니다. 10월 13일부터 Gemini API 유료 등급과 Google AI Ultra 구독자에게 제공됩니다."}},{"@type":"Question","name":"제미나이 4 아르곤 API 가격은 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"100만 토큰당 입력 2달러, 출력 10달러(사고 토큰 포함), 캐시 입력 0.10달러가 11월 30일까지의 도입가입니다. 12월 1일부터 입력 4달러, 출력 20달러, 캐시 입력 0.20달러로 오릅니다."}},{"@type":"Question","name":"제미나이 4 아르곤 출시일은 언제인가요?","acceptedAnswer":{"@type":"Answer","text":"Google은 2026년 9월 30일 발표하며 사이버 방어 조직부터 제한 제공했고, 개발자 대상 공개는 2026년 10월 13일입니다."}}]}</script>
   </head>
@@ -74,7 +76,10 @@
             <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
 
           </header>
-
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/gemini-4-argon-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 제미나이 4 아르곤 출력 한도와 가격"><img src="https://bluebworks.com/assets/editorial/gemini-4-argon-2026-thumb.png" alt="제미나이 4 아르곤 출력 한도와 가격" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>제미나이 4 아르곤, 출력 한도 64K에서 100만 토큰으로. 11월 30일까지 입력 2달러, 출력 10달러</span><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
           <details class="key-points" open>
       <summary>3줄 요약</summary>
       <ul>
