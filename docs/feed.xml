@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 30 Oct 2026 06:05:38 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 12:01:27 GMT</lastBuildDate>
+    <item>
+      <title>Cloudflare Agents SDK 내부 미리보기: 공개 URL 없이 AI가 개발 서버 확인하는 방법</title>
+      <link>https://bluebworks.com/articles/cloudflare-agents-browser-internal-hostnames-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/cloudflare-agents-browser-internal-hostnames-2026/</guid>
+      <pubDate>Fri, 30 Oct 2026 12:01:27 GMT</pubDate>
+      <category>개발도구</category>
+      <description>Cloudflare Agents SDK 0.31.0부터 Browser Run에서 preview.internal 같은 내부 주소로 개발 서버를 열 수 있다. 연결 구조와 설정 순서, WebSocket·HTTPS 제한, 보안·요금을 공식 문서로 확인했다.</description>
+    </item>
     <item>
       <title>엔비디아 모션브릭스 공개: 사람 동작 모델과 상업 이용 조건</title>
       <link>https://bluebworks.com/articles/nvidia-motionbricks-soma-2026/</link>

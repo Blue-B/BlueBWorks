@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>Cloudflare Agents SDK 내부 미리보기: 공개 URL 없이 AI가 개발 서버 확인하는 방법 | BlueBWorks</title>
+    <meta name="description" content="Cloudflare Agents SDK 0.31.0부터 Browser Run에서 preview.internal 같은 내부 주소로 개발 서버를 열 수 있다. 연결 구조와 설정 순서, WebSocket·HTTPS 제한, 보안·요금을 공식 문서로 확인했다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/cloudflare-agents-browser-internal-hostnames-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="Cloudflare Agents SDK 내부 미리보기: 공개 URL 없이 AI가 개발 서버 확인하는 방법 | BlueBWorks">
+    <meta property="og:description" content="Cloudflare Agents SDK 0.31.0부터 Browser Run에서 preview.internal 같은 내부 주소로 개발 서버를 열 수 있다. 연결 구조와 설정 순서, WebSocket·HTTPS 제한, 보안·요금을 공식 문서로 확인했다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/cloudflare-agents-browser-internal-hostnames-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/cloudflare-agents-browser-internal-hostnames-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/cloudflare-agents-browser-internal-hostnames-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare Agents SDK 내부 미리보기: 공개 URL 없이 AI가 개발 서버 확인하는 방법","description":"Cloudflare Agents SDK 0.31.0부터 Browser Run에서 preview.internal 같은 내부 주소로 개발 서버를 열 수 있다. 연결 구조와 설정 순서, WebSocket·HTTPS 제한, 보안·요금을 공식 문서로 확인했다.","url":"https://bluebworks.com/articles/cloudflare-agents-browser-internal-hostnames-2026/","mainEntityOfPage":"https://bluebworks.com/articles/cloudflare-agents-browser-internal-hostnames-2026/","datePublished":"2026-10-30T12:01:27.000Z","dateModified":"2026-10-30T12:01:27.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"Cloudflare, Agents SDK, Browser Run, AI 에이전트, 개발 서버, 내부 호스트, 브라우저 자동화","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/cloudflare-agents-browser-internal-hostnames-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Cloudflare Agents SDK 내부 미리보기: 공개 URL 없이 AI가 개발 서버 확인하는 방법","item":"https://bluebworks.com/articles/cloudflare-agents-browser-internal-hostnames-2026/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"내 PC의 localhost:5173을 바로 연결할 수 있나?","acceptedAnswer":{"@type":"Answer","text":"아니다. 내부 호스트는 Cloudflare의 Browser Run과 배포된 Worker를 통해 에이전트가 제공하는 응답에 연결한다. 로컬 PC 포트가 자동으로 공개되거나 연결되는 기능은 아니다."}},{"@type":"Question","name":"내부 호스트에 HTTPS나 WebSocket을 사용할 수 있나?","acceptedAnswer":{"@type":"Answer","text":"2026년 10월 29일 기준 공식 문서는 HTTP만 지원하고 HTTPS와 WebSocket은 지원하지 않는다고 안내한다."}},{"@type":"Question","name":"무료 플랜에서 사용할 수 있나?","acceptedAnswer":{"@type":"Answer","text":"Browser Run 공식 요금표에는 Workers Free의 하루 10분과 동시 브라우저 3개가 안내돼 있다. 다른 서비스의 이용 조건과 실제 계정 사용 가능 여부는 별도로 확인해야 한다."}}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>개발도구</span></p>
+        <h1 id="article-title">Cloudflare Agents SDK 내부 미리보기: 공개 URL 없이 AI가 개발 서버 확인하는 방법</h1>
+        <p class="cover-dek">Cloudflare Agents SDK 0.31.0부터 Browser Run에서 preview.internal 같은 내부 주소로 개발 서버를 열 수 있다. 연결 구조와 설정 순서, WebSocket·HTTPS 제한, 보안·요금을 공식 문서로 확인했다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 10월 30일</span><span>소식 발표 2026년 10월 28일</span><span>확인 2026년 10월 30일</span><span>Agents SDK 0.31.0+ · Browser Run 제공</span><span>8분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">AI가 만든 화면을 확인하려고 서버를 공개해야 했던 문제</a></li>
+          <li><a href="#sec-2">preview.internal 요청은 어떤 경로로 전달될까</a></li>
+          <li><a href="#sec-3">Agents SDK 0.31.0부터 설정하는 순서</a></li>
+          <li><a href="#sec-4">에이전트가 포트를 고르게 할 때 생기는 보안 경계</a></li>
+          <li><a href="#sec-5">웹소켓과 로컬 개발에는 아직 제약이 있다</a></li>
+          <li><a href="#sec-6">요금은 내부 호스트가 아니라 브라우저 사용량부터 확인</a></li>
+          <li><a href="#sec-7">어떤 팀에 맞고 언제 기존 터널을 유지할까</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="Cloudflare Agents SDK 내부 미리보기: 공개 URL 없이 AI가 개발 서버 확인하는 방법">
+            <meta itemprop="description" content="Cloudflare Agents SDK 0.31.0부터 Browser Run에서 preview.internal 같은 내부 주소로 개발 서버를 열 수 있다. 연결 구조와 설정 순서, WebSocket·HTTPS 제한, 보안·요금을 공식 문서로 확인했다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/cloudflare-agents-browser-internal-hostnames-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: Cloudflare Agents SDK 내부 호스트 미리보기 기능과 개발 서버 연결 경로를 설명한 자체 제작 대표 이미지"><img src="https://bluebworks.com/assets/editorial/cloudflare-agents-browser-internal-hostnames-2026-thumb.png" alt="Cloudflare Agents SDK 내부 호스트 미리보기 기능과 개발 서버 연결 경로를 설명한 자체 제작 대표 이미지" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>Cloudflare Agents SDK 0.31.0+: 공개 주소 없이 내부 브라우저에서 개발 서버를 확인하는 경로</span><a href="https://developers.cloudflare.com/changelog/post/2026-10-28-browser-internal-hostnames/" target="_blank" rel="noopener noreferrer">BlueBWorks 자체 제작 · 원문</a></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
+      <ul>
+        <li>출시일: 2026년 10월 28일 발표, Agents SDK 0.31.0 이상에서 내부 호스트 지원.</li>
+        <li>설정: preview.internal을 Durable Object의 fetch 함수에 연결해 공개 인터넷 없이 개발 서버 미리보기.</li>
+        <li>제한: 배포된 Worker 필요, HTTP 전용, WebSocket·HTTPS 미지원, Browser Run 사용량에 따른 요금 확인.</li>
+      </ul>
+    </details>
+          <details class="editor-note">
+      <summary>덧붙임</summary>
+      <p>공개 터널을 무조건 대체하는 기능이 아니다. Cloudflare Agents에서 AI가 HTTP 화면을 검수할 때 공개 URL 관리 부담을 줄이는 선택지이며, 외부 사람과 공유하거나 HTTPS·WebSocket이 필요한 테스트에는 맞지 않는다.</p>
+    </details>
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>AI가 만든 화면을 확인하려고 서버를 공개해야 했던 문제</h2>
+        <p>AI 코딩 에이전트가 React 화면을 수정한 뒤 브라우저로 확인하려면 의외로 번거로운 연결 작업이 필요하다. 개발 서버는 컨테이너의 5173번 포트에서 실행 중인데, 브라우저는 별도의 클라우드 환경에 있어서 그 주소로 바로 접속할 수 없기 때문이다. 이전에는 외부 공개 URL이나 터널을 만들어 브라우저가 접속하도록 연결하는 방식을 생각하기 쉬웠다.</p>
+        <p>하지만 임시 미리보기 주소가 인터넷에 노출되면 테스트용 관리자 화면, 아직 검토하지 않은 API, 개발 중인 데이터가 함께 접근 가능한 상태가 될 수 있다. 인증과 접근 제어를 제대로 구성했다면 터널 자체가 곧 취약점이라는 뜻은 아니다. 다만 화면 하나 확인하려고 공개 주소와 권한 정책을 따로 관리해야 하는 부담은 분명히 생긴다.</p>
+        <p>Cloudflare는 2026년 10월 28일 Agents SDK의 브라우저에 내부 호스트 이름을 연결하는 기능을 발표했다. 에이전트가 사용하는 Browser Run 브라우저에서 preview.internal 같은 이름을 열면, 요청이 공개 인터넷으로 나가지 않고 에이전트가 제공한 개발 서버로 전달된다. 핵심은 브라우저 테스트를 없애는 것이 아니라 테스트할 주소를 공개하지 않아도 된다는 점이다.</p>
+        <div class="section-links"><a href="https://developers.cloudflare.com/changelog/post/2026-10-28-browser-internal-hostnames/" target="_blank" rel="noopener noreferrer">Cloudflare 발표 원문 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>preview.internal 요청은 어떤 경로로 전달될까</h2>
+        <p>일반 웹사이트를 열면 브라우저는 공개 DNS와 인터넷을 거쳐 서버에 요청한다. 내부 호스트는 이 경로를 쓰지 않는다. Browser Run이 내부 호스트 요청을 Cloudflare Worker 쪽으로 돌려보내고, 해당 Worker의 Durable Object에서 등록한 fetch 함수가 실제 응답을 만든다. Durable Object는 에이전트의 상태와 브라우저 연결을 유지하는 실행 단위다.</p>
+        <p>예를 들어 에이전트가 샌드박스에서 Vite 개발 서버를 실행했다고 가정해 보자. 브라우저가 http://preview.internal/을 요청하면 등록된 fetch 함수가 샌드박스의 포트 5173으로 요청을 넘긴다. 반환된 HTML과 자산을 브라우저가 렌더링하므로 에이전트는 실제 화면의 레이아웃과 오류를 확인할 수 있다. 포트 연결 함수는 애플리케이션에서 별도로 구현해야 한다.</p>
+        <p>연결 대상은 개발 서버만이 아니다. 작업 공간의 정적 파일 폴더를 읽게 하거나 R2 버킷의 파일을 제공할 수 있고, 서비스 바인딩으로 다른 Worker를 연결할 수도 있다. 따라서 단순히 localhost를 다른 이름으로 바꾸는 기능보다 범위가 넓다. 공개 URL과 내부 호스트를 한 브라우저에서 함께 다룰 수 있지만, 보안상 외부 사이트 접근을 허용할지는 따로 결정해야 한다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/cloudflare-agents-browser-internal-hostnames-2026-flow.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Browser Run의 내부 호스트 요청이 공개 인터넷 대신 Durable Object를 거쳐 개발 서버로 전달되는 구조를 보여주는 자체 도식">
+        <img src="https://bluebworks.com/assets/editorial/cloudflare-agents-browser-internal-hostnames-2026-flow.svg" alt="Browser Run의 내부 호스트 요청이 공개 인터넷 대신 Durable Object를 거쳐 개발 서버로 전달되는 구조를 보여주는 자체 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>Cloudflare 공식 동작 설명을 토대로 재구성한 요청 경로. 외부 공개 터널 없이 내부 브라우저가 샌드박스의 개발 서버에 접근한다.</span><a href="https://developers.cloudflare.com/agents/tools/browser/" target="_blank" rel="noopener noreferrer">BlueBWorks 자체 제작 기술 도식 · 원문</a></figcaption>
+    </figure><div class="section-links"><a href="https://developers.cloudflare.com/agents/tools/browser/" target="_blank" rel="noopener noreferrer">Browser 내부 호스트 공식 문서 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>Agents SDK 0.31.0부터 설정하는 순서</h2>
+        <p>먼저 기존 Cloudflare Agents 프로젝트에 agents 패키지 0.31.0 이상이 설치돼 있는지 확인한다. 이 버전의 공식 릴리스에는 내부 호스트 지원이 명시돼 있다. 기능은 일반적인 로컬 Chrome의 DNS 설정이 아니라 Cloudflare Browser Run과 Agents SDK를 함께 쓰는 구성에서 제공된다. 다른 브라우저 자동화 서비스에 같은 주소만 넣는다고 동작하지 않는다.</p>
+        <p>브라우저를 만드는 부분에서 browserRun()의 internalHosts 설정에 preview.internal을 등록한다. 등록 항목에는 설명, 선택적으로 대상 포트의 스키마, 실제 요청을 처리할 fetch 함수를 지정한다. 공식 예제는 Zod 스키마로 포트가 1024 이상인 정수인지 확인하고, fetchSandboxPort()라는 애플리케이션 함수를 통해 해당 포트로 연결한다. 이 함수는 SDK가 자동으로 제공하는 마법의 함수가 아니라 예제 프로젝트에서 구현해야 할 연결 코드다.</p>
+        <p>Durable Object에서는 InternalHostRouter를 내보내고, browserRun에 router를 전달한 다음 fetchInternalHost()를 Browser 객체에 연결한다. Agent 클래스를 사용하면 해당 메서드는 기본 제공되지만, 일반 DurableObject를 직접 구현한다면 공식 예제처럼 명시해야 한다. 기존에 Pi Durable, AI SDK, TanStack AI를 쓰는 에이전트는 제공되는 브라우저 도구 어댑터를 이용할 수 있고 다른 실행 환경은 browser.session()으로 연결할 수 있다.</p>
+        <p>마지막으로 샌드박스 안에서 실제 개발 서버가 실행 중인지 확인하고 브라우저 도구에 미리보기 요청을 맡긴다. 이 글의 구성 예시는 공식 문서를 읽고 설명한 것이며 Cloudflare 계정에 배포하거나 Browser Run을 직접 호출해 성공을 측정한 결과는 아니다. 환경마다 샌드박스 포트 전달 함수와 Durable Object 바인딩을 구현해야 한다는 점을 남겨 둬야 한다.</p>
+        <figure class="code-example"><figcaption>javascript · 공식 문서의 핵심 필드만 보여 주는 축약 예시. 그대로 붙여 넣어 실행되는 완성 프로젝트는 아니다.</figcaption><pre tabindex="0"><code>// Cloudflare Agents SDK 0.31.0+의 핵심 구성 형태를 축약한 문서 기반 예시
+// 실제 실행에는 Browser binding, Durable Object, 포트 연결 함수가 필요함
+const browser = new Browser({
+  provider: browserRun(env.BROWSER, {
+    guardrails: { allowedDomains: [] },
+    internalHosts: {
+      router: ctx.exports.InternalHostRouter,
+      hosts: {
+        &quot;preview.internal&quot;: {
+          description: &quot;Development preview&quot;,
+          target: z.object({ port: z.number().int().min(1024) }),
+          fetch: (request, { port }) =&gt; fetchSandboxPort(port, request),
+        },
+      },
+    },
+  }),
+});</code></pre></figure><div class="section-links"><a href="https://github.com/cloudflare/agents/releases/tag/agents%400.31.0" target="_blank" rel="noopener noreferrer">Agents SDK v0.31.0 릴리스 <span aria-hidden="true">↗</span></a><a href="https://developers.cloudflare.com/agents/tools/browser/" target="_blank" rel="noopener noreferrer">설정 전체 예제와 Durable Object 연결 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>에이전트가 포트를 고르게 할 때 생기는 보안 경계</h2>
+        <p>고정된 사이트 하나만 보여 준다면 내부 호스트에 fetch 함수를 직접 지정하면 된다. 여러 프로젝트를 오가는 에이전트라면 target 스키마를 붙여 모델이 연결할 대상을 선택하게 할 수 있다. 예를 들어 모델이 browser.assignHost()를 호출해 preview.internal의 대상 포트를 5173으로 지정하면 이후 같은 호스트로 들어온 요청에 그 포트가 전달된다. 할당은 명시적으로 지우기 전까지 유지되며 브라우저 교체나 재배포 뒤에도 남을 수 있다.</p>
+        <p>여기서 중요한 점은 모델이 선택할 수 있는 값의 범위다. 대상 포트를 무제한으로 받거나 임의 파일 경로를 그대로 열어 주면 내부 호스트가 의도하지 않은 서비스나 파일에 접근하는 통로가 될 수 있다. 공식 문서는 Zod 등의 스키마로 포트 범위, 폴더 경로와 허용 값을 제한하라고 안내한다. 정적 폴더를 연결할 때는 작업 공간 내부 경로인지 확인하고 상위 디렉터리 이동 문자열을 거부하는 예시도 제공한다.</p>
+        <p>브라우저의 allowedDomains 제한은 내부 호스트에는 적용되지 않는다. 외부 사이트를 동시에 열 수 있도록 허용하면, HTTP로 열린 외부 페이지가 내부 호스트에 요청을 보낼 수 있는 경우도 고려해야 한다. 내부 서비스에 상태를 변경하는 API가 있다면 Origin을 검사하고, 가능하면 외부 접근을 차단하는 allowedDomains: []를 사용한다. 내부 주소라는 사실만으로 인증과 권한 검사를 생략해서는 안 된다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/cloudflare-agents-browser-internal-hostnames-2026-security.svg" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 내부 호스트를 사용할 때 포트 스키마 제한, 외부 사이트 차단, Origin 검사, 읽기 전용 테스트를 구분한 자체 점검 도식">
+        <img src="https://bluebworks.com/assets/editorial/cloudflare-agents-browser-internal-hostnames-2026-security.svg" alt="내부 호스트를 사용할 때 포트 스키마 제한, 외부 사이트 차단, Origin 검사, 읽기 전용 테스트를 구분한 자체 점검 도식" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>미리보기 주소가 공개되지 않는 것과 내부 서비스가 안전한 것은 별개다. 연결 대상과 요청 권한을 함께 제한해야 한다.</span><a href="https://developers.cloudflare.com/agents/tools/browser/" target="_blank" rel="noopener noreferrer">BlueBWorks 자체 제작 보안 점검 도식 · 원문</a></figcaption>
+    </figure><div class="section-links"><a href="https://developers.cloudflare.com/agents/tools/browser/" target="_blank" rel="noopener noreferrer">내부 호스트 보안·제한 안내 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>웹소켓과 로컬 개발에는 아직 제약이 있다</h2>
+        <p>내부 호스트 이름은 소문자로 된 .internal, .test, .example, .invalid 같은 예약 접미사만 사용할 수 있다. 등록할 때는 preview.internal처럼 호스트 이름만 쓰며 주소 뒤에 :5173을 붙이지 않는다. 브라우저는 HTTP 80번 포트로 접속하고, 내부 라우팅 설정이 실제 샌드박스 포트를 결정한다. 브라우저당 등록 가능한 내부 호스트는 최대 여덟 개다.</p>
+        <p>현재 내부 호스트는 HTTPS와 WebSocket을 지원하지 않는다. Vite나 다른 프런트엔드 개발 서버가 WebSocket으로 화면을 자동 갱신하는 기능은 이 경로에서 연결되지 않을 수 있다. 따라서 코드 변경 뒤 자동 새로고침만 기다리는 대신 브라우저를 명시적으로 다시 탐색하게 하는 테스트 흐름이 적합하다. 인증 쿠키나 HTTPS 전용 동작을 검증해야 한다면 별도 환경이 필요하다.</p>
+        <p>또한 이 기능은 Worker가 실제로 배포돼 있어야 동작한다. 로컬 개발에서 브라우저를 시작하면 내부 호스트가 빠지고 경고가 남는다고 공식 문서는 설명한다. 개발 서버는 샌드박스에 있을 수 있지만 요청을 중계하는 Worker는 배포된 상태여야 한다는 뜻이다. 브라우저를 완전히 교체하는 호스트 구성 변경이나 대상 Worker 변경 때에는 세션을 닫고 다시 여는 처리가 필요할 수 있다.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="웹소켓과 로컬 개발에는 아직 제약이 있다"><table><thead><tr><th scope="col">항목</th><th scope="col">현재 조건</th><th scope="col">실무 영향</th></tr></thead><tbody><tr><th scope="row">SDK</th><td>agents 0.31.0 이상</td><td>기존 패키지 버전 확인</td></tr><tr><th scope="row">호스트 수</th><td>브라우저당 최대 8개</td><td>여러 프로젝트는 대상 재할당 고려</td></tr><tr><th scope="row">프로토콜</th><td>HTTP만 지원</td><td>HTTPS·WebSocket 테스트는 별도 구성</td></tr><tr><th scope="row">실행 위치</th><td>배포된 Worker 필요</td><td>로컬 전용 테스트와 구분</td></tr><tr><th scope="row">외부 접근</th><td>가드레일 별도 설정</td><td>내부 호스트도 권한 검사 필요</td></tr></tbody></table></div><p class="table-caption">2026년 10월 29일 갱신된 Cloudflare 공식 Browser 문서 기준. 향후 SDK 변경에 따라 달라질 수 있다.</p><div class="section-links"><a href="https://developers.cloudflare.com/agents/tools/browser/" target="_blank" rel="noopener noreferrer">공식 제한 목록 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>요금은 내부 호스트가 아니라 브라우저 사용량부터 확인</h2>
+        <p>내부 호스트 기능이 생겼다고 Browser Run의 사용료가 사라지는 것은 아니다. Cloudflare의 공개 요금표는 Workers Free에서 하루 10분의 브라우저 시간과 동시 브라우저 세 개를 제공한다고 안내한다. Workers Paid에서는 월 10시간과 평균 동시 브라우저 열 개가 포함되고, 초과 브라우저 시간은 시간당 0.09달러, 추가 동시 브라우저는 개당 월 2달러 기준이다. 요금은 브라우저 사용 방식과 플랜에 따라 달라진다.</p>
+        <p>이 수치는 Browser Run의 일반 요금표이며 내부 호스트에만 붙는 별도 가격이라는 뜻은 아니다. 에이전트가 호출하는 모델의 추론 비용, Durable Object 실행, 샌드박스나 컨테이너 비용까지 무료로 포함된다는 근거도 없다. 전체 시스템 비용을 계산할 때는 브라우저 사용량과 그 밖의 Cloudflare 서비스 사용량을 나눠 보는 편이 정확하다.</p>
+        <p>예를 들어 하루에 브라우저를 몇 차례만 열어 화면을 확인하는 개인 프로젝트라면 포함 사용량 안에서 시험해 볼 여지가 있다. 반대로 에이전트가 여러 브랜치의 화면을 장시간 열어 두고 반복 테스트하면 브라우저 시간과 동시 세션 수가 빠르게 늘어난다. 실제 청구 전에는 계정의 Workers 플랜과 Browser Run 사용량 화면을 확인해야 하며, 이 글에서 임의의 월 예상 비용을 보장하지 않는다.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="요금은 내부 호스트가 아니라 브라우저 사용량부터 확인"><table><thead><tr><th scope="col">항목</th><th scope="col">Workers Free</th><th scope="col">Workers Paid</th></tr></thead><tbody><tr><th scope="row">포함 브라우저 시간</th><td>하루 10분</td><td>월 10시간</td></tr><tr><th scope="row">동시 브라우저</th><td>3개</td><td>월평균 10개</td></tr><tr><th scope="row">초과 시간 요금</th><td>추가 이용 불가</td><td>시간당 $0.09</td></tr><tr><th scope="row">초과 동시 이용</th><td>추가 이용 불가</td><td>브라우저당 월 $2.00</td></tr></tbody></table></div><p class="table-caption">Cloudflare Browser Run 공식 가격표. 브라우저 세션 방식과 다른 서비스 비용은 별도로 확인해야 한다.</p><div class="section-links"><a href="https://developers.cloudflare.com/browser-run/pricing/" target="_blank" rel="noopener noreferrer">Browser Run 공식 요금표 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-2">[2]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-7">
+        <h2>어떤 팀에 맞고 언제 기존 터널을 유지할까</h2>
+        <p>이 기능이 특히 유용한 곳은 에이전트가 코드를 고친 직후 브라우저로 결과를 확인하는 반복 작업이다. 같은 Cloudflare Agents 환경 안에서 개발 서버와 브라우저를 관리한다면 공개 URL을 발급하고 폐기하는 과정을 줄일 수 있다. 여러 프런트엔드 미리보기와 내부 API를 에이전트가 선택적으로 살펴보는 경우에도 내부 호스트가 편리하다.</p>
+        <p>반면 사람에게 링크를 공유해 직접 검수받는 상황이라면 내부 호스트가 공개 미리보기 URL을 대신하지 못한다. 이 이름은 해당 Browser Run 브라우저에서만 접근하도록 설계됐기 때문이다. 외부 테스터가 로그인해 동작을 확인하거나, HTTPS·WebSocket이 반드시 필요한 경우에도 기존 프리뷰 배포나 접근 제어된 터널을 계속 사용하는 편이 낫다.</p>
+        <p>도입을 판단할 때는 네 가지를 확인하면 된다. 에이전트가 이미 Cloudflare Agents SDK와 Browser Run을 쓰는지, 개발 서버 응답을 Worker의 fetch 함수로 안전하게 연결할 수 있는지, 테스트가 HTTP 화면 확인으로 충분한지, 브라우저와 샌드박스 비용을 감당할 수 있는지다. 해당 조건이 맞으면 0.31.0 이상에서 작은 미리보기 하나부터 검증하고, 그렇지 않다면 기존 도구를 굳이 바꿀 이유는 없다.</p>
+        <div class="faq-list"><div class="faq-item"><h3>내 PC의 localhost:5173을 바로 연결할 수 있나?</h3><p>아니다. 내부 호스트는 Cloudflare의 Browser Run과 배포된 Worker를 통해 에이전트가 제공하는 응답에 연결한다. 로컬 PC 포트가 자동으로 공개되거나 연결되는 기능은 아니다.</p></div><div class="faq-item"><h3>내부 호스트에 HTTPS나 WebSocket을 사용할 수 있나?</h3><p>2026년 10월 29일 기준 공식 문서는 HTTP만 지원하고 HTTPS와 WebSocket은 지원하지 않는다고 안내한다.</p></div><div class="faq-item"><h3>무료 플랜에서 사용할 수 있나?</h3><p>Browser Run 공식 요금표에는 Workers Free의 하루 10분과 동시 브라우저 3개가 안내돼 있다. 다른 서비스의 이용 조건과 실제 계정 사용 가능 여부는 별도로 확인해야 한다.</p></div></div><div class="section-links"><a href="https://developers.cloudflare.com/changelog/post/2026-10-28-browser-internal-hostnames/" target="_blank" rel="noopener noreferrer">Cloudflare 기능 발표 <span aria-hidden="true">↗</span></a><a href="https://developers.cloudflare.com/agents/tools/browser/" target="_blank" rel="noopener noreferrer">전체 Browser 문서 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-4">[4]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://developers.cloudflare.com/changelog/post/2026-10-28-browser-internal-hostnames/" target="_blank" rel="noopener noreferrer">
+            <strong>Cloudflare Changelog — Agents SDK internal hostnames (2026-10-28)</strong>
+            <span>developers.cloudflare.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://developers.cloudflare.com/agents/tools/browser/" target="_blank" rel="noopener noreferrer">
+            <strong>Cloudflare Agents — Browser documentation (updated 2026-10-29)</strong>
+            <span>developers.cloudflare.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://github.com/cloudflare/agents/releases/tag/agents%400.31.0" target="_blank" rel="noopener noreferrer">
+            <strong>cloudflare/agents release — agents@0.31.0 (2026-10-27)</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://developers.cloudflare.com/browser-run/pricing/" target="_blank" rel="noopener noreferrer">
+            <strong>Cloudflare Browser Run pricing</strong>
+            <span>developers.cloudflare.com</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/cloudflare-traces-request-path-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다</strong>
+            <span>게시 2026년 10월 5일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/cloudflare-protected-quick-tunnels-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>로컬 앱 공유 링크에 이메일 잠금이 생겼다: Protected Quick Tunnels</strong>
+            <span>게시 2026년 10월 4일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/cloudflare-k2-serverless-event-streams-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>Cloudflare K2 사용법·요금·한도 정리: 분석 서버가 멈춰도 이벤트를 이어 받는 방법</strong>
+            <span>게시 2026년 10월 2일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://developers.cloudflare.com/agents/tools/browser/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">기술 문서</span>
+        <strong>내부 호스트 공식 설정 예제</strong>
+        <span class="rail-desc">Durable Object 연결과 target 스키마, assignHost 사용 예시</span>
+        <span class="rail-host">developers.cloudflare.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://developers.cloudflare.com/changelog/post/2026-10-28-browser-internal-hostnames/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 발표</span>
+        <strong>Cloudflare 발표 원문</strong>
+        <span class="rail-desc">기능 발표와 실제 에이전트 브라우저 구성 설명</span>
+        <span class="rail-host">developers.cloudflare.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/cloudflare/agents/releases/tag/agents%400.31.0" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">릴리스</span>
+        <strong>Agents SDK 0.31.0 릴리스</strong>
+        <span class="rail-desc">내부 호스트 지원이 추가된 버전 확인</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://developers.cloudflare.com/browser-run/pricing/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">요금</span>
+        <strong>Browser Run 요금표</strong>
+        <span class="rail-desc">플랜별 포함 시간과 초과 비용 계산</span>
+        <span class="rail-host">developers.cloudflare.com</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/cloudflare-agents-browser-internal-hostnames-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/editorial.html">편집 원칙</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+
+  </body>
+</html>
