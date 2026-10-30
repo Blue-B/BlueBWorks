@@ -42,6 +42,7 @@
         </div>
         <div class="filters" role="group" aria-label="카테고리 필터">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
+          <button class="filter" type="button" data-filter="보안" aria-pressed="false">보안</button>
           <button class="filter" type="button" data-filter="개발 도구" aria-pressed="false">개발 도구</button>
           <button class="filter" type="button" data-filter="개발도구" aria-pressed="false">개발도구</button>
           <button class="filter" type="button" data-filter="모델" aria-pressed="false">모델</button>
@@ -52,9 +53,21 @@
           <button class="filter" type="button" data-filter="오픈소스" aria-pressed="false">오픈소스</button>
           <button class="filter" type="button" data-filter="에이전트" aria-pressed="false">에이전트</button>
         </div>
-        <p class="list-status" data-list-status aria-live="polite">글 26편</p>
+        <p class="list-status" data-list-status aria-live="polite">글 27편</p>
       </section>
       <ol class="archive-list" data-post-list>
+        <li class="archive-entry text-only" data-post-card data-category="보안" data-search="cloudflare glm-5.3 데이터 노출 사고: kv 캐시 오류와 sglang 보안 점검법 cloudflare workers ai의 glm-5.3에서 다른 사용자의 입력이 답변에 섞인 원인을 공식 사고 보고서와 sglang 수정 내역으로 분석했다. 영향 범위, 수정 버전, 자체 추론 서버 점검 항목을 정리한다. 보안 사고 수정 완료 · sglang v0.5.22 이상 권장 2026년 10월 26일 공개된 사고 보고서를 기준으로 작성했다. 실제 노출 기간은 8월 27일~9월 9일이며, 현재 진행 중인 장애처럼 다루지 않았다. 수치와 고객 영향은 cloudflare의 자체 조사 결과이고, 자체 재현이나 침투 시험은 하지 않았다. cloudflare glm-5.3 sglang kv cache llm 보안 workers ai 추론 서버 사고: 2026년 8월 27일~9월 9일 workers ai의 glm-5.3에서 긴 입력 155개 응답에 다른 고객 데이터가 섞였다. 원인: 104만 토큰 설정과 68만 토큰 kv 풀의 불일치에 sglang 분산 처리의 거부 경로 오류가 겹쳤다. 조치: cloudflare는 9월 9일 복구했고, 직접 sglang을 운영한다면 v0.5.22 이상과 kv 풀·중단 처리 검증을 권장한다.">
+        <a href="/articles/cloudflare-glm-53-sglang-kv-cache-leak-2026/">
+
+          <div class="archive-copy">
+            <span class="archive-cat">보안</span>
+            <strong>Cloudflare GLM-5.3 데이터 노출 사고: KV 캐시 오류와 SGLang 보안 점검법</strong>
+            <span class="archive-summary">Cloudflare Workers AI의 GLM-5.3에서 다른 사용자의 입력이 답변에 섞인 원인을 공식 사고 보고서와 SGLang 수정 내역으로 분석했다. 영향 범위, 수정 버전, 자체 추론 서버 점검 항목을 정리한다.</span>
+            <span class="archive-date">게시 2026년 10월 30일</span>
+
+          </div>
+        </a>
+      </li>
         <li class="archive-entry has-thumb" data-post-card data-category="개발 도구" data-search="챗지피티 프로, 비즈니스 api 무료 크레딧 받는 법: 최대 500달러 조건과 실제 화면 chatgpt pro와 business 구독자가 받을 수 있는 api 크레딧의 플랜별 금액과 7일 조건, 신청 경로를 공식 문서로 다시 확인하고, 챗지피티 결제 설정과 api 플랫폼 billing 화면에 직접 들어가 본 결과를 정리했다. 개발 도구 available to eligible subscribers plus 계정으로 챗지피티 결제 설정과 api 플랫폼의 billing, credit grants, usage 화면을 직접 열어 캡처했다. 개인정보와 금액은 가렸고 신청, 결제, 키 발급 버튼은 누르지 않았다. 혜택을 실제로 받아 본 후기는 아니다. openai chatgpt pro chatgpt business api 크레딧 요금 대상: 유료 구독을 7일 넘게 이어 온 pro와 적격 business만 신청할 수 있다. plus와 무료 체험은 대상이 아니다. 금액: pro는 등급에 따라 월 100, 200, 500달러이고 business는 좌석별로 합산해 워크스페이스당 월 최대 500달러다. 사용법: 구독을 본인 소유 api 조직에 연결한 뒤 credit grants에서 발급액과 만료일을 확인한다. codex api 키 사용에는 쓸 수 없다.">
         <a href="/articles/chatgpt-pro-business-api-credits-2026/">
           <span class="archive-thumb"><img src="https://bluebworks.com/assets/editorial/chatgpt-pro-business-api-credits-2026-thumb.png" alt="챗지피티 API 크레딧, 최대 월 500달러와 플랜별 조건을 안내하는 한글 썸네일" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
