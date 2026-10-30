@@ -5,7 +5,7 @@
   "tagline": "개발 도구 · 오픈소스 · AI",
   "description": "AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.",
   "language": "ko-KR",
-  "byline": "BlueBWorks (AI 보조)",
+  "byline": "BlueBWorks",
   "repoUrl": "https://github.com/Blue-B/BlueBWorks",
   "issuesUrl": "https://github.com/Blue-B/BlueBWorks/issues",
   "rssTitle": "BlueBWorks",

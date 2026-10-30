@@ -20,7 +20,7 @@
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Ai2 Olmo-core 3 정리: 오픈소스 MoE 학습 스택이 처리량을 2.7배 높인 방법","description":"Ai2 Olmo-core 3는 전문가를 GPU에 상주시키고 데이터를 보내는 DDP 기반 MoE 학습 스택이다. 2.7배 처리량, 조 단위 파라미터 시험, MXFP8, 설치 방법과 수치의 측정 조건을 정리했다.","url":"https://bluebworks.com/articles/olmo-core-3-moe-training-2026/","mainEntityOfPage":"https://bluebworks.com/articles/olmo-core-3-moe-training-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-29T09:58:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"Ai2, Olmo-core 3, MoE, Open Source, Distributed Training","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/olmo-core-3-moe-training-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Ai2 Olmo-core 3 정리: 오픈소스 MoE 학습 스택이 처리량을 2.7배 높인 방법","description":"Ai2 Olmo-core 3는 전문가를 GPU에 상주시키고 데이터를 보내는 DDP 기반 MoE 학습 스택이다. 2.7배 처리량, 조 단위 파라미터 시험, MXFP8, 설치 방법과 수치의 측정 조건을 정리했다.","url":"https://bluebworks.com/articles/olmo-core-3-moe-training-2026/","mainEntityOfPage":"https://bluebworks.com/articles/olmo-core-3-moe-training-2026/","datePublished":"2026-10-01T18:00:09.000Z","dateModified":"2026-10-29T09:58:00.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"Ai2, Olmo-core 3, MoE, Open Source, Distributed Training","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/olmo-core-3-moe-training-2026-thumb.png"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Ai2 Olmo-core 3 정리: 오픈소스 MoE 학습 스택이 처리량을 2.7배 높인 방법","item":"https://bluebworks.com/articles/olmo-core-3-moe-training-2026/"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Olmo-core 3는 모델인가요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. Olmo 언어모델을 개발하고 학습하는 프레임워크이고, 이번 판에서 대형 MoE 학습 시스템을 새로 설계했습니다. Ai2의 차세대 Olmo가 이 스택으로 학습될 예정입니다."}},{"@type":"Question","name":"2.7배 빨라졌다는 수치는 어디서 나왔나요?","acceptedAnswer":{"@type":"Answer","text":"NVIDIA B300 GPU 8장에서 470억 파라미터 MoE를 학습한 Ai2의 예비 시험에서 GPU당 초당 19,400토큰이 52,000토큰으로 늘었습니다. 이전 Olmo-core 구현과의 비교이며 다른 하드웨어에서는 다를 수 있습니다."}},{"@type":"Question","name":"정말 1조 파라미터 모델을 학습했나요?","acceptedAnswer":{"@type":"Answer","text":"1.2조 파라미터 구성을 GPU 512장에서 시험했지만 무작위 라우팅으로 시스템 성능만 잰 것이고, 학습된 모델의 품질을 잰 것은 아닙니다. 2.38조 구성은 짧은 용량 시험이었습니다."}},{"@type":"Question","name":"어떻게 설치하나요?","acceptedAnswer":{"@type":"Answer","text":"PyTorch를 먼저 설치한 뒤 pip install ai2-olmo-core로 설치하거나, 저장소를 받아 pip install -e .[all]로 개발용 설치를 합니다. 기능에 따라 선택 의존성이 추가로 필요합니다."}}]}</script>
   </head>
@@ -72,7 +72,7 @@
           <header class="article-head">
             <meta itemprop="headline" content="Ai2 Olmo-core 3 정리: 오픈소스 MoE 학습 스택이 처리량을 2.7배 높인 방법">
             <meta itemprop="description" content="Ai2 Olmo-core 3는 전문가를 GPU에 상주시키고 데이터를 보내는 DDP 기반 MoE 학습 스택이다. 2.7배 처리량, 조 단위 파라미터 시험, MXFP8, 설치 방법과 수치의 측정 조건을 정리했다.">
-            <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
 
           </header>
           <figure class="source-media">
@@ -278,7 +278,7 @@ pip install -e .[all]</code></pre></figure><div class="section-links"><a href="h
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
-    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
   <script src="/assets/app.js?v=edition6" defer></script>
   <script src="/assets/journal.js?v=edition6" defer></script>

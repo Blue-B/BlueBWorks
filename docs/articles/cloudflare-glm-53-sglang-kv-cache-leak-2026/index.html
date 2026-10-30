@@ -20,7 +20,7 @@
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
     <link rel="stylesheet" href="/assets/journal.css?v=edition6">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare GLM-5.3 데이터 노출 사고: KV 캐시 오류와 SGLang 보안 점검법","description":"Cloudflare Workers AI의 GLM-5.3에서 다른 사용자의 입력이 답변에 섞인 원인을 공식 사고 보고서와 SGLang 수정 내역으로 분석했다. 영향 범위, 수정 버전, 자체 추론 서버 점검 항목을 정리한다.","url":"https://bluebworks.com/articles/cloudflare-glm-53-sglang-kv-cache-leak-2026/","mainEntityOfPage":"https://bluebworks.com/articles/cloudflare-glm-53-sglang-kv-cache-leak-2026/","datePublished":"2026-10-30T00:10:00.000Z","dateModified":"2026-10-30T00:10:00.000Z","author":{"@type":"Organization","name":"BlueBWorks (AI 보조)"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"보안","keywords":"Cloudflare, GLM-5.3, SGLang, KV cache, LLM 보안, Workers AI, 추론 서버","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/cloudflare-glm-53-sglang-kv-cache-leak-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cloudflare GLM-5.3 데이터 노출 사고: KV 캐시 오류와 SGLang 보안 점검법","description":"Cloudflare Workers AI의 GLM-5.3에서 다른 사용자의 입력이 답변에 섞인 원인을 공식 사고 보고서와 SGLang 수정 내역으로 분석했다. 영향 범위, 수정 버전, 자체 추론 서버 점검 항목을 정리한다.","url":"https://bluebworks.com/articles/cloudflare-glm-53-sglang-kv-cache-leak-2026/","mainEntityOfPage":"https://bluebworks.com/articles/cloudflare-glm-53-sglang-kv-cache-leak-2026/","datePublished":"2026-10-30T00:10:00.000Z","dateModified":"2026-10-30T00:10:00.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"보안","keywords":"Cloudflare, GLM-5.3, SGLang, KV cache, LLM 보안, Workers AI, 추론 서버","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/cloudflare-glm-53-sglang-kv-cache-leak-2026-thumb.png"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Cloudflare GLM-5.3 데이터 노출 사고: KV 캐시 오류와 SGLang 보안 점검법","item":"https://bluebworks.com/articles/cloudflare-glm-53-sglang-kv-cache-leak-2026/"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"GLM-5.3 모델은 지금도 위험한가?","acceptedAnswer":{"@type":"Answer","text":"Cloudflare는 2026년 9월 9일 설정과 엔진을 수정해 모델을 다시 공개했다고 밝혔다. 10월 26일 문서는 과거 사고의 공개 보고서이며, 현재 동일 문제가 계속 발생한다는 근거는 없다."}},{"@type":"Question","name":"SGLang은 어떤 버전으로 올려야 하나?","acceptedAnswer":{"@type":"Answer","text":"Cloudflare는 v0.5.22 이상을 권장한다. 해당 릴리스는 2026년 10월 19일 공개됐고 Python 3.11 이상을 요구한다. 실제 적용 전에는 사용하는 모델과 전송 백엔드의 호환성을 확인해야 한다."}},{"@type":"Question","name":"다른 Workers AI 모델도 고객 데이터가 섞였나?","acceptedAnswer":{"@type":"Answer","text":"Cloudflare 조사에서는 GLM-5.3 외 다른 Workers AI 모델이 같은 사고의 영향을 받은 것으로 확인되지 않았다. 이 결과를 다른 클라우드 사업자나 자체 운영 서버에 일반화할 수는 없다."}},{"@type":"Question","name":"HTTP 200이면 KV 캐시 문제가 없다고 봐도 되나?","acceptedAnswer":{"@type":"Answer","text":"아니다. 이번 사고에서는 잘못된 요청이 HTTP 200으로 처리되면서 다른 고객의 캐시가 응답에 섞일 수 있었다. 정상 상태 코드뿐 아니라 입력 거부와 캐시 소유권, 출력 일관성을 확인해야 한다."}}]}</script>
   </head>
@@ -74,7 +74,7 @@
           <header class="article-head">
             <meta itemprop="headline" content="Cloudflare GLM-5.3 데이터 노출 사고: KV 캐시 오류와 SGLang 보안 점검법">
             <meta itemprop="description" content="Cloudflare Workers AI의 GLM-5.3에서 다른 사용자의 입력이 답변에 섞인 원인을 공식 사고 보고서와 SGLang 수정 내역으로 분석했다. 영향 범위, 수정 버전, 자체 추론 서버 점검 항목을 정리한다.">
-            <p class="article-byline">글 작성: <span>BlueBWorks (AI 보조)</span></p>
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
 
           </header>
           <figure class="source-media">
@@ -294,7 +294,7 @@ docker pull lmsysorg/sglang:v0.5.22</code></pre></figure>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
     </div>
-    <div class="journal-footer-bottom wrap"><p class="footer-byline">AI 보조로 작성하며, 공식 출처와 확인 시점을 표시합니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
   </footer>
   <script src="/assets/app.js?v=edition6" defer></script>
   <script src="/assets/journal.js?v=edition6" defer></script>
