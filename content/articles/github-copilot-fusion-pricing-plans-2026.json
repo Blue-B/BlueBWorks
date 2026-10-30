@@ -1,7 +1,7 @@
 {
   "slug": "github-copilot-fusion-pricing-plans-2026",
   "title": "코파일럿 퓨전 출시: 무료 플랜 범위와 30% 할인 요금",
-  "summary": "GitHub Copilot Fusion의 Standard, High, Max 차이와 무료 플랜 범위, 11월 30일까지 모델 비용 30% 할인 조건을 공식 화면과 영상으로 확인했습니다.",
+  "summary": "GitHub Copilot Fusion의 Standard, High, Max 차이와 무료 플랜에서 쓸 수 있는 범위, 11월 30일까지 적용되는 모델 비용 30% 할인 조건을 정리했습니다.",
   "category": "개발 도구",
   "announcedAt": "2026-10-28",
   "publishedAt": "2026-10-30T03:54:15.491Z",
@@ -16,7 +16,7 @@
     "AI 코딩",
     "요금"
   ],
-  "editorNote": "모든 플랜에서 쓸 수 있다는 발표와 모든 강도를 쓸 수 있다는 설명을 구분했습니다. 모델별 과금과 벤치마크의 비교 조건은 공식 문서 기준이며 직접 성능 시험은 하지 않았습니다.",
+  "editorNote": "모든 플랜에서 Fusion을 쓸 수 있다는 말과 모든 강도를 쓸 수 있다는 말은 다릅니다. 성능 수치는 GitHub가 발표한 비교 조건 그대로 옮겼습니다.",
   "keyPoints": [
     "출시: 10월 28일 정식 공개, VS Code와 앱, CLI, JetBrains 지원",
     "플랜: Standard는 모든 플랜, High와 Max는 Pro+와 Max, Business, Enterprise",
@@ -24,8 +24,8 @@
   ],
   "image": "https://bluebworks.com/assets/editorial/github-copilot-fusion-pricing-plans-2026-thumb.png",
   "imageAlt": "코파일럿 퓨전 무료 플랜 범위와 모델 비용 30% 할인 조건",
-  "imageCredit": "BlueBWorks 자체 제작 썸네일",
-  "imageCaption": "GitHub 공식 발표와 문서를 바탕으로 제작한 썸네일, 2026년 10월 30일 확인.",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "코파일럿 퓨전의 플랜별 강도 지원 범위와 11월 30일까지의 모델 비용 할인",
   "imageSourceUrl": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/",
   "imageWidth": 1600,
   "imageHeight": 900,
@@ -44,7 +44,7 @@
       "paragraphs": [
         "코파일럿에서 모델을 고르다가 작업보다 선택에 시간을 쓰는 경우가 있습니다. 짧은 수정에는 가벼운 모델이면 될 것 같고, 여러 파일을 건드리는 버그에는 더 강한 모델이 필요해 보입니다. 복잡한 일을 마친 뒤에도 비싼 모델을 그대로 둔 채 사소한 수정을 계속하는 일도 생깁니다. GitHub가 10월 28일 Universe 2026에서 정식 공개한 Copilot Fusion은 이 선택을 작업마다 대신하는 기능입니다.",
         "이름에 Fusion이 붙었지만 새 언어 모델 하나를 내놓은 것은 아닙니다. 기존 Auto의 모델 자동 선택과 Project HydraFusion의 여러 모델 조합을 묶어, 사용자는 모델 이름 대신 필요한 작업 강도를 고르게 했습니다. 요청을 받은 뒤 어떤 모델과 실행 방식을 쓸지는 Fusion이 결정합니다.",
-        "이번 글은 10월 30일 공개 발표와 공식 문서를 확인한 소식 해설입니다. 코파일럿 앱에 로그인해 실제 코딩 성능이나 결제 금액을 시험한 후기는 아닙니다. 아래 화면은 로그인 없이 읽을 수 있는 GitHub 공식 문서에서 직접 캡처했고, 공식 영상의 Fusion 설명은 1분 26초부터 나옵니다."
+        "이 글은 플랜별로 쓸 수 있는 강도와 실제로 비용이 붙는 방식을 중심으로 정리했습니다. GitHub 공식 키노트 요약 영상에서 Fusion 설명은 1분 26초부터 나옵니다."
       ],
       "sourceRefs": [
         1,
@@ -79,8 +79,8 @@
     {
       "title": "무료 플랜은 Standard, High와 Max는 플랜 제한",
       "paragraphs": [
-        "모든 코파일럿 플랜에서 Fusion을 쓸 수 있다는 발표와 모든 강도를 쓸 수 있다는 말은 다릅니다. 10월 30일 공식 문서의 플랜별 표에서 Standard는 Free, Student, Pro, Pro+, Max, Business, Enterprise에 모두 포함돼 있습니다. High와 Max는 Pro+, Max, Business, Enterprise에만 포함되며 Free, Student, Pro에서는 제외됩니다. 기존 Pro 사용자라면 이 차이를 먼저 확인하는 편이 좋습니다.",
-        "아래 캡처의 체크 표시와 제외 표시가 그 구분입니다. 무료 계정도 Standard를 시험할 수 있지만 무료 플랜의 사용량 제한이 없어지는 것은 아닙니다. Fusion이라는 선택지가 생긴 것과 해당 플랜이 제공하는 크레딧이나 모델 범위는 별개입니다.",
+        "모든 코파일럿 플랜에서 Fusion을 쓸 수 있다는 발표와 모든 강도를 쓸 수 있다는 말은 다릅니다. 공식 문서의 플랜별 표를 보면 Standard는 Free, Student, Pro, Pro+, Max, Business, Enterprise에 모두 포함돼 있습니다. High와 Max는 Pro+, Max, Business, Enterprise에만 포함되며 Free, Student, Pro에서는 제외됩니다. 기존 Pro 사용자라면 이 차이를 먼저 확인하는 편이 좋습니다.",
+        "아래 표의 체크 표시와 제외 표시가 그 구분입니다. 무료 계정도 Standard를 시험할 수 있지만 무료 플랜의 사용량 제한이 없어지는 것은 아닙니다. Fusion이라는 선택지가 생긴 것과 해당 플랜이 제공하는 크레딧이나 모델 범위는 별개입니다.",
         "지원 클라이언트는 VS Code, GitHub Copilot 앱, Copilot CLI, JetBrains IDE입니다. 발표문은 클라이언트를 업데이트한 뒤 모델 선택창에서 Fusion과 강도를 고르라고 안내합니다. JetBrains의 별도 출시 안내에는 Auto를 대체하면서 점진 배포한다고 적혀 있어, 정식 출시 소식을 봤는데 메뉴가 없다는 이유만으로 곧바로 계정 오류라고 단정할 수는 없습니다."
       ],
       "sourceRefs": [
@@ -92,8 +92,8 @@
         {
           "src": "https://bluebworks.com/assets/editorial/github-copilot-fusion-pricing-plans-2026-plans.webp",
           "alt": "GitHub 공식 문서의 Copilot Fusion 플랜별 Standard, High, Max 지원 표",
-          "caption": "Standard는 모든 플랜, High와 Max는 Pro+ 이상 개인 플랜과 Business, Enterprise에 표시돼 있다. 공식 페이지 화면 캡처, 2026년 10월 30일 확인.",
-          "credit": "GitHub Docs 화면 캡처",
+          "caption": "Standard는 모든 플랜에서, High와 Max는 Pro+ 이상 개인 플랜과 Business, Enterprise에서 쓸 수 있다.",
+          "credit": "GitHub Docs",
           "sourceUrl": "https://docs.github.com/en/copilot/concepts/models/copilot-fusion",
           "width": 930,
           "height": 425
@@ -110,8 +110,8 @@
       "title": "퓨전 요금과 11월 30일까지 30% 할인",
       "paragraphs": [
         "Fusion 자체에 별도로 붙는 요금은 없습니다. 실제로 사용한 각 모델의 표준 단가에 따라 비용을 합산합니다. GitHub의 모델 요금 문서는 입력, 출력, 캐시 토큰을 모델별로 계산한 뒤 AI 크레딧으로 환산하며 1크레딧을 0.01달러로 정의합니다. 따라서 Fusion 요청 한 번에 얼마라는 고정 가격표는 없습니다. 어떤 모델이 얼마나 많은 토큰을 썼는지가 중요합니다.",
-        "유료 코파일럿 플랜에는 2026년 11월 30일까지 Fusion 사용 시 모델 비용 30% 할인이 적용됩니다. 월 구독료를 30% 깎는 행사가 아니라는 점을 구분해야 합니다. 공식 Fusion 문서의 Billing 부분에서 대상과 기한을 함께 확인할 수 있습니다.",
-        "가령 할인 대상 모델 사용분이 원래 1달러라면 30% 할인 뒤 0.70달러가 되는 계산입니다. 이는 비율을 설명하기 위한 예시이지 실제 작업 가격을 측정한 결과가 아닙니다. High나 Max가 모델을 여러 번 호출해 할인 전 사용액 자체가 늘었다면, 할인율만 보고 Standard보다 지출이 적다고 말할 수 없습니다. 먼저 작은 작업에서 사용량을 보고 강도를 올리는 편이 비용을 파악하기 쉽습니다."
+        "유료 코파일럿 플랜에는 2026년 11월 30일까지 Fusion 사용 시 모델 비용 30% 할인이 적용됩니다. 월 구독료를 30% 깎는 행사가 아니라는 점을 구분해야 합니다. 대상과 기한은 공식 Fusion 문서의 Billing 부분에 함께 나와 있습니다.",
+        "가령 할인 대상 모델 사용분이 원래 1달러라면 30% 할인 뒤 0.70달러가 되는 계산입니다. 할인율만 보여주는 단순한 계산입니다. High나 Max가 모델을 여러 번 호출해 할인 전 사용액 자체가 늘었다면, 할인율만 보고 Standard보다 지출이 적다고 말할 수 없습니다. 먼저 작은 작업에서 사용량을 보고 강도를 올리는 편이 비용을 파악하기 쉽습니다."
       ],
       "sourceRefs": [
         1,
@@ -122,8 +122,8 @@
         {
           "src": "https://bluebworks.com/assets/editorial/github-copilot-fusion-pricing-plans-2026-billing.webp",
           "alt": "2026년 11월 30일까지 유료 코파일럿 플랜의 Fusion 모델 비용을 30% 할인한다는 GitHub 문서",
-          "caption": "할인 대상은 Fusion이 사용하는 모델 비용이다. 별도 Fusion 요금은 없지만 모델별 사용량은 합산된다. 공식 페이지 화면 캡처, 2026년 10월 30일 확인.",
-          "credit": "GitHub Docs 화면 캡처",
+          "caption": "할인 대상은 Fusion이 쓰는 모델 비용이다. Fusion 자체 요금은 없고 모델별 사용량이 합산된다.",
+          "credit": "GitHub Docs",
           "sourceUrl": "https://docs.github.com/en/copilot/concepts/models/copilot-fusion",
           "width": 930,
           "height": 490
@@ -152,8 +152,8 @@
       "title": "60점과 비용 절반이라는 발표의 비교 조건",
       "paragraphs": [
         "GitHub가 제시한 성능 수치는 Artificial Analysis Coding Agent Index에서 Fusion Max가 60점을 얻었다는 내용입니다. Claude Code의 Opus 5.5 Max와는 2점 이내 차이였고, 평균 작업당 API 비용과 토큰은 약 절반, 작업 시간은 약 40% 적었다고 발표했습니다. 공식 키노트 요약 영상에도 같은 비교가 나옵니다.",
-        "이 수치는 특정 평가에서 얻은 비교이지 모든 저장소의 비용을 절반으로 줄여준다는 약속이 아닙니다. 블로그가 독립적으로 다시 돌린 결과도 아닙니다. 구독료, 팀의 전체 청구액, 같은 질문을 직접 넣었을 때의 응답 속도와 곧바로 대응시키면 의미가 달라집니다. 모델 조합이 바뀌거나 요구하는 수정 범위가 다르면 결과도 달라집니다.",
-        "도입 판단에 쓰려면 팀에서 반복하는 작업을 정해 같은 통과 조건으로 비교해야 합니다. 예를 들어 테스트가 있는 버그 수정 몇 건을 골라 완료 여부, 검토에 든 시간, 실제 크레딧을 함께 기록하는 방식입니다. 이 비교 방법은 문서의 기능 설명을 바탕으로 제안하는 확인 기준이며, 여기서 실험을 했다는 뜻은 아닙니다."
+        "이 수치는 특정 평가에서 얻은 비교이지 모든 저장소의 비용을 절반으로 줄여준다는 약속이 아닙니다. 구독료, 팀의 전체 청구액, 같은 질문을 직접 넣었을 때의 응답 속도와 곧바로 대응시키면 의미가 달라집니다. 모델 조합이 바뀌거나 요구하는 수정 범위가 다르면 결과도 달라집니다.",
+        "도입 판단에 쓰려면 팀에서 반복하는 작업을 정해 같은 통과 조건으로 비교해야 합니다. 예를 들어 테스트가 있는 버그 수정 몇 건을 골라 완료 여부, 검토에 든 시간, 실제 크레딧을 함께 기록하는 방식입니다."
       ],
       "sourceRefs": [
         1,
@@ -272,7 +272,7 @@
   "mediaReview": {
     "checkedAt": "2026-10-30T03:54:15.491Z",
     "status": "included",
-    "notes": "공식 GitHub YouTube 채널을 github.blog 하단 링크와 oEmbed author_url로 확인. 영상 설명과 자막에서 Fusion, 60점, 30% 할인 내용을 확인했고 oEmbed 허용 확인. 공식 X 영상은 임베드만 사용. 로그인 없는 공개 문서 캡처 2장을 직접 열어 개인정보 없음 확인. 썸네일과 요약 유지, 별도 도식과 숫자 카드, FAQ 없음. 셀프체크: 가운뎃점, 이모지, em/en dash, 금지어, 볼드 0건(공식 원문 인용과 URL 예외), 질문형과 마무리 헤딩 없음, 문단 길이 변주와 낭독 점검.",
+    "notes": "공식 GitHub YouTube 채널을 github.blog 하단 링크와 oEmbed author_url로 확인. 영상 설명과 자막에서 Fusion, 60점, 30% 할인 내용을 확인했고 oEmbed 허용 확인. 공식 X 영상은 임베드만 사용. 로그인 없는 공개 문서 캡처 2장을 직접 열어 개인정보 없음 확인. 썸네일과 요약 유지, 별도 도식과 숫자 카드, FAQ 없음. 셀프체크: 가운뎃점, 이모지, em/en dash, 금지어, 볼드 0건(공식 원문 인용과 URL 예외), 질문형과 마무리 헤딩 없음, 문단 길이 변주와 낭독 점검. 2026-10-30 개정: 사용자 요청으로 썸네일을 무채색 바탕과 실제 문서 화면을 넣은 v3 디자인(taste-skill 기준)으로 교체하고, 요약과 본문, 사진 설명의 확인 과정 문구와 캡처 날짜, 면책 문장을 제거함. 확인 기록은 이 mediaReview에만 남김.",
     "candidates": [
       {
         "sourceUrl": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/",
