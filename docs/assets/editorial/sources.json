@@ -405,5 +405,32 @@
     "rightsBasis": "BlueBWorks original editorial thumbnail",
     "bytes": 308304,
     "sha256": "54bf28153fc511390de4226ff118ade24a0caa35c1bb035dbe35ec7a32e01cda"
+  },
+  {
+    "file": "nvidia-motionbricks-soma-2026-inbetweener.webp",
+    "url": "https://github.com/NVlabs/motionbricks",
+    "sourceUrl": "https://github.com/NVlabs/motionbricks",
+    "credit": "NVIDIA (CC BY 4.0)",
+    "purpose": "2026-10-30 browser screenshot excerpt, cropped; README licenses NVIDIA-authored documentation and media under CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. No content alteration beyond crop and WebP conversion.",
+    "bytes": 41912,
+    "sha256": "ba3c27c292aeb3d1146613f21cb547abb935a03b66dd119da564f6de8213f43d"
+  },
+  {
+    "file": "nvidia-motionbricks-soma-2026-editors.webp",
+    "url": "https://github.com/NVlabs/motionbricks",
+    "sourceUrl": "https://github.com/NVlabs/motionbricks",
+    "credit": "NVIDIA (CC BY 4.0)",
+    "purpose": "2026-10-30 browser screenshot excerpt, cropped; README licenses NVIDIA-authored documentation and media under CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. No content alteration beyond crop and WebP conversion.",
+    "bytes": 42252,
+    "sha256": "dd7e4e16266142c1e28384a0daeb050e4ae4a4b20435b266000b013d712e5e46"
+  },
+  {
+    "file": "nvidia-motionbricks-soma-2026-thumb.png",
+    "url": "https://github.com/NVlabs/motionbricks",
+    "sourceUrl": "https://github.com/NVlabs/motionbricks",
+    "credit": "BlueBWorks, NVIDIA",
+    "purpose": "2026-10-30 browser screenshot excerpt, cropped; README licenses NVIDIA-authored documentation and media under CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. BlueBWorks original layout with licensed screenshot.",
+    "bytes": 262877,
+    "sha256": "25a84193a8ecb4a56b03eb162250e50cc04576aaa5dcda4079a47ac18722a413"
   }
 ]

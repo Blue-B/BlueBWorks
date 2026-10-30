@@ -331,5 +331,26 @@
     "purpose": "기사 대표 이미지(제목과 핵심 사실, 공식 페이지 화면 또는 기사 도식)",
     "license": "BlueBWorks original editorial artwork",
     "rightsBasis": "BlueBWorks original editorial thumbnail"
+  },
+  {
+    "file": "nvidia-motionbricks-soma-2026-inbetweener.webp",
+    "url": "https://github.com/NVlabs/motionbricks",
+    "sourceUrl": "https://github.com/NVlabs/motionbricks",
+    "credit": "NVIDIA (CC BY 4.0)",
+    "purpose": "2026-10-30 browser screenshot excerpt, cropped; README licenses NVIDIA-authored documentation and media under CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. No content alteration beyond crop and WebP conversion."
+  },
+  {
+    "file": "nvidia-motionbricks-soma-2026-editors.webp",
+    "url": "https://github.com/NVlabs/motionbricks",
+    "sourceUrl": "https://github.com/NVlabs/motionbricks",
+    "credit": "NVIDIA (CC BY 4.0)",
+    "purpose": "2026-10-30 browser screenshot excerpt, cropped; README licenses NVIDIA-authored documentation and media under CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. No content alteration beyond crop and WebP conversion."
+  },
+  {
+    "file": "nvidia-motionbricks-soma-2026-thumb.png",
+    "url": "https://github.com/NVlabs/motionbricks",
+    "sourceUrl": "https://github.com/NVlabs/motionbricks",
+    "credit": "BlueBWorks, NVIDIA",
+    "purpose": "2026-10-30 browser screenshot excerpt, cropped; README licenses NVIDIA-authored documentation and media under CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. BlueBWorks original layout with licensed screenshot."
   }
 ]
