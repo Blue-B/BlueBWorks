@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bluebworks.com/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.com/articles/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.com/about.html</loc>
@@ -19,6 +19,10 @@
   </url>
   <url>
     <loc>https://bluebworks.com/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://bluebworks.com/articles/claude-legal-artifacts-gallery-2026/</loc>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.com/articles/cloudflare-agents-browser-internal-hostnames-2026/</loc>

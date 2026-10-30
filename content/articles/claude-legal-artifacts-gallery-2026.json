@@ -1,0 +1,301 @@
+{
+  "slug": "claude-legal-artifacts-gallery-2026",
+  "title": "클로드 법률 아티팩트 공개: 계약 비교와 인용 점검, 한국 적용 범위",
+  "summary": "Claude for Legal에 계약 비교, 인용 점검과 규제 추적용 아티팩트가 추가됐습니다. 갤러리의 예시 화면과 여섯 가지 업무, 60개 이상 법률 커넥터의 역할, 한국에서 도입할 때 구분할 범위를 살펴봅니다.",
+  "category": "업무 도구",
+  "announcedAt": "2026-10-28",
+  "publishedAt": "2026-10-30T15:02:32.681Z",
+  "verifiedAt": "2026-10-30T15:02:32.681Z",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "Claude",
+    "클로드",
+    "법률 AI",
+    "아티팩트",
+    "계약 검토"
+  ],
+  "editorNote": "법률 문서를 요약하는 기능보다 출처 구절을 따라가고 검토 담당자에게 넘기는 구조에 초점을 맞췄습니다. 미국 지역법용 예시와 한국 법률 업무는 구분해야 합니다.",
+  "keyPoints": [
+    "공개: 10월 28일 법률 업무용 아티팩트 갤러리 발표",
+    "업무: 계약 비교와 인용 점검, 사건 관리 등 여섯 가지 도구 소개",
+    "적용: 60개 이상 법률 커넥터 제공, 한국 법과 데이터 권한은 별도 검토"
+  ],
+  "image": "https://bluebworks.com/assets/editorial/claude-legal-artifacts-gallery-2026-thumb.png",
+  "imageAlt": "클로드 법률 아티팩트와 계약 비교 예시",
+  "imageCredit": "BlueBWorks, Claude",
+  "imageCaption": "계약서의 답변에서 원문 구절로 이어지는 법무 아티팩트",
+  "imageSourceUrl": "https://claude.ai/artifacts?templates=legal",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "클로드 법률 AI가 채팅 답변에서 업무 화면으로 넓어졌다",
+      "paragraphs": [
+        "계약서 열 개에서 해지 통지 기간을 뽑아 달라고 하면 답변은 금방 받을 수 있습니다. 문제는 그다음입니다. 어느 계약서의 몇 쪽에서 나온 숫자인지 다시 찾고, 회사 기준과 다른 조항을 담당자에게 보내고, 바뀐 계약이 들어올 때 표를 고쳐야 합니다. 답변 하나보다 검토가 이어지는 화면이 필요한 이유입니다.",
+        "앤트로픽은 10월 28일 Claude for Legal에 법률 업무용 아티팩트 갤러리를 발표했습니다. 아티팩트는 채팅 옆에서 열리는 대화형 도구입니다. 문장으로 끝나는 답 대신 계약 비교표, 사건 관리 보드, 규제 일정처럼 업무에 맞춘 형태를 제공하고, 팀의 자료와 커넥터를 붙여 바꿔 쓸 수 있게 했습니다. 5월 출시된 Claude for Legal에 준비된 도구 모음이 추가된 것이지, 별도의 법률 모델 여섯 개가 나온 것은 아닙니다.",
+        "각 도구는 예시 자료가 들어 있는 상태로 시작합니다. 처음부터 긴 지시문을 쓰기보다 어떤 자료를 넣고 어떤 결과를 받는지 살핀 뒤 조직의 문서로 바꿀 수 있습니다. 발표의 역할 분담도 분명합니다. 법률 담당자가 문서와 출처를 제공하고 Claude가 첫 검토를 수행하며, 변호사가 결과에 판단을 더합니다. 최종 자문이나 승인 권한이 AI로 넘어갔다는 뜻은 아닙니다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        6
+      ],
+      "embeds": [
+        {
+          "type": "x",
+          "url": "https://x.com/claudeai/status/2115467192276025500",
+          "author": "Claude",
+          "handle": "claudeai",
+          "text": "New in Claude for Legal: a gallery of ready-made artifacts for contract review, regulatory horizon scans, cite checks, and more.\n\nStart from the built-in example, add your own documents and connectors, and share it with anyone across the business. https://t.co/Wn2VK2HeMU",
+          "postedAt": "2026-10-28T15:34:16.000Z"
+        }
+      ]
+    },
+    {
+      "title": "계약 비교표는 답변마다 원문 구절을 붙인다",
+      "paragraphs": [
+        "Tabular review는 여러 계약서에 같은 질문을 적용해 표를 만드는 도구입니다. 퇴직금이나 경업 금지 조건처럼 비교할 항목을 정하면 문서별로 답을 채우고, 해당 계약서의 정확한 문구로 연결합니다. 문서마다 요약을 따로 받아 사람이 다시 표로 옮기는 방식과 달리 질문과 계약서를 같은 화면에 놓습니다.",
+        "갤러리의 예시는 계약의 발효일을 표로 보여줍니다. 날짜 셀 옆에 원문 구절과 페이지가 열리고, 일부 문서는 값 대신 Not found로 남습니다. 빈칸을 그럴듯한 답으로 채우는 것보다 누락된 근거를 남기는 편이 후속 검토에 낫습니다. 화면 속 8개 문서와 13개 질문은 예시 자료의 구성이지 제품의 처리 한도가 아닙니다.",
+        "가령 공급 계약을 비교한다면 자동 갱신 여부, 해지 통지 기한, 책임 한도를 같은 질문으로 정할 수 있습니다. 이때 계약 전체의 의미를 단어 하나로 줄이지 않는 것이 중요합니다. 해지 기한이 같더라도 예외 조항이나 부속 합의서에 따라 적용이 달라질 수 있기 때문입니다. 표의 답을 출발점으로 삼고 연결된 문장을 읽는 순서가 어울립니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-legal-artifacts-gallery-2026-tabular.webp",
+          "alt": "Tabular review 갤러리의 계약 발효일 표와 원문 연결 예시",
+          "caption": "날짜 셀을 고르면 근거 구절과 페이지가 함께 열린다",
+          "credit": "Claude",
+          "sourceUrl": "https://claude.ai/artifacts?templates=legal",
+          "width": 1100,
+          "height": 880
+        }
+      ],
+      "links": [
+        {
+          "label": "법무 아티팩트 갤러리",
+          "url": "https://claude.ai/artifacts?templates=legal"
+        }
+      ]
+    },
+    {
+      "title": "인용 점검과 회사 표준 조항 비교는 다른 업무다",
+      "paragraphs": [
+        "Cite check는 법률 문서와 그 문서가 인용한 자료를 대조합니다. 따옴표 속 문장이 원문과 다른지, 페이지 번호가 틀렸는지, 출처가 해당 주장을 뒷받침하지 않는지를 표시합니다. 보기 좋은 각주가 달려 있다는 사실과 실제 근거가 있다는 사실을 구분하는 작업입니다.",
+        "예시 화면에는 인용 31개 중 검토자가 볼 항목 7개가 제시됩니다. 원문의 단어가 달라진 인용을 펼치면 문서 속 표현과 출처 표현을 나란히 보여주고, 수정했는지 문제가 아닌지 변호사에게 넘길지 고르게 합니다. 이 숫자도 예시의 결과입니다. 정확도가 몇 퍼센트라거나 인용 오류를 모두 잡는다는 성능 지표로 읽으면 안 됩니다.",
+        "Playbook deviation board는 기준이 다릅니다. 여기서는 회사의 표준 계약 조건이 기준 자료가 됩니다. 계약서의 각 조항을 표준과 비교해 벗어난 부분을 표시하고 예외를 승인할 사람에게 보냅니다. 상대방이 제안한 책임 한도가 회사 정책보다 넓다면 법적으로 무효인지부터 단정하기보다 내부 승인 대상인지 가르는 데 쓰는 방식입니다. 인용의 진위와 조직의 위험 허용 수준은 같은 점검 항목이 아닙니다."
+      ],
+      "sourceRefs": [
+        1,
+        4
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-legal-artifacts-gallery-2026-cite.webp",
+          "alt": "Cite check 예시에서 인용문과 출처의 단어 차이를 보여주는 화면",
+          "caption": "인용문 차이를 표시하고 검토자의 판단을 남긴다",
+          "credit": "Claude",
+          "sourceUrl": "https://claude.ai/artifacts?templates=legal&select=cite-check",
+          "width": 1100,
+          "height": 880
+        }
+      ]
+    },
+    {
+      "title": "규제 일정과 사건 보드는 계속 바뀌는 일을 맡는다",
+      "paragraphs": [
+        "Regulatory horizon scan은 예정된 규제를 사업 영역과 활동 지역에 맞춰 시간순으로 배치하고 영향을 매기는 도구입니다. 자료를 한 번 요약하는 대신 앞으로 언제 어떤 일이 닥치는지 살피는 화면입니다. 갤러리 예시에서는 미국 주별 법률과 유럽 규정 등이 함께 나타나고, 항목을 선택하면 날짜와 출처가 붙은 설명을 볼 수 있습니다.",
+        "법률의 공포일, 시행일, 단계별 적용일이 다르면 같은 달력에 놓더라도 대응 순서가 바뀝니다. 한국 기업이 해외 서비스를 운영한다면 자사와 관련된 지역과 사업을 먼저 좁혀야 합니다. 예시에 등장하는 법률이 모든 회사에 적용되는 것도 아니고, 화면의 영향 점수가 곧 회사의 법적 책임을 뜻하는 것도 아닙니다. 담당자는 연결된 법령의 적용 요건을 읽고 내부 일정에 반영해야 합니다.",
+        "Matter board는 수임 계약서나 이메일, 스프레드시트에서 진행 중인 사건과 업무를 보드로 정리합니다. 담당자와 다음 할 일, 다음 기한을 모으는 것이 목적입니다. Jurisdiction survey matrix는 하나의 법률 주제를 주나 국가별로 비교하고 근거 법률을 연결합니다. 개인정보 유출 통지 규칙을 여러 지역에 걸쳐 살피는 작업이 발표에서 든 예입니다. 하나는 일을 배분하고 다른 하나는 법을 비교하므로, 같은 대시보드처럼 보여도 넣을 자료와 검토할 사람이 달라집니다."
+      ],
+      "sourceRefs": [
+        1,
+        5
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-legal-artifacts-gallery-2026-regulatory.webp",
+          "alt": "Regulatory horizon scan 갤러리의 규제 일정과 영향 예시",
+          "caption": "규제를 시간순으로 놓고 적용 지역과 근거를 따라간다",
+          "credit": "Claude",
+          "sourceUrl": "https://claude.ai/artifacts?templates=legal&select=regulatory-horizon-scan",
+          "width": 1100,
+          "height": 880
+        }
+      ]
+    },
+    {
+      "title": "60개 이상 커넥터와 파트너 도구의 역할",
+      "paragraphs": [
+        "발표에 따르면 Claude for Legal에는 60개가 넘는 법률 커넥터가 추가됐습니다. Bloomberg Law, Filevine, Ivo, Legora, Patlytics 등이 예로 나옵니다. 커넥터는 다른 서비스의 문서나 업무 자료를 Claude와 연결하는 통로입니다. 계약서를 매번 내려받아 올리는 대신 조직이 쓰던 자료와 기준을 작업에 가져오려는 구성입니다.",
+        "연결 목록이 길다고 모든 자료를 기본 요금으로 자유롭게 볼 수 있다는 뜻은 아닙니다. 어떤 시스템을 쓰는지, 해당 자료를 읽을 권한이 있는지, 조직이 연결을 허용하는지에 따라 실제 활용 범위가 달라집니다. 특히 법률 데이터베이스나 파트너 제품의 이용 조건을 Claude 갤러리의 공개 여부와 혼동하지 않아야 합니다. 도구를 고르는 일과 데이터 이용 권한을 마련하는 일은 별개입니다.",
+        "법률 회사와 기술 업체가 만든 도구도 갤러리에 들어갔습니다. Goodwin의 AI Governance Benchmark는 기업의 AI 거버넌스에서 빈 부분을 찾고, Foley & Lardner의 Obligations Checker는 계약 당사자 양쪽의 의무를 살핍니다. Harvey Intake는 현업 부서의 법률 요청을 받아 통상적인 질문은 Harvey에 있는 법무 지침으로 답하고 나머지는 변호사에게 연결합니다. PwC의 Subpoena Response Tool은 팀의 선례와 표준 이의 제기, 양식을 바탕으로 응답 초안을 만듭니다. 모든 도구가 계약서를 요약하는 같은 기능은 아닙니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ],
+      "links": [
+        {
+          "label": "법률 커넥터 디렉터리",
+          "url": "https://claude.ai/directory/legal"
+        }
+      ]
+    },
+    {
+      "title": "한국 법 적용과 공유 권한은 별도로 봐야 한다",
+      "paragraphs": [
+        "이번 발표에는 사법 접근성을 위한 아티팩트 9개도 포함됐습니다. 그중 5개는 Claude 크레딧 지원을 받은 비영리 또는 공익 단체가 만들었습니다. 이민 서류를 쉬운 말로 읽어 주거나 임대료 원장의 오류를 찾고 전과 기록의 봉인 가능성을 살피는 등 실제 법률 지원 업무를 겨냥합니다.",
+        "지역 범위가 붙은 도구를 특히 구분해야 합니다. Zealous의 Criminal Charge Reality Check는 뉴욕에 한정되고, Rising for Justice의 임대료 원장 검토와 기록 봉인 도구는 워싱턴 D.C. 법을 기준으로 합니다. 한국어로 질문할 수 있다는 사실이 한국 법률용으로 설계됐다는 뜻은 아닙니다. 한국에서 비슷한 업무를 만들려면 적용 법령과 서식, 예외, 검토 책임자를 한국 기준으로 다시 정해야 합니다.",
+        "공유도 단순한 링크 배포가 아닙니다. 앤트로픽은 조직 안의 동료뿐 아니라 고객과 파트너와도 협업할 수 있고, 팀 사이의 정보 차단을 지원하는 공유 설정이 있다고 설명합니다. 법무팀에서는 같은 회사 안에서도 사건에 따라 문서를 볼 수 있는 사람이 다릅니다. 고객의 비밀 자료나 분쟁 문서를 넣기 전에는 아티팩트의 열람자와 연결된 자료의 접근 권한이 업무 경계와 맞는지부터 정해야 합니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "도입 판단은 예시보다 자료와 검토 절차에서 시작한다",
+      "paragraphs": [
+        "법무 아티팩트는 Claude의 갤러리에서 살펴볼 수 있고, 조직 단위 도입은 Claude for Legal 페이지와 영업 상담 경로로 이어집니다. 발표문에는 이번 갤러리 전체를 위한 독립된 정액 가격표나 모든 파트너 기능을 포함하는 무료 약속이 제시돼 있지 않습니다. 공개된 예시를 볼 수 있다는 이유만으로 회사 계정에서 같은 자료와 권한이 모두 제공된다고 계산하면 안 됩니다.",
+        "처음 도입 범위를 정할 때는 실패의 영향을 좁힐 수 있는 업무가 낫습니다. 이미 사람이 답을 알고 있는 계약 묶음에서 질문 몇 개를 고르고, 답변이 연결한 원문과 실제 조항을 대조하는 식입니다. 이때 답이 맞았는지만 세기보다 근거 없는 답이 어떻게 표시되는지, 누락 문서를 알아차릴 수 있는지, 예외 조항을 사람이 찾아갈 수 있는지를 함께 살피면 업무에 넣을 수준을 판단하기 쉽습니다.",
+        "기존 법률 플러그인이나 API 구축 경로가 사라지는 것도 아닙니다. Claude 법률 솔루션은 계약 검토와 NDA 분류 같은 플러그인, Microsoft 365 문서 작업, API와 Agent SDK를 통한 제품 통합을 별도로 안내합니다. 갤러리는 준비된 화면에서 시작하는 선택지입니다. 반복되는 계약 비교와 출처 대조에 먼저 쓰고, 승인과 제출은 법률 담당자의 절차에 남기는 구성이 이번 발표의 역할 분담에 맞습니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ],
+      "links": [
+        {
+          "label": "Claude 법률 솔루션",
+          "url": "https://claude.com/solutions/legal"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "법률 아티팩트 발표",
+      "url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work",
+      "description": "10월 28일 공개 범위, 여섯 업무, 커넥터와 파트너 및 지역 제한"
+    },
+    {
+      "name": "Claude 법률 솔루션",
+      "url": "https://claude.com/solutions/legal",
+      "description": "갤러리, 플러그인, Microsoft 365와 API 통합 경로"
+    },
+    {
+      "name": "법무 아티팩트 갤러리",
+      "url": "https://claude.ai/artifacts?templates=legal",
+      "description": "Tabular review의 예시와 원문 연결 구조"
+    },
+    {
+      "name": "Cite check 갤러리",
+      "url": "https://claude.ai/artifacts?templates=legal&select=cite-check",
+      "description": "인용 차이와 검토 판단을 보여주는 예시"
+    },
+    {
+      "name": "규제 추적 갤러리",
+      "url": "https://claude.ai/artifacts?templates=legal&select=regulatory-horizon-scan",
+      "description": "규제 시행 일정과 영향 예시"
+    },
+    {
+      "name": "Claude 공식 발표",
+      "url": "https://x.com/claudeai/status/2115467192276025500",
+      "description": "계약 검토와 규제 추적용 아티팩트 발표 영상"
+    },
+    {
+      "name": "Advancing Claude for Legal",
+      "url": "https://www.youtube.com/watch?v=o6h3IpqzQGc",
+      "description": "Claude 공식 발표문에 연결된 법률 아티팩트 영상"
+    }
+  ],
+  "resources": [
+    {
+      "name": "법무 아티팩트 갤러리",
+      "url": "https://claude.ai/artifacts?templates=legal",
+      "description": "계약 비교와 인용 점검 등 도구 예시",
+      "type": "제품"
+    },
+    {
+      "name": "법률 커넥터 목록",
+      "url": "https://claude.ai/directory/legal",
+      "description": "법률 리서치와 문서 및 계약 시스템 연결",
+      "type": "디렉터리"
+    },
+    {
+      "name": "법률 솔루션",
+      "url": "https://claude.com/solutions/legal",
+      "description": "조직 도입과 API 및 플러그인 경로",
+      "type": "제품 안내"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "o6h3IpqzQGc",
+      "title": "Advancing Claude for Legal",
+      "channel": "Claude",
+      "sourceUrl": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work",
+      "verified": true
+    }
+  ],
+  "discovery": {
+    "writer": "aside",
+    "xStatus": "public-search",
+    "notes": "큐 claude-for-legal-artifacts,공식계정 검색 31450좋아요/7700287조회. Google 클로드 법률 플러그인/검토,아티팩트 공유/사용법,네이버 법률정보 사용방법/아티팩트 공유 수요. 뉴스 해설형으로 선정,사용법 최종 실행은 하지 않음.",
+    "xPosts": [
+      {
+        "url": "https://x.com/claudeai/status/2115467192276025500",
+        "postedAt": "2026-10-28T15:34:16.000Z",
+        "verifiedAt": "2026-10-30T15:02:32.681Z",
+        "role": "announcement",
+        "verification": "corroborated",
+        "officialSourceUrl": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work"
+      }
+    ]
+  },
+  "mediaReview": {
+    "checkedAt": "2026-10-30T15:02:32.681Z",
+    "status": "included",
+    "notes": "2026-10-30 Aside 브라우저 실제 법무 갤러리 조회. 예시3장,실제고객문서/대화/개인계정정보 없음,사용해보기/저장/제출 누르지 않음. raw screenshot DPR1.25 후 dialog 물리좌표 crop. 직접 이미지 열어개인정보없음확인. 공식발표 내YouTube와oEmbed 제목/채널 일치,공식X영상 임베드. 금지기호/볼드/질문형헤딩/FAQ/작업과정문구0건,문단리듬검수. 10/31 00시 출처2개와갤러리/X영상 재확인,실제첫발행시각갱신. Google 법률플러그인/법률검토,Naver 아티팩트공유/사용법 자동완성재확인.",
+    "candidates": [
+      {
+        "sourceUrl": "https://claude.ai/artifacts?templates=legal",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-legal-artifacts-gallery-2026-tabular.webp",
+        "rightsBasis": "Limited browser UI excerpt for criticism and explanation of the announced feature, with Claude attribution and source link; no standalone media extraction or claim of blanket license.",
+        "reason": "계약별답변과원문구절 연결"
+      },
+      {
+        "sourceUrl": "https://claude.ai/artifacts?templates=legal&select=cite-check",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-legal-artifacts-gallery-2026-cite.webp",
+        "rightsBasis": "Limited browser UI excerpt for criticism and explanation of the announced feature, with Claude attribution and source link; no standalone media extraction or claim of blanket license.",
+        "reason": "인용문차이와검토처리"
+      },
+      {
+        "sourceUrl": "https://claude.ai/artifacts?templates=legal&select=regulatory-horizon-scan",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-legal-artifacts-gallery-2026-regulatory.webp",
+        "rightsBasis": "Limited browser UI excerpt for criticism and explanation of the announced feature, with Claude attribution and source link; no standalone media extraction or claim of blanket license.",
+        "reason": "규제일정과영향 설명"
+      },
+      {
+        "sourceUrl": "https://claude.ai/artifacts?templates=legal",
+        "decision": "included",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-legal-artifacts-gallery-2026-thumb.png",
+        "rightsBasis": "BlueBWorks original editorial title design with attributed limited Claude gallery UI excerpt for feature explanation.",
+        "reason": "v3 어두운 템플릿과 계약 비교 예시"
+      },
+      {
+        "sourceUrl": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work",
+        "decision": "excluded",
+        "reason": "공식 영상은 파일 복사 없이 YouTube와 X 임베드로 제공"
+      }
+    ]
+  }
+}
