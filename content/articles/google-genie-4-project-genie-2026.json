@@ -1,0 +1,328 @@
+{
+  "slug": "google-genie-4-project-genie-2026",
+  "title": "구글 지니 4 공개 일정과 이용 조건: 프로젝트 지니 대기자 등록과 AI 울트라 요금",
+  "summary": "구글 딥마인드가 10월 27일 월드 모델 지니 4를 발표했습니다. 지금은 일부 테스터용 연구 프리뷰이고 다음 차례는 프로젝트 지니를 쓰는 AI 울트라 구독자입니다. 달라진 기능과 한국 요금, 대기자 등록, 현재 프로젝트 지니 사용 순서를 정리했습니다.",
+  "category": "모델",
+  "announcedAt": "2026-10-27",
+  "publishedAt": "2026-11-01T01:05:07+09:00",
+  "verifiedAt": "2026-11-01T01:05:07+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "Genie 4",
+    "지니 4",
+    "구글 지니",
+    "Project Genie",
+    "프로젝트 지니",
+    "Google DeepMind",
+    "월드 모델",
+    "Google AI Ultra"
+  ],
+  "editorNote": "지니 4는 아직 구독료를 낸다고 바로 열리는 모델이 아닙니다. 울트라 구독을 고민한다면 지금 프로젝트 지니가 지니 3 기반이라는 점과, 어느 울트라 요금제에 지니 4가 먼저 들어오는지 아직 나오지 않았다는 점부터 보고 정하는 편이 낫습니다.",
+  "keyPoints": [
+    "공개 상태: 10월 27일 발표, 지금은 일부 테스터만 쓰는 연구 프리뷰이고 일반 공개 날짜는 없음",
+    "다음 대상: 프로젝트 지니의 AI 울트라 구독자(한국 월 119,000원부터)와 제미나이 API 얼리 액세스 파트너",
+    "달라진 점: 사진 같은 화면, 배경음과 대사를 함께 만드는 소리, 문장으로 장면을 바꾸는 실시간 조종"
+  ],
+  "image": "https://bluebworks.com/assets/editorial/google-genie-4-project-genie-2026-thumb.png",
+  "imageAlt": "구글 딥마인드 지니 4, 지금은 연구 프리뷰이고 다음은 AI 울트라",
+  "imageCredit": "BlueBWorks, Google DeepMind",
+  "imageCaption": "지니 4는 연구 프리뷰로 먼저 열렸고 다음은 프로젝트 지니의 AI 울트라 구독자다",
+  "imageSourceUrl": "https://deepmind.google/models/genie/",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "videos": [
+    {
+      "youtubeId": "sFfPkUJd_Jk",
+      "title": "Genie 4: A new generation of world simulation",
+      "channel": "Google DeepMind",
+      "sourceUrl": "https://www.youtube.com/watch?v=sFfPkUJd_Jk",
+      "verified": true
+    }
+  ],
+  "sections": [
+    {
+      "title": "구글 지니 4 발표와 지금 쓸 수 있는 사람",
+      "sourceRefs": [
+        1,
+        2,
+        3,
+        7
+      ],
+      "paragraphs": [
+        "구글 지니 4 시연 영상을 보고 바로 써 보려고 제미나이 앱을 열었다면 아직 메뉴를 찾을 수 없습니다. 구글 딥마인드는 미국 시간 10월 27일, 한국 시간으로는 28일 새벽에 지니 4를 발표했지만 지금은 구글이 고른 일부 테스터에게만 연구 프리뷰로 열어 두었습니다. 일반 사용자와 개발자에게 내놓기 전에 피드백을 모으는 단계입니다.",
+        "다음 차례는 정해져 있습니다. 구글은 프로젝트 지니(Project Genie)를 쓰는 구글 AI 울트라 구독자, 그리고 제미나이 API와 구글 AI 스튜디오의 얼리 액세스 파트너부터 차례로 제공한다고 밝혔습니다. 발표 글과 모델 소개 페이지 모두 시점은 곧(coming soon)이라고만 적었고 날짜는 없습니다.",
+        "그래서 지금 개인이 할 수 있는 일은 대기자 명단 등록입니다. 딥마인드 발표 글과 지니 소개 페이지에 있는 Join waitlist 버튼을 누르면 구글 설문 양식이 열리고, 여기서 프로젝트 지니의 지니 4 대기자로 이름을 올릴 수 있습니다. 등록했다고 곧바로 열리는 것은 아니고, 실제로 쓰려면 울트라 구독과 만 18세 이상이라는 조건도 맞아야 합니다.",
+        "반응은 큰 편입니다. 딥마인드 공식 X 계정의 발표 게시물은 조회 340만 회를 넘겼고, 구글 본사 계정도 10월 30일에 세로형 시연 영상을 따로 올렸습니다. 구글코리아 블로그는 다음 날 한국어 소개 글을 냈습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/google-genie-4-project-genie-2026-availability.webp",
+          "alt": "구글 딥마인드 지니 소개 페이지의 제공 일정 문구와 Join waitlist 버튼",
+          "caption": "일부 테스터용 연구 프리뷰가 먼저이고, 다음은 프로젝트 지니의 AI 울트라 구독자와 API 파트너다",
+          "credit": "Google DeepMind",
+          "sourceUrl": "https://deepmind.google/models/genie/",
+          "width": 870,
+          "height": 395
+        }
+      ],
+      "embeds": [
+        {
+          "type": "x",
+          "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
+          "author": "Google DeepMind",
+          "handle": "GoogleDeepMind",
+          "text": "This is Genie 4, our most realistic and interactive world model yet. 🌐\n\nExplore dynamic environments in real time to see how the scene responds, sounds, and how the people in it move, react, and speak. https://t.co/6mmSUm9BBO",
+          "postedAt": "2026-10-27T16:10:55.000Z"
+        }
+      ]
+    },
+    {
+      "title": "지니 3과 달라진 점: 실사 화질과 소리, 실시간 조종",
+      "sourceRefs": [
+        1,
+        2,
+        8
+      ],
+      "paragraphs": [
+        "지니는 글이나 이미지를 넣으면 그 안을 걸어 다닐 수 있는 가상 세계를 실시간으로 만들어 주는 월드 모델입니다. 영상 생성 모델이 정해진 길이의 클립 하나를 만든다면, 월드 모델은 사용자가 키보드로 움직이는 대로 다음 장면을 계속 그려 냅니다. 지니 3까지는 주로 화면을 그리는 데 힘을 쏟았습니다.",
+        "지니 4에서 가장 크게 바뀐 것은 소리입니다. 딥마인드는 지니 4를 소리를 직접 만들어 내는 첫 실시간 월드 모델이라고 설명합니다. 숲에서는 바람 소리가, 해변에서는 파도 소리가 장면과 함께 생기고 배경 음악과 등장인물의 대사도 같은 모델이 만듭니다. 인물이 사용자의 입력이나 장면 속 사건에 맞춰 말을 바꾸는 대화도 시연에 들어 있습니다.",
+        "화질과 움직임도 달라졌습니다. 제미나이 옴니(Gemini Omni)가 실제 세계의 생김새와 움직임을 잡아 주는 역할을 맡아 사진에 가까운 화면을 만들고, 공기 흐름이나 충돌 같은 물리 현상도 전보다 그럴듯하게 표현합니다. 딥마인드가 가장 큰 도약으로 꼽은 부분은 사람입니다. 등장인물이 주변 환경에 반응하며 자연스럽게 움직이고, 사용자가 실시간으로 그 행동을 바꿀 수 있습니다.",
+        "조작은 키보드와 문장을 함께 씁니다. 이동과 카메라는 보통 게임처럼 키보드로 움직이고, 장면을 바꾸고 싶을 때는 비를 내리게 하거나 사람을 한 명 더 등장시키라는 식으로 문장을 입력합니다. 제미나이가 그 문장을 지금 장면에 맞게 다듬어 반영하고, 입력이 없는 동안에도 장면이 어색하게 흐르지 않도록 다음 전개를 이끕니다.",
+        "글로 읽는 것보다 영상으로 보는 편이 훨씬 빠릅니다. 딥마인드가 공식 유튜브 채널에 올린 소개 영상에 실시간 조작 장면이 담겨 있습니다."
+      ]
+    },
+    {
+      "title": "제미나이 3.8 플래시가 장면을 이끄는 방식",
+      "sourceRefs": [
+        1
+      ],
+      "paragraphs": [
+        "지니 4가 이전 버전과 구조부터 다른 점은 제미나이 모델이 시뮬레이션 안에서 감독 역할을 한다는 것입니다. 지니 4가 화면을 실시간으로 그리는 동안 제미나이 3.8 플래시가 장면을 계속 지켜보며 목표를 여러 단계로 나누고, 새로 나온 화면을 보고 단계마다 제대로 이뤄졌는지 따집니다.",
+        "예를 들어 로봇 팔이 피펫으로 액체를 떨어뜨리자 작은 불꽃이 튀는 장면은 한 번에 끝나는 그림이 아닙니다. 팔이 움직이고, 액체가 떨어지고, 그 결과로 불꽃이 튀는 순서가 맞아야 자연스럽습니다. 제미나이가 이 순서를 계획하고 화면 진행을 따라가기 때문에 원인과 결과가 이어지는 장면을 만들 수 있다는 설명입니다. 중간에 사용자가 끼어들면 계획도 그 자리에서 바뀝니다.",
+        "딥마인드는 이 구조를 로봇 연구와도 묶었습니다. 제미나이 4 아르곤(Gemini 4 Argon)이 사용자가 준 작업을 단계로 쪼개 지니 4에 문장으로 넘기고, 지니 4가 그 단계를 화면으로 그리는 방식입니다. 공개된 시연에서는 앱트로닉의 휴머노이드 로봇 아폴로가 체커 게임을 두는 장면을 이렇게 만들었습니다. 실제 로봇을 움직이기 전에 가상 세계에서 여러 상황을 먼저 돌려 보려는 용도입니다.",
+        "딥마인드는 이런 방향을 하이브리드 월드 모델이라고 부릅니다. 코드와 언어 모델이 잘하는 논리적인 추론과, 픽셀 단위 시뮬레이션이 잘하는 풍부한 감각 표현을 합치는 구조입니다. 제미나이가 뒤에서 이야기 흐름과 공간 구조를 잡고 지니가 눈앞의 화면과 소리를 만들어 내는 지금의 지니 4가 그 첫걸음으로 소개됐습니다."
+      ],
+      "links": [
+        {
+          "label": "제미나이 4 아르곤 정리",
+          "url": "https://bluebworks.com/articles/gemini-4-argon-2026/"
+        }
+      ]
+    },
+    {
+      "title": "프로젝트 지니 이용 조건과 AI 울트라 한국 요금",
+      "sourceRefs": [
+        4,
+        5,
+        6,
+        2
+      ],
+      "paragraphs": [
+        "지니 4를 개인이 처음 만나게 될 곳은 구글 랩스의 프로젝트 지니입니다. 프로젝트 지니는 글이나 이미지로 세계를 만들고 돌아다녀 보는 연구용 시제품이고, 구글 AI 울트라 구독자 중 만 18세 이상만 쓸 수 있습니다. 구글 랩스 도움말은 울트라를 판매하는 나라라면 이용할 수 있다고 안내하며, 구글코리아도 프로젝트 지니를 한국을 포함해 출시한다고 밝힌 바 있습니다.",
+        "한국 요금은 제미나이 구독 페이지 기준으로 울트라가 월 119,000원부터입니다. 월 119,000원 요금제는 AI 프로보다 5배, 월 300,000원 요금제는 20배 높은 사용 한도를 줍니다. 울트라 카드 안에 프로젝트 지니가 혜택으로 올라 있고, 각주에는 프로젝트 지니가 울트라 요금제에서만 제공된다고 적혀 있습니다.",
+        "여기서 눈여겨볼 점이 두 가지 있습니다. 첫째, 지금 프로젝트 지니에 들어 있는 모델은 지니 3입니다. 구독 페이지 설명에도 Genie 3 세계 모델이라고 적혀 있고, 지니 4는 아직 곧 제공 단계입니다. 둘째, 어느 울트라 요금제에 지니 4가 먼저 들어오는지는 따로 나오지 않았습니다. 구글코리아는 5월 I/O 때 프로젝트 지니를 월 200달러 울트라 구독자 전체로 넓힌다고 발표했고, 일부 국가 요금 페이지에는 20배 요금제 전용이라는 문구가 붙어 있습니다. 지니 하나 때문에 구독한다면 결제 전에 요금제 상세에서 프로젝트 지니 표시를 직접 보는 편이 안전합니다.",
+        "개발자 쪽은 경로가 다릅니다. 제미나이 API와 구글 AI 스튜디오에는 얼리 액세스 파트너부터 열린다고만 나와 있고, 가격이나 모델 이름, 파트너 신청 방법은 공개되지 않았습니다. 지금 가진 API 키로 지니 4를 호출할 방법은 없습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/google-genie-4-project-genie-2026-ultra-kr.webp",
+          "alt": "제미나이 한국 구독 페이지의 Google AI Ultra 요금과 Project Genie 혜택 설명",
+          "caption": "한국 울트라는 월 119,000원부터이고, 지금 프로젝트 지니는 지니 3 기반이다",
+          "credit": "Google Gemini",
+          "sourceUrl": "https://gemini.google/kr/subscriptions/?hl=ko",
+          "width": 680,
+          "height": 410
+        }
+      ],
+      "table": {
+        "headers": [
+          "대상",
+          "경로",
+          "시기"
+        ],
+        "rows": [
+          [
+            "일부 신뢰 테스터",
+            "연구 프리뷰",
+            "10월 27일부터"
+          ],
+          [
+            "구글 AI 울트라 구독자(만 18세 이상)",
+            "프로젝트 지니",
+            "곧 제공, 날짜 미정"
+          ],
+          [
+            "얼리 액세스 파트너",
+            "제미나이 API, 구글 AI 스튜디오",
+            "곧 제공, 날짜 미정"
+          ]
+        ],
+        "caption": "구글 딥마인드 발표 기준 지니 4 제공 순서. 가격과 요금제별 제공 범위는 아직 공개되지 않았다."
+      }
+    },
+    {
+      "title": "프로젝트 지니에서 세계 만드는 순서",
+      "sourceRefs": [
+        4
+      ],
+      "paragraphs": [
+        "지니 4가 들어올 자리는 지금의 프로젝트 지니 화면입니다. 구글 랩스 도움말에 나온 현재 사용 순서를 알아 두면 지니 4가 열렸을 때 헤매지 않습니다. 다만 아래 순서는 지니 3 기준이라, 지니 4에서는 소리나 문장 조종 같은 메뉴가 더해질 수 있습니다.",
+        "먼저 labs.google/fx/projectgenie에 개인 구글 계정으로 로그인합니다. 울트라 구독 계정이면 시작 화면에 Create with Project Genie 버튼이 보이고, 권한이 없으면 프로젝트 지니 소개 페이지로 넘어갑니다. 권한이 없어도 다른 사용자가 만든 세계를 모아 둔 갤러리는 볼 수 있습니다.",
+        "세계를 만드는 방법은 세 가지입니다. 환경과 캐릭터를 글로 따로 적거나, 지도 스트리트 뷰에서 장소를 골라 화풍을 입히거나, Roll the dice로 무작위 세계를 받는 방식입니다. 스트리트 뷰 기반 생성은 지금 미국 안의 장소만 됩니다. 그다음 1인칭과 3인칭 시점 중 하나를 고르고, 필요하면 미리보기 이미지에 요소를 더하거나 빼고 Next를 누르면 생성이 시작됩니다. 사용자가 몰리면 차례를 기다려야 하고, 차례가 오면 30초 안에 만들기를 시작해야 합니다.",
+        "만들어진 세계에서는 WASD 키로 움직이고 스페이스바로 점프하거나 위로 올라가며, 방향키로 카메라를 돌립니다. 한 번에 돌아다닐 수 있는 시간은 60초이고 화면 위쪽 진행 막대에 남은 시간이 나옵니다. 시간이 끝나면 같은 문장으로 새로 시작하거나, 같은 세계를 다시 생성하거나, 체험 장면을 영상으로 내려받을 수 있습니다.",
+        "연구용 시제품이라 세계를 만들 때 AI 크레딧은 빠지지 않습니다. 대신 캐릭터가 뒤로 달리거나, 입력 반응이 늦거나, 서버 부하에 따라 화질이 떨어지는 문제가 알려져 있습니다. 캐릭터 조작이 안 되면 스페이스바를 눌러 초기화하라고 도움말은 안내합니다."
+      ],
+      "links": [
+        {
+          "label": "프로젝트 지니 시작하기",
+          "url": "https://labs.google/fx/projectgenie"
+        }
+      ]
+    },
+    {
+      "title": "지니 4의 한계와 SynthID 워터마크",
+      "sourceRefs": [
+        1
+      ],
+      "paragraphs": [
+        "딥마인드는 지니 4를 아직 초기 실험 모델이라고 분명히 적었습니다. 짧은 시간 동안은 세계가 일관되게 유지되지만 오래 돌릴수록, 문장으로 여러 번 크게 바꿀수록, 장면 안을 많이 돌아다닐수록 세부 모습과 물체 위치가 조금씩 어긋날 수 있습니다. 복잡한 물리 상호작용, 실시간 소리의 정확도, 읽을 수 있는 글자 표현, 공간 정확도, 긴 시간의 일관성은 아직 연구 중인 과제로 꼽혔습니다.",
+        "테스터들이 써 본 방향은 꽤 구체적입니다. 영화 제작자는 촬영 전에 장면 안에 들어가 카메라 각도와 조명, 대사를 바꿔 가며 여러 테이크를 미리 돌려 봅니다. 사진기자는 옛 보도 사진 한 장을 움직이는 장면으로 바꿔 당시 공간을 살펴보고, 게임 개발자는 엔진 코드를 쓰기 전에 화풍과 조작감을 문장만으로 시험하는 시제품 도구로 씁니다.",
+        "지니 4가 만든 영상과 소리에는 모두 구글의 보이지 않는 디지털 워터마크인 SynthID가 들어갑니다. 실제 사람처럼 보이는 인물과 대사까지 만드는 모델이라, 나중에 결과물이 AI로 만든 것인지 가려낼 수 있게 한 장치입니다. 구글은 공개 전에 내부 안전성 평가를 거쳤고 다른 모델과 같은 안전 정책을 적용한다고 밝혔습니다.",
+        "지금 할 일만 추리면 간단합니다. 울트라를 이미 쓰고 있다면 대기자 명단에 등록해 두고 프로젝트 지니 화면에 지니 4 표시가 생기는지 보면 됩니다. 아직 구독하지 않았다면 지니 4가 실제로 열리고 어느 요금제에 들어가는지 공지가 나온 뒤에 정해도 늦지 않습니다."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Google DeepMind: Genie 4 발표",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "description": "지니 4의 네 가지 기능, 제미나이 3.8 플래시 연동, 테스터 사례, 한계와 SynthID, 제공 순서"
+    },
+    {
+      "name": "Google DeepMind: Genie 4 모델 페이지",
+      "url": "https://deepmind.google/models/genie/",
+      "description": "연구 프리뷰 상태와 AI 울트라, 제미나이 API 제공 예정, 대기자 등록 버튼"
+    },
+    {
+      "name": "구글코리아 블로그: 지니 4",
+      "url": "https://blog.google/intl/ko-kr/company-news/technology/genie-4-a-new-generation-of-world-simulation-kr/",
+      "description": "지니 4 발표의 한국어 소개와 제공 범위"
+    },
+    {
+      "name": "Google Labs 도움말: Project Genie 시작하기",
+      "url": "https://support.google.com/labs/answer/16875695?hl=en",
+      "description": "이용 대상, 접속 방법, 세계 만들기와 조작키, 60초 제한, 알려진 문제"
+    },
+    {
+      "name": "Gemini 구독 요금(한국)",
+      "url": "https://gemini.google/kr/subscriptions/?hl=ko",
+      "description": "Google AI Ultra 월 119,000원과 300,000원 요금, Project Genie 혜택 표기"
+    },
+    {
+      "name": "구글코리아 블로그: I/O 2026 구글 AI 구독",
+      "url": "https://blog.google/intl/ko-kr/company-news/technology/google-ai-subscriptions-kr/",
+      "description": "프로젝트 지니를 한국 포함 월 200달러 울트라 구독자로 넓힌다는 5월 발표"
+    },
+    {
+      "name": "Google DeepMind 공식 X 발표",
+      "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
+      "description": "지니 4 발표 게시물과 시연 영상"
+    },
+    {
+      "name": "Google DeepMind 유튜브: Genie 4 소개 영상",
+      "url": "https://www.youtube.com/watch?v=sFfPkUJd_Jk",
+      "description": "지니 4 실시간 조작 장면을 담은 공식 소개 영상"
+    }
+  ],
+  "resources": [
+    {
+      "name": "지니 4 대기자 등록",
+      "url": "https://forms.gle/WQnSNEM3omF7Uruu7",
+      "description": "프로젝트 지니에서 지니 4를 받을 대기자 명단 양식",
+      "type": "신청"
+    },
+    {
+      "name": "프로젝트 지니",
+      "url": "https://labs.google/fx/projectgenie",
+      "description": "AI 울트라 구독자가 세계를 만들고 갤러리를 보는 구글 랩스 페이지",
+      "type": "제품"
+    },
+    {
+      "name": "프로젝트 지니 도움말",
+      "url": "https://support.google.com/labs/answer/16875695?hl=en",
+      "description": "이용 조건과 조작 방법, 데이터 삭제와 문제 신고 방법",
+      "type": "문서"
+    },
+    {
+      "name": "제미나이 구독 요금",
+      "url": "https://gemini.google/kr/subscriptions/?hl=ko",
+      "description": "AI 프로와 울트라의 한국 요금과 혜택 비교",
+      "type": "가격"
+    }
+  ],
+  "discovery": {
+    "writer": "aside",
+    "xStatus": "public-search",
+    "notes": "topic-queue의 google-genie-4 후보(@Google 10/30 영상 게시 조회 11만). 원 발표인 @GoogleDeepMind 10/27 게시물 조회 343만, 좋아요 2.3만. 네이버 자동완성에 구글 지니4, 구글 지니 사용법, Google 자동완성에 프로젝트 지니 하는 법, 프로젝트 지니 한국, genie 4 release date 표시. 기존 BlueBWorks 글에 Genie 주제 없음.",
+    "xPosts": [
+      {
+        "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
+        "postedAt": "2026-10-27T16:10:55.000Z",
+        "verifiedAt": "2026-11-01T01:05:07+09:00",
+        "role": "announcement",
+        "verification": "corroborated",
+        "officialSourceUrl": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/"
+      }
+    ]
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-01T01:05:07+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://deepmind.google/models/genie/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/google-genie-4-project-genie-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original editorial thumbnail with limited official page quotation",
+        "reason": "v3 어두운 템플릿, 오른쪽에 딥마인드 지니 페이지 제공 일정 문구 화면. 1600x900 직접 검수, 개인정보 없음."
+      },
+      {
+        "sourceUrl": "https://deepmind.google/models/genie/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/google-genie-4-project-genie-2026-availability.webp",
+        "decision": "included",
+        "rightsBasis": "Limited official product page screenshot quoted for explanation",
+        "reason": "Join Project Genie waitlist 구역 문구와 버튼만 잘라냄. 2026-11-01 01시 KST VPS Aside 브라우저로 공개 페이지 촬영, 상단 계정 표시 영역 제외, 개인정보 없음."
+      },
+      {
+        "sourceUrl": "https://gemini.google/kr/subscriptions/?hl=ko",
+        "assetUrl": "https://bluebworks.com/assets/editorial/google-genie-4-project-genie-2026-ultra-kr.webp",
+        "decision": "included",
+        "rightsBasis": "Limited official pricing page screenshot quoted for explanation",
+        "reason": "울트라 카드 상단 요금과 Project Genie 혜택 항목 두 부분을 잘라 나란히 배치. 2026-11-01 01시 KST 공개 페이지 촬영, 로그인 정보 없음."
+      },
+      {
+        "sourceUrl": "https://www.youtube.com/watch?v=sFfPkUJd_Jk",
+        "decision": "excluded",
+        "reason": "딥마인드 발표 글에 삽입된 Google DeepMind 공식 채널 영상(oEmbed 채널과 제목 일치). 파일을 복사하지 않고 videos 항목의 youtube-nocookie 임베드로 넣었다."
+      },
+      {
+        "sourceUrl": "https://x.com/GoogleDeepMind/status/2115114028338962672",
+        "decision": "excluded",
+        "reason": "첨부 영상 파일은 복사하지 않고 원문 링크가 있는 X 임베드로 인용했다."
+      },
+      {
+        "sourceUrl": "https://x.com/Google/status/2116237215026032872",
+        "decision": "excluded",
+        "reason": "같은 발표의 구글 본사 세로 영상 게시물. 원 발표인 딥마인드 게시물을 우선해 임베드 하나만 사용."
+      },
+      {
+        "sourceUrl": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+        "decision": "excluded",
+        "reason": "발표 글의 webm 시연 영상과 대표 이미지는 재사용 허락 문구가 없어 파일을 복사하지 않고 유튜브와 X 임베드로 대체."
+      }
+    ],
+    "note": "소식형 글이라 계정 화면 촬영 대상 없음. 프로젝트 지니는 AI 울트라 전용이고 VPS 브라우저 계정으로 이용 화면을 볼 수 없어 공개 도움말 기준으로 사용 순서를 설명. 대기자 양식은 로그인 계정 이메일이 보일 수 있어 촬영하지 않음. 셀프체크: 독자용 텍스트의 em/en dash, 가운뎃점, 이모지 0건(임베드 원문 제외), 볼드 0, 질문형 헤딩과 FAQ 없음, 확인 과정 문구 0건."
+  }
+}
