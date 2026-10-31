@@ -95,6 +95,8 @@ function head({
     <meta property="og:locale" content="ko_KR">
     ${cards}
     <link rel="icon" href="${assetHref(base, "favicon.svg")}" type="image/svg+xml">
+    <link rel="icon" href="${assetHref(base, "favicon-48.png")}" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="${assetHref(base, "apple-touch-icon.png")}">
     <link rel="alternate" type="application/rss+xml" title="${esc(config.rssTitle)}" href="${pageHref(base, "feed.xml")}">
     <link rel="stylesheet" href="${assetHref(base, "journal.css")}?v=edition6">
     ${ld}
