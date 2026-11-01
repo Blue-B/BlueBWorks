@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 01 Nov 2026 00:29:17 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 06:21:38 GMT</lastBuildDate>
+    <item>
+      <title>챗GPT 계정 전환 모바일 지원: 2개 로그인과 구독 공유 제한</title>
+      <link>https://bluebworks.com/articles/chatgpt-mobile-account-switching-subscription-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/chatgpt-mobile-account-switching-subscription-2026/</guid>
+      <pubDate>Sun, 01 Nov 2026 06:21:38 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>챗GPT가 iOS와 안드로이드 앱에 계정 전환을 순차 제공하고 있습니다. 최대 2개 로그인 유지, 계정별 대화와 메모리 분리, 유료 구독이 공유되지 않는 이유와 모바일 결제에서 주의할 차이를 설명합니다.</description>
+    </item>
     <item>
       <title>코딩 AI 비교 기준: FrontierCode 2.0 점수와 비용, 코드 병합 품질 차이</title>
       <link>https://bluebworks.com/articles/frontiercode-2-coding-ai-comparison-2026/</link>
