@@ -352,5 +352,23 @@
     "sourceUrl": "https://github.com/NVlabs/motionbricks",
     "credit": "BlueBWorks, NVIDIA",
     "purpose": "2026-10-30 browser screenshot excerpt, cropped; README licenses NVIDIA-authored documentation and media under CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. BlueBWorks original layout with licensed screenshot."
+  },
+  {
+    "file": "frontiercode-2-coding-ai-comparison-2026-thumb.png",
+    "url": "https://bluebworks.com/assets/editorial/frontiercode-2-coding-ai-comparison-2026-thumb.png",
+    "sourceUrl": "https://cognition.com/frontiercode",
+    "credit": "BlueBWorks, Cognition",
+    "purpose": "Original v3 thumbnail with limited leaderboard quotation",
+    "license": "Original editorial design; screenshot used as limited quotation",
+    "rightsBasis": "BlueBWorks original thumbnail and limited official page quotation"
+  },
+  {
+    "file": "frontiercode-2-coding-ai-comparison-2026-leaderboard.png",
+    "url": "https://bluebworks.com/assets/editorial/frontiercode-2-coding-ai-comparison-2026-leaderboard.png",
+    "sourceUrl": "https://cognition.com/frontiercode",
+    "credit": "Cognition",
+    "purpose": "Explain score-versus-cost chart next to analysis",
+    "license": "Limited screenshot quotation, no broader reuse permission claimed",
+    "rightsBasis": "Limited official leaderboard screenshot quoted for explanation"
   }
 ]
