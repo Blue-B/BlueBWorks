@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 01 Nov 2026 06:21:38 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 12:20:56 GMT</lastBuildDate>
+    <item>
+      <title>코덱스 한도 초기화권 사용법: 설정 위치와 80% 조건, 만료와 유료 초기화 차이</title>
+      <link>https://bluebworks.com/articles/codex-banked-reset-how-to-use-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/codex-banked-reset-how-to-use-2026/</guid>
+      <pubDate>Sun, 01 Nov 2026 12:20:56 GMT</pubDate>
+      <category>개발 도구</category>
+      <description>Codex 주간 한도가 막혔을 때 계정에 저장된 한도 초기화권을 쓰는 위치와 조건을 정리했습니다. 웹 설정 사용량 메뉴, 데스크톱과 CLI 경로, 80% 미만 조건, 만료와 내역 보는 법, 유료 즉시 초기화와의 차이를 다룹니다.</description>
+    </item>
     <item>
       <title>챗GPT 계정 전환 모바일 지원: 2개 로그인과 구독 공유 제한</title>
       <link>https://bluebworks.com/articles/chatgpt-mobile-account-switching-subscription-2026/</link>
