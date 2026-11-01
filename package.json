@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "BlueBWorks AI Radar static site builder and tests",
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "editorial:check": "node build/editorial-check.mjs && node build/publication-check.mjs",
     "build": "npm run editorial:check && node build/prepare-assets.mjs && node build/prepare-editorial-media.mjs && node build/build.mjs",
@@ -14,6 +16,7 @@
     "radar": "node tools/discover-sources.mjs",
     "remote:check": "node tools/remote-publication-check.mjs",
     "x:listen": "node tools/x-inbox.mjs serve",
-    "x:export": "node tools/x-inbox.mjs export"
+    "x:export": "node tools/x-inbox.mjs export",
+    "indexnow": "node tools/indexnow.mjs"
   }
 }
