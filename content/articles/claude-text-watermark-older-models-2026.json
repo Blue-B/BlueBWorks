@@ -1,0 +1,219 @@
+{
+  "slug": "claude-text-watermark-older-models-2026",
+  "title": "클로드 텍스트 워터마크, 11월 3일부터 구형 모델까지: 클로드 코드도 해당되는 범위와 제거 도구의 한계",
+  "summary": "앤트로픽이 11월 3일부터 Mythos 5, Opus 4.7, Opus 4.6, Sonnet 4.6이 쓰는 글에도 보이지 않는 워터마크를 넣습니다. 웹 채팅만이 아니라 API와 클로드 코드까지 모델 단위로 들어가는 이유, 단어 선택에 남는 방식, MarkLLM 같은 공개 도구와 제거 연구가 실제로 잴 수 있는 것과 없는 것을 정리했습니다.",
+  "category": "모델",
+  "announcedAt": "2026-10-31",
+  "publishedAt": "2026-11-02T23:19:00+09:00",
+  "verifiedAt": "2026-11-02T23:19:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "클로드 워터마크",
+    "Claude watermark",
+    "SynthID-Text",
+    "클로드 코드",
+    "MarkLLM",
+    "EU AI법"
+  ],
+  "editorNote": "어디까지 해당되는지가 가장 헷갈리는 부분이라 적용 범위를 먼저 쓰고, 공개된 제거 도구는 무엇을 잴 수 있고 무엇을 못 재는지 위주로 묶었습니다.",
+  "keyPoints": [
+    "범위: 워터마크는 모델 단위라 claude.ai 웹과 앱, API, 클로드 코드, Cowork, 클라우드 파트너까지 같은 모델이면 모두 들어간다",
+    "방식: 숨은 문자가 아니라 단어를 고를 때 쓰는 난수를 비밀 키로 바꾸는 SynthID-Text 계열이라 복사해 붙여도 남는다",
+    "제거 도구: MarkLLM, BIRA, SIRA 같은 공개 연구와 도구가 있지만 클로드 키가 비공개라 실제로 지워졌는지 밖에서 잴 방법은 없다"
+  ],
+  "discovery": {
+    "writer": "aside",
+    "xStatus": "unavailable",
+    "notes": "2026-11-02 사용자 요청 글(정규 3회차 외). 계기: @bottopia_studio 11/3 워터마크 글과 사용자가 붙여 준 오픈소스 정리. 공식 근거는 Claude 도움말과 앤트로픽 8/14 글, 11/3 날짜와 네 모델, 샘플링 기본값 조건은 고객 메일을 인용한 The Decoder, Mashable, 디지털투데이 기사. GitHub API로 저장소 별, 라이선스, 최근 푸시 조회. 직접 설치나 실행은 하지 않았다.",
+    "xPosts": []
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-02T23:19:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with cropped screenshot of public help page for commentary",
+        "reason": "v3 어두운 썸네일, 오른쪽은 도움말의 모델별 워터마크 표."
+      },
+      {
+        "sourceUrl": "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-products.png",
+        "decision": "included",
+        "rightsBasis": "Cropped screenshot of public help page for commentary",
+        "reason": "적용 제품 범위 문단. 글자를 키워 찍음."
+      },
+      {
+        "sourceUrl": "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-models.png",
+        "decision": "included",
+        "rightsBasis": "Cropped screenshot of public help page for commentary",
+        "reason": "모델 열과 자사 서비스 텍스트 워터마크 열만 잘라 냄. 11/02 밤 기준 네 모델 칸이 비어 있음."
+      },
+      {
+        "sourceUrl": "https://github.com/natzir/synthid-text-watermark-attacks",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-attack-results.png",
+        "decision": "included",
+        "rightsBasis": "Cropped screenshot of public MIT-licensed README table for commentary",
+        "reason": "자체 키로 재현한 SynthID-Text 공격 결과 표, 영어와 스페인어 열."
+      },
+      {
+        "sourceUrl": "https://github.com/Shreyan1/ai-text-watermark-remover",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-remover-limits.png",
+        "decision": "included",
+        "rightsBasis": "Cropped screenshot of public README table for commentary",
+        "reason": "도구가 스스로 밝힌 가능, 불가능 표."
+      }
+    ],
+    "note": "공식 유튜브 영상과 공식 X 게시물은 찾지 못해 넣지 않음. 표 1개. 직접 설치, 실행 없음. 셀프체크 대상: 가운뎃점, 이모지, em/en dash, 볼드, 질문형 소제목, FAQ, 확인 과정 문구."
+  },
+  "image": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-thumb.png",
+  "imageSourceUrl": "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content",
+  "imageAlt": "클로드 글에 워터마크, 11월 3일부터 구형 모델까지 웹과 앱, 클로드 코드 모두. 오른쪽에 Claude 도움말의 모델별 워터마크 표",
+  "imageCredit": "BlueBWorks, Claude 도움말",
+  "imageCaption": "Claude 도움말의 모델별 텍스트 워터마크 표",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "11월 3일부터 워터마크가 붙는 클로드 구형 모델 네 개",
+      "paragraphs": [
+        "앤트로픽은 8월 2일 이후 내놓은 모델에는 처음부터 텍스트 워터마크를 넣어 왔습니다. Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5.1, Mythos 5.1처럼 지금 많이 쓰는 최신 모델은 이미 워터마크가 들어간 글을 쓰고 있습니다. 이번에 달라지는 건 그 전에 나온 모델입니다.",
+        "앤트로픽이 API 고객에게 보낸 메일에 따르면 11월 3일부터 Claude Mythos 5, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6 네 모델의 출력에도 같은 워터마크가 들어갑니다. 아마존 베드록은 며칠 더 걸릴 수 있다고 적혀 있습니다. 메일 내용은 The Decoder, Mashable, 디지털투데이가 같은 내용으로 전했습니다.",
+        "Claude 도움말의 모델 표는 아직 바뀌기 전입니다. 11월 2일 밤 표에는 이 네 모델의 텍스트 워터마크 칸이 비어 있고, Opus 4.5와 Sonnet 4.5, Haiku 4.5도 비어 있습니다. 4.5 세대는 이번 메일 목록에 없어서 언제 들어갈지는 정해지지 않았습니다. 도움말은 8월 2일 이전 모델에도 차례로 넣는 중이라고만 적고 있습니다.",
+        "이유는 EU AI법입니다. 50조는 AI가 만든 콘텐츠에 기계가 읽을 수 있는 표시를 하라고 요구하고, 앤트로픽은 7월에 관련 실천 규약에 서명했습니다. 지역별로 끄고 켜는 방법이 아직 없어서 유럽만이 아니라 한국을 포함한 전 세계 출력에 같이 들어갑니다."
+      ],
+      "sourceRefs": [1, 2, 3, 4, 5],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-models.png",
+          "alt": "Claude 도움말의 모델 표. Fable 5.1, Fable 5, Mythos 5.1, Opus 5.5, Opus 5, Opus 4.8, Sonnet 5.5, Sonnet 5, Haiku 5.5에는 체크가 있고 Mythos 5, Opus 4.7, Opus 4.6, Opus 4.5, Sonnet 4.6, Sonnet 4.5, Haiku 4.5는 비어 있다",
+          "caption": "자사 서비스 텍스트 워터마크 열. 11월 3일 대상인 Mythos 5, Opus 4.7, Opus 4.6, Sonnet 4.6 칸이 아직 비어 있다.",
+          "credit": "Claude 도움말",
+          "sourceUrl": "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content",
+          "width": 1068,
+          "height": 1045
+        }
+      ]
+    },
+    {
+      "title": "웹 채팅만이 아니라 API와 클로드 코드까지 모델 단위로 적용",
+      "paragraphs": [
+        "워터마크는 claude.ai 화면에서 덧붙이는 기능이 아니라 모델이 단어를 고르는 단계에서 들어갑니다. 그래서 같은 모델이면 어디서 불러도 똑같이 남습니다. 도움말은 적용 대상을 Claude Platform(API), Claude 앱, Claude Code, Claude Cowork, Claude Tag로 적고 있고, AWS와 구글 클라우드, 마이크로소프트 파운드리에서 같은 모델을 쓸 때도 워터마크가 붙는다고 설명합니다.",
+        "클로드 코드에서 Opus 5.5나 Sonnet 5.5를 쓰고 있다면 이미 워터마크가 들어간 출력을 받고 있는 셈입니다. 11월 3일부터는 Opus 4.6이나 Sonnet 4.6을 지정해 쓰는 경우도 마찬가지입니다. 사용자가 설정에서 끌 수 있는 옵션은 없습니다.",
+        "API에는 예외가 하나 있습니다. 메일에 따르면 Opus 4.6과 Sonnet 4.6은 temperature, top_p, top_k를 기본값으로 둘 때만 워터마크가 들어갑니다. 셋 중 하나라도 바꾸면 들어가지 않습니다. 앤트로픽은 규제 대응에 워터마크를 쓰려면 이 값을 기본으로 두라고 안내했습니다. Mythos 5와 Opus 4.7에는 이 조건이 적혀 있지 않습니다.",
+        "코드는 상대적으로 덜 남습니다. 앤트로픽 설명으로는 정답이 하나뿐인 자리, 예를 들어 함수 이름이나 문법상 꼭 와야 하는 토큰에는 워터마크를 넣지 않습니다. 대신 코드 주석처럼 단어를 골라 쓸 여지가 있는 곳에는 들어갈 수 있습니다. 클로드가 만든 PNG, JPEG 같은 파일에는 워터마크 대신 C2PA 출처 정보가 메타데이터로 붙습니다."
+      ],
+      "sourceRefs": [1, 2, 3],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-products.png",
+          "alt": "Claude 도움말의 What's covered 목록. Models 항목과 Products 항목에 Claude Platform(API), Claude, Claude Code, Claude Cowork, Claude Tag가 적혀 있다",
+          "caption": "적용 범위. 텍스트 워터마크는 생성되는 모든 텍스트에, C2PA는 파일에 들어간다.",
+          "credit": "Claude 도움말",
+          "sourceUrl": "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content",
+          "width": 1600,
+          "height": 335
+        }
+      ]
+    },
+    {
+      "title": "숨은 글자가 아니라 단어 선택에 남는 SynthID-Text 방식",
+      "paragraphs": [
+        "글자 사이에 보이지 않는 유니코드를 끼워 넣는 방식이 아닙니다. 언어 모델은 다음 단어를 고를 때 그럴듯한 후보 여러 개 중 하나를 난수로 뽑는데, 워터마크가 켜지면 이 난수를 아무렇게나 만들지 않고 비밀 키와 바로 앞 몇 단어로 정합니다. 날씨 문장 뒤에 흐린과 잿빛 중 무엇이 오든 뜻은 같지만, 키를 가진 쪽은 그 선택이 쌓인 순서가 클로드다운지 통계로 잴 수 있습니다.",
+        "앤트로픽은 이 방식을 구글 딥마인드가 2024년 네이처에 낸 SynthID-Text의 변형이라고 밝혔습니다. 추가 토큰이 없어 가격과 속도는 그대로이고, 워터마크에는 사용자나 조직, 대화 정보가 들어 있지 않다고 설명합니다. 글이 클로드를 거쳤을 가능성만 말해 줄 뿐 누가 썼는지는 담지 않는다는 뜻입니다.",
+        "잘 남는 글과 덜 남는 글도 갈립니다. 문장이 길수록 신호가 강해지고, 아주 짧은 글이나 사실 나열처럼 단어를 바꿀 여지가 적은 글은 약합니다. 사람이 쓴 글을 맞춤법만 고쳐 달라고 하면 클로드가 고른 단어가 몇 개 안 돼서 거의 남지 않습니다. 반대로 번역은 모든 단어를 클로드가 고르기 때문에 워터마크가 들어갑니다. 복사해서 붙여도 따라가고, 가볍게 손본 정도로는 사라지지 않는다는 것이 앤트로픽 설명입니다.",
+        "글을 읽어서 워터마크를 찾을 수는 없습니다. 검출 API는 비공개 미리보기로 EU 규정상 규제 기관, 수사 기관, 언론, 팩트체커, 연구자, 교육 기관 등에만 열려 있고, 일반 사용자는 신청서만 낼 수 있습니다. 파일에 붙는 C2PA 정보는 누구나 Claude Content Checker에서 볼 수 있습니다."
+      ],
+      "sourceRefs": [1, 2, 6]
+    },
+    {
+      "title": "워터마크를 직접 다뤄 볼 수 있는 공개 도구: MarkLLM과 synthid-text",
+      "paragraphs": [
+        "워터마크가 어떻게 생기고 어떻게 잡히는지 직접 보고 싶다면 가장 많이 쓰이는 출발점은 칭화대 THU-BPM 연구실의 MarkLLM입니다. EMNLP 2024 데모 논문으로 나온 툴킷으로, KGW, Unigram, SynthID-Text 등 20개 넘는 LLM 워터마크 알고리즘을 같은 인터페이스로 구현해 두었습니다. 11월 2일 기준 GitHub 별 1,089개, Apache-2.0 라이선스이고 pip install markllm으로 받을 수 있습니다.",
+        "MarkLLM에는 워터마크를 넣고 잡는 코드 말고도 단어 삭제, 동의어 치환, 다른 모델로 다시 쓰기 같은 편집 도구와 검출 성공률, 글 품질을 재는 평가 파이프라인이 들어 있습니다. 그래서 어떤 편집이 워터마크를 얼마나 약하게 만드는지 숫자로 비교해 볼 수 있습니다. 다만 넣는 키도 잡는 키도 내가 정한 것이라, 클로드 글을 넣어 클로드 워터마크를 잡는 도구는 아닙니다.",
+        "원조 구현은 구글 딥마인드의 synthid-text 저장소입니다. 네이처 논문과 함께 공개된 참조 구현으로 별 1,226개, Apache-2.0이고 Hugging Face transformers에도 들어가 있습니다. 클로드가 쓰는 방식의 뼈대를 그대로 읽어 볼 수 있다는 점에서 가장 직접적인 자료입니다."
+      ],
+      "sourceRefs": [6, 7, 8],
+      "table": {
+        "headers": ["저장소", "성격", "별", "라이선스"],
+        "rows": [
+          ["THU-BPM/MarkLLM", "워터마크 알고리즘과 검출, 평가 통합 툴킷 (EMNLP 2024 데모)", "1,089", "Apache-2.0"],
+          ["google-deepmind/synthid-text", "SynthID-Text 공식 참조 구현 (네이처 2024)", "1,226", "Apache-2.0"],
+          ["ml-postech/Bias-Inversion-Rewriting-Attack", "BIRA 공식 코드 (ICML 2026)", "22", "Apache-2.0"],
+          ["Shreyan1/ai-text-watermark-remover", "로컬 모델로 의미만 남기고 다시 쓰는 도구", "20", "표기 없음"],
+          ["cyzanfar/text-watermark-remover", "유니코드 흔적 정리와 BIRA, SIRA 실험 모드", "12", "MIT"]
+        ],
+        "caption": "별 수는 11월 2일 밤 GitHub 기준."
+      }
+    },
+    {
+      "title": "제거를 내세운 연구와 도구: SIRA, BIRA, 다시 쓰기 도구",
+      "paragraphs": [
+        "학계에서는 이런 통계 워터마크를 다시 쓰기로 흐리게 만드는 공격이 꾸준히 나왔습니다. ICML 2025의 SIRA는 워터마크가 주로 단어 선택 폭이 넓은 자리에 들어간다는 점을 노려, 그런 단어만 골라 가린 뒤 다른 모델로 채워 넣습니다. 논문은 일곱 가지 워터마크 방식에서 거의 100% 성공했다고 보고했습니다.",
+        "포스텍 연구진의 BIRA는 ICML 2026에 실린 연구로, 다시 쓰는 모델이 원래 문장에서 놀라운 단어를 덜 고르도록 음의 편향을 주는 방식입니다. 여러 워터마크 방식에서 99% 넘게 검출을 피하면서 뜻은 기존 방법보다 잘 보존했다고 밝혔고, 공식 코드가 ml-postech 저장소에 있습니다.",
+        "실사용을 내세운 도구도 있습니다. Shreyan1의 ai-text-watermark-remover는 로컬 오픈 모델로 글의 뜻만 남기고 새로 쓰는 방식이고, cyzanfar의 text-watermark-remover는 유니코드 흔적 정리에 BIRA와 SIRA 실험 모드를 붙였습니다. 둘 다 별이 수십 개 수준인 초기 프로젝트입니다.",
+        "참고할 만한 숫자는 natzir가 스페인어 기사와 함께 공개한 실험입니다. 진짜 SynthID-Text 코드에 자기 키를 넣어 7B 모델로 글을 만들고 여러 방법으로 지워 봤습니다. 시중의 워터마크 제거 스킬이 하는 유니코드 정리는 검출률 100%를 그대로 남겼고, 단어 30%를 무작위로 지워도 영어 글 41%가 여전히 잡혔습니다. 8B 모델로 통째로 다시 쓰거나 SIRA를 돌렸을 때 검출률이 5%와 4%로 떨어졌습니다."
+      ],
+      "sourceRefs": [9, 10, 11, 12, 13, 14],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-attack-results.png",
+          "alt": "SynthID-Text 공격 결과 표. 워터마크 없음 0%, 워터마크 100%, 유니코드 정리 후 100%, 단어 30% 삭제 41%, 가까운 언어 왕복 번역 76%, 중국어 왕복 번역 16%, Llama 8B 다시 쓰기 5%, SIRA 4%, 코드와 사실 목록 40%",
+          "caption": "자체 키로 재현한 SynthID-Text의 검출률. 클로드의 실제 워터마크를 잰 숫자는 아니다.",
+          "credit": "natzir/synthid-text-watermark-attacks",
+          "sourceUrl": "https://github.com/natzir/synthid-text-watermark-attacks",
+          "width": 1060,
+          "height": 637
+        }
+      ]
+    },
+    {
+      "title": "클로드 워터마크가 지워졌는지 밖에서 잴 수 없는 이유",
+      "paragraphs": [
+        "위 숫자는 모두 연구자가 직접 정한 키로 만든 워터마크를 상대로 잰 값입니다. 클로드 워터마크의 키는 앤트로픽만 갖고 있고 검출 API도 일반에 열려 있지 않아서, 어떤 도구를 돌린 뒤 클로드 신호가 사라졌는지 밖에서 잴 방법이 지금은 없습니다. 같은 SynthID-Text 계열이어도 키와 세부 설정이 다르면 결과가 달라질 수 있습니다.",
+        "제거 도구들도 이 점을 스스로 밝힙니다. Shreyan1 도구는 README 표에서 상용 서비스의 실제 워터마크를 지웠다고 증명하는 일은 할 수 없다고 적고, 그 이유로 키가 비밀이라 자신들도 잴 수 없다는 점을 듭니다. 키 없이 어떤 워터마크가 들어 있는지 알아내는 것도, 탐지되지 않는다고 보장하는 것도 불가능하다고 써 두었습니다. cyzanfar 도구도 맞는 검출기가 없으면 상용 워터마크를 지웠다고 주장하지 않는다고 밝힙니다.",
+        "natzir도 실험의 한계를 같이 적었습니다. 클로드 대신 쓴 모델이 양자화된 7B라 최신 대형 모델과 다르고, 앤트로픽은 더 정교한 베이즈 검출기를 쓸 수 있어 공격 뒤에도 신호를 일부 되살릴 수 있다고 했습니다. 앤트로픽 역시 가볍게 고친 글에는 워터마크가 남고, 모든 단어를 바꾼 완전한 재작성에서만 사라진다고 설명합니다.",
+        "평소 클로드로 글을 다듬어 쓰는 사람에게 당장 달라지는 점은 크지 않습니다. 워터마크로 사용자를 특정할 수 없고, 맞춤법 교정 정도의 손질은 신호가 거의 남지 않습니다. 반대로 클로드가 처음부터 쓴 긴 글이나 번역문은 표시가 남는다고 보는 편이 맞고, 검출 결과는 클로드가 관여했을 가능성을 말할 뿐 누가 썼는지까지 정해 주지는 않습니다."
+      ],
+      "sourceRefs": [1, 2, 12, 13, 14],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-text-watermark-older-models-2026-remover-limits.png",
+          "alt": "ai-text-watermark-remover README 표. 측정 가능한 워터마크 제거, 파일 출처 정보 제거, 보이지 않는 문자 제거, 사람 같은 문체로 다시 쓰기는 Yes, 상용 워터마크 제거 증명, 키 없이 워터마크 종류 판별, 탐지 불가 보장은 No",
+          "caption": "제거 도구가 스스로 밝힌 가능한 일과 불가능한 일. 상용 워터마크 제거 증명은 No로 적혀 있다.",
+          "credit": "Shreyan1/ai-text-watermark-remover",
+          "sourceUrl": "https://github.com/Shreyan1/ai-text-watermark-remover",
+          "width": 1497,
+          "height": 496
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {"name": "Claude 도움말: How Claude marks AI-generated content", "url": "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content", "description": "적용 모델 표, 제품과 클라우드 범위, 검출 API 접근, 한계"},
+    {"name": "Anthropic: How Claude's text watermark works", "url": "https://www.anthropic.com/news/claude-text-watermark", "description": "단어 선택 방식, SynthID-Text 변형, 코드와 교정, 번역에서의 동작"},
+    {"name": "The Decoder: Anthropic's watermark rollout leaves a loophole", "url": "https://the-decoder.com/anthropics-watermark-rollout-leaves-a-loophole-on-two-older-claude-models", "description": "고객 메일의 네 모델, 베드록 일정, Opus 4.6과 Sonnet 4.6 샘플링 기본값 조건"},
+    {"name": "디지털투데이: 앤트로픽, 11월 3일부터 구형 모델까지 워터마크 확대", "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=711826", "description": "11월 3일 적용 모델과 배경"},
+    {"name": "Mashable: Anthropic expands text watermarking to older Claude versions", "url": "https://sea.mashable.com/tech/56556/anthropic-expands-text-watermarking-to-older-claude-versions-beginning-november-3", "description": "고객 공지 내용"},
+    {"name": "Nature: Scalable watermarking for identifying large language model outputs", "url": "https://www.nature.com/articles/s41586-024-08025-4", "description": "SynthID-Text 원 논문"},
+    {"name": "GitHub: THU-BPM/MarkLLM", "url": "https://github.com/THU-BPM/MarkLLM", "description": "LLM 워터마크 통합 툴킷, 지원 알고리즘과 평가 도구"},
+    {"name": "GitHub: google-deepmind/synthid-text", "url": "https://github.com/google-deepmind/synthid-text", "description": "SynthID-Text 참조 구현"},
+    {"name": "arXiv: SIRA, Self-Information Rewrite Attacks", "url": "https://arxiv.org/abs/2505.05190", "description": "ICML 2025 다시 쓰기 공격 논문"},
+    {"name": "ICML 2026: LLM Watermark Evasion via Bias Inversion", "url": "https://icml.cc/virtual/2026/poster/61021", "description": "BIRA 논문 초록"},
+    {"name": "GitHub: ml-postech/Bias-Inversion-Rewriting-Attack", "url": "https://github.com/ml-postech/Bias-Inversion-Rewriting-Attack", "description": "BIRA 공식 코드"},
+    {"name": "GitHub: natzir/synthid-text-watermark-attacks", "url": "https://github.com/natzir/synthid-text-watermark-attacks", "description": "자체 키로 재현한 SynthID-Text 공격 실험과 한계"},
+    {"name": "GitHub: Shreyan1/ai-text-watermark-remover", "url": "https://github.com/Shreyan1/ai-text-watermark-remover", "description": "다시 쓰기 기반 제거 도구와 가능, 불가능 표"},
+    {"name": "GitHub: cyzanfar/text-watermark-remover", "url": "https://github.com/cyzanfar/text-watermark-remover", "description": "유니코드 정리와 검출기 기준 평가 도구"}
+  ],
+  "resources": [
+    {"name": "Claude 워터마크 도움말", "url": "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content", "type": "문서", "description": "모델별 적용 표와 검출 API 신청 안내"},
+    {"name": "Claude Content Checker", "url": "https://claude.com/check-content", "type": "도구", "description": "클로드가 만든 파일의 C2PA 출처 정보 조회"},
+    {"name": "MarkLLM", "url": "https://github.com/THU-BPM/MarkLLM", "type": "저장소", "description": "워터마크 알고리즘을 직접 넣고 잡아 보는 툴킷"},
+    {"name": "synthid-text", "url": "https://github.com/google-deepmind/synthid-text", "type": "저장소", "description": "SynthID-Text 참조 구현"}
+  ]
+}
