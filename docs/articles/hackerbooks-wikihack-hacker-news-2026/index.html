@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>HackerBooks와 Wikihack: 해커뉴스 댓글로 만든 개발자 추천 도서와 위키백과 순위 | BlueBWorks</title>
+    <meta name="description" content="해커뉴스 댓글에서 두 명 이상이 언급한 책 1만 5,766권을 모은 HackerBooks가 하루 만에 1,500점을 넘겼고, 위키백과판 Wikihack과 Apple TV 앱까지 이어졌습니다. 사이트 쓰는 법과 공개 데이터를 직접 돌려 본 숫자를 정리했습니다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/hackerbooks-wikihack-hacker-news-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="HackerBooks와 Wikihack: 해커뉴스 댓글로 만든 개발자 추천 도서와 위키백과 순위 | BlueBWorks">
+    <meta property="og:description" content="해커뉴스 댓글에서 두 명 이상이 언급한 책 1만 5,766권을 모은 HackerBooks가 하루 만에 1,500점을 넘겼고, 위키백과판 Wikihack과 Apple TV 앱까지 이어졌습니다. 사이트 쓰는 법과 공개 데이터를 직접 돌려 본 숫자를 정리했습니다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/hackerbooks-wikihack-hacker-news-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"HackerBooks와 Wikihack: 해커뉴스 댓글로 만든 개발자 추천 도서와 위키백과 순위","description":"해커뉴스 댓글에서 두 명 이상이 언급한 책 1만 5,766권을 모은 HackerBooks가 하루 만에 1,500점을 넘겼고, 위키백과판 Wikihack과 Apple TV 앱까지 이어졌습니다. 사이트 쓰는 법과 공개 데이터를 직접 돌려 본 숫자를 정리했습니다.","url":"https://bluebworks.com/articles/hackerbooks-wikihack-hacker-news-2026/","mainEntityOfPage":"https://bluebworks.com/articles/hackerbooks-wikihack-hacker-news-2026/","datePublished":"2026-11-02T13:07:00.000Z","dateModified":"2026-11-02T13:07:00.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"트렌드","keywords":"HackerBooks, Wikihack, 해커뉴스, 개발자 추천 도서, HackerTube","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"HackerBooks와 Wikihack: 해커뉴스 댓글로 만든 개발자 추천 도서와 위키백과 순위","item":"https://bluebworks.com/articles/hackerbooks-wikihack-hacker-news-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>트렌드</span></p>
+        <h1 id="article-title">HackerBooks와 Wikihack: 해커뉴스 댓글로 만든 개발자 추천 도서와 위키백과 순위</h1>
+        <p class="cover-dek">해커뉴스 댓글에서 두 명 이상이 언급한 책 1만 5,766권을 모은 HackerBooks가 하루 만에 1,500점을 넘겼고, 위키백과판 Wikihack과 Apple TV 앱까지 이어졌습니다. 사이트 쓰는 법과 공개 데이터를 직접 돌려 본 숫자를 정리했습니다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 11월 2일</span><span>소식 발표 2026년 11월 2일</span><span>확인 2026년 11월 2일</span><span>published</span><span>10분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">해커뉴스 첫 페이지를 채운 HackerTube 파생 사이트</a></li>
+          <li><a href="#sec-2">HackerBooks 사용법: 언급 수와 추천 수를 나눠 보는 책 목록</a></li>
+          <li><a href="#sec-3">HackerBooks CSV를 내려받아 직접 돌려 본 결과</a></li>
+          <li><a href="#sec-4">Wikihack: 해커뉴스가 링크한 위키백과 문서 7만 6천 개</a></li>
+          <li><a href="#sec-5">HackerHack과 HackerTube for Apple TV, 밈이 된 &#39;X, but for Y&#39;</a></li>
+          <li><a href="#sec-6">비슷한 사이트를 만들 때 쓰는 해커뉴스 공개 데이터</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="HackerBooks와 Wikihack: 해커뉴스 댓글로 만든 개발자 추천 도서와 위키백과 순위">
+            <meta itemprop="description" content="해커뉴스 댓글에서 두 명 이상이 언급한 책 1만 5,766권을 모은 HackerBooks가 하루 만에 1,500점을 넘겼고, 위키백과판 Wikihack과 Apple TV 앱까지 이어졌습니다. 사이트 쓰는 법과 공개 데이터를 직접 돌려 본 숫자를 정리했습니다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: HackerBooks, 해커뉴스 댓글이 고른 개발자 추천 도서와 위키백과. 오른쪽에 HackerBooks Most recommended 화면"><img src="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-thumb.png" alt="HackerBooks, 해커뉴스 댓글이 고른 개발자 추천 도서와 위키백과. 오른쪽에 HackerBooks Most recommended 화면" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>HackerBooks Most recommended 화면</span><a href="https://hackerbooks.org/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
+      <ul>
+        <li>HackerBooks: 해커뉴스 댓글 22만 5,861개에서 찾은 책 1만 5,766권, 언급과 추천을 따로 세어 보여 준다</li>
+        <li>Wikihack: 해커뉴스가 링크한 위키백과 문서 7만 6,074개를 세로 피드로, 1위는 베터리지의 법칙</li>
+        <li>데이터: HackerBooks CSV와 ClickHouse 공개 해커뉴스 데이터로 비슷한 사이트를 바로 만들어 볼 수 있다</li>
+      </ul>
+    </details>
+          <details class="editor-note">
+      <summary>덧붙임</summary>
+      <p>책 순위는 언급한 사람 수와 추천한 사람 수가 크게 다르게 나와서, 사이트 소개보다 CSV를 받아 두 숫자를 나란히 놓은 결과를 앞쪽에 두었습니다.</p>
+    </details>
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>해커뉴스 첫 페이지를 채운 HackerTube 파생 사이트</h2>
+        <p>11월 2일 밤 해커뉴스 첫 페이지를 열면 비슷한 제목이 줄지어 있습니다. 1위는 Show HN으로 올라온 HackerBooks, 3위는 Wikihack, 6위는 HackerHack입니다. 셋 다 제목에 &#39;HackerTube, but for&#39;나 &#39;HackerBooks but for&#39;가 붙어 있습니다. 밤 10시 무렵 HackerBooks는 1,537점에 댓글 250개, Wikihack은 270점에 댓글 77개를 받았습니다.</p>
+        <p>출발점은 안드레이 카파시가 만든 HackerTube입니다. 해커뉴스 댓글에서 추천된 유튜브 영상을 모은 사이트로, 같은 첫 페이지 5위에 2,661점으로 아직 남아 있습니다. 이 글은 HackerTube 자체보다 그 뒤에 나온 사이트들이 무엇을 어떻게 세는지, 그 데이터를 어디서 받아 직접 써 볼 수 있는지를 다룹니다.</p>
+        <p>시간 순서로 놓으면 흐름이 더 잘 보입니다. HackerBooks가 한국 시간 11월 2일 0시 58분에 올라왔고, 위키백과판 Wikihack이 오후 2시 6분, 농담에 가까운 HackerHack이 오후 3시 59분, Apple TV 앱인 HackerTube for Apple TV가 저녁 8시 16분에 올라왔습니다. 밤 9시 37분에는 해커뉴스 최신 댓글 페이지 주소를 그대로 걸어 둔 &#39;Hacker News but for comments&#39;까지 나왔습니다. 하루 사이에 같은 형식의 Show HN이 다섯 개 나온 셈입니다.</p>
+        <p>댓글 분위기도 비슷합니다. Wikihack 글에는 &#39;Show HN: HackerFoo&#39; 글이 2주 동안 첫 페이지를 채웠으면 좋겠다는 반쯤 농담 섞인 댓글과 &#39;ArXivHack 곧 나옴&#39;이라는 댓글이 달렸습니다. HackerHack 글에는 모든 Hacker 시리즈를 한곳에 모으는 HackerHype를 누가 만들어 달라는 농담이 트리 그림과 함께 올라왔습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-hn-front.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 해커뉴스 첫 페이지 목록. 1위 Show HN HackerBooks 1537점, 2위 Postgres 19 지연 글, 3위 Show HN Wikihack 270점, 5위 HackerTube 2661점, 6위 Show HN HackerHack 80점이 보인다">
+        <img src="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-hn-front.png" alt="해커뉴스 첫 페이지 목록. 1위 Show HN HackerBooks 1537점, 2위 Postgres 19 지연 글, 3위 Show HN Wikihack 270점, 5위 HackerTube 2661점, 6위 Show HN HackerHack 80점이 보인다" width="1274" height="460" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>11월 2일 밤 해커뉴스 첫 페이지. 1위, 3위, 6위가 HackerTube를 따라 만든 Show HN이다.</span><a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a> <a href="#source-4">[4]</a> <a href="#source-12">[12]</a> <a href="#source-13">[13]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>HackerBooks 사용법: 언급 수와 추천 수를 나눠 보는 책 목록</h2>
+        <p>HackerBooks는 2007년부터 지금까지 해커뉴스 댓글에서 서로 다른 두 명 이상이 언급한 책을 모은 사이트입니다. 소개 페이지 기준으로 책 1만 5,766권, 언급 28만 1,363건, 댓글 22만 5,861개, 댓글 작성자 5만 7,773명이 들어 있습니다. 만든 사람 roansh는 Show HN 글에서 데이터 처리와 사이트 대부분을 클로드가 작성했고 자신은 방향을 정하고 도메인을 샀다고 적었습니다.</p>
+        <p>첫 화면 Today&#39;s shelf는 매일 새로 섞이는 책장입니다. 왼쪽 메뉴에서 Top all-time, Most recommended, Rising, Trends를 고를 수 있고, 출판 연대와 처음 언급된 시기(2015년 이후, 2020년 이후, 2025년 이후)로 거를 수 있습니다. 주제별 목록도 있는데 소설과 문학이 3,273권으로 가장 많고 프로그래밍은 1,279권, 컴퓨터 과학은 717권입니다.</p>
+        <p>이 사이트에서 가장 쓸모 있는 부분은 언급과 추천을 나눠 센다는 점입니다. 책을 깎아내리는 댓글까지 언급으로 세면 순위가 비뚤어지기 때문에, 언급 하나하나를 추천, 중립, 비판, 책과 무관함 네 가지로 나눴습니다. 분류는 Claude Sonnet 5.5가 맡았고, 400개 언급을 Claude Opus 5.5 결과와 견줘 보니 85%가 같았다고 소개 페이지에 적혀 있습니다. 나머지 15%는 틀릴 수 있다는 뜻이라 순위는 참고용으로 보는 편이 맞습니다.</p>
+        <p>책을 누르면 상세 화면이 열립니다. Designing Data-Intensive Applications를 열면 언급 846건, 추천한 사람 457명, 언급한 사람 659명이 맨 위에 나오고 추천 69%, 중립 30%, 비판 1% 막대가 이어집니다. 그 아래에는 추천 댓글을 클로드가 요약한 &#39;Why HN recommends it&#39;과 흔한 비판 한 줄이 붙고, 더 내려가면 실제 해커뉴스 댓글이 원래 스레드 링크와 함께 나열됩니다. 요약만 보고 끝내기보다 원래 댓글까지 내려가 읽는 쪽이 이 사이트를 제대로 쓰는 방법입니다.</p>
+        <p>계정과 추적은 없습니다. For You 추천은 내가 연 책을 바탕으로 브라우저 안에서 계산해 기기의 localStorage에만 저장합니다. 책 페이지의 Bookshop.org와 Amazon 버튼은 호스팅비를 버는 제휴 링크라고 소개 페이지에 밝혀 두었습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-hackerbooks-recommended.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: HackerBooks Most recommended 화면. How to Win Friends and Influence People, Gödel Escher Bach, Designing Data-Intensive Applications, Code Complete, The Mythical Man-Month 표지가 차례로 보인다">
+        <img src="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-hackerbooks-recommended.png" alt="HackerBooks Most recommended 화면. How to Win Friends and Influence People, Gödel Escher Bach, Designing Data-Intensive Applications, Code Complete, The Mythical Man-Month 표지가 차례로 보인다" width="1180" height="600" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>Most recommended 화면. 추천한 사람이 많은 책부터 놓인다.</span><a href="https://hackerbooks.org/" target="_blank" rel="noopener noreferrer">HackerBooks · 원문</a></figcaption>
+    </figure><figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-hackerbooks-book.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: HackerBooks의 Designing Data-Intensive Applications 상세 화면. 846 mentions, 457 recommended by, 659 HN commenters 숫자와 69% recommend, 30% neutral, 1% critical 막대가 보인다">
+        <img src="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-hackerbooks-book.png" alt="HackerBooks의 Designing Data-Intensive Applications 상세 화면. 846 mentions, 457 recommended by, 659 HN commenters 숫자와 69% recommend, 30% neutral, 1% critical 막대가 보인다" width="1040" height="450" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>책 상세 화면. 언급 수, 추천한 사람, 언급한 사람과 추천 비율 막대가 맨 위에 있다.</span><a href="https://hackerbooks.org/" target="_blank" rel="noopener noreferrer">HackerBooks · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-5">[5]</a> <a href="#source-2">[2]</a> <a href="#source-14">[14]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>HackerBooks CSV를 내려받아 직접 돌려 본 결과</h2>
+        <p>소개 페이지 맨 아래에서 책 단위 데이터를 CSV 파일 하나로 받을 수 있습니다. 윈도우 서버의 WSL 우분투에서 curl로 받아 보니 약 2.1MB 파일이 3초 안에 내려왔고, 머리글을 빼면 정확히 1만 5,766줄이었습니다. 열은 순위, Open Library 작품 ID, 제목, 저자, 첫 출간 연도, 언급한 사람 수, 언급 수, 처음과 마지막 언급 연도, 주제, 추천한 사람 수입니다.</p>
+        <p>Node.js로 읽어 언급 수를 모두 더하면 28만 1,363건으로 소개 페이지 숫자와 같습니다. 종합 순위 1위는 도널드 커누스의 The Art of Computer Programming으로 1,125명이 언급했지만 추천한 사람은 336명입니다. 추천한 사람 수만 보면 데일 카네기의 How to Win Friends and Influence People이 579명으로 1위이고, 괴델, 에셔, 바흐가 505명, Designing Data-Intensive Applications가 457명으로 뒤를 잇습니다.</p>
+        <p>언급한 사람이 100명 넘는 책만 골라 추천 비율을 계산하면 차이가 더 뚜렷해집니다. 위쪽은 거의 개발 실무서입니다. 오픈소스 프로그램의 구조를 설명하는 The Architecture of Open Source Applications는 언급한 219명 가운데 204명이 추천했습니다. 반대로 고전 문학이나 오래된 학술서는 자주 이름이 나오지만 추천 비율이 낮습니다. 비유나 인용으로 제목만 꺼내는 경우가 많기 때문으로 보입니다.</p>
+        <p>개발자 추천 도서를 찾는 용도라면 프로그래밍 주제의 종합 순위가 무난한 출발점입니다. 위에서부터 The Art of Computer Programming, The Mythical Man-Month, Clean Code, Introduction to Algorithms, 컴파일러 교재 Compilers: Principles, Techniques, and Tools, Code Complete, Designing Data-Intensive Applications, SICP 순입니다. Clean Code는 739명이 언급했고 추천은 298명이라, 해커뉴스 안에서는 평가가 꽤 갈리는 책이라는 점도 함께 읽힙니다.</p>
+        <p>처음 언급된 연도별로 책 수를 세면 2010년이 1,666권으로 가장 많고 2022년 528권, 2023년 315권, 2024년 189권, 2025년 103권으로 줄어듭니다. 두 명 이상이 언급해야 목록에 오르는 구조라 최근 책은 아직 덜 쌓였다는 점을 감안해야 합니다. Show HN 댓글에는 책 언급 자체가 2022년에 정점을 찍고 줄고 있으니 LLM의 영향이 아니냐는 의견도 있었는데, 이 CSV에는 연도별 언급 수가 없어 그 주장까지 따져 보기는 어렵습니다.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="HackerBooks CSV를 내려받아 직접 돌려 본 결과"><table><thead><tr><th scope="col">책</th><th scope="col">추천한 사람 / 언급한 사람</th><th scope="col">추천 비율</th></tr></thead><tbody><tr><th scope="row">The Architecture of Open Source Applications</th><td>204 / 219</td><td>93%</td></tr><tr><th scope="row">Pro Git</th><td>142 / 155</td><td>92%</td></tr><tr><th scope="row">Refactoring UI</th><td>129 / 143</td><td>90%</td></tr><tr><th scope="row">Game Programming Patterns</th><td>120 / 134</td><td>90%</td></tr><tr><th scope="row">Lord of the Flies</th><td>32 / 336</td><td>10%</td></tr><tr><th scope="row">Principia Mathematica</th><td>9 / 161</td><td>6%</td></tr></tbody></table></div><p class="table-caption">HackerBooks CSV에서 언급한 사람이 100명 이상인 책의 추천 비율 상위 4권과 하위 예시. 추천 여부는 사이트의 언어 모델 분류를 따른다.</p><figure class="code-example"><figcaption>bash · HackerBooks 소개 페이지에 걸린 CSV를 받아 첫 줄과 줄 수를 보는 명령.</figcaption><pre tabindex="0"><code># 리눅스, 맥, 윈도우 WSL 터미널
+curl -L -o hackerbooks.csv https://hackerbooks.org/data/hackerbooks.csv
+head -2 hackerbooks.csv
+wc -l hackerbooks.csv   # 15767 (머리글 1줄 포함)</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-5">[5]</a> <a href="#source-6">[6]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>Wikihack: 해커뉴스가 링크한 위키백과 문서 7만 6천 개</h2>
+        <p>Wikihack은 같은 생각을 위키백과에 옮겨 왔습니다. 2006년 이후 해커뉴스 댓글에 달린 영어 위키백과 링크를 모두 모아, 서로 다른 몇 명이 그 문서를 링크했는지로 순위를 매깁니다. 소개 페이지 기준 문서 7만 6,074개, 링크 54만 37개, 댓글 48만 8,190개, 댓글 작성자 6만 7,628명이고 11월 1일에 갱신됐습니다.</p>
+        <p>기본 화면은 짧은 영상 앱처럼 한 장씩 위로 넘기는 피드입니다. 문서 요약, 그 문서를 링크한 해커뉴스 댓글 한 줄, 링크 수 추이 그래프가 한 화면에 들어가고 j와 k 키로 넘기고 c 키로 댓글을 엽니다. 피드 위의 Random, Top, Rising, Front page로 정렬을 바꾸고, 오른쪽 위 list를 누르면 해커뉴스와 닮은 목록 화면으로 바뀝니다. Show HN 댓글에서 스크롤을 가로채서 불편하다는 지적이 나왔으니 오래 둘러볼 때는 목록 화면이 편합니다.</p>
+        <p>1위는 물음표로 끝나는 기사 제목의 답은 대개 &#39;아니오&#39;라는 베터리지의 법칙으로, 818명이 970번 링크했습니다. 2위 굿하트의 법칙, 3위 제번스의 역설, 4위 관용의 역설, 5위 화이트어바우티즘이 이어집니다. 댓글 토론에서 상대 주장을 받아치거나 상황을 개념 하나로 요약할 때 붙이는 문서들이 위에 몰려 있어서, 해커뉴스 댓글 문화를 그대로 보여 주는 목록이기도 합니다.</p>
+        <p>점수는 링크한 사람 수를 먼저 보고 반복 링크와 첫 페이지 노출에 조금씩 더합니다. 그래서 링크한 사람이 403명인 관용의 역설이 413명인 화이트어바우티즘보다 앞에 있습니다. 두 명 이상이 링크했거나 문서 자체가 첫 페이지에 올라간 경우에만 목록에 들어가고, 그 문서를 주제로 한 스레드 안의 댓글은 세지 않습니다. Rising은 최근 12개월을 장기 평균과 비교한 순위입니다.</p>
+        <p>만든 사람은 위키백과를 무작위로 넘겨 보는 WikiTok을 만들었던 아이작 제말입니다. 해커뉴스 데이터는 ClickHouse의 공개 해커뉴스 데이터셋에서, 문서 본문과 이미지와 주제 분류는 위키백과 API에서 가져온다고 밝혀 두었습니다. Show HN 글에 따르면 별도 서버 없이 프런트엔드만으로 돌아갑니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-wikihack-top.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Wikihack Top all-time 목록. 1위 Betteridge&#39;s law of headlines 818 HNers 970 links, 2위 Goodhart&#39;s law, 3위 Jevons paradox, 4위 Paradox of tolerance, 5위 Whataboutism 순으로 이어진다">
+        <img src="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-wikihack-top.png" alt="Wikihack Top all-time 목록. 1위 Betteridge&#39;s law of headlines 818 HNers 970 links, 2위 Goodhart&#39;s law, 3위 Jevons paradox, 4위 Paradox of tolerance, 5위 Whataboutism 순으로 이어진다" width="1110" height="580" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>Wikihack 목록 보기의 Top all-time. 1위는 818명이 링크한 베터리지의 법칙이다.</span><a href="https://wikihack.netlify.app/about" target="_blank" rel="noopener noreferrer">Wikihack · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-7">[7]</a> <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>HackerHack과 HackerTube for Apple TV, 밈이 된 &#39;X, but for Y&#39;</h2>
+        <p>HackerHack은 농담입니다. 제목은 &#39;HackerBooks but for Posts Posted on HN&#39;이고 링크는 해커뉴스 첫 페이지 자체를 가리킵니다. 본문은 AI는 안 썼다는 한 줄이 전부입니다. 이 글이 80점을 받고 첫 페이지 6위까지 오른 것만 봐도 지금 해커뉴스가 이 형식을 놀이처럼 즐기고 있다는 것을 알 수 있습니다.</p>
+        <p>HackerTube for Apple TV는 반대로 실제로 설치해서 쓰는 앱입니다. 해커뉴스가 추천한 영상을 거실 TV로 보고 싶어서 만들었다는 tvOS 앱이고, 코드는 MIT 라이선스로 GitHub에 올라와 있습니다. 홈 화면에 For You, 역대 상위, 새로 올라온 영상, 올해 인기, 주제별 줄이 나오고 주제는 30개로 나뉩니다.</p>
+        <p>설치 조건은 꽤 구체적입니다. Xcode 16 이상이 깔린 맥, tvOS 17 이상인 Apple TV, 그리고 Apple TV에 공식 유튜브 앱이 있어야 합니다. tvOS에는 웹 보기 기능이 없어서 이 앱은 영상을 직접 재생하지 않고 유튜브 앱으로 넘깁니다. 무료 Apple ID로도 설치할 수 있지만 그렇게 서명한 앱은 7일 뒤 멈추기 때문에 다시 빌드해서 올려야 하고, 유료 개발자 계정이면 1년 동안 씁니다.</p>
+        <p>README에 적힌 뒷단 구조도 참고할 만합니다. 해커뉴스 전체 기록 약 4,900만 건에서 유튜브 링크를 찾아 영상 25만 7천 개와 언급 40만 7천 건을 뽑았습니다. 그중 두 명 이상이 공유했거나, 10점 이상 받은 스토리였거나, 최근 30일 안에 언급된 영상만 남겨 약 4만 3천 개를 내보냅니다. 새 항목은 15분마다 읽고 3시간마다 정적 JSON 파일로 Cloudflare에 올리며, 주제 분류는 로컬 GPU에서 돌리는 Qwen 모델이 40개씩 묶어 처리합니다.</p>
+        <div class="section-links"><a href="https://github.com/Jnaina/hackertube-tvos" target="_blank" rel="noopener noreferrer">HackerTube for Apple TV 저장소와 설치 안내 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-4">[4]</a> <a href="#source-9">[9]</a> <a href="#source-8">[8]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>비슷한 사이트를 만들 때 쓰는 해커뉴스 공개 데이터</h2>
+        <p>이런 사이트가 하루 사이에 쏟아질 수 있었던 건 데이터가 이미 공개돼 있어서입니다. Wikihack이 쓴 ClickHouse 공개 데이터셋은 브라우저의 ClickHouse Playground에서 로그인 없이 SQL을 바로 실행할 수 있습니다. 아래 SQL을 그대로 붙여 넣어 10월 31일 이후 댓글에서 세 사이트 이름이 몇 번 나왔는지 세어 보니, 6만 개 가까운 행을 0.01초 만에 훑고 결과 세 줄을 돌려줬습니다.</p>
+        <p>날짜는 UTC 기준입니다. HackerTube는 10월 31일 21건, 11월 1일 27건, 11월 2일 16건이었고, HackerBooks는 11월 1일 7건에서 2일 9건, Wikihack은 2일에 처음으로 6건이 나왔습니다. 11월 2일 숫자는 UTC 오후 1시 무렵까지만 들어간 값입니다. 대화의 중심이 하루 단위로 영상에서 책으로, 다시 위키백과로 옮겨 간 흐름이 댓글 수에서도 드러납니다.</p>
+        <p>다른 경로도 있습니다. HackerTube for Apple TV는 Hugging Face의 open-index/hacker-news 아카이브(ODC-BY 라이선스)와 공식 Hacker News API를 쓰고, HackerBooks는 공개된 전체 덤프에서 출발해 Open Library로 책 정보를 맞췄습니다. 새 글을 바로바로 따라가야 하면 공식 API가, 20년 가까운 기록을 한 번에 훑으려면 아카이브나 ClickHouse가 편합니다. Wikihack 댓글에는 BigQuery에도 계속 갱신되는 해커뉴스 데이터셋이 있다는 안내가 달렸습니다.</p>
+        <p>직접 만들어 보려는 사람이 부딪힐 문제도 이 사이트들이 먼저 보여 줬습니다. &#39;Dune&#39;이나 &#39;Influence&#39;처럼 흔한 단어가 제목인 책은 단순 검색으로 세면 엉뚱한 댓글까지 잡히기 때문에, HackerBooks는 이런 제목만 작은 언어 모델로 다시 판별했습니다. 언급과 추천을 구분하지 않으면 많이 욕먹은 책이 1위가 될 수 있다는 점도 앞에서 숫자로 봤습니다.</p>
+        <p>남의 댓글을 모아 보여 주는 사이트라면 원문 처리도 신경 써야 합니다. HackerBooks는 댓글 글의 권리가 작성자에게 있다고 밝히고 모든 댓글에 원래 스레드 링크를 걸었고, Wikihack도 인용한 댓글마다 해커뉴스 원문으로 가는 버튼을 붙였습니다. 따라 만든다면 이 부분까지 그대로 가져가는 편이 안전합니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-clickhouse-query.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: ClickHouse Playground에 SQL을 입력하고 실행한 화면. 결과 표에 2026-10-31 hackertube 21, 2026-11-01 hackertube 27 hackerbooks 7, 2026-11-02 hackertube 16 hackerbooks 9 wikihack 6이 나온다">
+        <img src="https://bluebworks.com/assets/editorial/hackerbooks-wikihack-hacker-news-2026-clickhouse-query.png" alt="ClickHouse Playground에 SQL을 입력하고 실행한 화면. 결과 표에 2026-10-31 hackertube 21, 2026-11-01 hackertube 27 hackerbooks 7, 2026-11-02 hackertube 16 hackerbooks 9 wikihack 6이 나온다" width="1394" height="362" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>세 사이트 이름이 들어간 해커뉴스 댓글 수를 날짜별로 센 결과.</span><a href="https://play.clickhouse.com/play?user=play" target="_blank" rel="noopener noreferrer">ClickHouse Playground · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>sql · ClickHouse Playground(play.clickhouse.com, 사용자 play)에 붙여 넣고 Run을 누르면 날짜별 댓글 수가 나온다.</figcaption><pre tabindex="0"><code>SELECT toDate(time) AS day,
+  countIf(text ILIKE &#39;%hackertube%&#39;) AS hackertube,
+  countIf(text ILIKE &#39;%hackerbooks%&#39; OR text ILIKE &#39;%hacker books%&#39;) AS hackerbooks,
+  countIf(text ILIKE &#39;%wikihack%&#39;) AS wikihack
+FROM hackernews_history
+WHERE time &gt;= &#39;2026-10-31&#39; AND type = &#39;comment&#39;
+GROUP BY day ORDER BY day</code></pre></figure><div class="section-links"><a href="https://play.clickhouse.com/play?user=play" target="_blank" rel="noopener noreferrer">ClickHouse Playground <span aria-hidden="true">↗</span></a><a href="https://github.com/HackerNews/API" target="_blank" rel="noopener noreferrer">Hacker News 공식 API <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-10">[10]</a> <a href="#source-11">[11]</a> <a href="#source-8">[8]</a> <a href="#source-5">[5]</a> <a href="#source-3">[3]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">
+            <strong>Hacker News 첫 페이지</strong>
+            <span>news.ycombinator.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://news.ycombinator.com/item?id=50326821" target="_blank" rel="noopener noreferrer">
+            <strong>Show HN: HackerBooks</strong>
+            <span>news.ycombinator.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://news.ycombinator.com/item?id=50333339" target="_blank" rel="noopener noreferrer">
+            <strong>Show HN: Wikihack</strong>
+            <span>news.ycombinator.com</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://news.ycombinator.com/item?id=50333877" target="_blank" rel="noopener noreferrer">
+            <strong>Show HN: HackerHack</strong>
+            <span>news.ycombinator.com</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://hackerbooks.org/#/about" target="_blank" rel="noopener noreferrer">
+            <strong>HackerBooks 소개 페이지</strong>
+            <span>hackerbooks.org</span>
+          </a>
+        </li>
+        <li id="source-6">
+          <a href="https://hackerbooks.org/data/hackerbooks.csv" target="_blank" rel="noopener noreferrer">
+            <strong>HackerBooks CSV 데이터</strong>
+            <span>hackerbooks.org</span>
+          </a>
+        </li>
+        <li id="source-7">
+          <a href="https://wikihack.netlify.app/about" target="_blank" rel="noopener noreferrer">
+            <strong>Wikihack 소개 페이지</strong>
+            <span>wikihack.netlify.app</span>
+          </a>
+        </li>
+        <li id="source-8">
+          <a href="https://github.com/Jnaina/hackertube-tvos" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub: Jnaina/hackertube-tvos</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-9">
+          <a href="https://news.ycombinator.com/item?id=50335401" target="_blank" rel="noopener noreferrer">
+            <strong>Show HN: HackerTube for Apple TV</strong>
+            <span>news.ycombinator.com</span>
+          </a>
+        </li>
+        <li id="source-10">
+          <a href="https://clickhouse.com/docs/get-started/sample-datasets/hacker-news" target="_blank" rel="noopener noreferrer">
+            <strong>ClickHouse Hacker News 데이터셋 문서</strong>
+            <span>clickhouse.com</span>
+          </a>
+        </li>
+        <li id="source-11">
+          <a href="https://play.clickhouse.com/play?user=play" target="_blank" rel="noopener noreferrer">
+            <strong>ClickHouse Playground</strong>
+            <span>play.clickhouse.com</span>
+          </a>
+        </li>
+        <li id="source-12">
+          <a href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank" rel="noopener noreferrer">
+            <strong>HackerTube 소개 글</strong>
+            <span>karpathy.bearblog.dev</span>
+          </a>
+        </li>
+        <li id="source-13">
+          <a href="https://news.ycombinator.com/item?id=50336025" target="_blank" rel="noopener noreferrer">
+            <strong>Show HN: Hacker News but for comments</strong>
+            <span>news.ycombinator.com</span>
+          </a>
+        </li>
+        <li id="source-14">
+          <a href="https://hackerbooks.org/" target="_blank" rel="noopener noreferrer">
+            <strong>HackerBooks</strong>
+            <span>hackerbooks.org</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/lightpanda-headless-browser-install-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>Lightpanda 설치와 사용법: AI 에이전트용 헤드리스 브라우저, 윈도우 WSL 실행과 MCP 연결</strong>
+            <span>게시 2026년 11월 2일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/claude-mem-install-provider-guide-2026/">
+            <span class="related-cat">개발 도구</span>
+            <strong>claude-mem 설치 방법: 클로드 코드 세션 기억 플러그인, 메모리 제공자 선택과 저장 위치</strong>
+            <span>게시 2026년 11월 2일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/codex-banked-reset-how-to-use-2026/">
+            <span class="related-cat">개발 도구</span>
+            <strong>코덱스 한도 초기화권 사용법: 설정 위치와 80% 조건, 만료와 유료 초기화 차이</strong>
+            <span>게시 2026년 11월 1일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://hackerbooks.org/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">사이트</span>
+        <strong>HackerBooks</strong>
+        <span class="rail-desc">해커뉴스 댓글에서 언급된 책 목록과 추천 비율</span>
+        <span class="rail-host">hackerbooks.org</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://hackerbooks.org/data/hackerbooks.csv" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">데이터</span>
+        <strong>HackerBooks CSV</strong>
+        <span class="rail-desc">책 1만 5,766권의 언급 수, 추천한 사람 수, 주제</span>
+        <span class="rail-host">hackerbooks.org</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://wikihack.netlify.app/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">사이트</span>
+        <strong>Wikihack</strong>
+        <span class="rail-desc">해커뉴스가 링크한 위키백과 문서 피드와 목록</span>
+        <span class="rail-host">wikihack.netlify.app</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/Jnaina/hackertube-tvos" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">저장소</span>
+        <strong>HackerTube for Apple TV</strong>
+        <span class="rail-desc">tvOS 앱 소스와 Xcode 설치 안내</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://play.clickhouse.com/play?user=play" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">데이터</span>
+        <strong>ClickHouse Playground</strong>
+        <span class="rail-desc">공개 해커뉴스 데이터셋에 SQL을 바로 실행</span>
+        <span class="rail-host">play.clickhouse.com</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/hackerbooks-wikihack-hacker-news-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/editorial.html">편집 원칙</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+
+  </body>
+</html>
