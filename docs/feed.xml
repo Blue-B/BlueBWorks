@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 02 Nov 2026 01:05:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 06:45:00 GMT</lastBuildDate>
+    <item>
+      <title>Lightpanda 설치와 사용법: AI 에이전트용 헤드리스 브라우저, 윈도우 WSL 실행과 MCP 연결</title>
+      <link>https://bluebworks.com/articles/lightpanda-headless-browser-install-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/lightpanda-headless-browser-install-2026/</guid>
+      <pubDate>Mon, 02 Nov 2026 06:45:00 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>크롬 대신 쓰는 오픈소스 헤드리스 브라우저 Lightpanda를 윈도우 WSL에 설치해 페이지를 마크다운으로 뽑고, PandaScript와 MCP로 에이전트에 붙이는 방법과 헤드리스 크롬과의 차이, 쓰기 전에 알아둘 텔레메트리와 라이선스를 정리했습니다.</description>
+    </item>
     <item>
       <title>claude-mem 설치 방법: 클로드 코드 세션 기억 플러그인, 메모리 제공자 선택과 저장 위치</title>
       <link>https://bluebworks.com/articles/claude-mem-install-provider-guide-2026/</link>

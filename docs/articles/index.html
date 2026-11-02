@@ -44,6 +44,7 @@
         </div>
         <div class="filters" role="group" aria-label="카테고리 필터">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">전체</button>
+          <button class="filter" type="button" data-filter="오픈소스" aria-pressed="false">오픈소스</button>
           <button class="filter" type="button" data-filter="개발 도구" aria-pressed="false">개발 도구</button>
           <button class="filter" type="button" data-filter="AI 서비스" aria-pressed="false">AI 서비스</button>
           <button class="filter" type="button" data-filter="모델" aria-pressed="false">모델</button>
@@ -51,16 +52,27 @@
           <button class="filter" type="button" data-filter="AI 요금제" aria-pressed="false">AI 요금제</button>
           <button class="filter" type="button" data-filter="업무 도구" aria-pressed="false">업무 도구</button>
           <button class="filter" type="button" data-filter="개발도구" aria-pressed="false">개발도구</button>
-          <button class="filter" type="button" data-filter="오픈소스" aria-pressed="false">오픈소스</button>
           <button class="filter" type="button" data-filter="AI·개발도구" aria-pressed="false">AI·개발도구</button>
           <button class="filter" type="button" data-filter="보안·인프라" aria-pressed="false">보안·인프라</button>
           <button class="filter" type="button" data-filter="브라우저" aria-pressed="false">브라우저</button>
           <button class="filter" type="button" data-filter="오픈소스·개발도구" aria-pressed="false">오픈소스·개발도구</button>
           <button class="filter" type="button" data-filter="에이전트" aria-pressed="false">에이전트</button>
         </div>
-        <p class="list-status" data-list-status aria-live="polite">글 38편</p>
+        <p class="list-status" data-list-status aria-live="polite">글 39편</p>
       </section>
       <ol class="archive-list" data-post-list>
+        <li class="archive-entry has-thumb" data-post-card data-category="오픈소스" data-search="lightpanda 설치와 사용법: ai 에이전트용 헤드리스 브라우저, 윈도우 wsl 실행과 mcp 연결 크롬 대신 쓰는 오픈소스 헤드리스 브라우저 lightpanda를 윈도우 wsl에 설치해 페이지를 마크다운으로 뽑고, pandascript와 mcp로 에이전트에 붙이는 방법과 헤드리스 크롬과의 차이, 쓰기 전에 알아둘 텔레메트리와 라이선스를 정리했습니다. 오픈소스 published 설치는 파일 하나라 금방 끝나지만, 기본 대기 방식 때문에 자바스크립트로 늦게 채워지는 내용이 빠질 수 있어서 그 부분을 실제 실행 결과와 함께 앞에 두었습니다. lightpanda 헤드리스 브라우저 웹 크롤링 mcp 설치: 리눅스용 실행 파일 하나를 내려받으면 끝, 윈도우는 wsl 안에서 같은 명령으로 실행 사용: fetch로 페이지를 마크다운이나 html로 뽑고, cdp 서버나 mcp 서버로 puppeteer와 에이전트에 연결 주의: 늦게 불러오는 내용은 --wait-until networkidle이 필요하고, 텔레메트리는 기본으로 켜져 있음">
+        <a href="/articles/lightpanda-headless-browser-install-2026/">
+          <span class="archive-thumb"><img src="https://bluebworks.com/assets/editorial/lightpanda-headless-browser-install-2026-thumb.png" alt="Lightpanda, AI 에이전트용 헤드리스 브라우저 설치와 첫 실행. 오른쪽에 fetch 실행 결과 터미널 화면" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">오픈소스</span>
+            <strong>Lightpanda 설치와 사용법: AI 에이전트용 헤드리스 브라우저, 윈도우 WSL 실행과 MCP 연결</strong>
+            <span class="archive-summary">크롬 대신 쓰는 오픈소스 헤드리스 브라우저 Lightpanda를 윈도우 WSL에 설치해 페이지를 마크다운으로 뽑고, PandaScript와 MCP로 에이전트에 붙이는 방법과 헤드리스 크롬과의 차이, 쓰기 전에 알아둘 텔레메트리와 라이선스를 정리했습니다.</span>
+            <span class="archive-date">게시 2026년 11월 2일</span>
+
+          </div>
+        </a>
+      </li>
         <li class="archive-entry has-thumb" data-post-card data-category="개발 도구" data-search="claude-mem 설치 방법: 클로드 코드 세션 기억 플러그인, 메모리 제공자 선택과 저장 위치 클로드 코드가 지난 작업을 기억하게 해 주는 오픈소스 플러그인 claude-mem의 설치 명령과 설치 중 고르는 메모리 제공자, 기본 선택인 cmem pro 체험과 요금, 기억이 저장되는 위치와 남기지 않는 방법을 정리했습니다. 개발 도구 published 설치는 명령 한 줄이지만 중간에 고르는 메모리 제공자에 따라 비용과 데이터가 가는 곳이 달라져서, 그 선택을 중심에 두고 묶었습니다. claude-mem 클로드 코드 claude code 플러그인 ai 코딩 메모리 오픈소스 설치: npx claude-mem install 한 줄, 또는 클로드 코드 안에서 /plugin 명령 두 줄 제공자: 기본 선택은 cmem pro 30일 체험(이후 월 30달러), 내 claude 플랜이나 gemini, openrouter 키로도 돌릴 수 있음 저장: 기록은 내 컴퓨터 ~/.claude-mem에 쌓이고 private 태그로 감싼 내용은 남지 않음">
         <a href="/articles/claude-mem-install-provider-guide-2026/">
           <span class="archive-thumb"><img src="https://bluebworks.com/assets/editorial/claude-mem-install-provider-guide-2026-thumb.png" alt="claude-mem 설치, 기본값은 CMEM Pro 체험이고 내 Claude 플랜으로 돌리려면 --provider claude" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
