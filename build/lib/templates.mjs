@@ -25,7 +25,7 @@ const esc = escapeHtml;
 function searchDescription(value, maxLength = 160) {
   const text = String(value || "").replace(/\s+/gu, " ").trim();
   if (Array.from(text).length <= maxLength) return text;
-  const sentences = text.match(/[^.!?]+[.!?](?=\s|$)/gu) || [];
+  const sentences = text.match(/.+?[.!?](?=\s|$)/gu) || [];
   let short = "";
   for (const sentence of sentences) {
     const next = (short + " " + sentence.trim()).trim();
