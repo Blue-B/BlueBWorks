@@ -640,7 +640,6 @@ export function renderAbout({ config, base, generatedAt }) {
   const body = `<section>
         <h2>다루는 내용</h2>
         <p>개발 도구와 오픈소스, AI 제품의 새 기능과 사용 방법을 소개합니다. 비용과 지원 범위도 함께 다루며, 각 글에 발표일과 원문 링크를 남깁니다.</p>
-        <p>모든 글은 정적 HTML로 미리 생성됩니다. 자바스크립트가 없어도 본문과 출처를 읽을 수 있습니다.</p>
       </section>
       <section>
         <h2>운영</h2>
