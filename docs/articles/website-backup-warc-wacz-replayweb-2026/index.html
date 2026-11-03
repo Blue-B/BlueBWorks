@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>웹페이지 저장하는 방법: 사이트를 WARC로 통째로 백업하고 ReplayWeb.page로 다시 열기 | BlueBWorks</title>
+    <meta name="description" content="아끼던 사이트가 사라진 뒤 도메인에 도박 광고가 걸렸다는 글이 해커뉴스에서 588점을 받았습니다. 글이 소개한 ArchiveWeb.page와 Browsertrix를 정리하고, wget으로 블로그 한 곳을 WARC로 떠서 WACZ로 묶고 다시 열어 본 과정을 담았습니다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/website-backup-warc-wacz-replayweb-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="웹페이지 저장하는 방법: 사이트를 WARC로 통째로 백업하고 ReplayWeb.page로 다시 열기 | BlueBWorks">
+    <meta property="og:description" content="아끼던 사이트가 사라진 뒤 도메인에 도박 광고가 걸렸다는 글이 해커뉴스에서 588점을 받았습니다. 글이 소개한 ArchiveWeb.page와 Browsertrix를 정리하고, wget으로 블로그 한 곳을 WARC로 떠서 WACZ로 묶고 다시 열어 본 과정을 담았습니다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/website-backup-warc-wacz-replayweb-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"웹페이지 저장하는 방법: 사이트를 WARC로 통째로 백업하고 ReplayWeb.page로 다시 열기","description":"아끼던 사이트가 사라진 뒤 도메인에 도박 광고가 걸렸다는 글이 해커뉴스에서 588점을 받았습니다. 글이 소개한 ArchiveWeb.page와 Browsertrix를 정리하고, wget으로 블로그 한 곳을 WARC로 떠서 WACZ로 묶고 다시 열어 본 과정을 담았습니다.","url":"https://bluebworks.com/articles/website-backup-warc-wacz-replayweb-2026/","mainEntityOfPage":"https://bluebworks.com/articles/website-backup-warc-wacz-replayweb-2026/","datePublished":"2026-11-03T12:43:17.000Z","dateModified":"2026-11-03T12:43:17.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"트렌드","keywords":"웹페이지 저장, 웹 아카이브, WARC, WACZ, wget, ReplayWeb.page, ArchiveWeb.page","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"웹페이지 저장하는 방법: 사이트를 WARC로 통째로 백업하고 ReplayWeb.page로 다시 열기","item":"https://bluebworks.com/articles/website-backup-warc-wacz-replayweb-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>트렌드</span></p>
+        <h1 id="article-title">웹페이지 저장하는 방법: 사이트를 WARC로 통째로 백업하고 ReplayWeb.page로 다시 열기</h1>
+        <p class="cover-dek">아끼던 사이트가 사라진 뒤 도메인에 도박 광고가 걸렸다는 글이 해커뉴스에서 588점을 받았습니다. 글이 소개한 ArchiveWeb.page와 Browsertrix를 정리하고, wget으로 블로그 한 곳을 WARC로 떠서 WACZ로 묶고 다시 열어 본 과정을 담았습니다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 11월 3일</span><span>소식 발표 2026년 10월 29일</span><span>확인 2026년 11월 3일</span><span>published</span><span>8분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">해커뉴스 588점 글, 좋아하는 사이트는 직접 백업하라</a></li>
+          <li><a href="#sec-2">웹 아카이브 파일 WARC와 WACZ의 차이</a></li>
+          <li><a href="#sec-3">ArchiveWeb.page와 Browsertrix, 원글이 추천한 도구</a></li>
+          <li><a href="#sec-4">wget으로 블로그 한 곳을 WARC로 떠 본 결과</a></li>
+          <li><a href="#sec-5">WACZ로 묶고 ReplayWeb.page로 다시 열어 보기</a></li>
+          <li><a href="#sec-6">wget으로 안 되는 페이지와 도구 고르는 기준</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="웹페이지 저장하는 방법: 사이트를 WARC로 통째로 백업하고 ReplayWeb.page로 다시 열기">
+            <meta itemprop="description" content="아끼던 사이트가 사라진 뒤 도메인에 도박 광고가 걸렸다는 글이 해커뉴스에서 588점을 받았습니다. 글이 소개한 ArchiveWeb.page와 Browsertrix를 정리하고, wget으로 블로그 한 곳을 WARC로 떠서 WACZ로 묶고 다시 열어 본 과정을 담았습니다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 좋아하는 사이트 통째로 백업, wget으로 WARC를 만들고 ReplayWeb.page로 다시 열기. 오른쪽에 아카이브에서 다시 연 BlueBWorks 홈 화면"><img src="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-thumb.png" alt="좋아하는 사이트 통째로 백업, wget으로 WARC를 만들고 ReplayWeb.page로 다시 열기. 오른쪽에 아카이브에서 다시 연 BlueBWorks 홈 화면" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>아카이브 파일에서 다시 연 BlueBWorks 홈</span><a href="https://replayweb.page/docs/embedding/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
+      <ul>
+        <li>WARC: 화면을 찍어 두는 게 아니라 서버와 주고받은 요청과 응답을 헤더까지 남기는 표준 형식이고, WACZ는 여기에 색인과 페이지 목록을 붙인 ZIP 파일 하나다</li>
+        <li>직접 해 본 결과: wget 명령 한 줄로 블로그 홈과 연결된 페이지의 파일 185개를 18.6MB WARC로 받았고, wacz로 37페이지짜리 WACZ를 3.7초 만에 만들어 링크를 눌러 가며 다시 열 수 있었다</li>
+        <li>도구 고르기: 정적인 블로그와 문서는 무료 wget으로 충분하지만, X처럼 사진과 스크립트를 다른 주소에서 불러오고 자바스크립트로 글을 이어 붙이는 페이지는 파일 2개만 남아 브라우저 기반 ArchiveWeb.page나 Browsertrix가 맞다</li>
+      </ul>
+    </details>
+          <details class="editor-note">
+      <summary>덧붙임</summary>
+      <p>소개된 도구를 만든 회사 직원이 쓴 글이라, 회사와 상관없는 wget으로 같은 형식의 파일을 직접 만들고 다시 열어 본 결과를 가운데에 두었습니다.</p>
+    </details>
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>해커뉴스 588점 글, 좋아하는 사이트는 직접 백업하라</h2>
+        <p>2004년부터 열려 있던 애니메이션 팬 사이트가 어느 날 사라졌고, 그 도메인에는 온라인 도박 광고가 걸려 있었다는 이야기로 글이 시작합니다. 2005년 이후로 거의 바뀐 적 없는 사이트였지만, 글쓴이는 가끔 들어가 옛 친구가 잘 있는지 보듯 그 페이지를 열어 보곤 했다고 적었습니다.</p>
+        <p>반전은 글쓴이의 직업입니다. 웹 아카이빙 일을 하는 사람이라 언젠가 사이트가 내려갈 것도, 그걸 막을 도구가 있다는 것도 알고 있었는데 정작 그 사이트는 떠 두지 않았다고 털어놓습니다. 10월 29일 개인 블로그에 올라온 이 글은 11월 3일 밤 해커뉴스에서 588점, 댓글 135개를 기록하며 첫 페이지에 올라 있었습니다.</p>
+        <p>요지는 단순합니다. 웹 아카이빙을 인터넷 아카이브 같은 큰 기관만 하는 일로 보지 말고, 아끼는 페이지가 있으면 본인이 직접 백업하라는 것입니다. 글은 개인이 바로 쓸 수 있는 도구 세 가지와, 백업한 파일을 다시 열어 보고 다른 사람과 나누는 방법까지 이어서 설명합니다.</p>
+        <p>다만 글쓴이는 소개한 도구가 자기 회사인 Webrecorder 제품이라고 미리 밝혀 두었습니다. 대부분 무료이고 소스도 공개돼 있지만 그 점은 감안하고 읽는 편이 좋습니다. 그래서 여기서는 글이 추천한 도구를 정리하면서, 회사와 상관없는 GNU Wget으로 같은 형식의 파일을 직접 만들어 다시 열어 본 결과를 함께 놓았습니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>웹 아카이브 파일 WARC와 WACZ의 차이</h2>
+        <p>글에 나오는 도구는 모두 WARC라는 표준 형식으로 저장합니다. 브라우저 메뉴의 다른 이름으로 저장이 지금 보이는 페이지 하나를 HTML과 파일 폴더로 바꿔 두는 방식이라면, WARC는 브라우저와 서버가 주고받은 요청과 응답을 헤더까지 그대로 기록합니다. 글쓴이는 이 차이 덕분에 자바스크립트가 요청을 잔뜩 보내는 복잡한 사이트도 담을 수 있다고 설명합니다.</p>
+        <p>WARC 파일 자체는 응답을 차례로 이어 붙인 긴 기록입니다. 그대로는 어느 페이지가 어디 있는지 찾기 번거롭기 때문에, Webrecorder 도구들은 WACZ라는 형식을 함께 씁니다. WACZ는 WARC 원본에 주소별 색인, 페이지 목록, 파일 정보를 더해 ZIP 하나로 묶은 것이고, 형식은 Webrecorder가 공개한 WACZ 1.1.1 규격 문서에 정의돼 있습니다.</p>
+        <p>WACZ의 쓸모는 다시 열 때 드러납니다. ReplayWeb.page 문서에 따르면 다른 형식은 파일 전체를 내려받아야 재생할 수 있지만, WACZ는 서버가 HTTP 범위 요청을 지원하면 지금 보는 페이지에 필요한 부분만 꺼내 옵니다. 수 GB짜리 아카이브를 웹에 올려 두고 필요한 페이지만 열게 할 수 있다는 뜻입니다.</p>
+        <p>호환성도 이 형식을 따라갑니다. Browsertrix는 업로드를 WACZ로만 받고, 이미 가진 WARC는 py-wacz라는 명령줄 도구로 바꾸라고 안내합니다. 변환은 손실 없이 이뤄지고, WACZ를 ZIP 도구로 풀면 원래 WARC가 그대로 들어 있습니다. 아래에서 직접 만든 파일도 풀어 보면 archive 폴더에 WARC 원본이, indexes와 pages 폴더에 색인과 페이지 목록이 들어 있었습니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-5">[5]</a> <a href="#source-6">[6]</a> <a href="#source-7">[7]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>ArchiveWeb.page와 Browsertrix, 원글이 추천한 도구</h2>
+        <p>가장 쉬운 방법으로 꼽힌 것은 크롬 확장 프로그램 ArchiveWeb.page입니다. 확장을 설치하고, 저장할 첫 페이지를 연 뒤 도구 막대의 아이콘에서 Start Archiving을 누릅니다. 펼침 메뉴나 탭처럼 눌러야 내용이 나오는 부분은 직접 눌러 데이터를 불러오고, 같은 묶음에 넣을 다른 페이지도 차례로 열어 둔 다음 Stop Archiving을 누르면 끝입니다.</p>
+        <p>눈으로 보면서 누른 것만 저장되니 사람이 직접 둘러볼 수 있는 몇 페이지나 SNS 글 하나, 프로필 하나를 남기기에 맞습니다. 저장한 묶음은 확장의 대시보드에서 바로 열어 제대로 담겼는지 볼 수 있고, 크롬을 쓰지 않는다면 브라우저가 들어 있는 데스크톱 앱 버전도 있습니다.</p>
+        <p>페이지가 많아 하나씩 열기 번거로운 사이트는 크롤러가 맞습니다. Browsertrix는 시작 주소와 범위를 정해 주면 진짜 브라우저로 페이지를 하나씩 열며 링크를 따라갑니다. 공식 안내에 따르면 자바스크립트로 나중에 불러오는 부분까지 담기고, 로그인이 필요한 페이지는 브라우저 프로필로 접근하되 수집용 계정을 따로 쓰라고 권합니다. 원글처럼 도메인 전체를 받거나 특정 경로 아래만 받도록 좁힐 수도 있습니다.</p>
+        <p>Browsertrix는 원글에서 유일하게 유료인 도구입니다. 7일 무료 체험 뒤 Starter 요금제가 월 30달러로, 실행 시간 180분, 저장 공간 100GB, 한 번에 최대 2,000페이지까지 받을 수 있습니다. 월 60달러 Standard는 360분과 5,000페이지, 월 120달러 Plus는 720분과 1만 페이지입니다. 요금은 수집에 걸린 시간에 브라우저 창 수를 곱해 계산되고, 소스가 공개돼 있어 직접 서버에 설치해 쓸 수도 있습니다.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="ArchiveWeb.page와 Browsertrix, 원글이 추천한 도구"><table><thead><tr><th scope="col">도구</th><th scope="col">쓰는 곳</th><th scope="col">비용</th><th scope="col">맞는 경우</th></tr></thead><tbody><tr><th scope="row">ArchiveWeb.page 확장</th><td>크롬 확장 프로그램</td><td>무료</td><td>직접 둘러보는 몇 페이지, SNS 글과 프로필</td></tr><tr><th scope="row">ArchiveWeb.page 앱</th><td>데스크톱 앱</td><td>무료</td><td>크롬 없이 저장하거나 저장한 아카이브를 볼 때</td></tr><tr><th scope="row">Browsertrix</th><td>웹 서비스, 직접 설치 가능</td><td>7일 무료 뒤 월 30달러부터</td><td>페이지가 많은 사이트 전체, 정기 수집</td></tr><tr><th scope="row">GNU Wget</th><td>리눅스, 맥, 윈도우 WSL 터미널</td><td>무료</td><td>자바스크립트 없이 열리는 블로그와 문서</td></tr></tbody></table></div><p class="table-caption">원글이 소개한 도구 세 가지와 아래에서 직접 써 본 wget. Browsertrix 요금은 개인 요금제 기준.</p>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-3">[3]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>wget으로 블로그 한 곳을 WARC로 떠 본 결과</h2>
+        <p>원글에는 나오지 않지만, 리눅스에 흔히 깔려 있는 GNU Wget에도 WARC로 저장하는 옵션이 들어 있습니다. 윈도우 WSL의 우분투 24.04에 기본으로 있는 wget 1.21.4의 도움말을 보면 --warc-file부터 --warc-cdx, --warc-dedup까지 WARC 관련 옵션이 9개 있습니다. 대상은 남의 서버에 부담을 주지 않도록 이 블로그 bluebworks.com으로 잡았습니다.</p>
+        <p>명령은 아래와 같습니다. --recursive --level=1은 홈과 홈에서 바로 링크된 페이지까지만 따라가라는 뜻이고, --page-requisites는 각 페이지에 필요한 이미지와 스타일, 스크립트까지 받게 합니다. --domains로 다른 사이트로 새어 나가지 않게 막고, --wait=0.3으로 요청 사이에 0.3초씩 쉬게 했습니다. --warc-file을 주면 평소처럼 폴더에 파일을 저장하면서 같은 내용을 WARC로도 남깁니다.</p>
+        <p>결과는 파일 185개, 19MB였습니다. 실제로 데이터를 받는 데 걸린 시간은 2.3초인데 전체로는 2분 31초가 걸렸습니다. 요청마다 쉬는 시간과 연결을 맺는 시간이 대부분을 차지한 셈입니다. 남의 사이트를 받을 때 --wait를 빼면 훨씬 빨라지지만, 그만큼 상대 서버에는 짧은 시간에 요청이 몰립니다.</p>
+        <p>만들어진 WARC 파일은 18,585,729바이트였고, 함께 생긴 CDX 색인 파일에는 받은 주소마다 시각, 형식, 응답 코드가 한 줄씩 적혀 있습니다. 형식별로 세어 보면 PNG 78개, SVG 31개, WebP 21개로 이미지가 대부분이고 HTML이 48개였습니다. 글 위주의 블로그라도 백업 용량은 결국 이미지가 정한다는 걸 숫자로 볼 수 있습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-wget-wacz.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 터미널 화면. wget 실행 결과 Total wall clock time 2m 31s, Downloaded 185 files 19M in 2.3s, WARC 파일 18585729바이트, wacz create 출력과 WACZ 안의 indexes, archive, pages 폴더 목록이 보인다">
+        <img src="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-wget-wacz.png" alt="터미널 화면. wget 실행 결과 Total wall clock time 2m 31s, Downloaded 185 files 19M in 2.3s, WARC 파일 18585729바이트, wacz create 출력과 WACZ 안의 indexes, archive, pages 폴더 목록이 보인다" width="1440" height="1058" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>wget과 wacz 실행 결과. WACZ를 풀면 WARC 원본과 색인, 페이지 목록이 들어 있다.</span><a href="https://www.gnu.org/software/wget/manual/wget.html" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>bash · 블로그 홈과 바로 연결된 페이지를 WARC로 받고 WACZ로 묶는 명령. 주소와 파일 이름만 바꿔 쓰면 된다.</figcaption><pre tabindex="0"><code># 리눅스, 맥, 윈도우 WSL 터미널
+wget --recursive --level=1 --page-requisites --no-parent \
+  --domains=bluebworks.com --wait=0.3 -e robots=on \
+  --warc-file=bluebworks-home --warc-cdx --no-verbose \
+  https://bluebworks.com/
+
+# WARC를 WACZ로 묶기 (py-wacz)
+# 우분투 24.04 시스템 파이썬 기준, 가상환경이면 --break-system-packages 없이 설치
+pip3 install --user --break-system-packages wacz
+export PATH=&quot;$HOME/.local/bin:$PATH&quot;
+wacz create -o bluebworks-home.wacz bluebworks-home.warc.gz --detect-pages</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-8">[8]</a> <a href="#source-6">[6]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>WACZ로 묶고 ReplayWeb.page로 다시 열어 보기</h2>
+        <p>받은 WARC는 Webrecorder의 py-wacz로 WACZ 하나로 묶었습니다. pip로 wacz 0.6.0을 설치하고 --detect-pages 옵션을 붙여 실행하니 3.7초 만에 끝났고, 페이지 37개가 목록에 잡혔습니다. 결과 파일은 18,609,470바이트로 원래 WARC보다 2만 4천 바이트쯤 늘었는데, 그 차이가 색인과 페이지 목록입니다.</p>
+        <p>다시 열 때 쓰는 도구는 ReplayWeb.page입니다. 브라우저 안에서 아카이브 파일을 읽어 그대로 재생하는 뷰어인데, 사이트에 WARC나 WACZ 파일을 고르면 내용이 어디에도 올라가지 않고 내 브라우저 안에서만 열린다고 밝혀 두었습니다. 원글이 블로그 본문에 사이트 하나를 통째로 넣어 보여 준 것도 이 뷰어를 웹페이지에 끼워 넣는 임베드 방식입니다.</p>
+        <p>임베드 방식도 그대로 따라 해 봤습니다. 문서대로 ui.js와 replay 폴더의 sw.js를 WACZ 파일 옆에 두고, 아래 HTML 몇 줄을 쓴 뒤 로컬 웹 서버로 열었습니다. 화면 위쪽 주소창 옆에 2026년 11월 3일 오후 9시 24분 58초라는 저장 시각이 붙은 채로 블로그 홈이 떴고, 기사 제목을 누르니 실제 사이트가 아니라 아카이브 안의 기사 페이지로 넘어갔습니다. 왼쪽 목록에는 페이지 37개가 저장 시각 순으로 나옵니다.</p>
+        <p>막힌 곳도 두 군데 있었습니다. 처음에는 replayweb.page 사이트에 로컬 서버 주소를 넣어 열려고 했는데 TypeError: Failed to fetch가 나왔습니다. 문서가 짚는 대로 다른 출처에서 파일을 불러올 때 생기는 CORS 문제라서, 뷰어와 WACZ를 같은 서버에 두는 자체 호스팅으로 바꾸니 해결됐습니다. 또 sw.js를 replay 폴더가 아니라 사이트 맨 위에 두었더니 서비스 워커가 사이트 전체를 가로채 빈 화면이 됐습니다. 문서에 적힌 대로 실제 서버에는 없는 경로인 replay 아래에 두는 게 맞습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-replay-home.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: ReplayWeb.page로 다시 연 BlueBWorks 홈. 주소창에 https://bluebworks.com/ 과 저장 시각 2026. 11. 03. 오후 09:24:58이 보인다">
+        <img src="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-replay-home.png" alt="ReplayWeb.page로 다시 연 BlueBWorks 홈. 주소창에 https://bluebworks.com/ 과 저장 시각 2026. 11. 03. 오후 09:24:58이 보인다" width="1440" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>아카이브에서 다시 연 홈. 주소창 오른쪽이 저장 시각이다.</span><a href="https://replayweb.page/docs/embedding/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure><figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-replay-article.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 아카이브 안에서 기사 링크를 눌러 이동한 HackerBooks 기사 화면. 왼쪽 Pages 목록에 기사 주소와 저장 시각이 나열되고 아래에 37 pages가 보인다">
+        <img src="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-replay-article.png" alt="아카이브 안에서 기사 링크를 눌러 이동한 HackerBooks 기사 화면. 왼쪽 Pages 목록에 기사 주소와 저장 시각이 나열되고 아래에 37 pages가 보인다" width="1440" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>링크를 누르면 아카이브 안의 다른 페이지로 넘어간다. 왼쪽이 저장된 페이지 37개 목록.</span><a href="https://replayweb.page/docs/embedding/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>html · ReplayWeb.page 2.5.4의 ui.js와 sw.js를 직접 올려 둔 임베드 예시. 기본 서비스 워커 경로는 ./replay/sw.js다.</figcaption><pre tabindex="0"><code>&lt;!-- WACZ 파일, ui.js와 같은 폴더에 두고 sw.js는 replay 폴더에 --&gt;
+&lt;script src=&quot;./replay/ui.js&quot;&gt;&lt;/script&gt;
+&lt;replay-web-page source=&quot;/bluebworks-home.wacz&quot;
+  url=&quot;https://bluebworks.com/&quot;&gt;&lt;/replay-web-page&gt;</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-7">[7]</a> <a href="#source-5">[5]</a> <a href="#source-9">[9]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>wget으로 안 되는 페이지와 도구 고르는 기준</h2>
+        <p>wget이 모든 사이트에 똑같이 통하지는 않습니다. 같은 방식으로 X의 OpenAI 프로필 페이지를 --page-requisites까지 붙여 받아 보니 파일은 HTML과 robots.txt 두 개뿐이었습니다. HTML 안에는 소개 글과 최근 글 몇 개의 본문이 들어 있었지만, 그 페이지가 부르는 사진은 pbs.twimg.com, 동영상은 video.twimg.com, 스크립트는 abs.twimg.com이라는 다른 주소에 있어서 하나도 따라오지 않았습니다. wget은 따로 지정하지 않으면 처음 주소와 같은 호스트의 파일만 받기 때문입니다.</p>
+        <p>다른 호스트까지 받게 하는 --span-hosts 옵션이 있긴 합니다. 그래도 스크롤을 내릴 때 자바스크립트가 이어서 불러오는 글까지는 담지 못합니다. wget은 파일을 받기만 하고 페이지 안의 자바스크립트를 실행하지 않기 때문에, 브라우저에서 보던 화면과 아카이브가 점점 달라집니다.</p>
+        <p>이런 페이지는 브라우저가 실제로 불러온 것을 그대로 기록하는 도구가 맞습니다. 직접 둘러보며 저장할 분량이면 ArchiveWeb.page 확장, 프로필 전체나 많은 페이지를 정기적으로 받아야 하면 Browsertrix입니다. Browsertrix 안내에는 페이스북, 인스타그램, X 같은 SNS를 받기 쉽게 하는 설정이 자동으로 들어간다고 적혀 있지만, SNS 재생은 늘 쫓아가야 하는 대상이라는 단서도 함께 붙어 있습니다.</p>
+        <p>반대로 개인 블로그, 오래된 팬 사이트, 프로젝트 문서처럼 서버가 완성된 HTML을 바로 보내 주는 사이트는 wget 한 줄로 충분합니다. 무료이고 명령으로 돌아가니 크론에 걸어 매주 한 번씩 새로 떠 두기도 쉽습니다. 원글의 팬 사이트처럼 몇 년째 바뀌지 않는 사이트라면 한 번만 떠 둬도 됩니다.</p>
+        <p>백업한 파일은 여러 곳에 나눠 두는 게 원글이 마지막으로 권하는 방법입니다. WACZ는 파일 하나라 외장 디스크나 클라우드 드라이브에 그대로 올리기 쉽고, 같은 사이트를 아끼는 사람과 나눠 갖기도 좋습니다. 남의 사이트를 개인 보관용으로 떠 두는 것과 그 아카이브를 공개 웹에 다시 올리는 것은 저작권 면에서 다른 문제이니, 공개 공유는 원래 운영자와 이용 조건을 먼저 보고 정하는 편이 안전합니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-wget-x.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 터미널 화면. wget -p로 https://x.com/OpenAI 를 받은 결과 Downloaded 2 files 172K, 파일 목록에 x.com/OpenAI 173188바이트와 x.com/robots.txt 2998바이트만 보인다">
+        <img src="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-wget-x.png" alt="터미널 화면. wget -p로 https://x.com/OpenAI 를 받은 결과 Downloaded 2 files 172K, 파일 목록에 x.com/OpenAI 173188바이트와 x.com/robots.txt 2998바이트만 보인다" width="1440" height="383" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>X 프로필은 사진과 스크립트가 다른 주소에 있어 wget -p로 받으면 파일 2개만 남는다.</span><a href="https://www.gnu.org/software/wget/manual/wget.html" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-8">[8]</a> <a href="#source-4">[4]</a> <a href="#source-1">[1]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://blog.mistys-internet.website/post/2026/10/29/if-you-love-a-website-back-it-up/" target="_blank" rel="noopener noreferrer">
+            <strong>If you love a website, back it up</strong>
+            <span>blog.mistys-internet.website</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://news.ycombinator.com/item?id=50336518" target="_blank" rel="noopener noreferrer">
+            <strong>Hacker News 토론</strong>
+            <span>news.ycombinator.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://archiveweb.page/guide" target="_blank" rel="noopener noreferrer">
+            <strong>ArchiveWeb.page 사용자 안내</strong>
+            <span>archiveweb.page</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://webrecorder.net/browsertrix/" target="_blank" rel="noopener noreferrer">
+            <strong>Browsertrix</strong>
+            <span>webrecorder.net</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://replayweb.page/docs/embedding/" target="_blank" rel="noopener noreferrer">
+            <strong>ReplayWeb.page 임베드 문서</strong>
+            <span>replayweb.page</span>
+          </a>
+        </li>
+        <li id="source-6">
+          <a href="https://specs.webrecorder.net/wacz/1.1.1/" target="_blank" rel="noopener noreferrer">
+            <strong>WACZ 1.1.1 규격</strong>
+            <span>specs.webrecorder.net</span>
+          </a>
+        </li>
+        <li id="source-7">
+          <a href="https://github.com/webrecorder/py-wacz" target="_blank" rel="noopener noreferrer">
+            <strong>py-wacz</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-8">
+          <a href="https://www.gnu.org/software/wget/manual/wget.html" target="_blank" rel="noopener noreferrer">
+            <strong>GNU Wget 매뉴얼</strong>
+            <span>gnu.org</span>
+          </a>
+        </li>
+        <li id="source-9">
+          <a href="https://replayweb.page/" target="_blank" rel="noopener noreferrer">
+            <strong>ReplayWeb.page</strong>
+            <span>replayweb.page</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/hackerbooks-wikihack-hacker-news-2026/">
+            <span class="related-cat">트렌드</span>
+            <strong>HackerBooks와 Wikihack: 해커뉴스 댓글로 만든 개발자 추천 도서와 위키백과 순위</strong>
+            <span>게시 2026년 11월 2일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/omnidiff-install-structural-git-diff-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>OmniDiff 설치와 사용법: 코드 구조를 읽는 diff, WSL 실행과 Git 연결</strong>
+            <span>게시 2026년 11월 3일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/mistral-large-4-open-weights-pricing-license-2026/">
+            <span class="related-cat">모델</span>
+            <strong>미스트랄 Large 4 오픈웨이트 공개: API 요금과 100만 토큰 문맥, 상업 이용 조건</strong>
+            <span>게시 2026년 11월 3일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://chromewebstore.google.com/detail/webrecorder-archivewebpag/fpeoodllldobpkbkabpblcfaogecpndd" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">설치</span>
+        <strong>ArchiveWeb.page 크롬 확장</strong>
+        <span class="rail-desc">보는 페이지를 그대로 WARC와 WACZ로 저장하는 확장.</span>
+        <span class="rail-host">chromewebstore.google.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://replayweb.page/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">도구</span>
+        <strong>ReplayWeb.page</strong>
+        <span class="rail-desc">아카이브 파일을 골라 브라우저 안에서 다시 여는 뷰어.</span>
+        <span class="rail-host">replayweb.page</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://docs.browsertrix.com/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>Browsertrix 사용자 안내</strong>
+        <span class="rail-desc">크롤 설정, 범위 지정, 직접 설치 문서.</span>
+        <span class="rail-host">docs.browsertrix.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/webrecorder/py-wacz" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">저장소</span>
+        <strong>py-wacz</strong>
+        <span class="rail-desc">pip install wacz 로 설치하는 WACZ 변환 도구.</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://www.gnu.org/software/wget/manual/wget.html" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>GNU Wget 매뉴얼</strong>
+        <span class="rail-desc">WARC 옵션 설명.</span>
+        <span class="rail-host">gnu.org</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/website-backup-warc-wacz-replayweb-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+
+  </body>
+</html>
