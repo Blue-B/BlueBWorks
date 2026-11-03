@@ -284,9 +284,8 @@
     }
   ],
   "discovery": {
-    "writer": "chatgpt",
     "xStatus": "public-search",
-    "notes": "2026-10-30 09시 KST. 공식 RSS radar 60여 건 및 GitHub/Vercel/Cloudflare 공식 검색, 공개 X 검색을 확인했다. 관련 X 원문은 검증 가능한 게시물이 없어 인용하지 않았다. Cloudflare 10월 26일 사고 공개를 최근 7일 미발행 주요 소식으로 선정했다.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": []
   },
   "mediaReview": {

@@ -263,9 +263,8 @@
     }
   ],
   "discovery": {
-    "writer": "aside",
     "xStatus": "public-search",
-    "notes": "topic-queue의 google-genie-4 후보(@Google 10/30 영상 게시 조회 11만). 원 발표인 @GoogleDeepMind 10/27 게시물 조회 343만, 좋아요 2.3만. 네이버 자동완성에 구글 지니4, 구글 지니 사용법, Google 자동완성에 프로젝트 지니 하는 법, 프로젝트 지니 한국, genie 4 release date 표시. 기존 BlueBWorks 글에 Genie 주제 없음.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": [
       {
         "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
@@ -286,14 +285,14 @@
         "assetUrl": "https://bluebworks.com/assets/editorial/google-genie-4-project-genie-2026-thumb.png",
         "decision": "included",
         "rightsBasis": "BlueBWorks original editorial thumbnail with limited official page quotation",
-        "reason": "v3 어두운 템플릿, 오른쪽에 딥마인드 지니 페이지 제공 일정 문구 화면. 1600x900 직접 검수, 개인정보 없음."
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://deepmind.google/models/genie/",
         "assetUrl": "https://bluebworks.com/assets/editorial/google-genie-4-project-genie-2026-availability.webp",
         "decision": "included",
         "rightsBasis": "Limited official product page screenshot quoted for explanation",
-        "reason": "Join Project Genie waitlist 구역 문구와 버튼만 잘라냄. 2026-11-01 01시 KST VPS Aside 브라우저로 공개 페이지 촬영, 상단 계정 표시 영역 제외, 개인정보 없음."
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://gemini.google/kr/subscriptions/?hl=ko",
@@ -322,7 +321,6 @@
         "decision": "excluded",
         "reason": "발표 글의 webm 시연 영상과 대표 이미지는 재사용 허락 문구가 없어 파일을 복사하지 않고 유튜브와 X 임베드로 대체."
       }
-    ],
-    "note": "소식형 글이라 계정 화면 촬영 대상 없음. 프로젝트 지니는 AI 울트라 전용이고 VPS 브라우저 계정으로 이용 화면을 볼 수 없어 공개 도움말 기준으로 사용 순서를 설명. 대기자 양식은 로그인 계정 이메일이 보일 수 있어 촬영하지 않음. 셀프체크: 독자용 텍스트의 em/en dash, 가운뎃점, 이모지 0건(임베드 원문 제외), 볼드 0, 질문형 헤딩과 FAQ 없음, 확인 과정 문구 0건."
+    ]
   }
 }

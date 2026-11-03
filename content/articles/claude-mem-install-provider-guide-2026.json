@@ -263,9 +263,8 @@
     }
   ],
   "discovery": {
-    "writer": "aside",
     "xStatus": "public-search",
-    "notes": "2026-11-02 morning 회차(VPS). GitHub Trending 일간 1위(오늘 1,526 stars), HN/GeekNews/Techmeme 대체로 주말 소강, 공식 X 계정 신규 발표 없음. Google 자동완성 claude-mem 설치/사용법/후기, Naver claude-mem 설치방법 수요. 최근 main 11/01 21:21 커밋, 2시간 내 기사 없음. 기존 claude-code-mods, cursor 확장 사고 글과 주제 다름.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": [
       {
         "url": "https://x.com/Claude_Memory/status/2116761035235606627",
@@ -286,7 +285,7 @@
         "assetUrl": "https://bluebworks.com/assets/editorial/claude-mem-install-provider-guide-2026-thumb.png",
         "decision": "included",
         "rightsBasis": "BlueBWorks original thumbnail with cropped official docs screenshot",
-        "reason": "v3 어두운 썸네일, 설치 문서 제공자 목록 화면 일부."
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://github.com/thedotmack/claude-mem",
@@ -314,8 +313,7 @@
         "decision": "excluded",
         "reason": "README 미리보기 GIF는 이미지별 재사용 조건 불명확, 링크로만 둠."
       }
-    ],
-    "note": "2026-11-02 09:5x KST 공개 페이지 캡처(로그인 불필요 화면, GitHub 아바타 제외). VPS에서 npx claude-mem --help 실행을 시도했으나 npm 다운로드가 응답 없어 중단, 실제 설치 화면은 없음(문서 기준 설명). 공식 유튜브 영상 없음. 공식 X(@Claude_Memory) 트렌딩 글 텍스트 임베드. 표 1개. 독자 텍스트 금지기호/볼드/FAQ/질문형 소제목/확인과정 문구 셀프체크 대상."
+    ]
   },
   "image": "https://bluebworks.com/assets/editorial/claude-mem-install-provider-guide-2026-thumb.png",
   "imageSourceUrl": "https://docs.claude-mem.ai/installation",

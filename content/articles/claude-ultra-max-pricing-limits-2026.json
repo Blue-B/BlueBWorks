@@ -207,9 +207,8 @@
     }
   ],
   "discovery": {
-    "writer": "aside",
     "xStatus": "public-search",
-    "notes": "공식 X 발표 조회 429만, 좋아요 2.68만. Google 자동완성 클로드 울트라 가격/플랜 사용법 및 클로드 요금제 비교/변경/차이, 네이버 요금제 비교/가격/차이 확인.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": [
       {
         "url": "https://x.com/claudeai/status/2116220869479428500",
@@ -230,21 +229,21 @@
         "assetUrl": "https://bluebworks.com/assets/editorial/claude-ultra-max-pricing-limits-2026-thumb.png",
         "decision": "included",
         "rightsBasis": "BlueBWorks original editorial thumbnail with limited official documentation quotation",
-        "reason": "v3 어두운 템플릿과 실제 공개 문서 화면. 개인정보 없음. 1600x900 직접 검수."
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://support.claude.com/en/articles/17728952-what-is-the-ultra-plan",
         "assetUrl": "https://bluebworks.com/assets/editorial/claude-ultra-max-pricing-limits-2026-ultra.webp",
         "decision": "included",
         "rightsBasis": "Limited official documentation screenshot quoted for criticism and explanation",
-        "reason": "공개 문서의 기능 설명 인용. 개인정보 없는 화면 직접 검수. 기존 탭 CDP timeout은 새탭 1100x880으로 복구."
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work",
         "assetUrl": "https://bluebworks.com/assets/editorial/claude-ultra-max-pricing-limits-2026-limits.webp",
         "decision": "included",
         "rightsBasis": "Limited official documentation screenshot quoted for criticism and explanation",
-        "reason": "공개 문서의 기능 설명 인용. 개인정보 없는 화면 직접 검수. 기존 탭 CDP timeout은 새탭 1100x880으로 복구."
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://x.com/claudeai/status/2116220869479428500",
@@ -256,7 +255,6 @@
         "decision": "excluded",
         "reason": "Google에서 관련 YouTube 후보 검색, 공식 채널 인증 근거를 확보하지 못해 사용하지 않음"
       }
-    ],
-    "note": "본문 4695자, 금지기호/이모지0, 볼드0, 질문형 헤딩/FAQ없음. 사실과 확인 과정 분리. 공식영상 미확인, 공식 X 사진 임베드와 문서 화면2장 사용."
+    ]
   }
 }

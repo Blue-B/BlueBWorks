@@ -23,9 +23,8 @@
     "조건: 내부 사용과 모델 서비스 사업을 구별하는 수정 MIT 라이선스다"
   ],
   "discovery": {
-    "writer": "aside",
     "xStatus": "public-search",
-    "notes": "Q8 morning AI 서비스 칸. GeekNews, HN, AICoder, Techmeme, GitHub Trending, Hugging Face Trending, OpenAI와 MistralAI 공식 X 조사(실시간 모음/공식 X/모델 트렌드 3묶음). Mistral Large4 점수6(발표10/29, 7일이내미발행후보로확장), HF파일업데이트6시간을발표시각과혼동하지않음. 공식X 발표좋아요6,317/조회815,334. 전날morning claude-mem이라 회사중복없음. Google 미스트랄 Large4 자동완성없음, Naver 미스트랄/미스트랄ai 제안 확인(검색량 미추정). 시작main a7eef544, 마지막 기사11/2 23:19로2시간이상. 공식 X는소재확인만, 본문근거는공식발표/모델카드/API문서/라이선스.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": [
       {
         "url": "https://x.com/MistralAI/status/2115811242556137820",
@@ -45,8 +44,8 @@
         "sourceUrl": "https://docs.mistral.ai/models/mistral-large-4-0",
         "assetUrl": "https://bluebworks.com/assets/editorial/mistral-large-4-open-weights-pricing-license-2026-thumb.png",
         "decision": "included",
-        "rightsBasis": "BlueBWorks original v3 thumbnail incorporating a limited screenshot of the public model information card for commentary",
-        "reason": "어두운v3템플릿, 실제요금화면, 개인정보없음.큰한글문구와단가표시."
+        "rightsBasis": "공개 화면 기준.",
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://docs.mistral.ai/models/mistral-large-4-0",

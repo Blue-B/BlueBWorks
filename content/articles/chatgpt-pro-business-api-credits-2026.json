@@ -385,9 +385,8 @@
     ]
   },
   "discovery": {
-    "writer": "aside",
     "xStatus": "public-search",
-    "notes": "2026-10-30 00시 따라잡기 회차. @OpenAIDevs 원문 재확인: 조회 1,672,546·좋아요 8,096(관찰 시점). Google 자동완성 ChatGPT API 크레딧→무료 크레딧, ChatGPT Pro 가격→api 가격·한국 가격 등, 네이버에는 chat gpt pro 가격 제안이 있었다. 네이버의 API 크레딧·Business API 제안은 비어 있어 검색량 수치를 주장하지 않는다. 10/29 모델 기사와 다른 요금·사용법 주제. 최신 main과 공식 도움말·개발자 가이드를 재확인했다. 2026-10-30 사용자 요청으로 같은 주소에서 개정: 실제 화면 캡처 6장과 OpenAI 공식 유튜브 영상을 넣고, 자체 도식과 숫자 카드, FAQ를 빼고, writing-style 규칙(가운뎃점, 이모지, 대시, 볼드 금지)에 맞춰 다시 썼다.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": [
       {
         "url": "https://x.com/OpenAIDevs/status/2115583698074755078",

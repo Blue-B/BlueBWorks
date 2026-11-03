@@ -255,9 +255,8 @@
     }
   ],
   "discovery": {
-    "writer": "aside",
     "xStatus": "public-search",
-    "notes": "topic-queue의 GitHub Universe 후보를 선정. @github 최근 12개와 @ryuhyun_dev 최근 20개를 확인했고 동일 발표 게시 없음. Google 자동완성에서 코파일럿 사용법과 성능, GitHub Copilot 가격 정책과 모델별 가격을 확인했고 네이버에서 코파일럿 가격과 무료 제안을 확인. 코파일럿 퓨전은 양쪽 제안 없음, 검색량으로 해석하지 않음. radar 최근24시간 후보를 확인했으나 기존 보안 글과 다른 개발 도구 후보를 7일 범위에서 선택. 최신 기존 글은 10/30 09:10 KST, 2시간 이상 경과.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": [
       {
         "url": "https://x.com/github/status/2115604080340988271",
@@ -272,7 +271,6 @@
   "mediaReview": {
     "checkedAt": "2026-10-30T03:54:15.491Z",
     "status": "included",
-    "notes": "공식 GitHub YouTube 채널을 github.blog 하단 링크와 oEmbed author_url로 확인. 영상 설명과 자막에서 Fusion, 60점, 30% 할인 내용을 확인했고 oEmbed 허용 확인. 공식 X 영상은 임베드만 사용. 로그인 없는 공개 문서 캡처 2장을 직접 열어 개인정보 없음 확인. 썸네일과 요약 유지, 별도 도식과 숫자 카드, FAQ 없음. 셀프체크: 가운뎃점, 이모지, em/en dash, 금지어, 볼드 0건(공식 원문 인용과 URL 예외), 질문형과 마무리 헤딩 없음, 문단 길이 변주와 낭독 점검. 2026-10-30 개정: 사용자 요청으로 썸네일을 무채색 바탕과 실제 문서 화면을 넣은 v3 디자인(taste-skill 기준)으로 교체하고, 요약과 본문, 사진 설명의 확인 과정 문구와 캡처 날짜, 면책 문장을 제거함. 확인 기록은 이 mediaReview에만 남김.",
     "candidates": [
       {
         "sourceUrl": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/",

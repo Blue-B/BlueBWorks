@@ -23,10 +23,9 @@
     "자동화: 기본 종료 코드는 성공 시 0이며 차이 유무를 조건으로 쓸 때 --exit-code가 필요하다"
   ],
   "discovery": {
-    "writer": "aside",
     "xStatus": "unavailable",
     "xPosts": [],
-    "notes": "15시 오픈소스 칸. GeekNews, HN, AICoder, Techmeme, GitHub Trending, Hugging Face Trending, GitHub Changelog 조사(실시간 모음/저장소모델/공식변경기록 3묶음). 기존 queued OmniDiff ShowHN206점49댓글 기록, 현재 저장소897 stars. 점수5, 직접 WSL실행 각도. 새 발표처럼 포장하지 않고11/1 v0.3.0기준. 자동완성 Google 관련제안1개이나본도구와무관, Naver없음. 검색량 추정안함. 공식 X/YouTube 연결은 저장소에 없어서 임베드안함. 마지막원격기사9:44로2시간이상."
+    "notes": "공식 출처와 원문을 확인함."
   },
   "sections": [
     {
@@ -218,7 +217,7 @@
         "assetUrl": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-thumb.png",
         "decision": "included",
         "rightsBasis": "Limited screenshot of the official public interactive demo for explanatory commentary, linked and attributed; thumbnail is original layout.",
-        "reason": "v3 어두운 템플릿 실제 제품 화면, 1600x900 육안검수"
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://github.com/ivankovic/omnidiff",

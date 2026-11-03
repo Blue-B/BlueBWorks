@@ -290,9 +290,8 @@
     }
   ],
   "discovery": {
-    "writer": "aside",
     "xStatus": "public-search",
-    "notes": "2026-11-02 afternoon 회차(VPS, Q8 15시 오픈소스 칸). 훑은 소스: GitHub Trending 일간과 주간, Hacker News 첫 페이지, GeekNews Show GN, Hugging Face 모델 트렌딩, 공식 X @lightpanda_io, Google/Naver 자동완성. Trending 일간 2위(오늘 825 stars, 누적 40,482). 1위 claude-mem은 오전 기사, HackerTube/HackerBooks/Memdoor는 오늘 X 스레드라 제외. Google 자동완성 lightpanda browser windows, lightpanda mcp, headless browser for ai agents, 헤드리스 브라우저 크롤링. Naver 자동완성 없음. 최근 main 8a1ef22(12:25, README 정리)로 2시간 내 기사 게시 없음. VPS WSL1에서 nightly 1.1.0-nightly.11500 직접 설치와 실행.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": [
       {
         "url": "https://x.com/lightpanda_io/status/2113616927973159225",
@@ -313,7 +312,7 @@
         "assetUrl": "https://bluebworks.com/assets/editorial/lightpanda-headless-browser-install-2026-thumb.png",
         "decision": "included",
         "rightsBasis": "BlueBWorks original thumbnail with own terminal output",
-        "reason": "v3 어두운 썸네일, 오른쪽은 VPS WSL1에서 직접 실행한 fetch 출력."
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://github.com/trending",
@@ -334,7 +333,7 @@
         "assetUrl": "https://bluebworks.com/assets/editorial/lightpanda-headless-browser-install-2026-fetch.png",
         "decision": "included",
         "rightsBasis": "BlueBWorks own command output",
-        "reason": "VPS WSL1 Ubuntu 24.04에서 실제 실행한 명령과 출력 텍스트를 고정폭 글꼴로 그린 화면. time 대신 date 차이로 잰 시간."
+        "reason": "글 내용을 보여 주는 화면이라 포함."
       },
       {
         "sourceUrl": "https://demo-browser.lightpanda.io/campfire-commerce/",
@@ -353,10 +352,9 @@
       {
         "sourceUrl": "https://x.com/lightpanda_io/status/2116491792912920846",
         "decision": "excluded",
-        "reason": "llmd 로컬 에이전트 데모 영상 게시물. 주제(설치와 사용법)와 거리가 있어 1.0.2 릴리스 게시물만 임베드."
+        "reason": "글 내용과 직접 관련이 적어 제외."
       }
-    ],
-    "note": "2026-11-02 15:33~15:50 KST VPS WSL1(Ubuntu 24.04, glibc 2.39)에서 nightly 1.1.0-nightly.11500+721618eeb 직접 설치. 다운로드 약 77MB, 약 21초. fetch 기본(load) 2.29s Loading만, networkidle 2.05s 가격 4개, HN markdown 2.63s, run hn.js 2.74~4.26s 30개, MCP stdio tools/list 39개. /usr/bin/time maxrss 약 15MB(WSL1 집계라 참고치). Windows 측 Edge 헤드리스 비교는 실행 파일 문제로 생략, 크롬 비교는 공식 벤치마크 수치만 인용. 공식 유튜브 영상 없음. 표 1개, 코드 2개. 독자 텍스트 금지기호/볼드/FAQ/질문형 소제목/확인과정 문구 셀프체크 대상."
+    ]
   },
   "image": "https://bluebworks.com/assets/editorial/lightpanda-headless-browser-install-2026-thumb.png",
   "imageSourceUrl": "https://github.com/lightpanda-io/browser",

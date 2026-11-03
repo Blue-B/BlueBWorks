@@ -9,7 +9,13 @@
   "status": "published",
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
-  "tags": ["코덱스 한도 초기화", "Codex", "banked reset", "사용 한도", "ChatGPT"],
+  "tags": [
+    "코덱스 한도 초기화",
+    "Codex",
+    "banked reset",
+    "사용 한도",
+    "ChatGPT"
+  ],
   "editorNote": "초기화권을 받았다는 것과 한도가 돌아왔다는 것은 다른 일이라, 실제 설정 화면에서 쓰는 위치와 조건을 중심으로 묶었습니다.",
   "keyPoints": [
     "사용 위치: 웹은 설정의 사용량, 데스크톱은 Usage & billing, CLI는 /usage에서 사용",
@@ -25,7 +31,11 @@
         "이런 공지를 보면 한도가 이미 풀렸다고 생각하기 쉽습니다. 하지만 저장형 초기화는 계정에 들어오는 순간에는 사용량을 전혀 바꾸지 않습니다. 사용자가 버튼을 눌러야 비로소 한도가 채워집니다.",
         "도움말은 초기화를 세 종류로 나눕니다. OpenAI가 무료로 주고 계정에 저장되는 초기화, 대상 계정에 곧바로 적용되어 따로 저장되지 않는 자동 초기화(글로벌 리셋이라고도 부름), 일부 Plus와 Pro 개인 계정이 돈을 내고 즉시 적용하는 유료 초기화입니다. 셋 다 요금제 한도를 영구히 늘리거나 크레딧을 얹어 주지는 않습니다. 무료 초기화는 홍보성 혜택이라 다음 지급 일정도 정해져 있지 않습니다."
       ],
-      "sourceRefs": [1, 4, 5],
+      "sourceRefs": [
+        1,
+        4,
+        5
+      ],
       "embeds": [
         {
           "type": "x",
@@ -46,7 +56,11 @@
         "데스크톱 앱에서는 Settings의 Usage & billing에 같은 기능이 있습니다. 여기서 Use reset은 저장된 초기화를 쓰는 버튼이고, Buy an instant reset은 별도의 유료 구매 창을 엽니다. 두 버튼이 가까이 있으니 이름을 보고 누르는 편이 안전합니다. 유료 구매를 마쳐도 저장된 초기화 개수는 줄지 않습니다.",
         "터미널에서 Codex CLI를 쓴다면 /usage를 입력하고 Redeem reset을 고르면 됩니다. 버전에 따라 이 메뉴가 보이지 않을 수 있는데, 그때는 데스크톱 앱이나 웹에서 쓰면 됩니다. 모바일 앱에는 초기화 버튼도 내역도 아직 없습니다."
       ],
-      "sourceRefs": [1, 3, 6],
+      "sourceRefs": [
+        1,
+        3,
+        6
+      ],
       "figures": [
         {
           "src": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-usage.png",
@@ -77,13 +91,27 @@
         "같은 사용량이 5시간 한도와 주간 한도에 함께 쌓이지만 두 기간이 끝나는 시각은 서로 다를 수 있습니다. 도움말 예시로는 주간 기간이 정오에 끝났고 5시간 기간은 오후 3시까지 이어지는 경우, Codex를 다시 쓰기 전 상태가 주간 100%, 5시간 10%가 될 수 있습니다. 이때 쓰는 초기화는 5시간 한도만 채우고 주간 기간은 건드리지 않습니다. 주간 한도가 막 리셋된 직후라면 초기화는 아껴 두는 쪽이 낫습니다.",
         "Codex 한도와 따로 돌아가는 챗GPT 이미지 생성, 파일 업로드, 일반 Chat 음성 한도는 이 초기화로 풀리지 않습니다. 이미지 생성 한도에 걸린 상태라면 Codex 초기화를 써도 달라지는 것이 없습니다."
       ],
-      "sourceRefs": [1],
+      "sourceRefs": [
+        1
+      ],
       "table": {
-        "headers": ["요금제", "전체 초기화로 복원되는 한도"],
+        "headers": [
+          "요금제",
+          "전체 초기화로 복원되는 한도"
+        ],
         "rows": [
-          ["Go", "월간 한도"],
-          ["Plus, Business Standard", "5시간 한도와 주간 한도"],
-          ["Pro 100, Pro 200, Pro 500", "주간 한도"]
+          [
+            "Go",
+            "월간 한도"
+          ],
+          [
+            "Plus, Business Standard",
+            "5시간 한도와 주간 한도"
+          ],
+          [
+            "Pro 100, Pro 200, Pro 500",
+            "주간 한도"
+          ]
         ],
         "caption": "OpenAI 도움말 기준. 100% 아래로 내려간 한도만 100%로 돌아오며 이미지 생성, 파일 업로드, 일반 Chat 음성 한도는 포함되지 않는다."
       }
@@ -96,7 +124,11 @@
         "유료 초기화와 자동 초기화는 이 내역에 나오지 않습니다. 자동 초기화로 한도와 다음 리셋 시각이 바뀌었는데 내역이 비어 있는 것은 정상입니다. 반대로 한도 숫자가 달라졌다는 사실만으로 어떤 초기화가 적용됐는지 알아낼 수도 없습니다.",
         "만료를 놓친 초기화는 되살릴 방법이 없습니다. OpenAI 지원팀은 무료 초기화의 기한 연장이나 재지급, 수동 지급을 하지 않고 그에 대한 크레딧이나 환불도 주지 않는다고 적어 두었습니다. 여러 개가 쌓여 있다면 만료가 가까운 것부터 쓰는 습관이 손해를 줄입니다."
       ],
-      "sourceRefs": [1, 3, 6],
+      "sourceRefs": [
+        1,
+        3,
+        6
+      ],
       "figures": [
         {
           "src": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-history.png",
@@ -117,9 +149,15 @@
         "저장형 초기화를 쓴 직후 자동 초기화가 겹쳐 와도 한도가 200%가 되지는 않습니다. 오전 10시에 초기화를 쓰고 5%를 쓴 상태에서 10시 30분에 자동 초기화가 오면 95%가 100%로 돌아갈 뿐입니다. 이미 쓴 초기화는 돌려받지 못하고, 아직 쓰지 않은 초기화는 원래 만료 시각 그대로 남습니다. 담당자가 초기화를 예고하는 기간이라면 급하지 않은 날에는 쌓인 초기화를 바로 쓰지 않고 지켜보는 편이 이득일 때가 있습니다.",
         "초기화를 쓴 뒤 숫자가 바로 바뀌지 않을 수 있습니다. 반영에 잠깐 시간이 걸리기 때문입니다. 이때 하나를 더 쓰거나 유료 초기화를 사서 시험해 보는 것은 손해입니다. 화면을 새로 고침하고, 지금 보고 있는 계정과 워크스페이스, 한도 종류가 맞는지부터 살펴보세요. 계정을 두 개 이상 오간다면 한도와 구독이 계정마다 따로 움직인다는 점도 같이 기억해 둘 만합니다."
       ],
-      "sourceRefs": [1, 3],
+      "sourceRefs": [
+        1,
+        3
+      ],
       "links": [
-        {"label": "챗GPT 계정 전환과 계정별 구독 분리 정리", "url": "https://bluebworks.com/articles/chatgpt-mobile-account-switching-subscription-2026/"}
+        {
+          "label": "챗GPT 계정 전환과 계정별 구독 분리 정리",
+          "url": "https://bluebworks.com/articles/chatgpt-mobile-account-switching-subscription-2026/"
+        }
       ]
     },
     {
@@ -131,7 +169,10 @@
         "크레딧은 또 다른 상품입니다. 요금제에 포함된 사용량을 먼저 쓰고, 한도에 닿은 다음부터 지원되는 사용량을 크레딧 잔액에서 빼 가는 종량 방식입니다.",
         "정리하면 순서는 이렇습니다. 계정에 무료 초기화가 있으면 그것부터 쓰고, 리셋이 하루 이틀 남았다면 기다리거나 크레딧으로 버티고, 유료 초기화는 앞의 방법이 맞지 않을 때 따져 볼 선택지입니다."
       ],
-      "sourceRefs": [2, 3]
+      "sourceRefs": [
+        2,
+        3
+      ]
     },
     {
       "title": "Codex에게 초기화 사용을 맡기는 설정과 지원 문의 범위",
@@ -140,41 +181,117 @@
         "대신 내가 모르는 사이 초기화가 하나 빠질 수 있습니다. 초기화가 예상과 다르게 줄었다면 내역 탭의 사용 기록과, Codex와 나눈 최근 대화에서 초기화를 요청하거나 승인한 부분을 찾아보면 됩니다. 앞으로 직접 버튼으로만 쓰고 싶다면 이 설정을 끄면 됩니다.",
         "지원팀이 한도를 대신 풀어 주지는 않습니다. 다만 사용량이 잘못 계산된 것 같거나 표시된 리셋 시각이 지나도 Codex가 다시 열리지 않는다면 문의할 수 있습니다. 이때는 문제가 된 한도나 크레딧 잔액, 화면에 나온 리셋 시각, 화면 이미지, 쓰던 Codex 클라이언트와 모델, 발생 시각과 시간대를 함께 보내라고 도움말은 안내합니다. 화면 이미지에서 민감한 정보는 지우고 보내야 합니다."
       ],
-      "sourceRefs": [1, 3]
+      "sourceRefs": [
+        1,
+        3
+      ]
     }
   ],
   "sources": [
-    {"name": "OpenAI 도움말: How resets work in Codex", "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex", "description": "저장형, 자동, 유료 초기화 구분과 사용 위치, 80% 조건, 요금제별 복원 범위, 만료와 내역"},
-    {"name": "OpenAI 도움말: Paid weekly Work and Codex rate limit resets", "url": "https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets", "description": "유료 즉시 초기화 대상 요금제, 적용 시점, 다음 리셋 계산, 환불과 영수증"},
-    {"name": "OpenAI 도움말: Using Codex with your ChatGPT plan", "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan", "description": "Codex 공유 한도 구조, 지원팀 문의 범위, 일회성 초기화 안내"},
-    {"name": "Tibo의 Banked 1/2 공지", "url": "https://x.com/thsottiaux/status/2116692529970311254", "description": "11월 1일 OpenAI Codex 담당자의 저장형 초기화 지급 공지"},
-    {"name": "Tibo의 Day 26 공지", "url": "https://x.com/thsottiaux/status/2116405414921384099", "description": "10월 31일 이후 이틀간 저장형 초기화를 예고한 글"},
-    {"name": "ChatGPT 사용량 설정", "url": "https://chatgpt.com/settings/usage", "description": "플랜 사용 한도와 사용 한도 초기화를 보는 웹 설정 화면(로그인 필요)"}
+    {
+      "name": "OpenAI 도움말: How resets work in Codex",
+      "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex",
+      "description": "저장형, 자동, 유료 초기화 구분과 사용 위치, 80% 조건, 요금제별 복원 범위, 만료와 내역"
+    },
+    {
+      "name": "OpenAI 도움말: Paid weekly Work and Codex rate limit resets",
+      "url": "https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets",
+      "description": "유료 즉시 초기화 대상 요금제, 적용 시점, 다음 리셋 계산, 환불과 영수증"
+    },
+    {
+      "name": "OpenAI 도움말: Using Codex with your ChatGPT plan",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "description": "Codex 공유 한도 구조, 지원팀 문의 범위, 일회성 초기화 안내"
+    },
+    {
+      "name": "Tibo의 Banked 1/2 공지",
+      "url": "https://x.com/thsottiaux/status/2116692529970311254",
+      "description": "11월 1일 OpenAI Codex 담당자의 저장형 초기화 지급 공지"
+    },
+    {
+      "name": "Tibo의 Day 26 공지",
+      "url": "https://x.com/thsottiaux/status/2116405414921384099",
+      "description": "10월 31일 이후 이틀간 저장형 초기화를 예고한 글"
+    },
+    {
+      "name": "ChatGPT 사용량 설정",
+      "url": "https://chatgpt.com/settings/usage",
+      "description": "플랜 사용 한도와 사용 한도 초기화를 보는 웹 설정 화면(로그인 필요)"
+    }
   ],
   "resources": [
-    {"name": "Codex 초기화 공식 안내", "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex", "type": "문서", "description": "초기화 종류와 사용 방법, 만료와 내역 설명"},
-    {"name": "유료 주간 초기화 안내", "url": "https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets", "type": "지원", "description": "즉시 초기화 구매 대상과 다음 리셋 시각 계산"},
-    {"name": "ChatGPT 사용량 설정 화면", "url": "https://chatgpt.com/settings/usage", "type": "설정", "description": "초기화 사용 버튼과 사용 가능 개수, 내역"},
-    {"name": "ChatGPT 요금제로 Codex 쓰기", "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan", "type": "문서", "description": "요금제별 Codex 사용량과 한도 도달 시 선택지"}
+    {
+      "name": "Codex 초기화 공식 안내",
+      "url": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex",
+      "type": "문서",
+      "description": "초기화 종류와 사용 방법, 만료와 내역 설명"
+    },
+    {
+      "name": "유료 주간 초기화 안내",
+      "url": "https://help.openai.com/en/articles/20001507-paid-weekly-work-and-codex-rate-limit-resets",
+      "type": "지원",
+      "description": "즉시 초기화 구매 대상과 다음 리셋 시각 계산"
+    },
+    {
+      "name": "ChatGPT 사용량 설정 화면",
+      "url": "https://chatgpt.com/settings/usage",
+      "type": "설정",
+      "description": "초기화 사용 버튼과 사용 가능 개수, 내역"
+    },
+    {
+      "name": "ChatGPT 요금제로 Codex 쓰기",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "type": "문서",
+      "description": "요금제별 Codex 사용량과 한도 도달 시 선택지"
+    }
   ],
   "discovery": {
-    "writer": "aside",
     "xStatus": "public-search",
-    "notes": "2026-11-01 21시 회차. Tibo Banked 1/2(11/1 00:43Z)와 한국어 X에서 초기화권 반응. Google 자동완성 코덱스 한도 초기화/초기화 권/쿠폰/확인, Naver 코덱스 한도 초기화 방법 수요. 최근 main 17:32 IndexNow 커밋, 2시간 내 기사 게시 없음. 오늘 다른 두 편(코딩 벤치마크, 챗GPT 계정 전환)과 분야 다름.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": [
-      {"url": "https://x.com/thsottiaux/status/2116692529970311254", "postedAt": "2026-11-01T00:43:20.000Z", "verifiedAt": "2026-11-01T21:20:56+09:00", "role": "announcement", "verification": "corroborated", "officialSourceUrl": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex"}
+      {
+        "url": "https://x.com/thsottiaux/status/2116692529970311254",
+        "postedAt": "2026-11-01T00:43:20.000Z",
+        "verifiedAt": "2026-11-01T21:20:56+09:00",
+        "role": "announcement",
+        "verification": "corroborated",
+        "officialSourceUrl": "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex"
+      }
     ]
   },
   "mediaReview": {
     "checkedAt": "2026-11-01T21:20:56+09:00",
     "status": "included",
     "candidates": [
-      {"sourceUrl": "https://chatgpt.com/settings/usage", "assetUrl": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-thumb.png", "decision": "included", "rightsBasis": "BlueBWorks original thumbnail with own account settings screenshot", "reason": "v3 어두운 썸네일, 실제 사용 한도 초기화 화면 일부. 개인정보 없음."},
-      {"sourceUrl": "https://chatgpt.com/settings/usage", "assetUrl": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-usage.png", "decision": "included", "rightsBasis": "Own account product screenshot for explanatory how-to", "reason": "설정 사용량 메뉴와 플랜 사용 한도. 이메일, 이름, 프로필 없음."},
-      {"sourceUrl": "https://chatgpt.com/settings/usage", "assetUrl": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-available.png", "decision": "included", "rightsBasis": "Own account product screenshot for explanatory how-to", "reason": "사용 가능 탭과 초기화 사용 버튼(빨간 테두리). 앱별 사용 한도 목록은 잘라냄."},
-      {"sourceUrl": "https://chatgpt.com/settings/usage", "assetUrl": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-history.png", "decision": "included", "rightsBasis": "Own account product screenshot for explanatory how-to", "reason": "내역 탭 최근 30일 받음/사용됨 기록. 개인정보 없음."}
-    ],
-    "note": "2026-11-01 21:2x KST Aside 브라우저 기존 Plus 세션으로 웹 설정 사용량 화면 촬영. 초기화 사용 버튼은 누르지 않음(조회만). 앱 사용 한도 목록과 크레딧 잔액 영역은 이미지에서 제외. 공식 유튜브 영상은 찾지 않고 실제 설정 화면 우선. 공식 X는 텍스트 임베드. 데스크톱 앱, CLI 화면은 촬영 못함(문서 기준 설명). 독자 텍스트 금지기호/볼드/FAQ/질문형 소제목/확인과정 문구 셀프체크 대상."
+      {
+        "sourceUrl": "https://chatgpt.com/settings/usage",
+        "assetUrl": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with own account settings screenshot",
+        "reason": "글 내용을 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/settings/usage",
+        "assetUrl": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-usage.png",
+        "decision": "included",
+        "rightsBasis": "Own account product screenshot for explanatory how-to",
+        "reason": "설정 사용량 메뉴와 플랜 사용 한도. 이메일, 이름, 프로필 없음."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/settings/usage",
+        "assetUrl": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-available.png",
+        "decision": "included",
+        "rightsBasis": "Own account product screenshot for explanatory how-to",
+        "reason": "사용 가능 탭과 초기화 사용 버튼(빨간 테두리). 앱별 사용 한도 목록은 잘라냄."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/settings/usage",
+        "assetUrl": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-history.png",
+        "decision": "included",
+        "rightsBasis": "Own account product screenshot for explanatory how-to",
+        "reason": "내역 탭 최근 30일 받음/사용됨 기록. 개인정보 없음."
+      }
+    ]
   },
   "image": "https://bluebworks.com/assets/editorial/codex-banked-reset-how-to-use-2026-thumb.png",
   "imageSourceUrl": "https://chatgpt.com/settings/usage",

@@ -8,7 +8,12 @@
   "verifiedAt": "2026-10-05T20:37:39+09:00",
   "status": "Open beta",
   "reviewStatus": "reviewed",
-  "tags": ["Cloudflare", "Observability", "Tracing", "OpenTelemetry"],
+  "tags": [
+    "Cloudflare",
+    "Observability",
+    "Tracing",
+    "OpenTelemetry"
+  ],
   "image": "https://bluebworks.com/assets/editorial/cloudflare-traces-overview.png",
   "imageAlt": "Cloudflare Traces 대시보드에서 한 요청의 처리 단계를 span으로 펼쳐 본 화면",
   "imageCredit": "Cloudflare Developer Docs · CC BY 4.0",
@@ -30,10 +35,19 @@
         "Cloudflare가 10월 2일 공개한 Cloudflare Traces는 실제 운영 요청을 요청 단위의 타임라인으로 묶는다. 공식 문서 기준으로 Rules, 요청 라우팅, Cache, Workers, 원본 연결처럼 지원되는 처리 단계를 span으로 기록하고 각 단계의 소요 시간, 결과, 관련 속성을 보여 준다. 여기서 span은 한 요청 안의 개별 작업 구간을 뜻한다.",
         "이 기능은 기존 Cloudflare Trace와 이름이 비슷하지만 목적이 다르다. 기존 Cloudflare Trace는 특정 설정이 요청을 어떻게 처리할지 시뮬레이션하는 도구이고, Cloudflare Traces는 실제 운영 트래픽에서 발생한 요청을 기록한다. 설정 검증과 장애 분석을 같은 기능으로 생각하면 원문에서 말하는 차이를 놓치기 쉽다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "links": [
-        {"label": "Cloudflare Traces 공식 문서", "url": "https://developers.cloudflare.com/observability/traces/"},
-        {"label": "10월 2일 공식 발표", "url": "https://blog.cloudflare.com/cloudflare-tracing/"}
+        {
+          "label": "Cloudflare Traces 공식 문서",
+          "url": "https://developers.cloudflare.com/observability/traces/"
+        },
+        {
+          "label": "10월 2일 공식 발표",
+          "url": "https://blog.cloudflare.com/cloudflare-tracing/"
+        }
       ]
     },
     {
@@ -43,7 +57,10 @@
         "예를 들어 차단된 요청이라면 어떤 사용자 정의 규칙이나 관리형 보안 규칙이 실제로 동작했는지 확인할 수 있다. URL이 예상과 다르게 원본에 도착했다면 http_request_transform 구간에서 어떤 Transform Rule이 어떤 값을 바꿨는지 볼 수 있다. Worker 라우팅이 의심될 때는 workers_routing span에서 어떤 경로가 매칭됐는지 확인하는 식이다.",
         "성능 문제에서도 같은 방식이 쓰인다. Cloudflare는 발표 글에서 총 539ms가 걸린 요청 중 cache miss 이후 원본 응답을 기다리는 데 527ms가 쓰인 예를 보여 줬다. 이 수치는 일반적인 성능을 뜻하는 벤치마크가 아니라 Cloudflare가 기능 설명을 위해 제시한 한 요청의 사례다. 중요한 점은 전체 지연을 한 숫자로 보는 대신 어느 구간에 시간이 몰렸는지 바로 분리할 수 있다는 것이다."
       ],
-      "sourceRefs": [1, 2],
+      "sourceRefs": [
+        1,
+        2
+      ],
       "figures": [
         {
           "src": "https://bluebworks.com/assets/editorial/cloudflare-traces-configuration.png",
@@ -64,7 +81,10 @@
         "규칙 순서도 중요하다. 공식 설정 문서는 첫 번째로 일치한 Trace Rule을 사용한다고 설명한다. 여러 규칙을 만들 때는 더 구체적인 조사 조건을 위에 두지 않으면 넓은 규칙이 먼저 매칭돼 예상과 다른 샘플링 비율이 적용될 수 있다.",
         "이 방식은 오류를 재현할 때 특히 편하다. 임시 디버그 헤더를 넣은 요청만 100% 추적하도록 만들면 전체 트래픽의 수집량을 크게 올리지 않고도 문제 요청의 경로를 자세히 확보할 수 있다. 조사가 끝난 뒤에는 해당 규칙을 끄거나 제거해 평소 수준으로 돌아가면 된다."
       ],
-      "sourceRefs": [1, 3],
+      "sourceRefs": [
+        1,
+        3
+      ],
       "figures": [
         {
           "src": "https://bluebworks.com/assets/editorial/cloudflare-trace-rule.png",
@@ -77,7 +97,10 @@
         }
       ],
       "links": [
-        {"label": "Trace Rules 설정 문서", "url": "https://developers.cloudflare.com/observability/traces/configuration/"}
+        {
+          "label": "Trace Rules 설정 문서",
+          "url": "https://developers.cloudflare.com/observability/traces/configuration/"
+        }
       ]
     },
     {
@@ -88,9 +111,15 @@
         "원본으로 context를 전달한다고 해서 원본 서버의 span이 자동으로 생기는 것도 아니다. 원본 애플리케이션이 OpenTelemetry 같은 방식으로 직접 계측되어 있어야 하고, Cloudflare span과 애플리케이션 span을 하나의 화면에서 보려면 같은 OpenTelemetry 호환 백엔드로 보내야 한다. 기능을 켰다는 이유만으로 전체 스택의 분산 추적이 완성됐다고 보면 안 된다.",
         "Cloudflare는 OTLP, 즉 OpenTelemetry Protocol로 trace를 외부 관측 플랫폼에 내보낼 수 있게 했다. 계정 수준의 목적지를 만든 뒤 도메인별로 어떤 trace를 보낼지 선택한다. 이미 Grafana, Honeycomb, Axiom 같은 도구를 중심으로 운영하고 있다면 Cloudflare 구간만 별도 화면에 가두기보다 기존 trace와 합치는 구성이 더 자연스럽다."
       ],
-      "sourceRefs": [1, 3],
+      "sourceRefs": [
+        1,
+        3
+      ],
       "links": [
-        {"label": "OpenTelemetry 내보내기 안내", "url": "https://developers.cloudflare.com/observability/export/opentelemetry/"}
+        {
+          "label": "OpenTelemetry 내보내기 안내",
+          "url": "https://developers.cloudflare.com/observability/export/opentelemetry/"
+        }
       ]
     },
     {
@@ -101,17 +130,35 @@
         "공식 발표 글의 표에는 Paid 저장 포함량이 10GB-month로 적혀 있지만, 같은 날 갱신된 현재 가격 문서는 12GB-month를 명시한다. 발행 시점에는 별도 가격 문서가 더 구체적이고 최신 운영 기준을 담고 있으므로 12GB-month를 기준으로 보는 편이 맞다. Enterprise는 계약 갱신 시점에 새 가격 모델로 이동한다고 가격 문서가 따로 적고 있다.",
         "따라서 도입할 때는 'trace 몇 개를 저장할까'보다 실제 수집 데이터 크기를 관찰하는 편이 낫다. 평소 낮은 샘플링, 문제 구간의 Trace Rule, 필요한 속성만 유지하는 방식이 비용과 조사 품질을 함께 조절하는 핵심이 된다."
       ],
-      "sourceRefs": [1, 4],
+      "sourceRefs": [
+        1,
+        4
+      ],
       "table": {
-        "headers": ["구분", "포함량", "초과 요금"],
+        "headers": [
+          "구분",
+          "포함량",
+          "초과 요금"
+        ],
         "rows": [
-          ["Free", "0.5GB 수집/일, 7일 보관", "추가 수집 불가"],
-          ["Paid", "50GB 수집/청구 주기, 12GB-month 저장", "수집 $0.25/GB, 저장 $0.10/GB-month"]
+          [
+            "Free",
+            "0.5GB 수집/일, 7일 보관",
+            "추가 수집 불가"
+          ],
+          [
+            "Paid",
+            "50GB 수집/청구 주기, 12GB-month 저장",
+            "수집 $0.25/GB, 저장 $0.10/GB-month"
+          ]
         ],
         "caption": "2026-10-05 확인한 Cloudflare Observability 가격 문서 기준. 새 가격은 2026-12-01부터 적용 예정이며 Enterprise는 계약 갱신 시점이 다를 수 있다."
       },
       "links": [
-        {"label": "현재 Observability 가격 문서", "url": "https://developers.cloudflare.com/observability/pricing/"}
+        {
+          "label": "현재 Observability 가격 문서",
+          "url": "https://developers.cloudflare.com/observability/pricing/"
+        }
       ]
     },
     {
@@ -122,7 +169,12 @@
         "에이전트 기반 디버깅도 같은 데이터에 접근할 수 있다. Cloudflare는 Observability MCP server와 SQL API를 통해 에이전트가 trace와 다른 관측 데이터를 조회하는 흐름을 발표 글에서 소개했다. 다만 운영 trace에는 요청 속성이나 인프라 정보가 포함될 수 있으므로, 자동화 도구에 접근 권한을 줄 때는 사람이 대시보드를 보는 것과 같은 권한 관리가 필요하다.",
         "지금 바로 확인할 핵심은 세 가지다. 실제 운영 요청이 span으로 보이는지, 조사할 요청만 높은 비율로 잡을 수 있는지, 그리고 12월 가격 전환 뒤 예상 수집량이 어느 정도인지다. 이 세 가지가 맞으면 Cloudflare 설정과 애플리케이션 코드를 따로 추측하던 시간을 줄이는 데 실질적인 도움이 될 수 있다."
       ],
-      "sourceRefs": [1, 2, 3, 4]
+      "sourceRefs": [
+        1,
+        2,
+        3,
+        4
+      ]
     }
   ],
   "sources": [

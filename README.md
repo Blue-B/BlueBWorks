@@ -45,8 +45,6 @@ npm run indexnow        # 새 글 주소를 검색엔진에 알림
 
 `site/assets/`와 `build/lib/`가 디자인과 렌더링 원본이고 `docs/`가 게시 결과입니다. 기사 JSON과 함께 빌드한 `docs/`도 커밋해야 사이트에 반영됩니다. 기준 도메인은 `site.config.json`에서 관리합니다.
 
-## 발행
+## 배포
 
-새 소식 조사, 원문 확인, 작성, 검증과 빌드, main 반영, 공개 페이지 확인 순서로 진행합니다. 의미 있는 새 소식이 없는 회차는 건너뜁니다. 세부 절차는 `AUTOMATION.md`에 있습니다.
-
-GitHub Pages는 `main` 브랜치의 `docs/`를 게시합니다. 되돌릴 때는 해당 커밋을 revert하는 새 커밋을 만들고, 강제 push나 기록 재작성은 하지 않습니다.
+GitHub Pages는 `main` 브랜치의 `docs/`를 게시합니다. 되돌릴 때는 해당 커밋을 revert하는 새 커밋을 만듭니다.

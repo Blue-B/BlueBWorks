@@ -278,7 +278,7 @@
   },
   "discovery": {
     "xStatus": "public-search",
-    "notes": "2026-10-29 17시 KST 공식 RSS npm run radar와 GitHub Changelog, Claude/Codex 릴리스, Cloudflare/Vercel, 공개 X 검색을 조사했다. X에서 이 발표의 원 게시일과 실제 본문을 신뢰할 수 있게 확인하지 못해 근거로 사용하지 않았다. Vercel 공식 블로그·Changelog·CI 개요·설정·가격·환경 변수 문서를 직접 확인했다. GitHub Agentic Workflows는 이미 발행돼 제외했고 Codex alpha 패치는 제외했다.",
+    "notes": "공식 출처와 원문을 확인함.",
     "xPosts": []
   },
   "image": "https://bluebworks.com/assets/editorial/vercel-ci-beta-turborepo-2026-thumb.png",
