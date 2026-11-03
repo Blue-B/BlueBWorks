@@ -132,24 +132,28 @@
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>wget과 wacz 실행 결과. WACZ를 풀면 WARC 원본과 색인, 페이지 목록이 들어 있다.</span><a href="https://www.gnu.org/software/wget/manual/wget.html" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
-    </figure><figure class="code-example"><figcaption>bash · 블로그 홈과 바로 연결된 페이지를 WARC로 받고 WACZ로 묶는 명령. 주소와 파일 이름만 바꿔 쓰면 된다.</figcaption><pre tabindex="0"><code># 리눅스, 맥, 윈도우 WSL 터미널
+    </figure><figure class="code-example"><figcaption>bash · 블로그 홈과 바로 연결된 페이지를 WARC로 받고 WACZ로 묶는 명령. 주소와 파일 이름만 바꿔 쓰면 된다. wacz는 가상환경에 까는 쪽이 시스템 파이썬을 건드리지 않아 안전하다.</figcaption><pre tabindex="0"><code># 리눅스, 맥, 윈도우 WSL 터미널
 wget --recursive --level=1 --page-requisites --no-parent \
   --domains=bluebworks.com --wait=0.3 -e robots=on \
   --warc-file=bluebworks-home --warc-cdx --no-verbose \
   https://bluebworks.com/
 
 # WARC를 WACZ로 묶기 (py-wacz)
-# 우분투 24.04 시스템 파이썬 기준, 가상환경이면 --break-system-packages 없이 설치
-pip3 install --user --break-system-packages wacz
-export PATH=&quot;$HOME/.local/bin:$PATH&quot;
-wacz create -o bluebworks-home.wacz bluebworks-home.warc.gz --detect-pages</code></pre></figure>
+# 가상환경에 설치 (우분투에서 venv가 없다고 나오면 먼저 sudo apt install -y python3-venv)
+python3 -m venv ~/wacz-env
+~/wacz-env/bin/pip install wacz
+~/wacz-env/bin/wacz create -o bluebworks-home.wacz bluebworks-home.warc.gz --detect-pages
+
+# 가상환경 없이 시스템 파이썬에 바로 설치하려면 (pip3가 없으면 sudo apt install -y python3-pip 먼저)
+# pip3 install --user --break-system-packages wacz
+# export PATH=&quot;$HOME/.local/bin:$PATH&quot;</code></pre></figure>
         <p class="source-refs">근거 <a href="#source-8">[8]</a> <a href="#source-6">[6]</a></p>
       </section>
       <section class="prose-section" id="sec-5">
         <h2>WACZ로 묶고 ReplayWeb.page로 다시 열어 보기</h2>
         <p>받은 WARC는 Webrecorder의 py-wacz로 WACZ 하나로 묶었습니다. pip로 wacz 0.6.0을 설치하고 --detect-pages 옵션을 붙여 실행하니 3.7초 만에 끝났고, 페이지 37개가 목록에 잡혔습니다. 결과 파일은 18,609,470바이트로 원래 WARC보다 2만 4천 바이트쯤 늘었는데, 그 차이가 색인과 페이지 목록입니다.</p>
         <p>다시 열 때 쓰는 도구는 ReplayWeb.page입니다. 브라우저 안에서 아카이브 파일을 읽어 그대로 재생하는 뷰어인데, 사이트에 WARC나 WACZ 파일을 고르면 내용이 어디에도 올라가지 않고 내 브라우저 안에서만 열린다고 밝혀 두었습니다. 원글이 블로그 본문에 사이트 하나를 통째로 넣어 보여 준 것도 이 뷰어를 웹페이지에 끼워 넣는 임베드 방식입니다.</p>
-        <p>임베드 방식도 그대로 따라 해 봤습니다. 문서대로 ui.js와 replay 폴더의 sw.js를 WACZ 파일 옆에 두고, 아래 HTML 몇 줄을 쓴 뒤 로컬 웹 서버로 열었습니다. 화면 위쪽 주소창 옆에 2026년 11월 3일 오후 9시 24분 58초라는 저장 시각이 붙은 채로 블로그 홈이 떴고, 기사 제목을 누르니 실제 사이트가 아니라 아카이브 안의 기사 페이지로 넘어갔습니다. 왼쪽 목록에는 페이지 37개가 저장 시각 순으로 나옵니다.</p>
+        <p>임베드 방식도 그대로 따라 해 봤습니다. ReplayWeb.page 2.5.4의 ui.js와 sw.js를 받아 replay 폴더에 두고, WACZ 파일 옆에 HTML 몇 줄짜리 index.html을 만든 뒤 범위 요청을 지원하는 Node 로컬 서버로 열었습니다. 화면 위쪽 주소창 옆에 2026년 11월 3일 오후 9시 24분 58초라는 저장 시각이 붙은 채로 블로그 홈이 떴고, 기사 제목을 누르니 실제 사이트가 아니라 아카이브 안의 기사 페이지로 넘어갔습니다. 왼쪽 목록에는 페이지 37개가 저장 시각 순으로 나옵니다.</p>
         <p>막힌 곳도 두 군데 있었습니다. 처음에는 replayweb.page 사이트에 로컬 서버 주소를 넣어 열려고 했는데 TypeError: Failed to fetch가 나왔습니다. 문서가 짚는 대로 다른 출처에서 파일을 불러올 때 생기는 CORS 문제라서, 뷰어와 WACZ를 같은 서버에 두는 자체 호스팅으로 바꾸니 해결됐습니다. 또 sw.js를 replay 폴더가 아니라 사이트 맨 위에 두었더니 서비스 워커가 사이트 전체를 가로채 빈 화면이 됐습니다. 문서에 적힌 대로 실제 서버에는 없는 경로인 replay 아래에 두는 게 맞습니다.</p>
         <figure class="article-figure">
       <a href="https://bluebworks.com/assets/editorial/website-backup-warc-wacz-replayweb-2026-replay-home.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: ReplayWeb.page로 다시 연 BlueBWorks 홈. 주소창에 https://bluebworks.com/ 과 저장 시각 2026. 11. 03. 오후 09:24:58이 보인다">
@@ -163,10 +167,21 @@ wacz create -o bluebworks-home.wacz bluebworks-home.warc.gz --detect-pages</code
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>링크를 누르면 아카이브 안의 다른 페이지로 넘어간다. 왼쪽이 저장된 페이지 37개 목록.</span><a href="https://replayweb.page/docs/embedding/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
-    </figure><figure class="code-example"><figcaption>html · ReplayWeb.page 2.5.4의 ui.js와 sw.js를 직접 올려 둔 임베드 예시. 기본 서비스 워커 경로는 ./replay/sw.js다.</figcaption><pre tabindex="0"><code>&lt;!-- WACZ 파일, ui.js와 같은 폴더에 두고 sw.js는 replay 폴더에 --&gt;
+    </figure><figure class="code-example"><figcaption>bash · ui.js와 sw.js를 받아 replay 폴더에 두고 로컬 서버로 여는 전체 과정. 기본 서비스 워커 경로는 ./replay/sw.js다. 파이썬 기본 서버(python3 -m http.server)는 범위 요청에도 파일 전체로 응답해서, 큰 WACZ는 http-server처럼 범위 요청을 지원하는 서버가 낫다.</figcaption><pre tabindex="0"><code># 1) WACZ 파일이 있는 폴더에서 ReplayWeb.page 2.5.4 파일 받기
+mkdir -p replay
+curl -L -o replay/ui.js https://cdn.jsdelivr.net/npm/replaywebpage@2.5.4/ui.js
+curl -L -o replay/sw.js https://cdn.jsdelivr.net/npm/replaywebpage@2.5.4/sw.js
+
+# 2) 뷰어 페이지 만들기 (WACZ는 index.html 옆, ui.js와 sw.js는 replay 폴더)
+cat &gt; index.html &lt;&lt;&#39;EOF&#39;
 &lt;script src=&quot;./replay/ui.js&quot;&gt;&lt;/script&gt;
 &lt;replay-web-page source=&quot;/bluebworks-home.wacz&quot;
-  url=&quot;https://bluebworks.com/&quot;&gt;&lt;/replay-web-page&gt;</code></pre></figure>
+  url=&quot;https://bluebworks.com/&quot; style=&quot;display:block;height:90vh&quot;&gt;&lt;/replay-web-page&gt;
+EOF
+
+# 3) 범위 요청을 지원하는 로컬 서버로 열기 (Node 필요)
+npx http-server -p 8765
+# 브라우저에서 http://127.0.0.1:8765/ 열기</code></pre></figure>
         <p class="source-refs">근거 <a href="#source-7">[7]</a> <a href="#source-5">[5]</a> <a href="#source-9">[9]</a></p>
       </section>
       <section class="prose-section" id="sec-6">
