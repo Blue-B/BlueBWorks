@@ -112,7 +112,11 @@
         <p>소스 빌드 명령은 cargo install --locked omnidiff입니다. 현재 README는 Rust 1.92 이상과 PATH에 등록된 C 컴파일러를 요구하며, tree-sitter 문법을 C로 컴파일하고 링크 최적화도 적용하므로 첫 빌드에 시간이 걸릴 수 있다고 설명합니다. Rust 도구 체인이 없다면 이것부터 설치하기보다 GitHub Releases의 운영체제별 실행 파일을 쓰는 편이 간단합니다. macOS와 Linux에는 Homebrew 경로도 있습니다.</p>
         <p>Windows용 압축 파일은 x86_64-pc-windows-msvc.zip이고, WSL 안에서 실행할 때에는 Windows 파일이 아니라 Linux용을 받습니다. 아래 명령은 x86_64 Ubuntu WSL에서 0.3.0 GNU 버전을 임시 작업 폴더에 푸는 예입니다. 시스템 전체 설치나 sudo, Git 전역 설정 변경이 필요하지 않습니다. 다른 버전을 쓰려면 릴리스 페이지에서 버전과 파일 이름을 함께 바꾸고, 같은 릴리스의 SHA256SUMS.txt로 내려받은 파일을 대조하면 됩니다.</p>
         <p>VPS의 Ubuntu WSL에서 이 압축 파일을 풀고 ./omnidiff --version을 실행하자 omnidiff 0.3.0이 출력됐습니다. 실행 파일은 로컬 경로에 둔 상태로 사용했습니다. 터미널에서 명령을 찾지 못한다면 파일이 있는 폴더에서 ./omnidiff로 실행하거나 그 폴더를 PATH에 추가하는 방법을 선택할 수 있습니다. GNU 빌드가 시스템 라이브러리와 맞지 않는 환경에는 별도 musl 빌드도 제공되므로 운영체제와 아키텍처를 먼저 맞추는 것이 순서입니다.</p>
-
+        <figure class="code-example"><figcaption>bash · Ubuntu WSL의 로컬 작업 폴더에 0.3.0 설치</figcaption><pre tabindex="0"><code>mkdir -p /tmp/omnidiff-test
+cd /tmp/omnidiff-test
+curl -fL https://github.com/ivankovic/omnidiff/releases/download/v0.3.0/omnidiff-x86_64-unknown-linux-gnu.tar.gz -o omni.tar.gz
+tar xzf omni.tar.gz
+./omnidiff --version</code></pre></figure>
         <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
       </section>
       <section class="prose-section" id="sec-3">
@@ -132,7 +136,10 @@
         <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
       </a>
       <figcaption><span>같은 파일 비교를 JSON으로 내보낸 결과의 변경 범위</span><a href="https://github.com/ivankovic/omnidiff" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
-    </figure>
+    </figure><figure class="code-example"><figcaption>bash · Python 파일 두 개의 텍스트 비교와 JSON 출력</figcaption><pre tabindex="0"><code>printf &quot;def add(a, b):\n    return a + b\n&quot; &gt; before.py
+printf &quot;def add(left, right):\n    return left + right\n&quot; &gt; after.py
+./omnidiff --headless --color never before.py after.py
+./omnidiff --mode json before.py after.py &gt; result.json</code></pre></figure>
         <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
       </section>
       <section class="prose-section" id="sec-4">

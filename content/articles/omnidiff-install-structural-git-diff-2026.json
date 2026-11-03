@@ -65,7 +65,8 @@
       ],
       "code": {
         "language": "bash",
-        "content": "mkdir -p /tmp/omnidiff-test\ncd /tmp/omnidiff-test\ncurl -fL https://github.com/ivankovic/omnidiff/releases/download/v0.3.0/omnidiff-x86_64-unknown-linux-gnu.tar.gz -o omni.tar.gz\ntar xzf omni.tar.gz\n./omnidiff --version"
+        "text": "mkdir -p /tmp/omnidiff-test\ncd /tmp/omnidiff-test\ncurl -fL https://github.com/ivankovic/omnidiff/releases/download/v0.3.0/omnidiff-x86_64-unknown-linux-gnu.tar.gz -o omni.tar.gz\ntar xzf omni.tar.gz\n./omnidiff --version",
+        "caption": "Ubuntu WSL의 로컬 작업 폴더에 0.3.0 설치"
       }
     },
     {
@@ -81,7 +82,8 @@
       ],
       "code": {
         "language": "bash",
-        "content": "printf \"def add(a, b):\\n    return a + b\\n\" > before.py\nprintf \"def add(left, right):\\n    return left + right\\n\" > after.py\n./omnidiff --headless --color never before.py after.py\n./omnidiff --mode json before.py after.py > result.json"
+        "text": "printf \"def add(a, b):\\n    return a + b\\n\" > before.py\nprintf \"def add(left, right):\\n    return left + right\\n\" > after.py\n./omnidiff --headless --color never before.py after.py\n./omnidiff --mode json before.py after.py > result.json",
+        "caption": "Python 파일 두 개의 텍스트 비교와 JSON 출력"
       },
       "figures": [
         {
