@@ -647,7 +647,7 @@ export function renderAbout({ config, base, generatedAt }) {
       <section>
         <h2>사이트 상태</h2>
         <ul class="fact-list">
-          <li>운영 형태: 개인 프로젝트, 후원 없음</li>
+          <li>운영 형태: 개인 프로젝트</li>
           <li>호스팅: GitHub Pages의 정적 파일</li>
           <li>구독자 수나 방문자 통계는 이 사이트가 수집하거나 공개하지 않습니다.</li>
           <li>문의와 오류 제보: <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a></li>
