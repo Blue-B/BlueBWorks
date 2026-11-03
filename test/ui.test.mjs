@@ -66,7 +66,7 @@ test('article has one visible title and summary, with content, sources and both 
 }));
 
 test('all public pages use one theme and omit the rejected interface copy', () => withBuild((read, out) => {
-  const files = ['index.html', 'articles/index.html', 'about.html', 'editorial.html', 'contact.html', 'privacy.html', 'articles/git-2-56-2026/index.html'];
+  const files = ['index.html', 'articles/index.html', 'about.html', 'contact.html', 'privacy.html', 'articles/git-2-56-2026/index.html'];
   for (const file of files) {
     const html = read(file);
     assert.match(html, /journal\.css\?v=edition6/);

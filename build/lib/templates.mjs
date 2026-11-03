@@ -115,7 +115,6 @@ function footer({ config, base }) {
       </div>
       <nav class="footer-nav" aria-label="바닥글">
         <a href="${pageHref(base, "about.html")}">소개</a>
-        <a href="${pageHref(base, "editorial.html")}">편집 원칙</a>
         <a href="${pageHref(base, "contact.html")}">문의</a>
         <a href="${pageHref(base, "privacy.html")}">개인정보</a>
         <a href="${pageHref(base, "feed.xml")}">RSS</a>
@@ -661,51 +660,6 @@ export function renderAbout({ config, base, generatedAt }) {
     path: "/about.html",
     heading: "소개",
     lead: "공식 출처를 확인하고, 실제 사용 조건과 한계까지 함께 적는 사이트입니다.",
-    body,
-  });
-}
-
-export function renderEditorial({ config, base }) {
-  const body = `<section>
-        <h2>확인 순서</h2>
-        <p>기업 공식 블로그, 제품 문서, 릴리스 노트, 원 저장소를 1차 근거로 씁니다. 커뮤니티 반응은 맥락을 보는 보조 자료로만 둡니다.</p>
-        <p>글은 사실, 맥락, 실무 영향, 한계 순서로 구성합니다. 추정이나 해석은 사실 문장과 섞지 않고 '덧붙임'에서 구분합니다.</p>
-      </section>
-      <section>
-        <h2>발표와 사용 가능 구분</h2>
-        <p>공개 발표, 프리뷰, 제한 배포, 일반 제공(GA)을 같은 의미로 쓰지 않습니다. 각 글에는 상태(status)와 확인 시각(verifiedAt)을 따로 적습니다.</p>
-      </section>
-      <section>
-        <h2>수치와 벤치마크</h2>
-        <p>공급자가 자체 측정한 수치는 그 공급자의 측정값이라고 밝힙니다. 도입 판단에는 완료율, 재시도, 지연, 총비용처럼 워크플로 단위 지표를 우선하도록 안내합니다.</p>
-      </section>
-      <section>
-        <h2>이미지</h2>
-        <p>공식 발표의 대표 이미지나 제품 스크린샷을 우선하고, 이미지 출처를 캡션에 적습니다. 공식 이미지를 확보하지 못하면 이미지를 늘리지 않고 출처 카드로 대체합니다. 관계없는 스톡 이미지나 스크린샷 프록시는 쓰지 않습니다.</p>
-      </section>
-      <section>
-        <h2>검토 중인 글</h2>
-        <p>근거가 부족하거나 확인이 끝나지 않은 글은 reviewStatus를 unverified로 두고, 홈 목록과 사이트맵에서 빼며 noindex로 표시합니다. 주소를 아는 사람은 계속 읽을 수 있습니다. 사실 오류를 확인하면 새 글을 더하기 전에 기존 글을 먼저 정정하고 정정 기록을 남깁니다.</p>
-      </section>
-      <section>
-        <h2>협찬</h2>
-        <p>대가를 받고 쓰는 협찬 글은 싣지 않습니다.</p>
-      </section>
-      <section>
-        <h2>영상</h2>
-        <p>공식 출처이고 검증된 영상 정보가 있을 때만 싣습니다. 영상은 누르기 전까지 YouTube에 요청을 보내지 않고, 재생할 때 개인정보 보호 모드(no-cookie)로 불러옵니다. 검증된 영상이 없으면 영상 영역을 만들지 않습니다.</p>
-      </section>
-      <section>
-        <h2>정정 요청</h2>
-        <p>오류는 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 알려 주세요. 확인되면 글의 정정 기록에 날짜와 내용을 남깁니다.</p>
-      </section>`;
-  return simplePage({
-    config,
-    base,
-    active: "editorial",
-    path: "/editorial.html",
-    heading: "편집 원칙",
-    lead: "무엇을 싣고 무엇을 빼는지, 어떤 순서로 확인하는지 정리했습니다.",
     body,
   });
 }

@@ -268,7 +268,6 @@ export function runChecks({ outDir, config, base, posts, assetsDir }) {
     "post.html",
     "about.html",
     "contact.html",
-    "editorial.html",
     "privacy.html",
     "404.html",
     "feed.xml",

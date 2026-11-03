@@ -13,7 +13,6 @@ import {
   renderArticle,
   renderArticlesIndex,
   renderContact,
-  renderEditorial,
   renderFeed,
   renderHome,
   renderPostCompat,
@@ -96,7 +95,6 @@ function sitemapPaths(config, posts) {
     { path: "/", lastmod: latest },
     { path: "/articles/", lastmod: latest },
     { path: "/about.html" },
-    { path: "/editorial.html" },
     { path: "/contact.html" },
     { path: "/privacy.html" },
   ];
@@ -135,7 +133,6 @@ export function build(options = resolveOptions()) {
   }
   emit("post.html", renderPostCompat({ config, base, posts }));
   emit("about.html", renderAbout({ config, base }));
-  emit("editorial.html", renderEditorial({ config, base }));
   emit("contact.html", renderContact({ config, base }));
   emit("privacy.html", renderPrivacy({ config, base }));
   emit("404.html", render404({ config, base }));
