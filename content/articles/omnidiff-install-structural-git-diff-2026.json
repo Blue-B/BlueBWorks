@@ -1,0 +1,242 @@
+{
+  "slug": "omnidiff-install-structural-git-diff-2026",
+  "title": "OmniDiff 설치와 사용법: 코드 구조를 읽는 diff, WSL 실행과 Git 연결",
+  "summary": "줄 단위 비교에서 놓치기 쉬운 코드 이동과 문자열 안의 코드를 구분하는 OmniDiff 0.3.0을 살펴봅니다. 윈도우 WSL에서 실행 파일을 받아 Python 파일을 비교하고, JSON 출력과 종료 코드, Git difftool 연결 방법을 다룹니다.",
+  "category": "오픈소스",
+  "announcedAt": "2026-11-01",
+  "publishedAt": "2026-11-03T06:20:24.056Z",
+  "verifiedAt": "2026-11-03T06:20:24.056Z",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "OmniDiff",
+    "diff",
+    "Git",
+    "코드 리뷰",
+    "오픈소스"
+  ],
+  "editorNote": "로컬 파일 두 개의 차이를 읽는 도구로 소개하며, 설치와 실행 옵션을 바로 따라 할 수 있게 배치했습니다.",
+  "keyPoints": [
+    "비교: 줄 단위 차이뿐 아니라 25개 언어의 구문 구조와 코드 이동을 읽는다",
+    "설치: Windows, Linux, macOS 실행 파일을 제공하며 WSL에서는 Linux 파일을 쓴다",
+    "자동화: 기본 종료 코드는 성공 시 0이며 차이 유무를 조건으로 쓸 때 --exit-code가 필요하다"
+  ],
+  "discovery": {
+    "writer": "aside",
+    "xStatus": "unavailable",
+    "xPosts": [],
+    "notes": "15시 오픈소스 칸. GeekNews, HN, AICoder, Techmeme, GitHub Trending, Hugging Face Trending, GitHub Changelog 조사(실시간 모음/저장소모델/공식변경기록 3묶음). 기존 queued OmniDiff ShowHN206점49댓글 기록, 현재 저장소897 stars. 점수5, 직접 WSL실행 각도. 새 발표처럼 포장하지 않고11/1 v0.3.0기준. 자동완성 Google 관련제안1개이나본도구와무관, Naver없음. 검색량 추정안함. 공식 X/YouTube 연결은 저장소에 없어서 임베드안함. 마지막원격기사9:44로2시간이상."
+  },
+  "sections": [
+    {
+      "title": "OmniDiff가 줄 비교와 다른 부분",
+      "paragraphs": [
+        "코드를 조금 옮겼을 뿐인데 리뷰 화면이 온통 삭제와 추가로 보일 때가 있습니다. 줄을 기준으로 맞추는 diff는 어느 줄이 바뀌었는지는 잘 보여 주지만, 함수 안에서 같은 표현이 이동했는지나 들여쓰기만 달라졌는지를 한눈에 읽기 어렵습니다. OmniDiff는 파일의 구문 구조를 읽어 이런 차이를 따로 표현하는 오픈소스 비교 도구입니다. Git 저장소 자체를 관리하는 프로그램은 아니고, 이미 있는 두 버전의 파일을 비교해 보여 주는 쪽에 가깝습니다.",
+        "지원 방식은 파일 종류에 따라 다릅니다. Python, JavaScript, TypeScript, Rust, Go, JSON과 YAML 등 25개 언어에는 tree-sitter 문법을 적용합니다. 확장자를 모르는 텍스트는 일반 줄 비교로 처리하고, SQL이나 Markdown처럼 확장자는 알지만 문법이 포함되지 않은 종류도 줄 단위로 비교합니다. 모든 언어에서 같은 수준으로 구조를 이해한다고 생각하면 결과를 잘못 읽을 수 있습니다.",
+        "개발자가 제공하는 브라우저 예제에서는 같은 Python 수정이 Unix diff에서 23줄의 변경으로 보이고, OmniDiff에서는 이동 2개와 삽입 8개, 삭제 5개로 나뉩니다. 이 예제는 명령행 도구가 미리 계산한 결과를 브라우저에서 재생하는 방식입니다. 웹에 파일을 올려 비교해 주는 서비스가 아니므로, 자신의 코드 두 개를 비교하려면 실행 파일을 내려받아 로컬에서 돌려야 합니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-demo.png",
+          "alt": "같은 Python 수정에서 이동한 부분과 새로 생긴 부분을 나누는 제품 예제",
+          "caption": "같은 Python 수정에서 이동한 부분과 새로 생긴 부분을 나누는 제품 예제",
+          "credit": "OmniDiff",
+          "sourceUrl": "https://ivankovic.github.io/omnidiff/showcase/",
+          "width": 1440,
+          "height": 800
+        }
+      ]
+    },
+    {
+      "title": "윈도우 WSL에 실행 파일로 설치하기",
+      "paragraphs": [
+        "소스 빌드 명령은 cargo install --locked omnidiff입니다. 현재 README는 Rust 1.92 이상과 PATH에 등록된 C 컴파일러를 요구하며, tree-sitter 문법을 C로 컴파일하고 링크 최적화도 적용하므로 첫 빌드에 시간이 걸릴 수 있다고 설명합니다. Rust 도구 체인이 없다면 이것부터 설치하기보다 GitHub Releases의 운영체제별 실행 파일을 쓰는 편이 간단합니다. macOS와 Linux에는 Homebrew 경로도 있습니다.",
+        "Windows용 압축 파일은 x86_64-pc-windows-msvc.zip이고, WSL 안에서 실행할 때에는 Windows 파일이 아니라 Linux용을 받습니다. 아래 명령은 x86_64 Ubuntu WSL에서 0.3.0 GNU 버전을 임시 작업 폴더에 푸는 예입니다. 시스템 전체 설치나 sudo, Git 전역 설정 변경이 필요하지 않습니다. 다른 버전을 쓰려면 릴리스 페이지에서 버전과 파일 이름을 함께 바꾸고, 같은 릴리스의 SHA256SUMS.txt로 내려받은 파일을 대조하면 됩니다.",
+        "VPS의 Ubuntu WSL에서 이 압축 파일을 풀고 ./omnidiff --version을 실행하자 omnidiff 0.3.0이 출력됐습니다. 실행 파일은 로컬 경로에 둔 상태로 사용했습니다. 터미널에서 명령을 찾지 못한다면 파일이 있는 폴더에서 ./omnidiff로 실행하거나 그 폴더를 PATH에 추가하는 방법을 선택할 수 있습니다. GNU 빌드가 시스템 라이브러리와 맞지 않는 환경에는 별도 musl 빌드도 제공되므로 운영체제와 아키텍처를 먼저 맞추는 것이 순서입니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ],
+      "code": {
+        "language": "bash",
+        "content": "mkdir -p /tmp/omnidiff-test\ncd /tmp/omnidiff-test\ncurl -fL https://github.com/ivankovic/omnidiff/releases/download/v0.3.0/omnidiff-x86_64-unknown-linux-gnu.tar.gz -o omni.tar.gz\ntar xzf omni.tar.gz\n./omnidiff --version"
+      }
+    },
+    {
+      "title": "파일 두 개의 첫 비교와 JSON 출력",
+      "paragraphs": [
+        "첫 실행은 BEFORE와 AFTER 위치에 파일 두 개를 전달하면 됩니다. 터미널에 직접 연결된 상태에서는 두 패널의 대화형 화면을 열고, 파이프나 파일로 표준 출력을 보내면 자동으로 비대화형 텍스트 모드를 선택합니다. 스크립트에서 의도를 분명히 남기려면 --headless를 붙이면 됩니다. --batch도 같은 동작이며, --context N으로 변경 주변에 남길 줄 수를 바꿀 수 있습니다. 기본 문맥은 양쪽 각각 3줄입니다.",
+        "이번 실행에서는 add(a, b)와 return a + b를 가진 Python 파일을 만들고, 매개변수 이름을 left, right로 바꾼 파일과 비교했습니다. --headless --color never 출력은 전후 두 블록을 보여 주고 각 줄에 이동을 뜻하는 표시를 붙였습니다. 이 결과만으로 프로그램 의미가 같거나 리팩터링이 안전하다고 판정하는 것은 아닙니다. diff는 코드 변화의 모양을 읽는 도구이며, 동작의 정답 여부는 테스트와 리뷰로 따로 판단해야 합니다.",
+        "--mode json은 같은 비교를 JSON 객체 하나로 내보냅니다. 실제 결과에는 before와 after, language, hunks가 있었고 각 변경의 operation과 행, 열 범위가 들어 있었습니다. 에디터나 별도 분석 프로그램에 붙일 때 화면에 보이는 문자열을 다시 해석하는 것보다 이 구조를 쓰는 편이 낫습니다. 다만 출력 스키마를 고정해서 쓸 경우 버전 업그레이드 전에 공식 JSON Schema와 새 결과를 비교해야 합니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ],
+      "code": {
+        "language": "bash",
+        "content": "printf \"def add(a, b):\\n    return a + b\\n\" > before.py\nprintf \"def add(left, right):\\n    return left + right\\n\" > after.py\n./omnidiff --headless --color never before.py after.py\n./omnidiff --mode json before.py after.py > result.json"
+      },
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-headless.png",
+          "alt": "WSL에서 실행한 Python 매개변수 변경의 실제 텍스트 출력",
+          "caption": "WSL에서 실행한 Python 매개변수 변경의 실제 텍스트 출력",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/ivankovic/omnidiff",
+          "width": 1440,
+          "height": 1000
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-json.png",
+          "alt": "같은 파일 비교를 JSON으로 내보낸 결과의 변경 범위",
+          "caption": "같은 파일 비교를 JSON으로 내보낸 결과의 변경 범위",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/ivankovic/omnidiff",
+          "width": 1440,
+          "height": 1000
+        }
+      ]
+    },
+    {
+      "title": "스크립트에서 놓치기 쉬운 종료 코드와 색상",
+      "paragraphs": [
+        "기본 종료 코드는 파일이 달라도 정상 실행이면 0입니다. 이것은 차이가 없다는 뜻이 아니라 비교 도구가 실패하지 않았다는 뜻입니다. Git이나 Jujutsu가 외부 표시 도구를 부를 때 차이가 있다는 이유만으로 실패 처리하지 않도록 정한 동작입니다. 실제로 다른 두 파일을 기본 옵션으로 비교한 실행은 정상 종료했고, --exit-code를 더한 실행은 차이를 뜻하는 1을 반환했습니다. 오류일 때는 2입니다.",
+        "CI에서 파일이 달라졌는지 검사하려면 ./omnidiff --headless --exit-code before.py after.py처럼 명시해야 합니다. 다만 Git의 GIT_EXTERNAL_DIFF 인자 형식으로 호출될 때에는 이 옵션이 무시되고 성공 코드를 유지합니다. 외부 diff의 0이 아닌 종료 코드를 Git이 치명적 오류로 해석할 수 있기 때문입니다. 일반 파일 비교 명령의 조건문과 Git의 표시 도구 호출을 같은 규칙으로 다루면 안 됩니다.",
+        "색상도 저장 결과에 영향을 줍니다. 기본 color auto는 NO_COLOR가 없는 경우 파이프 출력에도 ANSI 색상을 넣을 수 있습니다. 텍스트 파일이나 로그로 남길 때에는 --color never 또는 NO_COLOR=1을 사용하고, 색상을 유지하려면 --color always를 선택합니다. NO_COLOR=1은 POSIX 셸에서 앞에 붙이는 방식이며 PowerShell에서는 $env:NO_COLOR=\"1\"처럼 환경변수를 설정하는 문법이 다릅니다. JSON은 화면 색상보다 구조를 사용하는 출력이라는 점도 함께 구분하면 좋습니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "Git difftool 연결과 대화형 화면의 조건",
+      "paragraphs": [
+        "Git과 연결할 때에는 git difftool을 쓰는 경로와 GIT_EXTERNAL_DIFF로 git diff의 출력을 바꾸는 경로를 나눠 생각해야 합니다. 대화형 두 패널 화면을 열고 싶다면 difftool 쪽이 맞습니다. README의 수동 설정은 difftool.omnidiff.cmd에 omnidiff \"$LOCAL\" \"$REMOTE\"를 등록한 뒤 git difftool --tool=omnidiff로 실행하는 방식입니다. 이 명령에서 omnidiff를 찾을 수 있도록 실행 파일이 PATH에 있어야 합니다.",
+        "omnidiff git configure를 실행하면 현재 저장소와 전역 설정 중 선택하는 마법사가 나옵니다. 기존 환경을 먼저 바꾸고 싶지 않다면 임시 파일 두 개로 동작을 보고 나서 연결하는 편이 낫습니다. git config diff.tool omnidiff는 기본 도구를 바꾸는 별도 선택이고, difftool.prompt false는 파일마다 묻는 질문을 끄는 설정입니다. 단순 설치와 개인 Git 설정 변경을 같은 단계로 묶을 필요는 없습니다.",
+        "git diff와 git log -p는 출력이 Git의 pager로 전달되므로 대화형 화면이 되지 않습니다. GIT_EXTERNAL_DIFF=omnidiff git diff도 비대화형 텍스트를 보는 경로입니다. SSH에서 git difftool이 텍스트로만 나오면 의사 터미널이 할당돼 있는지도 봐야 합니다. Jujutsu는 Git의 difftool 설정을 읽지 않고 별도 연결을 요구하며, 파일 두 개씩 넘기는 file-by-file 방식이 필요합니다. Git 연결을 복사해서 jj에도 그대로 적용할 수는 없습니다."
+      ],
+      "sourceRefs": [
+        1
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-unix.png",
+          "alt": "같은 제품 예제에서 Unix diff를 선택하면 변경된 줄 중심의 표시로 바뀐다",
+          "caption": "같은 제품 예제에서 Unix diff를 선택하면 변경된 줄 중심의 표시로 바뀐다",
+          "credit": "OmniDiff",
+          "sourceUrl": "https://ivankovic.github.io/omnidiff/showcase/",
+          "width": 1440,
+          "height": 800
+        }
+      ]
+    },
+    {
+      "title": "0.3.0의 변경과 라이선스, 도입 전에 볼 한계",
+      "paragraphs": [
+        "11월 1일 릴리스된 0.3.0은 문자열 안에 들어 있는 다른 언어의 코드를 별도 코드처럼 비교하는 범위를 넓혔습니다. 예를 들어 JSON의 content와 path에 들어 있는 TSX, YAML의 run 또는 script 블록, CSS와 HTML 템플릿 문자열을 다룹니다. CSS 클래스 목록도 문자 조각이 아니라 클래스 단위로 비교합니다. 이런 기능은 설정 파일에 코드가 섞여 있는 저장소에서 일반 줄 비교와 차이가 나는 지점입니다.",
+        "프로젝트는 25개 언어의 44만 2,530개 코드 전후 쌍 가운데 99.95%가 정해진 자원 예산 안에서 처리됐다고 설명합니다. 이것은 모든 변경이 사람의 판단과 정확히 일치했다는 뜻이 아닙니다. 같은 README의 손으로 표시한 1,419개 사례에서는 --minimal 결과가 완전히 일치한 비율을 69.6%로 제시하고, 목표 정확도에는 아직 도달하지 못했다고 밝힙니다. 처리 성공률과 표시 정확도는 서로 다른 수치이므로 하나의 성능 점수처럼 합치면 안 됩니다.",
+        "그 밖에 이미지와 폰트, 압축 파일, PDF도 내용에 맞춰 비교하는 기능이 있습니다. 단순히 바이너리 파일이 달라졌다는 안내보다 더 많은 정보를 주는 방향이지만, 터미널의 그래픽 지원 방식에 따라 보이는 화면이 달라집니다. 소스 코드 비교부터 필요한 파일 종류를 하나씩 대조하는 편이 안전합니다. 모든 파일에서 기존 도구를 교체하기보다 리뷰가 복잡해지는 변경에 보조 도구로 붙일 수도 있습니다.",
+        "라이선스는 AGPL v3이고, 이 조건을 쓸 수 없는 조직에는 GitHub Sponsors를 통한 별도 월 구독 상업 라이선스를 안내합니다. 로컬 파일 비교 자체에 모델 API 키나 AI 구독이 필요한 구조는 아닙니다. 개발 과정에서 AI 지원을 사용한다는 프로젝트 설명과, 사용자의 파일을 비교할 때 외부 모델을 호출하는 것은 다른 이야기입니다. 조직 도입 때에는 AGPL과 상업 라이선스 원문을 검토하고, 버전별 출력과 기존 리뷰 도구의 차이를 자신의 코드로 보는 절차가 남습니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "OmniDiff README와 설치, 사용 옵션",
+      "url": "https://github.com/ivankovic/omnidiff"
+    },
+    {
+      "name": "OmniDiff v0.3.0 릴리스",
+      "url": "https://github.com/ivankovic/omnidiff/releases/tag/v0.3.0"
+    },
+    {
+      "name": "OmniDiff 공식 코드 비교 예제",
+      "url": "https://ivankovic.github.io/omnidiff/showcase/"
+    }
+  ],
+  "resources": [
+    {
+      "name": "운영체제별 실행 파일",
+      "url": "https://github.com/ivankovic/omnidiff/releases/tag/v0.3.0",
+      "type": "다운로드",
+      "description": "Windows, Linux, macOS 압축 파일과 체크섬"
+    },
+    {
+      "name": "설치와 Git 연결 안내",
+      "url": "https://github.com/ivankovic/omnidiff",
+      "type": "문서",
+      "description": "기본 명령, 종료 코드, 라이선스 안내"
+    },
+    {
+      "name": "브라우저 비교 예제",
+      "url": "https://ivankovic.github.io/omnidiff/showcase/",
+      "type": "데모",
+      "description": "20개 코드 변경의 Unix diff와 OmniDiff 비교"
+    }
+  ],
+  "image": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-thumb.png",
+  "imageAlt": "OmniDiff 설치와 사용법, 코드 이동을 읽는 diff와 실제 제품 화면",
+  "imageCredit": "BlueBWorks",
+  "imageSourceUrl": "https://ivankovic.github.io/omnidiff/showcase/",
+  "imageCaption": "코드 구조를 읽는 OmniDiff 설치와 첫 비교",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "mediaReview": {
+    "checkedAt": "2026-11-03T06:20:24.056Z",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://ivankovic.github.io/omnidiff/showcase/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-demo.png",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the official public interactive demo for explanatory commentary, linked and attributed; thumbnail is original layout.",
+        "reason": "공식 제품의 실제 코드 비교 화면, 파일목록/문서전체 제외. 로그인 개인정보 없음"
+      },
+      {
+        "sourceUrl": "https://ivankovic.github.io/omnidiff/showcase/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-unix.png",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the official public interactive demo for explanatory commentary, linked and attributed; thumbnail is original layout.",
+        "reason": "공식 제품의 실제 코드 비교 화면, 파일목록/문서전체 제외. 로그인 개인정보 없음"
+      },
+      {
+        "sourceUrl": "https://ivankovic.github.io/omnidiff/showcase/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the official public interactive demo for explanatory commentary, linked and attributed; thumbnail is original layout.",
+        "reason": "v3 어두운 템플릿 실제 제품 화면, 1600x900 육안검수"
+      },
+      {
+        "sourceUrl": "https://github.com/ivankovic/omnidiff",
+        "assetUrl": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-headless.png",
+        "decision": "included",
+        "rightsBasis": "Original recording of actual locally executed command output from test files written for this article.",
+        "reason": "WSL 실행 결과 원문을 HTML pre로 렌더링. 실제TUI화면이라고주장안함. 1440px, 개인정보없음"
+      },
+      {
+        "sourceUrl": "https://github.com/ivankovic/omnidiff",
+        "assetUrl": "https://bluebworks.com/assets/editorial/omnidiff-install-structural-git-diff-2026-json.png",
+        "decision": "included",
+        "rightsBasis": "Original recording of actual locally executed command output from test files written for this article.",
+        "reason": "WSL 실행 결과 원문을 HTML pre로 렌더링. 실제TUI화면이라고주장안함. 1440px, 개인정보없음"
+      },
+      {
+        "sourceUrl": "https://github.com/ivankovic/omnidiff/releases/tag/v0.3.0",
+        "decision": "excluded",
+        "reason": "릴리스는기능과버전근거로만사용, 영어문서전체사진은제외. 공식YouTube/X게시물링크없어임베드미사용."
+      }
+    ]
+  }
+}
