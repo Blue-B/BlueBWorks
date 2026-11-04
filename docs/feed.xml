@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 03 Nov 2026 12:43:17 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 00:47:28 GMT</lastBuildDate>
+    <item>
+      <title>Postman 플러그인 자동 설치 논란: 클로드 코드와 코덱스에서 찾고 지우는 방법</title>
+      <link>https://bluebworks.com/articles/postman-agent-plugin-auto-install-remove-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/postman-agent-plugin-auto-install-remove-2026/</guid>
+      <pubDate>Wed, 04 Nov 2026 00:47:28 GMT</pubDate>
+      <category>보안</category>
+      <description>Postman 데스크톱 앱이 업데이트 중에 Claude Code, Codex, Cursor에 플러그인과 시작 훅을 넣었다는 보고가 해커뉴스 984점을 받았습니다. 무엇이 어디에 생기는지, Postman 답변, status와 remove 명령으로 지우는 순서를 정리했습니다.</description>
+    </item>
     <item>
       <title>웹페이지 저장하는 방법: 사이트를 WARC로 통째로 백업하고 ReplayWeb.page로 다시 열기</title>
       <link>https://bluebworks.com/articles/website-backup-warc-wacz-replayweb-2026/</link>
