@@ -1,0 +1,247 @@
+{
+  "slug": "gemini-keep-activity-training-opt-out-2026",
+  "title": "제미나이 학습 끄기: 유료 구독자 대화도 AI 학습에 쓰이는 이유와 활동 기록 보관 끄는 법",
+  "summary": "Google AI 요금제를 결제해도 개인 계정이면 제미나이 대화가 모델 학습과 사람 검토에 쓰일 수 있습니다. 활동 기록 보관을 끄는 위치, 끄면 잃는 기능, 임시 채팅과 자동 삭제 기간으로 절충하는 방법을 정리했습니다.",
+  "category": "AI 서비스",
+  "announcedAt": "2026-10-26",
+  "publishedAt": "2026-11-04T21:39:25+09:00",
+  "verifiedAt": "2026-11-04T21:39:25+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "제미나이 학습 끄기",
+    "제미나이 활동 기록 보관",
+    "Gemini 앱 활동",
+    "제미나이 개인정보",
+    "제미나이 임시 채팅",
+    "Google AI Pro"
+  ],
+  "keyPoints": [
+    "학습 여부: 개인 Google 계정에서 활동 기록 보관이 켜져 있으면 유료 구독과 상관없이 제미나이 대화가 생성형 AI 모델 학습과 서비스 개선에 쓰이고, 일부는 사람 검토자가 읽습니다",
+    "끄는 곳: myactivity.google.com/product/gemini의 활동 기록 보관에서 사용 버튼을 눌러 사용 중지를 고르면 되고, 끈 뒤의 새 대화는 72시간만 저장되고 학습에 쓰이지 않습니다",
+    "남는 것: 이미 사람 검토를 거친 대화는 활동을 지워도 계정과 분리된 채 최대 3년 보관되므로, 기록이 필요하면 임시 채팅과 자동 삭제 3개월 설정으로 절충할 수 있습니다"
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-04T21:39:25+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://myactivity.google.com/product/gemini",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with a limited screenshot of the Google settings page for commentary",
+        "reason": "Gemini 앱 활동 설정 화면을 담은 썸네일이라 포함."
+      },
+      {
+        "sourceUrl": "https://myactivity.google.com/product/gemini",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-keep-activity.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the Google settings page for commentary, personal details removed",
+        "reason": "활동 기록 보관 설정과 72시간 안내 문구가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://myactivity.google.com/product/gemini",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-off-menu.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the Google settings page for commentary, personal details removed",
+        "reason": "사용 중지와 사용 중지 및 활동 삭제 두 선택지가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://myactivity.google.com/product/gemini",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-auto-delete.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the Google settings dialog for commentary",
+        "reason": "자동 삭제 기간 선택 대화상자 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://gemini.google.com/app",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-temp-chat.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the Gemini web app for commentary, personal details removed",
+        "reason": "임시 채팅 안내 문구가 보이는 제미나이 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://www.youtube.com/@Google",
+        "decision": "excluded",
+        "reason": "이 설정만 다룬 공식 영상이 없어 넣지 않음."
+      }
+    ]
+  },
+  "image": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-thumb.png",
+  "imageSourceUrl": "https://myactivity.google.com/product/gemini",
+  "imageAlt": "제미나이 학습 끄기, 유료 구독자 대화도 AI 학습에 쓰입니다. 오른쪽에 Gemini 앱 활동의 활동 기록 보관 설정 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "Gemini 앱 활동의 활동 기록 보관 설정",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "제미나이 유료 구독자 대화도 학습에 쓰이는 이유",
+      "paragraphs": [
+        "11월 4일 해커뉴스에 올라온 글 하나가 몇 시간 만에 첫 페이지에 올랐습니다. 제목은 '제미나이는 구독자라도 개인 계정이면 대화 기록으로 학습한다'였고, 글쓴이는 돈을 내면 데이터가 상품이 되지 않는 줄 알았는데 너무 늦게 알았다고 적었습니다. 댓글에는 원래 다 그렇다는 체념부터, 픽셀 휴대폰에서는 이 설정을 끄면 알람 같은 기본 기능도 막힌다는 불만까지 수십 개가 달렸습니다.",
+        "글쓴이가 근거로 든 건 새로 나온 정책이 아니라 Google의 Gemini 앱 개인 정보 보호 허브 문서입니다. 이 문서(10월 26일 마지막 업데이트)는 활동 기록 보관이 켜져 있으면 사용자 활동을 생성형 AI 모델 학습을 비롯한 Google 서비스 개발과 개선에 쓰고, 그 과정에 사람 검토자가 참여한다고 설명합니다. 개인정보처리방침에서 유료 요금제가 등장하는 곳은 수집하는 정보 목록의 '구독 정보' 한 줄 정도이고, 결제했다고 학습에서 빠진다는 문장은 없습니다.",
+        "그래서 Google AI Pro나 Ultra를 쓰는 사람도 개인 Gmail 계정으로 로그인했다면 무료 사용자와 같은 규칙을 따릅니다. 차이를 만드는 건 요금제가 아니라 계정 종류와 활동 기록 보관 설정입니다. 회사나 학교에서 받은 Workspace 계정은 아래에서 따로 설명하는 다른 약관이 적용됩니다.",
+        "활동 기록 보관은 이름만 보면 대화 목록을 남겨 두는 편의 기능 같아서 학습과 연결된다는 걸 놓치기 쉽습니다. 실제 설정 화면에도 '활동 기록을 유지하면 언제든지 중단한 부분부터 채팅을 이어 나갈 수 있으며, AI 모델을 비롯한 Google 서비스 개선에도 참여할 수 있습니다'라고 한 문장 안에 두 가지가 같이 적혀 있습니다. 대화 기록을 남기는 것과 학습에 참여하는 것이 하나의 스위치로 묶여 있다는 뜻입니다."
+      ],
+      "sourceRefs": [1, 5],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-keep-activity.webp",
+          "alt": "Gemini 앱 활동 화면의 활동 기록 보관 카드. 설명 문구 아래에 사용 버튼, 18개월이 지난 활동 삭제 항목, 오디오와 Gemini Live 개선 체크박스가 있다",
+          "caption": "사용으로 되어 있으면 대화 기록과 AI 개선 참여가 함께 켜진 상태다.",
+          "credit": "Google 내 활동",
+          "sourceUrl": "https://myactivity.google.com/product/gemini",
+          "width": 1005,
+          "height": 740
+        }
+      ]
+    },
+    {
+      "title": "사람 검토와 최대 3년 보관: 지워도 남는 대화",
+      "paragraphs": [
+        "학습보다 더 신경 쓰이는 대목은 사람 검토입니다. 개인 정보 보호 허브는 채팅의 일부를 숙련된 서비스 제공업체 직원을 포함한 인적 검토자가 읽고, 대답이 부정확하거나 유해한지 평가하거나 더 나은 대답을 제안한다고 설명합니다. 이 제안은 다음 모델이 더 나은 답을 내도록 학습에 다시 쓰입니다.",
+        "Google은 검토자에게 넘기기 전에 대화를 Google 계정과의 연결을 끊는다고 밝힙니다. 다만 그 때문에 생기는 부작용도 문서에 함께 적혀 있습니다. 검토를 거친 대화는 계정과 분리돼 있어서 내가 활동을 삭제해도 지워지지 않고 최대 3년 동안 보관됩니다. 언어, 기기 종류, 위치 정보, 의견 같은 관련 데이터도 같이 남습니다.",
+        "그래서 문서에는 검토자가 보지 않았으면 하는 정보나 Google이 서비스 개선에 쓰지 않았으면 하는 기밀 정보는 입력하지 말라는 문장이 여러 번 나옵니다. 회사 계약서, 고객 명단, 건강 상담, 주민등록번호가 들어간 서류처럼 남이 읽으면 곤란한 내용을 개인 계정 제미나이에 붙여 넣는 습관이 있다면 설정부터 바꾸는 편이 낫습니다.",
+        "파일과 화면도 같은 규칙을 따릅니다. 활동 기록 보관이 켜진 상태에서 올린 사진이나 문서, 화면 작업 기능이 찍은 스크린샷은 사람 검토를 거쳐 서비스 개선에 쓰일 수 있다고 안내돼 있습니다. 반대로 오디오와 Gemini Live 동영상, 화면 공유는 별도 체크박스로 나뉘어 있고 기본값은 꺼져 있습니다."
+      ],
+      "sourceRefs": [1]
+    },
+    {
+      "title": "제미나이 학습 끄기: 활동 기록 보관 사용 중지 방법",
+      "paragraphs": [
+        "끄는 곳은 Google 계정의 Gemini 앱 활동 페이지입니다. 브라우저에서 myactivity.google.com/product/gemini에 들어가면 맨 위에 활동 기록 보관 카드가 보입니다. 지금 켜져 있다면 체크 표시와 함께 '사용'이라고 적힌 버튼이 있고, 이 버튼을 누르면 선택지가 두 개 나옵니다.",
+        "'사용 중지'는 앞으로의 대화만 기록과 학습에서 빼는 선택입니다. 지금까지 쌓인 활동은 그대로 남습니다. '사용 중지 및 활동 삭제'는 설정을 끄면서 기존 활동까지 지우는 선택이고, 지울 기간을 고르는 단계가 하나 더 붙습니다. 다만 앞에서 말한 것처럼 이미 사람 검토를 거친 대화는 이 삭제로도 없어지지 않습니다.",
+        "설정을 끈 뒤에는 새 대화가 내 활동에 표시되지 않고 AI 모델 학습에도 쓰이지 않습니다. 그래도 Google은 대답을 만들고 오류나 악용에 대비하기 위해 대화를 72시간 동안 계정에 저장합니다. 72시간이 지나면 채팅 목록에서도 사라지기 때문에, 어제 나눈 대화를 다시 열어 보는 식의 사용은 할 수 없게 됩니다.",
+        "하나 놓치기 쉬운 것은 대답 옆의 좋아요, 싫어요 같은 의견 버튼입니다. 활동 기록 보관을 꺼도 의견을 보내면 그 대화와 관련 데이터가 사람 검토를 거치고, 계정과 분리된 채 최대 3년 보관됩니다. 학습을 피하려고 설정을 껐다면 민감한 대화에서는 의견 보내기도 하지 않는 게 맞습니다."
+      ],
+      "sourceRefs": [1],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-off-menu.webp",
+          "alt": "활동 기록 보관의 사용 버튼을 누르면 열리는 메뉴. 사용 중지(단계 1개)와 사용 중지 및 활동 삭제(단계 2개) 두 항목",
+          "caption": "사용 중지는 앞으로의 대화만, 사용 중지 및 활동 삭제는 기존 기록까지 정리한다.",
+          "credit": "Google 내 활동",
+          "sourceUrl": "https://myactivity.google.com/product/gemini",
+          "width": 1005,
+          "height": 670
+        }
+      ]
+    },
+    {
+      "title": "활동 기록 보관을 끄면 못 쓰는 기능",
+      "paragraphs": [
+        "설정 하나로 끝나면 좋겠지만 대가가 있습니다. 가장 먼저 체감되는 건 대화 기록입니다. 지난 채팅 목록이 쌓이지 않으니 긴 작업을 며칠에 걸쳐 이어 가는 방식은 어렵고, 이전 대화를 바탕으로 한 맞춤 대답도 받을 수 없습니다.",
+        "연결된 앱도 영향을 받습니다. 개인 정보 보호 허브에 따르면 Gmail, Drive, Docs 같은 Google Workspace 연결 앱은 활동 기록 보관을 끄면 쓸 수 없고, 다시 켜면 예전 연결 권한이 돌아옵니다. 안드로이드 휴대폰의 전화, 메시지, WhatsApp, 기기 제어 같은 일부 연결 앱은 설정과 상관없이 쓸 수 있지만, 스마트시계에서는 설정이 꺼져 있으면 통화와 메시지 앱을 쓸 수 없다고 적혀 있습니다. 해커뉴스 댓글에서 픽셀 사용자가 리마인더가 안 된다고 불평한 것도 이런 구조에서 나온 이야기로 보입니다.",
+        "제미나이에 일을 맡기면 원격 브라우저나 원격 컴퓨터에서 대신 처리해 주는 작업 기능(이전 이름 Spark)도 활동 기록 보관이 켜져 있어야만 쓸 수 있습니다. 결국 제미나이를 메일과 일정까지 묶어 비서처럼 쓰려는 사람일수록 이 설정을 켜 둘 수밖에 없고, 그만큼 학습과 검토 대상이 되는 데이터도 늘어납니다.",
+        "연결 앱 데이터가 어디까지 쓰이는지도 따로 정리돼 있습니다. Google은 Gmail 받은편지함이나 Drive, 포토 라이브러리 자체로 모델을 직접 학습시키지는 않는다고 설명합니다. 하지만 내 질문에 답하려고 메일과 파일에서 요약하고 발췌하고 추론한 내용, 그리고 내 프롬프트와 제미나이의 대답은 학습에 씁니다. 메일이 짧거나 질문과 딱 맞으면 그 메일 자체가 요약이 될 수 있다는 단서도 달려 있습니다."
+      ],
+      "sourceRefs": [1, 2]
+    },
+    {
+      "title": "기록은 남기고 싶을 때: 임시 채팅과 자동 삭제 기간",
+      "paragraphs": [
+        "기록 기능은 포기하기 싫고, 특정 대화만 학습에서 빼고 싶다면 임시 채팅이 현실적인 방법입니다. 제미나이 웹 화면 오른쪽 위의 점선 연필 모양 아이콘을 누르면 임시 채팅으로 바뀌고, 입력창 아래에 '임시 채팅은 최근 채팅에 표시되지 않으며, Google AI를 개선하는 데 사용되지 않습니다'라는 안내가 뜹니다. 이 대화도 안전을 위해 72시간 동안은 저장됩니다.",
+        "평소에는 활동 기록 보관을 켜 둔 채 쓰다가, 계약서 검토나 개인 상담처럼 남기고 싶지 않은 대화만 임시 채팅으로 여는 식입니다. 다만 임시 채팅이나 설정을 끈 상태에서도 Google은 대답을 제공하고 사용자와 일반 대중을 보호하기 위해 사람 검토를 포함한 방법으로 대화를 쓸 수 있다고 적고 있습니다. AI 개선용 검토에서 빠지는 것이지, 어떤 경우에도 아무도 볼 수 없다는 뜻은 아닙니다.",
+        "기록을 켜 두는 쪽을 고른다면 자동 삭제 기간이라도 줄여 두는 게 좋습니다. 기본값은 18개월이고, 활동 기록 보관 카드의 '18개월이 지난 활동 삭제' 항목을 누르면 3개월이나 36개월, 자동 삭제 안 함으로 바꿀 수 있습니다. 3개월로 줄이면 최근 작업은 이어 갈 수 있으면서 오래된 대화가 쌓이지 않습니다. 이 삭제 역시 이미 검토를 거친 대화에는 적용되지 않는다는 점은 같습니다."
+      ],
+      "sourceRefs": [1, 3],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-temp-chat.webp",
+          "alt": "제미나이 임시 채팅 화면의 입력창과 그 아래 안내 문구. 임시 채팅은 최근 채팅에 표시되지 않으며 Google AI를 개선하는 데 사용되지 않고 72시간 동안 저장된다는 내용",
+          "caption": "임시 채팅으로 바꾸면 입력창 아래에 이 안내가 붙는다.",
+          "credit": "Google Gemini",
+          "sourceUrl": "https://gemini.google.com/app",
+          "width": 1050,
+          "height": 270
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/gemini-keep-activity-training-opt-out-2026-auto-delete.webp",
+          "alt": "Gemini 앱 활동의 자동 삭제 옵션 선택 대화상자. 자동 삭제 기준 18개월이 선택돼 있고 아래에 자동 삭제 안함 선택지가 있다",
+          "caption": "드롭다운에서 3개월이나 36개월로 바꿀 수 있다.",
+          "credit": "Google 내 활동",
+          "sourceUrl": "https://myactivity.google.com/product/gemini",
+          "width": 706,
+          "height": 834
+        }
+      ],
+      "table": {
+        "headers": ["상태", "대화 보관", "AI 학습", "사람 검토"],
+        "rows": [
+          ["활동 기록 보관 사용(기본)", "자동 삭제 18개월(3개월, 36개월, 안 함으로 변경 가능)", "사용됨", "일부 대화, 계정과 분리해 최대 3년 보관"],
+          ["활동 기록 보관 사용 중지", "72시간", "의견을 보내지 않으면 사용 안 됨", "대답 제공과 보호 목적으로는 있을 수 있음"],
+          ["임시 채팅", "72시간", "사용 안 됨", "AI 개선 목적 검토는 없음"]
+        ],
+        "caption": "Gemini 앱 개인 정보 보호 허브 기준. 회사와 학교 Workspace 계정은 별도 약관이 적용된다."
+      }
+    },
+    {
+      "title": "회사와 학교 계정은 다른 규칙, 다른 AI 서비스 볼 때 기준",
+      "paragraphs": [
+        "같은 제미나이라도 회사나 학교에서 받은 Google Workspace 계정은 이야기가 다릅니다. Workspace 생성형 AI 개인 정보 보호 허브는 요건을 충족하는 Workspace 버전에서 사용자의 콘텐츠가 허가 없이 도메인 밖에서 생성형 AI 모델 학습에 쓰이거나 인적 검토자의 검토를 받지 않는다고 설명합니다. 회사가 Workspace 요금을 내고 있다면 회사 계정으로 쓰는 쪽이 개인 계정보다 학습 측면에서는 덜 노출되는 셈입니다.",
+        "반대로 개인 계정에 Google AI 요금제를 붙인 경우는 앞에서 본 것처럼 개인 계정 규칙을 그대로 따릅니다. 해커뉴스 글쓴이가 '개인 계정'이라는 단서를 제목에 넣은 이유도 여기에 있습니다. 같은 돈을 내도 어떤 계정으로 결제했느냐에 따라 데이터 처리 방식이 갈립니다.",
+        "이번 글이 화제가 된 건 결국 많은 사람이 '유료면 학습 안 함'이라고 막연히 믿고 있었기 때문입니다. 제미나이뿐 아니라 다른 AI 챗봇을 쓸 때도 요금제 이름보다 설정 화면에 학습 관련 스위치가 있는지, 그 스위치가 대화 기록과 묶여 있는지, 삭제해도 남는 데이터가 있는지를 먼저 보는 게 정확합니다. 제미나이는 그 세 가지가 모두 Gemini 앱 활동 한 페이지에 모여 있어서, 개인 계정이라면 버튼에 '사용'이 떠 있는지만 봐도 지금 내 대화가 어느 쪽에 들어가는지 알 수 있습니다."
+      ],
+      "sourceRefs": [4, 1, 5]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Gemini 앱 개인 정보 보호 허브",
+      "url": "https://support.google.com/gemini/answer/13594961?hl=ko",
+      "description": "활동 기록 보관이 켜졌을 때의 학습과 사람 검토, 최대 3년 보관, 72시간 저장, 임시 채팅, 연결 앱 제한."
+    },
+    {
+      "name": "연결된 앱을 통한 개인화에 관한 안내 (Gemini 고객센터)",
+      "url": "https://support.google.com/gemini/answer/16836988?hl=ko",
+      "description": "Gmail, Drive, 포토 등 연결 앱 데이터가 학습에 쓰이는 범위와 쓰이지 않는 범위."
+    },
+    {
+      "name": "Gemini 앱 사용하기 (Gemini 고객센터)",
+      "url": "https://support.google.com/gemini/answer/13275745?hl=ko",
+      "description": "개인 계정, 직장 계정, 학교 계정별 로그인 조건과 로그아웃 상태에서 쓸 수 있는 기능."
+    },
+    {
+      "name": "Google Workspace 생성형 AI 개인 정보 보호 허브",
+      "url": "https://support.google.com/a/answer/15706919?hl=ko",
+      "description": "Workspace 계정에서 콘텐츠를 허가 없이 모델 학습과 인적 검토에 쓰지 않는다는 설명."
+    },
+    {
+      "name": "Tell HN: Gemini trains on chat history, even for subscribers (Hacker News)",
+      "url": "https://news.ycombinator.com/item?id=50363461",
+      "description": "2026년 11월 4일 해커뉴스 첫 페이지에 오른 글과 댓글."
+    },
+    {
+      "name": "Gemini 앱 활동 (Google 내 활동)",
+      "url": "https://myactivity.google.com/product/gemini",
+      "description": "활동 기록 보관 설정, 사용 중지 메뉴, 자동 삭제 기간 대화상자."
+    },
+    {
+      "name": "Google Gemini 웹 앱",
+      "url": "https://gemini.google.com/app",
+      "description": "임시 채팅 화면과 안내 문구."
+    }
+  ],
+  "resources": [
+    {
+      "name": "Gemini 앱 활동 설정 바로가기",
+      "url": "https://myactivity.google.com/product/gemini",
+      "description": "활동 기록 보관 켜고 끄기, 자동 삭제 기간 변경, 기존 대화 삭제."
+    },
+    {
+      "name": "Gemini 앱 활동 관리 및 삭제 도움말",
+      "url": "https://support.google.com/gemini/answer/13278892?hl=ko",
+      "description": "기간별 활동 삭제와 활동 기록 보관 설정 방법."
+    },
+    {
+      "name": "제미나이 웹 앱",
+      "url": "https://gemini.google.com/app",
+      "description": "오른쪽 위 아이콘으로 임시 채팅을 시작할 수 있다."
+    }
+  ]
+}

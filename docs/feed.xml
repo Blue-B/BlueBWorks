@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 04 Nov 2026 06:35:30 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 12:39:25 GMT</lastBuildDate>
+    <item>
+      <title>제미나이 학습 끄기: 유료 구독자 대화도 AI 학습에 쓰이는 이유와 활동 기록 보관 끄는 법</title>
+      <link>https://bluebworks.com/articles/gemini-keep-activity-training-opt-out-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/gemini-keep-activity-training-opt-out-2026/</guid>
+      <pubDate>Wed, 04 Nov 2026 12:39:25 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>Google AI 요금제를 결제해도 개인 계정이면 제미나이 대화가 모델 학습과 사람 검토에 쓰일 수 있습니다. 활동 기록 보관을 끄는 위치, 끄면 잃는 기능, 임시 채팅과 자동 삭제 기간으로 절충하는 방법을 정리했습니다.</description>
+    </item>
     <item>
       <title>클로드 코드 디자인 스킬 Hallmark: AI 티 안 나는 웹페이지 설치법과 sloplint 검사 결과</title>
       <link>https://bluebworks.com/articles/hallmark-ai-design-skill-sloplint-2026/</link>
