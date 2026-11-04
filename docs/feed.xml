@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 04 Nov 2026 00:47:28 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 06:35:30 GMT</lastBuildDate>
+    <item>
+      <title>클로드 코드 디자인 스킬 Hallmark: AI 티 안 나는 웹페이지 설치법과 sloplint 검사 결과</title>
+      <link>https://bluebworks.com/articles/hallmark-ai-design-skill-sloplint-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/hallmark-ai-design-skill-sloplint-2026/</guid>
+      <pubDate>Wed, 04 Nov 2026 06:35:30 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>깃허브 별 4만 7천 개를 넘긴 Hallmark는 클로드 코드, 코덱스, 커서에 넣는 무료 디자인 스킬입니다. 설치 명령과 도구별 위치, 테마 50개 고르는 방식, sloplint로 페이지를 검사했을 때 실제로 걸리는 항목을 정리했습니다.</description>
+    </item>
     <item>
       <title>Postman 플러그인 자동 설치 논란: 클로드 코드와 코덱스에서 찾고 지우는 방법</title>
       <link>https://bluebworks.com/articles/postman-agent-plugin-auto-install-remove-2026/</link>

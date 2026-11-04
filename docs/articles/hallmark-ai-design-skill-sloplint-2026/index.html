@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>클로드 코드 디자인 스킬 Hallmark: AI 티 안 나는 웹페이지 설치법과 sloplint 검사 결과 | BlueBWorks</title>
+    <meta name="description" content="깃허브 별 4만 7천 개를 넘긴 Hallmark는 클로드 코드, 코덱스, 커서에 넣는 무료 디자인 스킬입니다. 설치 명령과 도구별 위치, 테마 50개 고르는 방식, sloplint로 페이지를 검사했을 때 실제로 걸리는 항목을 정리했습니다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/hallmark-ai-design-skill-sloplint-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="클로드 코드 디자인 스킬 Hallmark: AI 티 안 나는 웹페이지 설치법과 sloplint 검사 결과 | BlueBWorks">
+    <meta property="og:description" content="깃허브 별 4만 7천 개를 넘긴 Hallmark는 클로드 코드, 코덱스, 커서에 넣는 무료 디자인 스킬입니다. 설치 명령과 도구별 위치, 테마 50개 고르는 방식, sloplint로 페이지를 검사했을 때 실제로 걸리는 항목을 정리했습니다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/hallmark-ai-design-skill-sloplint-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"클로드 코드 디자인 스킬 Hallmark: AI 티 안 나는 웹페이지 설치법과 sloplint 검사 결과","description":"깃허브 별 4만 7천 개를 넘긴 Hallmark는 클로드 코드, 코덱스, 커서에 넣는 무료 디자인 스킬입니다. 설치 명령과 도구별 위치, 테마 50개 고르는 방식, sloplint로 페이지를 검사했을 때 실제로 걸리는 항목을 정리했습니다.","url":"https://bluebworks.com/articles/hallmark-ai-design-skill-sloplint-2026/","mainEntityOfPage":"https://bluebworks.com/articles/hallmark-ai-design-skill-sloplint-2026/","datePublished":"2026-11-04T06:35:30.000Z","dateModified":"2026-11-04T06:35:30.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"Hallmark, 클로드 코드 디자인 스킬, AI 티 안 나는 디자인, 바이브코딩 디자인, sloplint, Codex 스킬, Cursor","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"클로드 코드 디자인 스킬 Hallmark: AI 티 안 나는 웹페이지 설치법과 sloplint 검사 결과","item":"https://bluebworks.com/articles/hallmark-ai-design-skill-sloplint-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>오픈소스</span></p>
+        <h1 id="article-title">클로드 코드 디자인 스킬 Hallmark: AI 티 안 나는 웹페이지 설치법과 sloplint 검사 결과</h1>
+        <p class="cover-dek">깃허브 별 4만 7천 개를 넘긴 Hallmark는 클로드 코드, 코덱스, 커서에 넣는 무료 디자인 스킬입니다. 설치 명령과 도구별 위치, 테마 50개 고르는 방식, sloplint로 페이지를 검사했을 때 실제로 걸리는 항목을 정리했습니다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 11월 4일</span><span>소식 발표 2026년 10월 22일</span><span>확인 2026년 11월 4일</span><span>published</span><span>7분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">Hallmark 디자인 스킬이 하는 일</a></li>
+          <li><a href="#sec-2">같은 요청으로 만든 두 페이지 비교</a></li>
+          <li><a href="#sec-3">Hallmark 설치 방법: 클로드 코드, 코덱스, 커서</a></li>
+          <li><a href="#sec-4">sloplint로 AI 티 나는 페이지 검사하기</a></li>
+          <li><a href="#sec-5">테마 50개를 고르는 deal 방식</a></li>
+          <li><a href="#sec-6">Hallmark 비용과 주의할 점</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="클로드 코드 디자인 스킬 Hallmark: AI 티 안 나는 웹페이지 설치법과 sloplint 검사 결과">
+            <meta itemprop="description" content="깃허브 별 4만 7천 개를 넘긴 Hallmark는 클로드 코드, 코덱스, 커서에 넣는 무료 디자인 스킬입니다. 설치 명령과 도구별 위치, 테마 50개 고르는 방식, sloplint로 페이지를 검사했을 때 실제로 걸리는 항목을 정리했습니다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: AI 티 안 나는 웹페이지 스킬, 클로드 코드와 코덱스에 넣는 설치 방법과 검사 결과. 오른쪽에 Hallmark 공식 사이트 첫 화면"><img src="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-thumb.png" alt="AI 티 안 나는 웹페이지 스킬, 클로드 코드와 코덱스에 넣는 설치 방법과 검사 결과. 오른쪽에 Hallmark 공식 사이트 첫 화면" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>Hallmark 공식 사이트 첫 화면</span><a href="https://www.usehallmark.com/" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
+      <ul>
+        <li>하는 일: Hallmark는 코딩 에이전트가 웹페이지를 만들 때 보라색 그라데이션, 제목 위 작은 영문 라벨, 지어낸 숫자처럼 AI가 만든 티가 나는 습관을 규칙으로 막고, 테마 50개 중 하나를 골라 페이지를 짓게 하는 무료 스킬이다</li>
+        <li>설치: npx skills add nutlope/hallmark -g 한 줄이면 클로드 코드와 코덱스에 들어가고 Node 18 이상이 필요하다. API 키는 필요 없고, 브라우저 렌더 검사까지 쓰려면 puppeteer-core와 크롬을 따로 깐다</li>
+        <li>검사 결과: 함께 들어 있는 sloplint를 저장소 예제 페이지에 돌리면 1초 안에 FAIL 24건이 나오고, 공식 사이트 비교에서는 같은 요청으로 만든 농장 기록 페이지가 26건에서 0건으로 줄었다</li>
+      </ul>
+    </details>
+
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>Hallmark 디자인 스킬이 하는 일</h2>
+        <p>클로드 코드나 코덱스에게 랜딩 페이지를 맡겨 보면 결과가 묘하게 닮아 있습니다. 가운데 큰 제목, 보라에서 파랑으로 넘어가는 그라데이션, 제목 위에 붙은 작은 영문 라벨, 똑같은 카드 세 장, 근거 없는 &#39;10배 빠름&#39; 같은 숫자까지. 바이브코딩으로 만든 사이트가 한눈에 티가 나는 이유가 대체로 이런 습관입니다.</p>
+        <p>Hallmark는 이 습관을 규칙으로 막는 디자인 스킬입니다. 스킬은 에이전트가 작업할 때 읽는 지침과 보조 스크립트 묶음이라서, 설치해 두면 클로드 코드, 코덱스, 커서, OpenCode가 새 페이지를 만들 때 Hallmark의 순서를 따릅니다. 만든 곳은 Together AI이고 라이선스는 MIT라 누구나 무료로 쓰고 고칠 수 있습니다.</p>
+        <p>11월 4일 기준 깃허브 별은 4만 7천 개를 넘었고, 이번 주 깃허브 트렌딩 주간 순위 맨 위에 올라 있습니다. 10월 22일에는 처음부터 다시 만든 v2가 나왔는데, 만든 사람은 발표 글에서 그때까지 별 3만 개, 설치 6만 회였다고 적었습니다.</p>
+        <p>v2의 뼈대는 세 가지입니다. 절대 넘으면 안 되는 바닥 규칙(Floor), 모델이 습관처럼 빠지는 기본값을 잡는 Reflex 규칙, 그리고 막지는 않고 다듬을 거리만 알려 주는 Finish 점검입니다. 바닥 규칙에는 글자 대비, 키보드 포커스 표시, 움직임 줄이기 설정, 지어낸 숫자나 후기 금지, 휴대폰 화면 깨짐 같은 항목이 들어 있습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-hero.webp" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Hallmark 공식 사이트 첫 화면. The design skill that ends AI slop 제목 아래 npx skills add nutlope/hallmark -g 설치 명령과 여러 테마로 만든 예시 페이지들">
+        <img src="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-hero.webp" alt="Hallmark 공식 사이트 첫 화면. The design skill that ends AI slop 제목 아래 npx skills add nutlope/hallmark -g 설치 명령과 여러 테마로 만든 예시 페이지들" width="1400" height="788" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>첫 화면 아래에 늘어선 페이지는 모두 Hallmark 테마로 만든 예시다.</span><a href="https://www.usehallmark.com/" target="_blank" rel="noopener noreferrer">Hallmark · 원문</a></figcaption>
+    </figure><figure class="article-embed x-embed">
+      <blockquote class="twitter-tweet" data-dnt="true" data-lang="ko">
+        <p lang="en" dir="ltr">We rebuilt Hallmark from scratch.
+
+After 30k stars and 60k installs, we&#39;re introducing Hallmark v2!
+
+The design skill to give your agents taste. Works in Claude Code, Codex, and Opencode.
+
+npx skills add nutlope/hallmark https://t.co/lHdSy7F6rE</p>
+        &mdash; Hassan (@nutlope) <a href="https://x.com/nutlope/status/2113316017510191578">2026년 10월 23일</a>
+      </blockquote>
+      <figcaption><span>Hassan 공식 X 게시물</span><a href="https://x.com/nutlope/status/2113316017510191578" target="_blank" rel="noopener noreferrer">X에서 원문 보기</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>같은 요청으로 만든 두 페이지 비교</h2>
+        <p>공식 사이트에서 가장 먼저 볼 만한 건 &#39;One prompt, two pages&#39; 비교입니다. 왼쪽은 Opus 5.5에 요청만 주고 만든 페이지, 오른쪽은 같은 요청을 Hallmark 테마로 만든 페이지입니다. 가운데 손잡이를 끌면 두 페이지를 겹쳐 볼 수 있습니다.</p>
+        <p>예시는 세 가지입니다. 농장 기록 앱은 26건에서 0건, 은행 거래 대사 서비스는 11건에서 0건, 웹훅 API 소개 페이지는 18건에서 0건으로 나옵니다. 숫자는 Hallmark에 들어 있는 검사기 sloplint가 센 것이라, 결국 Hallmark 자기 기준으로 잰 결과라는 점은 감안하고 보는 게 맞습니다.</p>
+        <p>그래도 화면을 나란히 놓고 보면 차이는 숫자보다 분명합니다. 왼쪽은 흔히 보는 SaaS 템플릿 느낌이고, 오른쪽은 농장 지도 위에 이동 기록이 찍힌 화면처럼 그 서비스가 실제로 무엇을 하는지가 첫 화면에 나옵니다. Hallmark 문서가 말하는 &#39;페이지는 방문자가 하러 온 일을 중심으로 짓는다&#39;는 원칙이 이런 모습입니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-compare.webp" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Hallmark 공식 사이트 비교 화면. 왼쪽 Without 26 issues 배지가 붙은 Fieldbook 페이지, 오른쪽 With Hallmark 0 issues 배지가 붙은 농장 지도 페이지">
+        <img src="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-compare.webp" alt="Hallmark 공식 사이트 비교 화면. 왼쪽 Without 26 issues 배지가 붙은 Fieldbook 페이지, 오른쪽 With Hallmark 0 issues 배지가 붙은 농장 지도 페이지" width="1242" height="448" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>왼쪽은 모델 혼자 만든 페이지(26건), 오른쪽은 같은 요청을 Hallmark로 만든 페이지(0건).</span><a href="https://www.usehallmark.com/" target="_blank" rel="noopener noreferrer">Hallmark · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>Hallmark 설치 방법: 클로드 코드, 코덱스, 커서</h2>
+        <p>설치는 공식 안내대로 한 줄입니다. 아래 명령에서 -g를 붙이면 모든 프로젝트에서 쓰도록 사용자 폴더에 깔리고, 빼면 지금 있는 프로젝트에만 들어갑니다. Node 18 이상이 필요합니다. 특정 도구 하나에만 넣고 싶으면 --agent claude-code처럼 도구 이름을 붙이면 됩니다.</p>
+        <p>클로드 코드 플러그인으로 넣는 길도 있습니다. 클로드 코드 안에서 /plugin marketplace add nutlope/hallmark를 입력하고 /plugin install hallmark@hallmark로 설치하면 됩니다. 이 경우 부르는 이름이 /hallmark:hallmark로 바뀝니다.</p>
+        <p>저장소를 직접 받아서 넣을 수도 있습니다. 받은 폴더에서 node skills/hallmark/scripts/install.mjs를 실행하면 테마 50개와 참고 문서를 먼저 점검한 뒤 복사합니다. 리눅스에서 빈 사용자 폴더로 실행해 보면 &#39;~/.claude, ~/.codex 같은 폴더가 없다&#39;며 멈추고, --claude를 붙이면 ~/.claude/skills/hallmark에 약 6.9MB가 들어갑니다. 에이전트 도구를 아직 한 번도 실행하지 않은 컴퓨터라면 도구 이름을 직접 붙여야 한다는 뜻입니다.</p>
+        <p>설치 뒤에는 &#39;/hallmark 동네 빵집 주말 예약 페이지 만들어 줘&#39;처럼 부르거나, 그냥 새 페이지를 만들어 달라고 하면 됩니다. 저절로 켜지지 않으면 &#39;hallmark를 써서 만들어 줘&#39;라고 이름을 말하라고 안내합니다. 코덱스에서는 $hallmark로 부릅니다.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Hallmark 설치 방법: 클로드 코드, 코덱스, 커서"><table><thead><tr><th scope="col">도구</th><th scope="col">설치 위치</th><th scope="col">부르는 법</th></tr></thead><tbody><tr><th scope="row">Claude Code</th><td>~/.claude/skills/hallmark</td><td>/hallmark 요청 내용</td></tr><tr><th scope="row">Codex CLI</th><td>~/.agents/skills/hallmark</td><td>$hallmark 요청 내용</td></tr><tr><th scope="row">Cursor</th><td>위 두 위치를 찾아 씀</td><td>/hallmark 요청 내용</td></tr><tr><th scope="row">OpenCode</th><td>위 두 위치를 찾아 씀</td><td>/hallmark 요청 내용</td></tr></tbody></table></div><p class="table-caption">README의 도구별 설치 위치와 호출 방법. 윈도우는 사용자 폴더(%USERPROFILE%) 아래 같은 이름.</p><figure class="code-example"><figcaption>bash · Hallmark 설치 명령. Node 18 이상 필요.</figcaption><pre tabindex="0"><code># 모든 프로젝트에서 쓰기 (클로드 코드, 코덱스 등)
+npx skills add nutlope/hallmark -g
+
+# 클로드 코드에만 넣기
+npx skills add nutlope/hallmark -g --agent claude-code
+
+# 브라우저 렌더 검사까지 쓰려면 (크롬 필요)
+npm i -g puppeteer-core</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>sloplint로 AI 티 나는 페이지 검사하기</h2>
+        <p>Hallmark에서 따로 떼어 써도 쓸모 있는 게 sloplint입니다. 이미 만든 HTML과 CSS 파일을 넣으면 AI가 만든 티가 나는 패턴을 줄 번호와 함께 찍어 줍니다. 리액트, 뷰, 스벨트 파일 안의 Tailwind 클래스도 읽고, node_modules나 dist 같은 폴더는 건너뜁니다.</p>
+        <p>저장소에는 일부러 나쁜 습관을 잔뜩 넣은 예제 페이지(slopped.html)가 들어 있습니다. 여기에 node sloplint.mjs를 돌리면 1초 남짓 만에 FAIL 24건, REFLEX 15건, WARN 4건이 나옵니다. h1의 보라에서 파랑 그라데이션 글자, 카드 안에 또 카드, Unleash와 Seamless 같은 홍보 단어, 아이콘 자리에 들어간 반짝이 이모지, 제목 위 &#39;01 / FEATURES&#39; 라벨이 모두 잡힙니다. &#39;10x faster&#39;처럼 출처 없는 숫자는 사용자가 준 숫자인지 다시 보라는 경고로 나옵니다.</p>
+        <p>실제 운영 중인 페이지에도 돌려 봤습니다. 이 블로그 홈 HTML 하나만 넣으면 FAIL 3건이 나옵니다. 키보드 포커스 표시가 없다는 것, 가로 넘침 설정, 그리고 사이트 이름과 분류를 가운뎃점으로 이어 붙인 메타 문구입니다. CSS 파일까지 같이 넣으면 FAIL 265건으로 늘어나는데, 그중 211건은 색 값을 변수(토큰)로 빼지 않고 직접 적었다는 항목이고, 여백이 4픽셀 단위가 아니라는 REFLEX가 318건입니다. 첫 화면 배경의 보라에서 파랑 그라데이션도 한 건 잡혔습니다.</p>
+        <p>그래서 숫자 자체를 디자인 점수로 읽으면 안 됩니다. Hallmark 기준은 꽤 엄격해서, 사람이 손으로 만든 사이트도 색 변수나 여백 단위 같은 코드 정리 항목에서 많이 걸립니다. 쓸 만한 건 상단 몇 줄입니다. 그라데이션, 이모지 아이콘, 지어낸 숫자, 포커스 표시처럼 방문자 눈에 바로 보이거나 접근성에 걸리는 항목부터 고치면 됩니다.</p>
+        <p>브라우저 렌더 검사(--render)를 붙이면 여덟 가지 화면 너비에서 페이지를 실제로 그려 보고 넘침과 겹침까지 봅니다. 이 기능은 puppeteer-core와 크롬이 있어야 하고, 없으면 위와 같은 정적 검사만 돌아갑니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-sloplint.webp" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 터미널 화면. node sloplint.mjs fixtures/slopped.html 실행 결과로 purple-to-blue gradient, card nested in card, buzzword Unleash, emoji icon, eyebrow 01 / FEATURES 항목과 24 FAIL, 15 REFLEX, 4 WARN 요약">
+        <img src="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-sloplint.webp" alt="터미널 화면. node sloplint.mjs fixtures/slopped.html 실행 결과로 purple-to-blue gradient, card nested in card, buzzword Unleash, emoji icon, eyebrow 01 / FEATURES 항목과 24 FAIL, 15 REFLEX, 4 WARN 요약" width="1400" height="385" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>예제 페이지에 sloplint를 돌린 결과 일부. 마지막 줄이 전체 건수다.</span><a href="https://github.com/Nutlope/hallmark/tree/main/skills/hallmark/scripts" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>bash · sloplint 단독 실행. 파일 여러 개나 폴더를 넣을 수 있다.</figcaption><pre tabindex="0"><code># 저장소를 받은 뒤 아무 HTML 파일이나 폴더 검사
+git clone https://github.com/Nutlope/hallmark.git
+node hallmark/skills/hallmark/scripts/sloplint.mjs ./index.html
+
+# CSS까지 같이 보기
+node hallmark/skills/hallmark/scripts/sloplint.mjs ./index.html ./assets/style.css</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>테마 50개를 고르는 deal 방식</h2>
+        <p>Hallmark v2의 테마는 레이아웃 틀이 아니라 재질에 가깝습니다. 종이 색, 글꼴 조합, 강조색 하나, 사진 쓰는 방식이 테마 파일 하나(8KB 이하)에 담겨 있고, 같은 테마라도 요청이 다르면 페이지 구조가 달라집니다. 공식 사이트 분류로는 에디토리얼 20개, 모던 미니멀 12개, 분위기형 9개, 놀이형 9개입니다.</p>
+        <p>테마는 카드 패를 돌리듯 세 개를 뽑아 줍니다. 저장소의 theme.mjs deal에 &#39;주말 빵을 미리 주문받는 동네 빵집&#39; 요청을 넣어 보니 Vellum, Almanac, Newsprint 세 개가 나왔습니다. Vellum은 양피지 색 바탕에 고딕 활자 제목, 남색 포인트 하나를 쓰는 테마고 &#39;bakery&#39;에 맞는다는 표시가 붙었습니다. 나머지 둘은 장르에 맞는다는 이유로 뽑혔습니다.</p>
+        <p>뽑힌 기록은 프로젝트의 .hallmark 폴더에 남고, 다음에 다시 뽑을 때 겹치지 않게 피합니다. 연달아 페이지를 만들어도 결과가 한 가지 모양으로 수렴하지 않게 하려는 장치입니다. 테마가 싫으면 &#39;custom&#39;이라고 말해 테마 없이 요청 내용만으로 디자인하게 할 수도 있습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-theme-vellum.webp" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Vellum 테마 예시 페이지. 양피지 색 바탕에 고딕 활자 큰 제목과 가는 이중 선이 들어간 상점 페이지">
+        <img src="https://bluebworks.com/assets/editorial/hallmark-ai-design-skill-sloplint-2026-theme-vellum.webp" alt="Vellum 테마 예시 페이지. 양피지 색 바탕에 고딕 활자 큰 제목과 가는 이중 선이 들어간 상점 페이지" width="960" height="1208" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>빵집 요청에서 첫 번째로 뽑힌 Vellum 테마의 예시 그림.</span><a href="https://github.com/Nutlope/hallmark/tree/main/skills/hallmark/references/themes" target="_blank" rel="noopener noreferrer">Hallmark (MIT) · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>Hallmark 비용과 주의할 점</h2>
+        <p>스킬 자체는 무료입니다. 공식 사이트 안내대로 API 키도 필요 없고, 페이지에 들어가는 사진은 위키미디어 공용의 공개 라이선스 사진 755장 목록에서 골라 페이지에 출처를 붙입니다. Unsplash나 Pexels 같은 사진 사이트는 AI 도구가 사진을 고르는 것을 약관으로 막고 있어서 쓰지 않는다고 밝혔습니다.</p>
+        <p>다만 비용이 아예 없는 건 아닙니다. 페이지를 실제로 만드는 건 내가 쓰는 클로드 코드나 코덱스라서, 그 도구의 구독 사용량이나 API 요금은 평소처럼 나갑니다. Hallmark는 히어로를 먼저 따로 만들어 검사하고, 끝에 별도 하위 에이전트가 처음 보는 눈으로 다시 보는 순서라 간단한 페이지 하나에도 요청이 여러 번 오갑니다. 또 TOGETHER_API_KEY 환경변수를 넣어 두면 시안 이미지 생성(FLUX.1.1 pro) 단계가 켜지는데, 이건 Together AI 쪽 사용 요금이 따로 듭니다. 키를 넣지 않으면 이 단계는 아예 건너뜁니다.</p>
+        <p>기존 사이트는 이름을 불러야만 손댑니다. /hallmark redesign 경로를 주면 글과 링크, 폼 연결은 그대로 두고 생김새만 다시 만들고, /hallmark audit 경로는 고치지 않고 보고서만 냅니다. 리디자인 전에는 링크와 입력칸, 제목을 기록해 두고 끝난 뒤 하나라도 빠지면 실패로 처리합니다.</p>
+        <p>비슷한 도구로는 같은 주에 별 1만 1천 개를 받은 Impeccable(pbakaus/impeccable), Anthropic의 frontend-design 플러그인, taste-skill이 있습니다. Hallmark README도 이 셋을 참고했다고 밝힙니다. 스킬은 에이전트에게 파일을 읽고 명령을 실행하게 하는 지침이라, 어떤 스킬이든 설치 전에 저장소의 SKILL.md와 scripts 폴더를 한 번 열어 무엇을 실행하는지 보는 습관이 안전합니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-4">[4]</a> <a href="#source-5">[5]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://github.com/Nutlope/hallmark" target="_blank" rel="noopener noreferrer">
+            <strong>Nutlope/hallmark (GitHub)</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://www.usehallmark.com/" target="_blank" rel="noopener noreferrer">
+            <strong>Hallmark 공식 사이트</strong>
+            <span>usehallmark.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://x.com/nutlope/status/2113316017510191578" target="_blank" rel="noopener noreferrer">
+            <strong>Hallmark v2 발표 (X, @nutlope)</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/SKILL.md" target="_blank" rel="noopener noreferrer">
+            <strong>Hallmark SKILL.md</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/comp.md" target="_blank" rel="noopener noreferrer">
+            <strong>Hallmark 이미지 생성 시안 문서(comp.md)</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-6">
+          <a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener noreferrer">
+            <strong>pbakaus/impeccable</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-7">
+          <a href="https://github.com/Nutlope/hallmark/tree/main/skills/hallmark/scripts" target="_blank" rel="noopener noreferrer">
+            <strong>Hallmark scripts 폴더</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-8">
+          <a href="https://github.com/Nutlope/hallmark/tree/main/skills/hallmark/references/themes" target="_blank" rel="noopener noreferrer">
+            <strong>Hallmark 테마 폴더</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/postman-agent-plugin-auto-install-remove-2026/">
+            <span class="related-cat">보안</span>
+            <strong>Postman 플러그인 자동 설치 논란: 클로드 코드와 코덱스에서 찾고 지우는 방법</strong>
+            <span>게시 2026년 11월 4일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/cursor-claude-code-extension-backdoor-2026/">
+            <span class="related-cat">보안</span>
+            <strong>커서 클로드 코드 확장 변조 사고: 2.1.313 설치 여부 확인과 백도어 제거 방법</strong>
+            <span>게시 2026년 10월 31일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/omnidiff-install-structural-git-diff-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>OmniDiff 설치와 사용법: 코드 구조를 읽는 diff, WSL 실행과 Git 연결</strong>
+            <span>게시 2026년 11월 3일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/Nutlope/hallmark#install" target="_blank" rel="noopener noreferrer">
+
+        <strong>Hallmark 설치 안내</strong>
+        <span class="rail-desc">npx skills add 명령, --agent 옵션, 플러그인 설치와 클론 설치 방법.</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://www.usehallmark.com/" target="_blank" rel="noopener noreferrer">
+
+        <strong>Hallmark 테마 50개 보기</strong>
+        <span class="rail-desc">테마별 예시 페이지와 같은 요청 비교.</span>
+        <span class="rail-host">usehallmark.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/SKILL.md#the-floor" target="_blank" rel="noopener noreferrer">
+
+        <strong>Hallmark 바닥 규칙(SKILL.md)</strong>
+        <span class="rail-desc">어떤 경우에도 지키는 규칙 16개와 sloplint 실행 순서.</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/hallmark-ai-design-skill-sloplint-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </body>
+</html>
