@@ -1,0 +1,294 @@
+{
+  "slug": "hn-agentic-setup-subscriptions-2026",
+  "title": "AI 구독 조합 2026: 해커뉴스 개발자 275명이 답한 클로드, 코덱스, 딥시크 쓰는 법",
+  "summary": "해커뉴스 Ask HN 스레드에 개발자들이 지금 돈 내고 쓰는 AI 구독과 도구를 적었습니다. 최상위 댓글 275개를 세어 보니 클로드 이름이 64%에서 나왔고, 코덱스와 같이 쓰는 사람과 딥시크, GLM 같은 싼 모델로 잡일을 돌리는 사람이 많았습니다.",
+  "category": "트렌드",
+  "announcedAt": "2026-11-04",
+  "publishedAt": "2026-11-05T21:32:00+09:00",
+  "verifiedAt": "2026-11-05T21:32:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "AI 구독",
+    "클로드 코드",
+    "코덱스",
+    "딥시크",
+    "오픈라우터",
+    "OpenCode",
+    "해커뉴스",
+    "AI 에이전트"
+  ],
+  "editorNote": "Ask HN 스레드의 최상위 댓글 275개를 직접 모아 도구 이름이 나온 횟수를 세고, 오픈라우터 사용량 순위와 함께 읽었습니다.",
+  "keyPoints": [
+    "가장 흔한 조합: 최상위 댓글 275개 중 175개(64%)가 클로드를, 105개(38%)가 코덱스나 챗GPT를 꺼냈고, 둘을 함께 적은 댓글도 89개였다. 클로드 코드로 만들고 코덱스로 검토하는 식의 역할 나누기가 많았다",
+    "싼 모델로 잡일: 딥시크, GLM, 큐원, 키미, 미니맥스 같은 중국계 모델 이름이 101개 댓글에 나왔다. 오픈라우터 주간 사용량 1위도 딥시크 V4.1 Flash 1017(57.6조 토큰)이었다",
+    "도구와 반대편: 기본 CLI 말고는 OpenCode(58개)와 pi가 많이 나왔고, 로컬 모델은 43개, 샌드박스나 가상머신 얘기는 26개 댓글에 있었다. AI를 안 쓴다고 답한 사람도 12명 있었다"
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함.",
+    "xPosts": []
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-05T21:32:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://news.ycombinator.com/item?id=50366117",
+        "assetUrl": "https://bluebworks.com/assets/editorial/hn-agentic-setup-subscriptions-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with cropped screenshot of public OpenRouter rankings page for commentary",
+        "reason": "글 주제와 사용량 순위를 함께 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://news.ycombinator.com/item?id=50366117",
+        "assetUrl": "https://bluebworks.com/assets/editorial/hn-agentic-setup-subscriptions-2026-question.webp",
+        "decision": "included",
+        "rightsBasis": "Cropped screenshot of public Hacker News thread for commentary",
+        "reason": "스레드 질문 다섯 개를 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://openrouter.ai/rankings",
+        "assetUrl": "https://bluebworks.com/assets/editorial/hn-agentic-setup-subscriptions-2026-openrouter-leaderboard.webp",
+        "decision": "included",
+        "rightsBasis": "Cropped screenshot of public OpenRouter rankings page for commentary",
+        "reason": "주간 모델 사용량 상위 10개를 보여 주는 공식 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://openrouter.ai/rankings",
+        "assetUrl": "https://bluebworks.com/assets/editorial/hn-agentic-setup-subscriptions-2026-openrouter-chart.webp",
+        "decision": "included",
+        "rightsBasis": "Cropped screenshot of public OpenRouter rankings page for commentary",
+        "reason": "1년 동안 주간 토큰 사용량이 늘어난 흐름을 보여 주는 공식 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://opencode.ai/",
+        "assetUrl": "https://opencode.ai/",
+        "decision": "excluded",
+        "rightsBasis": "Official product page",
+        "reason": "제품 소개 문구는 본문으로 설명하고 화면은 넣지 않음."
+      }
+    ]
+  },
+  "image": "https://bluebworks.com/assets/editorial/hn-agentic-setup-subscriptions-2026-thumb.png",
+  "imageSourceUrl": "https://news.ycombinator.com/item?id=50366117",
+  "imageAlt": "개발자들 AI 구독 조합. 클로드와 코덱스는 같이 쓰고 잡일은 딥시크, GLM으로. 오른쪽에 오픈라우터 주간 모델 사용량 순위 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "오픈라우터 주간 사용량 순위와 해커뉴스 댓글 집계",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "해커뉴스 AI 에이전트 세팅 스레드에서 물은 것",
+      "paragraphs": [
+        "11월 4일 해커뉴스에 \"지금 AI 에이전트 세팅이 어떻게 되나요\"라는 Ask HN 글이 올라왔습니다. 글쓴이는 다섯 가지를 물었습니다. 돈 내고 쓰는 AI 구독과 요금제, 같은 회사 구독을 두 개 이상 샀는지, 구독 밖에서 쓰는 API나 오픈라우터나 로컬 모델, 어떤 코딩 도구를 쓰는지, 여러 에이전트를 묶어 돌리는 도구나 OpenClaw, Hermes Agent 같은 개인 비서형 플랫폼을 쓰는지입니다.",
+        "하루 만에 점수가 370점을 넘었고 댓글은 400개를 넘겼습니다. 해커뉴스 첫 화면에 하루 종일 걸려 있던 글이라, 지금 해외 개발자들이 실제로 어디에 돈을 쓰는지 한 번에 볼 수 있는 자료가 됐습니다. 글쓴이 스스로도 1년 전과 일하는 방식이 크게 달라져서 지금 모습을 남겨 두고 싶었다고 적었습니다.",
+        "11월 5일 밤 기준으로 대댓글을 뺀 최상위 댓글 275개를 모아 도구와 모델 이름이 나온 댓글 수를 세어 봤습니다. 이름이 나왔다고 모두 그 도구를 쓴다는 뜻은 아닙니다. 그만 썼다는 얘기도 섞여 있으니 숫자는 관심이 어디에 몰렸는지 보는 정도로 읽으면 됩니다. 한 댓글에 여러 이름이 있으면 각각 하나로 셌습니다."
+      ],
+      "sourceRefs": [
+        1
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/hn-agentic-setup-subscriptions-2026-question.webp",
+          "alt": "해커뉴스 Ask HN: What's your current AI agentic setup? 글. 377 points, 419 comments, 질문 1번부터 5번까지",
+          "caption": "구독, 구독 밖 모델, 코딩 도구, 에이전트 묶음 도구, 개인 비서 플랫폼까지 다섯 가지를 물었다.",
+          "credit": "Hacker News",
+          "sourceUrl": "https://news.ycombinator.com/item?id=50366117",
+          "width": 1325,
+          "height": 810
+        }
+      ]
+    },
+    {
+      "title": "가장 많이 나온 조합: 클로드 코드와 코덱스를 같이 쓰기",
+      "paragraphs": [
+        "클로드는 275개 중 175개 댓글에 나와 압도적이었습니다. 오푸스, 소네트 같은 모델 이름까지 합친 숫자입니다. 코덱스나 챗GPT를 꺼낸 댓글은 105개였고, 둘을 같은 댓글에 함께 적은 경우가 89개였습니다. 한쪽만 고르기보다 두 회사 구독을 같이 두는 사람이 꽤 많다는 뜻입니다.",
+        "나누는 방식은 비슷했습니다. 한 사용자는 회사에서 클로드 코드와 코덱스 구독을 같이 받는데, 코덱스는 주로 코드 검토와 두 번째 의견, 막혔을 때 예비로 쓴다고 했습니다. 다른 사용자는 챗GPT Pro 두 개와 클로드 Max 하나를 쓰면서 클로드에게 여러 코덱스 에이전트를 지휘시키고 마지막 검토까지 맡긴다고 적었습니다. 오픈라우터로 다른 모델도 써 보지만 지금은 한도 초기화 덕분에 챗GPT 쪽이 값어치가 낫다는 말도 붙였습니다.",
+        "같은 회사 구독을 두 개 이상 산 사람도 여럿 보였습니다. 클로드 Ultra 계정 세 개를 쓰는 이유를 \"Fable을 충분히 쓰려고\"라고 밝힌 댓글도 있었습니다. 반대로 은퇴하고 개인 프로젝트만 한다는 사람은 클로드 Pro 월 20달러 하나만 쓴다고 했고, 오푸스 5.5 하나로 거의 모든 일을 한다는 사용자는 \"클로드에게 에이전트를 알아서 띄우게 하는 것 말고는 따로 묶는 도구를 안 쓴다\"고 했습니다.",
+        "요금제 이름은 Max, Ultra, Pro, Plus가 고루 나왔습니다. 클로드 Ultra는 기존 Max 20x가 이름을 바꾼 월 200달러 요금제입니다. 챗GPT 쪽은 월 20달러 Plus부터 Pro까지 다양했습니다. 한 사람이 쓰는 돈은 월 20달러부터 수백 달러까지 크게 벌어졌습니다."
+      ],
+      "sourceRefs": [
+        1
+      ],
+      "table": {
+        "caption": "최상위 댓글 275개 중 이름이 나온 댓글 수(11월 5일 밤 기준, 중복 포함)",
+        "headers": [
+          "이름",
+          "댓글 수",
+          "비율"
+        ],
+        "rows": [
+          [
+            "클로드(오푸스, 소네트 포함)",
+            "175",
+            "64%"
+          ],
+          [
+            "코덱스 또는 챗GPT",
+            "105",
+            "38%"
+          ],
+          [
+            "클로드와 코덱스를 함께",
+            "89",
+            "32%"
+          ],
+          [
+            "딥시크, GLM, 큐원, 키미, 미니맥스",
+            "101",
+            "37%"
+          ],
+          [
+            "OpenCode",
+            "58",
+            "21%"
+          ],
+          [
+            "오픈라우터",
+            "47",
+            "17%"
+          ],
+          [
+            "로컬 모델",
+            "43",
+            "16%"
+          ],
+          [
+            "커서",
+            "17",
+            "6%"
+          ],
+          [
+            "깃허브 코파일럿",
+            "15",
+            "5%"
+          ],
+          [
+            "AI 안 씀",
+            "12",
+            "4%"
+          ]
+        ]
+      },
+      "links": [
+        {
+          "label": "클로드 울트라 요금제: 월 200달러 유지와 5시간 제한 해제 조건",
+          "url": "https://bluebworks.com/articles/claude-ultra-max-pricing-limits-2026/"
+        },
+        {
+          "label": "코덱스 한도 초기화권 사용법",
+          "url": "https://bluebworks.com/articles/codex-banked-reset-how-to-use-2026/"
+        }
+      ]
+    },
+    {
+      "title": "구독 대신 싼 모델로: 딥시크와 GLM이 오픈라우터 1위",
+      "paragraphs": [
+        "두 번째로 눈에 띈 흐름은 비싼 구독 밖에서 싼 모델을 같이 쓰는 방식입니다. 딥시크, GLM, 큐원, 키미, 미니맥스 같은 중국계 모델 이름이 나온 댓글이 101개였습니다. 딥시크만 52개, 큐원 41개, GLM 32개였습니다.",
+        "이 흐름은 오픈라우터 순위에서도 그대로 보입니다. 오픈라우터는 여러 회사 모델을 API 하나로 묶어 파는 서비스이고, 사이트에 실제 처리한 토큰 양으로 모델 순위를 공개합니다. 11월 4일까지 한 주 동안 1위는 딥시크 V4.1 Flash 1017로 57.6조 토큰이었고, 2위가 딥시크 V4.1 Flash(16.2조), 3위가 GLM 5.3 Flash(15.9조)였습니다. 클로드 오푸스 5.5는 6.81조로 6위였습니다.",
+        "댓글에서 나온 이유는 대부분 값입니다. 한 사용자는 Z.ai의 가벼운 구독을 월 9달러쯤 내고 몇 달째 GLM 5.3 Flash만 거의 쓰고 있으며, 구독 토큰이 떨어지면 딥시크 크레딧으로 넘어간다고 했습니다. 다른 사용자는 딥시크 Flash가 아주 싸고 공개 모델 가운데 최상위권과 비슷하지만, 폐쇄형 최상위 모델과 비교하면 대충 맞는 글을 길게 쓰는 편이라고 평했습니다. 클로드가 거절하는 개인 작업이 있어서 딥시크나 GLM으로 돌린다는 댓글도 있었습니다.",
+        "걱정하는 목소리도 함께 나왔습니다. 딥시크를 쓰는 사람들에게 중국 밖에서 데이터를 남기지 않는 제공자를 쓰는지 묻는 댓글이 따로 달렸습니다. 같은 모델이라도 어느 회사 서버를 거치느냐에 따라 데이터 보관 정책이 달라지니, 회사 코드나 개인 정보가 들어가는 작업이라면 오픈라우터에서 제공자별 정책을 먼저 보고 고르는 편이 안전합니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/hn-agentic-setup-subscriptions-2026-openrouter-leaderboard.webp",
+          "alt": "오픈라우터 LLM Leaderboard 이번 주. 1위 DeepSeek V4.1 Flash 1017 57.6T tokens, 2위 DeepSeek V4.1 Flash 16.2T, 3위 GLM 5.3 Flash 15.9T, 4위 GPT-6 Luna 8.95T, 6위 Claude Opus 5.5 6.81T",
+          "caption": "주간 사용량 1~3위가 모두 딥시크와 GLM의 Flash 모델이다.",
+          "credit": "OpenRouter",
+          "sourceUrl": "https://openrouter.ai/rankings",
+          "width": 1560,
+          "height": 675
+        }
+      ]
+    },
+    {
+      "title": "코딩 도구: 기본 CLI가 대세, 대안은 OpenCode와 pi",
+      "paragraphs": [
+        "도구는 회사가 주는 기본 프로그램이 가장 많았습니다. 클로드 구독은 클로드 코드로, 오픈AI 구독은 코덱스로 쓰는 식입니다. VS Code 확장으로 쓰는 사람도 있었고, 터미널 화면을 여러 개로 나눠 tmux로 세션을 돌리는 사람도 11명 정도 보였습니다.",
+        "기본 도구 말고 가장 많이 나온 이름은 OpenCode였습니다. 58개 댓글에 나왔습니다. OpenCode는 터미널, 데스크톱 앱, 편집기 확장으로 쓰는 오픈소스 코딩 에이전트입니다. 공식 사이트에 따르면 계정 없이 쓰는 무료 모델이 들어 있고, 챗GPT Plus나 Pro, 깃허브 코파일럿 계정으로 로그인해 기존 구독을 쓸 수 있으며, 75개가 넘는 모델 제공자와 로컬 모델에도 붙습니다. 프로그램 자체는 무료이고 MIT 라이선스입니다.",
+        "그다음은 pi였습니다. 가볍고 확장하기 쉬워서 쓸데없는 출력이 적다는 평이 많았고, 직접 만든 확장을 붙여 쓰는 사람도 있었습니다. 한 사용자는 노트북에서 큐원 모델을 초당 60토큰으로 돌리면서 손본 pi로 쓰고, 그래픽카드를 비워야 할 때는 OpenCode의 무료 모델로 넘어간다고 했습니다.",
+        "자기 도구를 직접 만든 사람도 적지 않았습니다. 여러 프로젝트를 동시에 다루려고 git 작업 폴더를 나눠 주는 Conductor를 쓴다는 댓글이 있었는데, 같은 날 해커뉴스에는 Conductor가 메타에 합류한다는 소식도 올라왔습니다. 커서는 17개, 코파일럿은 15개 댓글에만 나와 이 스레드에서는 존재감이 작았습니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ]
+    },
+    {
+      "title": "로컬 모델, 샌드박스, 그리고 AI를 안 쓰는 사람들",
+      "paragraphs": [
+        "구독을 아예 끊고 로컬로 옮긴 사람도 있었습니다. 로컬 모델 얘기는 43개 댓글에서 나왔습니다. 한 사용자는 메모리 64GB 맥북 M1 Max로 글, 코드, 그림, 영상, 음악 생성까지 모두 로컬에서 돌려 1년 넘게 AI 구독료를 내지 않았다고 적었습니다. 다만 같은 사양으로 OpenClaw를 돌려 보니 27B 크기 모델이 한계였다는 다른 댓글도 있어서, 무엇을 돌리느냐에 따라 체감이 꽤 다릅니다.",
+        "에이전트에게 권한을 얼마나 줄지도 자주 나온 주제입니다. 샌드박스, 가상머신, 컨테이너 얘기가 26개 댓글에 있었습니다. 한 사용자는 nono라는 도구로 네트워크와 파일 접근을 막고, 서비스마다 에이전트 전용 API 키를 따로 만들어 권한을 최소로 줄인다고 했습니다. 다른 사용자는 클로드가 SSH 키를 쓰려는 것을 보고 놀라서 키를 쓸 때마다 확인을 묻는 키 관리 도구로 옮겼다고 했습니다.",
+        "OpenClaw, Hermes Agent 같은 개인 비서형 플랫폼은 평이 갈렸습니다. 조건이 생기면 알아서 일을 처리하는 용도로 모든 일을 OpenClaw로 옮겼다는 사람이 있는 반면, 진짜 일을 맡기면 무너져서 그만뒀다는 사람도 있었습니다. 에이전트끼리 서로 메시지를 주고받을 수 있게 된 뒤로는 복잡한 묶음 도구 없이 오푸스 하나와 대화한다는 댓글도 눈에 띄었습니다.",
+        "반대쪽 목소리도 분명했습니다. 다섯 질문에 전부 \"없음\"이라고 답한 댓글이 여럿 있었고, 아직 한 글자씩 직접 코드를 친다는 사람도 있었습니다. 여러 구독을 자랑할 뿐 무엇에 쓰는지는 말하지 않는다는 비판 댓글도 있었습니다."
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "내 AI 구독 조합을 고를 때 이 스레드에서 가져갈 점",
+      "paragraphs": [
+        "이 스레드를 그대로 따라 할 필요는 없습니다. 댓글 쓴 사람 상당수는 회사에서 구독료를 내 주는 개발자이고, 월 수백 달러를 쓰는 사람은 일부입니다. 그래도 개인이 참고할 만한 흐름은 분명합니다.",
+        "처음이라면 월 20달러짜리 구독 하나로 시작하고, 손에 맞는 회사의 기본 도구를 먼저 쓰는 쪽이 많았습니다. 한도가 자주 막히면 같은 회사 상위 요금제로 올리기 전에 다른 회사 20달러 구독을 하나 더 두고 검토용으로 쓰는 방법이 이 스레드에서 가장 흔한 답이었습니다.",
+        "반복 작업이나 대량 처리라면 오픈라우터 같은 곳에서 딥시크나 GLM Flash를 사용량만큼 쓰는 방법이 있습니다. 위 순위에서 보듯 이미 많은 사람이 그렇게 쓰고 있습니다. 대신 회사 코드나 개인 정보가 들어가면 제공자의 데이터 보관 정책부터 보고, 에이전트에게 넘기는 키와 폴더는 따로 떼어 두는 편이 좋습니다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        3
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/hn-agentic-setup-subscriptions-2026-openrouter-chart.webp",
+          "alt": "오픈라우터 주간 토큰 사용량 막대그래프. 2025년 11월 3일부터 2026년 10월 말까지 꾸준히 늘어 200조 토큰 가까이 됨",
+          "caption": "1년 사이 오픈라우터를 거치는 주간 토큰 양이 크게 늘었다.",
+          "credit": "OpenRouter",
+          "sourceUrl": "https://openrouter.ai/rankings",
+          "width": 1530,
+          "height": 544
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Ask HN: What's your current AI agentic setup? (Hacker News)",
+      "url": "https://news.ycombinator.com/item?id=50366117",
+      "description": "질문 원문과 최상위 댓글 275개. 구독, 모델, 도구, 묶음 도구, 개인 비서 플랫폼 답변."
+    },
+    {
+      "name": "OpenRouter AI Model Rankings",
+      "url": "https://openrouter.ai/rankings",
+      "description": "실제 처리한 토큰 양 기준 모델 순위. 이번 주와 이번 달 사용량, 변화율."
+    },
+    {
+      "name": "OpenCode 공식 사이트",
+      "url": "https://opencode.ai/",
+      "description": "오픈소스 코딩 에이전트 소개. 무료 모델, 챗GPT와 코파일럿 구독 로그인, 75개 이상 제공자, MIT 라이선스."
+    }
+  ],
+  "resources": [
+    {
+      "name": "OpenCode 문서",
+      "url": "https://opencode.ai/docs",
+      "description": "설치와 모델 제공자 연결 방법."
+    },
+    {
+      "name": "오픈라우터 모델 목록",
+      "url": "https://openrouter.ai/models",
+      "description": "모델별 가격과 제공자, 데이터 정책을 비교하는 페이지."
+    },
+    {
+      "name": "해커뉴스 Ask HN 목록",
+      "url": "https://news.ycombinator.com/ask",
+      "description": "개발자들이 질문을 올리고 경험을 나누는 게시판."
+    }
+  ]
+}
