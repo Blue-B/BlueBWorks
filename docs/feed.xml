@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 05 Nov 2026 00:46:10 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 06:45:00 GMT</lastBuildDate>
+    <item>
+      <title>agent-desktop 사용법: AI가 윈도우 프로그램을 스크린샷 없이 누르는 컴퓨터 유즈 도구 설치와 실행 결과</title>
+      <link>https://bluebworks.com/articles/agent-desktop-computer-use-windows-install-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/agent-desktop-computer-use-windows-install-2026/</guid>
+      <pubDate>Thu, 05 Nov 2026 06:45:00 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>버셀 랩스가 공개한 agent-desktop은 AI 에이전트가 화면을 찍지 않고 버튼 이름으로 데스크톱 앱을 조작하게 해 주는 무료 도구입니다. 윈도우 11에서 설치하고 계산기와 메모장을 움직여 본 결과, 막히는 명령과 클로드 코드에 붙이는 방법을 정리했습니다.</description>
+    </item>
     <item>
       <title>챗GPT GIF 만들기: Images 2.6 움짤 만드는 법과 재생 속도, 프레임 하나만 고치는 편집</title>
       <link>https://bluebworks.com/articles/chatgpt-gif-images-2-6-how-to-2026/</link>
