@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bluebworks.com/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.com/articles/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.com/about.html</loc>
@@ -16,6 +16,10 @@
   </url>
   <url>
     <loc>https://bluebworks.com/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://bluebworks.com/articles/chatgpt-gif-images-2-6-how-to-2026/</loc>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.com/articles/gemini-keep-activity-training-opt-out-2026/</loc>
