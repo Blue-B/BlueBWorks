@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 05 Nov 2026 12:32:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 00:38:05 GMT</lastBuildDate>
+    <item>
+      <title>제미나이 옴니 1.2 플래시 15초 영상: 구글 Vids 무료 3개 만드는 법과 API 요금</title>
+      <link>https://bluebworks.com/articles/gemini-omni-1-2-flash-vids-free-15s-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/gemini-omni-1-2-flash-vids-free-15s-2026/</guid>
+      <pubDate>Fri, 06 Nov 2026 00:38:05 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>구글이 영상 생성 모델 제미나이 옴니 1.2 플래시를 내놓으면서 구글 계정만 있으면 Vids에서 15초 영상을 한 달에 최대 3개까지 추가 비용 없이 만들 수 있게 됐습니다. Vids에서 만드는 순서와 무료 한도, 제미나이 앱 제공 범위, API 요금을 정리했습니다.</description>
+    </item>
     <item>
       <title>AI 구독 조합 2026: 해커뉴스 댓글 275개로 본 클로드, 코덱스, 딥시크 쓰는 법</title>
       <link>https://bluebworks.com/articles/hn-agentic-setup-subscriptions-2026/</link>
