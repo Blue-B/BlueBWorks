@@ -1,0 +1,305 @@
+{
+  "slug": "pjit-21k-open-source-image-model-demo-2026",
+  "title": "오픈소스 이미지 생성 모델 P-JiT 21K: 2만 1천 달러로 학습한 2B 모델, 무료 데모로 그려 본 결과",
+  "summary": "두 명이 운영하는 연구소 리넘이 학습비 21,038달러로 만든 이미지 생성 모델 P-JiT 21K의 가중치와 코드를 Apache 2.0으로 공개했습니다. 허깅페이스 데모로 로그인 없이 세 장을 그려 본 결과와 글자를 못 쓰는 한계, 내 컴퓨터에서 돌릴 때 필요한 GPU를 정리했습니다.",
+  "category": "오픈소스",
+  "announcedAt": "2026-11-04",
+  "publishedAt": "2026-11-06T15:39:00+09:00",
+  "verifiedAt": "2026-11-06T15:39:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "P-JiT 21K",
+    "Linum",
+    "오픈소스 이미지 생성 모델",
+    "이미지 생성 AI 무료",
+    "허깅페이스",
+    "ZeroGPU",
+    "Apache 2.0"
+  ],
+  "editorNote": "허깅페이스 데모에서 고양이, 떡볶이, 카페 간판 세 가지를 직접 그려 본 결과를 바탕으로 썼습니다.",
+  "keyPoints": [
+    "학습비: 리넘은 사전 학습 20,348달러와 후속 학습 690달러를 합쳐 21,038달러(H100 8,415시간)로 2B 크기 이미지 모델을 처음부터 학습했고, 가중치와 코드를 Apache 2.0으로 풀었다",
+    "써 보는 법: 허깅페이스 데모 페이지에서 로그인 없이 영어 문장을 넣으면 한 장에 10~20초 걸렸다. 로그인하지 않은 상태의 하루 무료 GPU 시간은 2분이라 세 장 만들고 한도에 걸렸다",
+    "한계: 간판 글자는 알아볼 수 없는 문자로 나왔고, 공식 안내도 글자와 포스터, 전신, 여러 사람이 함께 있는 장면은 약하다고 밝힌다. 내 컴퓨터에서 돌리려면 엔비디아 GPU가 필요하다"
+  ],
+  "sections": [
+    {
+      "title": "P-JiT 21K가 화제가 된 이유: 학습비 2만 1천 달러",
+      "paragraphs": [
+        "이미지 생성 AI라고 하면 보통 큰 회사가 수천 장의 GPU로 만든 모델을 떠올립니다. 11월 5일(한국 시간) 해커뉴스 Show HN에 올라온 P-JiT 21K는 반대쪽 이야기입니다. 형제 둘이 운영하는 작은 연구소 리넘(Linum)이 이미지 생성 모델 하나를 처음부터 학습하는 데 든 계산 비용을 21,038달러로 공개했고, 그 결과물의 가중치와 코드까지 Apache 2.0 라이선스로 풀었습니다. 11월 6일 환율로 치면 2,800만 원 정도입니다.",
+        "비용 내역도 숫자로 나와 있습니다. 512픽셀 해상도로 6억 1천만 장, 이어서 1024픽셀로 5천만 장을 보여 주는 사전 학습에 H100 8,139시간이 들었고, 결과를 다듬는 후속 학습에 276시간이 더 들었습니다. H100 한 대를 한 시간 빌리는 값을 2.5달러로 잡아 계산하면 사전 학습 20,348달러, 후속 학습 690달러입니다. 사전 학습은 H100 64대로 돌렸고 중간에 다시 시작한 비용까지 포함한 값이라고 적혀 있습니다.",
+        "모델 크기는 이미지를 그리는 본체가 약 22억 개(2.18B) 파라미터이고, 사용자가 넣은 문장을 이해하는 부분은 알리바바의 Qwen3.5-4B를 그대로 가져다 씁니다. 리넘이 이 모델을 만든 목적은 이미지 서비스가 아니라 다음 영상 생성 모델로 가는 중간 실험입니다. 그래서 공식 저장소도 제품용이 아닌 연구용 체크포인트라고 먼저 경고하고, 크기에 비해 결과가 생각보다 좋아서 공개했다고 설명합니다.",
+        "해커뉴스 글은 196점을 받았고 댓글은 17개가 달렸습니다. 11월 6일에는 일본어와 중국어 X 계정들도 '2인 연구소가 2만 달러로 만든 이미지 모델'이라는 각도로 이 소식을 나르고 있습니다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        6
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-cost.webp",
+          "alt": "리넘 블로그의 비용 표. PRETRAINING 20,348달러(8,139 H100-hours x 2.50달러), POST-TRAINING 690달러(276 H100-hours), TOTAL 21,038달러(8,415 H100-hours), 아래에 pretraining on 64 H100s, restarts included",
+          "caption": "사전 학습과 후속 학습을 합친 계산 비용이 21,038달러다.",
+          "credit": "Linum",
+          "sourceUrl": "https://www.linum.ai/field-notes/pjit-21k",
+          "width": 1032,
+          "height": 854
+        }
+      ]
+    },
+    {
+      "title": "허깅페이스 데모로 로그인 없이 써 보는 법",
+      "paragraphs": [
+        "가장 쉬운 방법은 허깅페이스에 올라온 데모 페이지입니다. hugging-apps-pjit-21k.hf.space에 들어가면 입력칸 하나와 Generate 버튼, 화면 비율 다섯 개가 보입니다. 비율은 정사각형 1024x1024, 세로 864x1216, 4:3 1152x864, 3:2 1248x832, 16:9 1280x720 중에서 고릅니다. 모델이 학습할 때 본 크기가 이 다섯 가지뿐이라 다른 크기는 고를 수 없게 되어 있습니다.",
+        "입력은 영어가 기본입니다. 짧게 'a tabby cat napping on a sunny windowsill'처럼 넣어도 되는데, 데모가 이 짧은 문장을 Qwen3.5-4B로 50~80단어짜리 긴 묘사로 늘려서 모델에 넘깁니다. 모델이 그런 긴 설명문으로 학습됐기 때문입니다. 실제로 모델이 받은 문장은 결과 아래 'Caption the model saw' 칸에 그대로 나와서, 내가 쓴 한 줄이 어떻게 바뀌었는지 볼 수 있습니다.",
+        "첫 장은 GPU를 붙이는 시간까지 포함해 20초 남짓 걸렸고, 그다음부터는 10초 안팎이면 그림이 나왔습니다. 문제는 횟수입니다. 이 데모는 허깅페이스의 무료 공유 GPU인 ZeroGPU 위에서 돌아가는데, 로그인하지 않은 방문자는 하루 GPU 시간이 2분으로 정해져 있습니다. 실제로 세 장을 만들고 네 번째를 누르자 'exceeded your ZeroGPU runs limit' 오류가 떴습니다.",
+        "더 그려 보고 싶다면 허깅페이스 무료 계정으로 로그인하는 것이 첫 번째 방법입니다. 공식 안내 기준으로 무료 계정은 하루 5분, 월 구독인 PRO 계정은 40분이고, 한도는 처음 GPU를 쓴 시점에서 정확히 24시간 뒤에 다시 채워집니다."
+      ],
+      "sourceRefs": [
+        4,
+        5
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-demo.webp",
+          "alt": "P-JiT 21K 허깅페이스 데모 화면. 위에 영어 프롬프트 입력칸과 주황색 Generate 버튼, 화면 비율 선택에서 16:9 1280x720이 선택되어 있고 아래에 창턱에 엎드린 줄무늬 고양이 그림이 나와 있다",
+          "caption": "프롬프트를 넣고 비율을 고른 뒤 Generate를 누르면 아래에 그림이 나온다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+          "width": 1132,
+          "height": 1000
+        }
+      ],
+      "table": {
+        "headers": [
+          "계정 종류",
+          "하루 무료 GPU 시간",
+          "대기열 우선순위"
+        ],
+        "rows": [
+          [
+            "로그인 안 함",
+            "2분",
+            "낮음"
+          ],
+          [
+            "무료 계정",
+            "5분",
+            "보통"
+          ],
+          [
+            "PRO 계정",
+            "40분, 크레딧으로 연장 가능",
+            "가장 높음"
+          ]
+        ],
+        "caption": "허깅페이스 ZeroGPU 공식 안내의 계정별 하루 한도."
+      }
+    },
+    {
+      "title": "직접 그려 본 결과: 고양이는 사진 같고 떡볶이는 애매하다",
+      "paragraphs": [
+        "첫 번째로 넣은 문장은 '서울의 작은 아파트, 햇빛 드는 창턱에서 낮잠 자는 줄무늬 고양이, 화분, 오후 햇살'이었습니다. 결과는 꽤 그럴듯합니다. 고양이 털 무늬와 수염, 창턱 나무결, 바깥 건물이 흐리게 빠지는 느낌까지 사진처럼 나왔습니다. 2B 크기 모델이라는 점을 생각하면 리넘이 결과에 놀랐다고 쓴 이유가 짐작됩니다.",
+        "두 번째는 한국 음식을 시켜 봤습니다. '밤의 서울 포장마차에서 김이 나는 떡볶이와 어묵, 네온 불빛 반사'를 넣었더니 비 젖은 바닥에 비친 네온, 피어오르는 김 같은 분위기는 잘 살렸습니다. 그런데 그릇 안 음식은 떡볶이보다 양념 닭강정에 가까운 모양이었고, 어묵은 보이지 않았습니다. 간판 글자도 한자처럼 보이지만 읽을 수 없는 모양으로 나왔습니다.",
+        "공식 저장소가 약점으로 꼽은 항목 중 하나가 세상 지식입니다. 기타 줄이 여섯 개라는 것, 주사위 눈 개수 같은 것을 자주 틀린다고 적혀 있는데, 떡볶이가 어떻게 생겼는지 같은 지역 음식 지식도 같은 이유로 약할 가능성이 큽니다. 분위기 있는 사진이나 풍경은 기대해 볼 만하고, 특정 사물을 정확히 그려야 하는 용도에는 아직 맞지 않습니다."
+      ],
+      "sourceRefs": [
+        2,
+        4
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-cat.webp",
+          "alt": "P-JiT 21K로 만든 그림. 햇빛이 드는 창턱 위에 갈색과 검은 줄무늬 고양이가 엎드려 있고 왼쪽 창가에 화분들이 놓여 있다",
+          "caption": "짧은 영어 한 줄로 만든 첫 장. 털 무늬와 창턱 나무결이 자연스럽다.",
+          "credit": "BlueBWorks, P-JiT 21K로 생성",
+          "sourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-tteokbokki.webp",
+          "alt": "P-JiT 21K로 만든 그림. 밤거리 포장마차 앞 젖은 바닥 위 쟁반에 흰 그릇이 놓여 있고 빨간 양념을 입힌 덩어리가 담겨 있다. 위쪽 네온 간판 글자는 읽을 수 없는 모양이다",
+          "caption": "떡볶이를 시켰지만 닭강정에 가까운 모양이 나왔고 간판 글자는 뭉개졌다.",
+          "credit": "BlueBWorks, P-JiT 21K로 생성",
+          "sourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+          "width": 1280,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "title": "간판 글자를 시켜 보면: 글자를 못 쓰는 모델",
+      "paragraphs": [
+        "세 번째는 일부러 약점을 건드렸습니다. 문 위 나무 간판에 'BLUE COFFEE'라고 적힌 작은 카페를 그려 달라고 했습니다. 파란 문과 나무 간판, 아침 햇살은 문장대로 나왔지만 간판에는 알파벳처럼 생겼지만 읽을 수 없는 글자가 찍혔습니다. 데모가 늘린 설명문에도 '글자 자체는 그리지 않는다'는 문장이 따로 붙어 있었습니다.",
+        "이건 실수가 아니라 처음부터 그렇게 만든 결과입니다. 리넘은 영상 애니메이션 도구를 목표로 하기 때문에 인포그래픽, PDF, 책 페이지, 슬라이드, 포스터처럼 글자가 많은 이미지를 학습 데이터에서 일부러 뺐다고 밝혔습니다. 그래서 글자, 간판, 로고, 타이틀 카드, 포스터를 요구하는 프롬프트는 통하지 않는다고 저장소 첫 화면에 경고해 두었습니다. 저장소에 들어 있는 프롬프트 늘리기 도구는 이런 요청을 받으면 아예 text_requested 오류를 돌려주도록 되어 있습니다.",
+        "공식 안내가 함께 꼽은 약점은 전신 사진, 자동차 여섯 대나 군중처럼 대상이 많은 장면, 여러 사람이 서로 무언가를 하는 장면입니다. 더 큰 7B 크기로 키우고 후속 학습을 늘리면 나아질 것이라고 보고 있습니다. 썸네일이나 카드뉴스처럼 글자가 들어가야 하는 이미지는 이 모델로 만들기 어렵고, 배경 사진이나 분위기 이미지를 뽑은 뒤 글자는 따로 얹는 방식이 현실적입니다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        3
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-sign.webp",
+          "alt": "P-JiT 21K로 만든 그림. 파란 문이 달린 작은 가게 정면, 문 위 나무 간판에 BLUE COFFEE 대신 알파벳 모양의 의미 없는 글자가 붙어 있다",
+          "caption": "BLUE COFFEE라고 쓰라고 했지만 간판 글자는 읽을 수 없게 나왔다.",
+          "credit": "BlueBWorks, P-JiT 21K로 생성",
+          "sourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+          "width": 1024,
+          "height": 1024
+        }
+      ]
+    },
+    {
+      "title": "내 컴퓨터에서 P-JiT 21K 돌리려면 필요한 것",
+      "paragraphs": [
+        "데모 한도가 답답하면 직접 받아서 돌리는 방법이 있습니다. 다만 일반 노트북으로는 어렵습니다. 공식 저장소는 CUDA를 쓰는 엔비디아 GPU가 꼭 필요하다고 적고 있고, 모델 가중치만 fp32 기준 8.7GB, 문장을 읽는 Qwen3.5-4B가 bf16 기준 8GB이며 계산 중에 쓰는 메모리가 따로 더 듭니다. 가중치와 Qwen 모델은 처음 실행할 때 허깅페이스에서 자동으로 내려받습니다.",
+        "설치는 저장소를 받아 파이썬 가상환경에 설치하는 순서입니다. 처음 실행할 때 작은 CUDA 코드를 컴파일하기 때문에 리눅스 기준으로 build-essential 같은 빌드 도구를 먼저 깔라고 안내합니다. 아래 명령은 공식 README의 시작 방법을 그대로 옮긴 것입니다.",
+        "한 가지 비용이 숨어 있습니다. generate.py는 기본값으로 짧은 프롬프트를 클로드 Opus 5.5에 보내 긴 설명문으로 바꾼 뒤 그림을 그리는데, 이 단계는 오픈라우터(OpenRouter)를 거치기 때문에 OPENROUTER_API_KEY가 있어야 하고 호출 요금도 오픈라우터 쪽에 붙습니다. 키 없이 쓰려면 --no_upsample을 붙이고, 50~80단어짜리 영어 설명문을 직접 써서 넣으면 됩니다. 허깅페이스 데모는 이 단계를 클로드 대신 Qwen3.5-4B로 처리합니다.",
+        "같은 시드 번호를 넣으면 어느 엔비디아 GPU에서든 거의 같은 그림이 나오도록 처음 노이즈를 H100과 똑같이 뽑게 맞춰 두었다는 점도 눈에 띕니다. 블로그에 실린 예시 그림들의 프롬프트와 시드가 README에 전부 적혀 있어서, 설치가 끝나면 그 그림부터 그대로 다시 만들어 보며 제대로 돌아가는지 볼 수 있습니다."
+      ],
+      "sourceRefs": [
+        2,
+        3
+      ],
+      "code": {
+        "language": "bash",
+        "text": "sudo apt-get install -y build-essential python3-dev python3-venv\ngit clone https://github.com/Linum-AI/pjit-21k && cd pjit-21k\npython3 -m venv .venv && source .venv/bin/activate\npip install -e .\n\n# API 키 없이: 긴 영어 설명문을 직접 넣고 프롬프트 늘리기 끄기\npython generate.py --no_upsample --aspect_ratio 16:9 --seeds 0 \\\n  --prompt \"<50~80단어 영어 설명문>\" --out_dir outputs\n\n# 짧은 프롬프트를 자동으로 늘리기(오픈라우터 키와 요금 필요)\nexport OPENROUTER_API_KEY=...\npython generate.py --prompt \"oil painting of weathered fisherman smoking a pipe\" \\\n  --aspect_ratio square --seeds 0 --out_dir outputs",
+        "caption": "공식 README의 설치와 실행 명령. 결과는 outputs 폴더에 시드 번호 이름으로 저장된다."
+      }
+    },
+    {
+      "title": "다른 이미지 생성 모델과 다른 점",
+      "paragraphs": [
+        "요즘 이미지 생성 모델 대부분은 그림을 바로 다루지 않고, VAE라는 별도 모델로 이미지를 작게 압축한 공간에서 그림을 만든 뒤 다시 풀어냅니다. 리넘은 이 압축 모델이 오히려 한계가 된다고 보고, 픽셀을 직접 다루는 방식(픽셀 공간 모델)을 택했습니다. 대신 모델 안에서 중간 단계마다 저해상도 그림을 미리 맞히게 해서 학습을 빠르게 했고, 이전 모델인 Linum v2보다 11배 적은 샘플로 수렴했다고 설명합니다.",
+        "독자 입장에서 의미 있는 차이는 두 가지입니다. 하나는 라이선스입니다. 가중치와 코드가 Apache 2.0이라 고쳐 쓰거나 서비스에 넣는 것이 라이선스상 열려 있습니다. 다만 문장을 읽는 Qwen3.5-4B는 따로 내려받는 모델이라 그쪽 조건도 함께 봐야 하고, 연구용 체크포인트라는 경고대로 품질이 고르지 않다는 점은 감안해야 합니다.",
+        "다른 하나는 비용 공개입니다. 대형 모델들은 학습비를 밝히지 않는 경우가 많은데, 이 모델은 GPU 시간과 단가, 데이터 양까지 숫자로 남겼습니다. 이미지 모델을 직접 학습해 보려는 팀에게는 '2만 달러 안팎이면 이 정도까지 된다'는 기준점이 생긴 셈입니다. 그냥 써 보고 싶은 사람에게는 로그인 없이 몇 장 그려 볼 수 있는 무료 데모가 가장 빠른 입구입니다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Training a Text-to-Image Model for $21K (Linum Field Notes)",
+      "url": "https://www.linum.ai/field-notes/pjit-21k",
+      "description": "학습 비용 내역, 구조, 후속 학습, 모델 한계를 설명한 리넘 공식 글."
+    },
+    {
+      "name": "Linum-AI/pjit-21k (GitHub)",
+      "url": "https://github.com/Linum-AI/pjit-21k",
+      "description": "설치와 실행 명령, GPU 요구 사항, 프롬프트 늘리기 도구, 한계, Apache-2.0 라이선스."
+    },
+    {
+      "name": "Linum-AI/pjit-21k (Hugging Face 모델 카드)",
+      "url": "https://huggingface.co/Linum-AI/pjit-21k",
+      "description": "가중치 배포 페이지와 연구용 체크포인트 경고, 글자 생성 불가 안내."
+    },
+    {
+      "name": "P-JiT 21K 데모 (Hugging Face Spaces)",
+      "url": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+      "description": "브라우저에서 바로 그려 보는 Gradio 데모, ZeroGPU로 실행."
+    },
+    {
+      "name": "Spaces ZeroGPU (Hugging Face Docs)",
+      "url": "https://huggingface.co/docs/hub/spaces-zerogpu",
+      "description": "계정 종류별 하루 GPU 한도와 재충전 시점."
+    },
+    {
+      "name": "Show HN: A decent text-to-image model trained for ~$20K",
+      "url": "https://news.ycombinator.com/item?id=50368208",
+      "description": "해커뉴스 공개 글과 댓글."
+    }
+  ],
+  "resources": [
+    {
+      "name": "P-JiT 21K 무료 데모",
+      "url": "https://hugging-apps-pjit-21k.hf.space/",
+      "description": "로그인 없이 프롬프트를 넣고 그려 보는 데모 페이지."
+    },
+    {
+      "name": "P-JiT 21K 가중치 받기",
+      "url": "https://huggingface.co/Linum-AI/pjit-21k",
+      "description": "허깅페이스 모델 페이지."
+    },
+    {
+      "name": "예시 그림 프롬프트와 시드",
+      "url": "https://github.com/Linum-AI/pjit-21k#reproducing-the-samples",
+      "description": "블로그 예시 그림을 그대로 다시 만드는 명령 모음."
+    }
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함.",
+    "xPosts": []
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-06T15:39:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+        "assetUrl": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with an image generated by BlueBWorks using P-JiT 21K (Apache-2.0)",
+        "reason": "데모로 만든 고양이 그림을 담은 썸네일이라 포함."
+      },
+      {
+        "sourceUrl": "https://www.linum.ai/field-notes/pjit-21k",
+        "assetUrl": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-cost.webp",
+        "decision": "included",
+        "rightsBasis": "Screenshot of the official Linum blog post, quoted with attribution and link",
+        "reason": "학습 비용 내역을 보여 주는 공식 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+        "assetUrl": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-demo.webp",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original screenshot of the public demo page",
+        "reason": "프롬프트 입력과 결과가 함께 보이는 데모 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+        "assetUrl": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-cat.webp",
+        "decision": "included",
+        "rightsBasis": "Image generated by BlueBWorks with P-JiT 21K (Apache-2.0 weights)",
+        "reason": "모델이 잘 그린 예를 보여 주는 생성 결과라 포함."
+      },
+      {
+        "sourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+        "assetUrl": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-tteokbokki.webp",
+        "decision": "included",
+        "rightsBasis": "Image generated by BlueBWorks with P-JiT 21K (Apache-2.0 weights)",
+        "reason": "음식 지식과 글자 한계를 보여 주는 생성 결과라 포함."
+      },
+      {
+        "sourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+        "assetUrl": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-sign.webp",
+        "decision": "included",
+        "rightsBasis": "Image generated by BlueBWorks with P-JiT 21K (Apache-2.0 weights)",
+        "reason": "간판 글자를 못 쓰는 한계를 보여 주는 생성 결과라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/Linum-AI/pjit-21k",
+        "decision": "excluded",
+        "rightsBasis": "Repository sample image",
+        "reason": "직접 만든 결과 그림으로 대신해 제외."
+      }
+    ]
+  },
+  "image": "https://bluebworks.com/assets/editorial/pjit-21k-open-source-image-model-demo-2026-thumb.png",
+  "imageSourceUrl": "https://huggingface.co/spaces/hugging-apps/pjit-21k",
+  "imageAlt": "2,800만 원에 만든 이미지 AI, P-JiT 21K 오픈소스 이미지 모델. 오른쪽에 데모로 만든 창턱 위 줄무늬 고양이 그림",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "P-JiT 21K 데모로 만든 고양이 그림",
+  "imageWidth": 1600,
+  "imageHeight": 900
+}
