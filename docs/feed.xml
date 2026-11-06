@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 06 Nov 2026 06:39:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 09:59:00 GMT</lastBuildDate>
+    <item>
+      <title>코딩 AI 기억 유지하는 법: 대화 압축과 새 세션에도 지난 결정을 찾는 오픈소스 Memnest</title>
+      <link>https://bluebworks.com/articles/memnest-coding-agent-memory-compaction-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/memnest-coding-agent-memory-compaction-2026/</guid>
+      <pubDate>Fri, 06 Nov 2026 09:59:00 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>AI 코딩 에이전트는 대화가 길어지면 압축하거나 새 세션을 열어야 하는데, 그때 말로 했던 지시와 지난 결정이 흐려집니다. 대화 원문을 내 컴퓨터에 저장하고 Claude Code, Codex, Cursor, pi가 함께 찾아 쓰게 하는 오픈소스 Memnest를 pi 일주일 사용 기록과 함께 정리했습니다.</description>
+    </item>
     <item>
       <title>오픈소스 이미지 생성 모델 P-JiT 21K: 2만 1천 달러로 학습한 2B 모델, 무료 데모로 그려 본 결과</title>
       <link>https://bluebworks.com/articles/pjit-21k-open-source-image-model-demo-2026/</link>
