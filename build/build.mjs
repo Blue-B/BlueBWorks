@@ -140,6 +140,8 @@ export function build(options = resolveOptions()) {
   emit("sitemap.xml", renderSitemap({ config, paths: sitemapPaths(config, posts) }));
   if (config.adsensePublisherId) emit("ads.txt", `google.com, ${config.adsensePublisherId}, DIRECT, f08c47fec0942fa0\n`);
   if (config.indexNowKey) emit(`${config.indexNowKey}.txt`, `${config.indexNowKey}\n`);
+  const faviconIco = path.join(path.dirname(assetsDir), "favicon.ico");
+  if (fs.existsSync(faviconIco)) emit("favicon.ico", fs.readFileSync(faviconIco));
   emit("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${joinUrl(config.baseUrl, "/sitemap.xml")}\n`);
 
   cleanupPreviousBuild(outDir, generated);
