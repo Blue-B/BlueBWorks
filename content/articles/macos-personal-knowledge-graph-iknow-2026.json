@@ -1,0 +1,183 @@
+{
+ "slug": "macos-personal-knowledge-graph-iknow-2026",
+ "title": "애플 인텔리전스 개인정보: 맥이 몰래 만드는 개인 지식 그래프와 가족 관계 추론, iKnow로 보는 법",
+ "summary": "macOS 13부터 모든 맥에 들어 있는 두 프로세스가 연락처, 사진, 캘린더, 메시지 기록을 엮어 나와 주변 사람의 관계를 그래프로 쌓는다는 분석 글이 해커뉴스에서 화제가 됐습니다. 무엇이 저장되고 무엇을 추론하는지, 애플 공식 설명과 무엇이 다른지, 공개 도구 iKnow로 내 맥의 그래프를 여는 법과 지금 손볼 만한 설정을 정리했습니다.",
+ "category": "트렌드",
+ "announcedAt": "2026-10-28",
+ "publishedAt": "2026-11-07T21:39:00+09:00",
+ "verifiedAt": "2026-11-07T21:39:00+09:00",
+ "status": "published",
+ "reviewStatus": "reviewed",
+ "editorialVersion": 2,
+ "tags": [
+  "애플 인텔리전스",
+  "macOS 개인정보",
+  "지식 그래프",
+  "iKnow",
+  "맥 보안 설정"
+ ],
+ "editorNote": "연구 글의 숫자와 표현은 분석한 사람들이 직접 디스크와 모델 파일을 열어 본 결과입니다. 애플이 공식으로 밝힌 내용과 연구자 해석은 문장마다 나눠 적었습니다.",
+ "keyPoints": [
+  "무엇: macOS 13 이후 맥의 knowledgeconstructiond와 intelligenceplatformd가 연락처, 사진 속 얼굴, 캘린더, 연락 기록을 묶어 사람과 관계를 저장하는 그래프를 만든다는 분석",
+  "추론: 가족 여부를 고르는 모델 두 개가 입력값 144개를 읽는데, 그중 84개가 사진에 누구와 언제 같이 찍혔는지, 40개가 누구와 어느 요일 어느 시간에 연락했는지",
+  "할 일: 이 저장소는 전체 디스크 접근 권한으로만 막혀 있어서, 시스템 설정에서 그 권한을 받은 앱 목록부터 줄이는 것이 가장 현실적인 대응"
+ ],
+ "sections": [
+  {
+   "title": "맥 개인 지식 그래프가 화제가 된 이유",
+   "paragraphs": [
+    "11월 7일 해커뉴스 첫 페이지에 '모든 맥에는 문서화되지 않은 가족 구성원 분류기가 들어 있다'는 제목의 글이 올라왔습니다. 보안 연구 팀 The Eighth Rank가 10월 28일 공개한 분석으로, 한국 시간 7일 밤 기준 159점과 댓글 72개가 달렸습니다.",
+    "글의 주장은 이렇습니다. macOS 13(2022년)부터 나온 모든 맥에는 knowledgeconstructiond와 intelligenceplatformd라는 프로세스 두 개가 들어 있고, 이 둘이 하는 일은 사용자와 주변 사람에 대한 그래프를 만드는 것뿐이라는 겁니다. 누구를 알고 있는지, 그 사람이 나와 어떤 관계인지, 서로는 어떻게 이어져 있는지, 어떤 앱으로 언제 연락하는지, 어디에 가고 무엇을 하는지가 한 저장소에 쌓입니다.",
+    "연구자들이 놀란 부분은 기능 자체보다 설명이 거의 없다는 점이었습니다. 이 프로세스에 대한 공식 설명은 터미널에서 볼 수 있는 man 페이지 몇 줄뿐이고, 내용은 '기기의 콘텐츠를 분석해 기기와 사용자를 나타내는 범용 지식 그래프를 만든다' 정도입니다. 어떤 버전에서 돌아가는지, 무엇을 모으고 무엇을 추론하는지 목록은 어디에도 없다고 연구자들은 적었습니다.",
+    "분석은 macOS 26.6.2에서 이뤄졌고, 인텔 맥과 애플 실리콘 맥 모두 해당된다고 했습니다. 연구 글은 이 프로세스가 애플 인텔리전스가 나오기 전인 macOS 13부터 들어 있었다고 적었고, 해커뉴스 댓글에도 '시리와 인텔리전스를 다 꺼 뒀는데 여전히 돌고 있었다'는 사용자 경험담이 달렸습니다."
+   ],
+   "sourceRefs": [1, 5]
+  },
+  {
+   "title": "애플 공식 설명: 기기 안에서 만드는 개인 지식",
+   "paragraphs": [
+    "애플이 이런 그래프를 숨긴 것은 아닙니다. 애플 머신러닝 연구 사이트에는 2023년 6월 SIGMOD 학회에 낸 논문 'Growing and Serving Large Open-domain Knowledge Graphs'가 올라와 있습니다. 애플 지식 플랫폼 Saga를 다룬 논문인데, 마지막 부분에서 개인 기기 안에서 사적인 개인 지식을 만들고 제공하기 위한 변경 사항을 설명합니다. 기기 안에서 조금씩 그래프를 쌓는 방식, 여러 기기 사이의 지식 동기화, 전 세계 공용 지식으로 개인 그래프를 보강하는 방식이 나옵니다.",
+    "논문은 개인정보 때문에 모든 계산을 사용자 기기에서 한다고 적고 있습니다. 애플의 '애플 인텔리전스와 개인정보' 안내 페이지도 같은 방향입니다. 맞춤형 경험을 위해 다가오는 캘린더 일정이나 자주 쓰는 앱처럼 여러 앱에 걸친 기기 안의 정보를 쓰지만, 애플이 그 개인 데이터에 접근하거나 저장하지 않도록 설계했다는 설명입니다.",
+    "그러니 애플 설명과 연구 글이 정면으로 부딪히는 것은 아닙니다. 둘 다 데이터가 맥 안에 있다고 말합니다. 차이는 범위입니다. 애플 문서는 일정과 자주 쓰는 앱 같은 예를 들 뿐이고, 연구 글은 그 그래프에 실제로 어떤 칸이 있고 어떤 추론이 들어가는지를 하나씩 열어 보였습니다. 특히 가족 관계를 점수로 매기는 부분은 논문에도 없다고 연구자들은 지적했습니다."
+   ],
+   "sourceRefs": [3, 4, 1],
+   "figures": [
+    {
+     "src": "https://bluebworks.com/assets/editorial/macos-personal-knowledge-graph-iknow-2026-apple-privacy.png",
+     "alt": "애플 법률 사이트의 Apple Intelligence & Privacy 페이지. 애플 인텔리전스가 다가오는 캘린더 일정과 자주 쓰는 앱처럼 기기 안의 정보를 쓰지만 애플이 개인 데이터에 접근하거나 저장하지 않도록 설계했다는 문단이 보인다.",
+     "caption": "애플 설명은 캘린더 일정과 자주 쓰는 앱을 예로 들고, 애플이 그 데이터를 가져가지 않는다는 데 초점을 둔다.",
+     "credit": "Apple",
+     "sourceUrl": "https://www.apple.com/legal/privacy/data/en/intelligence-engine/",
+     "width": 1200,
+     "height": 620
+    },
+    {
+     "src": "https://bluebworks.com/assets/editorial/macos-personal-knowledge-graph-iknow-2026-apple-paper.png",
+     "alt": "애플 머신러닝 연구 사이트의 논문 페이지. Paper, June 2023, Growing and Serving Large Open-domain Knowledge Graphs 제목과 저자 여덟 명, SIGMOD 표시가 보인다.",
+     "caption": "2023년 SIGMOD 논문. 마지막 장에서 기기 안 개인 지식 그래프를 다룬다.",
+     "credit": "Apple Machine Learning Research",
+     "sourceUrl": "https://machinelearning.apple.com/research/open-domain-knowledgegraphs",
+     "width": 1320,
+     "height": 300
+    }
+   ]
+  },
+  {
+   "title": "개인 지식 그래프에 들어가는 정보",
+   "paragraphs": [
+    "연구 글에 따르면 두 프로세스는 작업 결과를 사용자 폴더의 Library 안 IntelligencePlatform 폴더에 둡니다. SQLite 데이터베이스 51개가 암호화 없이 저장되어 있고, 대신 macOS 개인정보 보호 장치인 전체 디스크 접근 권한이 있어야 열 수 있는 영역에 있습니다.",
+    "중심은 graph.db라는 파일입니다. 한 줄마다 주어, 관계, 대상이 들어가는 구조로, 사람이나 앱, 일정 같은 대상 종류가 181가지, 관계 종류가 278가지 정의되어 있습니다. 181가지 중 57가지가 수면, 운동, 출퇴근, 식사, 잠자리에 드는 시간 같은 활동입니다. 다만 정의만 있고 실제로 채워지지 않는 항목도 있을 수 있다고 연구자들이 함께 적었습니다.",
+    "그래프 옆에는 따로 쌓이는 표들이 있습니다. 사진에 누구와 함께 찍혔는지, 누구와 언제 어떤 앱으로 어느 방향으로 연락했는지(메시지 내용은 없음), 위치와 이동, 화면 잠금과 와이파이, 블루투스, 충전 같은 기기 상태 기록입니다. 연락 기록은 이 맥뿐 아니라 다른 기기에서 온 것까지 모인다고 합니다."
+   ],
+   "sourceRefs": [1],
+   "table": {
+    "headers": ["어디서", "그래프에 들어가는 것"],
+    "rows": [
+     ["연락처", "이름과 연락처 카드에 적어 둔 관계"],
+     ["사진", "얼굴 묶음"],
+     ["캘린더", "일정 제목과 참석자"],
+     ["가족 공유", "가족 구성원과 각자의 나이"],
+     ["건강 앱", "메디컬 ID의 비상 연락처"],
+     ["메일과 메시지", "시리 제안이 찾아낸 일정과 연락처"]
+    ],
+    "caption": "연구 글이 정리한 그래프 입력 경로 중 일부. 앱 인텐트로 앱이 넘긴 사람 정보와 설치된 앱 목록도 들어간다."
+   }
+  },
+  {
+   "title": "가족과 친구를 가르는 모델 입력값 144개",
+   "paragraphs": [
+    "대부분의 칸은 단순 복사로 채워집니다. 연락처의 이름, 캘린더의 참석자 같은 것이죠. 눈에 띄는 것은 모델이 채우는 칸입니다. 시스템 안에는 EntityTagging_Family와 EntityTagging_FamilyAndFriends라는 코어ML 모델 두 개가 들어 있고, 둘 다 어떤 사람이 가족인지 아닌지를 확률로 내는 분류기입니다.",
+    "두 모델이 읽는 입력값은 똑같이 144개이고, 이름이 모델 설정 파일에 그대로 적혀 있습니다. 20개는 같은 성, 같은 집 주소, 아이클라우드 가족 여부, 생일 등록 여부 같은 신원 정보입니다. 40개는 연락 패턴입니다. 그 사람과 월요일에 얼마나 연락하는지, 아침과 밤 중 언제인지, 집에 있을 때인지 회사에 있을 때인지를 나눠 셉니다. 나머지 84개는 사진입니다. 그 사람이 내 사진에 요일별, 시간대별로 얼마나 함께 나오는지를 다시 쪼갠 값들이고, 토요일 밤에 같이 찍힐 확률 같은 항목까지 있습니다.",
+    "결과 점수는 graph.db가 아니라 entityTagging.db라는 별도 표에 사람마다 한 줄씩 들어가고, 가족부터 어머니, 동료까지 관계 칸이 17개 있으며 매일 다시 계산된다고 합니다. 17개 중 실제 모델이 붙어 있는 칸은 2개뿐이고 나머지 15개가 어떻게 채워지는지는 연구자들도 찾지 못했습니다.",
+    "사진 쪽에는 분석기가 12개 더 있습니다. 누가 연인이고 부모이고 자녀이고 동료이고 친구인지를 사진에 함께 나온 사람과 여행, 휴일로 점수 매긴다는 설명입니다. 애플 인텔리전스가 켜져 있으면 기기 안 언어 모델이 메시지를 읽고 사진 속 얼굴에 이름과 관계를 붙이기도 합니다. 그래프에 들어가는 모든 줄에는 0과 1 사이의 신뢰도 값이 붙습니다."
+   ],
+   "sourceRefs": [1]
+  },
+  {
+   "title": "지운 연락처가 남는 표와 데이터가 나가는 경로",
+   "paragraphs": [
+    "연락처를 지우면 다음 계산 때 그 사람은 그래프에서 빠집니다. 그런데 저장소에는 expired_stable_graph라는 표가 하나 더 있어서, 빠진 줄이 신뢰도와 출처를 그대로 단 채 그쪽으로 옮겨진다고 합니다. 보통 48시간쯤 지나면 정리되는 것처럼 보였지만, 연구자 본인의 맥에서는 아주 오래된 기록도 남아 있었다고 적었습니다. 하루 전 그래프에서 빠진 두 사람이 관계 점수 표에는 여전히 남아 있던 사례도 나옵니다.",
+    "그럼 이 데이터가 맥 밖으로 나가느냐. 애플 문서와 연구 글 모두 기기 안에 머무는 것이 원칙이라고 봅니다. 연구자들도 이 지식은 로컬에 머물고 전체 디스크 접근 권한으로 보호되도록 만들어졌다고 썼습니다. 다만 다른 시스템 서비스가 이 데이터를 읽을 수 있고, 어떤 서비스가 무엇을 읽는지는 분명하지 않다고 덧붙였습니다.",
+    "연구 글을 쓴 사람은 해커뉴스 댓글에서 문서와 끄는 방법 정도는 있어야 했다고 말했습니다. 애플 인텔리전스 모델이 이 정보를 조회할 수 있어 보이니, 이론상 프롬프트 인젝션 한 번이면 닿을 수 있다는 의견도 남겼습니다. 아직 실제 공격 사례가 보고된 것은 아니고, 연구 팀이 후속 글에서 다룬 것도 가정 상황입니다.",
+    "현실적인 위험은 오히려 단순한 쪽에 있습니다. 데이터는 암호화 없이 파일로 놓여 있고, 문을 지키는 것은 전체 디스크 접근 권한 하나입니다. 백업 앱, 동기화 앱, 원격 지원 도구, 터미널, 코드 편집기처럼 이 권한을 받아 둔 앱이 많을수록 이 파일을 읽을 수 있는 프로그램도 많아집니다."
+   ],
+   "sourceRefs": [1, 3, 5]
+  },
+  {
+   "title": "iKnow로 내 맥의 지식 그래프 보는 법",
+   "paragraphs": [
+    "연구 팀은 내 맥의 그래프를 직접 열어 볼 수 있는 도구 iKnow를 깃허브에 아파치 2.0 라이선스로 공개했습니다. 파이썬 기본 라이브러리만 쓰는 작은 웹 서버라서 따로 설치할 패키지가 없고, macOS에 들어 있는 파이썬 3로 바로 돌아갑니다.",
+    "동작 방식은 꽤 조심스럽게 만들어져 있습니다. 서버는 내 컴퓨터 안 주소(127.0.0.1)에만 열리고 이를 바꾸는 옵션이 없습니다. 실행할 때마다 새 토큰이 붙은 링크를 터미널에 찍어 주고, 토큰 없는 요청은 거절합니다. 데이터베이스는 모두 읽기 전용으로 열고, 읽은 값을 어디에도 저장하거나 기록하지 않는다고 README에 적혀 있습니다.",
+    "실행 전 준비가 하나 있습니다. 저장소가 macOS 개인정보 보호 장치 안에 있으니 명령을 실행할 앱에 전체 디스크 접근 권한을 줘야 합니다. 시스템 설정에서 개인정보 보호 및 보안, 전체 디스크 접근 권한으로 들어가 터미널(또는 iTerm, 쓰는 편집기)을 추가하고, 그 앱을 완전히 종료했다가 다시 엽니다. 권한은 앱이 켜질 때 적용되기 때문입니다. 서버를 띄우면 저장소마다 ok나 DENY가 찍혀서 권한이 빠졌는지 바로 알 수 있습니다.",
+    "화면은 첫 페이지 그래프, 관계 점수표, 사진 얼굴 묶음, 1년치 연락 기록, 캘린더, 지운 항목 같은 페이지로 나뉩니다. 테스트된 버전은 macOS 26.6.2와 26.7.1이고 27.0.1은 일부만 돌아간다고 합니다. 버전마다 애플이 저장 구조를 바꿔서 다른 버전에서는 일부 페이지가 비어 나올 수 있습니다. README 끝에는 도구 전체를 언어 모델로 만들었고 100% 정확하지 않을 수 있다는 안내도 붙어 있으니, 점수 하나하나를 사실처럼 받아들이기보다 무엇이 쌓이는지 보는 용도로 보는 편이 맞습니다.",
+    "저장소에는 클로드 코드나 코덱스 같은 AI 에이전트에게 주는 안내 파일도 있습니다. 이 파일을 주고 '내 맥이 누구를 가족으로 보는지 알려 줘'라고 물으면 에이전트가 직접 데이터베이스를 읽어 답합니다. 다만 서버와 달리 에이전트는 읽은 내용을 모델이 돌아가는 곳으로 보냅니다. 연구 팀도 클라우드 모델이 아니라 직접 돌리는 모델을 쓰라고 권했습니다. 가족과 연락 기록이 통째로 외부로 나가는 셈이라, 굳이 쓸 거라면 이 권고를 따르는 게 좋습니다."
+   ],
+   "sourceRefs": [2, 1],
+   "code": {
+    "language": "bash",
+    "text": "git clone https://github.com/8rank/iKnow.git\ncd iKnow\npython3 server.py\n\n# 터미널에 찍힌 http://127.0.0.1:8765/?token=... 링크를 브라우저로 연다\n# 끝낼 때는 ctrl-c\n# 다른 포트: python3 server.py --port 9000",
+    "caption": "README의 실행 순서. 명령을 실행하는 터미널 앱에 전체 디스크 접근 권한이 있어야 한다."
+   },
+   "figures": [
+    {
+     "src": "https://bluebworks.com/assets/editorial/macos-personal-knowledge-graph-iknow-2026-iknow.png",
+     "alt": "iKnow 첫 화면. 어두운 배경에 What your Mac knows about you 제목과 78 people, 4 employers, 6 group chats 문구가 있고, 가운데 흰 점(사용자)을 중심으로 가족은 주황, 가까운 사람은 파랑으로 칠한 관계 그래프가 그려져 있다. 왼쪽 메뉴에 Kinship scorecard, The face index, A year of contact 등이 보인다.",
+     "caption": "iKnow 첫 화면. 주황은 가족으로 점수 매겨진 사람, 파랑은 가깝다고 본 사람이다. 이 화면의 이름과 숫자는 예시 데이터다.",
+     "credit": "iKnow (The Eighth Rank)",
+     "sourceUrl": "https://github.com/8rank/iKnow",
+     "width": 1600,
+     "height": 850
+    }
+   ]
+  },
+  {
+   "title": "지금 해 둘 만한 설정과 커뮤니티 반응",
+   "paragraphs": [
+    "연구 글과 애플 문서 어디에도 이 그래프만 따로 끄는 설정은 나오지 않습니다. 잘못 추론된 관계를 고치는 방법도 없다고 연구자들은 적었습니다. 그래서 일반 사용자가 할 수 있는 일은 문을 좁히는 쪽입니다. 시스템 설정의 전체 디스크 접근 권한 목록을 열어 지금 쓰지 않는 앱의 스위치를 끄는 것만으로도 이 파일을 읽을 수 있는 프로그램 수가 줄어듭니다. iKnow를 한 번 돌려 봤다면 끝난 뒤 터미널 권한도 다시 꺼 두는 편이 낫습니다.",
+    "해커뉴스 반응은 갈렸습니다. 유럽 개인정보 보호법(GDPR) 관점에서 이메일 발신자 정보나 캘린더 초대를 원래 목적과 다른 관계 추론에 쓰는 것이 문제라는 의견이 있었고, 끄는 방법을 묻는 댓글에는 방법이 없다는 답이 달렸습니다. 반대로 메타 같은 회사 데이터 창고에는 이보다 훨씬 큰 시스템이 있을 텐데 기기 밖으로 나가지 않는다면 괜찮다는 댓글도 있었습니다. 글 자체가 AI로 쓴 티가 나서 끝까지 읽기 힘들었다는 지적도 여럿 붙었습니다.",
+    "개인적으로 가장 무겁게 읽힌 대목은 이 그래프가 맥 주인만의 이야기가 아니라는 점입니다. 내 연락처에 있는 가족, 단톡방 사람들, 회의 초대에 한 번 같이 들어간 사람까지 동의 없이 연결되고, 연구자 표현대로 관계는 원래 데이터보다 한 단계 위의 정보가 됩니다. 기기 안 처리라는 애플의 원칙은 그대로 믿더라도, 무엇이 쌓이는지 볼 수 있는 화면과 지울 수 있는 버튼 정도는 애플이 직접 내놓는 게 맞다고 봅니다."
+   ],
+   "sourceRefs": [1, 5],
+   "links": [
+    {"label": "The Eighth Rank 분석 글 원문", "url": "https://8rank.ai/game/apple-intelligence-personal-knowledge-graph"},
+    {"label": "iKnow 저장소와 실행 안내", "url": "https://github.com/8rank/iKnow"},
+    {"label": "애플 인텔리전스와 개인정보 안내", "url": "https://www.apple.com/legal/privacy/data/en/intelligence-engine/"}
+   ]
+  }
+ ],
+ "sources": [
+  {"name": "The Eighth Rank: Apple Intelligence Personal Knowledge Graph", "url": "https://8rank.ai/game/apple-intelligence-personal-knowledge-graph", "description": "저장 위치, 대상 종류 181개와 관계 278개, 가족 분류 모델 입력값 144개, expired_stable_graph 표를 분석한 연구 글"},
+  {"name": "GitHub: 8rank/iKnow", "url": "https://github.com/8rank/iKnow", "description": "개인 지식 그래프를 읽기 전용으로 보여 주는 로컬 대시보드, 실행 방법과 권한 안내, 테스트된 macOS 버전"},
+  {"name": "Apple: Apple Intelligence & Privacy", "url": "https://www.apple.com/legal/privacy/data/en/intelligence-engine/", "description": "애플 인텔리전스가 기기 안 정보를 쓰는 범위와 Private Cloud Compute 데이터 처리에 대한 공식 안내"},
+  {"name": "Apple Machine Learning Research: Growing and Serving Large Open-domain Knowledge Graphs", "url": "https://machinelearning.apple.com/research/open-domain-knowledgegraphs", "description": "기기 안 개인 지식 그래프 구축과 기기 간 동기화를 다룬 2023년 SIGMOD 논문"},
+  {"name": "Hacker News 토론", "url": "https://news.ycombinator.com/item?id=50403097", "description": "분석 글에 대한 개발자 커뮤니티 반응과 연구 글 작성자 댓글"}
+ ],
+ "resources": [
+  {"name": "iKnow 저장소", "url": "https://github.com/8rank/iKnow", "type": "저장소", "description": "내 맥의 지식 그래프를 브라우저로 보는 파이썬 도구"},
+  {"name": "Apple Intelligence & Privacy", "url": "https://www.apple.com/legal/privacy/data/en/intelligence-engine/", "type": "공식 문서", "description": "애플 인텔리전스 데이터 처리 방식 안내"},
+  {"name": "애플 Saga 지식 그래프 논문", "url": "https://arxiv.org/abs/2305.09464", "type": "논문", "description": "기기 안 개인 지식 그래프를 설명한 장이 있는 논문 전문"}
+ ],
+ "discovery": {
+  "xStatus": "public-search",
+  "notes": "공식 출처와 원문을 확인함.",
+  "xPosts": []
+ },
+ "mediaReview": {
+  "checkedAt": "2026-11-07T21:39:00+09:00",
+  "status": "included",
+  "candidates": [
+   {"sourceUrl": "https://github.com/8rank/iKnow", "assetUrl": "https://bluebworks.com/assets/editorial/macos-personal-knowledge-graph-iknow-2026-thumb.png", "decision": "included", "rightsBasis": "BlueBWorks original thumbnail with project screenshot", "reason": "글 주제인 iKnow 화면을 보여 주는 썸네일이라 포함."},
+   {"sourceUrl": "https://github.com/8rank/iKnow", "assetUrl": "https://bluebworks.com/assets/editorial/macos-personal-knowledge-graph-iknow-2026-iknow.png", "decision": "included", "rightsBasis": "Project README image, Apache-2.0 repository", "reason": "도구 첫 화면의 관계 그래프라 포함."},
+   {"sourceUrl": "https://www.apple.com/legal/privacy/data/en/intelligence-engine/", "assetUrl": "https://bluebworks.com/assets/editorial/macos-personal-knowledge-graph-iknow-2026-apple-privacy.png", "decision": "included", "rightsBasis": "Screenshot of public official page for commentary", "reason": "애플 공식 개인정보 설명 문단이라 포함."},
+   {"sourceUrl": "https://machinelearning.apple.com/research/open-domain-knowledgegraphs", "assetUrl": "https://bluebworks.com/assets/editorial/macos-personal-knowledge-graph-iknow-2026-apple-paper.png", "decision": "included", "rightsBasis": "Screenshot of public official page for commentary", "reason": "애플 논문 제목과 학회 정보 화면이라 포함."},
+   {"sourceUrl": "https://8rank.ai/game/apple-intelligence-personal-knowledge-graph", "decision": "excluded", "rightsBasis": "Third-party research page figures", "reason": "프로젝트 저장소 이미지로 대신해 제외."}
+  ]
+ },
+ "image": "https://bluebworks.com/assets/editorial/macos-personal-knowledge-graph-iknow-2026-thumb.png",
+ "imageSourceUrl": "https://github.com/8rank/iKnow",
+ "imageAlt": "macOS 개인 지식 그래프. 맥이 그린 내 인맥 지도, 가족과 친구 관계까지 스스로 점수를 매긴다. 가족 판별 모델 입력값 144개. 오른쪽에 iKnow 관계 그래프 화면",
+ "imageCredit": "BlueBWorks",
+ "imageCaption": "iKnow 첫 화면을 넣은 macOS 개인 지식 그래프 썸네일",
+ "imageWidth": 1600,
+ "imageHeight": 900
+}
