@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 06 Nov 2026 15:24:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 00:21:40 GMT</lastBuildDate>
+    <item>
+      <title>챗GPT 노션 연동 방법: 노션 플러그인으로 대화 옆에서 페이지 만들고 고치기</title>
+      <link>https://bluebworks.com/articles/chatgpt-notion-plugin-connect-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/chatgpt-notion-plugin-connect-2026/</guid>
+      <pubDate>Sat, 07 Nov 2026 00:21:40 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>노션이 챗GPT용 플러그인을 내놓으면서 대화창 옆에 실제 노션 편집기가 열립니다. 플러그인 찾는 위치와 연결 순서, 패널에서 되는 일과 노션으로 넘어가야 하는 일, 연결 전에 볼 권한과 데이터 공유 범위를 정리했습니다.</description>
+    </item>
     <item>
       <title>그림판 취약점 CVE-2026-83844: 윈도우 11 그림판 버전 확인과 Microsoft Store 업데이트 방법</title>
       <link>https://bluebworks.com/articles/windows-paint-rce-cve-2026-83844-update-2026/</link>

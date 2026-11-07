@@ -1,0 +1,332 @@
+{
+  "slug": "chatgpt-notion-plugin-connect-2026",
+  "title": "챗GPT 노션 연동 방법: 노션 플러그인으로 대화 옆에서 페이지 만들고 고치기",
+  "summary": "노션이 챗GPT용 플러그인을 내놓으면서 대화창 옆에 실제 노션 편집기가 열립니다. 플러그인 찾는 위치와 연결 순서, 패널에서 되는 일과 노션으로 넘어가야 하는 일, 연결 전에 볼 권한과 데이터 공유 범위를 정리했습니다.",
+  "category": "AI 서비스",
+  "announcedAt": "2026-11-06",
+  "publishedAt": "2026-11-07T09:21:40+09:00",
+  "verifiedAt": "2026-11-07T09:21:40+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "챗GPT 노션 연동",
+    "챗GPT 노션 플러그인",
+    "노션 챗GPT 연결",
+    "ChatGPT Notion plugin",
+    "노션 MCP",
+    "챗GPT 플러그인"
+  ],
+  "keyPoints": [
+    "연결: 챗GPT 사이드바의 플러그인에서 Notion 제공 플러그인을 찾아 설치하고, 노션 로그인과 워크스페이스 선택, 공유 범위 확인을 거치면 끝납니다",
+    "쓰는 곳: 노션 패널은 노션 모든 요금제에서 쓸 수 있지만 챗GPT 웹과 데스크톱 앱에서만 열리고, 한 번에 워크스페이스 하나만 연결됩니다",
+    "주의: 연결하면 챗GPT가 연결된 워크스페이스에서 내가 볼 수 있는 다른 페이지도 찾을 수 있고, 관련 채팅과 메모리를 노션 앱과 공유할 수 있습니다"
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-07T09:21:40+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://chatgpt.com/plugins/notion",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with a limited screenshot of the ChatGPT plugin page for commentary",
+        "reason": "챗GPT 노션 플러그인 상세 화면을 담은 썸네일이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/plugins",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-search.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the ChatGPT plugin directory for commentary, personal details removed",
+        "reason": "플러그인 검색 결과에서 노션 공식 플러그인과 다른 회사 플러그인이 함께 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/plugins/notion",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-plugin.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the ChatGPT plugin page for commentary, personal details removed",
+        "reason": "노션 플러그인의 설명, 앱 1개, 스킬 12개가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://www.notion.com/help/use-notion-pages-in-chatgpt",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-connect.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the Notion Help Center for commentary",
+        "reason": "노션 공식 도움말의 연결 순서 세 단계가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://www.notion.com/help/use-notion-pages-in-chatgpt",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-limits.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the Notion Help Center for commentary",
+        "reason": "워크스페이스 하나, 웹과 데스크톱 앱, 권한 유지, 오프라인 불가 안내가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/plugins/notion",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-privacy.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the ChatGPT plugin page for commentary",
+        "reason": "연결 시 채팅과 메모리 공유 안내 문구가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://www.youtube.com/@NotionHQ",
+        "decision": "excluded",
+        "reason": "이 플러그인만 다룬 공식 유튜브 영상이 없어 넣지 않음."
+      }
+    ]
+  },
+  "image": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-thumb.png",
+  "imageSourceUrl": "https://chatgpt.com/plugins/notion",
+  "imageAlt": "챗GPT 노션 연동, 대화 옆에 노션 편집기가 열립니다. 오른쪽에 챗GPT의 Notion 플러그인 상세 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "챗GPT 플러그인 목록의 Notion 상세 화면",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "챗GPT 노션 플러그인으로 달라진 점",
+      "paragraphs": [
+        "노션이 한국 시간 11월 7일 새벽 챗GPT용 플러그인을 내놓았습니다. 노션 공식 계정은 시연 영상과 함께 \"챗GPT 안에서 진짜 노션 편집기를 쓴다\"고 소개했고, 대화하는 동안 페이지가 만들어지는 걸 지켜보다가 직접 들어가 고칠 수 있다고 덧붙였습니다. 발표 글 조회수는 하루가 지나기 전에 7만 회를 넘겼습니다.",
+        "그동안 챗GPT와 노션을 같이 쓰는 방식은 대부분 복사와 붙여넣기였습니다. 챗GPT에서 회의록이나 기획 초안을 받아 노션에 옮기고, 노션 문서를 다시 챗GPT에 붙여 넣어 고쳐 달라고 하는 식입니다. 커넥터로 노션을 연결해 검색하고 읽는 기능은 이전에도 있었지만, 결과를 노션 화면으로 보면서 손으로 고치려면 결국 노션 탭을 따로 열어야 했습니다.",
+        "이번 플러그인은 그 탭 전환을 줄이는 쪽입니다. 노션 도움말은 이 기능을 \"챗GPT 대화 옆에 노션 페이지를 열거나 새로 만들고, 내가 직접 고치면서 챗GPT가 바꾸는 내용도 실시간으로 본다\"고 설명합니다. 챗GPT가 문서를 만들어 주고 끝나는 게 아니라, 같은 화면에서 사람이 이어서 손보는 흐름을 노린 기능입니다.",
+        "연결 방식은 노션 MCP와 같습니다. 노션 도움말에는 이 패널이 노션 MCP와 같은 연결을 쓴다고 적혀 있어서, 이미 챗GPT에 노션을 연결해 둔 사람이라면 새 채팅을 열기만 하면 패널이 그 계정과 워크스페이스로 열립니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ],
+      "embeds": [
+        {
+          "type": "x",
+          "url": "https://x.com/NotionHQ/status/2118753617637409000",
+          "author": "Notion",
+          "handle": "NotionHQ",
+          "text": "We made a Notion plugin for @ChatGPT!\n\nUse the real Notion editor, right inside ChatGPT. Create a page, watch it take shape as you chat, and jump in to edit it yourself.\n\nAll without leaving Chat.",
+          "postedAt": "2026-11-06T17:13:21Z"
+        }
+      ]
+    },
+    {
+      "title": "챗GPT 노션 연동 방법: 플러그인 찾기와 연결 순서",
+      "paragraphs": [
+        "시작은 챗GPT 왼쪽 사이드바의 플러그인 메뉴입니다. 플러그인 화면 위쪽 검색창에 Notion을 치면 결과가 여러 개 나오는데, 이름에 Notion이 들어간 다른 회사 플러그인도 섞여 있습니다. Widgets for Notion, Quicktion처럼 노션과 함께 쓰는 별도 서비스들입니다. 노션이 직접 만든 것은 아이콘이 검은 N이고 이름 아래에 \"Notion 제공\"이라고 적힌 항목입니다.",
+        "그 항목을 누르면 상세 화면이 열립니다. 설명 아래에 앱 1개와 스킬 12개가 들어 있다고 나오고, 스킬 목록에는 엔지니어링 위키 만들기, 팀 핸드북 만들기, 데이터베이스 설계, 회의 준비 같은 작업 묶음이 보입니다. 플러그인은 연결 앱과 이런 작업 지침을 한데 묶은 것이라, 설치하면 챗GPT가 노션 관련 요청을 받을 때 이 스킬을 알아서 꺼내 씁니다.",
+        "연결은 노션 공식 도움말 기준으로 세 단계입니다. 챗GPT에서 노션 플러그인을 열어 필요하면 설치하고, 로그인 창이 뜨면 노션에 로그인해 쓸 워크스페이스를 고른 다음, 공유할 범위를 확인하고 연결을 허용하면 됩니다. OpenAI 고객센터 문서도 같은 흐름을 설정 메뉴 쪽에서 설명합니다. 설정에서 플러그인을 열고 Notion을 골라 연결을 누르는 방식입니다.",
+        "워크스페이스를 여러 개 쓰는 사람은 로그인 단계에서 고르는 워크스페이스가 중요합니다. 패널은 연결한 워크스페이스 하나에서만 동작하고, 다른 워크스페이스의 페이지는 열리지 않습니다. 회사 문서를 다루고 싶은데 개인 워크스페이스를 연결했다면 페이지를 못 찾는 게 정상입니다. 다른 워크스페이스는 연결을 하나 더 추가하거나 노션에서 직접 열어야 합니다.",
+        "요금제 조건은 두 회사가 다르게 적어 두었습니다. 노션 쪽은 패널을 모든 노션 요금제에서 쓸 수 있고 기본으로 켜져 있다고 밝혔습니다. 챗GPT 쪽은 플러그인 목록 자체는 모든 요금제에 열려 있지만, 개별 플러그인을 설치하고 쓸 수 있는지는 요금제, 워크스페이스, 역할, 지역에 따라 다르다고만 안내합니다. 회사에서 관리하는 챗GPT 계정이라면 관리자가 노션 플러그인을 막아 두었을 수 있습니다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-search.webp",
+          "alt": "챗GPT 플러그인 화면 검색창에 Notion을 입력한 결과. Notion, Software Notion, Widgets for Notion, Jetpost, SimpleBackups, Quicktion, GuruSup Brain, NoteX가 나온다",
+          "caption": "노션이 만든 플러그인은 검은 N 아이콘에 \"Notion 제공\"이라고 적힌 첫 항목이다.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com/plugins",
+          "width": 950,
+          "height": 460
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-plugin.webp",
+          "alt": "챗GPT의 Notion 플러그인 상세 화면. 설명 문단과 기능 네 줄, 앱 1개, 스킬 12개 목록이 보인다",
+          "caption": "플러그인 하나에 노션 앱 1개와 작업용 스킬 12개가 묶여 있다.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com/plugins/notion",
+          "width": 760,
+          "height": 840
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-connect.webp",
+          "alt": "노션 도움말의 Connect Notion to ChatGPT 항목. 플러그인 설치, 노션 로그인과 워크스페이스 선택, 공유 범위 확인 후 허용의 세 단계",
+          "caption": "연결은 설치, 노션 로그인과 워크스페이스 선택, 허용 순서다.",
+          "credit": "Notion 도움말",
+          "sourceUrl": "https://www.notion.com/help/use-notion-pages-in-chatgpt",
+          "width": 830,
+          "height": 290
+        }
+      ]
+    },
+    {
+      "title": "노션 페이지를 챗GPT 옆에 여는 세 가지 방법",
+      "paragraphs": [
+        "연결이 끝나면 페이지를 여는 길은 세 가지입니다. 가장 쉬운 건 대화로 부탁하는 방법입니다. 노션 도움말이 예로 든 문장은 \"노션에서 프로젝트 기획 페이지 열어 줘\", \"이 메모를 노션 페이지로 바꿔 줘\" 같은 것입니다. 페이지는 대화 옆에 열리고, 챗GPT가 패널 대신 링크만 보내면 노션 패널에서 열어 달라고 한 번 더 말하면 됩니다.",
+        "두 번째는 챗GPT 사이드바에서 노션을 여는 방법입니다. 워크스페이스 화면이 뜨고, 제목으로 검색하거나 페이지 링크를 붙여 넣거나 최근에 본 페이지와 즐겨찾기에서 고를 수 있습니다. 세 번째는 새 페이지 버튼입니다. 빈 워크스페이스라면 빈 페이지나 데이터베이스로 시작하거나 템플릿을 고를 수도 있습니다.",
+        "열린 페이지에서는 직접 타이핑해도 되고 챗GPT에게 고쳐 달라고 해도 됩니다. 도움말 예시 중 쓸 만한 건 \"이 할 일 목록을 담당자와 마감일이 있는 노션 데이터베이스로 바꿔 줘\"입니다. 회의 메모를 대화창에 붙여 넣고 이렇게 부탁하면 표 모양의 데이터베이스가 옆에서 만들어지는 흐름입니다. \"계획에서 내용이 더 필요한 곳에 댓글 남겨 줘\"처럼 검토를 맡길 수도 있습니다.",
+        "문장을 직접 바꾸지 않고 제안으로만 남기는 기능은 노션 비즈니스와 엔터프라이즈 요금제에서만 됩니다. 이 경우 편집 권한이 있는 사람이 제안을 받아들이기 전까지 원래 문장은 그대로입니다. 팀 문서를 챗GPT에 맡기기 불안한 사람에게는 이 방식이 편하지만, 무료나 플러스 요금제라면 챗GPT가 페이지를 바로 고친다는 점을 염두에 두는 편이 낫습니다.",
+        "페이지를 남에게 보여 주려면 패널 위쪽의 링크 복사를 누르면 됩니다. 링크를 복사한다고 권한이 바뀌지는 않습니다. 상대가 볼 권한이 없으면 접근 권한 주기 버튼이 나타나고, 누르면 노션의 공유 메뉴가 열립니다. 패널에서 계속하기 답답하면 노션에서 열기 버튼으로 원래 노션 화면으로 넘어갈 수 있습니다."
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "패널에서 안 되는 일과 노션에서 해야 하는 일",
+      "paragraphs": [
+        "패널은 노션 전체를 옮겨 온 것이 아닙니다. 노션 도움말은 멤버와 결제, 연결 관리, 공유와 권한 변경, 노션 AI 사용은 노션에서 페이지를 열어야 한다고 적었습니다. 비공개 깃허브 링크처럼 계정 연결이 필요한 링크 미리보기도 패널에서는 새로 붙일 수 없고, 일반 링크를 붙여 넣는 것만 됩니다.",
+        "쓰는 장소도 정해져 있습니다. 패널은 챗GPT 웹과 데스크톱 앱에서만 쓸 수 있다고 안내돼 있습니다. 챗GPT 플러그인 목록은 모바일 앱에서도 보이지만, 노션 편집기를 옆에 띄우는 화면은 휴대폰에서 기대하지 않는 게 좋습니다. 오프라인 편집도 안 됩니다. 연결이 끊기면 패널이 저장되지 않은 내용을 기기에 보관하지 않으니, 새로고침 전에 쓰던 글을 복사해 두라고 도움말이 따로 적어 두었습니다.",
+        "아래 표는 노션 도움말을 기준으로 어디서 무엇을 하는지 나눈 것입니다."
+      ],
+      "sourceRefs": [
+        1
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-limits.webp",
+          "alt": "노션 도움말의 Keep in mind 항목. 한 번에 워크스페이스 하나, 웹과 데스크톱 앱에서 사용, 기존 노션 권한 적용, 저장 안 된 수정은 기기에 남지 않고 오프라인 편집 불가",
+          "caption": "워크스페이스는 하나만, 웹과 데스크톱 앱에서만, 오프라인 편집은 안 된다.",
+          "credit": "Notion 도움말",
+          "sourceUrl": "https://www.notion.com/help/use-notion-pages-in-chatgpt",
+          "width": 830,
+          "height": 260
+        }
+      ],
+      "table": {
+        "headers": [
+          "하려는 일",
+          "챗GPT 노션 패널",
+          "노션에서 직접"
+        ],
+        "rows": [
+          [
+            "페이지 만들기와 내용 고치기",
+            "된다",
+            "된다"
+          ],
+          [
+            "댓글 남기기",
+            "된다",
+            "된다"
+          ],
+          [
+            "문장 수정 제안",
+            "비즈니스, 엔터프라이즈만",
+            "된다"
+          ],
+          [
+            "링크 복사",
+            "된다(권한 변화 없음)",
+            "된다"
+          ],
+          [
+            "공유와 권한 변경, 멤버와 결제 관리",
+            "안 된다",
+            "된다"
+          ],
+          [
+            "노션 AI 사용",
+            "안 된다",
+            "된다"
+          ],
+          [
+            "오프라인 편집",
+            "안 된다",
+            "노션 앱 기준"
+          ]
+        ],
+        "caption": "노션 도움말 \"Use Notion pages in ChatGPT\" 기준."
+      }
+    },
+    {
+      "title": "연결 전에 볼 권한 범위와 채팅 공유 안내",
+      "paragraphs": [
+        "연결하기 전에 한 번 읽어 둘 대목이 있습니다. 노션 도움말은 이 플러그인이 노션 MCP 연결을 쓰기 때문에, 챗GPT가 패널에 열려 있지 않은 다른 페이지도 연결된 워크스페이스 안에서 내가 접근할 수 있는 것이면 찾을 수 있다고 설명합니다. 지금 보고 있는 페이지 하나만 챗GPT에 보여 주는 구조가 아니라는 뜻입니다.",
+        "반대로 권한 밖의 페이지는 못 봅니다. OpenAI 고객센터 문서는 노션을 연결해도 조직의 모든 페이지에 접근하는 게 아니고, 연결한 노션 계정이 볼 수 있으며 앱에 허용한 내용만 쓴다고 적었습니다. 챗GPT 워크스페이스 관리자가 앱을 켜 준다고 해서, 내 노션 계정에 권한이 없는 비공개 페이지까지 열리지는 않습니다.",
+        "챗GPT 플러그인 상세 화면 맨 아래에는 데이터 공유 안내도 있습니다. 노션에 연결하면 챗GPT가 요청에 필요한 맥락을 주려고 관련 채팅과 메모리를 이 앱과 공유할 수 있고, 그 데이터에는 노션의 이용약관과 개인정보 보호정책이 적용된다는 문장입니다. 같은 안내에 챗GPT는 연결된 앱의 데이터를 포함해 학습 데이터 기본 설정을 따른다는 문장도 붙어 있습니다. 메모리를 켜 둔 사람이라면 노션과 함께 쓰기 전에 메모리에 어떤 내용이 쌓였는지 한 번 보는 편이 안전합니다.",
+        "앱 사용이 챗GPT 요금제 한도나 기능별 사용량, 앱 쪽 한도에 들어갈 수 있다는 점도 OpenAI 문서에 적혀 있습니다. 노션 페이지를 크게 고치는 작업을 여러 번 맡기면 일반 대화보다 한도가 빨리 줄어들 수 있다는 정도로 이해하면 됩니다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        4
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-notion-plugin-connect-2026-privacy.webp",
+          "alt": "챗GPT 노션 플러그인 정보 영역. 개발자 Notion, 카테고리 Productivity, 버전 3.0.8과 연결 시 관련 채팅과 메모리를 앱과 공유할 수 있다는 안내 문구",
+          "caption": "연결하면 관련 채팅과 메모리가 노션 앱과 공유될 수 있다는 안내가 맨 아래에 있다.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com/plugins/notion",
+          "width": 760,
+          "height": 505
+        }
+      ]
+    },
+    {
+      "title": "회사 노션에서 막혔을 때와 연결 끊는 방법",
+      "paragraphs": [
+        "회사 노션이 엔터프라이즈 요금제라면 워크스페이스 소유자가 패널을 모두에게 끌 수 있습니다. 노션 설정의 Notion MCP에서 워크스페이스 클라이언트 관리로 들어가 Open Notion pages in ChatGPT를 끄는 방식입니다. 꺼져 있어도 챗GPT가 노션에 연결하는 것 자체가 허용돼 있으면 대화로 노션을 쓰는 건 계속됩니다. 승인된 AI 앱만 허용하는 워크스페이스라면 챗GPT가 그 목록에 있어야 패널이 열립니다.",
+        "패널이 안 열리면 노션 도움말은 새 채팅을 열고 특정 페이지를 노션 패널에서 열어 달라고 요청해 보라고 합니다. 그래도 안 되면 플러그인 연결 상태와 워크스페이스 허용 여부를 보고, 챗GPT에서 노션 연결을 끊었다가 다시 연결한 뒤 새 채팅에서 시도하라는 순서입니다. 엉뚱한 페이지가 열리거나 페이지가 안 보이면, 연결한 워크스페이스에 그 페이지가 있는지 노션에서 먼저 확인하고 패널 검색창에 페이지 링크를 붙여 넣어 보면 됩니다.",
+        "연결을 끊을 때는 챗GPT 설정의 플러그인에서 Notion을 골라 연결 해제를 누릅니다. OpenAI 문서에 따르면 계정 줄의 연결 해제는 그 노션 계정만 끊고, 노션 플러그인을 통째로 지우면 연결된 노션 계정이 모두 끊길 수 있습니다. 예전에 쓰던 노션 개별 동기화 방식은 더 이상 지원되지 않으니, 오래된 안내 글에 나오는 동기화 유지 방법은 따라 하지 않아도 됩니다.",
+        "이미 챗GPT로 초안을 쓰고 노션에 옮겨 붙이던 사람에게는 꽤 쓸모 있는 변화이고, 회사 워크스페이스를 연결하려는 사람은 권한 범위와 메모리 공유를 먼저 따져 볼 만합니다. 개인 워크스페이스에서 작은 페이지 하나로 먼저 써 보고, 챗GPT가 어떤 페이지까지 찾아오는지 본 다음 범위를 넓히는 쪽이 무난합니다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Use Notion pages in ChatGPT (Notion 도움말)",
+      "url": "https://www.notion.com/help/use-notion-pages-in-chatgpt",
+      "description": "연결 순서, 페이지 여는 방법, 패널에서 안 되는 일, 웹과 데스크톱 앱 제한, 엔터프라이즈 관리 설정, 문제 해결."
+    },
+    {
+      "name": "Notion app and setup in ChatGPT (OpenAI 고객센터)",
+      "url": "https://help.openai.com/en/articles/12532955",
+      "description": "노션 연결 방법, 권한 범위, 연결 해제, 개별 동기화 종료 안내."
+    },
+    {
+      "name": "Notion 공식 X 발표",
+      "url": "https://x.com/NotionHQ/status/2118753617637409000",
+      "description": "2026년 11월 6일(미국 시간) 챗GPT용 노션 플러그인 발표와 시연 영상."
+    },
+    {
+      "name": "Plugins in ChatGPT (OpenAI 고객센터)",
+      "url": "https://help.openai.com/en/articles/20001256-plugins-in-chatgpt",
+      "description": "플러그인 구성, 요금제와 지역별 이용 조건, 설치와 사용 방법."
+    },
+    {
+      "name": "Connected apps in ChatGPT (OpenAI 고객센터)",
+      "url": "https://help.openai.com/en/articles/11487775-apps-in-chatgpt",
+      "description": "연결 앱 설정 위치, 요금제 한도 반영, 워크스페이스 관리자 설정."
+    },
+    {
+      "name": "Notion 플러그인 (ChatGPT)",
+      "url": "https://chatgpt.com/plugins/notion",
+      "description": "플러그인 설명, 앱과 스킬 목록, 버전, 데이터 공유 안내."
+    },
+    {
+      "name": "ChatGPT 플러그인 목록",
+      "url": "https://chatgpt.com/plugins",
+      "description": "플러그인 검색창과 Notion 검색 결과."
+    }
+  ],
+  "resources": [
+    {
+      "name": "챗GPT 노션 플러그인 바로가기",
+      "url": "https://chatgpt.com/plugins/notion",
+      "description": "설치와 연결을 시작하는 플러그인 상세 화면."
+    },
+    {
+      "name": "Notion 플러그인 소개 (OpenAI)",
+      "url": "https://openai.com/business/plugins/notion",
+      "description": "OpenAI가 정리한 노션 플러그인 소개와 설치 링크."
+    },
+    {
+      "name": "Notion MCP 도움말",
+      "url": "https://www.notion.com/help/notion-mcp",
+      "description": "패널이 함께 쓰는 노션 MCP 연결과 AI 도구 관리."
+    }
+  ]
+}
