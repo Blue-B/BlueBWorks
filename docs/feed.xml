@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Sat, 07 Nov 2026 00:21:40 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 07:01:00 GMT</lastBuildDate>
+    <item>
+      <title>Kronos 주가 예측 AI 설치와 사용법: 삼성전자 차트로 돌려 본 오픈소스 금융 모델</title>
+      <link>https://bluebworks.com/articles/kronos-stock-prediction-ai-samsung-test-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/kronos-stock-prediction-ai-samsung-test-2026/</guid>
+      <pubDate>Sat, 07 Nov 2026 07:01:00 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>깃허브 별 4만 7천 개를 넘긴 오픈소스 금융 모델 Kronos를 CPU만 있는 서버에 설치하고, 삼성전자 일봉 400거래일을 넣어 다음 20거래일을 맞혀 보게 했습니다. 설치 순서와 웹 화면 쓰는 법, 결과 그래프, 이 모델로 할 수 있는 일과 기대하면 안 되는 일을 정리했습니다.</description>
+    </item>
     <item>
       <title>챗GPT 노션 연동 방법: 노션 플러그인으로 대화 옆에서 페이지 만들고 고치기</title>
       <link>https://bluebworks.com/articles/chatgpt-notion-plugin-connect-2026/</link>

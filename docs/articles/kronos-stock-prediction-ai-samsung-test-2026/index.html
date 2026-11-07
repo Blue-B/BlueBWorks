@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>Kronos 주가 예측 AI 설치와 사용법: 삼성전자 차트로 돌려 본 오픈소스 금융 모델 | BlueBWorks</title>
+    <meta name="description" content="깃허브 별 4만 7천 개를 넘긴 오픈소스 금융 모델 Kronos를 CPU만 있는 서버에 설치하고, 삼성전자 일봉 400거래일을 넣어 다음 20거래일을 맞혀 보게 했습니다. 설치 순서와 웹 화면 쓰는 법, 결과 그래프, 이 모델로 할 수 있는 일과 기대하면 안 되는 일을 정리했습니다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/kronos-stock-prediction-ai-samsung-test-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="Kronos 주가 예측 AI 설치와 사용법: 삼성전자 차트로 돌려 본 오픈소스 금융 모델 | BlueBWorks">
+    <meta property="og:description" content="깃허브 별 4만 7천 개를 넘긴 오픈소스 금융 모델 Kronos를 CPU만 있는 서버에 설치하고, 삼성전자 일봉 400거래일을 넣어 다음 20거래일을 맞혀 보게 했습니다. 설치 순서와 웹 화면 쓰는 법, 결과 그래프, 이 모델로 할 수 있는 일과 기대하면 안 되는 일을 정리했습니다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/kronos-stock-prediction-ai-samsung-test-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/kronos-stock-prediction-ai-samsung-test-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/kronos-stock-prediction-ai-samsung-test-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Kronos 주가 예측 AI 설치와 사용법: 삼성전자 차트로 돌려 본 오픈소스 금융 모델","description":"깃허브 별 4만 7천 개를 넘긴 오픈소스 금융 모델 Kronos를 CPU만 있는 서버에 설치하고, 삼성전자 일봉 400거래일을 넣어 다음 20거래일을 맞혀 보게 했습니다. 설치 순서와 웹 화면 쓰는 법, 결과 그래프, 이 모델로 할 수 있는 일과 기대하면 안 되는 일을 정리했습니다.","url":"https://bluebworks.com/articles/kronos-stock-prediction-ai-samsung-test-2026/","mainEntityOfPage":"https://bluebworks.com/articles/kronos-stock-prediction-ai-samsung-test-2026/","datePublished":"2026-11-07T07:01:00.000Z","dateModified":"2026-11-07T07:01:00.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"Kronos, 주가 예측 AI, 금융 AI, 시계열 모델, 오픈소스","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/kronos-stock-prediction-ai-samsung-test-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"Kronos 주가 예측 AI 설치와 사용법: 삼성전자 차트로 돌려 본 오픈소스 금융 모델","item":"https://bluebworks.com/articles/kronos-stock-prediction-ai-samsung-test-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>오픈소스</span></p>
+        <h1 id="article-title">Kronos 주가 예측 AI 설치와 사용법: 삼성전자 차트로 돌려 본 오픈소스 금융 모델</h1>
+        <p class="cover-dek">깃허브 별 4만 7천 개를 넘긴 오픈소스 금융 모델 Kronos를 CPU만 있는 서버에 설치하고, 삼성전자 일봉 400거래일을 넣어 다음 20거래일을 맞혀 보게 했습니다. 설치 순서와 웹 화면 쓰는 법, 결과 그래프, 이 모델로 할 수 있는 일과 기대하면 안 되는 일을 정리했습니다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 11월 7일</span><span>소식 발표 2025년 8월 2일</span><span>확인 2026년 11월 7일</span><span>published</span><span>8분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">Kronos가 하는 일: 주가 차트를 문장처럼 읽는 모델</a></li>
+          <li><a href="#sec-2">Kronos 설치: 파이썬 3.10과 requirements 한 줄</a></li>
+          <li><a href="#sec-3">삼성전자 일봉으로 돌려 본 결과: 급락한 20거래일</a></li>
+          <li><a href="#sec-4">Kronos 웹 UI 사용법: 버튼 몇 번으로 예측, 그대로 띄우면 안 되는 이유</a></li>
+          <li><a href="#sec-5">공식 데모와 논문 숫자 읽는 법</a></li>
+          <li><a href="#sec-6">Kronos가 쓸 만한 곳과 비슷한 도구와의 차이</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="Kronos 주가 예측 AI 설치와 사용법: 삼성전자 차트로 돌려 본 오픈소스 금융 모델">
+            <meta itemprop="description" content="깃허브 별 4만 7천 개를 넘긴 오픈소스 금융 모델 Kronos를 CPU만 있는 서버에 설치하고, 삼성전자 일봉 400거래일을 넣어 다음 20거래일을 맞혀 보게 했습니다. 설치 순서와 웹 화면 쓰는 법, 결과 그래프, 이 모델로 할 수 있는 일과 기대하면 안 되는 일을 정리했습니다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/kronos-stock-prediction-ai-samsung-test-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 주가 예측 AI Kronos, 삼성전자 차트로 직접 돌려 본 결과. 실제 20거래일 -26.4%, 예측 평균 +3.3%. 오른쪽에 예측과 실제 종가 그래프"><img src="https://bluebworks.com/assets/editorial/kronos-stock-prediction-ai-samsung-test-2026-thumb.png" alt="주가 예측 AI Kronos, 삼성전자 차트로 직접 돌려 본 결과. 실제 20거래일 -26.4%, 예측 평균 +3.3%. 오른쪽에 예측과 실제 종가 그래프" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>삼성전자 일봉으로 Kronos-small을 돌린 결과 그래프</span><a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
+      <ul>
+        <li>설치: 파이썬 3.10 이상에서 저장소를 받고 pip install -r requirements.txt, 모델 파일은 처음 불러올 때 허깅페이스에서 자동으로 받음</li>
+        <li>결과: 10월 8일까지만 보여 주자 20번 뽑은 예측 평균은 20거래일 뒤 +3.3%, 실제 삼성전자 종가는 같은 기간 -26.4%</li>
+        <li>주의: 뽑을 때마다 경로가 크게 달라지고, 기본 웹 UI는 디버그 모드로 모든 네트워크 주소에 열리므로 집이나 회사 공용 네트워크에서는 그대로 띄우지 않기</li>
+      </ul>
+    </details>
+          <details class="editor-note">
+      <summary>덧붙임</summary>
+      <p>주가를 맞히는 AI처럼 소개되는 일이 많아서, 실제로 돌렸을 때 급락 구간에서 어떤 값이 나오는지를 앞쪽에 두었습니다. 특정 종목을 사거나 팔라는 글이 아닙니다.</p>
+    </details>
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>Kronos가 하는 일: 주가 차트를 문장처럼 읽는 모델</h2>
+        <p>Kronos는 주식이나 코인 차트의 봉(캔들) 데이터만 따로 배운 오픈소스 기반 모델입니다. 챗GPT 같은 언어 모델이 앞 문장을 보고 다음 단어를 고르듯, Kronos는 시가와 고가, 저가, 종가, 거래량으로 된 봉 하나하나를 단어처럼 바꾼 뒤 다음 봉을 이어서 써 내려갑니다. 2025년 7월 저장소가 열렸고 8월에 논문이 나왔으며, 저장소 안내에 따르면 2025년 11월 AAAI 2026 학회 논문으로 채택됐습니다.</p>
+        <p>학습량이 꽤 큽니다. 논문에는 전 세계 45개 거래소에서 모은 봉 데이터 120억 건 이상으로 사전 학습했다고 적혀 있습니다. 저장소는 MIT 라이선스라 개인도 회사도 자유롭게 받아 쓸 수 있고, 이번 주 깃허브 주간 트렌딩에 올라오면서 별이 4만 7천 개를 넘었습니다. 허깅페이스 집계로는 Kronos-small 모델의 최근 30일 내려받기가 240만 회를 넘었습니다.</p>
+        <p>작동 방식은 두 단계입니다. 먼저 전용 토크나이저가 연속된 가격과 거래량 숫자를 몇 단계로 나눈 기호로 바꾸고, 그다음 트랜스포머 모델이 그 기호를 하나씩 이어 붙이며 미래 구간을 만듭니다. 그래서 결과가 정답 하나로 나오지 않습니다. 같은 차트를 넣어도 뽑을 때마다 조금씩 다른 미래 경로가 나오고, 여러 번 뽑아 평균을 내거나 퍼진 정도를 보는 식으로 씁니다. 뒤에서 볼 삼성전자 결과를 읽을 때 이 점이 가장 중요합니다.</p>
+        <p>공개된 모델은 세 가지이고 가장 큰 Kronos-large는 공개되지 않았습니다. 일반 PC에서 써 볼 만한 것은 mini와 small입니다. small과 base는 한 번에 볼 수 있는 길이가 512개 봉이라, 이보다 긴 데이터를 넣으면 앞부분이 자동으로 잘립니다.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Kronos가 하는 일: 주가 차트를 문장처럼 읽는 모델"><table><thead><tr><th scope="col">모델</th><th scope="col">크기</th><th scope="col">한 번에 보는 길이</th><th scope="col">공개</th></tr></thead><tbody><tr><th scope="row">Kronos-mini</th><td>410만 매개변수</td><td>2,048개 봉</td><td>공개</td></tr><tr><th scope="row">Kronos-small</th><td>2,470만 매개변수</td><td>512개 봉</td><td>공개</td></tr><tr><th scope="row">Kronos-base</th><td>1억 230만 매개변수</td><td>512개 봉</td><td>공개</td></tr><tr><th scope="row">Kronos-large</th><td>4억 9,920만 매개변수</td><td>512개 봉</td><td>비공개</td></tr></tbody></table></div><p class="table-caption">저장소 README의 모델 목록. mini는 전용 토크나이저 2k, 나머지는 base 토크나이저와 짝을 이룬다.</p>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>Kronos 설치: 파이썬 3.10과 requirements 한 줄</h2>
+        <p>설치 자체는 단순합니다. README가 요구하는 것은 파이썬 3.10 이상이고, 저장소를 받은 뒤 requirements 파일로 의존성을 깔면 끝납니다. 목록에는 PyTorch, pandas, numpy, einops, huggingface_hub, matplotlib, tqdm, safetensors가 들어 있습니다. 그래픽카드가 없어도 됩니다. 이번에는 4코어 CPU에 메모리 8GB인 윈도우 서버의 WSL 우분투 안에서 설치했고, PyTorch는 용량을 줄이려고 CPU 전용판을 먼저 깔았습니다.</p>
+        <p>모델 파일은 따로 받을 필요가 없습니다. 코드에서 모델 이름을 부르면 허깅페이스에서 자동으로 내려받고, 토크나이저와 Kronos-small을 합친 캐시 폴더는 약 141MB였습니다. 첫 실행 때 내려받기와 불러오기를 합쳐 45초 정도 걸렸고, 그다음부터는 캐시를 씁니다.</p>
+        <p>처음 막히는 곳은 예제 데이터입니다. README와 예제 스크립트는 저장소 안의 data 폴더에 있는 중국 주식 5분봉 CSV를 읽도록 되어 있는데, 지금 master 브랜치에는 data 폴더가 없습니다. 그래서 예제를 그대로 돌리면 파일을 못 찾고 멈춥니다. 내 데이터를 넣으면 되는데, 형식은 timestamps, open, high, low, close 열이 필수이고 volume과 amount는 있으면 넣습니다. amount가 없으면 코드가 거래량과 평균 가격을 곱해 채웁니다.</p>
+        <p>이번 시험에는 네이버페이 증권의 삼성전자 일별 시세를 썼습니다. 2024년 1월 2일부터 2026년 11월 6일까지 693거래일의 시가, 고가, 저가, 종가, 거래량을 CSV 한 장으로 만들어 data 폴더에 넣었습니다.</p>
+        <figure class="code-example"><figcaption>bash · README의 설치 순서에 CPU판 PyTorch 설치 한 줄을 앞에 더한 것. 윈도우에서는 WSL 터미널에서 같은 명령을 쓴다.</figcaption><pre tabindex="0"><code>git clone https://github.com/shiyu-coder/Kronos.git
+cd Kronos
+
+# 그래픽카드가 없는 PC라면 CPU판 PyTorch를 먼저 설치
+pip install --index-url https://download.pytorch.org/whl/cpu torch
+
+# 나머지 의존성
+pip install -r requirements.txt</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-3">[3]</a> <a href="#source-5">[5]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>삼성전자 일봉으로 돌려 본 결과: 급락한 20거래일</h2>
+        <p>시험 방법은 이렇습니다. 2025년 2월 18일부터 2026년 10월 8일까지 400거래일만 Kronos-small에 보여 주고, 그 뒤 20거래일(10월 12일부터 11월 6일까지)의 종가를 예측하게 했습니다. 모델은 10월 8일 이후 데이터를 전혀 보지 못합니다. 설정은 README 예제와 같은 온도 1.0, top_p 0.9로 두고, 한 번씩 세 번 뽑은 경로와 20번 뽑아 평균 낸 경로를 함께 그렸습니다.</p>
+        <p>실제 주가는 이 기간에 크게 내렸습니다. 10월 8일 종가 263,000원에서 11월 6일 193,500원으로 26.4% 떨어졌고, 첫날인 10월 12일부터 251,000원으로 내려가 반등 몇 번을 빼면 줄곧 아래쪽이었습니다.</p>
+        <p>20번 뽑은 예측 평균은 거의 수평선이었습니다. 259,000원대와 271,000원대 사이를 오가다 11월 6일 자리에서 271,633원으로 끝나, 출발점보다 3.3% 높았습니다. 20거래일 동안 예측 평균과 실제 종가의 차이를 비율로 평균 내면 20.0%입니다.</p>
+        <p>한 번씩 뽑은 경로는 훨씬 들쭉날쭉했습니다. 한 경로는 열흘도 안 돼 320,356원까지 올랐다가 231,217원으로 끝났고, 다른 경로는 235,593원까지 내려갔다가 268,539원으로 돌아왔습니다. 세 경로 모두 실제 종가의 최저치 193,500원에는 닿지 않았습니다.</p>
+        <p>이 결과가 말해 주는 것은 단순합니다. 여러 경로를 평균 내면 오르는 길과 내리는 길이 서로 상쇄돼 지난 흐름을 이어 가는 평평한 선이 나옵니다. 그리고 차트 바깥에서 들어온 소식이나 수급 변화는 모델이 볼 수 없습니다. 하나의 종목, 한 구간에서 나온 결과라 모델 전체의 실력을 판정할 수는 없지만, 급락 같은 큰 움직임을 미리 알려 주는 도구로 기대하면 안 된다는 점은 분명히 보였습니다.</p>
+        <p>속도는 CPU 기준으로 경로 하나에 17초에서 19초, 20번 뽑아 평균 내는 데는 433초가 걸렸습니다. 실행 중 메모리는 최대 1GB 정도를 썼습니다. 일봉 한두 종목을 가끔 돌려 보는 정도라면 그래픽카드 없이도 충분하지만, 여러 종목을 여러 번 뽑으려면 시간이 빠르게 늘어납니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/kronos-stock-prediction-ai-samsung-test-2026-backtest.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 삼성전자 일봉 그래프. 10월 8일까지 검은 선이 263,000원 근처에서 끝나고, 그 뒤 파란 실제 종가는 193,500원까지 내려가는데 주황색 Kronos 예측 평균은 260,000원에서 272,000원 사이를 수평으로 지나간다. 회색 예측 경로 세 개는 230,000원에서 320,000원 사이로 흩어져 있다">
+        <img src="https://bluebworks.com/assets/editorial/kronos-stock-prediction-ai-samsung-test-2026-backtest.png" alt="삼성전자 일봉 그래프. 10월 8일까지 검은 선이 263,000원 근처에서 끝나고, 그 뒤 파란 실제 종가는 193,500원까지 내려가는데 주황색 Kronos 예측 평균은 260,000원에서 272,000원 사이를 수평으로 지나간다. 회색 예측 경로 세 개는 230,000원에서 320,000원 사이로 흩어져 있다" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>주황색이 20번 뽑은 예측 평균, 파란색이 실제로 일어난 20거래일이다. 회색 선 세 개는 한 번씩 뽑은 경로.</span><a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>python · 400거래일을 넣고 20거래일을 20번 뽑아 평균 내는 코드. sample_count를 1로 두면 경로 하나만 나온다.</figcaption><pre tabindex="0"><code>from model import Kronos, KronosTokenizer, KronosPredictor
+import pandas as pd
+
+tokenizer = KronosTokenizer.from_pretrained(&quot;NeoQuasar/Kronos-Tokenizer-base&quot;)
+model = Kronos.from_pretrained(&quot;NeoQuasar/Kronos-small&quot;)
+predictor = KronosPredictor(model, tokenizer, device=&quot;cpu&quot;, max_context=512)
+
+df = pd.read_csv(&quot;data/samsung_005930_daily.csv&quot;, parse_dates=[&quot;timestamps&quot;])
+end = df.index[df[&quot;timestamps&quot;] == &quot;2026-10-08&quot;][0]
+x = df.loc[end-399:end]
+y_time = df.loc[end+1:end+20, &quot;timestamps&quot;].reset_index(drop=True)
+
+pred = predictor.predict(
+    df=x[[&quot;open&quot;, &quot;high&quot;, &quot;low&quot;, &quot;close&quot;, &quot;volume&quot;]].reset_index(drop=True),
+    x_timestamp=x[&quot;timestamps&quot;].reset_index(drop=True),
+    y_timestamp=y_time,
+    pred_len=20, T=1.0, top_p=0.9, sample_count=20,
+)
+print(pred[&quot;close&quot;])</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-5">[5]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>Kronos 웹 UI 사용법: 버튼 몇 번으로 예측, 그대로 띄우면 안 되는 이유</h2>
+        <p>코드를 쓰기 싫다면 저장소의 webui 폴더에 있는 웹 화면을 쓰면 됩니다. webui 폴더에서 python run.py를 실행하고 브라우저에서 localhost:7070을 열면 왼쪽에 모델 선택(mini, small, base), 장치 선택(CPU, CUDA, 애플 실리콘 MPS), data 폴더의 파일 목록이 나옵니다. 모델을 불러오고 데이터를 불러온 뒤 슬라이더로 구간을 고르고 예측 버튼을 누르면 오른쪽에 봉 차트와 오차 표가 그려집니다. 웹 화면용으로 Flask와 plotly가 추가로 필요합니다.</p>
+        <p>웹 화면은 400개 봉을 보여 주고 다음 120개 봉을 예측하는 구간이 고정이라 시간이 더 걸립니다. CPU에서 120단계를 만드는 데 약 4분, 한 단계에 2초 정도였습니다. 기본 구간으로 돌렸더니 평균 절대 백분율 오차가 61.53%로 나왔습니다. 실제 주가가 가파르게 오른 구간이었는데 예측선은 한참 아래에 머물렀습니다.</p>
+        <p>써 보면서 눈에 띈 점이 두 가지 있습니다. 하나는 날짜입니다. 일봉 데이터를 넣어도 예측 구간 날짜를 거래일이 아니라 달력 날짜로 이어 붙여서, 비교 표에 2025년 12월 6일 같은 토요일 날짜가 섞여 나왔습니다. 그래프의 가로축을 그대로 믿기보다 몇 번째 봉인지로 보는 편이 맞습니다.</p>
+        <p>다른 하나는 보안입니다. run.py와 app.py 모두 debug=True, host=&#39;0.0.0.0&#39;으로 서버를 띄웁니다. 실행 로그에도 디버그 모드가 켜져 있고 모든 주소에서 접속을 받는다고 나옵니다. 같은 와이파이에 있는 다른 기기에서도 이 화면에 들어올 수 있고, 플라스크 디버그 모드는 외부에 열어 두면 안 되는 기능입니다. 내 PC에서만 쓸 거라면 실행 전에 두 파일의 host 값을 127.0.0.1로, debug를 False로 바꿔 두는 것이 안전합니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/kronos-stock-prediction-ai-samsung-test-2026-webui.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Kronos Financial Prediction Web UI 화면. 왼쪽 Control Panel에 Kronos-small, CPU, samsung_005930_daily.csv가 선택돼 있고 오른쪽 Prediction Results Chart에 과거 봉과 예측, 실제 데이터가 함께 그려져 있다">
+        <img src="https://bluebworks.com/assets/editorial/kronos-stock-prediction-ai-samsung-test-2026-webui.png" alt="Kronos Financial Prediction Web UI 화면. 왼쪽 Control Panel에 Kronos-small, CPU, samsung_005930_daily.csv가 선택돼 있고 오른쪽 Prediction Results Chart에 과거 봉과 예측, 실제 데이터가 함께 그려져 있다" width="1400" height="760" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>왼쪽에서 모델과 장치, 데이터 파일을 고르고 오른쪽에서 예측과 실제를 겹쳐 본다.</span><a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>공식 데모와 논문 숫자 읽는 법</h2>
+        <p>프로젝트에는 비트코인 가격으로 만든 공식 데모 페이지도 있습니다. 바이낸스의 BTC/USDT 1시간봉 최근 360시간(약 15일)을 Kronos-mini에 넣고, 경로 30개를 뽑아 24시간 뒤 가격이 오를 확률과 변동성이 커질 확률을 보여 주는 구성입니다. 다만 페이지에 적힌 마지막 갱신 시각이 2026년 7월 4일 11시(UTC)라, 지금은 실시간 예측이 아니라 그 시점 화면이 남아 있는 상태입니다.</p>
+        <p>논문이 내세우는 숫자도 읽는 법이 있습니다. 논문 요약에 따르면 가격 예측의 RankIC가 가장 앞선 범용 시계열 기반 모델보다 93%, 사전 학습을 하지 않은 최고 모델보다 87% 높았고, 변동성 예측 오차(MAE)는 9% 낮았으며, 가짜 봉 데이터를 만드는 품질은 22% 좋아졌습니다.</p>
+        <p>여기서 RankIC는 여러 종목의 예상 수익률 순위가 실제 순위와 얼마나 비슷한지를 재는 값입니다. 한 종목의 가격을 원 단위로 맞혔다는 뜻이 아니고, 이 수치만으로 수익이 난다는 뜻도 아닙니다. 위 삼성전자 시험처럼 종목 하나의 다음 한 달을 맞히는 쓰임과는 결이 다릅니다.</p>
+        <p>저장소에는 중국 A주 데이터로 모델을 미세 조정하고 간단한 백테스트까지 돌리는 예제도 있습니다. README는 이 과정이 미세 조정 방법을 보여 주는 예시일 뿐이고 실제 운용용 퀀트 시스템이 아니라고 적고 있습니다. 미세 조정 스크립트는 여러 개의 그래픽카드를 쓰는 torchrun 기준이라 CPU만 있는 PC에서 따라 하기는 어렵습니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>Kronos가 쓸 만한 곳과 비슷한 도구와의 차이</h2>
+        <p>구글 TimesFM이나 아마존 Chronos 같은 범용 시계열 기반 모델은 날씨, 전력 사용량, 매출처럼 어떤 숫자 흐름이든 받아서 다음 값을 예측합니다. Kronos는 대상을 금융 봉 데이터로 좁히고, 가격 네 개와 거래량을 함께 하나의 기호로 묶어 배운 것이 다릅니다. 논문은 기존 범용 모델이 봉 데이터에서는 오히려 사전 학습하지 않은 모델보다 못한 경우가 많았다는 점을 출발점으로 삼았습니다.</p>
+        <p>써 보고 나니 쓸 곳은 꽤 분명합니다. 경로를 수십 개 뽑아 앞으로 가격이 얼마나 넓게 흔들릴 수 있는지 그려 보는 일, 전략을 시험할 가짜 봉 데이터를 만드는 일, 내가 만든 예측 모델과 비교할 기준선으로 두는 일, 그리고 금융 시계열과 트랜스포머가 어떻게 만나는지 공부하는 용도입니다. 설치가 쉽고 CPU로도 돌아가서 주말 동안 만져 보기에 부담이 없습니다.</p>
+        <p>반대로 종목 하나를 골라 다음 주에 오를지 내릴지 정하는 데 쓰기에는 맞지 않습니다. 위 결과처럼 평균은 평평해지고, 한 번씩 뽑은 경로는 오르기도 내리기도 하며, 실적 발표나 뉴스처럼 차트에 없는 정보는 반영되지 않습니다. 이 글은 특정 종목의 매수나 매도를 권하는 글이 아니며, 투자 판단과 그 책임은 본인에게 있습니다.</p>
+        <div class="section-links"><a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer">Kronos 저장소와 설치 안내 <span aria-hidden="true">↗</span></a><a href="https://huggingface.co/NeoQuasar/Kronos-small" target="_blank" rel="noopener noreferrer">Kronos-small 모델 페이지 <span aria-hidden="true">↗</span></a><a href="https://arxiv.org/abs/2508.02739" target="_blank" rel="noopener noreferrer">Kronos 논문(arXiv) <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub: shiyu-coder/Kronos</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://arxiv.org/abs/2508.02739" target="_blank" rel="noopener noreferrer">
+            <strong>arXiv: Kronos: A Foundation Model for the Language of Financial Markets</strong>
+            <span>arxiv.org</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://huggingface.co/NeoQuasar/Kronos-small" target="_blank" rel="noopener noreferrer">
+            <strong>Hugging Face: NeoQuasar/Kronos-small</strong>
+            <span>huggingface.co</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://shiyu-coder.github.io/Kronos-demo/" target="_blank" rel="noopener noreferrer">
+            <strong>Kronos Live Forecast 데모</strong>
+            <span>shiyu-coder.github.io</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://finance.naver.com/item/sise_day.naver?code=005930" target="_blank" rel="noopener noreferrer">
+            <strong>네이버페이 증권: 삼성전자 일별 시세</strong>
+            <span>finance.naver.com</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/memnest-coding-agent-memory-compaction-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>코딩 AI 기억 유지하는 법: 대화 압축과 새 세션에도 지난 결정을 찾는 오픈소스 Memnest</strong>
+            <span>게시 2026년 11월 6일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/omnidiff-install-structural-git-diff-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>OmniDiff 설치와 사용법: 코드 구조를 읽는 diff, WSL 실행과 Git 연결</strong>
+            <span>게시 2026년 11월 3일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/lightpanda-headless-browser-install-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>Lightpanda 설치와 사용법: AI 에이전트용 헤드리스 브라우저, 윈도우 WSL 실행과 MCP 연결</strong>
+            <span>게시 2026년 11월 2일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">저장소</span>
+        <strong>Kronos 저장소</strong>
+        <span class="rail-desc">소스 코드, 예제 스크립트, 웹 UI, 미세 조정 스크립트</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://huggingface.co/NeoQuasar/Kronos-small" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">모델</span>
+        <strong>Kronos-small 모델</strong>
+        <span class="rail-desc">CPU에서도 돌려 볼 만한 2,470만 매개변수 모델</span>
+        <span class="rail-host">huggingface.co</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://huggingface.co/NeoQuasar/Kronos-mini" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">모델</span>
+        <strong>Kronos-mini 모델</strong>
+        <span class="rail-desc">410만 매개변수 경량 모델, 2,048개 봉까지 한 번에 입력</span>
+        <span class="rail-host">huggingface.co</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://shiyu-coder.github.io/Kronos-demo/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">데모</span>
+        <strong>Kronos 공식 데모</strong>
+        <span class="rail-desc">비트코인 1시간봉으로 만든 확률 예측 화면</span>
+        <span class="rail-host">shiyu-coder.github.io</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/kronos-stock-prediction-ai-samsung-test-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+
+  </body>
+</html>
