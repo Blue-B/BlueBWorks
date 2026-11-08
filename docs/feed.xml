@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 08 Nov 2026 06:35:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 12:26:00 GMT</lastBuildDate>
+    <item>
+      <title>디스코드 메모리 사용량 줄이기: 지금 앱 설정과 러스트로 다시 만든 새 앱 290MB 정리</title>
+      <link>https://bluebworks.com/articles/discord-memory-usage-rust-client-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/discord-memory-usage-rust-client-2026/</guid>
+      <pubDate>Sun, 08 Nov 2026 12:26:00 GMT</pubDate>
+      <category>트렌드</category>
+      <description>디스코드 PC 앱이 램을 많이 먹는다는 불만에 디스코드가 답을 내놨습니다. 앱 전체를 러스트로 다시 만들고 Electron을 걷어 내겠다고 했고, CTO가 공개한 작업 관리자 화면에서 새 앱은 계정 2개를 켠 상태로 290.2MB였습니다. 출시일은 아직 없으니, 지금 앱에서 공식 도움말대로 부담을 줄이는 설정과 새 앱에서 바뀌는 점을 함께 정리했습니다.</description>
+    </item>
     <item>
       <title>메타 Astryx 디자인 시스템: 테마 바꾸는 법, 설치 조건, AI 에이전트용 CLI 정리</title>
       <link>https://bluebworks.com/articles/meta-astryx-design-system-themes-2026/</link>

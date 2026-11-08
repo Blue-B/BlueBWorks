@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>디스코드 메모리 사용량 줄이기: 지금 앱 설정과 러스트로 다시 만든 새 앱 290MB 정리 | BlueBWorks</title>
+    <meta name="description" content="디스코드 PC 앱이 램을 많이 먹는다는 불만에 디스코드가 답을 내놨습니다. 앱 전체를 러스트로 다시 만들고 Electron을 걷어 내겠다고 했고, CTO가 공개한 작업 관리자 화면에서 새 앱은 계정 2개를 켠 상태로 290.2MB였습니다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/discord-memory-usage-rust-client-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="디스코드 메모리 사용량 줄이기: 지금 앱 설정과 러스트로 다시 만든 새 앱 290MB 정리 | BlueBWorks">
+    <meta property="og:description" content="디스코드 PC 앱이 램을 많이 먹는다는 불만에 디스코드가 답을 내놨습니다. 앱 전체를 러스트로 다시 만들고 Electron을 걷어 내겠다고 했고, CTO가 공개한 작업 관리자 화면에서 새 앱은 계정 2개를 켠 상태로 290.2MB였습니다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/discord-memory-usage-rust-client-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/discord-memory-usage-rust-client-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/discord-memory-usage-rust-client-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"디스코드 메모리 사용량 줄이기: 지금 앱 설정과 러스트로 다시 만든 새 앱 290MB 정리","description":"디스코드 PC 앱이 램을 많이 먹는다는 불만에 디스코드가 답을 내놨습니다. 앱 전체를 러스트로 다시 만들고 Electron을 걷어 내겠다고 했고, CTO가 공개한 작업 관리자 화면에서 새 앱은 계정 2개를 켠 상태로 290.2MB였습니다. 출시일은 아직 없으니, 지금 앱에서 공식 도움말대로 부담을 줄이는 설정과 새 앱에서 바뀌는 점을 함께 정리했습니다.","url":"https://bluebworks.com/articles/discord-memory-usage-rust-client-2026/","mainEntityOfPage":"https://bluebworks.com/articles/discord-memory-usage-rust-client-2026/","datePublished":"2026-11-08T12:26:00.000Z","dateModified":"2026-11-08T12:26:00.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"트렌드","keywords":"디스코드, 디스코드 메모리, 디스코드 렉, 러스트, Electron","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/discord-memory-usage-rust-client-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"디스코드 메모리 사용량 줄이기: 지금 앱 설정과 러스트로 다시 만든 새 앱 290MB 정리","item":"https://bluebworks.com/articles/discord-memory-usage-rust-client-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>트렌드</span></p>
+        <h1 id="article-title">디스코드 메모리 사용량 줄이기: 지금 앱 설정과 러스트로 다시 만든 새 앱 290MB 정리</h1>
+        <p class="cover-dek">디스코드 PC 앱이 램을 많이 먹는다는 불만에 디스코드가 답을 내놨습니다. 앱 전체를 러스트로 다시 만들고 Electron을 걷어 내겠다고 했고, CTO가 공개한 작업 관리자 화면에서 새 앱은 계정 2개를 켠 상태로 290.2MB였습니다. 출시일은 아직 없으니, 지금 앱에서 공식 도움말대로 부담을 줄이는 설정과 새 앱에서 바뀌는 점을 함께 정리했습니다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 11월 8일</span><span>소식 발표 2026년 11월 4일</span><span>확인 2026년 11월 8일</span><span>published</span><span>7분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">디스코드 새 PC 앱, 러스트로 다시 만든다는 발표</a></li>
+          <li><a href="#sec-2">새 디스코드 앱 메모리 290MB와 실행 속도 영상</a></li>
+          <li><a href="#sec-3">지금 디스코드 앱이 무거운 이유와 9월 패치 결과</a></li>
+          <li><a href="#sec-4">지금 앱에서 디스코드 메모리와 렉 줄이는 설정</a></li>
+          <li><a href="#sec-5">디스코드 새 앱 출시일과 아직 모르는 것</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="디스코드 메모리 사용량 줄이기: 지금 앱 설정과 러스트로 다시 만든 새 앱 290MB 정리">
+            <meta itemprop="description" content="디스코드 PC 앱이 램을 많이 먹는다는 불만에 디스코드가 답을 내놨습니다. 앱 전체를 러스트로 다시 만들고 Electron을 걷어 내겠다고 했고, CTO가 공개한 작업 관리자 화면에서 새 앱은 계정 2개를 켠 상태로 290.2MB였습니다. 출시일은 아직 없으니, 지금 앱에서 공식 도움말대로 부담을 줄이는 설정과 새 앱에서 바뀌는 점을 함께 정리했습니다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/discord-memory-usage-rust-client-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: Discord PC 앱. 디스코드 메모리, 러스트로 다시 만든 새 앱과 지금 앱에서 줄이는 설정. 새 앱 작업 관리자 290MB, 계정 2개 로그인 상태, 출시일은 아직 미정. 오른쪽에 디스코드 공식 도움말의 렉 해결 목록 화면"><img src="https://bluebworks.com/assets/editorial/discord-memory-usage-rust-client-2026-thumb.png" alt="Discord PC 앱. 디스코드 메모리, 러스트로 다시 만든 새 앱과 지금 앱에서 줄이는 설정. 새 앱 작업 관리자 290MB, 계정 2개 로그인 상태, 출시일은 아직 미정. 오른쪽에 디스코드 공식 도움말의 렉 해결 목록 화면" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>디스코드 공식 도움말 화면을 넣은 썸네일</span><a href="https://support.discord.com/hc/en-us/articles/213491697" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
+      <ul>
+        <li>새 앱: 디스코드가 PC 앱을 러스트와 GPUI로 다시 만드는 중이고 Electron과 React Native를 걷어 낸다. CTO가 올린 작업 관리자 화면에서 새 앱은 계정 2개 로그인 상태로 290.2MB</li>
+        <li>지금 앱: 공식 도움말이 권하는 방법은 앱 업데이트, GIF 자동 재생과 움직이는 이모지 끄기, 사용자 설정 고급 탭의 하드웨어 가속 끄기, 문제가 되는 게임의 오버레이 끄기</li>
+        <li>출시: 정해진 날짜는 없다. CTO는 곧 사용자와 함께 테스트하고 싶다고만 했고, 지금 앱과 새 앱을 같은 조건으로 잰 공식 비교 수치도 아직 없다</li>
+      </ul>
+    </details>
+
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>디스코드 새 PC 앱, 러스트로 다시 만든다는 발표</h2>
+        <p>게임을 켜 놓고 디스코드로 음성 채팅을 하다 보면 작업 관리자에서 디스코드가 메모리를 꽤 차지하고 있는 걸 보게 됩니다. 램이 16GB인 PC에서 게임과 브라우저까지 띄우면 이 몫이 아깝게 느껴지고, 그래서 디스코드 메모리 줄이기나 디스코드 램 사용량 같은 검색이 꾸준히 나옵니다.</p>
+        <p>11월 4일(미국 시간) 디스코드 공동 창업자이자 CTO인 스타니슬라프 비시넵스키가 이 문제에 대한 회사의 답을 X에 올렸습니다. 디스코드는 2018년부터 러스트를 써 왔고 서버 인프라와 음성 기술, 지금 앱의 일부도 이미 러스트로 돌아가는데, 남은 목표는 앱 전체를 러스트로 옮기는 것이었다는 설명입니다. 그렇게 되면 PC 앱의 바탕인 Electron이 빠지고, 모바일 앱의 바탕인 React Native도 빠집니다.</p>
+        <p>화면을 그리는 도구로는 GPUI를 골랐다고 밝혔습니다. 많은 사람이 러스트 앱이면 Tauri일 거라고 짐작했는데 그게 아니라는 겁니다. GPUI는 코드 편집기 Zed를 만든 팀이 공개한 러스트용 화면 프레임워크로, 그래픽 카드를 써서 화면을 직접 그립니다. 모바일은 운영체제 기본 화면 부품을 그대로 쓰되, 앱의 동작 코드는 PC 앱과 같은 러스트 코드를 나눠 쓰는 방식입니다.</p>
+        <figure class="article-embed x-embed">
+      <blockquote class="twitter-tweet" data-dnt="true" data-lang="ko">
+        <p lang="en" dir="ltr">We&#39;ve been early adopters of Rust since 2018 and a lot of our infra, voice tech, and even some of the current client is already Rust, the holy grail was getting the whole client there. That means Electron goes away, and so does React Native, mobile keeps native UI but shares app code with desktop through Rust.</p>
+        &mdash; Stanislav (@svishnevskiy) <a href="https://x.com/svishnevskiy/status/2118081920194203799">2026년 11월 5일</a>
+      </blockquote>
+      <figcaption><span>Stanislav 공식 X 게시물</span><a href="https://x.com/svishnevskiy/status/2118081920194203799" target="_blank" rel="noopener noreferrer">X에서 원문 보기</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-8">[8]</a> <a href="#source-9">[9]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>새 디스코드 앱 메모리 290MB와 실행 속도 영상</h2>
+        <p>발표 글에 붙은 사진은 윈도우 작업 관리자 화면입니다. 앱 목록에 Discord Phoenix라는 이름이 보이는데, 이게 개발 중인 새 앱입니다. 메모리 칸에는 290.2MB가 찍혀 있습니다. 같은 화면에서 프로세스 19개로 돌던 크롬은 1,568.6MB, 노션은 932.5MB, 스팀 웹 도우미는 856.0MB였습니다. 다른 앱들은 그 PC에서 열어 둔 상태가 제각각이니 숫자를 일대일로 비교할 수는 없지만, 채팅 앱 하나가 차지하는 몫이 확 줄었다는 인상은 분명합니다.</p>
+        <p>290MB도 채팅 앱치고 많다는 반응이 나오자 CTO는 이 앱이 계정 2개를 동시에 켜 둔 상태라고 답했습니다. 새 앱은 여러 계정을 동시에 켜 두는 기능을 기본으로 지원하고, 다른 답글에서는 PC와 모바일 모두 다중 계정을 완전히 지원하며 서로 다른 계정으로 동시에 음성 채널에 들어가 있을 수도 있다고 설명했습니다. 일 계정과 개인 계정을 따로 쓰는 사람이라면 메모리 숫자보다 이쪽이 더 반가울 수 있습니다.</p>
+        <p>하루 뒤에는 실행 속도를 보여 주는 영상이 올라왔습니다. 디스코드 공식 계정은 왼쪽이 지금 매일 쓰는 디스코드, 오른쪽이 러스트로 다시 만든 새 버전이라고 소개했습니다. 두 앱을 노트북 두 대에서 나란히 실행해 화면이 뜨는 속도를 비교한 영상입니다. CTO는 메모리를 덜 쓰는 건 일부일 뿐이고 여기저기 눌러 볼 때 반응이 즉시 오는 게 더 크다고 적었습니다.</p>
+        <p>다만 이 숫자와 영상은 회사가 개발 중인 앱을 보여 준 것입니다. 지금 앱과 새 앱을 같은 PC, 같은 계정, 같은 서버 수로 재서 비교한 공식 수치는 아직 나오지 않았습니다. 실제로 내 PC에서 얼마나 줄어드는지는 테스트 버전이 풀린 뒤에야 확인할 수 있습니다.</p>
+        <figure class="article-embed x-embed">
+      <blockquote class="twitter-tweet" data-dnt="true" data-lang="ko">
+        <p lang="en" dir="ltr">On the left is the Discord you use daily. And on the right is a new version we&#39;re working on, rebuilt in Rust</p>
+        &mdash; Discord (@discord) <a href="https://x.com/discord/status/2118401057571369252">2026년 11월 6일</a>
+      </blockquote>
+      <figcaption><span>Discord 공식 X 게시물</span><a href="https://x.com/discord/status/2118401057571369252" target="_blank" rel="noopener noreferrer">X에서 원문 보기</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-4">[4]</a> <a href="#source-11">[11]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>지금 디스코드 앱이 무거운 이유와 9월 패치 결과</h2>
+        <p>지금 디스코드 PC 앱은 Electron 위에서 돌아갑니다. Electron은 웹 기술로 만든 화면을 데스크톱 앱처럼 띄우는 도구인데, 앱마다 크롬과 같은 브라우저 엔진을 통째로 싣고 다닙니다. 한 번 만들어 윈도우와 맥, 리눅스에 똑같이 내놓기 쉬운 대신, 앱을 하나 켤 때마다 작은 브라우저를 하나 더 켜는 셈이라 메모리를 많이 씁니다. 작업 관리자에서 디스코드 항목을 펼치면 프로세스가 여러 개로 나뉘어 보이는 것도 이 구조 때문입니다.</p>
+        <p>디스코드도 그동안 Electron 안에서 개선을 이어 왔습니다. 9월 8일 공식 패치 노트를 보면 PC 앱의 Electron을 42 버전으로 올리고 쓰는 방식을 바꿨더니 CPU 사용량 중앙값이 약 17% 줄었습니다. 대신 메모리 사용량 중앙값은 약 4% 늘었다고 회사가 직접 적었습니다. 화면에 그릴 필요 없는 요소를 줄이는 변경으로 CPU 사용량을 약 3% 더 낮춘 것도 같은 글에 있습니다.</p>
+        <p>이 숫자들은 디스코드가 자체 측정 도구로 잰 값이라고 패치 노트 끝에 밝혀져 있습니다. 결국 Electron을 고쳐서 CPU는 아낄 수 있었지만 메모리는 오히려 조금 늘었고, 그래서 바탕 자체를 바꾸는 쪽으로 간 것으로 볼 수 있습니다. 같은 패치 노트에는 무료 사용자의 파일 업로드 한도가 10MB에서 20MB로 늘어난 소식도 함께 들어 있습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/discord-memory-usage-rust-client-2026-patchnotes.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 디스코드 9월 8일 패치 노트의 Highlights 목록. 빨간 테두리 안에 Electron 42 업그레이드로 p50 CPU 사용량이 약 17% 개선되고 p50 메모리 사용량이 약 4% 늘었다는 문장이 있다.">
+        <img src="https://bluebworks.com/assets/editorial/discord-memory-usage-rust-client-2026-patchnotes.png" alt="디스코드 9월 8일 패치 노트의 Highlights 목록. 빨간 테두리 안에 Electron 42 업그레이드로 p50 CPU 사용량이 약 17% 개선되고 p50 메모리 사용량이 약 4% 늘었다는 문장이 있다." width="1255" height="870" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>Electron 42로 올린 뒤 CPU는 약 17% 줄고 메모리는 약 4% 늘었다는 9월 패치 노트 항목</span><a href="https://discord.com/blog/discord-patch-notes-september-8-2026" target="_blank" rel="noopener noreferrer">Discord Blog · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-5">[5]</a> <a href="#source-1">[1]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>지금 앱에서 디스코드 메모리와 렉 줄이는 설정</h2>
+        <p>새 앱이 나올 때까지는 지금 앱을 써야 합니다. 디스코드 고객센터의 시스템 요구 사항 문서에는 앱이 느리거나 끊길 때 해 볼 방법이 정리돼 있습니다. 가장 먼저 권하는 건 앱을 최신 버전으로 업데이트하고, 그래도 이상하면 다시 설치해 보는 것입니다. 9월 패치처럼 성능 개선이 계속 들어오기 때문에 오래 켜 둔 앱이라면 한 번 껐다 켜서 업데이트를 받는 것만으로도 차이가 날 수 있습니다.</p>
+        <p>그다음은 움직이는 그림을 줄이는 설정입니다. 사용자 설정의 접근성 메뉴에서 디스코드 창이 활성화됐을 때 GIF 자동 재생 항목과 움직이는 이모지 재생 항목을 끄라고 안내합니다. 이모지와 GIF가 많이 오가는 서버에 오래 머무는 사람이라면 체감이 큰 부분입니다. 그림은 눌렀을 때만 움직이게 됩니다.</p>
+        <p>PC 앱이라면 사용자 설정의 고급 메뉴에서 하드웨어 가속을 끄는 방법도 문서에 있습니다. 하드웨어 가속은 화면 그리기를 그래픽 카드에 맡기는 기능이라, 끄면 게임과 그래픽 카드를 나눠 쓰는 부담이 줄어드는 대신 그만큼 CPU가 일을 더 하게 됩니다. 어느 쪽이 나은지는 PC마다 다르므로, 바꾼 뒤 앱을 다시 시작하고 작업 관리자 숫자와 게임 프레임을 전후로 비교해 보는 게 확실합니다. 방송을 켜고 있다면 화면 공유 창의 점 세 개 메뉴에서 방송 화질의 프레임과 해상도를 낮추는 것도 공식 안내에 들어 있습니다.</p>
+        <p>게임 오버레이도 확인할 만합니다. 디스코드는 2024년 4월 오버레이를 새로 바꾸면서 모든 게임에서 기본으로 켜지게 했습니다. 공식 도움말은 오버레이를 켠 상태에서 렉이나 게임 튕김이 생기면 그 게임만 오버레이를 끄라고 권합니다. 오버레이는 윈도우에서만 동작하니 맥과 리눅스 사용자는 신경 쓰지 않아도 됩니다.</p>
+        <p>지금 메모리를 얼마나 쓰는지는 윈도우에서 Ctrl, Shift, Esc를 같이 눌러 작업 관리자를 열면 바로 보입니다. 프로세스 탭의 Discord 항목에 적힌 메모리가 여러 프로세스를 합친 값입니다. 설정을 바꾸기 전에 이 숫자를 한 번 적어 두면 무엇이 효과가 있었는지 알기 쉽습니다. 이 설정들로 메모리가 얼마나 줄어드는지에 대해 디스코드가 따로 밝힌 수치는 없습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/discord-memory-usage-rust-client-2026-support.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 디스코드 고객센터 문서의 렉 해결 목록. GIF 자동 재생 끄기, 움직이는 이모지 끄기 항목 아래 빨간 테두리 안에 PC 앱에서 사용자 설정, 고급, 하드웨어 가속 끄기 경로가 적혀 있다.">
+        <img src="https://bluebworks.com/assets/editorial/discord-memory-usage-rust-client-2026-support.png" alt="디스코드 고객센터 문서의 렉 해결 목록. GIF 자동 재생 끄기, 움직이는 이모지 끄기 항목 아래 빨간 테두리 안에 PC 앱에서 사용자 설정, 고급, 하드웨어 가속 끄기 경로가 적혀 있다." width="1115" height="880" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>공식 도움말의 렉 해결 목록. 하드웨어 가속은 사용자 설정의 고급 메뉴에 있다</span><a href="https://support.discord.com/hc/en-us/articles/213491697" target="_blank" rel="noopener noreferrer">Discord Support · 원문</a></figcaption>
+    </figure><div class="section-links"><a href="https://support.discord.com/hc/en-us/articles/213491697" target="_blank" rel="noopener noreferrer">디스코드 시스템 요구 사항과 렉 해결 방법(공식 도움말) <span aria-hidden="true">↗</span></a><a href="https://support.discord.com/hc/en-us/articles/217659737-Game-Overlay-101" target="_blank" rel="noopener noreferrer">디스코드 게임 오버레이 설정(공식 도움말) <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-6">[6]</a> <a href="#source-7">[7]</a> <a href="#source-14">[14]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>디스코드 새 앱 출시일과 아직 모르는 것</h2>
+        <p>가장 궁금한 출시일은 정해지지 않았습니다. CTO는 발표 글에서 곧 사용자와 함께 테스트에 들어가길 바란다고만 적었고, 날짜나 신청 방법은 내놓지 않았습니다. 지금 시점에서 새 앱을 미리 받을 수 있는 공식 경로는 없으니, 새 디스코드 앱 다운로드라며 파일을 나눠 주는 곳이 보이면 의심하는 게 안전합니다.</p>
+        <p>모바일 쪽 소식도 나왔습니다. CTO는 11월 6일(미국 시간) 안드로이드 앱이 새 구조로 돌아가는 영상을 올리면서, React Native에서 영감을 받아 운영체제 기본 화면 부품을 같은 러스트 코드로 움직이는 방식이라고 설명했습니다. 자기 휴대폰에서 가장 반응이 빠른 앱일지도 모르겠다는 말도 붙였습니다. 안드로이드 앱은 몇 년 전 iOS 앱과 기능을 맞추려고 React Native로 옮겨 갔는데, 이번에는 두 앱 모두 러스트 코드를 나눠 쓰게 됩니다.</p>
+        <p>웹 버전은 조금 다르게 갑니다. CTO는 GPUI가 이미 브라우저에도 그릴 수 있지만, 실행 환경에 따라 HTML로도 GPUI로도 그릴 수 있는 자체 화면 계층을 만들고 있다고 답했습니다. 브라우저에서 쓰는 디스코드도 브라우저에 맞는 느낌을 주고 접근성까지 챙기려는 것이라고 했습니다. 다른 답글에서는 웹에서도 화면은 HTML로 그리되 동작 코드는 자바스크립트 대신 웹어셈블리(WASM)로 돌린다고 설명했습니다.</p>
+        <p>겉모습은 크게 바뀌지 않습니다. CTO는 새 앱이 지금 앱과 똑같이 생겼고 똑같이 동작한다고 답했습니다. 사용자가 새로 익혀야 할 건 거의 없고, 같은 화면이 더 가볍고 빠르게 뜨는 쪽에 가깝습니다. 다만 BetterDiscord나 Vencord처럼 지금 앱 위에 얹어 쓰는 꾸미기 도구가 새 앱에서 어떻게 될지는 디스코드가 따로 밝힌 내용이 없습니다. 이런 도구를 쓰는 사람이라면 테스트 소식이 나올 때 함께 확인해 보는 게 좋습니다.</p>
+        <figure class="article-embed x-embed">
+      <blockquote class="twitter-tweet" data-dnt="true" data-lang="ko">
+        <p lang="en" dir="ltr">We didn&#39;t forget about mobile, especially Android. Inspired by React Native, it drives the OS-native view layer through the same Rust codebase as the new desktop app. I think it might be the most responsive app on my phone now?</p>
+        &mdash; Stanislav (@svishnevskiy) <a href="https://x.com/svishnevskiy/status/2118753826815742254">2026년 11월 7일</a>
+      </blockquote>
+      <figcaption><span>Stanislav 공식 X 게시물</span><a href="https://x.com/svishnevskiy/status/2118753826815742254" target="_blank" rel="noopener noreferrer">X에서 원문 보기</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-9">[9]</a> <a href="#source-13">[13]</a> <a href="#source-10">[10]</a> <a href="#source-15">[15]</a> <a href="#source-12">[12]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://x.com/svishnevskiy/status/2118081920194203799" target="_blank" rel="noopener noreferrer">
+            <strong>X: @svishnevskiy 러스트 전환 발표</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://x.com/discord/status/2118401057571369252" target="_blank" rel="noopener noreferrer">
+            <strong>X: @discord 실행 속도 비교 영상</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://x.com/svishnevskiy/status/2118398632236073156" target="_blank" rel="noopener noreferrer">
+            <strong>X: @svishnevskiy 실행 속도 영상</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://x.com/svishnevskiy/status/2118092648590573734" target="_blank" rel="noopener noreferrer">
+            <strong>X: @svishnevskiy 계정 2개 동시 실행 답글</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://discord.com/blog/discord-patch-notes-september-8-2026" target="_blank" rel="noopener noreferrer">
+            <strong>Discord Blog: Patch Notes September 8, 2026</strong>
+            <span>discord.com</span>
+          </a>
+        </li>
+        <li id="source-6">
+          <a href="https://support.discord.com/hc/en-us/articles/213491697" target="_blank" rel="noopener noreferrer">
+            <strong>Discord Support: What are the OS/system requirements for Discord?</strong>
+            <span>support.discord.com</span>
+          </a>
+        </li>
+        <li id="source-7">
+          <a href="https://support.discord.com/hc/en-us/articles/217659737-Game-Overlay-101" target="_blank" rel="noopener noreferrer">
+            <strong>Discord Support: Game Overlay 101</strong>
+            <span>support.discord.com</span>
+          </a>
+        </li>
+        <li id="source-8">
+          <a href="https://www.gpui.rs/" target="_blank" rel="noopener noreferrer">
+            <strong>GPUI 공식 사이트</strong>
+            <span>gpui.rs</span>
+          </a>
+        </li>
+        <li id="source-9">
+          <a href="https://x.com/svishnevskiy/status/2118753826815742254" target="_blank" rel="noopener noreferrer">
+            <strong>X: @svishnevskiy 모바일 앱 영상</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-10">
+          <a href="https://x.com/svishnevskiy/status/2118405025030639788" target="_blank" rel="noopener noreferrer">
+            <strong>X: @svishnevskiy 웹 버전 답글</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-11">
+          <a href="https://x.com/svishnevskiy/status/2118462500719280429" target="_blank" rel="noopener noreferrer">
+            <strong>X: @svishnevskiy 다중 계정 답글</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-12">
+          <a href="https://x.com/svishnevskiy/status/2118092321346756616" target="_blank" rel="noopener noreferrer">
+            <strong>X: @svishnevskiy 화면 동일 답글</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-13">
+          <a href="https://x.com/svishnevskiy/status/2118084605865865410" target="_blank" rel="noopener noreferrer">
+            <strong>X: @svishnevskiy 안드로이드 앱 내력 답글</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+        <li id="source-14">
+          <a href="https://support.discord.com/hc/en-us/articles/25289844838551--Known-Issue-Game-Overlay" target="_blank" rel="noopener noreferrer">
+            <strong>Discord Support: [Known Issue] Game Overlay</strong>
+            <span>support.discord.com</span>
+          </a>
+        </li>
+        <li id="source-15">
+          <a href="https://x.com/svishnevskiy/status/2118084283650994414" target="_blank" rel="noopener noreferrer">
+            <strong>X: @svishnevskiy 웹 버전 WASM 답글</strong>
+            <span>x.com</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/macos-personal-knowledge-graph-iknow-2026/">
+            <span class="related-cat">트렌드</span>
+            <strong>애플 인텔리전스 개인정보: 맥이 몰래 만드는 개인 지식 그래프와 가족 관계 추론, iKnow로 보는 법</strong>
+            <span>게시 2026년 11월 7일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/hn-agentic-setup-subscriptions-2026/">
+            <span class="related-cat">트렌드</span>
+            <strong>AI 구독 조합 2026: 해커뉴스 댓글 275개로 본 클로드, 코덱스, 딥시크 쓰는 법</strong>
+            <span>게시 2026년 11월 5일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/website-backup-warc-wacz-replayweb-2026/">
+            <span class="related-cat">트렌드</span>
+            <strong>웹페이지 저장하는 방법: 사이트를 WARC로 통째로 백업하고 ReplayWeb.page로 다시 열기</strong>
+            <span>게시 2026년 11월 3일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://support.discord.com/hc/en-us/articles/213491697" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>디스코드 렉 해결 공식 도움말</strong>
+        <span class="rail-desc">시스템 요구 사항과 앱이 느릴 때 바꿀 설정 목록</span>
+        <span class="rail-host">support.discord.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://support.discord.com/hc/en-us/articles/217659737-Game-Overlay-101" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>디스코드 게임 오버레이 도움말</strong>
+        <span class="rail-desc">오버레이를 켜고 끄는 위치와 게임별 설정</span>
+        <span class="rail-host">support.discord.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://discord.com/blog/discord-patch-notes-september-8-2026" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 블로그</span>
+        <strong>디스코드 패치 노트 모음</strong>
+        <span class="rail-desc">성능 개선 수치가 실리는 디스코드 엔지니어링 패치 노트</span>
+        <span class="rail-host">discord.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://www.gpui.rs/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>GPUI</strong>
+        <span class="rail-desc">새 디스코드 앱이 쓰는 러스트 화면 프레임워크</span>
+        <span class="rail-host">gpui.rs</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/discord-memory-usage-rust-client-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </body>
+</html>
