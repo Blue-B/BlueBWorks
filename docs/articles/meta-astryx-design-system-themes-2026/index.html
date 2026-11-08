@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>메타 Astryx 디자인 시스템: 테마 바꾸는 법, 설치 조건, AI 에이전트용 CLI 정리 | BlueBWorks</title>
+    <meta name="description" content="메타가 사내에서 8년 동안 쓰던 디자인 시스템 Astryx를 MIT 라이선스 오픈소스로 공개했고, 11월 들어 깃허브 트렌딩에 다시 올라왔습니다. 컴포넌트 150개 이상과 테마 7종, AI 코딩 도구가 읽도록 만든 CLI가 한 묶음입니다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/meta-astryx-design-system-themes-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="메타 Astryx 디자인 시스템: 테마 바꾸는 법, 설치 조건, AI 에이전트용 CLI 정리 | BlueBWorks">
+    <meta property="og:description" content="메타가 사내에서 8년 동안 쓰던 디자인 시스템 Astryx를 MIT 라이선스 오픈소스로 공개했고, 11월 들어 깃허브 트렌딩에 다시 올라왔습니다. 컴포넌트 150개 이상과 테마 7종, AI 코딩 도구가 읽도록 만든 CLI가 한 묶음입니다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/meta-astryx-design-system-themes-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/meta-astryx-design-system-themes-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/meta-astryx-design-system-themes-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"메타 Astryx 디자인 시스템: 테마 바꾸는 법, 설치 조건, AI 에이전트용 CLI 정리","description":"메타가 사내에서 8년 동안 쓰던 디자인 시스템 Astryx를 MIT 라이선스 오픈소스로 공개했고, 11월 들어 깃허브 트렌딩에 다시 올라왔습니다. 컴포넌트 150개 이상과 테마 7종, AI 코딩 도구가 읽도록 만든 CLI가 한 묶음입니다. 테마를 바꾸면 화면이 어떻게 달라지는지, 설치에 필요한 React와 Node 버전, 아직 베타인 부분을 정리했습니다.","url":"https://bluebworks.com/articles/meta-astryx-design-system-themes-2026/","mainEntityOfPage":"https://bluebworks.com/articles/meta-astryx-design-system-themes-2026/","datePublished":"2026-11-08T06:35:00.000Z","dateModified":"2026-11-08T06:35:00.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"Astryx, 메타 오픈소스, 디자인 시스템, React 컴포넌트, AI 코딩 도구","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/meta-astryx-design-system-themes-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"메타 Astryx 디자인 시스템: 테마 바꾸는 법, 설치 조건, AI 에이전트용 CLI 정리","item":"https://bluebworks.com/articles/meta-astryx-design-system-themes-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>오픈소스</span></p>
+        <h1 id="article-title">메타 Astryx 디자인 시스템: 테마 바꾸는 법, 설치 조건, AI 에이전트용 CLI 정리</h1>
+        <p class="cover-dek">메타가 사내에서 8년 동안 쓰던 디자인 시스템 Astryx를 MIT 라이선스 오픈소스로 공개했고, 11월 들어 깃허브 트렌딩에 다시 올라왔습니다. 컴포넌트 150개 이상과 테마 7종, AI 코딩 도구가 읽도록 만든 CLI가 한 묶음입니다. 테마를 바꾸면 화면이 어떻게 달라지는지, 설치에 필요한 React와 Node 버전, 아직 베타인 부분을 정리했습니다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 11월 8일</span><span>소식 발표 2026년 6월 18일</span><span>확인 2026년 11월 8일</span><span>published</span><span>7분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">메타 Astryx가 어떤 오픈소스인지</a></li>
+          <li><a href="#sec-2">Astryx 테마를 바꾸면 달라지는 화면</a></li>
+          <li><a href="#sec-3">Astryx 테마가 코드 수정 없이 바뀌는 구조</a></li>
+          <li><a href="#sec-4">AI 코딩 도구가 Astryx를 쓰는 방식</a></li>
+          <li><a href="#sec-5">Astryx 설치 방법과 필요한 버전</a></li>
+          <li><a href="#sec-6">Astryx를 쓰기 전에 알아 둘 한계</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="메타 Astryx 디자인 시스템: 테마 바꾸는 법, 설치 조건, AI 에이전트용 CLI 정리">
+            <meta itemprop="description" content="메타가 사내에서 8년 동안 쓰던 디자인 시스템 Astryx를 MIT 라이선스 오픈소스로 공개했고, 11월 들어 깃허브 트렌딩에 다시 올라왔습니다. 컴포넌트 150개 이상과 테마 7종, AI 코딩 도구가 읽도록 만든 CLI가 한 묶음입니다. 테마를 바꾸면 화면이 어떻게 달라지는지, 설치에 필요한 React와 Node 버전, 아직 베타인 부분을 정리했습니다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/meta-astryx-design-system-themes-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: Meta 오픈소스 Astryx. 메타가 8년 쓴 디자인 시스템, 테마 하나로 화면 분위기를 바꾼다. 사내 앱 1만 3천 개 이상에 쓰인 시스템. 오른쪽에 Gothic 테마를 적용한 Astryx 테마 미리보기 화면"><img src="https://bluebworks.com/assets/editorial/meta-astryx-design-system-themes-2026-thumb.png" alt="Meta 오픈소스 Astryx. 메타가 8년 쓴 디자인 시스템, 테마 하나로 화면 분위기를 바꾼다. 사내 앱 1만 3천 개 이상에 쓰인 시스템. 오른쪽에 Gothic 테마를 적용한 Astryx 테마 미리보기 화면" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>Astryx 테마 미리보기 화면을 넣은 썸네일</span><a href="https://astryx.atmeta.com/themes" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
+      <ul>
+        <li>무엇: 메타 사내 앱 1만 3천 개 이상에 쓰였다는 React 디자인 시스템. 컴포넌트 150개 이상, 다크 모드, 템플릿, CLI를 MIT 라이선스로 공개했고 아직 베타</li>
+        <li>테마: 같은 쇼핑 화면이 Stone, Gothic, matcha, Y2K 테마에 따라 글꼴과 색, 모서리, 사진 분위기까지 바뀐다. 테마는 CSS 변수 덮어쓰기라 컴포넌트 코드를 고치지 않는다</li>
+        <li>주의: React 19 이상이 필요하고 CLI는 Node.js 22.13.0 이상에서만 돈다. CLI를 설치하기 전에 npx astryx처럼 범위 없는 이름으로 실행하면 상관없는 다른 패키지가 깔린다</li>
+      </ul>
+    </details>
+          <details class="editor-note">
+      <summary>덧붙임</summary>
+      <p>기능과 숫자는 Astryx 공식 사이트, 공식 블로그, 깃허브 저장소와 릴리스 노트에 적힌 내용입니다. 테마 화면은 공식 사이트의 테마 미리보기에서 테마만 바꿔 가며 같은 화면을 띄운 것입니다.</p>
+    </details>
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>메타 Astryx가 어떤 오픈소스인지</h2>
+        <p>Astryx는 메타가 6월 18일 베타로 공개한 디자인 시스템입니다. 버튼, 입력창, 표, 대화창 같은 화면 부품을 한 가지 규칙으로 맞춰 둔 묶음이라고 보면 됩니다. 메타 설명으로는 회사 안에서 8년 동안 다듬어졌고, 사내 앱 1만 3천 개 이상이 이걸로 화면을 만들었습니다.</p>
+        <p>공개 범위는 꽤 넓습니다. 접근성을 챙긴 컴포넌트가 150개 이상이고, 브랜드 색과 글꼴을 바꾸는 테마, 다크 모드, 바로 가져다 쓰는 페이지 템플릿, 명령줄 도구(CLI)가 한 저장소에 들어 있습니다. React 19와 메타의 스타일 라이브러리 StyleX 위에서 만들어졌고 라이선스는 MIT입니다.</p>
+        <p>공개는 여름이었지만 11월 8일 깃허브 일간 트렌딩에 다시 올라왔습니다. 이날 기준 별은 1만 4천 7백 개 정도이고, 11월 6일과 7일(미국 시간) 사이에만 0.7.9부터 0.7.11까지 세 번 새 버전이 나왔을 만큼 빠르게 바뀌는 중입니다. 아직 1.0 전의 베타라는 점은 기억해 둘 만합니다. 메타는 11월 12일 샌프란시스코 사옥에서 Astryx 팀이 직접 나오는 행사도 열 예정입니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/meta-astryx-design-system-themes-2026-home.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Astryx 공식 사이트 첫 화면. 왼쪽에 An open source design system that&#39;s fully customizable and agent ready 문구와 Get started 버튼, Currently in Beta, Built on React 19+ and StyleX 표시가 있다.">
+        <img src="https://bluebworks.com/assets/editorial/meta-astryx-design-system-themes-2026-home.png" alt="Astryx 공식 사이트 첫 화면. 왼쪽에 An open source design system that&#39;s fully customizable and agent ready 문구와 Get started 버튼, Currently in Beta, Built on React 19+ and StyleX 표시가 있다." width="1280" height="800" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>공식 사이트 첫 화면. 아직 베타이고 React 19 이상과 StyleX 위에서 돈다는 표시가 함께 있다.</span><a href="https://astryx.atmeta.com/" target="_blank" rel="noopener noreferrer">Meta Astryx · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-6">[6]</a> <a href="#source-7">[7]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>Astryx 테마를 바꾸면 달라지는 화면</h2>
+        <p>Astryx를 처음 보면 가장 눈에 들어오는 건 테마입니다. 공식 사이트의 Themes 메뉴에는 가상의 쇼핑몰 Studio 화면이 떠 있고, 왼쪽 목록에서 테마를 고르면 같은 화면이 그 자리에서 바뀝니다. 상품 카드, 결제 폼, 고객 상담 챗봇 창, 재고 표, 매출 카드까지 한 화면에 몰려 있어서 테마 하나가 실제 서비스 전체에 어떻게 먹히는지 한 번에 볼 수 있습니다.</p>
+        <p>아래 네 장은 같은 화면에서 테마만 바꾼 결과입니다. Stone은 회색 바탕에 담백한 상품 사진, Gothic은 검은 바탕과 꽃 사진, matcha는 연두색 바탕에 손글씨 느낌 제목과 둥근 카드, Y2K는 보라색 바탕에 반짝이는 소품 사진으로 바뀝니다. 버튼 위치와 구조는 그대로인데 글꼴, 색, 모서리 둥글기, 사진 분위기가 통째로 달라져서 전혀 다른 가게처럼 보입니다.</p>
+        <p>저장소에 패키지로 올라온 테마는 neutral, butter, chocolate, matcha, stone, gothic, y2k 일곱 가지입니다. 사이트의 미리보기 목록에는 그중 여섯 개가 떠 있고, 마음에 드는 테마를 내 프로젝트의 테마 파일로 복사해 고쳐 쓰는 방식입니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/meta-astryx-design-system-themes-2026-themes.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Astryx 테마 미리보기의 같은 쇼핑 화면을 네 가지 테마로 띄운 모음. 왼쪽 위 Stone은 회색 바탕과 헤드폰, 가방 사진, 오른쪽 위 Gothic은 검은 바탕과 꽃 사진, 왼쪽 아래 matcha는 연두 바탕과 손글씨 제목, 말차 음료 사진, 오른쪽 아래 Y2K는 보라 바탕과 휴대폰, 별, 나비 소품 사진이다.">
+        <img src="https://bluebworks.com/assets/editorial/meta-astryx-design-system-themes-2026-themes.png" alt="Astryx 테마 미리보기의 같은 쇼핑 화면을 네 가지 테마로 띄운 모음. 왼쪽 위 Stone은 회색 바탕과 헤드폰, 가방 사진, 오른쪽 위 Gothic은 검은 바탕과 꽃 사진, 왼쪽 아래 matcha는 연두 바탕과 손글씨 제목, 말차 음료 사진, 오른쪽 아래 Y2K는 보라 바탕과 휴대폰, 별, 나비 소품 사진이다." width="1600" height="1147" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>같은 Studio 화면을 Stone, Gothic, matcha, Y2K 테마로 바꾼 모습. 구조는 그대로이고 글꼴과 색, 카드 모양이 바뀐다.</span><a href="https://astryx.atmeta.com/themes" target="_blank" rel="noopener noreferrer">Meta Astryx · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-5">[5]</a> <a href="#source-1">[1]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>Astryx 테마가 코드 수정 없이 바뀌는 구조</h2>
+        <p>이게 가능한 이유는 테마를 만드는 방식에 있습니다. Astryx에서 테마는 CSS 사용자 지정 속성, 흔히 CSS 변수라고 부르는 값들을 덮어쓰는 묶음입니다. 색, 글꼴, 모서리 반지름, 움직임 같은 값을 토큰 단위로 바꾸기 때문에 컴포넌트 코드를 포크하거나 한 번 더 감싸지 않아도 화면 인상이 바뀝니다.</p>
+        <p>메타는 소개 글에서 기존 선택지가 둘 다 불편했다고 설명합니다. 큰 회사의 디자인 시스템을 그대로 쓰면 내 서비스가 남의 제품처럼 보이고, 복사해 붙여 넣는 컴포넌트 모음을 쓰면 자유롭지만 프로젝트마다 코드가 갈라져 수정이나 업그레이드를 받을 길이 없고 접근성도 각자 챙겨야 한다는 겁니다. Astryx는 동작과 접근성은 시스템이 맡고, 겉모습은 테마가 맡도록 나눴다고 합니다.</p>
+        <p>스타일 도구를 강제하지 않는 점도 눈에 띕니다. 내부는 StyleX로 만들었지만 쓰는 쪽에서는 미리 빌드된 CSS를 불러오고 타입이 붙은 React 컴포넌트를 쓰면 됩니다. 덮어쓰고 싶은 부분은 className으로 Tailwind, CSS 모듈, 그냥 CSS 중 원래 쓰던 방식을 그대로 쓸 수 있습니다. 더 깊이 고치고 싶으면 swizzle 기능으로 컴포넌트 원본 코드를 내 프로젝트로 꺼내 직접 관리할 수도 있습니다.</p>
+        <p>디자이너와 함께 일하는 팀이라면 Figma 라이브러리도 있습니다. 공식 블로그 설명으로는 Astryx Figma 라이브러리를 자동 작업이 점 릴리스마다 코드와 맞춰 갱신해서, 디자인 파일과 실제 컴포넌트가 따로 놀지 않게 했다고 합니다. 한국어 서비스에 반가운 변화도 있습니다. 8월 0.5.0 버전에서 로캘(언어와 지역 설정) 묶음이 30개로 늘었고, 선택 상자나 날짜 입력칸에서 한글처럼 조합해서 치는 글자를 Enter로 확정할 때 입력칸 값까지 같이 확정돼 버리던 문제를 고쳤습니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-8">[8]</a> <a href="#source-9">[9]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>AI 코딩 도구가 Astryx를 쓰는 방식</h2>
+        <p>Astryx가 내세우는 또 하나는 사람과 AI 에이전트가 같은 방식으로 쓰도록 만들었다는 점입니다. 클로드 코드나 코덱스 같은 도구에 화면을 맡기면 그럴듯하지만 어디서 본 듯한 화면이 나오기 쉬운데, Astryx 팀은 그 원인을 AI가 따라 할 좋은 예시가 없어서라고 봤습니다.</p>
+        <p>7월 공식 블로그 글을 보면 초기에는 에이전트가 Astryx 컴포넌트를 거의 쓰지 않고 div와 span을 늘어놓았다고 합니다. 문서와 예시를 다 쥐여 줬는데도 그랬고, 알고 보니 에이전트가 그대로 베낀 템플릿 자체가 엉성했다는 겁니다. 그래서 템플릿마다 같은 기준으로 점수를 매기는 채점표를 만들고, 디자이너가 다듬은 예시를 페이지, 블록, 컴포넌트 세 크기로 쌓았습니다.</p>
+        <p>그 예시를 꺼내 주는 게 CLI의 build 명령입니다. 만들고 싶은 화면을 자연어로 적으면 가장 가까운 페이지 템플릿, 부분을 채울 블록, 빈 곳을 메울 컴포넌트를 골라 주고 어디서 시작할지도 하나 정해 줍니다. 대시보드를 찾으면 분석, KPI, 지표 같은 단어까지 넓혀 찾는 식입니다. 이 검색은 네트워크 호출이나 AI 모델 없이 정해진 점수 규칙으로만 돌아서 같은 요청에는 늘 같은 결과가 나온다고 합니다. 결과 끝에는 레이아웃에 div를 쓰지 말 것, 인라인 스타일 대신 토큰을 쓸 것 같은 규칙이 붙어서 에이전트가 시스템 밖으로 새지 않게 막습니다.</p>
+        <p>CLI는 컴포넌트 설명, 디자인 토큰, 템플릿, 테마 도구, 업그레이드 코드 변환(codemod)을 터미널 명령과 JSON 응답으로 내놓습니다. 컴퓨터에 한 번 전역 설치해 두면 그 컴퓨터의 코딩 에이전트가 모두 Astryx 문서를 찾아 쓸 수 있고, 프로젝트 안에서는 그 프로젝트에 설치된 버전이 우선합니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-3">[3]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>Astryx 설치 방법과 필요한 버전</h2>
+        <p>설치는 npm 명령 두 줄입니다. 본체인 core, 테마 하나, StyleX를 넣고 CLI는 개발용 의존성으로 넣습니다. React와 react-dom 19 이상이 있어야 하고, 빌드 플러그인이나 PostCSS, Babel 설정 없이 CSS 몇 줄을 불러오고 테마 공급자로 감싸면 된다고 안내합니다. Next.js, Vite, Tailwind, CDN별 자세한 순서는 core 패키지의 README에 있습니다.</p>
+        <p>CLI는 Node.js 버전을 따로 봐야 합니다. CLI 0.7.11은 Node.js 22.13.0 이상을 요구합니다. 리눅스 서버의 Node.js 20.18.1에서 CLI 0.7.11을 설치해 실행하면 설치는 끝나지만 실행하자마자 Node.js 22.13.0 이상이 필요하다는 안내만 나오고 멈췄습니다. 회사 서버나 오래된 노트북에 Node 20을 쓰고 있다면 nvm 같은 도구로 22 이상을 먼저 올려 두는 편이 빠릅니다.</p>
+        <p>실수하기 쉬운 곳이 하나 더 있습니다. CLI를 설치하기 전에 npx astryx처럼 범위(@astryxdesign) 없는 이름으로 실행하면 Astryx와 상관없는 다른 npm 패키지를 받아 실행하게 됩니다. 공식 README도 이걸 따로 경고합니다. 처음에는 꼭 npx @astryxdesign/cli 처럼 전체 이름으로 실행하거나, 아래처럼 package.json에 스크립트를 걸어 두는 방법을 씁니다.</p>
+        <figure class="code-example"><figcaption>bash · 공식 README의 설치 명령. 테마 패키지는 neutral 대신 다른 테마로 바꿔 넣을 수 있다.</figcaption><pre tabindex="0"><code># 본체, 기본 테마, StyleX 설치 (React 19 이상 필요)
+npm install @astryxdesign/core @astryxdesign/theme-neutral @stylexjs/stylex
+npm install -D @astryxdesign/cli
+
+# CLI는 Node.js 22.13.0 이상에서 실행
+node -v
+
+# 범위 이름으로 실행 (npx astryx 단독 실행은 다른 패키지가 깔림)
+npx @astryxdesign/cli search button
+npx @astryxdesign/cli template --list
+
+# 컴퓨터 전체에 한 번 설치하면 astryx 명령을 어디서나 쓸 수 있음
+npm i -g @astryxdesign/cli</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-4">[4]</a> <a href="#source-6">[6]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>Astryx를 쓰기 전에 알아 둘 한계</h2>
+        <p>가장 먼저 걸리는 건 React 전용이라는 점입니다. Vue나 Svelte, 순수 HTML 사이트에서 쓰는 도구가 아닙니다. React 19 이상을 요구하니 아직 18에 머문 프로젝트는 React부터 올려야 합니다.</p>
+        <p>두 번째는 베타라는 점입니다. 0.x 버전에서 며칠 간격으로 릴리스가 나오고, 릴리스 노트마다 이전 버전에서 올라올 때 쓰는 upgrade 명령이 붙어 있습니다. 바뀌는 게 많다는 뜻이라 오래 손대지 않을 사이트보다는 계속 관리하는 프로젝트에 맞습니다. 차트 컴포넌트는 아직 정식 버전 없이 canary 태그로만 배포되고, 실험용 lab 패키지는 npm에 올라와 있지 않습니다.</p>
+        <p>그래도 화면을 AI에게 자주 맡기는 사람이라면 한 번 볼 만합니다. 컴포넌트 수나 테마보다 에이전트가 베낄 좋은 예시와 규칙을 CLI로 바로 꺼내 주는 구조가 다른 컴포넌트 모음과 가장 다른 지점이라서, 지금 쓰는 도구에서 매번 비슷한 화면이 나온다면 비교해 볼 이유가 됩니다. 공식 사이트의 Playground와 Storybook에서 설치 없이 컴포넌트를 눌러 볼 수 있습니다.</p>
+        <div class="section-links"><a href="https://astryx.atmeta.com/themes" target="_blank" rel="noopener noreferrer">Astryx 공식 사이트와 테마 미리보기 <span aria-hidden="true">↗</span></a><a href="https://github.com/meta/astryx" target="_blank" rel="noopener noreferrer">meta/astryx 깃허브 저장소 <span aria-hidden="true">↗</span></a><a href="https://github.com/meta/astryx/blob/main/packages/cli/README.md" target="_blank" rel="noopener noreferrer">Astryx CLI 사용 안내 <span aria-hidden="true">↗</span></a></div>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-6">[6]</a> <a href="#source-2">[2]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://github.com/meta/astryx" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub: meta/astryx</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://astryx.atmeta.com/blog/introducing-astryx" target="_blank" rel="noopener noreferrer">
+            <strong>Astryx 블로그: Introducing Astryx by Meta</strong>
+            <span>astryx.atmeta.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://astryx.atmeta.com/blog/astryx-cli-build-command" target="_blank" rel="noopener noreferrer">
+            <strong>Astryx 블로그: AI is a copycat so we gave it good examples to copy</strong>
+            <span>astryx.atmeta.com</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://github.com/meta/astryx/blob/main/packages/cli/README.md" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub: @astryxdesign/cli README</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://astryx.atmeta.com/themes" target="_blank" rel="noopener noreferrer">
+            <strong>Astryx Themes</strong>
+            <span>astryx.atmeta.com</span>
+          </a>
+        </li>
+        <li id="source-6">
+          <a href="https://github.com/meta/astryx/releases/tag/v0.7.11" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub Releases: Astryx 0.7.11</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-7">
+          <a href="https://astryx.atmeta.com/" target="_blank" rel="noopener noreferrer">
+            <strong>Astryx 공식 사이트</strong>
+            <span>astryx.atmeta.com</span>
+          </a>
+        </li>
+        <li id="source-8">
+          <a href="https://astryx.atmeta.com/blog/who-needs-a-figma-library" target="_blank" rel="noopener noreferrer">
+            <strong>Astryx 블로그: Who needs a Figma Library?</strong>
+            <span>astryx.atmeta.com</span>
+          </a>
+        </li>
+        <li id="source-9">
+          <a href="https://astryx.atmeta.com/blog/astryx-v0-5-0" target="_blank" rel="noopener noreferrer">
+            <strong>Astryx 블로그: Astryx v0.5.0</strong>
+            <span>astryx.atmeta.com</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/kronos-stock-prediction-ai-samsung-test-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>Kronos 주가 예측 AI 설치와 사용법: 삼성전자 차트로 돌려 본 오픈소스 금융 모델</strong>
+            <span>게시 2026년 11월 7일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/memnest-coding-agent-memory-compaction-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>코딩 AI 기억 유지하는 법: 대화 압축과 새 세션에도 지난 결정을 찾는 오픈소스 Memnest</strong>
+            <span>게시 2026년 11월 6일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/pjit-21k-open-source-image-model-demo-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>오픈소스 이미지 생성 모델 P-JiT 21K: 2만 1천 달러로 학습한 2B 모델, 무료 데모로 그려 본 결과</strong>
+            <span>게시 2026년 11월 6일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://astryx.atmeta.com/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>Astryx 공식 사이트</strong>
+        <span class="rail-desc">문서, 컴포넌트, 템플릿, 테마, Playground</span>
+        <span class="rail-host">astryx.atmeta.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/meta/astryx" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">저장소</span>
+        <strong>meta/astryx 저장소</strong>
+        <span class="rail-desc">소스 코드와 설치 안내, 릴리스 노트</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://astryx.atmeta.com/storybook/" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">데모</span>
+        <strong>Astryx Storybook</strong>
+        <span class="rail-desc">설치 없이 컴포넌트를 눌러 보는 공식 Storybook</span>
+        <span class="rail-host">astryx.atmeta.com</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/meta-astryx-design-system-themes-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+
+  </body>
+</html>
