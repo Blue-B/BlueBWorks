@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 08 Nov 2026 12:26:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 00:33:00 GMT</lastBuildDate>
+    <item>
+      <title>챗GPT 사용량 확인 방법과 12월 코덱스 한도 통합: 인스턴트 대화는 빠지고 클래식 앱은 1월 30일 종료</title>
+      <link>https://bluebworks.com/articles/chatgpt-codex-shared-usage-limit-december-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/chatgpt-codex-shared-usage-limit-december-2026/</guid>
+      <pubDate>Mon, 09 Nov 2026 00:33:00 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>12월부터 플러스, 프로, 비즈니스 요금제는 챗GPT와 코덱스가 사용 한도 하나를 같이 씁니다. 토큰 단위로 차감되고 인스턴트 대화는 빠집니다. 설정의 사용량 화면 보는 법, 한도에 닿았을 때 선택지, 맥용 챗GPT 클래식 앱 종료 일정을 정리했습니다.</description>
+    </item>
     <item>
       <title>디스코드 메모리 사용량 줄이기: 지금 앱 설정과 러스트로 다시 만든 새 앱 290MB 정리</title>
       <link>https://bluebworks.com/articles/discord-memory-usage-rust-client-2026/</link>
