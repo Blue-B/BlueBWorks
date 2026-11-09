@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 09 Nov 2026 09:39:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 12:45:00 GMT</lastBuildDate>
+    <item>
+      <title>DMARC 설정 방법: 아웃룩, 핫메일로 보낸 메일이 550 5.7.1로 튕길 때 TXT 레코드 한 줄</title>
+      <link>https://bluebworks.com/articles/outlook-hotmail-dmarc-550-571-bounce-fix-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/outlook-hotmail-dmarc-550-571-bounce-fix-2026/</guid>
+      <pubDate>Mon, 09 Nov 2026 12:45:00 GMT</pubDate>
+      <category>트렌드</category>
+      <description>11월 5일 무렵부터 outlook.com, hotmail.com 주소로 보낸 메일 일부가 &#39;Message lacks SPF/DKIM/DMARC Auth Records&#39;로 반송되고 있습니다. 마이크로소프트는 서비스 문제로 조사 중이고, 지금까지 가장 많이 통한 대처는 보내는 도메인에 DMARC 레코드를 넣는 것입니다. 확인 명령과 가비아 기준 추가 방법, 이것으로도 안 풀리는 경우를 정리했습니다.</description>
+    </item>
     <item>
       <title>피클 X 연결 방법과 활용: 키워드 탐색과 숏폼 제안은 되고, 북마크와 타임라인은 X API 한도에 막힘</title>
       <link>https://bluebworks.com/articles/pickle-ai-x-connect-keyword-shorts-limit-2026/</link>
