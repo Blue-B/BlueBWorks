@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 09 Nov 2026 06:37:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 09:39:00 GMT</lastBuildDate>
+    <item>
+      <title>피클 X 연결 방법과 활용: 키워드 탐색과 숏폼 제안은 되고, 북마크와 타임라인은 X API 한도에 막힘</title>
+      <link>https://bluebworks.com/articles/pickle-ai-x-connect-keyword-shorts-limit-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/pickle-ai-x-connect-keyword-shorts-limit-2026/</guid>
+      <pubDate>Mon, 09 Nov 2026 09:39:00 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>AI 에이전트 앱 피클에 X 계정을 연결하면 공개 글 검색과 키워드 탐색, 숏폼 제작 제안까지는 바로 쓸 수 있지만 개인 북마크와 타임라인은 X API 월간 한도에 걸립니다. 연결하는 법, 예약 작업으로 키워드 모니터링을 거는 법, 하루 사용량 한도와 연결 끊는 법을 정리했습니다.</description>
+    </item>
     <item>
       <title>셜록(Sherlock) 사용법: 아이디 하나로 400곳 넘는 사이트 계정 찾는 오픈소스, 설치와 오탐 주의점</title>
       <link>https://bluebworks.com/articles/sherlock-username-search-install-2026/</link>
