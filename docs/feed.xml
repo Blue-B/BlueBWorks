@@ -15,6 +15,14 @@
       <description>클로드 페이블 5.2가 나오면서 프로 요금제와 팀 표준 좌석은 11월 17일 16시 59분(한국 시간)까지 주간 한도의 50% 안에서 페이블을 추가 요금 없이 쓰고 리셋권 1번을 받습니다. 맥스와 울트라는 구독 기간에 따라 리셋권 1~3번입니다. 받는 조건, 리셋권이 되돌리는 범위, 쓰는 곳, 한 주가 끝난 뒤 주의할 점을 정리했습니다.</description>
     </item>
     <item>
+      <title>피클 AI 사용법과 가격, 쓰는 모델: 한국은 무료지만 하루 한도가 있고 초기화 티켓은 5,900원</title>
+      <link>https://bluebworks.com/articles/pickle-ai-price-model-privacy-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/pickle-ai-price-model-privacy-2026/</guid>
+      <pubDate>Tue, 10 Nov 2026 00:24:00 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>AI 에이전트 앱 피클은 한국에서 모든 계정이 무료이고, 대신 새벽 4시에 초기화되는 하루 사용량 한도 안에서 씁니다. 기본 사용법, 한도 초기화 티켓 가격과 받는 법, 답을 만드는 AI 제공자, 대화가 학습에 쓰이는 조건과 데이터 저장 위치, 계정 삭제 뒤 남는 기록까지 공식 도움말과 처리방침 기준으로 정리했습니다.</description>
+    </item>
+    <item>
       <title>DMARC 설정 방법: 아웃룩, 핫메일로 보낸 메일이 550 5.7.1로 튕길 때 TXT 레코드 한 줄</title>
       <link>https://bluebworks.com/articles/outlook-hotmail-dmarc-550-571-bounce-fix-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/outlook-hotmail-dmarc-550-571-bounce-fix-2026/</guid>
