@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>agent-browser 사용법: AI 에이전트에게 브라우저를 붙이는 버셀 오픈소스 CLI, 윈도우 설치와 기본값 주의점 | BlueBWorks</title>
+    <meta name="description" content="클로드 코드나 코덱스 같은 AI 코딩 도구가 웹 페이지를 열고 읽고 누르게 해 주는 버셀 랩스의 오픈소스 agent-browser를 윈도우에 설치해 돌려 본 결과와, 기본값에서는 이동과 동작에 아무 제한이 없다는 점, 허용 도메인과 동작 정책을 켜는 방법, Playwright…">
+    <link rel="canonical" href="https://bluebworks.com/articles/agent-browser-ai-agent-browser-cli-install-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="agent-browser 사용법: AI 에이전트에게 브라우저를 붙이는 버셀 오픈소스 CLI, 윈도우 설치와 기본값 주의점 | BlueBWorks">
+    <meta property="og:description" content="클로드 코드나 코덱스 같은 AI 코딩 도구가 웹 페이지를 열고 읽고 누르게 해 주는 버셀 랩스의 오픈소스 agent-browser를 윈도우에 설치해 돌려 본 결과와, 기본값에서는 이동과 동작에 아무 제한이 없다는 점, 허용 도메인과 동작 정책을 켜는 방법, Playwright…">
+    <meta property="og:url" content="https://bluebworks.com/articles/agent-browser-ai-agent-browser-cli-install-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-thumb.png">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"agent-browser 사용법: AI 에이전트에게 브라우저를 붙이는 버셀 오픈소스 CLI, 윈도우 설치와 기본값 주의점","description":"클로드 코드나 코덱스 같은 AI 코딩 도구가 웹 페이지를 열고 읽고 누르게 해 주는 버셀 랩스의 오픈소스 agent-browser를 윈도우에 설치해 돌려 본 결과와, 기본값에서는 이동과 동작에 아무 제한이 없다는 점, 허용 도메인과 동작 정책을 켜는 방법, Playwright MCP와의 차이를 정리했습니다.","url":"https://bluebworks.com/articles/agent-browser-ai-agent-browser-cli-install-2026/","mainEntityOfPage":"https://bluebworks.com/articles/agent-browser-ai-agent-browser-cli-install-2026/","datePublished":"2026-11-10T06:37:00.000Z","dateModified":"2026-11-10T06:37:00.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"agent-browser, 에이전트 브라우저, 브라우저 자동화, 클로드 코드, Vercel Labs, 오픈소스","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"agent-browser 사용법: AI 에이전트에게 브라우저를 붙이는 버셀 오픈소스 CLI, 윈도우 설치와 기본값 주의점","item":"https://bluebworks.com/articles/agent-browser-ai-agent-browser-cli-install-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>오픈소스</span></p>
+        <h1 id="article-title">agent-browser 사용법: AI 에이전트에게 브라우저를 붙이는 버셀 오픈소스 CLI, 윈도우 설치와 기본값 주의점</h1>
+        <p class="cover-dek">클로드 코드나 코덱스 같은 AI 코딩 도구가 웹 페이지를 열고 읽고 누르게 해 주는 버셀 랩스의 오픈소스 agent-browser를 윈도우에 설치해 돌려 본 결과와, 기본값에서는 이동과 동작에 아무 제한이 없다는 점, 허용 도메인과 동작 정책을 켜는 방법, Playwright MCP와의 차이를 정리했습니다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 11월 10일</span><span>소식 발표 2026년 11월 10일</span><span>확인 2026년 11월 10일</span><span>published</span><span>9분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">agent-browser가 하는 일: AI 에이전트용 브라우저 명령줄 도구</a></li>
+          <li><a href="#sec-2">agent-browser 설치 방법: npm 한 줄과 크롬 내려받기</a></li>
+          <li><a href="#sec-3">agent-browser 첫 실행: 열고, 읽고, 누르고, 닫기</a></li>
+          <li><a href="#sec-4">agent-browser로 위키백과 검색해 본 결과: 번호 붙은 화면과 출력 크기</a></li>
+          <li><a href="#sec-5">agent-browser 기본값 주의점: 이동, 동작, 출력에 제한 없음</a></li>
+          <li><a href="#sec-6">클로드 코드, 코덱스에 agent-browser 붙이는 법: 스킬과 MCP</a></li>
+          <li><a href="#sec-7">agent-browser 0.42.0 새 기능과 Playwright MCP, Lightpanda와 차이</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="agent-browser 사용법: AI 에이전트에게 브라우저를 붙이는 버셀 오픈소스 CLI, 윈도우 설치와 기본값 주의점">
+            <meta itemprop="description" content="클로드 코드나 코덱스 같은 AI 코딩 도구가 웹 페이지를 열고 읽고 누르게 해 주는 버셀 랩스의 오픈소스 agent-browser를 윈도우에 설치해 돌려 본 결과와, 기본값에서는 이동과 동작에 아무 제한이 없다는 점, 허용 도메인과 동작 정책을 켜는 방법, Playwright MCP와의 차이를 정리했습니다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: agent-browser, AI 에이전트에게 브라우저를 쥐여 주는 명령줄 도구. 기본값은 이동과 동작 제한 없음. 오른쪽에 위키백과 문서 위로 번호 상자가 붙은 실행 화면"><img src="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-thumb.png" alt="agent-browser, AI 에이전트에게 브라우저를 쥐여 주는 명령줄 도구. 기본값은 이동과 동작 제한 없음. 오른쪽에 위키백과 문서 위로 번호 상자가 붙은 실행 화면" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>agent-browser로 위키백과 문서를 열고 번호 붙은 화면을 저장한 결과</span><a href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
+      <ul>
+        <li>하는 일: AI 에이전트가 명령 한 줄씩으로 웹 페이지를 열고, 화면을 번호 붙은 글자 목록으로 읽고, 그 번호로 누르거나 입력하게 해 주는 러스트 명령줄 도구</li>
+        <li>설치: npm install -g agent-browser 다음 agent-browser install로 크롬 테스트용 버전을 받으면 끝, 윈도우에서 패키지 26초와 크롬 201MB 내려받기 58초가 걸림</li>
+        <li>주의: 기본값은 이동할 사이트, 실행할 동작, 출력 길이에 아무 제한이 없어서 에이전트에게 맡기기 전에 허용 도메인과 동작 정책을 직접 켜는 편이 안전함</li>
+      </ul>
+    </details>
+
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>agent-browser가 하는 일: AI 에이전트용 브라우저 명령줄 도구</h2>
+        <p>클로드 코드나 코덱스 같은 AI 코딩 도구를 쓰다 보면 웹 페이지를 직접 봐야 하는 일이 자주 생깁니다. 내가 만든 화면이 제대로 뜨는지, 로그인 버튼이 눌리는지, 문서 사이트에서 최신 설정값이 뭔지 같은 것들입니다. 에이전트는 터미널 명령은 잘 다루지만 브라우저 창을 직접 볼 수는 없어서, 이 사이를 이어 줄 도구가 따로 필요합니다. agent-browser는 버셀 랩스가 만든 이 연결용 도구입니다.</p>
+        <p>방식은 단순합니다. agent-browser open으로 페이지를 열고, snapshot으로 화면을 읽으면 링크와 버튼, 입력칸이 e1, e2 같은 번호와 함께 짧은 글자 목록으로 나옵니다. 에이전트는 이 번호를 골라 click @e1이나 fill @e3처럼 명령을 보내고, 다시 snapshot을 찍어 결과를 봅니다. 사람이 화면을 보고 손으로 누르는 과정을 명령 한 줄씩으로 쪼갠 셈입니다. 브라우저는 명령 사이에도 계속 열려 있어서 한 번에 한 단계씩 짧게 진행할 수 있습니다.</p>
+        <p>내부에서는 첫 명령 때 뒤에서 도는 데몬 프로그램이 하나 뜨고, 이 데몬이 크롬 개발자 도구 프로토콜로 브라우저를 조종합니다. 기본 브라우저는 구글이 자동화용으로 배포하는 크롬 테스트용 버전이고, 이미 켜 둔 크롬에 붙거나 Lightpanda 같은 가벼운 엔진으로 바꿀 수도 있습니다. 명령을 한 시간 동안 받지 않으면 데몬은 화면 없는 브라우저를 닫고 스스로 꺼집니다.</p>
+        <p>저장소는 2026년 1월에 공개됐고 라이선스는 Apache-2.0이라 무료로 쓸 수 있습니다. 11월 10일에는 GitHub 일간 트렌딩 목록에 올라 하루에만 별이 900개 넘게 붙었고, 누적 별은 4만 8천 개를 넘었습니다. 같은 날 아침 0.42.0 버전이 나왔습니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-5">[5]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>agent-browser 설치 방법: npm 한 줄과 크롬 내려받기</h2>
+        <p>설치에는 Node.js가 필요합니다. 공식 설치 문서가 가장 먼저 권하는 방법은 npm 전역 설치이고, 그다음 agent-browser install을 한 번 실행해 크롬 테스트용 버전을 받습니다. npm 패키지 안에 맥, 리눅스, 윈도우용 실행 파일이 함께 들어 있어서 운영체제에 맞는 파일을 알아서 고릅니다. 맥은 Homebrew, 러스트 개발 환경이 있다면 cargo로도 설치할 수 있고, 설치 없이 npx agent-browser로 바로 써 보는 방법도 있습니다.</p>
+        <p>이번에는 그래픽 카드가 없는 윈도우 클라우드 서버의 파워셸에서 설치했습니다. npm 패키지를 받는 데 26초, agent-browser install로 크롬 157.0.8103.50을 받는 데 58초가 걸렸고 크롬 용량은 201MB였습니다. 크롬은 사용자 폴더 아래 .agent-browser\browsers에 따로 저장돼서 원래 쓰던 크롬과 섞이지 않습니다. 설치가 끝나면 agent-browser --version으로 버전이 나오는지 보면 되고, 이번에 받은 버전은 0.42.0이었습니다.</p>
+        <p>리눅스에서는 크롬이 쓰는 시스템 라이브러리가 빠져 있으면 브라우저가 뜨지 않습니다. 이때는 agent-browser install 뒤에 --with-deps를 붙이면 필요한 라이브러리까지 함께 설치합니다. 맥은 13 버전보다 낮으면 크롬 내려받기 단계에서 멈추고 운영체제 업데이트를 안내합니다.</p>
+        <figure class="code-example"><figcaption>bash · 공식 설치 문서의 명령. 윈도우는 파워셸에서 같은 명령을 그대로 쓴다.</figcaption><pre tabindex="0"><code># 공식 권장: npm 전역 설치 후 크롬 테스트용 버전 받기
+npm install -g agent-browser
+agent-browser install
+
+# 리눅스에서 시스템 라이브러리까지 함께 설치
+agent-browser install --with-deps
+
+# 설치 없이 한 번 써 보기
+npx agent-browser install
+npx agent-browser open example.com
+
+# 설치 확인
+agent-browser --version</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>agent-browser 첫 실행: 열고, 읽고, 누르고, 닫기</h2>
+        <p>README의 빠른 시작 예제를 그대로 돌려 봤습니다. open example.com으로 페이지를 열고 snapshot -i를 치면 누를 수 있는 요소만 추려서 보여 주는데, example.com에는 Learn more 링크 하나뿐이라 결과도 한 줄입니다. 여기서 click @e1을 보내면 링크가 눌리고, get url로 주소를 물으면 IANA 안내 페이지로 넘어간 것이 나옵니다. close로 브라우저를 닫으면 한 바퀴가 끝납니다.</p>
+        <p>걸린 시간은 브라우저를 처음 띄우는 open이 10.7초로 가장 길었고, snapshot은 0.2초, click은 5.7초였습니다. 한 가지 주의할 점은 설치 직후 맨 처음 실행입니다. 크롬을 처음 띄우는 데 시간이 걸려 open 명령이 응답 대기 시간 초과 오류를 냈는데, 바로 snapshot을 찍어 보니 페이지는 이미 열려 있었습니다. 오류 문구에도 명령이 실행됐을 수 있어서 다시 보내지 않았다고 적혀 있습니다. 첫 실행에서 이 오류가 나오면 같은 명령을 반복하기 전에 snapshot이나 get url로 상태부터 보는 편이 낫습니다.</p>
+        <p>윈도우에서 하나 더 걸린 부분은 셸을 나눠 쓸 때입니다. 셸 세션을 닫고 새로 연 뒤 앞에서 받은 번호로 fill을 보냈더니 Unknown ref 오류가 났습니다. 공식 문서에 따르면 윈도우는 데몬이 끝날 때 그 데몬이 띄운 크롬까지 통째로 종료합니다. 이번 환경에서는 셸이 닫힐 때 데몬도 함께 꺼지면서 브라우저와 번호 목록이 사라진 것이라, 한 셸 안에서 이어서 실행하니 같은 문제가 다시 나오지 않았습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-run.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 파워셸에서 agent-browser --version, open example.com, snapshot -i, click @e1, get url, get title, close를 차례로 실행한 화면. snapshot 결과는 link Learn more ref=e1 한 줄이고 get url 결과는 https://www.iana.org/help/example-domains">
+        <img src="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-run.png" alt="파워셸에서 agent-browser --version, open example.com, snapshot -i, click @e1, get url, get title, close를 차례로 실행한 화면. snapshot 결과는 link Learn more ref=e1 한 줄이고 get url 결과는 https://www.iana.org/help/example-domains" width="1200" height="812" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>snapshot이 준 e1 번호로 링크를 누르고, 주소가 바뀐 것까지 명령으로 본다.</span><a href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>agent-browser로 위키백과 검색해 본 결과: 번호 붙은 화면과 출력 크기</h2>
+        <p>실제 사이트에서는 어떤지 보려고 한국어 위키백과에서 같은 흐름을 돌렸습니다. 대문에서 snapshot -i를 찍으면 누를 수 있는 요소가 212줄 나오고, 그중 위키백과 검색 입력칸에 붙은 번호로 fill을 보내 헤드리스 브라우저라고 입력한 뒤 press Enter를 보냈습니다. get url과 get title로 보니 헤드리스 브라우저 문서로 정확히 넘어가 있었습니다. 사람이 하던 검색을 명령 네 줄로 끝낸 셈입니다.</p>
+        <p>에이전트에게 화면을 보여 줄 때는 출력 크기가 중요합니다. 출력이 길수록 AI 모델이 한 번에 읽어야 할 양이 늘고, 그만큼 사용량도 빨리 줄어듭니다. 헤드리스 브라우저 문서에서 누를 수 있는 요소만 보는 snapshot -i는 78줄, 약 2,300자였고, 보이는 글자까지 함께 담는 snapshot -c는 228줄, 약 7,000자로 세 배 정도 길었습니다. 내용이 긴 웹 브라우저 문서는 snapshot -i만으로도 694줄이 나왔습니다. 긴 페이지에서는 -s로 본문 영역만 고르거나 -d로 깊이를 줄여서 읽히는 편이 좋습니다.</p>
+        <p>글자 목록만으로 헷갈릴 때는 screenshot --annotate가 쓸 만합니다. 화면을 저장하면서 누를 수 있는 요소마다 빨간 상자와 번호를 붙여 주고, 그 번호가 snapshot의 e 번호와 같습니다. 아이콘만 있는 버튼이나 그림 위에 놓인 요소처럼 글자로 구분하기 어려운 곳을 고를 때 도움이 됩니다.</p>
+        <p>막힌 곳도 있었습니다. 화면 없이 도는 기본 모드에서 위키백과 페이지를 저장하려 하자 두 번 모두 응답 대기 시간 초과로 실패했고, --headed를 붙여 창이 보이는 모드로 띄우니 1초 남짓 만에 저장됐습니다. 원인을 정확히 가리지는 못했지만 저사양 서버에서 화면 저장이 자꾸 실패하면 --headed로 바꿔 보는 것이 빠른 해결책이었습니다. 또 국내 개발 뉴스 사이트 한 곳은 자동 접속을 막는다는 Forbidden 안내 화면만 돌려줬습니다. 자동화 브라우저는 사이트 입장에서 봇으로 보이기 쉬우니, 이런 곳은 반복해서 접속하지 말고 사이트 규칙을 따르는 것이 맞습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-annotate.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 한국어 위키백과 헤드리스 브라우저 문서 화면. 검색창, 메뉴, 본문 링크, 오른쪽 외관 설정 버튼마다 빨간 상자와 번호가 붙어 있다">
+        <img src="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-annotate.png" alt="한국어 위키백과 헤드리스 브라우저 문서 화면. 검색창, 메뉴, 본문 링크, 오른쪽 외관 설정 버튼마다 빨간 상자와 번호가 붙어 있다" width="1280" height="800" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>빨간 상자 옆 숫자가 snapshot의 e 번호와 같아서 그대로 click @e33처럼 쓸 수 있다.</span><a href="https://agent-browser.dev/snapshots" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>agent-browser 기본값 주의점: 이동, 동작, 출력에 제한 없음</h2>
+        <p>설치 전에 꼭 알아 둘 부분은 보안 기본값입니다. 공식 보안 문서 첫머리에 이동, 동작, 출력 제어는 직접 켜야 하는 선택 기능이고, 기본값에서는 아무 제한도 두지 않는다고 적혀 있습니다. 에이전트가 어떤 사이트로든 이동할 수 있고, 페이지 안에서 자바스크립트를 실행하거나 파일을 내려받고 올리는 것도 막히지 않는다는 뜻입니다.</p>
+        <p>이게 문제가 되는 이유는 에이전트가 읽는 웹 페이지 안에 사람 눈에는 안 보이는 지시문이 숨어 있을 수 있어서입니다. 페이지가 도구 출력이나 시스템 지시처럼 보이는 글자를 넣어 두면 AI 모델이 그 말을 따를 위험이 있습니다. 공식 문서도 이런 프롬프트 인젝션과, 조작된 에이전트가 공격자 사이트로 데이터를 빼돌리는 경우를 막아야 할 위협으로 꼽습니다.</p>
+        <p>대응 방법도 문서에 같이 있습니다. --allowed-domains로 들어갈 수 있는 도메인을 정해 두면 그 밖의 주소로 이동하거나 이미지, 스크립트를 불러오는 요청이 막힙니다. 다만 대부분의 사이트가 CDN에서 글꼴과 스크립트를 가져오기 때문에 그 도메인까지 넣지 않으면 페이지가 깨집니다. --action-policy에는 허용과 금지 동작을 적은 JSON 파일을 주고, --confirm-actions로 고른 동작은 실행 전에 승인을 받게 할 수 있습니다. --content-boundaries를 켜면 페이지에서 온 글자를 무작위 표식으로 감싸 도구 출력과 구분하게 해 주고, --max-output은 페이지 내용이 너무 길게 들어오지 않도록 자릅니다.</p>
+        <p>로그인이 필요한 사이트라면 비밀번호를 명령에 직접 넣지 말고 auth save로 저장한 뒤 auth login으로 쓰라고 안내합니다. 저장된 정보는 사용자 폴더의 .agent-browser\auth에 AES-256-GCM으로 암호화돼 남고, AI 모델에게는 비밀번호가 전달되지 않습니다. 허용 도메인 기능도 운영체제 방화벽을 대신하지는 못한다고 문서가 직접 적고 있으니, 중요한 계정에는 처음부터 쓰지 않는 편이 마음 편합니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-security.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: agent-browser 공식 보안 문서 첫 화면. 빨간 테두리 안에 Navigation, action, and output controls are opt-in. By default, agent-browser imposes no restrictions on navigation, actions, or output 문장이 있다">
+        <img src="https://bluebworks.com/assets/editorial/agent-browser-ai-agent-browser-cli-install-2026-security.png" alt="agent-browser 공식 보안 문서 첫 화면. 빨간 테두리 안에 Navigation, action, and output controls are opt-in. By default, agent-browser imposes no restrictions on navigation, actions, or output 문장이 있다" width="1308" height="372" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>보안 기능은 직접 켜야 하고, 기본값에서는 이동과 동작, 출력에 제한이 없다.</span><a href="https://agent-browser.dev/security" target="_blank" rel="noopener noreferrer">agent-browser 공식 문서 · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>bash · 공식 보안 문서의 예시 명령. 도메인 자리에는 실제로 쓸 사이트를 넣는다.</figcaption><pre tabindex="0"><code># 정한 도메인만 열기 (CDN 도메인도 함께 넣어야 페이지가 안 깨짐)
+agent-browser --allowed-domains &quot;example.com,*.example.com&quot; open https://example.com
+
+# 동작 정책 파일 적용
+agent-browser --action-policy ./policy.json open https://example.com
+
+# policy.json 예: 자바스크립트 실행, 내려받기, 올리기 금지
+{ &quot;default&quot;: &quot;allow&quot;, &quot;deny&quot;: [&quot;eval&quot;, &quot;download&quot;, &quot;upload&quot;] }
+
+# 페이지에서 온 글자를 표식으로 감싸기
+agent-browser --content-boundaries snapshot</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-3">[3]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>클로드 코드, 코덱스에 agent-browser 붙이는 법: 스킬과 MCP</h2>
+        <p>agent-browser는 설치된 버전에 맞는 사용 설명서를 스킬 형태로 함께 들고 있습니다. agent-browser skills get core를 치면 기본 흐름과 번호 쓰는 법, 기다리는 법이 나오고, 에이전트가 이걸 먼저 읽고 따라 하게 만드는 것이 공식 권장 방식입니다. 프로젝트의 AGENTS.md에 두 줄을 넣어 두거나, npx skills add vercel-labs/agent-browser로 스킬을 설치해 두면 에이전트가 브라우저가 필요할 때 이 설명서를 불러옵니다.</p>
+        <p>MCP 방식을 쓰는 도구라면 agent-browser mcp로 MCP 서버를 띄울 수도 있습니다. 다만 명령줄과 스킬 조합이 기본이고, MCP는 그걸 쓰는 클라이언트를 위한 추가 경로에 가깝습니다. 스킬 설명서는 설치된 명령과 버전이 같이 움직이기 때문에, 버전을 올렸는데 설명서가 옛날 그대로라 명령이 틀리는 일이 적습니다.</p>
+        <figure class="code-example"><figcaption>bash · README에 있는 연결 방법. AGENTS.md에는 브라우저가 필요하면 agent-browser를 쓰고, 처음 쓰기 전에 agent-browser skills get core를 읽으라는 두 줄을 넣는다.</figcaption><pre tabindex="0"><code># 에이전트가 먼저 읽을 기본 사용 설명서
+agent-browser skills get core
+
+# 스킬 설치 (스킬을 지원하는 코딩 도구용)
+npx skills add vercel-labs/agent-browser
+
+# MCP 서버로 실행
+agent-browser mcp</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a></p>
+      </section>
+      <section class="prose-section" id="sec-7">
+        <h2>agent-browser 0.42.0 새 기능과 Playwright MCP, Lightpanda와 차이</h2>
+        <p>11월 10일에 나온 0.42.0에는 저장된 흐름(saved flows)이라는 실험 기능이 들어왔습니다. 브라우저로 한 번 해 본 작업을 기록해 두면, 다음부터는 그 작업에서 오간 요청을 다시 보내는 방식으로 빠르게 반복합니다. 먼저 주소로 직접 요청을 보내 보고, 안 되면 페이지 안에서 같은 요청을 보내고, 그래도 안 되면 기록한 명령을 처음부터 다시 실행하는 순서이고, 성공한 방식을 저장해 둡니다. 요청은 공개 주소로만 보낸다고 릴리스 노트에 적혀 있습니다. 아직 실험 단계라 매일 돌리는 중요한 작업에 바로 맡기기보다는 반복 조회 같은 가벼운 일부터 시험해 보는 편이 맞습니다.</p>
+        <p>비슷한 도구로 가장 많이 비교되는 것은 마이크로소프트의 Playwright MCP입니다. 둘 다 화면 사진 대신 접근성 트리라는 글자 구조로 페이지를 읽게 한다는 점은 같습니다. 차이는 연결 방식인데, Playwright MCP는 이름 그대로 MCP 서버이고, agent-browser는 명령줄과 스킬이 기본입니다. 흥미로운 점은 Playwright MCP README도 코딩 에이전트라면 명령줄과 스킬 조합이 더 나을 수 있다고 직접 적고 있다는 것입니다. 큰 도구 설명과 긴 접근성 트리를 매번 모델에게 넘기지 않아서 사용량을 아낄 수 있다는 이유입니다.</p>
+        <p>예전에 소개한 Lightpanda는 크롬 대신 쓰는 가벼운 헤드리스 브라우저 엔진이라 역할이 다릅니다. agent-browser는 --engine lightpanda로 이 엔진을 골라 쓸 수 있어서, 둘은 경쟁 관계라기보다 위아래로 맞물리는 관계에 가깝습니다. 정리하면 클로드 코드나 코덱스에 브라우저를 하나 붙여 보고 싶은 사람에게 agent-browser는 설치가 가장 짧은 축에 드는 선택지이고, 처음 붙일 때는 허용 도메인부터 정해 두는 것이 이 도구를 오래 편하게 쓰는 방법입니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-5">[5]</a> <a href="#source-6">[6]</a> <a href="#source-1">[1]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub: vercel-labs/agent-browser</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://agent-browser.dev/installation" target="_blank" rel="noopener noreferrer">
+            <strong>agent-browser 설치 문서</strong>
+            <span>agent-browser.dev</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://agent-browser.dev/security" target="_blank" rel="noopener noreferrer">
+            <strong>agent-browser 보안 문서</strong>
+            <span>agent-browser.dev</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://agent-browser.dev/snapshots" target="_blank" rel="noopener noreferrer">
+            <strong>agent-browser 스냅샷 문서</strong>
+            <span>agent-browser.dev</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://github.com/vercel-labs/agent-browser/releases/tag/v0.42.0" target="_blank" rel="noopener noreferrer">
+            <strong>agent-browser v0.42.0 릴리스</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-6">
+          <a href="https://github.com/microsoft/playwright-mcp" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub: microsoft/playwright-mcp</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/claude-mem-install-provider-guide-2026/">
+            <span class="related-cat">개발 도구</span>
+            <strong>claude-mem 설치 방법: 클로드 코드 세션 기억 플러그인, 메모리 제공자 선택과 저장 위치</strong>
+            <span>게시 2026년 11월 2일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/sherlock-username-search-install-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>셜록(Sherlock) 사용법: 아이디 하나로 400곳 넘는 사이트 계정 찾는 오픈소스, 설치와 오탐 주의점</strong>
+            <span>게시 2026년 11월 9일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/kronos-stock-prediction-ai-samsung-test-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>Kronos 주가 예측 AI 설치와 사용법: 삼성전자 차트로 돌려 본 오픈소스 금융 모델</strong>
+            <span>게시 2026년 11월 7일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/vercel-labs/agent-browser" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">저장소</span>
+        <strong>agent-browser 저장소</strong>
+        <span class="rail-desc">소스, README, 변경 기록</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://agent-browser.dev" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">문서</span>
+        <strong>agent-browser 공식 문서</strong>
+        <span class="rail-desc">명령 목록, 설정, 보안, 엔진 선택</span>
+        <span class="rail-host">agent-browser.dev</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://www.npmjs.com/package/agent-browser" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">설치</span>
+        <strong>npm: agent-browser</strong>
+        <span class="rail-desc">npm으로 받는 공식 패키지</span>
+        <span class="rail-host">npmjs.com</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/agent-browser-ai-agent-browser-cli-install-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+
+  </body>
+</html>
