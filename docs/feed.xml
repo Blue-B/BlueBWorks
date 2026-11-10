@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 10 Nov 2026 06:37:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 12:40:41 GMT</lastBuildDate>
+    <item>
+      <title>노션 보안 이슈 확인 방법: 파이어웍스 AI 해킹으로 노션 AI 대화 일부 노출, 워크스페이스 1% 미만</title>
+      <link>https://bluebworks.com/articles/notion-ai-fireworks-security-incident-check-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/notion-ai-fireworks-security-incident-check-2026/</guid>
+      <pubDate>Tue, 10 Nov 2026 12:40:41 GMT</pubDate>
+      <category>보안</category>
+      <description>노션이 쓰던 AI 인프라 업체 파이어웍스(Fireworks AI)가 해킹을 당하면서 노션 AI 대화 기록 일부가 밖으로 나갔을 수 있다는 공지가 나왔습니다. 노션은 전체 워크스페이스의 1% 미만이 해당되고 소유자에게 따로 연락했다고 밝혔습니다. 무엇이 나갔고 무엇은 안전한지, 내 워크스페이스를 확인하는 위치와 지금 바꿔야 할 것을 정리했습니다.</description>
+    </item>
     <item>
       <title>agent-browser 사용법: AI 에이전트에게 브라우저를 붙이는 버셀 오픈소스 CLI, 윈도우 설치와 기본값 주의점</title>
       <link>https://bluebworks.com/articles/agent-browser-ai-agent-browser-cli-install-2026/</link>
