@@ -1,0 +1,346 @@
+{
+  "slug": "claude-fable-5-2-pro-week-limit-reset-2026",
+  "title": "클로드 페이블 5.2 리셋권 받는 방법과 프로 요금제 1주 포함 조건: 주간 한도 50%, 11월 17일 16시 59분까지",
+  "summary": "클로드 페이블 5.2가 나오면서 프로 요금제와 팀 표준 좌석은 11월 17일 16시 59분(한국 시간)까지 주간 한도의 50% 안에서 페이블을 추가 요금 없이 쓰고 리셋권 1번을 받습니다. 맥스와 울트라는 구독 기간에 따라 리셋권 1~3번입니다. 받는 조건, 리셋권이 되돌리는 범위, 쓰는 곳, 한 주가 끝난 뒤 주의할 점을 정리했습니다.",
+  "category": "AI 서비스",
+  "announcedAt": "2026-11-09",
+  "publishedAt": "2026-11-10T09:24:00+09:00",
+  "verifiedAt": "2026-11-10T09:24:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "클로드 페이블 5.2",
+    "클로드 리셋권",
+    "클로드 리셋권 받는 방법",
+    "Claude Fable 5.2",
+    "클로드 프로 요금제",
+    "클로드 사용량",
+    "Fable limit reset",
+    "클로드 미토스 5.2"
+  ],
+  "keyPoints": [
+    "프로 요금제: 11월 17일 16시 59분(한국 시간)까지 페이블 모델을 주간 한도의 50% 안에서 추가 요금 없이 쓰고, 리셋권 1번을 같은 시각까지 씁니다",
+    "맥스와 울트라: 구독 기간 6개월 미만 1번, 6~12개월 2번, 12개월 넘으면 3번의 페이블 리셋권을 받고 2027년 3월 9일 16시 59분(한국 시간)까지 씁니다",
+    "조건과 사용법: 11월 10일 03시(한국 시간) 전에 유료 결제가 잡혀 있어야 받고, 설정의 사용량 화면 Limit resets에서 Reset for free를 누르면 바로 적용됩니다"
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-10T09:24:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with a limited screenshot of the Claude Help Center article for commentary",
+        "reason": "요금제별 혜택 표가 보이는 썸네일이라 포함."
+      },
+      {
+        "sourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-plans.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the official Claude Help Center article for commentary",
+        "reason": "요금제별로 받는 혜택 표가 보이는 공식 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-week.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the official Claude Help Center article for commentary",
+        "reason": "프로 요금제 1주 포함 기간과 50% 조건이 보이는 공식 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-reset.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the official Claude Help Center article for commentary",
+        "reason": "리셋권이 되돌리는 범위와 예시가 보이는 공식 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+        "assetUrl": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-use.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the official Claude Help Center article for commentary",
+        "reason": "리셋권 쓰는 위치가 보이는 공식 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://www.youtube.com/watch?v=6a1QSJlsYpU",
+        "decision": "excluded",
+        "reason": "Claude 공식 채널 영상은 파일을 복사하지 않고 videos 항목의 youtube-nocookie 임베드로 넣음."
+      },
+      {
+        "sourceUrl": "https://x.com/claudeai/status/2119867114450268322",
+        "decision": "excluded",
+        "reason": "첨부 영상 파일은 복사하지 않고 원문 링크가 있는 X 임베드로 인용함."
+      },
+      {
+        "sourceUrl": "https://claude.ai/settings/usage",
+        "decision": "excluded",
+        "reason": "계정 사용량 화면은 넣지 않고 공식 도움말 화면으로 설명함."
+      }
+    ]
+  },
+  "image": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-thumb.png",
+  "imageSourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+  "imageAlt": "클로드 페이블 5.2 썸네일. 오른쪽에 Claude 고객센터의 요금제별 혜택 표",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "Claude 고객센터의 요금제별 페이블 5.2 출시 혜택 표",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "videos": [
+    {
+      "youtubeId": "6a1QSJlsYpU",
+      "title": "Introducing Claude Fable 5.2",
+      "channel": "Claude",
+      "sourceUrl": "https://www.youtube.com/watch?v=6a1QSJlsYpU",
+      "verified": true
+    }
+  ],
+  "sections": [
+    {
+      "title": "클로드 페이블 5.2 출시, 이번 주에 달라진 것",
+      "paragraphs": [
+        "앤트로픽이 미국 시간 11월 9일, 한국 시간으로는 10일 새벽에 클로드 페이블 5.2와 클로드 미토스 5.2를 공개했습니다. 두 모델은 같은 바탕 모델이고, 페이블은 사이버보안과 생물학 쪽 오용을 막는 안전장치를 강하게 걸어 모든 유료 사용자에게 열어 둔 버전입니다. 미토스는 앤트로픽의 Cyber Verification Program이나 Life Sciences Verification Program 심사를 통과한 조직만 씁니다.",
+        "앤트로픽은 5.2가 5.1보다 결과를 최대 30% 빨리 내놓고, 코딩과 추론, 이미지 이해가 좋아졌다고 밝혔습니다. API 가격은 입력 100만 토큰당 8달러, 출력 100만 토큰당 40달러로 낮췄습니다. 토큰을 최대 2.5배 빨리 뽑는 빠른 모드도 있는데, 이쪽은 입력 16달러, 출력 80달러이고 클로드 코드와 클로드 플랫폼 등에서 씁니다.",
+        "일반 구독자에게 더 직접적인 소식은 따로 있습니다. 출시 기념으로 이번 한 주 동안 프로 요금제에서도 페이블을 추가 요금 없이 쓸 수 있게 했고, 유료 구독자에게 페이블 사용량을 되돌리는 리셋권을 나눠 줍니다. 아래에서 이 두 가지를 요금제별로 나눠 봅니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ],
+      "embeds": [
+        {
+          "type": "x",
+          "url": "https://x.com/claudeai/status/2119867114450268322",
+          "author": "Claude",
+          "handle": "claudeai",
+          "postedAt": "2026-11-09T18:57:59Z",
+          "dateLabel": "2026년 11월 9일 UTC",
+          "text": "Introducing Claude Fable 5.2 and Claude Mythos 5.2, designed to tackle the most daunting technical challenges.\n\nThey’re capable collaborators on ambitious projects in many fields, and show improvements in areas like coding, reasoning, and vision.",
+          "caption": "Claude 공식 계정의 출시 게시물."
+        }
+      ]
+    },
+    {
+      "title": "클로드 프로 요금제 페이블 1주 포함 조건",
+      "paragraphs": [
+        "평소 프로 요금제와 팀 요금제 표준 좌석에서는 페이블 모델이 요금제 한도에 들어 있지 않습니다. 쓰려면 사용 크레딧을 켜고 API 단가로 따로 냅니다. 이번 출시 혜택은 이 규칙을 한 주 동안 풀어 줍니다.",
+        "기간은 11월 9일 출시부터 미국 태평양 시간 11월 16일 오후 11시 59분까지, 한국 시간으로 11월 17일 화요일 오후 4시 59분까지입니다. 그동안 주간 사용 한도의 최대 50%를 페이블 모델에 추가 비용 없이 쓸 수 있습니다. 대상은 페이블 5.2만이 아니라 페이블 5.1과 페이블 5까지 모든 페이블 모델입니다.",
+        "50%를 다 쓰거나 기간이 끝나면 페이블 사용은 사용 크레딧으로 넘어갑니다. 사용 크레딧을 켜 두지 않았다면 페이블을 더 쓸 수 없고, 켜 두었다면 그때부터 돈이 나갑니다. 50%는 따로 더 얹어 주는 양이 아니라 원래 주간 한도 안에서 페이블에 쓸 수 있는 몫이라, 페이블로 절반을 쓰면 다른 모델에 남는 양도 그만큼 줄어듭니다.",
+        "기본 모델은 바뀌지 않습니다. 대화창의 모델 선택 메뉴에서 페이블 5.2를 직접 골라야 혜택이 적용됩니다. 앤트로픽은 페이블이 다른 클로드 모델보다 한도를 빨리 쓴다고 안내하니, 긴 작업을 맡기기 전에는 설정의 사용량 화면을 한 번 열어 남은 양을 보는 편이 좋습니다. 클로드 코드에서 페이블 5.2를 고르려면 2.1.321 이상 버전이 필요합니다.",
+        "웹뿐 아니라 클로드 모바일 앱과 데스크톱 앱, 코워크, 클로드 코드에서도 같은 방식으로 페이블을 고를 수 있습니다. 회사 계정이라면 사정이 조금 다릅니다. 팀과 엔터프라이즈는 조직 소유자가 쓸 수 있는 모델을 정하고, 엔터프라이즈에서는 관리자가 켜기 전까지 페이블 5.2가 꺼져 있습니다. 출시 7일 뒤에는 페이블 모델을 켜 둔 역할에 5.2가 자동으로 더해지는데, 관리자가 그 전에 빼 두면 추가되지 않습니다. 모델 목록에 페이블이 안 보이면 요금제와 앱 버전, 조직 설정 순서로 보면 됩니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-week.webp",
+          "alt": "Claude 고객센터 문서의 A week of Fable models included in your plan 단락. 11월 16일 오후 11시 59분 태평양 시간까지, 주간 한도 50%",
+          "caption": "프로와 팀 표준 좌석은 한 주 동안 주간 한도의 50%까지 페이블을 쓴다.",
+          "credit": "Claude Help Center",
+          "sourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+          "width": 1175,
+          "height": 970
+        }
+      ]
+    },
+    {
+      "title": "요금제별 페이블 5.2 출시 혜택과 리셋권 개수",
+      "paragraphs": [
+        "혜택은 요금제가 원래 페이블을 포함하느냐에 따라 둘로 나뉩니다. 프로와 팀 표준 좌석은 위에서 본 1주 포함과 리셋권 1번을 받습니다. 맥스, 울트라, 팀 프리미엄 좌석, 기존 좌석제 엔터프라이즈의 프리미엄 좌석은 원래 주간 한도의 50%까지 페이블을 쓰는 요금제라 1주 포함은 없고, 대신 리셋권을 1~3번 받습니다.",
+        "리셋권 개수는 처음 유료 결제를 한 날부터 센 구독 기간으로 정합니다. 6개월 미만이면 1번, 6개월에서 12개월이면 2번, 12개월이 넘으면 3번입니다. 앱스토어로 구독했다면 앱스토어 첫 결제일부터 세고, 중간에 해지했다가 다시 가입했어도 첫 결제일 기준은 그대로입니다. 팀과 엔터프라이즈는 조직의 첫 결제일 기준이라 같은 조직의 프리미엄 좌석은 모두 같은 개수를 받습니다.",
+        "무료 요금제, 기존 좌석제 엔터프라이즈의 표준 좌석, 셀프 서비스 엔터프라이즈, 사용량 기반 엔터프라이즈는 이번 혜택 대상이 아닙니다. HIPAA 대응 엔터프라이즈 요금제도 리셋권을 쓸 수 없습니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-plans.webp",
+          "alt": "Claude 고객센터 문서의 What each plan gets 표. 프로와 팀 표준 좌석은 1주 포함과 리셋 1번, 맥스와 울트라는 리셋 1~3번",
+          "caption": "프로는 1주 포함과 리셋 1번, 맥스와 울트라는 구독 기간에 따라 리셋 1~3번.",
+          "credit": "Claude Help Center",
+          "sourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+          "width": 1175,
+          "height": 748
+        }
+      ],
+      "table": {
+        "headers": [
+          "요금제",
+          "평소 페이블",
+          "이번 출시 혜택",
+          "리셋권 만료(한국 시간)"
+        ],
+        "rows": [
+          [
+            "무료",
+            "쓸 수 없음",
+            "없음",
+            "해당 없음"
+          ],
+          [
+            "프로, 팀 표준 좌석",
+            "사용 크레딧으로 결제",
+            "주간 한도 50%까지 1주 포함, 리셋 1번",
+            "11월 17일 16시 59분"
+          ],
+          [
+            "맥스, 울트라, 팀 프리미엄 좌석",
+            "주간 한도 50%까지 포함",
+            "구독 기간에 따라 리셋 1~3번",
+            "2027년 3월 9일 16시 59분"
+          ],
+          [
+            "좌석제 엔터프라이즈 표준 좌석",
+            "조직이 켜면 사용 크레딧",
+            "없음",
+            "해당 없음"
+          ]
+        ],
+        "caption": "Claude 고객센터의 출시 혜택 문서와 요금제별 페이블 안내 기준."
+      }
+    },
+    {
+      "title": "클로드 리셋권 받는 조건: 11월 10일 03시 전 유료 결제",
+      "paragraphs": [
+        "리셋권은 미국 태평양 시간 11월 9일 오전 10시, 한국 시간 11월 10일 오전 3시 전에 유료 결제가 잡혀 있던 계정에만 갑니다. 이 시각 뒤에 새로 구독한 사람은 1주 포함 혜택은 받을 수 있어도 리셋권은 받지 못합니다.",
+        "그 전에 구독을 시작했지만 아직 무료 체험 중이라면 체험이 유료로 바뀌는 순간 리셋권이 들어옵니다. 셀프 서비스 팀 체험은 유료로 칩니다. 팀과 엔터프라이즈 좌석은 조직 결제가 그 시각 전에 잡혀 있어야 하고, 좌석을 가진 사람도 그 전에 조직에 들어와 있어야 합니다.",
+        "리셋권은 현금 가치가 없고 다른 계정에 넘길 수 없습니다. 쓰기 전에 구독을 해지하거나 낮은 요금제로 내리면 사라지니, 요금제를 바꿀 생각이 있다면 리셋권부터 쓰는 순서가 맞습니다."
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "페이블 리셋권이 되돌리는 범위",
+      "paragraphs": [
+        "이름은 리셋이지만 한도를 늘려 주지는 않습니다. 이미 쓴 양을 되돌려 줄 뿐입니다. 주간 한도에서는 페이블 모델에 쓴 만큼만 돌아오고, 다른 클로드 모델에 쓴 양은 그대로 남습니다. 반면 5시간 한도가 있는 계정이라면 5시간 창은 다른 모델에 쓴 양까지 통째로 다시 채워집니다.",
+        "고객센터 예시를 그대로 옮기면 이렇습니다. 주간 한도의 80%를 썼고 그중 50%가 페이블, 30%가 다른 모델이었다면 리셋 뒤에는 주간 사용량이 30%로 내려갑니다. 5시간 한도도 가득 찹니다. 페이블에 쓸 수 있는 50% 상한은 리셋 뒤에도 그대로라서, 한 번에 쓸 수 있는 페이블 양이 커지는 것은 아닙니다.",
+        "그래서 쓰는 시점이 중요합니다. 페이블 몫 50%를 거의 다 쓰고 5시간 창까지 바닥난 순간에 누르면 두 가지를 한 번에 돌려받습니다. 반대로 페이블을 조금 쓰다가 일찍 누르면 돌아오는 양이 적습니다. 한 번 쓴 리셋은 되돌릴 수 없습니다. 인증된 울트라 계정은 5시간 한도가 없어서 리셋이 주간 한도에만 적용됩니다."
+      ],
+      "sourceRefs": [
+        1,
+        4
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-reset.webp",
+          "alt": "Claude 고객센터 문서의 How a Fable limit reset works 단락. 주간 한도는 페이블 사용분만, 5시간 한도는 전체 복구, 80%에서 30%로 돌아가는 예시",
+          "caption": "주간 한도는 페이블에 쓴 만큼만, 5시간 한도는 전부 돌아온다.",
+          "credit": "Claude Help Center",
+          "sourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+          "width": 1175,
+          "height": 750
+        }
+      ]
+    },
+    {
+      "title": "클로드 리셋권 쓰는 방법: 설정의 사용량 화면",
+      "paragraphs": [
+        "쓰는 곳은 클로드 웹의 설정 안 사용량 화면입니다. 주소창에 claude.ai/settings/usage를 넣어도 바로 열립니다. 화면의 Limit resets 칸에서 Reset for free를 누르면 그 자리에서 페이블 사용량이 돌아옵니다. 한도에 닿을 때까지 기다릴 필요는 없고 만료 전이면 언제든 누를 수 있습니다.",
+        "맥스와 울트라처럼 리셋권이 여러 개인 경우 만료일이 같은 화면의 리셋권 옆에 표시됩니다. 프로의 리셋권은 1주 포함 혜택과 같은 한국 시간 11월 17일 오후 4시 59분에 사라지니, 이번 주에 페이블로 큰 작업을 몰아서 할 계획이라면 마지막 날 오후 전에 써 두는 편이 낫습니다."
+      ],
+      "sourceRefs": [
+        1,
+        4
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/claude-fable-5-2-pro-week-limit-reset-2026-use.webp",
+          "alt": "Claude 고객센터 문서의 How to use a Fable reset 단락. Settings, Usage로 가서 Limit resets의 Reset for free 선택",
+          "caption": "Settings의 Usage 화면, Limit resets 칸에서 Reset for free를 누른다.",
+          "credit": "Claude Help Center",
+          "sourceUrl": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+          "width": 1175,
+          "height": 365
+        }
+      ]
+    },
+    {
+      "title": "1주가 끝난 뒤 프로 요금제에서 볼 것: 사용 크레딧",
+      "paragraphs": [
+        "11월 17일 오후 4시 59분이 지나면 프로와 팀 표준 좌석의 페이블은 다시 사용 크레딧으로만 돌아갑니다. 남은 50% 몫은 다음 주로 넘어가지 않고, 안 쓴 리셋권도 함께 사라집니다. 페이블 5가 사용 크레딧 방식으로 바뀌던 7월에는 대상 계정에 일회성 크레딧을 줬지만, 5.2와 5.1에는 그런 보상이 없다고 고객센터가 밝혔습니다.",
+        "사용 크레딧은 구독료와 따로 청구되고 API 단가로 계산됩니다. 페이블 5.2라면 입력 100만 토큰당 8달러, 출력 100만 토큰당 40달러입니다. 설정의 사용량 화면에서 스위치로 켜고 끄며, 월 지출 상한을 정하거나 잔액이 떨어지면 자동으로 채우는 자동 충전을 고를 수 있습니다. 구매한 크레딧은 환불되지 않고, 12월 7일부터 산 크레딧은 구매일부터 12개월 뒤 만료됩니다.",
+        "이번 주에 써 보고 계속 페이블이 필요하다고 느꼈다면 선택지는 두 가지입니다. 프로에 남아 크레딧을 상한과 함께 켜 두거나, 페이블이 한도 안에 들어 있는 맥스나 울트라로 올리는 방법입니다. 크레딧을 켜기 전에는 월 상한부터 낮게 잡아 두는 쪽을 권합니다. 맥스와 울트라 요금제 한도는 BlueBWorks의 클로드 울트라 요금제 글에서 따로 다뤘습니다."
+      ],
+      "sourceRefs": [
+        3,
+        5
+      ]
+    },
+    {
+      "title": "페이블 5.2를 고를 때와 오퍼스 5.5로 충분할 때",
+      "paragraphs": [
+        "앤트로픽은 대부분의 코딩과 지식 작업은 오퍼스 5.5로 시작하라고 권합니다. 페이블과 미토스는 범위가 넓고 끝이 정해지지 않은 어려운 기술 작업, 예를 들어 몇 시간씩 이어지는 에이전트 작업이나 여러 단계 조사, 결과물을 문서나 스프레드시트, 발표 자료로 끝까지 만드는 일에 맞춘 모델입니다.",
+        "개발자 문서 기준으로 페이블 5.2는 100만 토큰 문맥과 최대 12만 8천 토큰 출력을 지원합니다. 하위 모델이 막힐 때 조언을 구하는 어드바이저나 쉬운 일을 작은 모델에 나눠 주는 오케스트레이터 역할로도 쓸 수 있다고 앤트로픽은 설명합니다.",
+        "정리하면 이번 주 프로 사용자에게 가장 쓸모 있는 건 평소 돈을 따로 내야 하는 모델을 한 주 동안 한도 안에서 써 볼 기회라는 점입니다. 평소 오퍼스로 막히던 긴 작업 하나를 골라 페이블에 맡겨 보고, 남은 양은 사용량 화면으로 보면서 리셋권은 마지막 날 전에 쓰면 됩니다."
+      ],
+      "sourceRefs": [
+        2,
+        6
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Claude Fable 5.2 launch offers (Claude 고객센터)",
+      "url": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+      "description": "요금제별 출시 혜택, 리셋권 개수와 자격, 1주 포함 기간, 리셋 범위와 사용 방법."
+    },
+    {
+      "name": "Introducing Claude Fable 5.2 and Claude Mythos 5.2 (Anthropic)",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "description": "출시 발표, 속도와 가격, 빠른 모드, 오퍼스 5.5 권장, 출시 혜택 요약."
+    },
+    {
+      "name": "Claude Fable models on your plan (Claude 고객센터)",
+      "url": "https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan",
+      "description": "요금제별 평소 페이블 제공 방식, 클로드 코드 최소 버전, 일회성 크레딧이 5.2에는 없다는 안내."
+    },
+    {
+      "name": "What is a limit reset? (Claude 고객센터)",
+      "url": "https://support.claude.com/en/articles/17007452",
+      "description": "리셋권 일반 규칙."
+    },
+    {
+      "name": "Usage credits for paid Claude plans (Claude 고객센터)",
+      "url": "https://support.claude.com/en/articles/12429409",
+      "description": "사용 크레딧 켜는 법, 월 지출 상한, 자동 충전, 환불과 만료 규칙."
+    },
+    {
+      "name": "Claude Fable 5.2 (Claude 개발자 문서)",
+      "url": "https://platform.claude.com/docs/en/models/fable-5-2/overview",
+      "description": "모델 ID, 문맥 길이, 최대 출력, API 가격."
+    },
+    {
+      "name": "Claude 공식 X 게시물",
+      "url": "https://x.com/claudeai/status/2119867114450268322",
+      "description": "페이블 5.2와 미토스 5.2 출시 발표."
+    }
+  ],
+  "resources": [
+    {
+      "name": "클로드 사용량 화면 바로가기",
+      "url": "https://claude.ai/settings/usage",
+      "description": "로그인 후 주간 한도와 리셋권, 사용 크레딧 설정을 볼 수 있습니다."
+    },
+    {
+      "name": "페이블 5.2 출시 혜택 공식 도움말",
+      "url": "https://support.claude.com/en/articles/17506494-claude-fable-5-2-launch-offers",
+      "description": "요금제별 혜택과 리셋권 자격, 만료 시각을 원문으로 볼 수 있습니다."
+    },
+    {
+      "name": "클로드 울트라 요금제 한도 정리 (BlueBWorks)",
+      "url": "https://bluebworks.com/articles/claude-ultra-max-pricing-limits-2026/",
+      "description": "맥스와 울트라 요금제의 가격과 5시간 제한 조건."
+    }
+  ]
+}
