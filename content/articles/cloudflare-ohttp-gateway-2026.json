@@ -16,7 +16,6 @@
     "보안",
     "인프라"
   ],
-  "editorNote": "이번 발표의 핵심은 새 프록시 하나가 추가됐다는 데 있지 않다. Relay와 Gateway를 서로 다른 주체가 맡아야 하는 OHTTP의 신뢰 분리를 Cloudflare 사용자가 실제 배포 구조 안에서 선택할 수 있게 됐다는 점이 중요하다. 다만 closed beta이고 숫자로 공개된 가격도 아직 없기 때문에, 당장 일반적인 CDN 기능처럼 쓸 수 있다고 해석하면 안 된다.",
   "keyPoints": [
     "새 OHTTP Gateway는 Cloudflare zone의 /.well-known/ohttp-gateway에서 암호화된 요청을 받아 복호화하고 앱 서버로 넘긴다.",
     "Cloudflare OHTTP Relay와 Gateway를 동시에 Cloudflare가 맡아 신뢰 분리를 깨지 않도록, Gateway는 Cloudflare Workers나 Cloudflare 프록시 호스트에서 온 요청의 복호화를 거부하도록 설계됐다.",

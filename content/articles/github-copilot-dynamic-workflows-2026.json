@@ -16,7 +16,6 @@
     "Multi-Agent",
     "Copilot CLI"
   ],
-  "editorNote": "멀티에이전트 작업은 잘 될 때보다 많이 돌 때가 더 위험하다. 이 기능의 핵심은 절차를 코드로 고정하는 것만큼 실행 수와 AI 크레딧에 상한을 거는 것이라고 보고, 제한 설정과 권한 상속을 자세히 다뤘다.",
   "keyPoints": [
     "제공 범위: 2026년 10월 1일 Copilot CLI, GitHub Copilot 앱, Copilot SDK에 공개 프리뷰로 나왔다. 앱은 설정 없이, CLI는 --experimental 또는 /experimental on으로 켠다.",
     "차이점: Autopilot과 /fleet은 Copilot이 절차를 정하지만, Dynamic workflow는 작성자가 코드로 단계·조건·인계를 정한다.",

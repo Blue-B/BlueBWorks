@@ -18,7 +18,6 @@
   "image": "https://bluebworks.com/assets/editorial/cloudflare-k2-serverless-event-streams-2026-thumb.png",
   "imageAlt": "Cloudflare K2 요금과 베타 한도",
   "imageCredit": "BlueBWorks",
-  "editorNote": "Kafka 클러스터를 관리하지 않아도 된다는 점과, 기존 Kafka 프로그램을 그대로 연결할 수 있다는 말은 다르다. K2는 현재의 HTTP·Workers 인터페이스와 재처리 조건으로 판단해야 한다. 아래 구현 흐름은 공식 문서에 근거한 설명이며 유료 환경에서 실행한 벤치마크는 아니다.",
   "keyPoints": [
     "구조: 하나의 기록을 여러 구독이 독립적으로 읽고, 같은 구독 안의 작업자들은 처리할 묶음을 나눠 맡는다. 최소 한 번 전달이라 중복 수신이 가능하다.",
     "한도: 공개 베타에서 계정당 저장 10GB, 스트림 20개, 스트림당 쓰기 30MB/s, 기본 보관 7일(1시간~30일)이다.",

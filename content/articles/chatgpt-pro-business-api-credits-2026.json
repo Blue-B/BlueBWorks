@@ -24,7 +24,6 @@
   "imageHeight": 900,
   "imageSourceUrl": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions",
   "imageCaption": "공식 도움말의 금액과 조건을 바탕으로 BlueBWorks가 만든 썸네일이다. OpenAI 로고나 공식 이미지를 복사하지 않았다.",
-  "editorNote": "Plus 계정으로 챗지피티 결제 설정과 API 플랫폼의 Billing, Credit grants, Usage 화면을 직접 열어 캡처했다. 개인정보와 금액은 가렸고 신청, 결제, 키 발급 버튼은 누르지 않았다. 혜택을 실제로 받아 본 후기는 아니다.",
   "keyPoints": [
     "대상: 유료 구독을 7일 넘게 이어 온 Pro와 적격 Business만 신청할 수 있다. Plus와 무료 체험은 대상이 아니다.",
     "금액: Pro는 등급에 따라 월 100, 200, 500달러이고 Business는 좌석별로 합산해 워크스페이스당 월 최대 500달러다.",

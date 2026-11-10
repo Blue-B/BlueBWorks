@@ -16,7 +16,6 @@
     "Automation",
     "Copilot CLI"
   ],
-  "editorNote": "화면 조작 자동화는 되는지보다 얼마나 넓게 허용하느냐가 위험을 정한다. 그래서 기능 목록보다 승인 단계, Always allow가 저장되는 범위, 문서가 밝힌 실패 유형을 앞에 두고 정리했다.",
   "keyPoints": [
     "제공 범위: 2026년 10월 1일부터 Copilot CLI와 GitHub Copilot 앱의 macOS·Windows 버전에서 공개 프리뷰로 쓸 수 있고, 기본은 꺼져 있다.",
     "사용법: CLI는 /computer on, 앱은 설정의 Computer Use에서 켠다. 앱을 제어하기 전에 승인을 묻고, CLI는 Esc 두 번, 앱은 Stop이나 Esc로 멈춘다.",

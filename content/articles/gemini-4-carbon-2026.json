@@ -25,7 +25,6 @@
   "imageHeight": 900,
   "imageSourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
   "imageCaption": "BlueBWorks가 만든 썸네일. 배경은 AI 생성 이미지이고, 59점은 Artificial Analysis Intelligence Index v5.0 점수다. Google 공식 이미지가 아니다.",
-  "editorNote": "Carbon은 점수표만 보면 바로 갈아탈 모델처럼 보이지만, 지금 일반 개발자가 할 수 있는 일은 호출이 아니라 준비다. 그래서 숫자를 옮기기보다 각 수치를 누가 어떤 조건에서 쟀는지와 아르곤 사용자가 공개 전에 해 둘 일을 중심으로 정리했다.",
   "keyPoints": [
     "출시일: 10월 28일 발표됐지만, 10월 29일 기준 일부 사이버 방어 조직에만 열렸고 일반 공개 날짜는 확인되지 않았다.",
     "성능: AA 종합 지수 59점으로 1위(아르곤 50점), 보안 벤치마크 SEC-bench Pro 88.2%로 아르곤보다 높다.",

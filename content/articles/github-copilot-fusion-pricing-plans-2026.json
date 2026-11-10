@@ -16,7 +16,6 @@
     "AI 코딩",
     "요금"
   ],
-  "editorNote": "모든 플랜에서 Fusion을 쓸 수 있다는 말과 모든 강도를 쓸 수 있다는 말은 다릅니다. 성능 수치는 GitHub가 발표한 비교 조건 그대로 옮겼습니다.",
   "keyPoints": [
     "출시: 10월 28일 정식 공개, VS Code와 앱, CLI, JetBrains 지원",
     "플랜: Standard는 모든 플랜, High와 Max는 Pro+와 Max, Business, Enterprise",

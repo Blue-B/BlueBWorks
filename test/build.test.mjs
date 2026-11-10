@@ -61,7 +61,7 @@ test("article HTML contains the full body without JavaScript", () => {
   for (const section of post.sections) {
     assert.ok(html.includes(section.title), `section title missing: ${section.title}`);
   }
-  assert.ok(html.includes(post.editorNote));
+  assert.doesNotMatch(html, /class="editor-note"/);
   assert.ok(html.match(/<script type="application\/ld\+json">/));
   fs.rmSync(outDir, { recursive: true, force: true });
 });

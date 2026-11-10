@@ -10,7 +10,6 @@
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
   "tags": ["DMARC", "DMARC 설정", "아웃룩 메일 반송", "핫메일", "550 5.7.1", "이메일 인증"],
-  "editorNote": "회사나 쇼핑몰 도메인으로 해외 거래처에 메일을 보내는 분이 많아서, 원인 논쟁보다 지금 확인하고 고칠 수 있는 순서에 분량을 두었습니다.",
   "keyPoints": [
     "증상: 11월 5일 무렵부터 outlook.com, hotmail.com, live.com, msn.com 주소로 보낸 메일 일부가 550 5.7.1 'Message lacks SPF/DKIM/DMARC Auth Records'로 반송되고, 같은 메일을 다시 보내면 들어가기도 함",
     "대처: 보내는 도메인에 _dmarc TXT 레코드 v=DMARC1; p=none 을 넣는 것이 지금까지 가장 많이 통한 방법이고, SPF나 DKIM 중 하나가 보내는 사람 주소의 도메인으로 통과해야 의미가 있음",

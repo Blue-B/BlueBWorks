@@ -19,7 +19,6 @@
   "image": "https://bluebworks.com/assets/editorial/olmo-core-3-moe-training-2026-thumb.png",
   "imageAlt": "Ai2 Olmo-core 3 MoE 학습 처리량",
   "imageCredit": "BlueBWorks",
-  "editorNote": "Olmo-core 3의 숫자는 대부분 B300 클러스터에서 잰 시스템 시험값이라 그대로 옮기면 과장이 된다. 그래서 각 수치의 하드웨어와 시험 조건을 붙이고, Ai2가 기술 보고서에서 밝힌 실패한 시도까지 함께 정리했다.",
   "keyPoints": [
     "구조: 2026년 10월 1일 공개된 Olmo-core 3는 이전 FSDP 방식 대신 전문가를 GPU에 상주시키고 데이터를 라우팅하는 DDP 기반 MoE 학습 스택이다.",
     "성능: B300 8장 예비 시험에서 47B MoE 처리량이 GPU당 초당 19,400토큰에서 52,000토큰으로 약 2.7배가 됐다. 모두 Ai2 측정값이다.",

@@ -22,7 +22,6 @@
   "imageHeight": 840,
   "imageSourceUrl": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level/",
   "imageCaption": "GitHub Changelog에 실린 Default Balanced 코드 리뷰 설정 화면. 기본값이 Balanced로 바뀐 2026-09-28 적용 내용을 보여 주는 공식 발표 이미지다.",
-  "editorNote": "API가 생겼다는 사실보다 팀에서 리뷰를 언제 요청할지 정하는 일이 먼저다. 빌드 성공, 사람 리뷰 요청, 병합 승인 중 어느 단계에 붙일지 구분하면 중복 실행과 불필요한 사용량을 줄이기 쉽다. 이 글은 공식 동작과 설정을 정리한 해설이며 직접 측정한 리뷰 품질 비교는 아니다.",
   "keyPoints": [
     "REST·GraphQL에서 리뷰를 요청하고 요청별 분석 수준을 지정할 수 있다. Pro·Pro+·Max·Business·Enterprise에 정식 제공된다.",
     "Default가 Balanced로 바뀐 것은 2026년 9월 28일이다. Lite를 직접 선택한 설정은 유지되며, API 발표일인 10월 2일과 구분해야 한다.",

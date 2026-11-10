@@ -10,7 +10,6 @@
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
   "tags": ["agent-desktop", "컴퓨터 유즈", "computer use", "버셀", "AI 에이전트", "MCP", "윈도우 자동화"],
-  "editorNote": "윈도우 11 Pro에서 agent-desktop 1.2.0으로 계산기와 메모장을 직접 움직여 본 결과를 바탕으로 썼습니다.",
   "keyPoints": [
     "하는 일: agent-desktop은 AI 에이전트가 화면 사진 대신 운영체제의 접근성 정보로 버튼과 입력칸을 읽고 이름으로 누르게 해 주는 명령줄 도구다. 모델은 들어 있지 않아서 클로드 코드나 코덱스 같은 에이전트가 따로 있어야 한다",
     "설치: Node 18 이상에서 npm install -g agent-desktop 한 줄이면 되고 macOS, 윈도우, 리눅스를 지원한다. 1.2.0부터 agent-desktop mcp 명령으로 MCP 서버로도 붙는다",

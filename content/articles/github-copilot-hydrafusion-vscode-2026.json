@@ -16,7 +16,6 @@
     "VS Code",
     "Multi-model"
   ],
-  "editorNote": "HydraFusion은 모델 이름이 아니라 실행 방식을 고르는 기능이라 모델 선택기에 같이 놓여 있어도 비교 기준이 다르다. 그래서 세 실행 방식이 언제 비용을 줄이고 언제 늘리는지, GitHub 벤치마크가 무엇을 쟀는지를 중심으로 정리했다.",
   "keyPoints": [
     "사용 범위: 2026년 9월 30일부터 VS Code 1.140 이상과 GitHub Copilot 앱에서 연구 프리뷰로 쓸 수 있고, Copilot Pro·Pro+·Business·Enterprise가 대상이다(Business·Enterprise는 관리자가 프리뷰 기능을 켜야 함).",
     "작동 방식: 한 모델이 바로 푸는 Single, 싼 모델 초안을 필요할 때만 강한 모델로 올리는 Cascade, 다른 모델 계열이 검토하는 Critique 중 하나를 요청마다 고른다.",

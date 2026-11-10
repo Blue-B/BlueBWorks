@@ -21,7 +21,6 @@
   "imageHeight": 900,
   "imageSourceUrl": "https://developer.chrome.com/blog/responsive-iframes",
   "imageCaption": "기존에는 자식 문서가 높이를 측정해 부모에게 전달해야 했지만, Chrome 154에서는 양쪽 문서가 명시적으로 설정하면 브라우저가 콘텐츠 크기를 iframe 계산에 사용할 수 있다.",
-  "editorNote": "이 기능의 가치는 iframe 자체가 새로워진 데보다, 부모·자식 문서 사이에 높이를 전달하기 위해 별도 메시지 프로토콜을 만들던 흔한 코드를 브라우저 레이아웃 기능으로 옮겼다는 데 있다. 다만 동적 콘텐츠와 구형 브라우저 대응까지 자동으로 사라지는 것은 아니다.",
   "keyPoints": [
     "`frame-sizing: content-height`를 쓰면 부모 문서의 iframe이 임베드 문서의 콘텐츠 높이를 기준으로 크기를 잡을 수 있다.",
     "임베드 문서는 `responsive-embedded-sizing` 메타 태그로 허용 origin을 명시해야 하고, 동적 콘텐츠 변경 뒤에는 `window.requestResize()`로 재계산을 요청한다.",

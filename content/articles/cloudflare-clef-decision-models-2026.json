@@ -19,7 +19,6 @@
   "image": "https://bluebworks.com/assets/editorial/cloudflare-clef-decision-models-2026-thumb.png",
   "imageAlt": "Cloudflare Clef 결정 모델 가격과 지연 시간",
   "imageCredit": "BlueBWorks",
-  "editorNote": "결정 모델은 LLM을 대체하는 것이 아니라 LLM 앞에서 갈림길을 정리하는 부품이다. 그래서 벤치마크 순위보다 요청 형식과 확률을 코드에서 어떻게 쓰는지, 어떤 평가에서는 약했는지를 함께 정리했다.",
   "keyPoints": [
     "모델: Clef(27B, 이미지 입력 지원)와 지연 중심의 Clef-flash를 2026년 10월 1일 Workers AI에 공개했고, 가중치는 Apache 2.0으로 Hugging Face에 있다.",
     "사용법: state(판단할 내용)와 noul·choice·score 타입 질문 1~64개를 보내면 선택지마다 확률이 돌아온다. Jev System One API와 호환된다.",

@@ -16,7 +16,6 @@
     "AI 코딩 메모리",
     "오픈소스"
   ],
-  "editorNote": "설치는 명령 한 줄이지만 중간에 고르는 메모리 제공자에 따라 비용과 데이터가 가는 곳이 달라져서, 그 선택을 중심에 두고 묶었습니다.",
   "keyPoints": [
     "설치: npx claude-mem install 한 줄, 또는 클로드 코드 안에서 /plugin 명령 두 줄",
     "제공자: 기본 선택은 CMEM Pro 30일 체험(이후 월 30달러), 내 Claude 플랜이나 Gemini, OpenRouter 키로도 돌릴 수 있음",
