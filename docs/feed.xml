@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 10 Nov 2026 12:40:41 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 00:57:00 GMT</lastBuildDate>
+    <item>
+      <title>제미나이 4 카본 사용법과 한국 가격: 울트라 월 11만 9천 원부터, 프로 요금제는 아르곤까지</title>
+      <link>https://bluebworks.com/articles/gemini-4-carbon-ultra-korea-price-api-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/gemini-4-carbon-ultra-korea-price-api-2026/</guid>
+      <pubDate>Wed, 11 Nov 2026 00:57:00 GMT</pubDate>
+      <category>모델</category>
+      <description>구글이 제미나이 4 카본을 일반 사용자와 개발자에게 열었습니다. 앱에서는 구글 AI 울트라(한국 최저 월 11만 9천 원) 구독자에게만 순차 적용되고, 월 2만 9천 원 프로 요금제는 아르곤까지입니다. API는 무료 등급이 없고 11월 30일까지 도입가, 12월 1일부터 입력과 출력 단가가 두 배가 됩니다.</description>
+    </item>
     <item>
       <title>노션 보안 이슈 확인 방법: 파이어웍스 AI 해킹으로 노션 AI 대화 일부 노출, 워크스페이스 1% 미만</title>
       <link>https://bluebworks.com/articles/notion-ai-fireworks-security-incident-check-2026/</link>
