@@ -98,7 +98,7 @@
      "height": 491
     },
     {
-     "src": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-run.png",
+     "src": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-control.png",
      "alt": "ha_call_service input_boolean.turn_off로 input_boolean.guest_mode를 끄자 verified_state off 2.7s, ha_get_state 결과 state off, 다시 turn_on 하자 verified_state on 2.0s",
      "caption": "끄기 호출 뒤 바뀐 상태 off가 바로 돌아오고, 다시 켜면 on으로 돌아온다.",
      "credit": "BlueBWorks",
@@ -209,7 +209,7 @@
    },
    {
     "sourceUrl": "https://github.com/homeassistant-ai/ha-mcp",
-    "assetUrl": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-run.png",
+    "assetUrl": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-control.png",
     "decision": "included",
     "rightsBasis": "BlueBWorks own terminal output",
     "reason": "손님 모드를 끄고 켠 호출 결과 화면이라 포함."
