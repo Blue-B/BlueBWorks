@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Wed, 11 Nov 2026 06:38:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 12:28:00 GMT</lastBuildDate>
+    <item>
+      <title>스타링크 미니 2 공개: 배터리 최대 4.5시간, 미니 1과 차이와 한국 출시 여부</title>
+      <link>https://bluebworks.com/articles/starlink-mini-2-battery-korea-release-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/starlink-mini-2-battery-korea-release-2026/</guid>
+      <pubDate>Wed, 11 Nov 2026 12:28:00 GMT</pubDate>
+      <category>트렌드</category>
+      <description>스타링크가 배터리를 넣은 휴대용 위성 인터넷 단말 미니 2를 공개했습니다. 배터리 사용 시간과 크기, 와이파이 범위를 미니 1과 비교하고, 지금 누가 주문할 수 있는지와 한국에서 쓸 수 있는 요금제를 정리했습니다.</description>
+    </item>
     <item>
       <title>ha-mcp 사용법: 홈 어시스턴트를 클로드, 챗GPT로 설정하는 오픈소스 MCP 서버, 설치 방법과 관리자 토큰 주의점</title>
       <link>https://bluebworks.com/articles/ha-mcp-home-assistant-claude-chatgpt-install-2026/</link>
