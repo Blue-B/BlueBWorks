@@ -1,0 +1,139 @@
+{
+ "slug": "ha-mcp-home-assistant-claude-chatgpt-install-2026",
+ "title": "ha-mcp 사용법: 홈 어시스턴트를 클로드, 챗GPT로 설정하는 오픈소스 MCP 서버, 설치 방법과 관리자 토큰 주의점",
+ "summary": "홈 어시스턴트의 자동화, 대시보드, 기기 상태를 클로드나 챗GPT 같은 AI 비서에게 말로 맡기게 해 주는 오픈소스 ha-mcp를 공식 데모 서버에 연결해 도구를 직접 호출해 본 결과와, HACS 통합구성요소로 설치하는 순서, 관리자 토큰을 넘길 때 알아 둘 점, 챗GPT에 붙일 때 필요한 것을 정리했습니다.",
+ "category": "오픈소스",
+ "announcedAt": "2026-11-11",
+ "publishedAt": "2026-11-11T15:38:00+09:00",
+ "verifiedAt": "2026-11-11T15:38:00+09:00",
+ "status": "published",
+ "reviewStatus": "reviewed",
+ "editorialVersion": 2,
+ "tags": ["ha-mcp", "홈 어시스턴트", "Home Assistant", "MCP", "스마트홈 자동화", "클로드", "오픈소스"],
+ "keyPoints": [
+  "하는 일: 홈 어시스턴트의 기기 제어, 자동화, 스크립트, 대시보드, 백업을 AI 비서가 대화로 다루게 해 주는 MCP 서버, 무료로 쓸 수 있는 MIT 라이선스",
+  "설치: 공식 권장은 HACS나 홈 어시스턴트 2026.11 마켓플레이스에서 HA-MCP 통합구성요소를 받는 방법이고, 홈 어시스턴트 2026.8.0 이상이 필요함",
+  "주의: 서버는 관리자 권한으로 움직이니 내 계정 토큰보다 로컬 접속 전용 관리자 계정을 따로 만드는 쪽이 안전하고, 읽기 전용 모드와 도구별 끄기도 있음"
+ ],
+ "image": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-thumb.png",
+ "imageSourceUrl": "https://github.com/homeassistant-ai/ha-mcp",
+ "imageAlt": "ha-mcp, 클로드와 챗GPT에게 스마트홈 설정 맡기기. 도구 77개, 데모 서버로 먼저 시험. 오른쪽에 데모 서버에 연결해 도구를 호출한 결과 화면",
+ "imageCredit": "BlueBWorks",
+ "imageCaption": "ha-mcp를 공식 데모 서버에 연결해 도구를 차례로 호출한 결과",
+ "imageWidth": 1600,
+ "imageHeight": 900,
+ "sections": [
+  {
+   "title": "ha-mcp가 하는 일: 홈 어시스턴트를 AI 비서에게 맡기는 MCP 서버",
+   "paragraphs": [
+    "홈 어시스턴트는 집 안의 조명, 센서, 콘센트, 보일러 같은 기기를 한곳에 모아 자동화하는 오픈소스 스마트홈 플랫폼입니다. 기능이 많은 만큼 자동화 하나를 만들려 해도 트리거, 조건, 동작을 화면에서 하나씩 고르거나 YAML 설정을 직접 써야 해서 처음 쓰는 사람에게는 손이 많이 갑니다.",
+    "ha-mcp는 이 일을 AI 비서에게 넘기는 도구입니다. MCP는 클로드나 챗GPT 같은 AI가 바깥 프로그램의 기능을 불러 쓰게 해 주는 연결 규격인데, ha-mcp가 홈 어시스턴트의 기능을 이 규격의 도구로 바꿔 줍니다. 그러면 AI 비서에게 해 질 무렵 현관 조명을 켜는 자동화를 만들어 달라거나, 움직임 센서 자동화가 왜 안 도는지 봐 달라고 말로 부탁할 수 있습니다.",
+    "README가 꼽는 기능은 여섯 갈래입니다. 기기와 설정 검색, 서비스 호출과 여러 기기 한 번에 제어, 자동화와 스크립트와 대시보드와 구역 관리, 기록과 통계와 카메라 스냅숏과 자동화 실행 기록 조회, 백업과 복원과 업데이트, 그리고 읽기 전용 모드와 도구별 끄기 같은 안전장치입니다. 전체 도구 목록은 87개로 적혀 있고, 기본 설정으로 연결했을 때 목록에 올라온 도구는 77개였습니다. 나머지는 베타나 기능 플래그로 따로 켜는 도구입니다.",
+    "저장소는 2025년 9월에 공개됐고 MIT 라이선스라 무료로 쓸 수 있습니다. 11월 11일 기준 최신 버전은 9.1.2이고, 9.0.0(10월 28일)부터 설치 화면에 관리자 계정을 고르는 단계가 생겼습니다."
+   ],
+   "sourceRefs": [1, 2]
+  },
+  {
+   "title": "ha-mcp 설치 방법: HACS 통합구성요소가 기본",
+   "paragraphs": [
+    "공식 문서가 가장 먼저 권하는 방법은 HA-MCP 통합구성요소입니다. 홈 어시스턴트 안에서 서버를 함께 돌리는 방식이라 홈 어시스턴트 OS, Supervised, Container, Core 어떤 설치 형태에서도 기능 차이 없이 쓸 수 있다고 설명합니다. 조건은 홈 어시스턴트 2026.8.0 이상입니다.",
+    "2026.8부터 2026.10까지는 HACS를 열어 HA-MCP를 검색해 내려받고, 2026.11 이상이면 설정 메뉴의 마켓플레이스에서 첫 실행 경고를 받아들인 뒤 HA-MCP를 검색해 설치합니다. 기본 목록에 들어 있어서 GitHub 계정을 연결하거나 사용자 저장소를 따로 추가할 필요는 없습니다. 설치 뒤에는 홈 어시스턴트를 한 번 다시 시작해야 합니다.",
+    "다시 시작한 다음 설정, 기기 및 서비스, 통합구성요소 추가에서 HA-MCP를 찾아 HA-MCP Server를 고릅니다. 여기서 서버가 쓸 관리자 계정 정보를 넣고, AI 클라이언트가 어떻게 접속할지 정합니다. 집 밖에서 쓰려면 홈 어시스턴트를 통한 원격 접속(처음에는 비밀 주소 방식이 가장 간단), 집 안 네트워크에서만 쓰려면 로컬 네트워크 접속을 켭니다. 둘 다 꺼진 채로 시작하니 다른 기기의 AI 앱에서 붙으려면 하나는 켜야 합니다.",
+    "마지막으로 통합구성요소의 구성 화면에서 접속 주소를 복사해 AI 클라이언트에 붙여 넣으면 끝입니다. 홈 어시스턴트 OS나 Supervised라면 앱(예전 이름 애드온)으로 설치하는 방법도 있고, Container나 Core라면 Docker나 uvx로 서버를 따로 띄우는 방법도 있습니다. 공식 문서는 한 클라이언트에 설치 방식 하나만 연결하라고 강조합니다. 같은 서버를 두 가지 방식으로 동시에 등록하면 연결이 멈추는 원인이 된다고 합니다."
+   ],
+   "sourceRefs": [1, 3],
+   "code": {
+    "language": "text",
+    "text": "1. HACS(2026.8~2026.10) 또는 설정 > 마켓플레이스(2026.11 이상)에서 HA-MCP 설치\n2. 홈 어시스턴트 다시 시작\n3. 설정 > 기기 및 서비스 > 통합구성요소 추가 > HA-MCP > HA-MCP Server\n4. 관리자 토큰 또는 HA-MCP 전용 계정 입력, 접속 방식 선택(원격 비밀 주소 / 로컬 네트워크)\n5. HA-MCP Server의 구성 화면에서 접속 주소 복사\n6. AI 클라이언트의 MCP 서버 주소 칸에 붙여 넣기",
+    "caption": "README 빠른 시작 순서. 버전 9.0.0 이후 화면 기준이다."
+   }
+  },
+  {
+   "title": "ha-mcp 관리자 토큰 주의점: 전용 계정과 읽기 전용 모드",
+   "paragraphs": [
+    "ha-mcp는 관리자 권한으로 움직입니다. 그래서 설치 화면에서 어떤 관리자 계정으로 서버를 돌릴지 고르게 합니다. 방법은 두 가지입니다. 내 프로필의 보안 메뉴에서 장기 액세스 토큰을 만들어 넣거나, 사람 메뉴에서 HA-MCP 전용 계정을 새로 만들어 그 아이디와 비밀번호를 넣는 방식입니다.",
+    "README는 두 번째 방식을 더 안전하다고 설명합니다. 내 계정 토큰은 새어 나가면 어디서든 쓰일 수 있고, 서버가 바꾼 내용이 내 이름으로 기록됩니다. 전용 계정은 로그인 허용, 로컬 접속만 허용, 관리자 세 가지를 켜서 만들고, 이 방식에는 내 로그인 정보를 절대 쓰지 말라고 적혀 있습니다. 전용 계정을 쓰면 나중에 기록을 볼 때 AI가 바꾼 것과 내가 바꾼 것이 구분되는 장점도 있습니다.",
+    "원격 접속을 켜면 비밀 주소 자체가 열쇠 역할을 합니다. 주소를 아는 사람은 누구나 서버에 붙을 수 있다는 뜻이라, 주소를 채팅방이나 화면 캡처로 공유하지 않는 편이 좋습니다. 로그인을 한 번 더 거치게 하려면 인증 방식을 홈 어시스턴트 로그인으로 바꾸면 되고, 집 안에서만 쓸 거면 설치할 때 원격 접속을 꺼 두면 웹훅 자체가 만들어지지 않습니다.",
+    "AI가 실수로 기기를 끄거나 자동화를 지우는 일이 걱정되면 안전장치를 먼저 켜 두는 것이 좋습니다. 기능 목록에는 읽기 전용 모드 토글, 도구별 켜고 끄기, 실행 전에 사용자 승인을 받게 하는 도구 보안 정책, 편집 전 자동 백업이 있습니다. 처음 며칠은 읽기 전용으로 상태 조회와 문제 진단만 맡겨 보고, 익숙해진 뒤 자동화 편집을 여는 순서가 무난합니다."
+   ],
+   "sourceRefs": [1]
+  },
+  {
+   "title": "ha-mcp 데모 서버로 먼저 시험하기: 실제 호출 결과",
+   "paragraphs": [
+    "내 집 홈 어시스턴트에 바로 붙이기 전에 써 볼 수 있도록 공식 데모 환경이 열려 있습니다. 설치 스크립트에 데모 서버 주소와 데모용 토큰이 들어 있어서, 윈도우는 파워셸 한 줄, 맥과 리눅스는 터미널 한 줄로 클로드 데스크톱에 데모 서버가 연결됩니다. 유료 구독이 없어도 된다고 안내하고, 데모 환경은 매주 초기화되어 바꾼 내용이 남지 않습니다.",
+    "이번에는 AI 앱 없이 윈도우 PC의 파워셸에서 uvx로 ha-mcp 9.1.2를 띄우고 데모 서버에 연결한 뒤, MCP 규격대로 도구를 하나씩 직접 불러 봤습니다. 처음 시도한 리눅스 환경에서는 ha-mcp가 파이썬 3.13 이상, 3.15 미만을 요구해서 시스템 파이썬 3.12로는 설치가 거부됐습니다. 파이썬 버전이 맞지 않으면 uv가 관리하는 파이썬 3.13을 지정해 주면 됩니다.",
+    "연결하자 서버 이름과 버전이 돌아왔고 도구 목록에는 77개가 올라왔습니다. 전체 상황을 요약하는 ha_get_overview를 부르자 기기와 센서 같은 항목 46개, 분야 15개, 호출할 수 있는 서비스 252개, 구역 7개, 홈 어시스턴트 2026.6.4라는 결과가 나왔습니다. 이름으로 찾는 ha_search에 porch를 넣으니 README 예시와 같은 이름의 해 질 녘 현관 조명 자동화가 바로 잡혔고, 그 설정을 열어 보니 해 질 무렵에 조명을 켜라는 트리거와 동작이 들어 있었습니다.",
+    "제어도 시험했습니다. 데모의 손님 모드 스위치를 끄는 서비스를 부르자 2.7초 만에 성공 메시지와 함께 실제로 바뀐 상태 값이 off로 돌아왔고, 상태를 다시 읽어도 off였습니다. 다시 켜는 호출은 2.0초가 걸렸고 on으로 돌아온 것까지 확인한 뒤 원래대로 두었습니다. 서비스를 부르고 끝내는 것이 아니라 바뀐 상태를 함께 돌려주기 때문에, AI가 명령이 먹혔는지 따로 묻지 않아도 됩니다.",
+    "하나 걸린 점도 있었습니다. 데모 서버에는 조명 기기가 하나도 없어서 light 분야로 검색하면 결과가 0개였는데, 현관 조명 자동화는 대상 기기 없이 조명 켜기 동작만 들어 있었습니다. 여러 사람이 함께 쓰는 데모라 이런 흔적이 남아 있는 것이고, 기능 흐름을 보는 용도로만 쓰고 실제 판단은 내 집 서버에서 하는 편이 맞습니다."
+   ],
+   "sourceRefs": [1, 2],
+   "figures": [
+    {
+     "src": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-run.png",
+     "alt": "ha-mcp를 데모 Home Assistant에 연결해 initialize, tools/list 77 tools, ha_get_overview 결과(total_entities 46, total_domains 15, total_services 252, total_areas 7, version 2026.6.4), ha_search porch, ha_config_get_automation, input_boolean.guest_mode를 끄고 켠 결과가 차례로 나온 화면",
+     "caption": "끄기 호출 뒤 verified_state가 off로 돌아오고, 다시 켜면 on으로 돌아온다.",
+     "credit": "BlueBWorks",
+     "sourceUrl": "https://github.com/homeassistant-ai/ha-mcp",
+     "width": 1200,
+     "height": 694
+    }
+   ],
+   "code": {
+    "language": "powershell",
+    "text": "# 윈도우: 데모 서버를 클로드 데스크톱에 연결하는 공식 스크립트\nirm https://raw.githubusercontent.com/homeassistant-ai/ha-mcp/master/scripts/install-windows.ps1 | iex\n\n# 맥\ncurl -LsSf https://raw.githubusercontent.com/homeassistant-ai/ha-mcp/master/scripts/install-macos.sh | sh\n\n# 직접 띄워 보기 (uv 설치 후, 파이썬 3.13 이상)\n$env:HOMEASSISTANT_URL = \"https://내-홈어시스턴트-주소:8123\"\n$env:HOMEASSISTANT_TOKEN = \"장기 액세스 토큰\"\nuvx --python 3.13 ha-mcp@latest",
+    "caption": "README 데모 서버 명령과 uvx 실행. 파워셸은 $env: 문법, 맥과 리눅스는 export HOMEASSISTANT_URL=... 으로 쓴다."
+   }
+  },
+  {
+   "title": "클로드 데스크톱에서 ha-mcp로 할 수 있는 일",
+   "paragraphs": [
+    "README의 데모 영상은 클로드 데스크톱에서 대화로 자동화를 만드는 장면입니다. 해 지기 전에 바깥 조명을 켜고 밤 9시에 끄는 자동화를 만든 뒤, 비슷한 이름의 기존 자동화가 이미 있으니 둘 다 둘지 확인해 보라고 짚어 주는 대목이 나옵니다. 이어서 물 주기 스크립트를 입력값과 상관없이 최대 40분으로 바꿔 달라고 요청하는 장면도 있습니다.",
+    "README가 예로 드는 요청도 비슷합니다. 해 질 녘에 현관 조명 켜는 자동화 만들기, 대시보드에 날씨 카드 넣기, 움직임 센서 자동화가 안 될 때 실행 기록을 읽고 원인 찾기, 아침 루틴 자동화에 커피 머신 켜기 추가, 조명 낮추고 블라인드 닫고 TV 켜는 영화 모드 스크립트 만들기입니다. 기존 자동화를 먼저 읽고 필요한 동작만 더하는 식이라, 화면에서 직접 고칠 때보다 손이 덜 갑니다.",
+    "다만 AI가 고친 자동화는 한 번 열어서 대상 기기가 맞는지 확인하는 편이 좋습니다. 데모에서 본 현관 조명 자동화처럼 동작만 있고 대상 기기가 비어 있으면 원하는 조명이 켜질지 장담할 수 없습니다. ha-mcp는 편집 전에 자동 백업을 남기니, 이상하면 그 백업으로 되돌리면 됩니다."
+   ],
+   "sourceRefs": [1],
+   "figures": [
+    {
+     "src": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-demo.png",
+     "alt": "클로드 데스크톱 대화 화면. Actions 아래에 해 지기 전에 바깥 조명을 켜고 밤 9시에 끄는 동작이 적혀 있고, 비슷한 기존 자동화가 있으니 확인하라는 Note가 이어진다",
+     "caption": "자동화를 만든 뒤 겹치는 기존 자동화까지 알려 주는 공식 데모 장면.",
+     "credit": "ha-mcp GitHub README",
+     "sourceUrl": "https://github.com/homeassistant-ai/ha-mcp",
+     "width": 800,
+     "height": 559
+    }
+   ]
+  },
+  {
+   "title": "챗GPT, 코덱스 등 다른 AI 도구에 ha-mcp 붙일 때",
+   "paragraphs": [
+    "공식 설정 마법사는 클로드 코드, 제미나이 CLI, 챗GPT, Open WebUI, VS Code, 커서 등 15개가 넘는 클라이언트별 설정을 만들어 줍니다. 대부분은 통합구성요소에서 복사한 접속 주소 하나만 넣으면 됩니다.",
+    "챗GPT 커넥터는 원래 인터넷에서 접속할 수 있는 공개 주소가 필요합니다. 홈 어시스턴트를 밖으로 열고 싶지 않다면 커뮤니티가 만든 OpenAI Tunnel 통합구성요소를 쓰는 방법이 README에 소개돼 있습니다. 홈 어시스턴트 안에서 OpenAI의 터널 클라이언트를 돌려 바깥으로 나가는 연결만 만들기 때문에 포트를 열거나 리버스 프록시를 두지 않아도 된다는 설명입니다. 공식 ha-mcp가 아닌 별도 프로젝트라는 점은 알고 쓰는 것이 좋습니다.",
+    "내 컴퓨터에서 표준 입출력으로 붙이는 로컬 stdio 방식은 공식 문서가 권하지 않습니다. 연결 문제가 알려져 있어서 데모나 시험용으로만 쓰고, 실제 집 서버에는 통합구성요소나 HTTP 방식을 쓰라고 안내합니다. 이번 시험에서도 서버가 시작 직후 응답 없이 끝나는 일이 몇 번 있었고, 다시 띄우면 정상으로 붙었습니다."
+   ],
+   "sourceRefs": [1, 3]
+  }
+ ],
+ "sources": [
+  {"name": "GitHub: homeassistant-ai/ha-mcp", "url": "https://github.com/homeassistant-ai/ha-mcp", "description": "기능, 설치 방법, 관리자 계정 선택, 데모 서버, 도구 목록, 라이선스가 있는 공식 저장소 README"},
+  {"name": "ha-mcp 릴리스", "url": "https://github.com/homeassistant-ai/ha-mcp/releases", "description": "9.0.0 설치 화면 변경과 최신 9.1.2 버전"},
+  {"name": "ha-mcp 설정 마법사", "url": "https://homeassistant-ai.github.io/ha-mcp/setup/", "description": "통합구성요소 빠른 설정과 클라이언트별 연결 설정"}
+ ],
+ "resources": [
+  {"name": "ha-mcp 저장소", "url": "https://github.com/homeassistant-ai/ha-mcp", "type": "저장소", "description": "소스, README, 변경 기록"},
+  {"name": "ha-mcp 공식 문서", "url": "https://homeassistant-ai.github.io/ha-mcp/", "type": "문서", "description": "설치 안내, 도구 목록, 자주 막히는 문제"},
+  {"name": "PyPI: ha-mcp", "url": "https://pypi.org/project/ha-mcp/", "type": "설치", "description": "uvx나 pip로 받는 공식 패키지"}
+ ],
+ "discovery": {"xStatus": "public-search", "notes": "공식 출처와 원문을 확인함."},
+ "mediaReview": {
+  "checkedAt": "2026-11-11T15:38:00+09:00",
+  "status": "included",
+  "candidates": [
+   {"sourceUrl": "https://github.com/homeassistant-ai/ha-mcp", "assetUrl": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-thumb.png", "decision": "included", "rightsBasis": "BlueBWorks original thumbnail with own run screenshot", "reason": "글 내용을 보여 주는 화면이라 포함."},
+   {"sourceUrl": "https://github.com/homeassistant-ai/ha-mcp", "assetUrl": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-run.png", "decision": "included", "rightsBasis": "BlueBWorks own terminal output", "reason": "데모 서버에 도구를 호출한 결과 화면이라 포함."},
+   {"sourceUrl": "https://github.com/homeassistant-ai/ha-mcp", "assetUrl": "https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-demo.png", "decision": "included", "rightsBasis": "Official README demo frame for commentary", "reason": "대화로 자동화를 만드는 공식 데모 장면이라 포함."},
+   {"sourceUrl": "https://www.youtube.com/@home_assistant", "assetUrl": null, "decision": "excluded", "rightsBasis": "Not found", "reason": "이 도구만 다룬 공식 영상이 없어 실행 화면으로 대체."}
+  ]
+ }
+}
