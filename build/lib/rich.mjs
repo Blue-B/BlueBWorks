@@ -1,11 +1,14 @@
 import { escapeHtml as esc, formatKoreanDate, readingMinutes } from './util.mjs';
 
+// Internal workflow states (e.g. "published") are not reader-facing; product availability notes still show.
+const WORKFLOW_STATUS = /^(?:published|draft|scheduled|pending|review)$/i;
+
 export function articleCover(post, base) {
   const meta = [
     `<span>블로그 게시 ${esc(formatKoreanDate(post.publishedAt))}</span>`,
     post.announcedAt ? `<span>소식 발표 ${esc(formatKoreanDate(post.announcedAt))}</span>` : '',
     post.verifiedAt ? `<span>확인 ${esc(formatKoreanDate(post.verifiedAt))}</span>` : '',
-    post.status ? `<span>${esc(post.status)}</span>` : '',
+    post.status && !WORKFLOW_STATUS.test(post.status) ? `<span>${esc(post.status)}</span>` : '',
     `<span>${readingMinutes(post)}분 읽기</span>`,
   ].filter(Boolean).join('');
   return `<section class="article-cover article-cover-compact" aria-labelledby="article-title">
