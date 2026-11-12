@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 12 Nov 2026 06:50:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 12:48:00 GMT</lastBuildDate>
+    <item>
+      <title>챗GPT 공부 프롬프트, 제인스트리트 소크라테스 튜터 스킬 써보기</title>
+      <link>https://bluebworks.com/articles/socratic-tutor-skill-chatgpt-study-prompt-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/socratic-tutor-skill-chatgpt-study-prompt-2026/</guid>
+      <pubDate>Thu, 12 Nov 2026 12:48:00 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>제인스트리트가 공개한 소크라테스 튜터 스킬을 챗GPT에 붙여 복리 공부를 시켜 봤습니다. 클로드 스킬로 추가하는 방법도 정리합니다.</description>
+    </item>
     <item>
       <title>HWP PDF 변환 무료, 한글 없이 H2Orestart로 일괄 변환</title>
       <link>https://bluebworks.com/articles/hwp-pdf-convert-h2orestart-libreoffice-2026/</link>
