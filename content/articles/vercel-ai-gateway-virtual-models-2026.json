@@ -1,5 +1,6 @@
 {
   "slug": "vercel-ai-gateway-virtual-models-2026",
+  "searchIndex": false,
   "title": "Vercel AI Gateway Virtual Models 출시: 모델 교체·요금·설정 방법",
   "summary": "Vercel AI Gateway가 Virtual Models를 공개했다. 앱과 코딩 에이전트는 vmc/ 이름만 사용하고 실제 모델·대체 경로·보안 설정은 중앙에서 바꿀 수 있다. 설정 명령, 무료 크레딧, 과금과 운영 시 주의점을 정리했다.",
   "category": "개발도구",

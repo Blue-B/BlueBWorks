@@ -1,5 +1,6 @@
 {
   "slug": "github-copilot-server-to-server-auth-2026",
+  "searchIndex": false,
   "title": "GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다",
   "summary": "2026년 10월 27일 GitHub가 Copilot SDK의 서버 간 인증을 공개 프리뷰로 발표했다. GitHub App 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, GitHub Actions와의 차이를 정리한다.",
   "category": "AI·개발도구",

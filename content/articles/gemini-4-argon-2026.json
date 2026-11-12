@@ -1,5 +1,6 @@
 {
   "slug": "gemini-4-argon-2026",
+  "searchIndex": false,
   "title": "제미나이 4 아르곤 100만 토큰 출력·가격·사용법 정리: 64K 한도에서 무엇이 달라졌나",
   "summary": "제미나이 4 아르곤(Gemini 4 Argon)의 100만 토큰은 이전 64K에서 늘어난 출력 한도다. 9월 30일 발표, 10월 13일 유료 API 공개, 11월 30일까지 도입가와 long decode 사용법을 정리했다.",
   "category": "모델",

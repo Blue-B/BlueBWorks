@@ -1,5 +1,6 @@
 {
   "slug": "github-agentic-workflows-ga-2026",
+  "searchIndex": false,
   "title": "GitHub Agentic Workflows 정식 출시: Markdown으로 저장소 작업 자동화하기",
   "summary": "GitHub가 10월 28일 Agentic Workflows를 정식 제공했다. Markdown으로 CI 실패 조사나 이슈 요약 같은 판단 작업을 정의하고 GitHub Actions에서 실행한다. 설치 흐름, 안전한 출력, 엔진 인증과 비용을 공식 문서 기준으로 정리했다.",
   "category": "개발도구",

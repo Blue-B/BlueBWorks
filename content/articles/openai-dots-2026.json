@@ -1,5 +1,6 @@
 {
   "slug": "openai-dots-2026",
+  "searchIndex": false,
   "title": "OpenAI dots 사용법·요금제·안전장치 정리: 상시 작동 에이전트에 무엇을 맡길까",
   "summary": "OpenAI dots는 GPT-6 Astra 기반으로 자체 클라우드 컴퓨터에서 계속 일하는 에이전트다. 쓸 수 있는 요금제, 시작 방법, 자동 검토와 승인 규칙, 데이터 학습 설정을 공식 자료로 정리했다.",
   "category": "에이전트",
