@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>HWP PDF 변환 무료 방법: 한글 없이 리브레오피스 H2Orestart로 일괄 변환 | BlueBWorks</title>
+    <meta name="description" content="리브레오피스 확장 H2Orestart로 한글 파일 4개를 PDF로 바꿔 부처 PDF와 비교했습니다. 설치와 일괄 변환 명령까지 정리합니다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/hwp-pdf-convert-h2orestart-libreoffice-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="HWP PDF 변환 무료 방법: 한글 없이 리브레오피스 H2Orestart로 일괄 변환 | BlueBWorks">
+    <meta property="og:description" content="리브레오피스 확장 H2Orestart로 한글 파일 4개를 PDF로 바꿔 부처 PDF와 비교했습니다. 설치와 일괄 변환 명령까지 정리합니다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/hwp-pdf-convert-h2orestart-libreoffice-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-thumb.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="H2Orestart 오픈소스, HWP PDF 변환. 한글 프로그램 없이 리브레오피스로 무료로. 파일 4개 22초에 한 번에. 오른쪽에 부처 PDF와 변환한 PDF를 나란히 놓은 화면">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition6">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"HWP PDF 변환 무료, 한글 없이 H2Orestart로 일괄 변환","description":"리브레오피스 확장 H2Orestart로 한글 파일 4개를 PDF로 바꿔 부처 PDF와 비교했습니다. 설치와 일괄 변환 명령까지 정리합니다.","url":"https://bluebworks.com/articles/hwp-pdf-convert-h2orestart-libreoffice-2026/","mainEntityOfPage":"https://bluebworks.com/articles/hwp-pdf-convert-h2orestart-libreoffice-2026/","datePublished":"2026-11-12T06:50:00.000Z","dateModified":"2026-11-12T06:50:00.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"오픈소스","keywords":"HWP PDF 변환, HWPX, 한글 파일, H2Orestart, 리브레오피스, PDF 일괄 변환, 오픈소스","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"HWP PDF 변환 무료, 한글 없이 H2Orestart로 일괄 변환","item":"https://bluebworks.com/articles/hwp-pdf-convert-h2orestart-libreoffice-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>오픈소스</span></p>
+        <h1 id="article-title">HWP PDF 변환 무료, 한글 없이 H2Orestart로 일괄 변환</h1>
+        <p class="cover-dek">리브레오피스 확장 H2Orestart로 한글 파일 4개를 PDF로 바꿔 부처 PDF와 비교했습니다. 설치와 일괄 변환 명령까지 정리합니다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 11월 12일</span><span>소식 발표 2026년 10월 18일</span><span>확인 2026년 11월 12일</span><span>6분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">HWP PDF 변환, 한글 프로그램 없이 하는 방법</a></li>
+          <li><a href="#sec-2">H2Orestart 설치 방법: 리브레오피스 확장 관리자에 추가</a></li>
+          <li><a href="#sec-3">한글 파일 PDF 일괄 변환 명령과 걸린 시간</a></li>
+          <li><a href="#sec-4">HWP PDF 변환 결과 비교: 글꼴과 쪽수가 달라지는 곳</a></li>
+          <li><a href="#sec-5">그림과 로고가 많은 한글 문서에서 생긴 차이</a></li>
+          <li><a href="#sec-6">브라우저에서 바로 HWP를 PDF로 바꾸는 방법과 차이</a></li>
+          <li><a href="#sec-7">H2Orestart 변환이 깨질 때 로그 보는 법</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="HWP PDF 변환 무료, 한글 없이 H2Orestart로 일괄 변환">
+            <meta itemprop="description" content="리브레오피스 확장 H2Orestart로 한글 파일 4개를 PDF로 바꿔 부처 PDF와 비교했습니다. 설치와 일괄 변환 명령까지 정리합니다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: H2Orestart 오픈소스, HWP PDF 변환. 한글 프로그램 없이 리브레오피스로 무료로. 파일 4개 22초에 한 번에. 오른쪽에 부처 PDF와 변환한 PDF를 나란히 놓은 화면"><img src="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-thumb.png" alt="H2Orestart 오픈소스, HWP PDF 변환. 한글 프로그램 없이 리브레오피스로 무료로. 파일 4개 22초에 한 번에. 오른쪽에 부처 PDF와 변환한 PDF를 나란히 놓은 화면" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>부처가 올린 PDF와 H2Orestart로 변환한 PDF</span><a href="https://github.com/ebandal/H2Orestart" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>3줄 요약</summary>
+      <ul>
+        <li>하는 일: 리브레오피스가 HWP, HWPX를 열게 해 주는 무료 확장 H2Orestart, 소스는 GPLv3로 공개</li>
+        <li>변환: 확장을 넣으면 soffice 명령 한 줄로 여러 한글 파일을 PDF로 바꿀 수 있고 파일 4개에 22초가 걸렸다</li>
+        <li>차이: 본문과 표는 그대로지만 글꼴이 바뀌면서 로고가 잘리거나 빈 쪽이 생겨 쪽수가 늘 수 있다</li>
+      </ul>
+    </details>
+
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>HWP PDF 변환, 한글 프로그램 없이 하는 방법</h2>
+        <p>관공서 공지, 학교 가정통신문, 입찰 서류는 아직도 HWP나 HWPX로 많이 옵니다. 한컴오피스가 없는 맥이나 리눅스, 회사 PC에서는 파일을 열지 못해 PDF로 바꿔 줄 곳부터 찾게 됩니다. 검색하면 파일을 올리는 변환 사이트가 먼저 나오지만, 주민등록번호나 연락처가 든 서류를 남의 서버에 올리기는 아무래도 꺼려집니다.</p>
+        <p>H2Orestart는 이럴 때 쓸 수 있는 리브레오피스 확장입니다. 개발자 ebandal이 만든 오픈소스로, 리브레오피스가 HWP와 HWPX 파일을 열 수 있게 해 줍니다. 확장 사용은 무료이고 소스코드는 GNU GPLv3로 공개돼 있으며, 2026년 10월 18일에 0.8.0이 나왔습니다.</p>
+        <p>확장을 넣은 리브레오피스는 한글 파일을 일반 문서처럼 열고, 명령 한 줄로 여러 파일을 PDF로 만들 수 있습니다. 파일이 내 컴퓨터 밖으로 나가지 않는다는 점이 업로드형 변환 사이트와 가장 큰 차이입니다. 다만 한컴오피스와 똑같이 그려 주는 것은 아니어서, 정부 부처가 HWP와 PDF를 함께 올린 보도자료 4개를 직접 바꿔 원본 PDF와 나란히 놓고 어디가 달라지는지 살펴봤습니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>H2Orestart 설치 방법: 리브레오피스 확장 관리자에 추가</h2>
+        <p>준비물은 리브레오피스와 자바입니다. 리브레오피스 확장 사이트의 H2Orestart 페이지에는 JRE 8 이상이 필요하다고 적혀 있고, 자바가 없으면 확장이 동작하지 않습니다. 윈도우와 맥이라면 리브레오피스 위키의 자바 설치 안내를 먼저 따라 하면 됩니다.</p>
+        <p>확장 파일은 GitHub 릴리스나 리브레오피스 확장 사이트에서 H2Orestart.oxt로 받습니다. 리브레오피스를 연 뒤 도구 메뉴의 확장 관리자에서 추가를 눌러 이 파일을 고르고 리브레오피스를 다시 시작하면 됩니다. 그다음부터는 파일 열기 창에서 한글 파일을 고르거나 창에 끌어다 놓으면 열립니다. 열린 문서를 다시 저장할 때는 HWP가 아니라 ODT 형식으로만 저장되니, 원본 한글 파일은 따로 남겨 두는 게 좋습니다.</p>
+        <p>리눅스는 명령으로 넣는 쪽이 빠릅니다. 우분투와 데비안 저장소에도 libreoffice-h2orestart 패키지가 있지만, 우분투 24.04 저장소에 올라 있는 판은 0.6.1이라 최신 0.8.0과 차이가 큽니다. 0.8.0에서 표 행이 잘리던 문제와 체크박스 기호가 빈 상자로 나오던 문제가 고쳐졌으니 릴리스의 oxt 파일을 직접 넣는 편을 권합니다. 아래는 우분투 24.04에서 실제로 넣은 순서입니다.</p>
+        <p>한글 파일을 고쳐 써야 한다면 PDF 대신 ODT로 바꾸면 됩니다. 아래 변환 명령에서 --convert-to 뒤를 odt로 바꾸면 리브레오피스 문서 파일이 나오고, 국토부 HWPX 파일 하나가 15초 만에 ODT가 됐습니다. ODT는 리브레오피스에서 열어 고친 뒤 파일 메뉴의 PDF로 내보내기로 다시 PDF를 만들 수 있습니다.</p>
+        <figure class="code-example"><figcaption>bash · sudo로 --shared 설치를 하지 않으면 현재 사용자 계정에만 들어간다. 한글 글꼴 패키지가 있어야 변환본에 쓸 글꼴이 생긴다.</figcaption><pre tabindex="0"><code># 리브레오피스 문서 편집기, 자바, 한글 글꼴
+sudo apt install libreoffice-writer libreoffice-java-common default-jre-headless fonts-noto-cjk fonts-nanum
+
+# H2Orestart 0.8.0 내려받아 현재 사용자에게 설치
+curl -LO https://github.com/ebandal/H2Orestart/releases/download/v0.8.0/H2Orestart.oxt
+unopkg add H2Orestart.oxt
+
+# 설치된 버전 보기
+unopkg list | grep -A1 H2Orestart</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-3">[3]</a> <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>한글 파일 PDF 일괄 변환 명령과 걸린 시간</h2>
+        <p>확장을 넣으면 리브레오피스를 화면 없이 띄우는 headless 모드로 한글 파일을 PDF로 바꿀 수 있습니다. README에 나온 방법은 두 가지입니다. --infilter로 H2Orestart 필터를 직접 지정하는 방법과, 필터를 빼고 리브레오피스가 파일을 보고 알아서 고르게 두는 방법입니다. 윈도우에서는 soffice 자리에 리브레오피스 설치 폴더의 program 안에 있는 soffice.exe를 쓰면 됩니다.</p>
+        <p>11월 12일 정책브리핑에 올라온 보도자료 4개(HWPX 3개, HWP 1개)를 한 폴더에 넣고 두 번째 방식으로 한꺼번에 돌렸습니다. 리브레오피스 24.2.7과 H2Orestart 0.8.0 조합에서 4개 모두 PDF가 됐고, 걸린 시간은 22.1초였습니다.</p>
+        <p>파일마다 명령을 따로 돌리면 리브레오피스를 매번 새로 띄우느라 한 개에 16초에서 36초가 걸렸습니다. 여러 개를 바꿀 때는 파일 이름을 한 줄에 몰아 넘기는 편이 훨씬 빠릅니다.</p>
+        <p>만들어진 PDF에는 글자가 그림이 아니라 글자로 들어갑니다. 변환한 국민통합위원회 보도자료 PDF에서 글자를 뽑아 보면 &#39;국민통합&#39;이 20번 나옵니다. PDF 안에서 찾기를 쓰거나 문장을 복사해 다른 문서에 붙여야 할 때 이 차이가 큽니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-batch.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 터미널 화면. unopkg list 결과 Identifier ebandal.libreoffice.H2Orestart, Version 0.8.0. in 폴더의 avian.hwpx, jinair.hwpx, molit.hwpx, unity.hwp 4개를 soffice --headless --convert-to pdf로 변환해 real 0m22.108s가 걸리고 pdf 폴더에 PDF 4개가 생긴 결과">
+        <img src="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-batch.png" alt="터미널 화면. unopkg list 결과 Identifier ebandal.libreoffice.H2Orestart, Version 0.8.0. in 폴더의 avian.hwpx, jinair.hwpx, molit.hwpx, unity.hwp 4개를 soffice --headless --convert-to pdf로 변환해 real 0m22.108s가 걸리고 pdf 폴더에 PDF 4개가 생긴 결과" width="1500" height="808" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>확장 0.8.0으로 한글 파일 4개를 한 번에 PDF로 바꾸는 데 22초가 걸렸다.</span><a href="https://github.com/ebandal/H2Orestart" target="_blank" rel="noopener noreferrer">BlueBWorks · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>bash · 리브레오피스 창이 열려 있으면 headless 변환이 멈춘 것처럼 보일 수 있으니 창을 모두 닫고 돌린다.</figcaption><pre tabindex="0"><code># 파일 하나, 필터 직접 지정 (README 예시)
+soffice --headless --infilter=&quot;Hwp2002_File&quot; --convert-to pdf:writer_pdf_Export 문서.hwp
+
+# 폴더 안 한글 파일을 pdf 폴더로 한꺼번에
+soffice --headless --convert-to pdf --outdir pdf *.hwp *.hwpx</code></pre></figure>
+        <p class="source-refs">근거 <a href="#source-1">[1]</a></p>
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>HWP PDF 변환 결과 비교: 글꼴과 쪽수가 달라지는 곳</h2>
+        <p>국토교통부의 진에어, 에어서울, 에어부산 합병 인가 보도참고자료를 부처가 올린 PDF와 나란히 놓으면 제목 상자, 굵은 강조, 각주 기호까지 자리가 그대로입니다. 눈에 띄는 차이는 글꼴입니다. 원본은 함초롬바탕, 굴림, 맑은 고딕 같은 글꼴을 쓰는데 변환한 컴퓨터에는 함초롬 글꼴이 없어서 나눔고딕과 노토 산스 CJK로 바뀌었습니다.</p>
+        <p>글꼴이 바뀌면 줄 간격도 조금씩 넓어집니다. 이 문서는 원본이 3쪽인데 변환본은 4쪽이 됐고, 늘어난 마지막 쪽에는 쪽 번호만 남았습니다. 윈도우에 들어 있는 굴림, 바탕, 맑은 고딕 글꼴을 옮겨 넣고 다시 바꿔도 쪽수는 그대로였으니, 원본이 주로 쓴 함초롬 글꼴까지 있어야 원본에 더 가까워질 것으로 보입니다.</p>
+        <p>글자가 빠지지 않았는지도 세어 봤습니다. 두 PDF에서 글자를 뽑아 공백을 빼고 세면 국토부 문서는 1,623자와 1,618자, 국토부와 공정위 공동 자료는 1,545자와 1,541자, 국민통합위원회 문서는 1,332자로 똑같았습니다. 몇 글자 차이는 원본의 &#39;- 1 -&#39; 같은 쪽 번호가 변환본에서 숫자만 남은 탓이라, 본문에서 사라진 글자는 없었습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-compare-hwpx.webp" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 왼쪽은 국토교통부가 올린 PDF 1쪽, 오른쪽은 같은 HWPX 파일을 H2Orestart로 변환한 PDF 1쪽. 제목 진에어-에어서울-에어부산 합병 인가, 27년 3월 17일부터 진에어로 통합 예정과 본문 강조가 같은 자리에 있고 글꼴과 줄 간격만 조금 다르다">
+        <img src="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-compare-hwpx.webp" alt="왼쪽은 국토교통부가 올린 PDF 1쪽, 오른쪽은 같은 HWPX 파일을 H2Orestart로 변환한 PDF 1쪽. 제목 진에어-에어서울-에어부산 합병 인가, 27년 3월 17일부터 진에어로 통합 예정과 본문 강조가 같은 자리에 있고 글꼴과 줄 간격만 조금 다르다" width="1600" height="1143" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>왼쪽이 부처 PDF, 오른쪽이 변환본. 내용과 강조는 같고 글꼴과 줄 간격이 다르다.</span><a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788954" target="_blank" rel="noopener noreferrer">국토교통부 보도자료, BlueBWorks 변환 · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-6">[6]</a></p>
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>그림과 로고가 많은 한글 문서에서 생긴 차이</h2>
+        <p>차이가 더 크게 난 곳은 그림이 많은 문서였습니다. 고병원성 조류인플루엔자 중앙사고수습본부 보도자료는 1쪽 맨 아래의 기관 로고 줄이 다음 쪽으로 밀려 혼자 한 쪽을 차지했고, 붙임 포스터 뒤에 빈 쪽이 하나 더 생겨 2쪽짜리가 4쪽이 됐습니다. 포스터 이미지 자체는 깨지지 않고 그대로 들어갔습니다.</p>
+        <p>HWP 형식인 국민통합위원회 보도자료는 본문 글자, 화살표, 표 모양은 멀쩡했지만 맨 위 기관 로고의 윗부분이 잘린 채 나왔습니다. 원본은 명조 계열 글꼴인데 변환본은 고딕 계열로 바뀌어 인상도 꽤 달라 보입니다.</p>
+        <p>네 문서를 정리하면 아래와 같습니다. 내용을 읽고 보관하거나 인쇄해서 보는 데는 충분했습니다. 원본과 같은 쪽수와 모양이 꼭 필요한 제출 서류라면 한컴오피스에서 저장한 PDF를 받거나, 변환본을 한 쪽씩 넘겨 보고 빈 쪽을 지운 뒤 쓰는 편이 안전합니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-blank-pages.webp" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 조류인플루엔자 보도자료를 H2Orestart로 변환한 PDF 4쪽을 나란히 놓은 화면. 1쪽 본문, 2쪽에는 정책브리핑과 공공누리 로고 줄만, 3쪽 붙임 포스터, 4쪽은 빈 쪽">
+        <img src="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-blank-pages.webp" alt="조류인플루엔자 보도자료를 H2Orestart로 변환한 PDF 4쪽을 나란히 놓은 화면. 1쪽 본문, 2쪽에는 정책브리핑과 공공누리 로고 줄만, 3쪽 붙임 포스터, 4쪽은 빈 쪽" width="1600" height="570" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>변환본 4쪽. 2쪽에는 로고 줄만 있고 4쪽은 빈 쪽이다.</span><a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788953" target="_blank" rel="noopener noreferrer">농림축산식품부 보도자료, BlueBWorks 변환 · 원문</a></figcaption>
+    </figure><figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-compare-hwp.webp" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 왼쪽은 국민통합위원회가 올린 PDF, 오른쪽은 같은 HWP 파일을 변환한 PDF. 오른쪽은 맨 위 국민통합위원회 로고의 윗부분이 잘려 있고 본문 글꼴이 고딕 계열로 바뀌었다">
+        <img src="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-compare-hwp.webp" alt="왼쪽은 국민통합위원회가 올린 PDF, 오른쪽은 같은 HWP 파일을 변환한 PDF. 오른쪽은 맨 위 국민통합위원회 로고의 윗부분이 잘려 있고 본문 글꼴이 고딕 계열로 바뀌었다" width="1600" height="1143" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>HWP 파일 변환본(오른쪽)은 맨 위 로고 윗부분이 잘리고 본문 글꼴이 바뀌었다.</span><a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788948" target="_blank" rel="noopener noreferrer">국민통합위원회 보도자료, BlueBWorks 변환 · 원문</a></figcaption>
+    </figure><div class="table-scroll" tabindex="0" role="region" aria-label="그림과 로고가 많은 한글 문서에서 생긴 차이"><table><thead><tr><th scope="col">문서</th><th scope="col">형식</th><th scope="col">부처 PDF</th><th scope="col">변환본</th><th scope="col">눈에 띈 차이</th></tr></thead><tbody><tr><th scope="row">국토부 합병 인가 보도참고자료</th><td>HWPX</td><td>3쪽</td><td>4쪽</td><td>마지막 쪽에 쪽 번호만 남음</td></tr><tr><th scope="row">국토부, 공정위 합병 보도참고자료</th><td>HWPX</td><td>2쪽</td><td>2쪽</td><td>글꼴만 바뀜</td></tr><tr><th scope="row">조류인플루엔자 항원 확인 보도자료</th><td>HWPX</td><td>2쪽</td><td>4쪽</td><td>로고 줄이 따로 한 쪽, 빈 쪽 1개</td></tr><tr><th scope="row">국민통합위원회 보도자료</th><td>HWP</td><td>2쪽</td><td>2쪽</td><td>맨 위 로고 윗부분 잘림</td></tr></tbody></table></div><p class="table-caption">리브레오피스 24.2.7, H2Orestart 0.8.0으로 바꾼 결과.</p>
+        <p class="source-refs">근거 <a href="#source-7">[7]</a> <a href="#source-8">[8]</a> <a href="#source-6">[6]</a></p>
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>브라우저에서 바로 HWP를 PDF로 바꾸는 방법과 차이</h2>
+        <p>설치가 번거롭다면 브라우저 안에서 한글 파일을 그려 주는 도구도 있습니다. 더쿼카스튜디오의 HWP, HWPX PDF 변환 페이지는 오픈소스 rhwp(MIT 라이선스)를 웹어셈블리로 돌려 파일을 서버로 보내지 않고 브라우저 안에서 읽는다고 안내합니다. 같은 국민통합위원회 HWP 파일을 넣으니 2쪽으로 열렸고, H2Orestart 변환본에서 잘렸던 맨 위 로고도 제대로 그려졌습니다.</p>
+        <p>대신 이 페이지에서 저장한 PDF는 쪽마다 약 192dpi 그림으로 담깁니다. 그래서 PDF 안에서 글자를 고르거나 찾을 수 없고, 글자가 필요하면 &#39;글자만 저장(TXT)&#39;으로 따로 받아야 합니다. 열어 보기와 PDF, TXT 저장은 무료이고 여러 파일을 한 번에 바꾸는 기능과 표를 엑셀로 받는 기능은 아직 판매 전인 이용권으로 열릴 예정이라고 합니다. 암호가 걸린 문서는 아직 열지 못합니다.</p>
+        <p>고르는 기준은 간단합니다. 파일 하나를 빨리 열어 보고 넘길 거라면 브라우저 도구가 편하고, 여러 개를 한꺼번에 바꾸거나 글자 검색이 되는 PDF가 필요하면 H2Orestart가 맞습니다. 원본 글꼴이 없는 컴퓨터에서는 둘 다 줄바꿈이 원본과 조금 다를 수 있다는 점은 같습니다.</p>
+        <p>주민등록번호가 든 신청서나 계약서처럼 민감한 서류는 파일을 올리는 변환 사이트보다 이 두 방법 중 하나를 쓰는 편이 마음 편합니다. H2Orestart는 처음부터 끝까지 내 컴퓨터 안에서 돌고, 브라우저 도구도 안내대로라면 파일이 브라우저 밖으로 나가지 않습니다.</p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-browser-tool.webp" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: 더쿼카 도구 HWP, HWPX를 PDF로 바꾸기 페이지. unity.hwp 2쪽이 열려 있고 PDF로 저장, 글자만 저장(TXT), 표를 엑셀로 저장(이용권) 버튼 아래에 1쪽 미리보기가 보인다">
+        <img src="https://bluebworks.com/assets/editorial/hwp-pdf-convert-h2orestart-libreoffice-2026-browser-tool.webp" alt="더쿼카 도구 HWP, HWPX를 PDF로 바꾸기 페이지. unity.hwp 2쪽이 열려 있고 PDF로 저장, 글자만 저장(TXT), 표를 엑셀로 저장(이용권) 버튼 아래에 1쪽 미리보기가 보인다" width="790" height="980" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>파일을 고르면 쪽 미리보기와 PDF로 저장, 글자만 저장(TXT) 버튼이 나온다.</span><a href="https://tools.thequokkacompany.com/hwp-to-pdf" target="_blank" rel="noopener noreferrer">더쿼카 도구 · 원문</a></figcaption>
+    </figure>
+        <p class="source-refs">근거 <a href="#source-5">[5]</a> <a href="#source-4">[4]</a></p>
+      </section>
+      <section class="prose-section" id="sec-7">
+        <h2>H2Orestart 변환이 깨질 때 로그 보는 법</h2>
+        <p>파일이 열리지 않거나 모양이 크게 틀리면 H2Orestart가 남기는 로그부터 보면 됩니다. 리눅스는 ~/.cache/H2Orestart/, 맥은 ~/Library/Caches/H2Orestart/, 윈도우는 사용자 폴더 아래 .H2Orestart 폴더에 쌓입니다. 개발자는 이 폴더를 통째로 압축하고 원본 한글 파일을 붙여 GitHub 이슈로 올려 달라고 안내합니다.</p>
+        <p>이때 로그에 문서 내용 일부가 남을 수 있다는 점을 README가 따로 적어 두었습니다. 개인정보가 든 서류라면 로그와 원본에서 그 부분을 지운 뒤 올려야 합니다.</p>
+        <p>릴리스 기록을 보면 배포용 문서 열기(0.7.11), 옛한글 한양 PUA 코드 변환(0.7.12)처럼 제보를 받아 기능을 늘려 왔습니다. 옛한글이 든 문서는 노토 산스 CJK처럼 옛한글을 표준 유니코드로 그리는 글꼴이 깔려 있어야 제대로 보입니다.</p>
+
+        <p class="source-refs">근거 <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://github.com/ebandal/H2Orestart" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub: ebandal/H2Orestart</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://github.com/ebandal/H2Orestart/releases" target="_blank" rel="noopener noreferrer">
+            <strong>H2Orestart 릴리스</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://extensions.libreoffice.org/en/extensions/show/27504" target="_blank" rel="noopener noreferrer">
+            <strong>LibreOffice Extensions: H2Orestart</strong>
+            <span>extensions.libreoffice.org</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://github.com/edwardkim/rhwp" target="_blank" rel="noopener noreferrer">
+            <strong>GitHub: edwardkim/rhwp</strong>
+            <span>github.com</span>
+          </a>
+        </li>
+        <li id="source-5">
+          <a href="https://tools.thequokkacompany.com/hwp-to-pdf" target="_blank" rel="noopener noreferrer">
+            <strong>더쿼카 도구: HWP, HWPX PDF 변환</strong>
+            <span>tools.thequokkacompany.com</span>
+          </a>
+        </li>
+        <li id="source-6">
+          <a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788954" target="_blank" rel="noopener noreferrer">
+            <strong>대한민국 정책브리핑: 진에어-에어서울-에어부산 합병 인가</strong>
+            <span>korea.kr</span>
+          </a>
+        </li>
+        <li id="source-7">
+          <a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788953" target="_blank" rel="noopener noreferrer">
+            <strong>대한민국 정책브리핑: 인천 강화 산란계 농장 H5형 조류인플루엔자 항원 확인</strong>
+            <span>korea.kr</span>
+          </a>
+        </li>
+        <li id="source-8">
+          <a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788948" target="_blank" rel="noopener noreferrer">
+            <strong>대한민국 정책브리핑: 국민통합위원회 대한민국 국민통합 런</strong>
+            <span>korea.kr</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/ha-mcp-home-assistant-claude-chatgpt-install-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>ha-mcp 사용법: 홈 어시스턴트를 클로드, 챗GPT로 설정하는 오픈소스 MCP 서버, 설치 방법과 관리자 토큰 주의점</strong>
+            <span>게시 2026년 11월 11일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/agent-browser-ai-agent-browser-cli-install-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>agent-browser 사용법: AI 에이전트에게 브라우저를 붙이는 버셀 오픈소스 CLI, 윈도우 설치와 기본값 주의점</strong>
+            <span>게시 2026년 11월 10일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/sherlock-username-search-install-2026/">
+            <span class="related-cat">오픈소스</span>
+            <strong>셜록(Sherlock) 사용법: 아이디 하나로 400곳 넘는 사이트 계정 찾는 오픈소스, 설치와 오탐 주의점</strong>
+            <span>게시 2026년 11월 9일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/ebandal/H2Orestart" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">저장소</span>
+        <strong>H2Orestart 저장소</strong>
+        <span class="rail-desc">소스, README, 이슈</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://github.com/ebandal/H2Orestart/releases/tag/v0.8.0" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">릴리스</span>
+        <strong>H2Orestart 0.8.0 내려받기</strong>
+        <span class="rail-desc">H2Orestart.oxt 파일</span>
+        <span class="rail-host">github.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://wiki.documentfoundation.org/Faq/General/InstallJava" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">문서</span>
+        <strong>리브레오피스 자바 설치 안내</strong>
+        <span class="rail-desc">확장에 필요한 자바 런타임 설치 방법</span>
+        <span class="rail-host">wiki.documentfoundation.org</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/hwp-pdf-convert-h2orestart-libreoffice-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+
+  </body>
+</html>
