@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { isIndexable } from "./data.mjs";
+import { isIndexable, isSearchIndexed } from "./data.mjs";
 import { escapeHtml, joinUrl, sectionParagraphs } from "./util.mjs";
 
 const PENDING_ASSETS = new Set(["assets/mascot.webp", "assets/space-hero.webp"]);
@@ -225,11 +225,13 @@ export function runChecks({ outDir, config, base, posts, assetsDir }) {
 
   // 5. Sitemap and feed agree with the indexable set.
   const sitemap = read(path.join(outDir, "sitemap.xml"));
-  for (const post of indexable) {
+  for (const post of posts.filter(isSearchIndexed)) {
     if (!sitemap.includes(`/articles/${post.slug}/`)) errors.push(`sitemap missing ${post.slug}`);
   }
-  for (const post of excluded) {
-    if (sitemap.includes(`/articles/${post.slug}/`)) errors.push(`sitemap lists review-only ${post.slug}`);
+  for (const post of posts.filter((item) => !isSearchIndexed(item))) {
+    if (sitemap.includes(`/articles/${post.slug}/`)) errors.push(`sitemap lists noindex ${post.slug}`);
+    const html = read(path.join(outDir, "articles", post.slug, "index.html"));
+    if (!html.includes('<meta name="robots" content="noindex,follow">')) errors.push(`${post.slug}: missing noindex,follow`);
   }
   if (sitemap.includes("/post.html") || sitemap.includes("/404.html")) {
     errors.push("sitemap contains a non-indexable utility page");

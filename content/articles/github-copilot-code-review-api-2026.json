@@ -8,6 +8,7 @@
   "verifiedAt": "2026-10-04T00:43:28+09:00",
   "status": "API 정식 제공 · 자동 승인은 별도 프리뷰",
   "reviewStatus": "reviewed",
+  "searchIndex": false,
   "tags": [
     "GitHub",
     "Copilot",

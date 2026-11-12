@@ -8,6 +8,7 @@
   "verifiedAt": "2026-10-04T00:43:28+09:00",
   "status": "제공 중 · API는 버전별 변경 가능",
   "reviewStatus": "reviewed",
+  "searchIndex": false,
   "tags": [
     "Anthropic",
     "Claude Code",
@@ -20,6 +21,9 @@
   "imageCredit": "Anthropic · claude.dev 공식 튜토리얼",
   "imageWidth": 1100,
   "imageHeight": 811,
+  "ogImage": "https://bluebworks.com/assets/editorial/claude-mods-blast-radius-og.png",
+  "ogImageWidth": 1200,
+  "ogImageHeight": 885,
   "imageSourceUrl": "https://claude.dev/blog/getting-started-with-claude-code-mods/",
   "imageCaption": "claude.dev 공식 튜토리얼의 Blast Radius 예제 화면. 명령을 실행하기 전에 영향받는 파일과 Proceed·Cancel 선택지를 보여 준다.",
   "keyPoints": [

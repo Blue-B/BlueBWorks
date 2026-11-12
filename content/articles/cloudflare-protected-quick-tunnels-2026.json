@@ -8,6 +8,7 @@
   "verifiedAt": "2026-10-04T00:43:28+09:00",
   "status": "제공 중 · 개발·테스트용",
   "reviewStatus": "reviewed",
+  "searchIndex": false,
   "tags": [
     "Cloudflare",
     "Quick Tunnels",

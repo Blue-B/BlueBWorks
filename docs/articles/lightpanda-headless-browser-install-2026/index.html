@@ -4,18 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="google-adsense-account" content="ca-pub-3336895189172465">
-    <title>Lightpanda 설치와 사용법: AI 에이전트용 헤드리스 브라우저, 윈도우 WSL 실행과 MCP 연결 | BlueBWorks</title>
+    <title>Lightpanda 설치와 사용법: AI 에이전트용 헤드리스 브라우저, 윈도우 WSL 실행과 MCP 연결</title>
     <meta name="description" content="크롬 대신 쓰는 오픈소스 헤드리스 브라우저 Lightpanda를 윈도우 WSL에 설치해 페이지를 마크다운으로 뽑고, PandaScript와 MCP로 에이전트에 붙이는 방법과 헤드리스 크롬과의 차이, 쓰기 전에 알아둘 텔레메트리와 라이선스를 정리했습니다.">
     <link rel="canonical" href="https://bluebworks.com/articles/lightpanda-headless-browser-install-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
-    <meta property="og:title" content="Lightpanda 설치와 사용법: AI 에이전트용 헤드리스 브라우저, 윈도우 WSL 실행과 MCP 연결 | BlueBWorks">
+    <meta property="og:title" content="Lightpanda 설치와 사용법: AI 에이전트용 헤드리스 브라우저, 윈도우 WSL 실행과 MCP 연결">
     <meta property="og:description" content="크롬 대신 쓰는 오픈소스 헤드리스 브라우저 Lightpanda를 윈도우 WSL에 설치해 페이지를 마크다운으로 뽑고, PandaScript와 MCP로 에이전트에 붙이는 방법과 헤드리스 크롬과의 차이, 쓰기 전에 알아둘 텔레메트리와 라이선스를 정리했습니다.">
     <meta property="og:url" content="https://bluebworks.com/articles/lightpanda-headless-browser-install-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://bluebworks.com/assets/editorial/lightpanda-headless-browser-install-2026-thumb.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="Lightpanda, AI 에이전트용 헤드리스 브라우저 설치와 첫 실행. 오른쪽에 fetch 실행 결과 터미널 화면">
     <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/lightpanda-headless-browser-install-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
@@ -30,7 +33,7 @@
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
       <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
       <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
@@ -341,7 +344,8 @@ return { count: data.titles.length, top3: data.titles.slice(0, 3) };</code></pre
       <nav class="footer-nav" aria-label="바닥글">
         <a href="/about.html">소개</a>
         <a href="/contact.html">문의</a>
-        <a href="/privacy.html">개인정보</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
         <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>

@@ -14,7 +14,7 @@ import {
   formatKoreanDate,
   unique,
 } from "./util.mjs";
-import { isIndexable, relatedPosts, sortPosts } from "./data.mjs";
+import { isIndexable, isSearchIndexed, relatedPosts, sortPosts } from "./data.mjs";
 import { articleCover, articleExtras, hasEmbeds } from "./rich.mjs";
 
 export const X_WIDGETS_SRC = "https://platform.twitter.com/widgets.js";
@@ -63,6 +63,9 @@ function head({
   canonicalPath,
   ogType = "website",
   ogImage = "",
+  ogImageWidth = 0,
+  ogImageHeight = 0,
+  ogImageAlt = "",
   robots = "",
   jsonLd = [],
 }) {
@@ -70,7 +73,10 @@ function head({
   const searchSummary = searchDescription(description || config.description);
   const cards = ogImage
     ? `<meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="${esc(ogImage)}">
+    <meta property="og:image" content="${esc(ogImage)}">${ogImageWidth && ogImageHeight ? `
+    <meta property="og:image:width" content="${ogImageWidth}">
+    <meta property="og:image:height" content="${ogImageHeight}">` : ""}${ogImageAlt ? `
+    <meta property="og:image:alt" content="${esc(ogImageAlt)}">` : ""}
     <meta name="twitter:image" content="${esc(ogImage)}">`
     : `<meta name="twitter:card" content="summary">`;
   const ld = jsonLd
@@ -116,7 +122,8 @@ function footer({ config, base }) {
       <nav class="footer-nav" aria-label="바닥글">
         <a href="${pageHref(base, "about.html")}">소개</a>
         <a href="${pageHref(base, "contact.html")}">문의</a>
-        <a href="${pageHref(base, "privacy.html")}">개인정보</a>
+        <a href="${pageHref(base, "privacy.html")}">개인정보처리방침</a>
+        <a href="${pageHref(base, "terms.html")}">이용약관</a>
         <a href="${pageHref(base, "feed.xml")}">RSS</a>
         <a href="${esc(config.repoUrl)}" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>
@@ -445,6 +452,10 @@ function faqJsonLd(post) {
 export function renderArticle({ config, base, post, posts, generatedAt, heroImageUrl = "" }) {
   const canonical = joinUrl(config.baseUrl, `/articles/${post.slug}/`);
   const indexable = isIndexable(post);
+  const searchIndexed = isSearchIndexed(post);
+  // Search titles stay near 60 characters: long headlines drop the site suffix or use seoTitle.
+  const docTitle = post.seoTitle || post.title;
+  const pageTitle = Array.from(docTitle).length + config.siteName.length + 3 <= 62 ? `${docTitle} | ${config.siteName}` : docTitle;
   const breadcrumb = breadcrumbJsonLd(config, [
     { name: "홈", path: "/" },
     { name: "글 목록", path: "/articles/" },
@@ -516,12 +527,15 @@ export function renderArticle({ config, base, post, posts, generatedAt, heroImag
     config,
     base,
     active: "articles",
-    title: `${post.title} | ${config.siteName}`,
+    title: pageTitle,
     description: post.summary || config.description,
     canonicalPath: `/articles/${post.slug}/`,
     ogType: "article",
-    ogImage: imageUrl,
-    robots: indexable ? "" : "noindex,follow",
+    ogImage: post.ogImage || imageUrl,
+    ogImageWidth: post.ogImage ? post.ogImageWidth : imageUrl ? post.imageWidth : 0,
+    ogImageHeight: post.ogImage ? post.ogImageHeight : imageUrl ? post.imageHeight : 0,
+    ogImageAlt: imageUrl ? post.imageAlt || post.title : "",
+    robots: searchIndexed ? "" : "noindex,follow",
     bodyClass: "page-article",
     content,
     embedScript: hasEmbeds(post),
@@ -641,8 +655,17 @@ export function renderAbout({ config, base, generatedAt }) {
         <p>개발 도구와 오픈소스, AI 제품의 새 기능과 사용 방법을 소개합니다. 비용과 지원 범위도 함께 다루며, 각 글에 발표일과 원문 링크를 남깁니다.</p>
       </section>
       <section>
-        <h2>운영</h2>
-        <p>BlueBWorks가 직접 운영하는 개인 사이트입니다. 기업 공식 발표와 문서, 원 저장소를 바탕으로 글을 쓰고 각 글에 출처를 남깁니다.</p>
+        <h2>운영자</h2>
+        <p>BlueBWorks는 개발자 Blue-B가 운영하는 개인 사이트입니다. 사이트 코드와 글 원본은 <a href="${esc(config.repoUrl)}" target="_blank" rel="noopener noreferrer">GitHub 저장소</a>에 공개되어 있습니다. 연락은 <a href="${pageHref(base, "contact.html")}">문의</a> 페이지의 이메일이나 GitHub 이슈로 받습니다.</p>
+      </section>
+      <section>
+        <h2>운영 원칙</h2>
+        <ul class="fact-list">
+          <li>직접 써 보고 쓴다: 소개하는 도구와 서비스는 직접 설치하거나 실행해 보고, 그때 본 화면을 글에 싣습니다.</li>
+          <li>공식 문서로 확인한다: 가격, 한도, 지원 범위 같은 사실은 기업 공식 발표와 문서, 원 저장소로 확인하고 각 글에 출처를 남깁니다.</li>
+          <li>한계도 함께 적는다: 되지 않는 것, 조건이 붙는 것, 한국에서 쓸 수 없는 것을 함께 적습니다.</li>
+          <li>바뀌면 고친다: 내용이 바뀌거나 오류가 확인되면 글을 고치고 정정 기록을 남깁니다.</li>
+        </ul>
       </section>
       <section>
         <h2>사이트 상태</h2>
@@ -650,7 +673,7 @@ export function renderAbout({ config, base, generatedAt }) {
           <li>운영 형태: 개인 프로젝트</li>
           <li>호스팅: GitHub Pages의 정적 파일</li>
           <li>구독자 수나 방문자 통계는 이 사이트가 수집하거나 공개하지 않습니다.</li>
-          <li>문의와 오류 제보: <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a></li>
+          <li>문의와 오류 제보: ${config.contactEmail ? `<a href="mailto:${esc(config.contactEmail)}">${esc(config.contactEmail)}</a>, ` : ""}<a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a></li>
         </ul>
       </section>`;
   return simplePage({
@@ -659,7 +682,7 @@ export function renderAbout({ config, base, generatedAt }) {
     active: "about",
     path: "/about.html",
     heading: "소개",
-    lead: "공식 출처를 확인하고, 실제 사용 조건과 한계까지 함께 적는 사이트입니다.",
+    lead: "개발 도구와 AI 서비스를 직접 써 보고, 공식 문서로 확인한 사용법과 조건, 한계를 적는 사이트입니다.",
     body,
   });
 }
@@ -675,7 +698,8 @@ export function renderContact({ config, base }) {
       </section>
       <section>
         <h2>보내는 곳</h2>
-        <p>이 사이트는 별도 이메일 주소를 운영하지 않습니다. 제보는 저장소의 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 보내 주세요. 공개된 이슈라서 근거 링크를 함께 남기기 좋습니다.</p>
+        ${config.contactEmail ? `<p>이메일: <a href="mailto:${esc(config.contactEmail)}">${esc(config.contactEmail)}</a></p>
+        <p>공개해도 되는 제보는 저장소의 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 보내셔도 됩니다. 공개된 이슈라서 근거 링크를 함께 남기기 좋습니다.</p>` : `<p>이 사이트는 별도 이메일 주소를 운영하지 않습니다. 제보는 저장소의 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 보내 주세요. 공개된 이슈라서 근거 링크를 함께 남기기 좋습니다.</p>`}
         <p>이슈에는 글 주소, 잘못된 부분, 확인할 수 있는 공식 링크를 적어 주시면 확인이 빠릅니다.</p>
       </section>
       <section>
@@ -688,7 +712,7 @@ export function renderContact({ config, base }) {
     active: "contact",
     path: "/contact.html",
     heading: "문의",
-    lead: "오류 제보와 정정 요청은 GitHub 이슈로 받습니다. 별도 이메일은 두지 않습니다.",
+    lead: config.contactEmail ? "오류 제보, 정정 요청, 사이트 문의는 이메일이나 GitHub 이슈로 받습니다." : "오류 제보와 정정 요청은 GitHub 이슈로 받습니다. 별도 이메일은 두지 않습니다.",
     body,
   });
 }
@@ -712,13 +736,17 @@ export function renderPrivacy({ config, base }) {
         </ul>
       </section>
       <section>
+        <h2>광고와 쿠키</h2>
+        <p>이 사이트는 Google 애드센스 광고를 게재할 수 있습니다. 광고가 게재되면 Google을 포함한 제3자 공급업체가 쿠키를 사용해 이 사이트나 다른 사이트 방문 기록을 바탕으로 광고를 보여 줄 수 있습니다. Google의 광고 쿠키 사용 방식은 <a href="https://policies.google.com/technologies/ads?hl=ko" target="_blank" rel="noopener noreferrer">Google 광고 정책</a>에 있고, 맞춤 광고는 <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google 광고 설정</a>에서 끌 수 있습니다.</p>
+      </section>
+      <section>
         <h2>문의</h2>
-        <p>개인정보에 관한 문의, 정정 요청은 <a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 보내 주세요. 이슈는 공개되므로 이름, 연락처 같은 개인정보는 적지 마세요. 자세한 방법은 <a href="${pageHref(base, "contact.html")}">문의</a> 페이지에 있습니다.</p>
+        <p>개인정보에 관한 문의, 정정 요청은 ${config.contactEmail ? `<a href="mailto:${esc(config.contactEmail)}">${esc(config.contactEmail)}</a> 또는 ` : ""}<a href="${esc(config.issuesUrl)}" target="_blank" rel="noopener noreferrer">GitHub 이슈</a>로 보내 주세요. 이슈는 공개되므로 이름, 연락처 같은 개인정보는 적지 마세요. 자세한 방법은 <a href="${pageHref(base, "contact.html")}">문의</a> 페이지에 있습니다.</p>
       </section>
       <section>
         <h2>바뀌면</h2>
         <p>수집 항목이나 외부 요청이 바뀌면 이 페이지를 먼저 고칩니다. 이 페이지의 변경 내용은 저장소의 공개 기록으로 확인할 수 있습니다.</p>
-        <p>최종 수정: 2026년 10월 30일</p>
+        <p>최종 수정: 2026년 11월 12일</p>
       </section>`;
   return simplePage({
     config,
@@ -727,6 +755,44 @@ export function renderPrivacy({ config, base }) {
     path: "/privacy.html",
     heading: "개인정보 처리방침",
     lead: "계정과 자체 분석 도구는 두지 않습니다. 사이트를 읽을 때 실제로 일어나는 외부 요청을 적었습니다.",
+    body,
+  });
+}
+
+export function renderTerms({ config, base }) {
+  const body = `<section>
+        <h2>적용 범위</h2>
+        <p>이 약관은 ${esc(config.siteName)}(${esc(config.baseUrl)})의 글과 페이지를 읽는 모든 방문자에게 적용됩니다. 사이트를 이용하면 이 약관에 동의한 것으로 봅니다.</p>
+      </section>
+      <section>
+        <h2>글의 성격과 면책</h2>
+        <ul class="fact-list">
+          <li>글은 작성 시점에 확인한 공식 발표와 문서, 직접 써 본 결과를 바탕으로 한 일반 정보입니다. 제품의 가격, 한도, 지원 범위는 이후 바뀔 수 있으니 결정 전에 각 글의 공식 출처를 다시 확인해 주세요.</li>
+          <li>설치 명령, 설정, 코드 예시는 각자의 환경에서 결과가 다를 수 있습니다. 중요한 시스템에 적용하기 전에 백업하고 시험 환경에서 먼저 확인해 주세요. 글을 따라 해서 생긴 손해에 대해 운영자는 법이 허용하는 범위에서 책임을 지지 않습니다.</li>
+          <li>글은 법률, 투자, 보안 사고 대응에 대한 전문 자문이 아닙니다.</li>
+          <li>외부 링크로 이동한 사이트의 내용과 정책은 그 사이트 운영자의 책임입니다.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>저작권</h2>
+        <p>글과 직접 만든 이미지의 저작권은 운영자에게 있습니다. 출처를 밝히고 링크하는 짧은 인용은 자유롭게 하셔도 됩니다. 글 전체를 옮기거나 고쳐서 다시 게시하려면 먼저 문의해 주세요. 공식 화면, 로고, 인용한 게시물의 권리는 각 회사와 작성자에게 있으며, 캡션에 출처를 적었습니다.</p>
+      </section>
+      <section>
+        <h2>정정과 문의</h2>
+        <p>사실 오류나 권리 침해가 있으면 <a href="${pageHref(base, "contact.html")}">문의</a> 페이지의 연락처로 알려 주세요. 확인되면 글을 고치거나 내립니다.</p>
+      </section>
+      <section>
+        <h2>바뀌면</h2>
+        <p>약관이 바뀌면 이 페이지를 고치고 날짜를 적습니다. 개인정보 처리는 <a href="${pageHref(base, "privacy.html")}">개인정보처리방침</a>을 따릅니다.</p>
+        <p>최종 수정: 2026년 11월 12일</p>
+      </section>`;
+  return simplePage({
+    config,
+    base,
+    active: "terms",
+    path: "/terms.html",
+    heading: "이용약관과 면책",
+    lead: "이 사이트의 글을 읽고 활용할 때 알아 두실 조건과 책임 범위입니다.",
     body,
   });
 }

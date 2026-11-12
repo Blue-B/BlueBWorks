@@ -84,16 +84,22 @@ export function normalizePost(raw) {
   // carry a date-only publishedAt, so mirror it there instead of losing it.
   const announcedAt = txt(raw.announcedAt) || (/^\d{4}-\d{2}-\d{2}$/.test(publishedAt) ? publishedAt : "");
   return {
-    slug: txt(raw.slug), title: txt(raw.title), summary: txt(raw.summary), category: txt(raw.category) || "기타",
+    slug: txt(raw.slug), title: txt(raw.title), seoTitle: txt(raw.seoTitle), summary: txt(raw.summary), category: txt(raw.category) || "기타",
     announcedAt, publishedAt, verifiedAt: txt(raw.verifiedAt), status: txt(raw.status),
     tags: (Array.isArray(raw.tags) ? raw.tags : []).map(txt).filter(Boolean),
     image: mediaUrl(raw.image), imageAlt: txt(raw.imageAlt), imageCredit: txt(raw.imageCredit),
     imageWidth: Number.isInteger(raw.imageWidth) && raw.imageWidth > 0 ? raw.imageWidth : 0,
     imageHeight: Number.isInteger(raw.imageHeight) && raw.imageHeight > 0 ? raw.imageHeight : 0,
     imageSourceUrl: mediaUrl(raw.imageSourceUrl), imageCaption: txt(raw.imageCaption),
+    // Raster share image (1200px+) when the cover itself is an SVG or smaller.
+    ogImage: mediaUrl(raw.ogImage),
+    ogImageWidth: Number.isInteger(raw.ogImageWidth) && raw.ogImageWidth > 0 ? raw.ogImageWidth : 0,
+    ogImageHeight: Number.isInteger(raw.ogImageHeight) && raw.ogImageHeight > 0 ? raw.ogImageHeight : 0,
     editorNote: txt(raw.editorNote), keyPoints: (Array.isArray(raw.keyPoints) ? raw.keyPoints : []).map(txt).filter(Boolean),
     sections, sources, sourceRefs: toRefList(raw.sourceRefs), resources, videos, corrections,
     reviewStatus: txt(raw.reviewStatus), reviewed: raw._reviewed === true,
+    // searchIndex:false keeps the page readable and linked but out of search results and the sitemap.
+    searchIndex: raw.searchIndex !== false,
   };
 }
 
@@ -150,9 +156,24 @@ export function isIndexable(post) {
   return post.reviewStatus !== "unverified" && hasEvidence(post);
 }
 
+// Pages that stay public but ask search engines not to index them.
+export function isSearchIndexed(post) {
+  return isIndexable(post) && post.searchIndex !== false;
+}
+
+// "개발 도구", "개발도구", "AI·개발도구" are the same shelf for related links.
+export function categoryKey(category) {
+  const key = String(category || "").replace(/[\s·,/]+/gu, "").toLowerCase();
+  if (/개발도구/.test(key)) return "개발도구";
+  if (/보안/.test(key)) return "보안";
+  if (/요금제|ai서비스|업무도구/.test(key)) return "ai서비스";
+  return key;
+}
+
 export function relatedPosts(post, posts, limit = 3) {
-  return posts.filter(item => item.slug !== post.slug && isIndexable(item)).map(item => ({
+  const own = categoryKey(post.category);
+  return posts.filter(item => item.slug !== post.slug && isSearchIndexed(item)).map(item => ({
     item,
-    score: (item.tags || []).filter(tag => (post.tags || []).includes(tag)).length * 2 + (item.category === post.category ? 1 : 0),
+    score: (categoryKey(item.category) === own ? 3 : 0) + (item.tags || []).filter(tag => (post.tags || []).includes(tag)).length * 2,
   })).sort((a, b) => b.score - a.score || sortKey(b.item.publishedAt) - sortKey(a.item.publishedAt)).slice(0, limit).map(({ item }) => item);
 }

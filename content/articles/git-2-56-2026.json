@@ -8,6 +8,7 @@
   "verifiedAt": "2026-10-04T13:50:04+09:00",
   "status": "Git 2.56.0 released",
   "reviewStatus": "reviewed",
+  "searchIndex": false,
   "image": "https://bluebworks.com/assets/editorial/gh-docs-resolve-merge-conflicts.png",
   "imageAlt": "GitHub 웹 UI에서 merge conflict를 해결할 때 나타나는 Resolve conflicts 버튼 (GitHub 공식 문서 화면)",
   "imageCredit": "GitHub Docs · CC BY 4.0",

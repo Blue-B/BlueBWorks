@@ -5,7 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { isIndexable, loadPosts, sortPosts } from "./lib/data.mjs";
+import { isIndexable, isSearchIndexed, loadPosts, sortPosts } from "./lib/data.mjs";
 import { basePathFromUrl, joinUrl, kstDate, laterDate, normalizeBaseUrl, sortKey } from "./lib/util.mjs";
 import {
   render404,
@@ -18,6 +18,7 @@ import {
   renderPostCompat,
   renderPrivacy,
   renderSitemap,
+  renderTerms,
 } from "./lib/templates.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -84,7 +85,7 @@ function cleanupPreviousBuild(outDir, generated) {
 }
 
 function sitemapPaths(config, posts) {
-  const indexable = posts.filter(isIndexable);
+  const indexable = posts.filter(isSearchIndexed);
   // Compare real instants, then render each lastmod as a KST calendar day so
   // timestamps with different offsets cannot disagree about the date.
   const latestInstant = indexable
@@ -97,6 +98,7 @@ function sitemapPaths(config, posts) {
     { path: "/about.html" },
     { path: "/contact.html" },
     { path: "/privacy.html" },
+    { path: "/terms.html" },
   ];
   for (const post of indexable) {
     paths.push({
@@ -135,6 +137,7 @@ export function build(options = resolveOptions()) {
   emit("about.html", renderAbout({ config, base }));
   emit("contact.html", renderContact({ config, base }));
   emit("privacy.html", renderPrivacy({ config, base }));
+  emit("terms.html", renderTerms({ config, base }));
   emit("404.html", render404({ config, base }));
   emit("feed.xml", renderFeed({ config, posts }));
   emit("sitemap.xml", renderSitemap({ config, paths: sitemapPaths(config, posts) }));
@@ -155,9 +158,10 @@ if (isMain) {
   const options = resolveOptions();
   const { posts, generated, base } = build(options);
   const indexable = posts.filter(isIndexable).length;
+  const searchIndexed = posts.filter(isSearchIndexed).length;
   console.log(`BlueBWorks build complete`);
   console.log(`  base path : ${base || "/"}`);
-  console.log(`  posts     : ${posts.length} total, ${indexable} indexable, ${posts.length - indexable} review-only`);
+  console.log(`  posts     : ${posts.length} total, ${indexable} indexable (${searchIndexed} in sitemap), ${posts.length - indexable} review-only`);
   console.log(`  output    : ${path.relative(process.cwd(), options.outDir) || "."}`);
   console.log(`  files     : ${generated.length} generated + assets`);
 }

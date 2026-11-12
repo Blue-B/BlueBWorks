@@ -8,6 +8,7 @@
   "verifiedAt": "2026-10-07T10:06:30+09:00",
   "status": "Generally available on github.com",
   "reviewStatus": "reviewed",
+  "searchIndex": false,
   "tags": [
     "GitHub",
     "Pull Request",
@@ -20,6 +21,9 @@
   "imageCredit": "BlueBWorks 도식 · GitHub Docs 공식 설명 기반",
   "imageWidth": 1600,
   "imageHeight": 900,
+  "ogImage": "https://bluebworks.com/assets/editorial/github-stacked-prs-flow-og.png",
+  "ogImageWidth": 1600,
+  "ogImageHeight": 900,
   "imageSourceUrl": "https://docs.github.com/en/pull-requests/get-started/about-stacked-prs",
   "imageCaption": "스택에서는 첫 PR이 main 같은 trunk를 향하고, 그 위 PR들은 바로 아래 PR의 브랜치를 base로 삼는다. 그래서 리뷰어는 전체 기능이 아니라 해당 층의 변경만 볼 수 있다.",
   "keyPoints": [

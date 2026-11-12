@@ -7,7 +7,7 @@
     <title>Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나 | BlueBWorks</title>
     <meta name="description" content="MAI-Voice-2.1, Flash, 실시간 전사가 Vercel AI Gateway에 들어왔다. 세 모델의 역할과 가격, 한국어를 시험할 때의 기준, API 연결 방법을 나눠 살펴봤다. 음성을 만드는 기능과 대화를 처리하는 기능은 서로 다르다.">
     <link rel="canonical" href="https://bluebworks.com/articles/microsoft-mai-audio-vercel-ai-gateway-2026/">
-
+    <meta name="robots" content="noindex,follow">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="Microsoft 음성 AI, Vercel에서 어디까지 쓸 수 있나 | BlueBWorks">
@@ -16,6 +16,9 @@
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://bluebworks.com/assets/microsoft-audio-official.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="837">
+    <meta property="og:image:alt" content="Microsoft 음성 모델을 연결하는 Vercel AI Gateway">
     <meta name="twitter:image" content="https://bluebworks.com/assets/microsoft-audio-official.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
@@ -30,7 +33,7 @@
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
       <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
       <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
@@ -248,17 +251,17 @@ await writeFile(&#39;connection-test.mp3&#39;, result.audio.uint8Array);</code><
           </a>
         </li>
         <li>
-          <a href="/articles/vercel-ci-beta-turborepo-2026/">
-            <span class="related-cat">개발도구</span>
-            <strong>Vercel CI 베타 공개: 변경된 코드의 테스트만 실행하는 방법</strong>
-            <span>게시 2026년 10월 29일</span>
-          </a>
-        </li>
-        <li>
           <a href="/articles/gemini-4-carbon-ultra-korea-price-api-2026/">
             <span class="related-cat">모델</span>
             <strong>제미나이 4 카본 사용법과 한국 가격: 울트라 월 11만 9천 원부터, 프로 요금제는 아르곤까지</strong>
             <span>게시 2026년 11월 11일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/mistral-large-4-open-weights-pricing-license-2026/">
+            <span class="related-cat">모델</span>
+            <strong>미스트랄 Large 4 오픈웨이트 공개: API 요금과 100만 토큰 문맥, 상업 이용 조건</strong>
+            <span>게시 2026년 11월 3일</span>
           </a>
         </li>
       </ul>
@@ -333,7 +336,8 @@ await writeFile(&#39;connection-test.mp3&#39;, result.audio.uint8Array);</code><
       <nav class="footer-nav" aria-label="바닥글">
         <a href="/about.html">소개</a>
         <a href="/contact.html">문의</a>
-        <a href="/privacy.html">개인정보</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
         <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>

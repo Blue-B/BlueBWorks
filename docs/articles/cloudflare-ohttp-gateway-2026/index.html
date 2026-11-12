@@ -4,18 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="google-adsense-account" content="ca-pub-3336895189172465">
-    <title>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다 | BlueBWorks</title>
+    <title>Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다</title>
     <meta name="description" content="Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다.">
     <link rel="canonical" href="https://bluebworks.com/articles/cloudflare-ohttp-gateway-2026/">
-
+    <meta name="robots" content="noindex,follow">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
-    <meta property="og:title" content="Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다 | BlueBWorks">
+    <meta property="og:title" content="Cloudflare OHTTP Gateway 공개: IP 주소와 요청 내용을 한 사업자가 동시에 보지 않게 만든다">
     <meta property="og:description" content="Cloudflare가 OHTTP의 암복호화 지점을 직접 운영하는 OHTTP Gateway를 closed beta로 공개했다. 기존 Relay와 역할을 나누면서, Cloudflare 뒤에 있는 앱도 제3자 Relay를 통해 OHTTP를 받을 수 있게 하는 제품이다.">
     <meta property="og:url" content="https://bluebworks.com/articles/cloudflare-ohttp-gateway-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://bluebworks.com/assets/editorial/cloudflare-ohttp-gateway-2026-thumb.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="Cloudflare OHTTP Gateway 공개와 제공 방식">
     <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/cloudflare-ohttp-gateway-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
@@ -30,7 +33,7 @@
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
       <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
       <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
@@ -176,13 +179,6 @@
       <h2 id="related-title">관련 글</h2>
       <ul class="related-list">
         <li>
-          <a href="/articles/cloudflare-agents-browser-internal-hostnames-2026/">
-            <span class="related-cat">개발도구</span>
-            <strong>Cloudflare Agents SDK 내부 미리보기: 공개 URL 없이 AI가 개발 서버 확인하는 방법</strong>
-            <span>게시 2026년 10월 30일</span>
-          </a>
-        </li>
-        <li>
           <a href="/articles/cloudflare-glm-53-sglang-kv-cache-leak-2026/">
             <span class="related-cat">보안</span>
             <strong>Cloudflare GLM-5.3 데이터 노출 사고: KV 캐시 오류와 SGLang 보안 점검법</strong>
@@ -190,10 +186,17 @@
           </a>
         </li>
         <li>
-          <a href="/articles/cloudflare-traces-request-path-2026/">
-            <span class="related-cat">개발도구</span>
-            <strong>Cloudflare Traces로 WAF부터 원본 서버까지 한 요청을 이어서 본다</strong>
-            <span>게시 2026년 10월 5일</span>
+          <a href="/articles/notion-ai-fireworks-security-incident-check-2026/">
+            <span class="related-cat">보안</span>
+            <strong>노션 보안 이슈 확인 방법: 파이어웍스 AI 해킹으로 노션 AI 대화 일부 노출, 워크스페이스 1% 미만</strong>
+            <span>게시 2026년 11월 10일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/windows-paint-rce-cve-2026-83844-update-2026/">
+            <span class="related-cat">보안</span>
+            <strong>그림판 취약점 CVE-2026-83844: 윈도우 11 그림판 버전 확인과 Microsoft Store 업데이트 방법</strong>
+            <span>게시 2026년 11월 6일</span>
           </a>
         </li>
       </ul>
@@ -260,7 +263,8 @@
       <nav class="footer-nav" aria-label="바닥글">
         <a href="/about.html">소개</a>
         <a href="/contact.html">문의</a>
-        <a href="/privacy.html">개인정보</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
         <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>

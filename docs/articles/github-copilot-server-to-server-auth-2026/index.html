@@ -4,18 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="google-adsense-account" content="ca-pub-3336895189172465">
-    <title>GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다 | BlueBWorks</title>
+    <title>GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다</title>
     <meta name="description" content="2026년 10월 27일 GitHub가 Copilot SDK의 서버 간 인증을 공개 프리뷰로 발표했다. GitHub App 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, GitHub Actions와의 차이를 정리한다.">
     <link rel="canonical" href="https://bluebworks.com/articles/github-copilot-server-to-server-auth-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
-    <meta property="og:title" content="GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다 | BlueBWorks">
+    <meta property="og:title" content="GitHub Copilot SDK, 이제 사람 로그인 없이 조직의 AI 에이전트를 실행한다">
     <meta property="og:description" content="2026년 10월 27일 GitHub가 Copilot SDK의 서버 간 인증을 공개 프리뷰로 발표했다. GitHub App 설치 토큰을 이용해 백그라운드 에이전트를 조직 명의로 실행하는 방식과 필요한 권한, 비용 귀속, 토큰 갱신, GitHub Actions와의 차이를 정리한다.">
     <meta property="og:url" content="https://bluebworks.com/articles/github-copilot-server-to-server-auth-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://bluebworks.com/assets/editorial/github-copilot-server-to-server-auth-2026-thumb.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="GitHub Copilot SDK 서버 간 인증 지원">
     <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/github-copilot-server-to-server-auth-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
@@ -30,7 +33,7 @@
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
       <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
       <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
@@ -169,24 +172,24 @@
       <h2 id="related-title">관련 글</h2>
       <ul class="related-list">
         <li>
-          <a href="/articles/pickle-ai-price-model-privacy-2026/">
-            <span class="related-cat">AI 서비스</span>
-            <strong>피클 AI 사용법과 가격, 쓰는 모델: 한국은 무료지만 하루 한도가 있고 초기화 티켓은 5,900원</strong>
-            <span>게시 2026년 11월 10일</span>
+          <a href="/articles/cloudflare-agents-browser-internal-hostnames-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>Cloudflare Agents SDK 내부 미리보기: 공개 URL 없이 AI가 개발 서버 확인하는 방법</strong>
+            <span>게시 2026년 10월 30일</span>
           </a>
         </li>
         <li>
-          <a href="/articles/pickle-ai-x-connect-keyword-shorts-limit-2026/">
-            <span class="related-cat">AI 서비스</span>
-            <strong>피클 X 연결 방법과 활용: 키워드 탐색과 숏폼 제안은 되고, 북마크와 타임라인은 X API 한도에 막힘</strong>
-            <span>게시 2026년 11월 9일</span>
+          <a href="/articles/claude-mem-install-provider-guide-2026/">
+            <span class="related-cat">개발 도구</span>
+            <strong>claude-mem 설치 방법: 클로드 코드 세션 기억 플러그인, 메모리 제공자 선택과 저장 위치</strong>
+            <span>게시 2026년 11월 2일</span>
           </a>
         </li>
         <li>
-          <a href="/articles/hn-agentic-setup-subscriptions-2026/">
-            <span class="related-cat">트렌드</span>
-            <strong>AI 구독 조합 2026: 해커뉴스 댓글 275개로 본 클로드, 코덱스, 딥시크 쓰는 법</strong>
-            <span>게시 2026년 11월 5일</span>
+          <a href="/articles/codex-banked-reset-how-to-use-2026/">
+            <span class="related-cat">개발 도구</span>
+            <strong>코덱스 한도 초기화권 사용법: 설정 위치와 80% 조건, 만료와 유료 초기화 차이</strong>
+            <span>게시 2026년 11월 1일</span>
           </a>
         </li>
       </ul>
@@ -237,7 +240,8 @@
       <nav class="footer-nav" aria-label="바닥글">
         <a href="/about.html">소개</a>
         <a href="/contact.html">문의</a>
-        <a href="/privacy.html">개인정보</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
         <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>

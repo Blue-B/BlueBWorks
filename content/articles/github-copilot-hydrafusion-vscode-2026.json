@@ -8,6 +8,7 @@
   "verifiedAt": "2026-10-29T18:48:00+09:00",
   "status": "Research preview",
   "reviewStatus": "reviewed",
+  "searchIndex": false,
   "editorialVersion": 2,
   "tags": [
     "GitHub",

@@ -295,7 +295,7 @@
       <description>Codex 주간 한도가 막혔을 때 계정에 저장된 한도 초기화권을 쓰는 위치와 조건을 정리했습니다. 웹 설정 사용량 메뉴, 데스크톱과 CLI 경로, 80% 미만 조건, 만료와 내역 보는 법, 유료 즉시 초기화와의 차이를 다룹니다.</description>
     </item>
     <item>
-      <title>챗GPT 계정 전환 모바일 지원: 2개 로그인과 구독 공유 제한</title>
+      <title>챗GPT(ChatGPT) 계정 전환 모바일 지원: 계정 2개 로그인과 구독 공유 제한</title>
       <link>https://bluebworks.com/articles/chatgpt-mobile-account-switching-subscription-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/chatgpt-mobile-account-switching-subscription-2026/</guid>
       <pubDate>Sun, 01 Nov 2026 06:21:38 GMT</pubDate>
@@ -327,7 +327,7 @@
       <description>커서 확장 마켓플레이스에 클로드 코드 확장 변조본 2.1.312와 2.1.313이 약 11시간 올라와 최대 5천 명이 영향을 받았습니다. 내 PC에 남은 SSH 키를 찾는 명령과 제거 순서, 다음 사고를 줄이는 설치 대기 설정을 정리했습니다.</description>
     </item>
     <item>
-      <title>클로드 울트라 요금제: 월 200달러 유지와 5시간 제한 해제 조건</title>
+      <title>클로드 울트라(Claude Ultra) 요금제: 월 200달러 유지와 5시간 제한 해제 조건</title>
       <link>https://bluebworks.com/articles/claude-ultra-max-pricing-limits-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/claude-ultra-max-pricing-limits-2026/</guid>
       <pubDate>Sat, 31 Oct 2026 05:04:37 GMT</pubDate>
@@ -375,7 +375,7 @@
       <description>Cloudflare Workers AI의 GLM-5.3에서 다른 사용자의 입력이 답변에 섞인 원인을 공식 사고 보고서와 SGLang 수정 내역으로 분석했다. 영향 범위, 수정 버전, 자체 추론 서버 점검 항목을 정리한다.</description>
     </item>
     <item>
-      <title>챗지피티 프로, 비즈니스 API 무료 크레딧 받는 법: 최대 500달러 조건과 실제 화면</title>
+      <title>챗지피티(ChatGPT) 프로, 비즈니스 API 무료 크레딧 받는 법: 최대 500달러 조건과 실제 화면</title>
       <link>https://bluebworks.com/articles/chatgpt-pro-business-api-credits-2026/</link>
       <guid isPermaLink="true">https://bluebworks.com/articles/chatgpt-pro-business-api-credits-2026/</guid>
       <pubDate>Thu, 29 Oct 2026 16:42:50 GMT</pubDate>

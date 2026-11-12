@@ -7,7 +7,7 @@
     <title>Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용 | BlueBWorks</title>
     <meta name="description" content="GitHub가 Copilot 코드 리뷰의 REST·GraphQL 호출을 정식 제공했다. 리뷰를 시작할 지점은 넓어졌지만, 분석 수준·재실행·과금·병합 승인까지 같은 설정으로 묶이는 것은 아니다. 기본값이 바뀐 날짜와 실제 적용 순서부터 살펴본다.">
     <link rel="canonical" href="https://bluebworks.com/articles/github-copilot-code-review-api-2026/">
-
+    <meta name="robots" content="noindex,follow">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
     <meta property="og:title" content="Copilot 코드 리뷰를 API로 부를 때 달라지는 설정과 비용 | BlueBWorks">
@@ -16,6 +16,9 @@
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://bluebworks.com/assets/editorial/copilot-review-settings.jpg">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="840">
+    <meta property="og:image:alt" content="GitHub 공식 발표에 실린 Default Balanced 코드 리뷰 설정 화면">
     <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/copilot-review-settings.jpg">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
@@ -30,7 +33,7 @@
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
       <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
       <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
@@ -206,6 +209,13 @@
       <h2 id="related-title">관련 글</h2>
       <ul class="related-list">
         <li>
+          <a href="/articles/github-copilot-fusion-pricing-plans-2026/">
+            <span class="related-cat">개발 도구</span>
+            <strong>코파일럿 퓨전 출시: 무료 플랜 범위와 30% 할인 요금</strong>
+            <span>게시 2026년 10월 30일</span>
+          </a>
+        </li>
+        <li>
           <a href="/articles/github-agentic-workflows-ga-2026/">
             <span class="related-cat">개발도구</span>
             <strong>GitHub Agentic Workflows 정식 출시: Markdown으로 저장소 작업 자동화하기</strong>
@@ -213,17 +223,10 @@
           </a>
         </li>
         <li>
-          <a href="/articles/github-copilot-dynamic-workflows-2026/">
-            <span class="related-cat">개발도구</span>
-            <strong>GitHub Copilot Dynamic Workflows 사용법: 멀티에이전트 절차를 코드로 고정하는 법과 /fleet 차이</strong>
-            <span>게시 2026년 10월 2일</span>
-          </a>
-        </li>
-        <li>
-          <a href="/articles/github-copilot-computer-use-2026/">
-            <span class="related-cat">개발도구</span>
-            <strong>GitHub Copilot 컴퓨터 사용 켜는 법: API 없는 데스크톱 앱 자동화와 권한·한계</strong>
-            <span>게시 2026년 10월 2일</span>
+          <a href="/articles/frontiercode-2-coding-ai-comparison-2026/">
+            <span class="related-cat">개발 도구</span>
+            <strong>코딩 AI 비교 기준: FrontierCode 2.0 점수와 비용, 코드 병합 품질 차이</strong>
+            <span>게시 2026년 11월 1일</span>
           </a>
         </li>
       </ul>
@@ -282,7 +285,8 @@
       <nav class="footer-nav" aria-label="바닥글">
         <a href="/about.html">소개</a>
         <a href="/contact.html">문의</a>
-        <a href="/privacy.html">개인정보</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
         <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>

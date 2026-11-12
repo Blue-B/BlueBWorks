@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { isIndexable, mergePosts, normalizePost, sortPosts } from "../build/lib/data.mjs";
+import { isIndexable, isSearchIndexed, mergePosts, normalizePost, sortPosts } from "../build/lib/data.mjs";
 
 test("normalizePost keeps existing fields and new optional fields", () => {
   const post = normalizePost({
@@ -92,4 +92,12 @@ test("sortPosts orders newest first and keeps original order on ties", () => {
     sortPosts(posts).map((post) => post.slug),
     ["new", "tie", "old"],
   );
+});
+
+test("searchIndex false keeps a post readable but out of search", () => {
+  const evidence = { sources: [{ name: "공식", url: "https://example.com/a" }] };
+  const thin = normalizePost({ slug: "thin", searchIndex: false, ...evidence });
+  assert.equal(isIndexable(thin), true);
+  assert.equal(isSearchIndexed(thin), false);
+  assert.equal(isSearchIndexed(normalizePost({ slug: "kept", ...evidence })), true);
 });

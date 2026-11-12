@@ -158,6 +158,7 @@ test("utility pages are not indexable in the sitemap", () => {
   assert.ok(!sitemap.includes("/404.html"));
   assert.ok(sitemap.includes("/about.html"));
   assert.ok(sitemap.includes("/privacy.html"));
+  assert.ok(sitemap.includes("/terms.html"));
   const robots = fs.readFileSync(
     path.join(outDir, "articles", "github-copilot-code-review-api-2026", "index.html"),
     "utf8",

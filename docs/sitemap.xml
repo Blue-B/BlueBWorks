@@ -18,6 +18,9 @@
     <loc>https://bluebworks.com/privacy.html</loc>
   </url>
   <url>
+    <loc>https://bluebworks.com/terms.html</loc>
+  </url>
+  <url>
     <loc>https://bluebworks.com/articles/chatgpt-business-hub-claim-korea-2026/</loc>
     <lastmod>2026-11-12</lastmod>
   </url>
@@ -226,75 +229,7 @@
     <lastmod>2026-10-28</lastmod>
   </url>
   <url>
-    <loc>https://bluebworks.com/articles/github-stacked-pull-requests-ga-2026/</loc>
-    <lastmod>2026-10-09</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/github-secret-scanning-lovable-supabase-2026/</loc>
-    <lastmod>2026-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/chrome-154-responsive-iframes-2026/</loc>
-    <lastmod>2026-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/mold-3-0-rust-rewrite-2026/</loc>
-    <lastmod>2026-10-06</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/cloudflare-traces-request-path-2026/</loc>
-    <lastmod>2026-10-05</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/cloudflare-ohttp-gateway-2026/</loc>
-    <lastmod>2026-10-04</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/git-2-56-2026/</loc>
-    <lastmod>2026-10-04</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/cloudflare-protected-quick-tunnels-2026/</loc>
-    <lastmod>2026-10-04</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/github-copilot-code-review-api-2026/</loc>
-    <lastmod>2026-10-04</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/microsoft-mai-audio-vercel-ai-gateway-2026/</loc>
-    <lastmod>2026-10-03</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/cloudflare-k2-serverless-event-streams-2026/</loc>
-    <lastmod>2026-10-29</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/claude-code-mods-2026/</loc>
-    <lastmod>2026-10-04</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/github-copilot-dynamic-workflows-2026/</loc>
-    <lastmod>2026-10-29</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/github-copilot-computer-use-2026/</loc>
-    <lastmod>2026-10-29</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/cloudflare-clef-decision-models-2026/</loc>
-    <lastmod>2026-10-29</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/olmo-core-3-moe-training-2026/</loc>
-    <lastmod>2026-10-29</lastmod>
-  </url>
-  <url>
     <loc>https://bluebworks.com/articles/gemini-4-argon-2026/</loc>
-    <lastmod>2026-10-29</lastmod>
-  </url>
-  <url>
-    <loc>https://bluebworks.com/articles/github-copilot-hydrafusion-vscode-2026/</loc>
     <lastmod>2026-10-29</lastmod>
   </url>
   <url>

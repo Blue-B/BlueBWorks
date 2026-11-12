@@ -7,7 +7,7 @@ const hasThumbnail = p => Boolean(p.image) && !/mshots|favicon|apple-touch-icon/
 const searchable = p => [p.title, p.summary, p.category, ...(p.tags || [])].join(' ').toLowerCase();
 
 export function journalHeader({ config, base, active }) {
-  const links = [['/', '홈', 'home'], ['articles/', '글 목록', 'articles'], ['about.html', '소개', 'about']];
+  const links = [['/', '홈', 'home'], ['articles/', '글 목록', 'articles'], ['about.html', '소개', 'about'], ['contact.html', '문의', 'contact']];
   return `<a class="skip-link" href="#main">본문으로 건너뛰기</a>
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">

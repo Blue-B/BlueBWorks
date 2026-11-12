@@ -8,6 +8,7 @@
   "verifiedAt": "2026-10-06T14:30:52+09:00",
   "status": "Stable in Chrome 154",
   "reviewStatus": "reviewed",
+  "searchIndex": false,
   "tags": [
     "Chrome",
     "iframe",
@@ -19,6 +20,9 @@
   "imageCredit": "BlueBWorks 도식 · Chrome for Developers 공식 문서 기반",
   "imageWidth": 1600,
   "imageHeight": 900,
+  "ogImage": "https://bluebworks.com/assets/editorial/chrome-154-responsive-iframe-flow-og.png",
+  "ogImageWidth": 1600,
+  "ogImageHeight": 900,
   "imageSourceUrl": "https://developer.chrome.com/blog/responsive-iframes",
   "imageCaption": "기존에는 자식 문서가 높이를 측정해 부모에게 전달해야 했지만, Chrome 154에서는 양쪽 문서가 명시적으로 설정하면 브라우저가 콘텐츠 크기를 iframe 계산에 사용할 수 있다.",
   "keyPoints": [

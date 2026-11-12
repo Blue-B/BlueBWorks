@@ -8,6 +8,7 @@
   "verifiedAt": "2026-10-04T13:50:04+09:00",
   "status": "Closed beta · 유료 add-on 출시 예정",
   "reviewStatus": "reviewed",
+  "searchIndex": false,
   "tags": [
     "Cloudflare",
     "OHTTP",

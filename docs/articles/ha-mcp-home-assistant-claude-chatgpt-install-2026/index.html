@@ -4,18 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="google-adsense-account" content="ca-pub-3336895189172465">
-    <title>ha-mcp 사용법: 홈 어시스턴트를 클로드, 챗GPT로 설정하는 오픈소스 MCP 서버, 설치 방법과 관리자 토큰 주의점 | BlueBWorks</title>
+    <title>ha-mcp 사용법: 홈 어시스턴트를 클로드, 챗GPT로 설정하는 MCP 서버 설치 방법 | BlueBWorks</title>
     <meta name="description" content="홈 어시스턴트의 자동화, 대시보드, 기기 상태를 클로드나 챗GPT 같은 AI 비서에게 말로 맡기게 해 주는 오픈소스 ha-mcp를 공식 데모 서버에 연결해 도구를 직접 호출해 본 결과와, HACS 통합구성요소로 설치하는 순서, 관리자 토큰을 넘길 때 알아 둘 점, 챗GPT에 붙일 때…">
     <link rel="canonical" href="https://bluebworks.com/articles/ha-mcp-home-assistant-claude-chatgpt-install-2026/">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="BlueBWorks">
-    <meta property="og:title" content="ha-mcp 사용법: 홈 어시스턴트를 클로드, 챗GPT로 설정하는 오픈소스 MCP 서버, 설치 방법과 관리자 토큰 주의점 | BlueBWorks">
+    <meta property="og:title" content="ha-mcp 사용법: 홈 어시스턴트를 클로드, 챗GPT로 설정하는 MCP 서버 설치 방법 | BlueBWorks">
     <meta property="og:description" content="홈 어시스턴트의 자동화, 대시보드, 기기 상태를 클로드나 챗GPT 같은 AI 비서에게 말로 맡기게 해 주는 오픈소스 ha-mcp를 공식 데모 서버에 연결해 도구를 직접 호출해 본 결과와, HACS 통합구성요소로 설치하는 순서, 관리자 토큰을 넘길 때 알아 둘 점, 챗GPT에 붙일 때…">
     <meta property="og:url" content="https://bluebworks.com/articles/ha-mcp-home-assistant-claude-chatgpt-install-2026/">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-thumb.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="ha-mcp, 클로드와 챗GPT에게 스마트홈 설정 맡기기. 도구 77개, 데모 서버로 먼저 시험. 오른쪽에 데모 서버에 연결해 도구를 호출한 결과 화면">
     <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/ha-mcp-home-assistant-claude-chatgpt-install-2026-thumb.png">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
@@ -30,7 +33,7 @@
   <header class="site-header journal-header" data-nav-ready="false">
     <div class="journal-masthead">
       <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
       <div class="journal-tools"><a class="header-search" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>
@@ -274,7 +277,8 @@ uvx --python 3.13 ha-mcp@latest</code></pre></figure>
       <nav class="footer-nav" aria-label="바닥글">
         <a href="/about.html">소개</a>
         <a href="/contact.html">문의</a>
-        <a href="/privacy.html">개인정보</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
         <a href="/feed.xml">RSS</a>
         <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
       </nav>

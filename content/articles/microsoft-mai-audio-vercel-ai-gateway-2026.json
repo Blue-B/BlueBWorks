@@ -8,6 +8,7 @@
   "verifiedAt": "2026-10-03T22:40:39+09:00",
   "status": "Gateway 제공 · 오디오 기능 베타",
   "reviewStatus": "reviewed",
+  "searchIndex": false,
   "tags": [
     "Microsoft AI",
     "Vercel",
