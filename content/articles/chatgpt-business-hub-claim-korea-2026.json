@@ -1,0 +1,341 @@
+{
+  "slug": "chatgpt-business-hub-claim-korea-2026",
+  "title": "챗GPT 비즈니스 허브 사용법: 가게 소유권 신청과 한국 적용 범위",
+  "summary": "챗GPT 답변에 뜨는 가게 정보를 사장이 직접 관리하는 비즈니스 허브가 열렸습니다. 한국 가게도 검색되지만 매장과 식당 소유권 신청은 지금 미국 목록만 됩니다.",
+  "category": "AI 서비스",
+  "announcedAt": "2026-11-10",
+  "publishedAt": "2026-11-12T09:50:00+09:00",
+  "verifiedAt": "2026-11-12T09:50:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "챗GPT 비즈니스 허브",
+    "ChatGPT Business Hub",
+    "Businesses in ChatGPT",
+    "챗GPT 가게 등록",
+    "챗GPT 소유권 신청",
+    "비즈니스 에이전트",
+    "챗GPT 인사이트",
+    "Persona 인증"
+  ],
+  "keyPoints": [
+    "한국 가게도 비즈니스 허브 검색 목록에 뜨지만, 지역 매장과 음식점의 소유권 신청은 지금 미국에 이미 등록된 항목만 됩니다",
+    "소유권 인증은 전화, 비즈니스 이메일, 웹사이트 도메인, 쇼피파이 중 화면에 나오는 방법으로 하고, 정보 게시와 인사이트는 Persona 신원 인증이 승인된 뒤에 열립니다",
+    "인사이트는 지난 28일의 언급 수, 웹사이트 클릭 수, 발견 주제를 보여 주며 사용자의 개별 질문과 대화 내용은 비즈니스에 넘어가지 않습니다"
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-12T09:50:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://chatgpt.com/business-hub",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with a limited screenshot of a ChatGPT answer for commentary",
+        "reason": "챗GPT 답변의 가게 카드가 보이는 썸네일이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-answer.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the ChatGPT interface for commentary",
+        "reason": "가게를 물었을 때 영업시간과 주소가 카드로 뜨는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/business-hub",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-home.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the ChatGPT Business Hub interface for commentary",
+        "reason": "비즈니스 허브 첫 화면과 검색창이 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/business-hub",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-search.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the ChatGPT Business Hub interface for commentary",
+        "reason": "한국 매장이 검색 목록에 뜨는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/business-hub",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-claim.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the ChatGPT Business Hub interface for commentary",
+        "reason": "소유권 신청 창의 안내 문구가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-profile.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the ChatGPT interface for commentary",
+        "reason": "가게 프로필의 소유권 요청 링크가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://help.openai.com/ko-kr/articles/20001635-setting-up-your-business-on-chatgpt",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-help.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the official OpenAI Help Center article for commentary",
+        "reason": "지역 매장과 음식점의 신청 범위 문장이 보이는 공식 도움말이라 포함."
+      },
+      {
+        "sourceUrl": "https://x.com/OpenAI/status/2120216592395174382",
+        "decision": "excluded",
+        "reason": "첨부 영상 파일은 복사하지 않고 원문 링크가 있는 X 임베드로 인용함."
+      }
+    ]
+  },
+  "image": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-thumb.png",
+  "imageSourceUrl": "https://chatgpt.com/business-hub",
+  "imageAlt": "챗GPT 비즈니스 허브 썸네일. 챗GPT 답변에 뜨는 가게 정보를 사장이 직접 관리한다는 문구와 광화문 교보문고 가게 카드",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "챗GPT 답변에 뜨는 가게 카드",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "챗GPT 비즈니스 허브 베타 공개와 달라진 점",
+      "paragraphs": [
+        "오픈AI가 미국 시간 11월 10일, 한국 시간으로 11일 새벽에 ChatGPT 안의 비즈니스 허브(Business Hub)를 베타로 열었습니다. 가게나 회사를 운영하는 사람이 ChatGPT에 등록된 자기 비즈니스의 소유권을 신청하고, 영업 정보와 상품 정보를 직접 올리고, 사람들이 ChatGPT에서 그 비즈니스를 얼마나 만나고 클릭했는지 보는 기능입니다. 오픈AI는 발표 글에서 ChatGPT를 매주 쓰는 사람이 12억 명이라고 밝혔습니다.",
+        "ChatGPT는 이미 가게 정보를 답변에 카드로 보여 주고 있습니다. '광화문 교보문고 영업시간이랑 위치 알려줘'라고 물으면 매장 이름, 영업시간, 주소, 휴무일, 전화번호가 사진과 함께 한 칸에 뜨고, 아래로는 지하철 가는 길과 지도가 붙습니다. 비즈니스 허브는 이 카드에 들어갈 정보를 가게 쪽에서 직접 넣는 창구입니다. 도움말은 승인된 정보도 오픈AI가 검토한 뒤 반영되고, ChatGPT가 답할 때 다른 출처를 함께 쓸 수 있다고 적고 있어서 사장이 올린 내용이 그대로 답이 되는 구조는 아닙니다.",
+        "발표에는 세 가지가 묶여 있습니다. 하나는 소유권 신청과 인증, 하나는 영업 정보와 가격, 재고가 담긴 상품 피드 등록, 나머지 하나는 언급 수와 웹사이트 클릭 수를 보여 주는 인사이트입니다. 여기에 고객 질문에 대신 답하는 비즈니스 에이전트(Business Agent)가 붙는데, 이건 미국에서 자격 요건을 갖춘 전자상거래와 온라인 서비스 비즈니스부터 시작합니다."
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        6
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-answer.webp",
+          "alt": "ChatGPT에 광화문 교보문고 영업시간과 위치를 물었을 때 나온 답변. 매장 사진, 매일 09:30~22:00 영업시간, 주소, 휴무일, 전화번호가 카드로 나오고 아래에 지하철 가는 방법이 있다",
+          "caption": "가게를 물으면 영업시간, 주소, 전화번호가 카드 한 칸에 모여 나온다.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com/",
+          "width": 1320,
+          "height": 760
+        }
+      ],
+      "embeds": [
+        {
+          "type": "x",
+          "url": "https://x.com/OpenAI/status/2120216592395174382",
+          "author": "OpenAI",
+          "handle": "OpenAI",
+          "postedAt": "2026-11-10T18:06:42Z",
+          "dateLabel": "2026년 11월 10일 UTC",
+          "text": "Now in beta: Businesses in ChatGPT.\n\nClaim your business, manage your information, and get insights on how people engage with you.\n\nEligible businesses can also build a Business Agent to answer customers’ questions and help them explore what you offer.",
+          "caption": "오픈AI 공식 계정의 비즈니스 허브 베타 발표."
+        }
+      ]
+    },
+    {
+      "title": "비즈니스 허브 들어가는 곳과 가게 검색 방법",
+      "paragraphs": [
+        "도움말 순서대로라면 ChatGPT에 로그인한 뒤 사이드바에서 비즈니스 허브를 엽니다. 사이드바 메뉴에 바로 보이지 않을 때는 chatgpt.com/business-hub 주소로 들어가도 같은 화면이 나옵니다. 첫 화면은 'ChatGPT로 새로운 고객을 만나고 비즈니스를 성장시키세요'라는 문구와 검색창 하나뿐이고, 아래에 비즈니스 이용 약관 링크가 붙어 있습니다.",
+        "검색창에 가게 이름을 넣으면 ChatGPT에 이미 등록된 항목이 주소와 함께 뜹니다. '교보문고'를 넣었더니 일치하는 비즈니스가 10개 나왔고, 광화문, 강남, 잠실, 영등포, 부산 지점 같은 매장이 주소와 함께 줄지어 있었습니다. 한국 가게도 이미 목록에 꽤 들어와 있다는 뜻입니다. 같은 브랜드인데 영어 이름과 영어 주소로 올라간 지점과 한글 주소가 섞인 지점이 함께 보이는 것도 눈에 띕니다. 내 가게가 어떤 이름과 주소로 잡혀 있는지는 이 검색 한 번으로 바로 알 수 있습니다.",
+        "목록 맨 위에는 검색어 그대로 비즈니스를 새로 만드는 항목이 따로 붙습니다. 목록에 없는 비즈니스를 추가하는 길인데, 도움말은 이 옵션이 자격 요건을 갖춘 온라인 비즈니스에 표시될 수 있다고만 적고 있습니다. 동네 매장이나 식당은 새 항목을 만드는 쪽이 아니라 이미 있는 항목에 신청하는 방식이고, 그마저 지금은 미국 항목에 한정됩니다."
+      ],
+      "sourceRefs": [
+        2,
+        5
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-home.webp",
+          "alt": "ChatGPT 비즈니스 허브 첫 화면. ChatGPT로 새로운 고객을 만나고 비즈니스를 성장시키세요 문구와 비즈니스 검색창",
+          "caption": "비즈니스 허브 첫 화면은 검색창 하나다.",
+          "credit": "ChatGPT 비즈니스 허브",
+          "sourceUrl": "https://chatgpt.com/business-hub",
+          "width": 1180,
+          "height": 780
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-search.webp",
+          "alt": "비즈니스 허브에서 교보문고를 검색한 결과. 맨 위에 교보문고 만들기 항목이 있고 아래에 광화문, 강남, 수유 바로드림센터 등 매장이 주소와 함께 나온다",
+          "caption": "한국 매장도 주소와 함께 검색된다. 맨 위 항목은 새 비즈니스 만들기.",
+          "credit": "ChatGPT 비즈니스 허브",
+          "sourceUrl": "https://chatgpt.com/business-hub",
+          "width": 1180,
+          "height": 960
+        }
+      ]
+    },
+    {
+      "title": "챗GPT 비즈니스 소유권 신청 순서와 인증 방법 4가지",
+      "paragraphs": [
+        "목록에서 매장 하나를 누르면 그 프로필의 소유권을 주장하라는 창이 뜹니다. 고객 참여도 보기, 제품과 서비스 정보 추가, 비즈니스 에이전트로 고객 질문에 답하기가 차례로 소개되고, 맨 아래 'Get started' 버튼으로 신청이 시작됩니다. 버튼 바로 위에는 이 프로필을 관리할 권한이 있음을 인증해야 한다는 문장이 붙어 있습니다. 내 가게가 아니라면 여기서 창을 닫으면 됩니다.",
+        "도움말이 안내하는 순서는 세 단계입니다. 이름으로 검색해 내 비즈니스와 맞는 항목을 고르고, 관리에 쓸 ChatGPT 계정을 정한 다음, 화면에 나오는 인증 방법 하나를 골라 안내를 따릅니다. 인증 방법은 비즈니스마다 다르게 제시되는데 도움말에 나온 것은 네 가지입니다.",
+        "비즈니스 전화번호는 문자나 자동 음성 전화로 받은 코드를 넣는 방식이고, 비즈니스 이메일은 그 비즈니스에 연결된 주소로 코드를 받습니다. 웹사이트 도메인은 ChatGPT가 보여 주는 TXT 레코드를 도메인 DNS 설정에 유형, 이름, 값까지 그대로 넣은 뒤 '도메인 인증'을 누르는 방식이라, 도메인을 호스팅 업체나 외주 개발자가 관리하고 있다면 그쪽에 레코드 추가를 부탁해야 합니다. DNS 변경은 반영까지 시간이 걸릴 수 있습니다. 마지막은 쇼피파이(Shopify) 스토어 연결로, 쇼피파이에 로그인해 권한을 허용하는 식입니다.",
+        "신청을 넣으면 오픈AI가 검토해서 결과나 추가 자료 요청을 이메일로 보냅니다. 검토 중에는 '소유권 신청 취소'로 거둘 수 있습니다. 이미 다른 사람이 소유권을 가져간 가게라면 프로필의 더 보기 메뉴에서 '소유권 이의 제기'를 고르고 Persona 인증으로 대표 권한을 보여 주면 됩니다. 프로필을 신청하거나 이의를 제기해도 ChatGPT에서 그 프로필이 노출되는 방식은 바뀌지 않는다고 적혀 있습니다."
+      ],
+      "sourceRefs": [
+        2,
+        5
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-claim.webp",
+          "alt": "비즈니스 허브에서 Kyobo Book Centre Gwanghwamun을 눌렀을 때 뜨는 프로필 소유권 주장 창. 고객 참여도 확인, 제품과 서비스 정보 추가, 비즈니스 에이전트 소개와 Get started 버튼",
+          "caption": "매장을 고르면 뜨는 신청 창. 버튼 위에 관리 권한을 인증해야 한다는 안내가 있다.",
+          "credit": "ChatGPT 비즈니스 허브",
+          "sourceUrl": "https://chatgpt.com/business-hub",
+          "width": 871,
+          "height": 1324
+        }
+      ]
+    },
+    {
+      "title": "Persona 신원 인증과 파란 체크 배지",
+      "paragraphs": [
+        "소유권 신청이 승인됐다고 바로 정보를 고칠 수 있는 건 아닙니다. 영업 정보 변경을 게시하거나, 상품 피드를 연결하거나, 인사이트를 보거나, 에이전트를 만들려면 Persona를 통한 신원 인증을 따로 통과해야 합니다. 파란 체크 배지도 소유권 신청만으로는 붙지 않고, Persona 인증이 승인된 뒤에 붙습니다.",
+        "이 단계에서는 정부 발급 신분증, 사업자 등록 정보, 비즈니스를 대표할 권한을 보여 주는 서류가 필요할 수 있습니다. 인증이 실패하거나 만료되면 이메일 안내대로 다시 시도하는데, 도움말은 비즈니스 이름, 주소, 등록 번호나 세금 번호가 공식 사업자 서류와 똑같은지부터 보라고 합니다. Persona에 서류를 냈다는 것만으로 승인이 된 건 아니라서, 승인 메일이 오기 전에는 정보 게시나 인사이트가 열리지 않습니다.",
+        "조심할 점이 하나 있습니다. Persona로 새 프로필을 만드는 경우에는 오픈AI가 승인하는 순간 프로필이 자동으로 공개되고, 따로 게시 버튼이 없습니다. 아직 공개할 준비가 안 됐다면 그 단계로 넘어가지 않는 편이 낫습니다. 게시 전 초안 상태의 프로필은 비즈니스 탭의 개요 화면 오른쪽 위 메뉴에서 '초안 삭제'로 지울 수 있지만, 이미 게시된 프로필은 설정이나 소유권 요청을 이유로 지원팀에 부탁해도 삭제하거나 숨겨 주지 않습니다.",
+        "승인 뒤 바꿀 수 있는 항목은 웹사이트, 비즈니스 설명, 제품이나 서비스 카테고리, 로고, 배송 정책, 반품 정책이고 커버 사진도 넣을 수 있습니다. 바꾼 내용도 오픈AI 검토를 거쳐 반영되기 때문에 저장한 직후 모든 답변에 바로 나오지는 않습니다. 물건을 파는 곳이라면 가격과 재고가 들어간 CSV 상품 피드나 쇼피파이 피드를 연결할 수 있는데, 피드를 붙였다고 추천이 보장되지는 않습니다."
+      ],
+      "sourceRefs": [
+        2
+      ]
+    },
+    {
+      "title": "한국 가게와 온라인 쇼핑몰, 지금 되는 범위",
+      "paragraphs": [
+        "한국에서 장사하는 사람에게 가장 중요한 부분입니다. 도움말은 ChatGPT를 쓸 수 있고 필요한 인증이 지원되는 지역이라면 자격을 갖춘 비즈니스가 기존 항목의 소유권을 신청하거나 새로 추가할 수 있다고 하면서, 이용 가능 여부는 비즈니스의 소재지와 유형에 따라 달라진다고 단서를 붙였습니다. 그리고 바로 이어서 지역 매장과 음식점은 현재 미국의 기존 등록 항목에 대해서만 소유권을 신청할 수 있다고 못 박았습니다.",
+        "그래서 광화문 교보문고처럼 한국 매장 프로필을 열어도 '이 프로필 소유권 요청' 링크는 보이지만, 동네 카페나 식당 사장이 지금 소유권을 받아 영업시간을 고치는 건 도움말 기준으로 아직 대상이 아닙니다. 웹사이트를 중심으로 장사하는 온라인 쇼핑몰이나 온라인 서비스는 사정이 조금 다릅니다. 목록에 없으면 추가 옵션이 '표시될 수 있다'는 표현이라, 실제로 열려 있는지는 내 비즈니스 이름이나 도메인으로 검색해 봐야 압니다.",
+        "비즈니스 에이전트는 더 좁습니다. 웹사이트가 있는 미국의 전자상거래와 온라인 서비스 비즈니스가 대상이고, 비즈니스 에이전트 정책의 업종 요건까지 맞아야 합니다. 정책에는 에이전트가 자신이 비즈니스를 대표하는 AI라는 점을 분명히 해야 하고, 사람이나 독립적인 조언자처럼 보이게 만들면 안 된다는 조건도 들어 있습니다. 비즈니스 인증을 통과해도 에이전트 자격이 보장되지는 않는다는 문장도 있습니다."
+      ],
+      "sourceRefs": [
+        2,
+        3,
+        6
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-help.webp",
+          "alt": "OpenAI 도움말 ChatGPT에서 비즈니스 설정하기의 비즈니스 소유권 신청하기 부분. 지역 매장과 음식점은 현재 미국의 기존 등록 항목에 대해서만 소유권을 신청할 수 있다는 문장에 빨간 테두리",
+          "caption": "지역 매장과 음식점은 지금 미국 등록 항목만 신청할 수 있다.",
+          "credit": "OpenAI 도움말",
+          "sourceUrl": "https://help.openai.com/ko-kr/articles/20001635-setting-up-your-business-on-chatgpt",
+          "width": 1327,
+          "height": 243
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-business-hub-claim-korea-2026-profile.webp",
+          "alt": "ChatGPT 답변에서 연 광화문 교보문고 프로필. 길찾기, 웹사이트, 전화 버튼과 영업시간, 주소, 전화번호 아래에 이 프로필 소유권 요청 링크",
+          "caption": "한국 매장 프로필에도 소유권 요청 링크는 보인다.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com/",
+          "width": 832,
+          "height": 610
+        }
+      ],
+      "table": {
+        "headers": [
+          "기능",
+          "대상",
+          "한국 사업자"
+        ],
+        "rows": [
+          [
+            "가게 검색과 프로필 보기",
+            "ChatGPT 로그인 계정",
+            "됨"
+          ],
+          [
+            "지역 매장, 음식점 소유권 신청",
+            "미국에 이미 등록된 항목",
+            "아직 대상 아님"
+          ],
+          [
+            "온라인 비즈니스 추가와 신청",
+            "ChatGPT 이용 지역, 인증 지원 시",
+            "소재지와 유형에 따라 다름"
+          ],
+          [
+            "비즈니스 에이전트",
+            "웹사이트 있는 미국 전자상거래, 온라인 서비스",
+            "대상 아님"
+          ]
+        ],
+        "caption": "OpenAI 도움말 ChatGPT에서 비즈니스 설정하기 기준."
+      }
+    },
+    {
+      "title": "비즈니스 허브 인사이트에서 보이는 숫자",
+      "paragraphs": [
+        "소유권과 Persona 인증이 모두 승인되면 인사이트 메뉴에서 지난 28일 동안의 활동을 모아 볼 수 있습니다. 항목은 언급 수, 웹사이트 클릭 수, 발견 주제 세 가지입니다. 지금까지는 내 사이트가 ChatGPT 답변에 얼마나 인용되는지 짐작만 했는데, 오픈AI가 직접 집계한 숫자를 준다는 점에서 해외 검색 마케터들 사이에서는 ChatGPT판 서치 콘솔이라는 말까지 나왔습니다.",
+        "세는 기준은 눈여겨볼 만합니다. 온라인 비즈니스는 ChatGPT가 답변에서 그 웹사이트를 참조했을 때만 언급으로 세고, 브랜드 이름만 나온 건 세지 않습니다. 지역 비즈니스는 고객이 항목을 열거나 웹사이트에 가지 않아도 ChatGPT가 그 위치를 결과로 보여 주면 언급 하나로 칩니다. 웹사이트 클릭 수는 말 그대로 답변에서 사이트로 넘어간 횟수입니다.",
+        "발견 주제는 비즈니스가 언급되거나 인용된 답변들의 공통 주제를 묶어 보여 줄 뿐이고, 개별 질문 문장이나 고객 의도를 그대로 보여 주지 않습니다. 사용자와 ChatGPT의 대화, 비즈니스 에이전트와 나눈 채팅도 비즈니스 쪽에 넘어가지 않습니다. 숫자 칸이 비어 있다고 활동이 0이라는 뜻은 아니고, 보고 기준에 못 미쳤거나 아직 수집 중일 수 있다고 도움말은 설명합니다. 대화나 상호작용이 일정 기준 이상 쌓여야 숫자가 보이도록 만든 것은 개인정보 보호 때문이라고 발표 글은 설명합니다."
+      ],
+      "sourceRefs": [
+        2,
+        1
+      ]
+    },
+    {
+      "title": "광고와 추천 순위의 관계, 미리 알아둘 제한",
+      "paragraphs": [
+        "소유권 신청에 광고 계정이나 ChatGPT 엔터프라이즈 계약은 필요 없습니다. 소유권 신청, 에이전트 게시, 광고는 서로 별개라서 광고를 하지 않아도 정보 관리와 인사이트는 쓸 수 있습니다. 반대로 소유권을 가져간다고 ChatGPT가 그 가게를 더 자주 추천해 주지도 않습니다. 도움말은 노출 증가를 보장하지 않고, 광고가 ChatGPT의 독립적인 답변에 영향을 주지 않는다고 적었습니다.",
+        "광고와 맞닿는 지점은 비즈니스 에이전트 쪽입니다. 발표 글에 따르면 비즈니스는 자기 에이전트를 후원해서 ChatGPT 광고를 눌렀을 때 도착하는 곳으로 쓸 수 있고, 이런 자리는 후원 표시가 붙어 ChatGPT 답변과 구분됩니다. 에이전트와 나누는 대화도 원래 ChatGPT 대화와 분리돼 있고, 에이전트 대화라는 표시가 분명히 붙습니다.",
+        "에이전트가 할 수 있는 일도 정해져 있습니다. 상품과 정책을 설명하고 웹사이트 링크를 줄 수는 있지만 구매 완료, 예약, 주문 조회는 하지 못하고 고객은 결국 웹사이트로 넘어가 처리해야 합니다. 여러 브랜드나 지점은 따로 관리해야 하고, 본사 브랜드의 소유권을 가져가도 지점 프로필까지 함께 넘어오지 않습니다. 팀원이나 대행사는 소유권을 가진 관리자가 비즈니스 허브에서 추가하는데, 각자 자기 ChatGPT 계정을 써야 하고 개인 전용 초대 링크를 남에게 넘기면 안 됩니다.",
+        "한국에서 지금 바로 해 볼 수 있는 건 내 가게나 회사가 ChatGPT에 어떤 이름과 주소로 올라가 있는지 비즈니스 허브에서 검색해 보는 일입니다. 영업시간이나 주소가 틀리게 나오는 곳이 있다면 적어 두고, 온라인 쇼핑몰이라면 추가 옵션이 뜨는지 봐 두면 한국 매장 신청이 열렸을 때 바로 움직일 수 있습니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Introducing Businesses in ChatGPT (OpenAI)",
+      "url": "https://openai.com/index/introducing-businesses-chatgpt/",
+      "description": "비즈니스 허브 베타 발표, 소유권 신청과 인사이트, 비즈니스 에이전트와 광고 연결."
+    },
+    {
+      "name": "ChatGPT에서 비즈니스 설정하기 (OpenAI 도움말)",
+      "url": "https://help.openai.com/ko-kr/articles/20001635-setting-up-your-business-on-chatgpt",
+      "description": "이용 자격, 인증 방법 4가지, Persona 인증, 인사이트 집계 기준, 지역 매장 신청 범위."
+    },
+    {
+      "name": "Business Agents Policy (OpenAI)",
+      "url": "https://openai.com/policies/business-agents-policy/",
+      "description": "비즈니스 에이전트를 만들고 게시할 때 지켜야 할 조건."
+    },
+    {
+      "name": "OpenAI 공식 X 게시물",
+      "url": "https://x.com/OpenAI/status/2120216592395174382",
+      "description": "Businesses in ChatGPT 베타 발표."
+    },
+    {
+      "name": "ChatGPT 비즈니스 허브",
+      "url": "https://chatgpt.com/business-hub",
+      "description": "비즈니스 검색과 소유권 신청 화면."
+    },
+    {
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com/",
+      "description": "가게를 물었을 때 답변에 뜨는 비즈니스 카드와 프로필."
+    }
+  ],
+  "resources": [
+    {
+      "name": "챗GPT 노션 연동 방법 (BlueBWorks)",
+      "url": "https://bluebworks.com/articles/chatgpt-notion-plugin-connect-2026/",
+      "description": "ChatGPT 플러그인으로 노션 페이지를 만들고 고치는 법."
+    },
+    {
+      "name": "챗GPT 프로, 비즈니스 API 무료 크레딧 받는 법 (BlueBWorks)",
+      "url": "https://bluebworks.com/articles/chatgpt-pro-business-api-credits-2026/",
+      "description": "프로와 비즈니스 요금제의 API 크레딧 조건과 실제 화면."
+    },
+    {
+      "name": "챗GPT 계정 전환 모바일 지원 (BlueBWorks)",
+      "url": "https://bluebworks.com/articles/chatgpt-mobile-account-switching-subscription-2026/",
+      "description": "모바일에서 두 계정을 오가는 법과 구독 공유 제한."
+    }
+  ]
+}
