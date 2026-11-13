@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bluebworks.com/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.com/articles/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.com/about.html</loc>
@@ -19,6 +19,10 @@
   </url>
   <url>
     <loc>https://bluebworks.com/terms.html</loc>
+  </url>
+  <url>
+    <loc>https://bluebworks.com/articles/gemini-4-hydrogen-free-ai-studio-2026/</loc>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://bluebworks.com/articles/socratic-tutor-skill-chatgpt-study-prompt-2026/</loc>

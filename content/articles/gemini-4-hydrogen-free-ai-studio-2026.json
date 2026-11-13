@@ -1,0 +1,324 @@
+{
+  "slug": "gemini-4-hydrogen-free-ai-studio-2026",
+  "title": "제미나이 4 하이드로젠 무료 사용법, AI 스튜디오에서 고르기",
+  "seoTitle": "제미나이 4 하이드로젠 무료 사용법: 구글 AI 스튜디오 선택 방법과 생각 수준, API 가격",
+  "summary": "무료 제미나이 앱에서 하이드로젠은 자동 모드로만 붙습니다. 구글 AI 스튜디오에서는 직접 골라 생각 수준까지 바꿀 수 있습니다.",
+  "category": "모델",
+  "announcedAt": "2026-11-12",
+  "publishedAt": "2026-11-13T09:33:00+09:00",
+  "verifiedAt": "2026-11-13T09:33:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "제미나이 4 하이드로젠",
+    "Gemini 4 Hydrogen",
+    "제미나이 무료 사용법",
+    "구글 AI 스튜디오 무료",
+    "구글 AI 스튜디오 사용법",
+    "제미나이 자동 모드",
+    "제미나이 API 가격",
+    "제미나이 4"
+  ],
+  "keyPoints": [
+    "무료 계정 제미나이 앱의 모델 메뉴에는 자동 모드와 잠긴 4 아르곤만 있고, 하이드로젠은 자동 모드가 질문에 맞다고 판단할 때 붙습니다",
+    "구글 AI 스튜디오에서는 무료 계정으로 gemini-4-hydrogen을 직접 고르고 생각 수준을 Low, Medium, High, Extra High 중에서 바꿀 수 있습니다",
+    "API 무료 등급은 입력과 출력이 무료지만 입력 내용이 구글 제품 개선에 쓰이고, 유료는 100만 토큰당 입력 1.5달러, 출력 7.5달러입니다"
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-13T09:33:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with own Google AI Studio result",
+        "reason": "하이드로젠 답변과 모델 설정이 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://gemini.google.com/app",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-app-menu.webp",
+        "decision": "included",
+        "rightsBasis": "Own account screen of the Gemini app, no personal data",
+        "reason": "무료 계정 모델 메뉴가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-thinking-level.webp",
+        "decision": "included",
+        "rightsBasis": "Own account screen of Google AI Studio, no personal data",
+        "reason": "모델 이름과 생각 수준 메뉴가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-high-answer.webp",
+        "decision": "included",
+        "rightsBasis": "Own Google AI Studio result",
+        "reason": "High 설정 답변 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-low-answer.webp",
+        "decision": "included",
+        "rightsBasis": "Own Google AI Studio result",
+        "reason": "Low 설정 답변과 걸린 시간이 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+        "assetUrl": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-api-price.webp",
+        "decision": "included",
+        "rightsBasis": "Limited screenshot of the official Gemini API pricing documentation for commentary",
+        "reason": "무료 등급과 유료 등급 조건이 보이는 공식 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://x.com/GoogleDeepMind/status/2120940338869055788",
+        "decision": "excluded",
+        "reason": "첨부 이미지는 복사하지 않고 X 임베드로 인용함."
+      }
+    ]
+  },
+  "image": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-thumb.png",
+  "imageSourceUrl": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+  "imageAlt": "제미나이 4 하이드로젠 무료로 쓰기 썸네일. 앱은 자동 모드만, AI 스튜디오는 직접 선택 문구와 생각 수준 Low 8.3초, High 11.8초. 오른쪽에 하이드로젠이 쓴 회식 장소 체크리스트 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "구글 AI 스튜디오에서 하이드로젠에 회식 장소 체크리스트를 시킨 화면",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "제미나이 4 하이드로젠, 무료 계정까지 열린 제미나이 4",
+      "paragraphs": [
+        "구글이 미국 시간 11월 12일, 한국 시간으로 13일 새벽에 제미나이 4 하이드로젠(Gemini 4 Hydrogen)을 공개했습니다. 지난달부터 나온 제미나이 4 아르곤과 카본은 유료 구독이 있어야 제대로 쓸 수 있었는데, 하이드로젠은 구글이 처음부터 모두에게 주는 제미나이 4라고 소개한 모델입니다.",
+        "풀리는 곳은 넓습니다. 구글 AI 스튜디오 전 등급, 제미나이 API, 기업용 제미나이, 제미나이 앱, 구글 검색에 들어가고, 구글 안티그래비티에서는 유료 구글 AI 프로와 울트라 구독자만 쓸 수 있습니다. 발표 글 표현은 오늘부터 전 세계에 순차 적용한다는 것이라, 같은 날이라도 계정마다 보이는 시점이 다를 수 있습니다.",
+        "구글이 앞세운 숫자는 속도입니다. 기본값인 High 생각 수준에서 제미나이 3.8 플래시보다 작업을 2.5배 빨리 끝내고, Artificial Analysis 지능 지수에서는 51점으로 아르곤의 50점을 조금 넘는다고 합니다. 가장 높은 xhigh 설정에서는 54점입니다. 모두 구글이 고른 평가에서 구글이 밝힌 수치라, 내 질문에서도 그만큼 차이가 나는지는 따로 돌려 봐야 압니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ],
+      "embeds": [
+        {
+          "type": "x",
+          "url": "https://x.com/GoogleDeepMind/status/2120940338869055788",
+          "author": "Google DeepMind",
+          "handle": "GoogleDeepMind",
+          "postedAt": "2026-11-12T18:02:00Z",
+          "dateLabel": "2026년 11월 12일 UTC",
+          "text": "Meet Gemini 4 Hydrogen: built for rapid coding, multimodal synthesis, and everyday workflows.\n\nIt finishes tasks 2.5x faster than 3.8 Flash and surpasses Argon on the @ArtificialAnlys Intelligence Index.",
+          "caption": "구글 딥마인드 공식 계정의 하이드로젠 공개 게시물."
+        }
+      ]
+    },
+    {
+      "title": "제미나이 앱 무료 계정은 자동 모드로만 쓴다",
+      "paragraphs": [
+        "가장 많이 쓰는 곳은 제미나이 앱이니 무료 계정으로 먼저 열어 봤습니다. 입력창에 글자를 넣으면 오른쪽에 모드 버튼이 생기고, 눌러 보면 자동 모드와 코드 및 분석(4 Argon), 사고 수준 세 줄이 나옵니다. 아르곤 줄에는 자물쇠가 붙어 있고, 하이드로젠이라는 이름은 메뉴 어디에도 없습니다.",
+        "이건 고장이 아니라 구글이 정한 방식입니다. 발표 글 각주에는 무료 사용자는 자동 모델 선택을 통해, 하이드로젠이 그 질문에 알맞은 모델일 때 쓰게 된다고 적혀 있습니다. 무료 계정은 하이드로젠을 직접 고를 수 없고, 자동 모드가 알아서 붙여 주기를 기다리는 구조입니다.",
+        "일상 질문만 한다면 이대로 써도 큰 문제는 없습니다. 다만 하이드로젠이 어떤 답을 내는지 직접 보고 싶거나, 같은 질문을 설정만 바꿔 비교하고 싶다면 앱 말고 구글 AI 스튜디오로 가는 편이 빠릅니다."
+      ],
+      "sourceRefs": [
+        5,
+        1
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-app-menu.webp",
+          "alt": "제미나이 앱 무료 계정의 모드 메뉴. 자동 모드가 선택돼 있고 그 아래 자물쇠가 붙은 코드 및 분석 4 Argon, 사고 수준 항목",
+          "caption": "무료 계정 메뉴에는 자동 모드와 잠긴 4 아르곤만 있다.",
+          "credit": "Google Gemini",
+          "sourceUrl": "https://gemini.google.com/app",
+          "width": 670,
+          "height": 290
+        }
+      ]
+    },
+    {
+      "title": "구글 AI 스튜디오에서 하이드로젠 고르는 방법",
+      "paragraphs": [
+        "구글 AI 스튜디오(aistudio.google.com)는 개발자용 화면처럼 생겼지만, 구글 계정만 있으면 결제 정보 없이 바로 대화할 수 있습니다. 왼쪽 메뉴의 Playground에 들어가면 가운데가 대화창, 오른쪽이 Run settings 칸입니다.",
+        "오른쪽 맨 위 모델 카드를 눌러 목록에서 Gemini 4 Hydrogen을 고르면 됩니다. 구글이 발표 글에 걸어 둔 아래 주소로 들어가면 처음부터 하이드로젠이 골라진 채로 열립니다. 모델 카드 바로 아래에는 Thinking level 메뉴가 있고 Low, Medium, High, Extra High 네 단계가 있습니다. 기본값은 High입니다. 같은 화면 왼쪽 아래에는 카본을 쓰려면 등급을 올리라는 안내가 계속 떠 있는데, 하이드로젠은 그 안내와 상관없이 무료 계정에서 그대로 돌아갑니다.",
+        "처음 들어가면 임시 채팅(Temporary chat)으로 열리는 경우가 많습니다. 화면 안내대로 대화 기록은 자동 저장되지 않지만, 올린 파일은 구글 드라이브에 저장되고 로그 정책도 그대로 적용됩니다. 임시 채팅이라고 해서 회사 자료를 넣어도 된다는 뜻은 아닙니다.",
+        "오른쪽 Tools 칸에는 구글 검색 연결(Grounding with Google Search)이 켜져 있었습니다. 최신 정보가 필요한 질문에는 그대로 두고, 내가 준 자료 안에서만 답하게 하고 싶으면 끄고 쓰면 됩니다.",
+        "설정을 바꾼 뒤 위쪽 더하기 버튼으로 새 대화를 열면 지금 대화가 지워진다는 창이 뜩니다. 임시 채팅이라 되돌릴 수 없으니 남길 답은 먼저 복사해 두는 게 좋습니다. 생각 수준은 새 대화로 넘어가도 마지막에 고른 값이 그대로 남아 있었습니다."
+      ],
+      "sourceRefs": [
+        4,
+        1
+      ],
+      "code": {
+        "language": "text",
+        "text": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+        "caption": "하이드로젠이 미리 골라진 구글 AI 스튜디오 새 대화 주소."
+      },
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-thinking-level.webp",
+          "alt": "구글 AI 스튜디오 Run settings 칸. Gemini 4 Hydrogen, gemini-4-hydrogen 모델 카드 아래 Thinking level 메뉴가 열려 Low, Medium, High, Extra High가 보임",
+          "caption": "모델 카드 아래 생각 수준 메뉴. 기본값은 High다.",
+          "credit": "Google AI Studio",
+          "sourceUrl": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+          "width": 300,
+          "height": 490
+        }
+      ]
+    },
+    {
+      "title": "생각 수준 Low와 High, 같은 질문으로 비교",
+      "paragraphs": [
+        "생각 수준을 바꾸면 얼마나 달라지는지 보려고 같은 질문을 Low와 High에 한 번씩 넣었습니다. 질문은 이랬습니다. 다음 주 화요일 팀 회식 장소를 정해야 하는데 8명, 1인 3만 원 이하, 강남역 도보 10분, 조용한 룸이 조건이니 후보를 고를 때 볼 것 5가지를 표로 정리하고 단톡방 공지 문구도 3줄로 써 달라는 내용입니다.",
+        "High는 답을 다 쓰기까지 11.8초가 걸렸고 화면 위 토큰 수는 2,249개였습니다. 표에 비고 칸을 따로 만들어 강남역은 출구끼리 거리가 멀다는 점, 그 근처 룸 식당은 가격대가 높아 주류 포함 여부를 먼저 정해야 한다는 점을 붙였습니다. 직접 굽는 고기류는 대화에 방해될 수 있다는 메뉴 조언까지 들어 있었습니다.",
+        "Low는 8.3초, 토큰 수 1,503개로 끝났습니다. 다섯 항목 자체는 High와 거의 같았지만 비고 칸이 없었고, 한 칸에서는 굵게 표시하려던 별표 기호가 그대로 글자로 찍혀 나왔습니다. 두 설정 모두 다음 주 화요일을 11월 17일로 맞게 계산했습니다.",
+        "질문에 조건을 숫자로 하나씩 적은 게 답의 모양을 잡아 줬습니다. 처음 High로 돌렸을 때는 표 오른쪽에 조건 반영 칸을 따로 만들어 조용한 룸, 1인 3만 원 이하, 8명, 강남역 도보 10분을 항목마다 짝지어 붙였습니다. 공지 문구에서는 모임 시간과 회신 마감처럼 팀마다 다른 부분을 대괄호로 비워 두고, 그 부분만 고쳐 복사하면 된다고 덧붙였습니다. 조건을 뚭뚱그려 적었다면 이런 짝이 나오기 어려웠을 겁니다.",
+        "한 번씩 돌린 결과라 서버 상황에 따라 초 단위 숫자는 달라질 수 있습니다. 그래도 방향은 보였습니다. 이번 회식 질문 정도라면 Low 답도 바로 단톡방에 옮길 만했고, 조건이 여러 개 얽혀 놓치는 게 없어야 하는 일은 기본값 High가 한 번 더 챙겨 주는 쪽이었습니다."
+      ],
+      "sourceRefs": [
+        4
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-high-answer.webp",
+          "alt": "구글 AI 스튜디오에서 하이드로젠 High 설정으로 받은 답. 확인 항목, 구체적 체크포인트, 비고 세 칸 표와 단톡방 공지 문구 3줄",
+          "caption": "High 답에는 출구 간 거리, 주류 포함 기준 같은 비고 칸이 붙었다.",
+          "credit": "Google AI Studio",
+          "sourceUrl": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-low-answer.webp",
+          "alt": "같은 질문을 Low 설정으로 받은 답. 두 칸짜리 표 다섯 줄과 아래쪽에 8.3s 표시",
+          "caption": "Low 답은 8.3초 만에 나왔지만 비고 칸이 없고 별표가 그대로 남았다.",
+          "credit": "Google AI Studio",
+          "sourceUrl": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+          "width": 720,
+          "height": 470
+        }
+      ],
+      "table": {
+        "headers": [
+          "생각 수준",
+          "걸린 시간",
+          "토큰 수",
+          "답에서 달라진 점"
+        ],
+        "rows": [
+          [
+            "Low",
+            "8.3초",
+            "1,503",
+            "두 칸 표, 별표 표시 오류 한 곳"
+          ],
+          [
+            "High(기본값)",
+            "11.8초",
+            "2,249",
+            "비고 칸 추가, 위치와 가격 주의점"
+          ]
+        ],
+        "caption": "같은 질문을 설정별로 한 번씩 돌린 결과."
+      }
+    },
+    {
+      "title": "무료로 쓸 때 알아 둘 것: 입력 내용이 제품 개선에 쓰인다",
+      "paragraphs": [
+        "구글 AI 스튜디오의 제미나이 API 가격 문서에서 하이드로젠 항목을 보면 무료 등급(Free Tier)은 입력, 출력, 캐시가 모두 무료입니다. 대신 표 맨 아래 제품 개선에 사용(Used to improve our products) 줄이 무료 등급은 Yes, 유료 등급은 No로 갈립니다. 무료로 쓰는 동안 넣은 내용은 구글 제품 개선에 쓰일 수 있다는 뜻입니다.",
+        "그래서 무료 등급에는 회사 문서, 고객 정보, 계약서처럼 밖에 나가면 곤란한 내용을 넣지 않는 게 맞습니다. 개인 메모나 공개된 자료를 정리하는 정도라면 부담이 덜합니다. 제미나이 앱 쪽 학습 설정은 앱 활동 기록 설정에서 따로 관리하는데, 이 부분은 아래 관련 글에 정리해 두었습니다.",
+        "API 무료 등급에서는 구글 검색 연결과 구글 지도 연결이 지원되지 않는다고 표에 적혀 있습니다. 유료 등급은 두 기능 모두 제미나이 3 이후 모델 전체를 합쳐 월 5,000건까지 무료이고, 그 뒤로는 1,000건에 14달러입니다. 검색 연결은 하루 1,500건 상한도 붙어 있습니다."
+      ],
+      "sourceRefs": [
+        2
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/gemini-4-hydrogen-free-ai-studio-2026-api-price.webp",
+          "alt": "제미나이 API 가격 문서의 Gemini 4 Hydrogen 표. Standard 탭에서 무료 등급은 입력, 출력, 캐시 무료이고 검색과 지도 연결은 Not available, 제품 개선 사용은 Yes. 유료 등급은 입력 1.50달러, 출력 7.50달러, 캐시 0.075달러, 제품 개선 사용 No",
+          "caption": "무료 등급 맨 아래 줄은 Yes, 유료 등급은 No다.",
+          "credit": "Gemini API 문서",
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "width": 705,
+          "height": 605
+        }
+      ]
+    },
+    {
+      "title": "제미나이 4 하이드로젠 API 가격과 생각 토큰",
+      "paragraphs": [
+        "유료 등급 가격은 100만 토큰당 입력 1.5달러, 출력 7.5달러입니다. 구글은 100만 토큰 문맥 창 전체에 같은 가격을 매긴다고 밝혔습니다. 긴 문서를 넣는다고 구간별로 단가가 오르지 않는다는 뜻입니다. 자동 캐시만 지원하고 캐시 단가는 100만 토큰당 0.075달러입니다.",
+        "출력 가격에는 생각 토큰이 들어갑니다. 문서에는 모델이 처리하는 모든 토큰, 생각 토큰과 검색 연결 때 쓰이는 내부 도구 지시문까지 세어 청구한다고 적혀 있습니다. 위 비교에서 High가 Low보다 토큰을 700개 넘게 더 썼듯이, 생각 수준을 올리면 같은 질문에도 요금이 더 나옵니다. API로 붙여 쓸 계획이라면 내 작업을 Low와 High로 몇 번 돌려 보고 답 품질과 토큰 수를 같이 적어 두면 어느 쪽이 맞는지 금방 보입니다."
+      ],
+      "sourceRefs": [
+        2,
+        1
+      ]
+    },
+    {
+      "title": "검색과 안티그래비티, 시트에서는",
+      "paragraphs": [
+        "구글 검색에는 모든 사용자에게 전 세계적으로 하이드로젠이 들어간다고 발표됐습니다. 여러 조건을 한 문장에 섞어 묻거나 오타가 있어도 의도를 더 잘 알아듣고, 답에 더 다양한 링크를 붙여 준다는 설명입니다. 따로 켤 설정은 없습니다.",
+        "코딩 도구인 구글 안티그래비티에서는 유료 구글 AI 프로와 울트라 구독자만 하이드로젠을 쓸 수 있고, 여기에는 카본과 하이드로젠을 한 작업 안에서 번갈아 쓰는 Orchestrator가 같이 들어왔습니다. 구글 시트 안의 제미나이도 프로와 울트라 구독자부터 하이드로젠을 받습니다.",
+        "정리하면 무료 계정으로 하이드로젠을 이름 그대로 골라 써 볼 수 있는 곳은 지금 구글 AI 스튜디오입니다. 앱에서는 자동 모드에 맡기고, 직접 비교하고 싶은 질문이 생기면 AI 스튜디오에서 생각 수준을 바꿔 가며 돌려 보는 정도가 무료로 할 수 있는 가장 현실적인 쓰임새입니다."
+      ],
+      "sourceRefs": [
+        1
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Introducing Gemini 4 Hydrogen (Google 블로그)",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "description": "공개 범위, 무료 사용자 자동 모델 선택 각주, 속도와 지능 지수, API 가격, 생각 수준 네 단계, 검색과 안티그래비티 적용 범위."
+    },
+    {
+      "name": "Gemini Developer API pricing (Google AI Studio 문서)",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "description": "하이드로젠 무료 등급과 유료 등급 단가, 생각 토큰 청구, 검색과 지도 연결 요금, 제품 개선 사용 여부."
+    },
+    {
+      "name": "Google DeepMind 공식 X 게시물",
+      "url": "https://x.com/GoogleDeepMind/status/2120940338869055788",
+      "description": "제미나이 4 하이드로젠 공개 발표."
+    },
+    {
+      "name": "Google AI Studio",
+      "url": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+      "description": "하이드로젠이 미리 골라진 새 대화 화면, 생각 수준 메뉴와 임시 채팅 안내."
+    },
+    {
+      "name": "Google Gemini 앱",
+      "url": "https://gemini.google.com/app",
+      "description": "무료 계정 모드 메뉴(자동 모드, 4 Argon, 사고 수준)."
+    }
+  ],
+  "resources": [
+    {
+      "name": "구글 AI 스튜디오 하이드로젠 새 대화",
+      "url": "https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen",
+      "type": "도구",
+      "description": "하이드로젠이 미리 골라진 상태로 열리는 주소"
+    },
+    {
+      "name": "구글 검색 하이드로젠 업그레이드 (Google 블로그)",
+      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+      "type": "문서",
+      "description": "검색에 들어간 하이드로젠이 바꾸는 답변 방식"
+    },
+    {
+      "name": "제미나이 학습 끄는 법 (BlueBWorks)",
+      "url": "https://bluebworks.com/articles/gemini-keep-activity-training-opt-out-2026/",
+      "type": "문서",
+      "description": "제미나이 앱 대화가 학습에 쓰이는지와 끄는 위치"
+    },
+    {
+      "name": "제미나이 4 카본 사용법과 한국 가격 (BlueBWorks)",
+      "url": "https://bluebworks.com/articles/gemini-4-carbon-ultra-korea-price-api-2026/",
+      "type": "문서",
+      "description": "울트라 전용 카본의 한국 가격과 API 도입가"
+    }
+  ]
+}
