@@ -1,0 +1,346 @@
+{
+  "slug": "nvm-install-ubuntu-wsl-node-version-2026",
+  "title": "nvm 설치 방법, 우분투와 WSL에서 Node 버전 변경",
+  "seoTitle": "nvm 설치 방법: 우분투, WSL에서 Node LTS 설치와 버전 변경 (nvm 0.41.0)",
+  "summary": "nvm 0.41.0을 우분투(WSL)에 설치하고 Node LTS 설치, .nvmrc로 폴더마다 버전 바꾸기, 기본 버전 지정까지 실제 명령과 결과로 정리합니다.",
+  "category": "오픈소스",
+  "announcedAt": "2026-11-04",
+  "publishedAt": "2026-11-13T15:40:00+09:00",
+  "verifiedAt": "2026-11-13T15:40:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "nvm 설치",
+    "nvm 사용법",
+    "Node 버전 변경",
+    "Node.js LTS",
+    "WSL",
+    "우분투",
+    "nvmrc",
+    "오픈소스"
+  ],
+  "keyPoints": [
+    "설치: 공식 스크립트 한 줄로 홈 폴더 .nvm에 들어가고 .bashrc에 불러오는 줄이 붙는다, 설치 37초",
+    "버전 변경: nvm install --lts로 최신 LTS(26.13.1)를 57초에 받고, 폴더마다 .nvmrc를 두면 nvm use 한 번으로 바뀐다",
+    "주의: 윈도우는 nvm-windows라는 별개 프로젝트를 써야 하고, WSL 1에서는 Node 24 실행 파일이 Exec format error로 안 떴다"
+  ],
+  "image": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-thumb.png",
+  "imageSourceUrl": "https://github.com/nvm-sh/nvm",
+  "imageAlt": "nvm 0.41.0 오픈소스, nvm 설치. 우분투와 WSL에서 Node 버전 바꾸는 법. LTS 한 줄 설치 57초, 폴더마다 .nvmrc로 다른 Node 버전. 오른쪽에 nvm install --lts 실행 결과 터미널 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "nvm install --lts 한 줄로 Node 26.13.1이 설치된 화면",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "nvm 설치 전에 알아 둘 것",
+      "paragraphs": [
+        "Node.js로 만든 프로젝트를 몇 개 받아 보면 금방 버전 문제를 만납니다. 어떤 저장소는 Node 20에서만 빌드되고, 새로 받은 도구는 최신 LTS를 요구합니다. 시스템에 Node를 하나만 깔아 두면 그때마다 지우고 다시 설치해야 하는데, 이 일을 명령 한 줄로 바꿔 주는 도구가 nvm(Node Version Manager)입니다.",
+        "nvm은 사용자 계정마다 설치하고 터미널 창마다 따로 쓰는 셸 스크립트입니다. 관리자 권한이 필요 없고, 받은 Node는 전부 홈 폴더 아래 .nvm 안에 버전별로 쌓입니다. 공식 README는 bash, zsh, dash, ksh 같은 POSIX 셸과 유닉스, macOS, 윈도우 WSL을 지원 환경으로 적고 있습니다. 11월 초에 0.41.0이 나왔고, 이번 주 GitHub 트렌딩에도 올라와 있습니다.",
+        "윈도우에서 바로 쓰는 사람이 가장 많이 헷갈리는 부분이 있습니다. 윈도우용으로 많이 알려진 nvm-windows는 이름만 비슷한 별개 프로젝트입니다. nvm README는 윈도우에서는 WSL, Git Bash, Cygwin에서 동작할 수 있고 그 밖에는 nvm-windows, nodist, nvs 같은 대안이 있지만 자기들이 만들거나 지원하지 않는다고 적어 두었습니다. nvm-windows README 첫머리에도 원래 nvm과는 완전히 다른 프로젝트라는 안내가 있습니다. 그래서 이 글의 명령은 우분투나 WSL의 리눅스 터미널, macOS 터미널 기준입니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ]
+    },
+    {
+      "title": "우분투, WSL에서 nvm 설치 명령",
+      "paragraphs": [
+        "설치는 공식 스크립트를 받아 bash로 돌리는 한 줄이면 됩니다. 0.41.0 기준 README에 있는 명령은 아래와 같고, curl이 없으면 wget 판을 쓰면 됩니다. 스크립트는 GitHub에서 nvm 저장소를 홈 폴더의 .nvm으로 받아 오고, 쓰고 있는 셸 설정 파일(bash라면 .bashrc) 끝에 nvm을 불러오는 세 줄을 붙입니다.",
+        "우분투 24.04(WSL)에서 원래 쓰던 Node 20을 건드리지 않으려고 빈 홈 폴더를 하나 만들어 그 안에 설치해 봤습니다. 저장소를 받고 정리하는 데 37초가 걸렸고, 끝에 .bashrc에 줄을 붙였다는 메시지와 지금 창에서 바로 쓰려면 실행하라는 두 줄이 나옵니다. 시스템에 이미 Node와 전역 npm 패키지가 있으면, 앞으로 nvm으로 깐 Node에는 그 패키지가 연결되지 않는다는 안내도 함께 뜹니다.",
+        "셸 설정 파일을 직접 관리하는 편이라면 PROFILE=/dev/null을 앞에 붙여 스크립트가 설정 파일을 고치지 못하게 할 수 있습니다. 설치 위치는 NVM_DIR로 바꿀 수 있는데, README는 경로 끝에 슬래시를 붙이지 말라고 적어 두었습니다."
+      ],
+      "code": {
+        "language": "bash",
+        "text": "# 공식 설치 스크립트 (nvm 0.41.0)\ncurl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash\n\n# curl이 없을 때\nwget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash\n\n# 셸 설정 파일을 건드리지 않고 설치\nPROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash'",
+        "caption": "PROFILE=/dev/null로 설치했다면 아래 불러오는 줄을 셸 설정 파일에 직접 넣어야 새 터미널에서 nvm이 잡힌다."
+      },
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-install.png",
+          "alt": "터미널 화면. curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh | bash 실행 결과로 Downloading nvm from git, Cloning, Appending nvm source string to .bashrc, Close and reopen your terminal 안내와 export NVM_DIR 줄, real 0m37.108s",
+          "caption": "설치 스크립트는 .nvm 폴더를 만들고 .bashrc 끝에 nvm을 불러오는 줄을 붙인다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/nvm-sh/nvm",
+          "width": 600,
+          "height": 386
+        }
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "nvm command not found가 나올 때",
+      "paragraphs": [
+        "설치가 끝났는데 바로 nvm을 치면 명령이 없다고 나오는 경우가 많습니다. 설치 스크립트가 고친 것은 .bashrc 파일이고, 지금 열려 있는 터미널은 그 파일을 이미 읽은 뒤라서 그렇습니다. 같은 창에서 command -v nvm을 쳐 보니 아무것도 나오지 않았습니다.",
+        "해결 방법은 두 가지입니다. 터미널을 닫았다가 새로 열거나, 설치 끝에 나온 export NVM_DIR 줄과 nvm.sh를 불러오는 줄을 지금 창에서 실행하면 됩니다. bash라면 source ~/.bashrc로 설정 파일을 다시 읽어도 됩니다. 불러온 뒤 command -v nvm을 다시 치니 nvm이 나왔고, nvm --version은 0.41.0이었습니다.",
+        "설치 확인에 which nvm을 쓰면 안 됩니다. nvm은 실행 파일이 아니라 셸에 올라가는 함수라서 which로는 찾을 수 없고, README도 command -v nvm으로 확인하라고 안내합니다. macOS에서는 기본 셸이 zsh인데 .zshrc 파일이 없으면 스크립트가 줄을 붙일 곳이 없으니, touch ~/.zshrc로 파일을 먼저 만들고 다시 설치하라는 안내가 README에 있습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-load.png",
+          "alt": "터미널 화면. command -v nvm 결과 없음, export NVM_DIR와 nvm.sh 불러오기 뒤 command -v nvm 결과 nvm, nvm --version 0.41.0, nvm ls-remote --lts 마지막 6줄에 v24.22.3 Latest LTS Krypton과 v26.13.1 Latest LTS Lithium",
+          "caption": "불러오기 전에는 command -v nvm이 비어 있고, nvm.sh를 읽은 뒤에야 nvm 명령이 잡힌다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/nvm-sh/nvm",
+          "width": 600,
+          "height": 364
+        }
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "Node LTS 설치와 설치된 버전 확인",
+      "paragraphs": [
+        "설치할 수 있는 버전은 nvm ls-remote로 봅니다. 그대로 치면 수백 줄이 나오니 --lts를 붙여 LTS만 보는 편이 편합니다. 13일 기준 목록 끝에는 Krypton 계열 v24.22.3과 Lithium 계열 v26.13.1이 각각 그 계열의 Latest LTS로 표시됐습니다.",
+        "가장 흔하게 쓰는 명령은 nvm install --lts입니다. 최신 LTS를 받아 체크섬을 맞춰 본 뒤 바로 그 버전으로 바꿔 주고, 처음 설치한 버전이면 default 별칭까지 만들어 줍니다. 실제로 돌려 보니 v26.13.1과 npm 11.20.0이 설치됐고 57초가 걸렸습니다. which node 결과도 시스템 Node가 아니라 .nvm/versions/node/v26.13.1/bin/node를 가리켰습니다.",
+        "특정 메이저 버전이 필요하면 nvm install 24처럼 숫자만 넣으면 그 계열의 최신판을 받습니다. 받은 버전 사이를 오갈 때는 nvm use 24, nvm use 26처럼 쓰고, 원래 시스템에 깔려 있던 Node로 돌아가려면 nvm use system을 치면 됩니다. 이렇게 바꾼 버전은 그 터미널 창에서만 유효하고, 새 창은 default 별칭이 가리키는 버전으로 시작합니다."
+      ],
+      "code": {
+        "language": "bash",
+        "text": "nvm ls-remote --lts | tail -6   # LTS 목록 끝부분\nnvm install --lts               # 최신 LTS 설치\nnvm install 24                  # 24 계열 최신판 설치\nnvm use 24                      # 이 창에서만 24로\nnvm use system                  # 원래 깔려 있던 Node로\nnvm ls                          # 설치된 버전과 별칭 보기",
+        "caption": "nvm use로 바꾼 버전은 지금 열린 터미널 창에만 적용된다."
+      },
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-lts.png",
+          "alt": "터미널 화면. time nvm install --lts 실행 결과 Installing latest LTS version, Downloading and installing node v26.13.1, Checksums matched, Now using node v26.13.1 (npm v11.20.0), Creating default alias default -> lts/*, real 0m57.066s, which node 결과 .nvm/versions/node/v26.13.1/bin/node",
+          "caption": "처음 설치한 버전은 default 별칭이 lts/*를 가리키도록 자동으로 잡힌다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/nvm-sh/nvm",
+          "width": 600,
+          "height": 342
+        }
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": ".nvmrc로 프로젝트마다 Node 버전 바꾸기",
+      "paragraphs": [
+        "프로젝트가 여러 개면 폴더마다 쓸 버전을 적어 두는 .nvmrc 파일이 편합니다. 파일 안에는 버전 하나만 적습니다. 24처럼 숫자를 써도 되고 lts/*라고 쓰면 최신 LTS를 뜻합니다. 그 폴더(또는 하위 폴더)에서 버전 없이 nvm use를 치면 nvm이 위쪽으로 올라가며 .nvmrc를 찾아 그 버전으로 바꿉니다. # 뒤에 주석을 달아도 nvm이 무시하고 버전만 읽습니다.",
+        "폴더 두 개를 만들어 하나에는 24, 하나에는 lts/*를 적고 각각 nvm use를 쳐 봤습니다. 두 폴더 모두 Found 줄과 함께 버전이 바뀌었습니다. 그런데 Node 24 폴더에서 node -v를 치자 cannot execute binary file: Exec format error가 나왔습니다. 같은 컴퓨터에서 Node 26과 시스템 Node 20은 정상으로 떴습니다.",
+        "이 오류는 nvm보다는 실행 환경 쪽 문제로 보입니다. 받은 파일은 체크섬이 맞았고 file 명령으로 봐도 정상적인 x86-64 리눅스 실행 파일이었는데, 이 환경이 리눅스 커널을 흉내 내는 WSL 1이었습니다. nvm README도 WSL 지원은 WSL 버전에 따라 다르다고 적고 있습니다. 비슷한 오류를 만나면 PowerShell에서 wsl -l -v로 배포판의 WSL 버전부터 보고, 1이라면 wsl --set-version Ubuntu 2로 WSL 2로 옮긴 뒤 다시 해 보는 것이 순서입니다. 마이크로소프트 문서 기준으로 wsl --install로 새로 깐 배포판은 처음부터 WSL 2입니다.",
+        "nvm use를 매번 치기 귀찮다면 README에 폴더에 들어갈 때 자동으로 nvm use를 해 주는 bash, zsh 함수 예시가 있습니다. 셸 설정 파일에 붙여 넣는 코드라, 프로젝트 폴더를 자주 오가는 사람에게 특히 편합니다."
+      ],
+      "code": {
+        "language": "bash",
+        "text": "cd ~/old-project && echo 24 > .nvmrc\nnvm use              # Found '.../old-project/.nvmrc' with version <24>\n\ncd ~/new-project && echo \"lts/*\" > .nvmrc\nnvm use              # 최신 LTS로 바뀜\n\n# 윈도우 PowerShell에서 WSL 버전 보기와 WSL 2로 옮기기\nwsl -l -v\nwsl --set-version Ubuntu 2",
+        "caption": ".nvmrc에 적은 버전이 설치돼 있지 않으면 nvm use 대신 nvm install로 먼저 받는다."
+      },
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-nvmrc.png",
+          "alt": "터미널 화면. old-project에서 echo 24 > .nvmrc 뒤 nvm use 결과 Now using node v24.22.3, node -v에서 cannot execute binary file: Exec format error, new-project에서 lts/* 적은 뒤 nvm use 결과 Now using node v26.13.1, nvm use system 결과 v20.18.1",
+          "caption": "폴더마다 .nvmrc 버전으로 바뀐다. WSL 1에서는 Node 24 실행 파일이 Exec format error로 떴다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/nvm-sh/nvm",
+          "width": 600,
+          "height": 299
+        }
+      ],
+      "sourceRefs": [
+        1,
+        4
+      ]
+    },
+    {
+      "title": "nvm 0.41.0에서 달라진 기본 버전 지정",
+      "paragraphs": [
+        "새 터미널이 어떤 Node로 시작할지는 default 별칭이 정합니다. 0.41.0에서는 이 별칭에 --lts를 함께 저장할 수 있게 됐습니다. nvm alias default --lts node라고 치면 설치된 버전 가운데 가장 최신 LTS를 기본으로 쓰겠다는 뜻이 되고, 실행 결과도 default -> --lts node (-> v26.13.1 *)로 나왔습니다. 나중에 새 LTS를 받아도 별칭을 다시 고칠 필요가 없습니다.",
+        "버전을 alpha, lts, non-lts, iojs 네 갈래로 나누는 기능도 들어왔습니다. 기본값은 알파 버전을 빼고 고르기 때문에 nvm install node나 nvm ls-remote가 알파 판을 집어 오지 않습니다. 알파까지 보고 싶으면 --only=alpha처럼 범위를 직접 넣으면 됩니다. WSL 사용자에게는 설치 스크립트가 WSL 안에서 윈도우 쪽 npm을 실행하지 않도록 고친 점, 터미널 안에서 셸을 겹쳐 열 때 nvm use가 PATH에 같은 경로를 계속 쌓던 문제를 고친 점도 반갑습니다.",
+        "설정을 마치고 새 터미널을 열어 확인해 보면 됩니다. 새 창에서 command -v nvm은 nvm을, node -v는 v26.13.1을 돌려줬습니다. .bashrc에 붙은 세 줄이 제대로 읽혔다는 뜻입니다. 이미 예전 nvm을 쓰고 있었다면 같은 설치 명령을 다시 실행하는 것이 README에 나온 업데이트 방법입니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-alias.png",
+          "alt": "터미널 화면. nvm alias default --lts node 결과 default -> --lts node (-> v26.13.1 *), nvm ls 결과 v24.22.3, v26.13.1, system v20.18.1, default와 node, lts/* 별칭, 새 터미널에서 command -v nvm 결과 nvm과 node -v 결과 v26.13.1",
+          "caption": "default 별칭에 --lts를 저장하면 설치된 버전 중 최신 LTS가 기본이 된다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/nvm-sh/nvm/releases/tag/v0.41.0",
+          "width": 600,
+          "height": 386
+        }
+      ],
+      "sourceRefs": [
+        2,
+        1
+      ]
+    },
+    {
+      "title": "nvm-windows, fnm, Volta와 차이",
+      "paragraphs": [
+        "Node 버전 관리 도구는 nvm 말고도 여럿 있습니다. 윈도우에서 WSL 없이 쓰려면 nvm-windows를 많이 고르는데, 설치 프로그램으로 깔고 관리자 권한 PowerShell이나 명령 프롬프트에서 써야 합니다. README는 기존 Node 설치를 먼저 지우라고 권하고, 지우지 않으면 nvm use를 해도 node -v가 계속 원래 버전을 보여 줄 수 있다고 적고 있습니다.",
+        "fnm은 Rust로 만든 실행 파일 하나짜리 관리 도구로, macOS, 윈도우, 리눅스를 모두 지원하고 .nvmrc와 .node-version 파일을 그대로 읽습니다. 윈도우에서는 winget install Schniz.fnm으로 깔 수 있어서, nvm으로 관리하던 프로젝트를 윈도우와 리눅스에서 같이 다룰 때 고려해 볼 만합니다.",
+        "Volta는 프로젝트마다 도구 버전을 고정하는 방식으로 인기를 얻었지만, 저장소 README 맨 위에 더 이상 유지 관리하지 않는다는 공지가 붙었습니다. 지금 되는 기능은 당분간 계속 쓸 수 있어도 새 OS나 생태계 변화로 생기는 문제는 고치지 않는다고 하고, 옮겨 갈 곳으로 mise를 추천합니다. 새로 고른다면 리눅스와 macOS는 nvm, 윈도우만 쓴다면 nvm-windows나 fnm 쪽이 무난합니다."
+      ],
+      "table": {
+        "headers": [
+          "도구",
+          "지원 환경",
+          "알아 둘 점"
+        ],
+        "rows": [
+          [
+            "nvm",
+            "리눅스, macOS, WSL",
+            "셸 함수라 창마다 따로 동작, .nvmrc 사용"
+          ],
+          [
+            "nvm-windows",
+            "윈도우",
+            "관리자 셸 필요, nvm과 별개 프로젝트"
+          ],
+          [
+            "fnm",
+            "리눅스, macOS, 윈도우",
+            "Rust 실행 파일 하나, .nvmrc와 .node-version 읽음"
+          ],
+          [
+            "Volta",
+            "리눅스, macOS, 윈도우",
+            "유지 관리 중단, mise로 이전 권장"
+          ]
+        ],
+        "caption": "각 도구 공식 README 기준."
+      },
+      "sourceRefs": [
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "title": "전역 npm 패키지 옮기기와 nvm 지우는 법",
+      "paragraphs": [
+        "nvm으로 받은 Node는 버전마다 전역 npm 패키지를 따로 가집니다. 그래서 새 버전으로 옮기면 예전에 npm install -g로 깐 도구가 안 보이는 일이 생깁니다. 새 LTS를 받으면서 지금 쓰는 버전의 전역 패키지를 그대로 옮기려면 --reinstall-packages-from=current를 붙이면 됩니다. 설치 직후 시스템 Node의 전역 패키지가 연결되지 않는다는 안내가 나왔던 것도 같은 이유입니다.",
+        "nvm을 지우는 방법도 간단합니다. nvm unload로 지금 창에서 nvm을 내린 뒤 .nvm 폴더를 지우고, .bashrc에 붙었던 NVM_DIR 세 줄을 지우면 끝입니다. 폴더를 지우면 nvm으로 받은 Node 버전도 모두 함께 사라지고, 원래 시스템에 깔려 있던 Node는 그대로 남습니다."
+      ],
+      "code": {
+        "language": "bash",
+        "text": "# 최신 LTS를 받으면서 지금 버전의 전역 패키지 옮기기\nnvm install --reinstall-packages-from=current 'lts/*'\n\n# nvm 지우기 (README 수동 제거 방법)\nnvm_dir=\"${NVM_DIR:-~/.nvm}\"\nnvm unload\nrm -rf \"$nvm_dir\"\n# 그다음 ~/.bashrc에서 NVM_DIR 관련 세 줄 삭제",
+        "caption": "rm -rf 전에 nvm_dir 값이 .nvm 폴더를 가리키는지 echo로 한 번 확인한다."
+      },
+      "sourceRefs": [
+        1
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "GitHub: nvm-sh/nvm",
+      "url": "https://github.com/nvm-sh/nvm",
+      "description": "설치 명령, 설치 확인, .nvmrc, LTS 별칭, 버전 분류, 제거 방법이 있는 공식 저장소 README"
+    },
+    {
+      "name": "nvm v0.41.0 릴리스",
+      "url": "https://github.com/nvm-sh/nvm/releases/tag/v0.41.0",
+      "description": "--lts 별칭 저장, alpha와 lts 분류, WSL 설치 스크립트 수정 등 0.41.0 변경 내용"
+    },
+    {
+      "name": "GitHub: coreybutler/nvm-windows",
+      "url": "https://github.com/coreybutler/nvm-windows",
+      "description": "원래 nvm과 별개라는 안내, 관리자 셸과 기존 Node 제거 권장"
+    },
+    {
+      "name": "Microsoft Learn: WSL 설치",
+      "url": "https://learn.microsoft.com/en-us/windows/wsl/install",
+      "description": "wsl -l -v, wsl --set-version 명령과 새 배포판 기본값 WSL 2 안내"
+    },
+    {
+      "name": "GitHub: Schniz/fnm",
+      "url": "https://github.com/Schniz/fnm",
+      "description": "지원 운영체제, .nvmrc와 .node-version 지원, winget 설치"
+    },
+    {
+      "name": "GitHub: volta-cli/volta",
+      "url": "https://github.com/volta-cli/volta",
+      "description": "유지 관리 중단 공지와 mise 이전 권장"
+    }
+  ],
+  "resources": [
+    {
+      "name": "nvm 저장소",
+      "url": "https://github.com/nvm-sh/nvm",
+      "type": "저장소",
+      "description": "README와 이슈"
+    },
+    {
+      "name": "nvm 0.41.0 설치 스크립트",
+      "url": "https://raw.githubusercontent.com/nvm-sh/nvm/v0.41.0/install.sh",
+      "type": "스크립트",
+      "description": "curl이나 wget으로 받아 bash로 실행"
+    },
+    {
+      "name": "Node.js 릴리스 일정",
+      "url": "https://github.com/nodejs/Release#release-schedule",
+      "type": "문서",
+      "description": "LTS 계열 이름과 지원 기간"
+    }
+  ],
+  "discovery": {
+    "xStatus": "unavailable",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-13T15:40:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://github.com/nvm-sh/nvm",
+        "assetUrl": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with own terminal output",
+        "reason": "글 내용을 보여 주는 설치 결과 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/nvm-sh/nvm",
+        "assetUrl": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-install.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "설치 스크립트 실행 결과를 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/nvm-sh/nvm",
+        "assetUrl": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-load.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "명령을 불러오기 전후와 LTS 목록을 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/nvm-sh/nvm",
+        "assetUrl": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-lts.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "LTS 설치 결과를 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/nvm-sh/nvm",
+        "assetUrl": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-nvmrc.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "폴더별 버전 변경과 오류를 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/nvm-sh/nvm/releases/tag/v0.41.0",
+        "assetUrl": "https://bluebworks.com/assets/editorial/nvm-install-ubuntu-wsl-node-version-2026-alias.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "기본 버전 별칭과 새 터미널 결과를 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://www.youtube.com/results?search_query=nvm-sh+0.41.0",
+        "assetUrl": null,
+        "decision": "excluded",
+        "rightsBasis": "Not found",
+        "reason": "이 버전을 다룬 공식 영상과 공식 X 게시물이 없어 실행 화면으로 대체."
+      }
+    ]
+  }
+}

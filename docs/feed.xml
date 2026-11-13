@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 13 Nov 2026 00:33:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 06:40:00 GMT</lastBuildDate>
+    <item>
+      <title>nvm 설치 방법, 우분투와 WSL에서 Node 버전 변경</title>
+      <link>https://bluebworks.com/articles/nvm-install-ubuntu-wsl-node-version-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/nvm-install-ubuntu-wsl-node-version-2026/</guid>
+      <pubDate>Fri, 13 Nov 2026 06:40:00 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>nvm 0.41.0을 우분투(WSL)에 설치하고 Node LTS 설치, .nvmrc로 폴더마다 버전 바꾸기, 기본 버전 지정까지 실제 명령과 결과로 정리합니다.</description>
+    </item>
     <item>
       <title>제미나이 4 하이드로젠 무료 사용법, AI 스튜디오에서 고르기</title>
       <link>https://bluebworks.com/articles/gemini-4-hydrogen-free-ai-studio-2026/</link>
