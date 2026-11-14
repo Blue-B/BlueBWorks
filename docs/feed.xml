@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Sat, 14 Nov 2026 06:40:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 12:42:00 GMT</lastBuildDate>
+    <item>
+      <title>llama.cpp 설치 방법, 윈도우 CPU로 1.0 웹 채팅 띄우기</title>
+      <link>https://bluebworks.com/articles/llama-cpp-install-windows-cpu-web-ui-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/llama-cpp-install-windows-cpu-web-ui-2026/</guid>
+      <pubDate>Sat, 14 Nov 2026 12:42:00 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>llama.cpp 1.0이 나온 김에 윈도우용 CPU 빌드를 받아 0.8B GGUF 모델을 올리고 웹 채팅 화면과 API까지 띄웠습니다. 압축 파일은 25MB, 그래픽카드 없이 초당 3.6~3.8토큰이 나왔습니다.</description>
+    </item>
     <item>
       <title>MuJoCo 설치 방법, 4.0 웹 뷰어로 물리 시뮬레이션 띄우기</title>
       <link>https://bluebworks.com/articles/mujoco-4-install-web-viewer-2026/</link>
