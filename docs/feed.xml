@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Sun, 15 Nov 2026 06:42:23 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 12:49:15 GMT</lastBuildDate>
+    <item>
+      <title>한국어 토큰 계산, 같은 문장 영어보다 몇 배 드나</title>
+      <link>https://bluebworks.com/articles/korean-token-count-vs-english-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/korean-token-count-vs-english-2026/</guid>
+      <pubDate>Sun, 15 Nov 2026 12:49:15 GMT</pubDate>
+      <category>트렌드</category>
+      <description>같은 뜻의 한국어 문장은 최신 토크나이저에서 영어보다 토큰이 1.2~1.5배 붙었습니다. 미시간대 연구 자료에서 한국어 응답 에너지는 영어의 약 3.05배였습니다.</description>
+    </item>
     <item>
       <title>크롬 MCP 설치, Chrome DevTools MCP로 속도 측정</title>
       <link>https://bluebworks.com/articles/chrome-devtools-mcp-install-performance-2026/</link>
