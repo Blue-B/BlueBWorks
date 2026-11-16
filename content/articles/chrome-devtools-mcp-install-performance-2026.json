@@ -1,7 +1,7 @@
 {
   "slug": "chrome-devtools-mcp-install-performance-2026",
   "title": "크롬 MCP 설치, Chrome DevTools MCP로 속도 측정",
-  "seoTitle": "Chrome DevTools MCP 설치 방법: 클로드 코드, 코덱스 연결과 성능 측정 (1.13.0)",
+  "seoTitle": "Chrome DevTools MCP 설치 방법과 성능 측정 (1.13.0)",
   "summary": "Chrome DevTools MCP 1.13.0을 윈도우에 설치해 사이트 속도와 접근성을 재 봤습니다. 크롬이 없어도 테스트용 크롬으로 됩니다.",
   "category": "오픈소스",
   "announcedAt": "2026-11-11",

@@ -13,7 +13,7 @@ export function journalHeader({ config, base, active }) {
     <div class="journal-masthead">
       <a class="journal-brand" href="${pageHref(base, '/')}" aria-label="${esc(config.siteName)} 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
       <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴">${links.map(([p, label, key]) => `<a href="${pageHref(base, p)}"${active === key ? ' aria-current="page"' : ''}>${label}</a>`).join('')}<a href="${esc(config.repoUrl)}" target="_blank" rel="noopener noreferrer">GitHub ${arrow}</a></nav>
-      <div class="journal-tools"><a class="header-search" href="${pageHref(base, 'articles/')}#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+      <div class="journal-tools"><a class="header-search" aria-label="검색" href="${pageHref(base, 'articles/')}#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" aria-label="메뉴 열기" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
     </div>
   </header>`;
 }
