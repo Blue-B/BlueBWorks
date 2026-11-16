@@ -452,7 +452,7 @@
       <guid isPermaLink="true">https://bluebworks.com/articles/nvidia-motionbricks-soma-2026/</guid>
       <pubDate>Fri, 30 Oct 2026 06:05:38 GMT</pubDate>
       <category>오픈소스</category>
-      <description>NVIDIA MotionBricks v0.2.0은 SOMA 사람 동작 모델과 Python 데모를 제공합니다. 목표 포즈를 연결하는 방식, NVIDIA GPU 요구사항과 언리얼 통합 범위, 코드와 모델의 라이선스 차이를 정리했습니다.</description>
+      <description>모션브릭스(MotionBricks)는 캐릭터 동작 사이 움직임을 만들어 주는 엔비디아의 연구 모델입니다. v0.2.0의 SOMA 사람 동작 모델과 Python 데모, NVIDIA GPU 요구사항과 언리얼 통합 범위, 코드와 모델의 라이선스 차이를 정리했습니다.</description>
     </item>
     <item>
       <title>코파일럿 퓨전 출시: 무료 플랜 범위와 30% 할인 요금</title>
