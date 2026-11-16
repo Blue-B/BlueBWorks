@@ -10,7 +10,15 @@
   "status": "published",
   "reviewStatus": "reviewed",
   "editorialVersion": 2,
-  "tags": ["구글 AI 모드", "구글 ai모드 끄기", "AI 모드 사용법", "AI 모드 기록 삭제", "구글 웹 필터", "AI 개요", "제미나이 4 하이드로젠"],
+  "tags": [
+    "구글 AI 모드",
+    "구글 ai모드 끄기",
+    "AI 모드 사용법",
+    "AI 모드 기록 삭제",
+    "구글 웹 필터",
+    "AI 개요",
+    "제미나이 4 하이드로젠"
+  ],
   "keyPoints": [
     "AI 모드는 google.com/ai나 검색 결과 위 AI 모드 탭으로 들어간다. 11월 12일(미국 시간) 구글은 검색 AI 답변 모델을 제미나이 4 하이드로젠으로 바꿨다고 발표했다",
     "AI 개요와 AI 모드를 끄는 스위치는 없다. 검색한 뒤 웹 탭을 누르거나 주소 끝에 udm=14를 붙이면 AI 답 없이 링크만 나온다",
@@ -100,7 +108,10 @@
           "height": 560
         }
       ],
-      "sourceRefs": [1, 2]
+      "sourceRefs": [
+        1,
+        2
+      ]
     },
     {
       "title": "표로 정리해 달라고 하면 표로 답한다",
@@ -121,7 +132,10 @@
           "height": 575
         }
       ],
-      "sourceRefs": [1, 2]
+      "sourceRefs": [
+        1,
+        2
+      ]
     },
     {
       "title": "구글 AI 모드 끄는 법, 스위치 대신 웹 필터",
@@ -140,7 +154,9 @@
           "height": 500
         }
       ],
-      "sourceRefs": [3]
+      "sourceRefs": [
+        3
+      ]
     },
     {
       "title": "매번 웹 탭으로 여는 주소와 Labs 설정",
@@ -164,7 +180,9 @@
         "text": "https://www.google.com/search?q=%s&udm=14",
         "caption": "브라우저 검색 엔진 주소 칸에 넣는 값. %s 자리에 검색어가 들어간다."
       },
-      "sourceRefs": [3]
+      "sourceRefs": [
+        3
+      ]
     },
     {
       "title": "AI 모드 기록 남기기와 삭제",
@@ -186,7 +204,9 @@
           "height": 600
         }
       ],
-      "sourceRefs": [2]
+      "sourceRefs": [
+        2
+      ]
     },
     {
       "title": "구글 AI 모드와 제미나이 차이, 유료 요금제에서 달라지는 것",
@@ -196,34 +216,69 @@
         "구글은 검색의 생성형 AI 기능을 만들고 개선하는 데 사용자가 검색한 내용과 보낸 의견 같은 상호작용을 활용한다고 밝히고 있습니다. 주민등록번호나 계좌번호처럼 남에게 보여 주면 안 되는 정보는 AI 모드 질문에 넣지 않는 편이 낫습니다.",
         "몇 번 써 보면 AI 모드가 편한 질문과 아닌 질문이 갈립니다. 여러 조건을 한 번에 비교하거나 설정 순서를 정리할 때는 검색 몇 번을 줄여 줍니다. 반대로 신청 마감일이나 공지 날짜처럼 원문 한 줄이 중요한 것은 웹 탭에서 공식 사이트를 바로 여는 편이 빠릅니다. 답이 다 나오길 30초 가까이 기다리는 사이 링크 하나를 눌러 보는 게 더 나을 때도 있습니다."
       ],
-      "table": {
-        "headers": ["하고 싶은 것", "가는 곳", "알아둘 점"],
-        "rows": [
-          ["AI 모드 열기", "google.com/ai, 검색 결과 위 AI 모드 탭", "휴대폰은 구글 앱 홈 화면에도 버튼"],
-          ["AI 답 없이 링크만 보기", "검색 뒤 웹 탭(없으면 더보기)", "주소 끝 udm=14와 같은 결과"],
-          ["지난 대화 이어 묻기", "AI 모드 왼쪽 위 기록", "검색 기록과 맞춤 추천 설정 필요"],
-          ["기록 지우기", "AI 모드 기록에서 삭제, 모두 삭제", "내 활동에는 24시간 안쪽으로 남을 수 있음"],
-          ["아르곤 모델 고르기", "입력창 더하기 메뉴", "만 18세 이상 AI Pro, Ultra, 하루 한도"]
-        ],
-        "caption": "구글 고객센터 AI 모드, AI 개요 도움말 기준."
-      },
       "links": [
-        {"label": "제미나이 4 하이드로젠 무료 사용법, AI 스튜디오에서 고르기", "url": "https://bluebworks.com/articles/gemini-4-hydrogen-free-ai-studio-2026/"}
+        {
+          "label": "제미나이 4 하이드로젠 무료 사용법, AI 스튜디오에서 고르기",
+          "url": "https://bluebworks.com/articles/gemini-4-hydrogen-free-ai-studio-2026/"
+        }
       ],
-      "sourceRefs": [2, 4]
+      "sourceRefs": [
+        2,
+        4
+      ]
     }
   ],
   "sources": [
-    {"name": "Google Blog: Google Search gets a major upgrade with Gemini 4 Hydrogen", "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade", "description": "검색에 제미나이 4 하이드로젠 적용, 모든 사용자와 AI 모드 지원 언어, 달라진 답 형식"},
-    {"name": "Google 검색 고객센터: Google 검색의 AI 모드로 AI 기반 대답 받기", "url": "https://support.google.com/websearch/answer/16011537?hl=ko", "description": "AI 모드 들어가는 방법, 기록 설정, 기록 삭제, 아르곤 사용 조건, 개인 인텔리전스"},
-    {"name": "Google 검색 고객센터: Google 검색 결과의 AI 개요", "url": "https://support.google.com/websearch/answer/14901683?hl=ko", "description": "AI 개요는 끌 수 없고 웹 필터로 링크만 보기, Labs 설정"},
-    {"name": "Google Blog: Introducing Gemini 4 Hydrogen", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen", "description": "하이드로젠이 들어간 서비스 목록과 API 가격"},
-    {"name": "Google AI 모드", "url": "https://www.google.com/ai", "description": "AI 모드 시작 화면"}
+    {
+      "name": "Google Blog: Google Search gets a major upgrade with Gemini 4 Hydrogen",
+      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade",
+      "description": "검색에 제미나이 4 하이드로젠 적용, 모든 사용자와 AI 모드 지원 언어, 달라진 답 형식"
+    },
+    {
+      "name": "Google 검색 고객센터: Google 검색의 AI 모드로 AI 기반 대답 받기",
+      "url": "https://support.google.com/websearch/answer/16011537?hl=ko",
+      "description": "AI 모드 들어가는 방법, 기록 설정, 기록 삭제, 아르곤 사용 조건, 개인 인텔리전스"
+    },
+    {
+      "name": "Google 검색 고객센터: Google 검색 결과의 AI 개요",
+      "url": "https://support.google.com/websearch/answer/14901683?hl=ko",
+      "description": "AI 개요는 끌 수 없고 웹 필터로 링크만 보기, Labs 설정"
+    },
+    {
+      "name": "Google Blog: Introducing Gemini 4 Hydrogen",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen",
+      "description": "하이드로젠이 들어간 서비스 목록과 API 가격"
+    },
+    {
+      "name": "Google AI 모드",
+      "url": "https://www.google.com/ai",
+      "description": "AI 모드 시작 화면"
+    }
   ],
   "resources": [
-    {"name": "구글 AI 모드", "url": "https://www.google.com/ai", "type": "서비스", "description": "주소로 바로 여는 AI 모드"},
-    {"name": "AI 모드 도움말", "url": "https://support.google.com/websearch/answer/16011537?hl=ko", "type": "문서", "description": "기록 삭제와 사용 조건"},
-    {"name": "AI 개요 도움말", "url": "https://support.google.com/websearch/answer/14901683?hl=ko", "type": "문서", "description": "웹 필터와 Labs 설정"},
-    {"name": "검색 하이드로젠 업그레이드 발표", "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade", "type": "발표", "description": "검색 답변 모델 변경 내용"}
+    {
+      "name": "구글 AI 모드",
+      "url": "https://www.google.com/ai",
+      "type": "서비스",
+      "description": "주소로 바로 여는 AI 모드"
+    },
+    {
+      "name": "AI 모드 도움말",
+      "url": "https://support.google.com/websearch/answer/16011537?hl=ko",
+      "type": "문서",
+      "description": "기록 삭제와 사용 조건"
+    },
+    {
+      "name": "AI 개요 도움말",
+      "url": "https://support.google.com/websearch/answer/14901683?hl=ko",
+      "type": "문서",
+      "description": "웹 필터와 Labs 설정"
+    },
+    {
+      "name": "검색 하이드로젠 업그레이드 발표",
+      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade",
+      "type": "발표",
+      "description": "검색 답변 모델 변경 내용"
+    }
   ]
 }
