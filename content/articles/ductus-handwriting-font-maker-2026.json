@@ -1,0 +1,239 @@
+{
+  "slug": "ductus-handwriting-font-maker-2026",
+  "title": "손글씨 폰트 만들기 무료, Ductus 사용법과 한글 지원",
+  "seoTitle": "손글씨 폰트 만들기 무료 사이트 Ductus 사용법: 내 손글씨 OTF 다운로드, 한글 되는지",
+  "summary": "브라우저에서 글자를 하나씩 그리면 OTF 폰트로 받는 Ductus를 써 봤습니다. 영문 소문자 26자로 폰트가 나왔고, 한글은 기본 글꼴로 나옵니다.",
+  "category": "트렌드",
+  "announcedAt": "2026-11-16",
+  "publishedAt": "2026-11-16T21:49:00+09:00",
+  "verifiedAt": "2026-11-16T21:49:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "손글씨 폰트 만들기",
+    "Ductus",
+    "내 손글씨 폰트",
+    "무료 폰트 만들기",
+    "OTF",
+    "WOFF2",
+    "웹폰트",
+    "트렌드"
+  ],
+  "keyPoints": [
+    "사용법: ductus.sorenblank.com에서 가입 없이 글자를 한 칸씩 그리고 Next를 누르면 되고, Export에서 OTF와 WOFF2 파일을 바로 받는다",
+    "결과: 영문 소문자 26자만 그렸는데도 26KB짜리 OTF가 나왔고, 웹페이지에 넣으니 영문 문장이 그린 글씨 그대로 찍혔다",
+    "한계: 그릴 수 있는 글자는 영문 대소문자, 숫자, 기호 94자뿐이라 한글을 치면 기본 글꼴로 바뀌어 나온다"
+  ],
+  "image": "https://bluebworks.com/assets/editorial/ductus-handwriting-font-maker-2026-thumb.png",
+  "imageSourceUrl": "https://ductus.sorenblank.com/",
+  "imageAlt": "손글씨 폰트 만들기. 왼쪽에 큰 제목, 오른쪽에 Ductus 화면에서 영문 소문자를 그려 jazz lazy puzzle 단어가 노란 손글씨로 바뀐 모습",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "Ductus에서 소문자 26자를 다 그린 화면",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "Ductus, 브라우저에서 만드는 손글씨 폰트",
+      "paragraphs": [
+        "손글씨 폰트를 만든다고 하면 보통 정해진 종이에 글씨를 써서 스캔하는 과정부터 떠올립니다. 이번 주 해외 개발자 커뮤니티에서 많이 돈 Ductus는 이 과정을 브라우저 한 화면으로 줄였습니다. 글자 하나를 마우스나 트랙패드, 펜으로 그리고 다음 글자로 넘어가는 식으로 채우면, 그린 글씨가 바로 OTF와 WOFF2 폰트 파일로 나옵니다.",
+        "만든 사람은 디자인 엔지니어 Soren(sorenblank)입니다. 한국 시간 11월 16일 새벽에 X에 처음 소개 글을 올렸는데, 하루가 지나기 전에 북마크가 500개를 넘었고 해커뉴스에서도 300점 넘게 받으며 첫 화면에 올랐습니다. 본인은 소개 글에서 아직 아주 기본적인 상태이고 기능과 글자를 더 넣겠다고 적었습니다.",
+        "가입이나 결제 화면은 없습니다. 주소를 열면 첫 글자 a를 그리라는 안내가 바로 뜹니다. 화면 위쪽에는 Your letters stay on this computer라는 문구가 있고, 글자를 하나 그리면 Saved on this computer로 바뀝니다. 그린 글자가 지금 쓰는 브라우저에 저장된다는 뜻이라, 다른 컴퓨터에서 이어 하려면 중간에 받은 OTF 파일을 Open font 버튼으로 다시 열어야 합니다."
+      ],
+      "embeds": [
+        {
+          "type": "x",
+          "url": "https://x.com/sorenblank/status/2122046561693933931",
+          "author": "Soren",
+          "handle": "sorenblank",
+          "postedAt": "2026-11-15T19:18:20Z",
+          "dateLabel": "2026년 11월 15일 UTC",
+          "text": "Introducing Ductus!\n\nYour handwriting, as a font. Write each letter in your browser and download it as OTF and WOFF2.\n\nP.S: I genuinely enjoyed making it. ik its very basic rn but i'll add more features and letters soon. Feel free to request features.",
+          "caption": "만든 사람이 X에 올린 Ductus 소개 글."
+        }
+      ],
+      "sourceRefs": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "title": "손글씨 폰트 만드는 법, 글자를 한 칸씩 그리기",
+      "paragraphs": [
+        "화면 가운데 가로줄이 여러 개 그어진 띠가 그리는 칸입니다. 위에서부터 대문자 높이, 소문자 높이, 바닥선, 아래로 내려가는 글자(g, p, y) 자리를 뜻하는 줄이라, a나 o처럼 작은 글자는 가운데 두 줄 사이에, b나 h처럼 위로 솟는 글자는 맨 위 줄까지 그리면 됩니다. 칸 안에 글씨를 쓰고 오른쪽 아래 Next를 누르면 다음 글자로 넘어가고, 잘못 그렸으면 Undo로 마지막 획만 지우거나 Clear로 그 글자를 처음부터 다시 그립니다.",
+        "그릴 글자는 네 묶음입니다. 소문자 26자, 대문자 26자, 숫자 10자, 그리고 마침표, 쉼표, 물음표, 괄호, @, # 같은 기호 32자로 모두 94자입니다. 오른쪽 위 Lowercase 1 of 26 버튼을 누르면 전체 글자 목록이 열리고, 원하는 글자로 바로 건너뛸 수 있습니다.",
+        "재미있는 부분은 화면 위쪽 미리보기입니다. a를 그리면 nan oao, about above after 같은 단어 속 a만 내 글씨로 바뀌고, 글자를 하나 더할 때마다 단어가 조금씩 내 손글씨로 채워집니다. 소문자를 끝까지 그리면 jazz lazy puzzle처럼 그 글자가 들어간 단어가 통째로 내 글씨로 나옵니다. 다 그리기 전에 결과가 어떤 느낌인지 바로 볼 수 있어서 중간에 그만둘지 계속할지 고르기 쉽습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/ductus-handwriting-font-maker-2026-write.webp",
+          "alt": "휴대폰 폭으로 연 Ductus 화면. 위에 노란 손글씨로 nzn ozo jazz lazy puzzle, 아래 줄 그어진 칸에 z를 그린 모습과 Back, Undo, Clear, Next 버튼",
+          "caption": "소문자를 다 그리면 위쪽 단어가 전부 내 글씨로 바뀐다. 아래 칸이 그리는 자리.",
+          "credit": "Ductus",
+          "sourceUrl": "https://ductus.sorenblank.com/",
+          "width": 400,
+          "height": 820
+        }
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "소문자 26자만 그려서 OTF 받아 본 결과",
+      "paragraphs": [
+        "94자를 다 그려야 파일을 주는지 궁금해서, 소문자 26자만 단순한 획으로 그리고 멈춰 봤습니다. 오른쪽 위 Export를 누르면 내보내기 창이 뜨는데, 처음 몇 초는 다운로드 버튼이 흐리게 잠겨 있다가 폰트를 만들고 나면 Download OTF 26KB, Download WOFF2 7KB로 바뀌었습니다. 대문자와 숫자가 비어 있어도 파일은 나옵니다.",
+        "받은 파일 이름은 MyHand-Regular.otf였습니다. 폰트 이름은 내보내기 창의 Font name 칸에서 정하는데, 기본값이 My Hand라 그대로 두면 이 이름으로 폰트 목록에 들어갑니다. 파일 안을 열어 보니 실제로 담긴 글자는 영문 소문자 26자와 띄어쓰기뿐이었습니다. 그리지 않은 대문자나 숫자를 이 폰트로 쓰면 컴퓨터가 다른 폰트에서 그 글자를 빌려 옵니다.",
+        "OTF는 컴퓨터에 설치하는 용도입니다. 내보내기 창 아래에 적힌 대로 파일을 더블클릭해 설치를 누르면 워드나 한글, 포토샵 글꼴 목록에서 고를 수 있습니다. WOFF2는 웹사이트용이라 크기가 훨씬 작고, 블로그나 개인 홈페이지의 CSS에 @font-face로 불러 쓰면 됩니다.",
+        "Export 창에는 Save picture 버튼도 있습니다. 위 칸에 적은 문장을 내 글씨로 쓴 이미지로 저장해 주는 기능이라, 폰트를 설치하지 않고 카드 문구나 SNS 이미지 한 장만 만들 때는 이쪽이 더 빠릅니다. 왼쪽 미리보기 그림을 누르면 이미지 색과 종이 느낌도 바꿀 수 있습니다.",
+        "Export 옆 Adjust 버튼에는 다듬는 기능이 두 가지 있습니다. 글자를 하나 골라 위아래로 끌어 높이를 맞추거나 Size 막대로 크기를 줄이고 키울 수 있고, Line up letters for me 스위치를 켜 두면 글자마다 들쭉날쭉한 바닥선과 크기를 알아서 고르게 맞춰 줍니다. 처음에는 켜져 있고, 끄면 그린 모양 그대로 들어갑니다. 마음에 안 드는 글자는 여기서 Redraw를 눌러 그 글자만 다시 그리면 됩니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/ductus-handwriting-font-maker-2026-export.webp",
+          "alt": "Ductus 내보내기 창. Try your font 칸에 hello 안녕하세요 2026을 적었고 hello만 노란 손글씨, 한글과 숫자는 흰 기본 글꼴. 아래에 Save picture 버튼과 Font name My Hand, Download OTF 26KB, Download WOFF2 7KB",
+          "caption": "노란색 hello만 내가 그린 글씨이고, 한글과 숫자는 흰색 기본 글꼴로 나온다.",
+          "credit": "Ductus",
+          "sourceUrl": "https://ductus.sorenblank.com/",
+          "width": 400,
+          "height": 580
+        }
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "받은 손글씨 폰트를 웹페이지에 넣어 보기",
+      "paragraphs": [
+        "받은 OTF를 간단한 웹페이지에 @font-face로 넣고 문장을 몇 줄 적어 봤습니다. thank you, happy birthday mom 같은 영문은 그린 글씨 그대로 나왔고, 글자 사이 간격이나 높이도 미리보기와 거의 같았습니다. 같은 페이지에 엄마 생일 축하해 11 16을 적으니 한글과 숫자는 그 아래 지정해 둔 기본 글꼴로 넘어갔습니다.",
+        "그래서 지금 상태로 쓸 만한 곳은 영문이 들어가는 자리입니다. 다이어리나 굿즈에 넣는 영문 이름, 카드 맨 아래 영문 서명, 개인 블로그 제목의 영문 로고 정도가 딱 맞습니다. 해커뉴스 댓글에는 아이가 크면서 글씨가 바뀌기 전에 지금 손글씨를 폰트로 남겨 두려고 쓴다는 사람도 있었는데, 이것도 영문 알파벳을 쓰는 집이라 가능한 얘기입니다.",
+        "웹에 쓸 때는 WOFF2 파일을 사이트에 올리고 @font-face에서 이름을 하나 정한 뒤, 글씨를 바꾸고 싶은 곳의 font-family에 그 이름을 먼저 적고 쉼표 뒤에 한글 글꼴을 이어 적어 두면 됩니다. 이렇게 해 두면 영문은 손글씨로, 한글은 뒤에 적은 글꼴로 나뉘어 나옵니다. 뒤 글꼴을 빼먹으면 브라우저 기본 글꼴이 대신 나오는데, 이건 기기마다 달라서 같은 문장이 휴대폰과 컴퓨터에서 다르게 보일 수 있습니다.",
+        "숫자와 기호까지 쓰려면 그 묶음도 그려야 합니다. 날짜나 가격처럼 숫자가 섞이는 문장에 쓸 생각이라면 숫자 10자는 꼭 채우는 게 좋고, 영문 문장을 제대로 쓰려면 대문자 26자와 마침표, 쉼표, 물음표 정도는 같이 그려야 어색하지 않습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/ductus-handwriting-font-maker-2026-webfont.webp",
+          "alt": "흰 배경 웹페이지. thank you와 happy birthday mom은 손글씨 폰트로, 엄마 생일 축하해 11 16은 기본 고딕 글꼴로 나온 모습",
+          "caption": "영문은 그린 글씨로, 한글과 숫자는 기본 글꼴로 찍힌다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://ductus.sorenblank.com/",
+          "width": 400,
+          "height": 370
+        }
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "한글 손글씨 폰트는 Ductus로 아직 안 되는 이유",
+      "paragraphs": [
+        "Ductus 글자 목록에는 한글 칸이 없습니다. 영문 대소문자, 숫자, 기호 94자가 전부라 한글 손글씨 폰트를 만들려는 목적이라면 이 도구로는 안 됩니다. 해커뉴스에서도 é, ü 같은 악센트 글자가 없어서 자기 이름을 못 쓴다는 댓글이 나왔고, 유로나 파운드 기호를 넣게 해 달라는 요청도 있었습니다. 영어권 밖 사용자는 다들 같은 데서 막힌 셈입니다.",
+        "한글은 사정이 더 어렵습니다. 유니코드에 들어 있는 현대 한글 음절만 11,172자라, 글자를 한 칸씩 그리는 방식으로는 끝이 안 납니다. 받침까지 들어간 글자를 하나씩 다 그리게 하는 방식을 한글에 그대로 옮기기는 어렵습니다. 만든 사람이 글자를 더 넣겠다고 했지만, 그 목록에 한글이 들어갈지는 아직 알 수 없습니다.",
+        "정리하면 손글씨 폰트 만들기 무료 사이트를 찾는 사람 중 영문 손글씨 폰트가 필요한 경우에는 Ductus가 가장 빠른 축에 듭니다. 가입 없이 소문자만 그려도 파일이 바로 나옵니다. 한글 손글씨 폰트가 목적이라면 한글을 지원하는 다른 방법을 따로 찾아야 합니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ]
+    },
+    {
+      "title": "써 보면 아쉬운 점과 커뮤니티 반응",
+      "paragraphs": [
+        "가장 많이 나온 지적은 진짜 손글씨와 다르다는 점입니다. 사람이 쓰는 글씨는 앞뒤 글자에 따라 모양과 이어지는 선이 달라지는데, Ductus는 글자마다 모양이 하나뿐이라 결과가 손으로 쓴 정자체에 가깝습니다. 필기체처럼 글자끼리 이어지는 폰트는 지금 방식으로는 나오지 않습니다. 글자 사이가 실제 글씨보다 넓게 벌어진다며 간격 조절을 넣어 달라는 댓글, 자주 붙여 쓰는 글자 조합을 따로 그리게 해 달라는 댓글도 있었습니다.",
+        "입력 도구에 따라 결과 차이도 큽니다. 마우스로 그리기가 힘들었다는 사람이 여럿 있었고, 휴대폰에서 손가락으로 그렸더니 재미는 있었지만 내 글씨 같지는 않았다는 후기도 있었습니다. 펜이 되는 태블릿이나 아이패드가 있다면 그쪽에서 여는 게 낫습니다. 손글씨 사진 한 장을 올리면 글자를 알아서 뽑아 주는 기능을 원하는 사람도 많았는데, 지금은 직접 그리는 방법만 있습니다.",
+        "한 사용자는 글자를 그리다가 미리보기가 멈추고 내보내기 버튼이 흐린 채로 풀리지 않았다는 오류를 남겼습니다. 어떤 글자에서 생겼는지는 적혀 있지 않습니다. 소문자 26자로 해 봤을 때는 몇 초 뒤 정상적으로 버튼이 켜졌지만, 많이 그린 뒤 막히면 아쉬우니 중간중간 OTF를 한 번씩 받아 두는 게 안전합니다. 받은 파일은 Open font로 다시 불러와 이어서 고칠 수 있습니다."
+      ],
+      "sourceRefs": [
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Ductus",
+      "url": "https://ductus.sorenblank.com/",
+      "description": "글자 그리기 화면, 94자 글자 목록, OTF와 WOFF2 내보내기, Adjust 설정"
+    },
+    {
+      "name": "X: @sorenblank Ductus 소개",
+      "url": "https://x.com/sorenblank/status/2122046561693933931",
+      "description": "만든 사람의 첫 소개 글"
+    },
+    {
+      "name": "Hacker News: Handwriting, as a Font",
+      "url": "https://news.ycombinator.com/item?id=50509972",
+      "description": "사용자 반응과 기능 요청, 오류 보고"
+    },
+    {
+      "name": "sorenblank.com",
+      "url": "https://sorenblank.com/",
+      "description": "만든 사람 소개"
+    },
+    {
+      "name": "MDN Web Docs: @font-face",
+      "url": "https://developer.mozilla.org/ko/docs/Web/CSS/@font-face",
+      "description": "웹 글꼴 불러오기와 대체 글꼴 지정"
+    }
+  ],
+  "resources": [
+    {
+      "name": "Ductus",
+      "url": "https://ductus.sorenblank.com/",
+      "type": "웹 도구",
+      "description": "브라우저에서 손글씨를 그려 OTF, WOFF2 폰트로 받기"
+    },
+    {
+      "name": "Ductus 소개 글",
+      "url": "https://x.com/sorenblank/status/2122046561693933931",
+      "type": "소개",
+      "description": "만든 사람이 올린 시연 영상과 기능 요청 받는 글"
+    },
+    {
+      "name": "MDN: @font-face",
+      "url": "https://developer.mozilla.org/ko/docs/Web/CSS/@font-face",
+      "type": "문서",
+      "description": "받은 WOFF2 폰트를 웹페이지에 불러오는 CSS 규칙"
+    }
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-16T21:49:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://ductus.sorenblank.com/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/ductus-handwriting-font-maker-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with own Ductus result screen",
+        "reason": "소문자를 다 그린 Ductus 화면이 보이는 썸네일이라 포함."
+      },
+      {
+        "sourceUrl": "https://ductus.sorenblank.com/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/ductus-handwriting-font-maker-2026-write.webp",
+        "decision": "included",
+        "rightsBasis": "Screenshot of public web tool with BlueBWorks own drawing for commentary",
+        "reason": "글자를 그리는 칸과 미리보기 단어가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://ductus.sorenblank.com/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/ductus-handwriting-font-maker-2026-export.webp",
+        "decision": "included",
+        "rightsBasis": "Screenshot of public web tool export dialog for commentary",
+        "reason": "내보내기 파일 크기와 한글 표시 결과가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://ductus.sorenblank.com/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/ductus-handwriting-font-maker-2026-webfont.webp",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own test page using the exported font",
+        "reason": "받은 폰트를 웹페이지에 적용한 결과 화면이라 포함."
+      }
+    ]
+  }
+}
