@@ -1,0 +1,281 @@
+{
+  "slug": "unlimited-ocr-2-korean-ocr-free-demo-2026",
+  "title": "Unlimited OCR 2 사용법, 한글 표 문서 무료 OCR 결과",
+  "seoTitle": "바이두 Unlimited OCR 2 사용법: 한글 OCR 오픈소스 무료 데모, 표 인식 결과와 하루 사용 한도",
+  "summary": "바이두 문서 OCR 모델을 무료 데모에 한글 가계부 표로 넣어 봤습니다. 24줄은 금액까지 맞았고, 아래가 잘린 한 줄은 엉뚱한 글자로 채웠습니다.",
+  "category": "오픈소스",
+  "announcedAt": "2026-10-27",
+  "publishedAt": "2026-11-16T15:27:00+09:00",
+  "verifiedAt": "2026-11-16T15:27:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "Unlimited OCR 2",
+    "바이두 OCR",
+    "한글 OCR",
+    "OCR 오픈소스",
+    "무료 OCR",
+    "허깅페이스",
+    "문서 인식",
+    "오픈소스"
+  ],
+  "keyPoints": [
+    "사용법: 허깅페이스 무료 데모에 문서 사진을 올리고 Parse Document를 누르면 제목, 본문, 표를 나눠 마크다운과 HTML 표로 돌려준다",
+    "한글: 가계부 표 사진에서 24줄은 날짜, 분류, 금액까지 그대로 나왔고, 아래가 잘린 마지막 줄만 다른 글자와 숫자로 바뀌었다",
+    "한도: 로그인하지 않으면 하루 GPU 2분이라 몇 번 돌리면 결과 없이 끝나고, 내 컴퓨터에 설치하려면 엔비디아 그래픽카드가 필요하다"
+  ],
+  "image": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-thumb.png",
+  "imageSourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+  "imageAlt": "Unlimited OCR 2. 한글 표 문서를 무료 데모로 읽힌 결과. 오른쪽에 가계부 표를 인식해 제목, 본문, 표로 나눠 보여 주는 데모 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "한글 가계부 표를 데모에 넣어 나온 인식 결과 화면",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "Unlimited OCR 2, 긴 문서를 한 번에 읽는 오픈소스 OCR",
+      "paragraphs": [
+        "Unlimited OCR 2는 바이두가 10월 27일 공개한 문서 인식 모델입니다. 문서 사진이나 PDF 쪽 이미지를 넣으면 글자만 뽑는 게 아니라 제목, 본문 문단, 표, 수식, 그림 위치를 나눠서 읽는 순서대로 적어 줍니다. 저장소 이름은 baidu/Unlimited-OCR이고, 코드는 MIT 라이선스로 풀려 있습니다.",
+        "첫 버전은 6월 22일에 나왔고, 저장소 설명에 따르면 딥시크 OCR(DeepSeek-OCR)을 한 단계 더 밀어붙이려고 만든 모델입니다. 2편에서 바뀐 건 길이입니다. 문서가 수백 쪽으로 길어져도 모델이 한 번에 살펴보는 범위를 일정한 크기로 묶어 두는 방식(SR-SWA)을 넣어서, 쪽수가 늘어도 한 글자씩 써 내려가는 속도와 메모리가 거의 그대로라고 설명합니다. 수십 쪽, 수백 쪽짜리 문서 평가에서 가장 좋은 점수를 냈다는 것도 바이두가 직접 밝힌 내용입니다.",
+        "여기까지는 연구 발표 이야기이고, 일반 사용자에게 중요한 건 따로 있습니다. 설치 없이 브라우저에서 바로 써 볼 수 있는 무료 데모가 허깅페이스에 올라와 있다는 점입니다. 이 글에서는 그 데모에 한글 문서를 넣어 실제로 어떻게 읽는지, 어디서 막히는지를 정리했습니다.",
+        "11월 16일에는 바이두 클라우드에도 정식으로 올라와 웹에서 쓸 수 있는 입구가 생겼다고 저장소에 적혀 있습니다. 다만 이쪽은 중국 클라우드 서비스라 가입 절차가 따로 있고, 한국에서 가볍게 써 보기에는 허깅페이스 데모가 훨씬 편합니다."
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "Unlimited OCR 2 무료 데모 사용법",
+      "paragraphs": [
+        "데모 주소는 huggingface.co/spaces/baidu/Unlimited-OCR-2 입니다. 로그인하지 않아도 열립니다. 왼쪽 위 Pages 버튼으로 사진을 여러 장 올리거나, Open PDF로 PDF 파일 하나를 올립니다. PDF는 쪽마다 이미지로 쪼개서 왼쪽 목록에 Page 1, Page 2처럼 붙습니다. 한 번에 넣을 수 있는 건 20쪽까지이고, 그보다 길면 앞 20쪽만 읽는다고 데모 안내에 적혀 있습니다.",
+        "오른쪽 설정은 거의 건드릴 필요가 없습니다. Detail mode가 Auto면 한 쪽짜리는 잘게 나눠 자세히 보고, 여러 쪽이면 쪽마다 전체를 한 번씩 봅니다. Gundam은 무조건 잘게 나눠 보는 쪽, Base는 무조건 전체만 보는 쪽입니다. 작은 글씨가 많은 한 쪽짜리 문서라면 Auto나 Gundam이 낫습니다. 아래 Instruction 칸은 비워 두면 기본 지시인 Multi page parsing이 들어갑니다.",
+        "파란 Parse Document 버튼을 누르면 가운데 화면에 결과가 뜹니다. Rendered는 제목, 문단, 표를 칸별로 보기 좋게 그린 화면이고, Raw는 모델이 실제로 써 낸 원문입니다. 오른쪽 위 Copy와 Export .md 버튼으로 결과를 복사하거나 마크다운 파일로 받을 수 있습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-settings.webp",
+          "alt": "Unlimited OCR 2 데모 오른쪽 설정 칸. Instruction 입력칸, Auto와 Gundam, Base 중 고르는 Detail mode, 쪽당 출력 20000토큰 표시, 아래 파란 Parse Document 버튼",
+          "caption": "Detail mode는 Auto 그대로 두고 아래 Parse Document를 누르면 된다.",
+          "credit": "Hugging Face Spaces, baidu",
+          "sourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+          "width": 283,
+          "height": 352
+        }
+      ],
+      "sourceRefs": [
+        3
+      ]
+    },
+    {
+      "title": "한글 가계부 표를 넣어 본 결과",
+      "paragraphs": [
+        "시험용으로 한글 문서를 한 장 만들었습니다. 맨 위에 \"11월 생활비 정리\"라는 제목, 그 아래 두 줄짜리 설명 문단, 그리고 날짜, 내용, 분류, 금액 네 칸으로 된 지출 표입니다. 표 내용은 마트 장보기, 지하철 정기권, 휴대폰 요금, 관리비, 넷플릭스처럼 흔한 생활비 항목으로 채웠고, 금액에는 182,400처럼 쉼표가 들어간 숫자를 넣었습니다. 가로 820, 세로 1,160 크기 사진 한 장에 표 25줄이 들어갔습니다.",
+        "결과는 43.5초 만에 나왔고, 모델이 쓴 양은 750토큰이었습니다. 제목은 제목으로, 설명은 본문 문단으로, 지출 내역은 표로 따로 잡혔습니다. 제목 앞의 \"1. 날짜별 지출 내역\"도 두 번째 단계 제목으로 구분했습니다. 표는 HTML 표 형태로 나오기 때문에 그대로 복사해 엑셀이나 구글 시트에 붙이면 칸이 살아 있습니다.",
+        "가장 궁금했던 건 한글과 숫자였는데, 25줄 중 24줄이 날짜, 내용, 분류, 금액까지 원본과 똑같았습니다. \"빼빼로 4개\", \"헬스장 한 달\", \"점심 김치찌개\"처럼 받침과 쌍자음이 섞인 말도 틀리지 않았고, 금액의 쉼표 위치도 그대로였습니다. 먼저 해 본 작은 사진(제목, 문단, 표 3줄)은 15.2초, 254토큰으로 역시 전부 맞았습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-result-top.webp",
+          "alt": "데모의 Rendered 화면. TITLE 표시가 붙은 1. 날짜별 지출 내역 제목과 TABLE 표시가 붙은 표. 날짜, 내용, 분류, 금액(원) 머리줄 아래 11/01 마트 장보기 식비 48,300부터 11/09 넷플릭스 구독 13,500까지",
+          "caption": "제목과 표를 따로 잡고, 한글 항목과 쉼표 들어간 금액을 원본대로 옮겼다.",
+          "credit": "Hugging Face Spaces, baidu",
+          "sourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+          "width": 330,
+          "height": 440
+        }
+      ],
+      "sourceRefs": [
+        3
+      ]
+    },
+    {
+      "title": "페이지 끝에서 잘린 줄은 다른 글자로 채운다",
+      "paragraphs": [
+        "틀린 곳은 마지막 한 줄이었습니다. 사진을 자를 때 표의 25번째 줄(11/25)이 위쪽 절반만 보이게 잘렸는데, 원본은 \"클라우드 저장공간, 구독, 2,200\"입니다. 모델은 이 줄을 \"클라우드 전자고가, 고독, 3,200\"으로 적었습니다. 글자 모양이 비슷한 쪽으로 그럴듯하게 채운 셈이고, 금액도 2,200이 3,200으로 바뀌었습니다.",
+        "문제는 결과 화면 어디에도 이 줄이 불확실하다는 표시가 없다는 점입니다. 나머지 24줄과 똑같은 모양으로 표 안에 들어가 있어서, 원본을 옆에 두고 보지 않으면 틀린 줄 모르고 지나치기 쉽습니다. 가계부나 영수증처럼 숫자가 중요한 문서라면 이 부분이 제일 위험합니다.",
+        "피하는 방법은 단순합니다. 사진을 찍거나 자를 때 표의 마지막 줄이 온전히 들어오게 여백을 두고, 쪽이 넘어가는 문서는 PDF 그대로 넣어 쪽 경계가 줄 사이에 오게 합니다. 결과를 쓰기 전에는 합계가 원본과 맞는지 한 번만 더해 보면 이런 줄을 금방 찾을 수 있습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-source-bottom.webp",
+          "alt": "원본 표 사진 아래쪽. 11/23 미용실, 11/24 점심 비빔밥 줄 아래로 11/25 클라우드 저장공간 줄이 위쪽 절반만 보이게 잘려 있다",
+          "caption": "원본 사진의 마지막 줄. 11/25 줄이 절반만 찍혔다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+          "width": 400,
+          "height": 110
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-result-bottom.webp",
+          "alt": "인식 결과 표 아래쪽. 11/23 미용실 생활 18,000, 11/24 점심 비빔밥 식비 9,000, 11/25 클라우드 전자고가 고독 3,200",
+          "caption": "같은 줄의 인식 결과. 클라우드 저장공간, 구독, 2,200이 클라우드 전자고가, 고독, 3,200으로 나왔다.",
+          "credit": "Hugging Face Spaces, baidu",
+          "sourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+          "width": 316,
+          "height": 108
+        }
+      ],
+      "sourceRefs": [
+        3
+      ]
+    },
+    {
+      "title": "로그인 안 하면 하루 2분, 결과 없이 끝나는 경우",
+      "paragraphs": [
+        "데모 화면 위에는 Running on ZERO라는 표시가 붙어 있습니다. 허깅페이스의 ZeroGPU라는 공유 그래픽카드 위에서 돌아간다는 뜻인데, 이 그래픽카드는 계정마다 하루 쓸 수 있는 시간이 정해져 있습니다. 허깅페이스 문서 기준으로 로그인하지 않은 사용자는 하루 2분, 무료 계정은 5분, 유료 PRO 계정은 40분입니다. 남은 시간이 많을수록 대기 줄에서도 앞쪽에 섭니다.",
+        "실제로 로그인하지 않은 채 써 보니 이 한도가 금방 느껴졌습니다. 예시 문서 한 번(20.8초), 작은 사진 한 번(15.2초), 표 한 장(43.5초)을 돌린 뒤 네 번째 실행은 \"Run finished with no output\"이라는 문구만 남기고 결과 없이 끝났습니다. 그보다 앞서 두 쪽짜리 PDF와 사진 두 장을 한 번에 넣었을 때도 같은 문구로 끝났고, 사진을 한 장씩 넣었을 때만 결과가 나왔습니다.",
+        "그러니 여러 쪽짜리 문서를 제대로 읽혀 보고 싶다면 허깅페이스에 무료로 가입해 로그인한 상태에서 쓰는 편이 낫습니다. 하루 시간은 처음 쓴 때부터 24시간이 지나면 다시 채워집니다."
+      ],
+      "table": {
+        "headers": [
+          "계정",
+          "하루 GPU 시간",
+          "대기 순서"
+        ],
+        "rows": [
+          [
+            "로그인 안 함",
+            "2분",
+            "낮음"
+          ],
+          [
+            "무료 계정",
+            "5분",
+            "보통"
+          ],
+          [
+            "PRO 계정",
+            "40분",
+            "가장 높음"
+          ]
+        ],
+        "caption": "허깅페이스 ZeroGPU 문서 기준."
+      },
+      "sourceRefs": [
+        4
+      ]
+    },
+    {
+      "title": "내 컴퓨터에 설치하려면 엔비디아 그래픽카드",
+      "paragraphs": [
+        "데모 말고 직접 설치해서 쓰는 길도 있습니다. 공식 안내는 두 가지입니다. 빠르게 시험할 때는 파이썬의 Transformers 라이브러리로 모델을 불러오고, 서비스처럼 많이 돌릴 때는 바이두가 고쳐 둔 SGLang 서버를 권합니다. 위의 무료 데모도 Transformers 방식이라, 수백 쪽을 한 번에 읽는 기능은 데모에서는 빠져 있다고 안내합니다.",
+        "Transformers 방식은 파이썬 3.10에서 아래 패키지를 깔고 모델을 그래픽카드로 올리는 순서입니다. 코드에 .cuda()가 들어가 있어서 엔비디아 그래픽카드가 있어야 하고, 바이두가 시험한 장비는 메모리 80GB짜리 A800 데이터센터용 카드였습니다. 그래픽카드 없는 노트북이나 맥에서 이 코드를 그대로 돌리기는 어렵습니다.",
+        "여러 쪽 문서는 infer_multi에 쪽 이미지 경로를 순서대로 넘기면 한 번의 요청으로 전부 읽고, 쪽마다 결과가 따로 나옵니다. 한 쪽짜리는 infer를 쓰면 기본으로 잘게 나눠 자세히 봅니다. 결과 파일은 output_path로 지정한 폴더에 저장됩니다."
+      ],
+      "code": {
+        "language": "python",
+        "text": "# 설치 (파이썬 3.10, 공식 안내 버전)\n# pip install torch==2.13.0 torchvision pillow transformers==4.52.1 huggingface-hub==0.36.0 \\\n#   tokenizers==0.21.4 addict==2.4.0 einops==0.8.2 easydict==1.13\n\nimport torch\nfrom transformers import AutoModel, AutoTokenizer\n\nmodel_name = \"baidu/Unlimited-OCR-2\"\ntokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)\nmodel = AutoModel.from_pretrained(model_name, trust_remote_code=True, use_safetensors=True,\n                                  torch_dtype=torch.bfloat16).eval().cuda()\n\n# 여러 쪽 문서: 쪽 이미지를 순서대로 넘긴다\npages = [\"my_doc/page_1.jpg\", \"my_doc/page_2.jpg\"]\ntext, num_tokens = model.infer_multi(tokenizer, image_files=pages,\n                                     output_path=\"output/multi\", save_results=True)\n\n# 한 쪽짜리\ntext = model.infer(tokenizer, image_file=\"my_doc/page_1.jpg\",\n                   output_path=\"output/single\", save_results=True)"
+      },
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "다른 OCR과 다른 점, 쓸 만한 곳",
+      "paragraphs": [
+        "휴대폰 사진 앱이나 PDF 프로그램에 들어 있는 글자 인식은 대개 글자를 줄 단위로 뽑아 주는 데서 끝납니다. 표가 있으면 칸이 무너져 한 줄로 이어 붙는 일이 흔합니다. Unlimited OCR 2는 처음부터 문서 구조를 같이 읽는 쪽이라, 이번 시험에서도 제목과 본문과 표가 섞이지 않았고 표는 칸이 살아 있는 채로 나왔습니다. 결과에는 블록마다 위치 좌표도 붙어서, 원본 어디에서 나온 글자인지 따라가기 쉽습니다.",
+        "그래서 쓸 만한 곳은 표가 많은 문서입니다. 스캔해 둔 거래 명세서, 강의 자료 PDF, 회의 자료처럼 표와 문단이 섞인 문서를 마크다운으로 바꿔 두면, 그 결과를 챗GPT나 클로드에 붙여 요약을 시키기도 편합니다. 데모에서 Export .md로 받은 파일을 그대로 넣으면 됩니다.",
+        "대신 두 가지는 꼭 기억해 두는 게 좋습니다. 하나는 앞에서 본 것처럼 잘리거나 흐린 부분을 비워 두지 않고 그럴듯한 글자로 채운다는 점입니다. 숫자가 중요한 문서는 합계를 한 번 맞춰 보는 습관이 필요합니다. 다른 하나는 데모가 허깅페이스 서버에서 돌아간다는 점입니다. 주민등록증, 통장 사본, 계약서처럼 개인 정보가 든 문서는 공개 데모에 올리지 말고, 시험은 이번처럼 지어낸 문서나 공개 자료로 하는 편이 안전합니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "GitHub: baidu/Unlimited-OCR",
+      "url": "https://github.com/baidu/Unlimited-OCR",
+      "description": "Unlimited OCR 2 공개 날짜, SR-SWA 설명, Transformers와 SGLang 실행 방법, MIT 라이선스"
+    },
+    {
+      "name": "Hugging Face: baidu/Unlimited-OCR-2 모델 카드",
+      "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "description": "모델 파일과 사용법, 새로 바뀐 점"
+    },
+    {
+      "name": "Hugging Face Spaces: Unlimited OCR Works 2 데모",
+      "url": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+      "description": "브라우저 데모, 20쪽 제한, Auto와 Gundam, Base 모드 설명"
+    },
+    {
+      "name": "Hugging Face Docs: ZeroGPU",
+      "url": "https://huggingface.co/docs/hub/spaces-zerogpu",
+      "description": "계정별 하루 GPU 사용 시간과 대기 순서"
+    },
+    {
+      "name": "arXiv: Unlimited OCR Works 2",
+      "url": "https://arxiv.org/abs/2610.39308",
+      "description": "Unlimited OCR 2 논문"
+    }
+  ],
+  "resources": [
+    {
+      "name": "Unlimited OCR 2 무료 데모",
+      "url": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+      "type": "데모",
+      "description": "브라우저에서 문서 사진이나 PDF를 올려 바로 인식"
+    },
+    {
+      "name": "Unlimited OCR 저장소",
+      "url": "https://github.com/baidu/Unlimited-OCR",
+      "type": "저장소",
+      "description": "설치 방법과 실행 코드"
+    },
+    {
+      "name": "Unlimited-OCR-2 모델 파일",
+      "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "type": "모델",
+      "description": "Transformers로 불러올 모델"
+    }
+  ],
+  "discovery": {
+    "xStatus": "unavailable",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-16T15:27:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+        "assetUrl": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with own demo result screen",
+        "reason": "한글 표 인식 결과가 보이는 데모 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+        "assetUrl": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-settings.webp",
+        "decision": "included",
+        "rightsBasis": "Screenshot of public demo interface for commentary",
+        "reason": "데모 설정 칸과 실행 버튼이 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+        "assetUrl": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-result-top.webp",
+        "decision": "included",
+        "rightsBasis": "Screenshot of public demo output from BlueBWorks test document",
+        "reason": "한글 표 인식 결과가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+        "assetUrl": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-source-bottom.webp",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original test document",
+        "reason": "아래가 잘린 원본 줄을 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://huggingface.co/spaces/baidu/Unlimited-OCR-2",
+        "assetUrl": "https://bluebworks.com/assets/editorial/unlimited-ocr-2-korean-ocr-free-demo-2026-result-bottom.webp",
+        "decision": "included",
+        "rightsBasis": "Screenshot of public demo output from BlueBWorks test document",
+        "reason": "잘린 줄이 다른 글자로 나온 결과 화면이라 포함."
+      }
+    ]
+  }
+}
