@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Mon, 16 Nov 2026 12:49:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 00:48:00 GMT</lastBuildDate>
+    <item>
+      <title>클로드 워터마크 확인 방법, 글과 파일은 다르다</title>
+      <link>https://bluebworks.com/articles/claude-watermark-check-c2pa-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/claude-watermark-check-c2pa-2026/</guid>
+      <pubDate>Tue, 17 Nov 2026 00:48:00 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>클로드 워터마크는 글자 사이에 숨긴 문자가 아니라 단어 고르는 방식에 남는 표시라서 복사한 답에서 이상한 문자가 나오지 않습니다. 글 판별 도구는 아직 일부 기관만 쓰고, 클로드가 만든 파일은 C2PA 서명으로 볼 수 있습니다.</description>
+    </item>
     <item>
       <title>손글씨 폰트 만들기 무료, Ductus 사용법과 한글 지원</title>
       <link>https://bluebworks.com/articles/ductus-handwriting-font-maker-2026/</link>
