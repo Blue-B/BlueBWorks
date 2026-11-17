@@ -56,53 +56,53 @@
       ],
       "table": {
         "headers": [
-          "과목 번호",
+          "번호",
           "과목",
-          "공개일(미국)"
+          "공개(미국)"
         ],
         "rows": [
           [
             "10-605",
-            "Machine Learning with Large Datasets",
+            "대규모 데이터 머신러닝",
             "공개됨"
           ],
           [
             "15-110",
-            "Principles of Computing",
+            "컴퓨팅 원리(파이썬 입문)",
             "공개됨"
           ],
           [
             "17-214",
-            "Principles of Software Construction",
+            "소프트웨어 구성 원리",
             "11월 17일"
           ],
           [
             "15-442",
-            "Machine Learning Systems",
+            "머신러닝 시스템",
             "11월 17일"
           ],
           [
             "17-635",
-            "Software Architectures",
+            "소프트웨어 아키텍처",
             "11월 18일"
           ],
           [
             "17-643",
-            "Quality Management",
+            "품질 관리",
             "11월 18일"
           ],
           [
             "11-768",
-            "AI Agents",
+            "AI 에이전트",
             "11월 19일"
           ],
           [
             "17-645",
-            "Machine Learning in Production",
+            "머신러닝 운영",
             "11월 19일"
           ]
         ],
-        "caption": "CS Learn 페이지의 11월 공개 목록. 공개일은 미국 날짜 기준이다."
+        "caption": "CS Learn 페이지의 11월 공개 목록을 우리말 과목명으로 옮겼다. 공개일은 미국 날짜 기준이다."
       },
       "figures": [
         {
