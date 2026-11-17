@@ -23,7 +23,7 @@ test('single-row brand and navigation keep accessible search and mobile menu', (
   assert.match(home, /data-nav-toggle/);
   assert.match(home, /aria-controls="site-nav"/);
   assert.match(home, /class="site-nav" id="site-nav" data-nav/);
-  assert.match(home, /class="header-search" href="[^"]*articles\/#archive-search"/);
+  assert.match(home, /class="header-search"[^>]*href="[^"]*articles\/#archive-search"/);
   assert.match(home, /class="skip-link" href="#main"/);
 }));
 
