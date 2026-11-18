@@ -1,0 +1,195 @@
+{
+  "slug": "quad9-dns-france-public-dns-speed-korea-2026",
+  "title": "Quad9 DNS 프랑스 철수와 공용 DNS 속도 비교",
+  "seoTitle": "Quad9 DNS 프랑스 철수, 공용 DNS 추천과 한국 응답 속도",
+  "summary": "Quad9가 11월 24일부터 프랑스에서 공용 DNS를 끕니다. 한국 회선에서 공용 DNS 7곳의 응답 속도와 응답 서버 위치를 재 봤습니다.",
+  "category": "트렌드",
+  "announcedAt": "2026-10-22",
+  "publishedAt": "2026-11-18T21:38:49+09:00",
+  "verifiedAt": "2026-11-18T21:38:49+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": ["Quad9", "Quad9 DNS", "공용 DNS", "DNS 서버 추천", "1.1.1.1", "9.9.9.9", "DNS 속도 비교"],
+  "keyPoints": [
+    "Quad9는 프랑스 법원의 도메인 차단 명령을 따르지 않는 대신 2026년 11월 24일부터 프랑스 사용자에게 서비스를 끊는다",
+    "한국 SK브로드밴드 회선에서 재 보니 Cloudflare 1.1.1.1은 인천 서버가, Quad9 9.9.9.9는 도쿄와 오사카 서버가 답했다",
+    "응답 속도는 1.1.1.1과 통신사 기본 DNS가 비슷했고 Quad9, 구글, OpenDNS는 그보다 30~50ms 늦었다"
+  ],
+  "image": "https://bluebworks.com/assets/editorial/quad9-dns-france-public-dns-speed-korea-2026-thumb.png",
+  "imageSourceUrl": "https://quad9.net/news/blog/au-revoir-france/",
+  "imageAlt": "Quad9 프랑스 철수, 한국 회선은 일본 서버가 답함. 오른쪽에 공용 DNS 7곳 응답 시간과 응답 서버 이름을 출력한 터미널 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "공용 DNS 7곳에 같은 질의를 보내 응답 시간 중간값과 응답한 서버 이름을 뽑은 결과",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "Quad9 프랑스 철수: 11월 24일부터 프랑스 사용자 차단",
+      "paragraphs": [
+        "스위스 비영리 재단 Quad9가 운영하는 무료 공용 DNS 9.9.9.9가 프랑스에서 빠집니다. Quad9는 10월 22일 공지에서 2026년 11월 24일 화요일부터 프랑스에 있는 사용자에게 서비스를 더 제공하지 않는다고 밝혔습니다. 한국에서 9.9.9.9를 쓰는 사람에게 당장 달라지는 건 없지만, 공용 DNS를 둘러싼 차단 소송이 어디까지 번지는지 보여 주는 일이라 1.1.1.1을 운영하는 Cloudflare도 이 일을 따로 다룬 글을 올렸습니다.",
+        "발단은 스포츠 중계권을 가진 beIN의 소송입니다. beIN은 자기 중계를 불법으로 퍼뜨린다고 보는 도메인 목록을 Quad9가 프랑스 사용자에게 막아야 한다고 요구했고, 프랑스 법원이 이를 받아들였습니다. 법원은 벌금을 58만 유로에서 하루 1,000유로로 크게 낮췄지만, Quad9는 돈보다 원칙의 문제라고 했습니다. 이름을 주소로 바꿔 주는 중립적인 서비스가 특정 회사를 위해 답을 바꿔 주는 건 받아들일 수 없다는 입장입니다.",
+        "Quad9가 차단 대신 철수를 고른 이유는 기술적인 사정에 가깝습니다. 가입도 신원 확인도 없는 서비스라 누가 프랑스 사용자인지 알 길이 없고, IP 위치로 나라를 가르는 방식은 2021~2023년 독일 소니 뮤직 소송 때 VPN으로 우회됐다는 이유로 법정 모독 벌금을 맞은 적이 있습니다. 문제의 도메인을 전 세계 차단 목록에 넣으면 명령은 지킬 수 있지만, 그러면 프랑스 법원 결정을 모든 나라 사용자에게 적용하게 됩니다. 프랑스에는 Quad9와 다른 리졸버 운영사를 상대로 한 비슷한 소송이 약 20건 더 걸려 있어, Quad9는 벌금이 쌓이면 버틸 수 없다고 했고, 항소는 계속한다고 밝혔습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/quad9-dns-france-public-dns-speed-korea-2026-notice.png",
+          "alt": "Quad9 블로그 Farewell, France 공지. Summary 아래에 Starting November 24, Quad9 will no longer be able to offer its free cyberprotection service to users located in France 문장",
+          "caption": "11월 24일부터 프랑스에 있는 사용자에게는 무료 보호 서비스를 제공하지 않는다는 첫 문장.",
+          "credit": "Quad9",
+          "sourceUrl": "https://quad9.net/news/blog/au-revoir-france/",
+          "width": 385,
+          "height": 294
+        }
+      ],
+      "sourceRefs": [1]
+    },
+    {
+      "title": "공용 DNS가 하는 일과 차단 명령이 공용 DNS로 몰리는 이유",
+      "paragraphs": [
+        "DNS는 인터넷 주소록입니다. 브라우저에 naver.com을 치면 기기는 먼저 DNS 서버에 이 이름의 IP 주소를 묻고, 받은 주소로 접속합니다. 이 질문을 받아 답을 찾아 주는 서버를 리졸버라고 부르는데, 따로 바꾼 적이 없다면 대부분 통신사가 정해 준 리졸버를 씁니다. Quad9의 9.9.9.9, Cloudflare의 1.1.1.1, 구글의 8.8.8.8, 시스코의 OpenDNS는 누구나 쓸 수 있게 열어 둔 공용 리졸버입니다.",
+        "리졸버는 내가 어느 사이트에 가는지 전부 보는 자리라 어떤 곳을 쓰느냐가 곧 개인정보 문제이기도 합니다. Cloudflare는 이번 일을 다룬 글에서 1.1.1.1이 사용자 데이터를 모으거나 광고주에게 팔지 않는다고 강조했고, 공용 리졸버가 빠지면 사용자는 통신사 기본 리졸버나 운영 주체를 알기 어려운 리졸버로 옮겨 가게 된다고 지적했습니다.",
+        "차단이 DNS 단계에 걸리면 생기는 문제도 정리돼 있습니다. 리졸버는 도메인 단위로만 막을 수 있어서 불법 영상 하나를 막으려다 같은 도메인의 다른 내용까지 다 막게 되고, 사용자는 왜 사이트가 안 열리는지 알 수 없습니다. 콘텐츠를 실제로 올려 둔 호스팅을 내리는 게 아니라서 효과도 약합니다. 그런데도 권리자들이 공용 리졸버를 계속 겨냥하는 흐름은 Quad9만의 일이 아닙니다. 시스코는 앞서 비슷한 이유로 OpenDNS를 프랑스와 포르투갈에서 빼고 벨기에에서는 한동안 뺐습니다. 벨기에 법원은 Cloudflare, 구글, 시스코가 2027년 1월 초까지 공용 리졸버에서 차단을 시작하지 않으면 상당한 벌금을 물리는 명령을 냈고, 세 회사는 항소했습니다."
+      ],
+      "sourceRefs": [2, 1]
+    },
+    {
+      "title": "한국 회선에서 공용 DNS 7곳 응답 속도 재 보기",
+      "paragraphs": [
+        "공용 DNS 비교 글은 대부분 해외 측정 사이트 숫자를 옮겨 오는데, 한국에서 쓰면 어디가 빠른지는 직접 재 보는 게 가장 정확합니다. 그래서 SK브로드밴드 회선으로 나가는 환경에서 파이썬 표준 라이브러리만으로 짧은 측정 스크립트를 만들어 돌렸습니다. 대상은 Quad9 두 주소(9.9.9.9, 9.9.9.10), Cloudflare 1.1.1.1, 구글 8.8.8.8, OpenDNS 208.67.222.222, KT 기본 DNS 168.126.63.1, SK브로드밴드 기본 DNS 219.250.36.130 일곱 곳입니다.",
+        "방법은 단순합니다. 서버마다 www.naver.com 주소를 15번 묻고 응답 시간의 중간값을 냈습니다. 서버에 이미 저장된 답을 꺼내는 속도라 사실상 내 회선에서 그 서버까지 다녀오는 시간입니다. 같은 서버에 없는 하위 도메인도 8번씩 물어 캐시에 없는 경우를 봤고, 마지막으로 id.server라는 특수 질의를 보내 어느 지역 서버가 답했는지 이름을 받았습니다. 21시 29분과 21시 31분에 두 번 돌렸습니다.",
+        "숫자를 볼 때 한 가지는 감안해야 합니다. 측정 장비가 원격 터널을 거쳐 한국 회선으로 나가는 구조라 모든 값에 약 200ms가 똑같이 더해져 있습니다. 그래서 절대값보다는 서버끼리의 차이를 보면 됩니다. 집에서 같은 걸 재면 숫자는 훨씬 작게 나오고, 차이의 크기는 비슷하게 나올 겁니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/quad9-dns-france-public-dns-speed-korea-2026-bench.png",
+          "alt": "터미널 출력. 9.9.9.9 246.9 ms res700.itm, 9.9.9.10 256.5 ms res700.itm, 1.1.1.1 213.8 ms icn05, 8.8.8.8 247.6 ms, 208.67.222.222 243.1 ms timeout, 168.126.63.1 213.8 ms, 219.250.36.130 210.8 ms",
+          "caption": "두 번째 측정. 1.1.1.1은 인천(icn), Quad9는 오사카(itm) 서버가 답했다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://quad9.net/service/service-addresses-and-features/",
+          "width": 400,
+          "height": 214
+        }
+      ],
+      "table": {
+        "headers": ["DNS 주소", "답한 서버", "중간값(1차/2차)"],
+        "rows": [
+          ["Cloudflare 1.1.1.1", "icn05, 인천", "203.1 / 213.8ms"],
+          ["SK브로드밴드 기본", "알려 주지 않음", "207.4 / 210.8ms"],
+          ["KT 기본", "알려 주지 않음", "203.0 / 213.8ms"],
+          ["Quad9 9.9.9.9", "nrt2 도쿄, itm 오사카", "255.0 / 246.9ms"],
+          ["Quad9 9.9.9.10", "qhnd2 도쿄, itm 오사카", "238.3 / 256.5ms"],
+          ["구글 8.8.8.8", "알려 주지 않음", "238.1 / 247.6ms"],
+          ["OpenDNS", "알려 주지 않음", "232.3 / 243.1ms"]
+        ],
+        "caption": "모든 값에 측정 환경의 공통 지연 약 200ms가 들어 있다. 서버끼리의 차이로 읽으면 된다."
+      },
+      "sourceRefs": [3]
+    },
+    {
+      "title": "측정 결과: 1.1.1.1은 인천, Quad9는 일본 서버가 답함",
+      "paragraphs": [
+        "가장 눈에 띈 건 응답한 서버 위치입니다. 1.1.1.1은 두 번 모두 icn05, 인천 서버가 답했고 속도도 KT, SK브로드밴드 기본 DNS와 거의 같았습니다. Quad9는 첫 번째에 도쿄(nrt2, qhnd2), 두 번째에 오사카(itm) 서버가 답했습니다. 이번 측정에서 한국 회선의 Quad9 질의는 한 번도 국내에서 처리되지 않은 셈입니다.",
+        "그 결과 Quad9, 구글, OpenDNS는 1.1.1.1이나 통신사 DNS보다 30~50ms쯤 늦게 답했습니다. 구글과 OpenDNS는 id.server 질의에 위치를 알려 주지 않아 어느 지역에서 답했는지는 알 수 없었습니다. 없는 주소를 물었을 때도 순서는 거의 같았는데, 1차 측정 때 KT DNS만 8번 중 3번 답이 없었고 2차 때는 8번 모두 정상이었습니다. 한 번뿐인 결과라 KT가 느리다고 보기는 어렵습니다.",
+        "30~50ms가 체감으로 이어지느냐는 별개입니다. 운영체제와 브라우저가 한 번 받은 주소를 한동안 기억해 두기 때문에 DNS를 다시 묻는 건 처음 가는 사이트나 기억 시간이 지난 주소뿐입니다. 웹 서핑 속도를 바꾸겠다는 목적이라면 통신사 기본 DNS에서 1.1.1.1로 바꿔도 큰 차이는 없고, Quad9로 바꾸면 오히려 조금 늦어질 수 있다는 정도로 보면 됩니다."
+      ],
+      "sourceRefs": [3, 4]
+    },
+    {
+      "title": "Quad9 DNS 주소 고르는 법: 9.9.9.9와 9.9.9.10 차이",
+      "paragraphs": [
+        "Quad9를 쓰는 이유는 속도보다 보호 기능입니다. 공식 안내 기준으로 기본 권장 주소 9.9.9.9와 149.112.112.112는 악성코드와 피싱 도메인을 막고 DNSSEC 검증을 합니다. 9.9.9.11은 같은 차단에 ECS를 켠 주소로, 접속한 지역 정보를 일부 넘겨 콘텐츠 서버가 가까운 곳을 고르게 돕습니다. 9.9.9.10은 차단을 끈 주소이고 공식 안내에도 전문가용이라고 적혀 있습니다. 이번 측정에서 9.9.9.10이 따로 빠르지 않았으니 일반 사용자가 굳이 고를 이유는 없습니다.",
+        "주소를 넣을 때는 하나만 넣지 말고 같은 묶음의 주소를 모두 넣으라는 것도 Quad9 안내에 있습니다. 한 경로가 끊겼을 때 대비입니다. IPv6를 아직 안 쓰더라도 함께 넣어 두면 쓰지 못하는 주소는 시스템이 알아서 건너뜁니다.",
+        "안드로이드 9 이상은 설정의 비공개 DNS(Private DNS)에 호스트 이름 하나만 넣으면 모바일 데이터에서도 같은 DNS를 암호화해서 씁니다. Quad9는 dns.quad9.net, Cloudflare는 one.one.one.one입니다. Cloudflare도 악성 사이트 차단이 필요하면 1.1.1.2와 security.cloudflare-dns.com을 쓰면 되는데, Cloudflare는 이 기능을 1.1.1.1 for Families라는 이름으로 안내합니다. 메뉴 이름은 제조사마다 조금씩 달라서 설정 검색창에 비공개 DNS나 Private DNS로 찾는 편이 빠릅니다."
+      ],
+      "code": {
+        "language": "text",
+        "text": "# Quad9 기본 권장 (악성 도메인 차단 + DNSSEC)\nIPv4  9.9.9.9    149.112.112.112\nIPv6  2620:fe::fe    2620:fe::9\n안드로이드 비공개 DNS  dns.quad9.net\n\n# Quad9 차단 끈 주소 (공식 안내상 전문가용)\nIPv4  9.9.9.10   149.112.112.10\n\n# Cloudflare 1.1.1.1\nIPv4  1.1.1.1    1.0.0.1\n안드로이드 비공개 DNS  one.one.one.one\n\n# Cloudflare 악성 사이트 차단 (1.1.1.1 for Families)\nIPv4  1.1.1.2    1.0.0.2\n안드로이드 비공개 DNS  security.cloudflare-dns.com",
+        "caption": "바꾸기 전에 지금 쓰는 DNS 주소를 따로 적어 두면 문제가 생겼을 때 되돌리기 쉽다."
+      },
+      "sourceRefs": [3, 4]
+    },
+    {
+      "title": "한국 사용자에게 달라지는 것과 공용 DNS 고르는 기준",
+      "paragraphs": [
+        "이번 철수는 프랑스에 있는 사용자에게만 해당합니다. 한국에서 9.9.9.9를 쓰고 있다면 11월 24일 이후에도 그대로 쓸 수 있습니다. 다만 노트북이나 휴대폰 DNS를 9.9.9.9로 고정해 둔 채 프랑스에 머무르게 되면 영향을 받을 수 있습니다. Cloudflare는 리졸버가 끊기면 별도 안내 화면 없이 인터넷이 그냥 안 되는 것처럼 보인다고 지적했습니다. 갈 일이 있다면 출국 전에 DNS를 자동이나 다른 공용 DNS로 돌려 두는 게 안전합니다.",
+        "고르는 기준은 생각보다 단순합니다. 속도가 목적이면 통신사 기본 DNS나 국내에서 답하는 1.1.1.1로 충분했습니다. 악성 사이트 차단을 원하면 Quad9 9.9.9.9나 Cloudflare 1.1.1.2가 후보인데, 한국 회선에서는 Quad9가 일본 서버로 가서 조금 느렸다는 점을 같이 놓고 고르면 됩니다. 어느 쪽이든 통신사 리졸버가 보던 접속 기록을 다른 회사가 보게 된다는 점은 같으니, 그 회사의 개인정보 정책을 한 번 읽어 보는 게 좋습니다.",
+        "벨기에 명령의 기한이 2027년 1월 초라서, 연말에서 내년 초 사이에 Cloudflare, 구글, 시스코의 항소 결과가 나오면 공용 DNS 지도가 또 바뀔 수 있습니다. Quad9 측정은 시간대와 회선에 따라 답하는 서버가 바뀔 수 있으니, 내 회선에서 궁금하다면 같은 방식으로 직접 재 보는 것이 가장 확실합니다."
+      ],
+      "sourceRefs": [1, 2]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Quad9: Farewell, France",
+      "url": "https://quad9.net/news/blog/au-revoir-france/",
+      "description": "프랑스 철수 날짜, beIN 소송과 벌금, 철수를 고른 이유를 밝힌 Quad9 공지 (2026년 10월 22일)"
+    },
+    {
+      "name": "Cloudflare: Quad9's withdrawal from France",
+      "url": "https://blog.cloudflare.com/quad9-withdrawal-from-france/",
+      "description": "공용 DNS 차단 명령의 문제, OpenDNS 철수 사례, 벨기에 명령과 항소를 다룬 Cloudflare 블로그"
+    },
+    {
+      "name": "Quad9: Service Addresses & Features",
+      "url": "https://quad9.net/service/service-addresses-and-features/",
+      "description": "9.9.9.9, 9.9.9.10, 9.9.9.11 주소별 차단과 ECS 차이, 안드로이드 설정 안내"
+    },
+    {
+      "name": "Cloudflare Docs: Set up 1.1.1.1 on Android",
+      "url": "https://developers.cloudflare.com/1.1.1.1/setup/android/",
+      "description": "안드로이드 비공개 DNS 호스트 이름과 1.1.1.1 for Families 주소"
+    }
+  ],
+  "resources": [
+    {
+      "name": "Quad9 설정 가이드",
+      "url": "https://docs.quad9.net/",
+      "type": "문서",
+      "description": "운영체제와 공유기별 Quad9 설정 방법"
+    },
+    {
+      "name": "Quad9 안드로이드 9 이상 비공개 DNS 설정",
+      "url": "https://docs.quad9.net/Setup_Guides/Android/Android_9%2B_%28Encrypted%29/",
+      "type": "문서",
+      "description": "안드로이드 비공개 DNS에 dns.quad9.net을 넣는 공식 순서"
+    },
+    {
+      "name": "Cloudflare 1.1.1.1 설정 안내",
+      "url": "https://one.one.one.one/",
+      "type": "문서",
+      "description": "기기별 1.1.1.1 설정과 사용 여부 확인 페이지"
+    }
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-18T21:38:49+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://quad9.net/news/blog/au-revoir-france/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/quad9-dns-france-public-dns-speed-korea-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with own measurement output",
+        "reason": "공용 DNS 측정 결과를 보여 주는 실행 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://quad9.net/news/blog/au-revoir-france/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/quad9-dns-france-public-dns-speed-korea-2026-notice.png",
+        "decision": "included",
+        "rightsBasis": "Screenshot of the public Quad9 announcement, quoted with attribution",
+        "reason": "철수 날짜가 적힌 공식 공지 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://quad9.net/service/service-addresses-and-features/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/quad9-dns-france-public-dns-speed-korea-2026-bench.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "서버별 응답 시간과 응답 서버 이름을 보여 주는 실행 화면이라 포함."
+      }
+    ]
+  }
+}
