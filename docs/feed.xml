@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 19 Nov 2026 10:36:43 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 12:56:47 GMT</lastBuildDate>
+    <item>
+      <title>노션 대체 오픈소스와 슬랙 대체, ExitPath로 고르는 법</title>
+      <link>https://bluebworks.com/articles/notion-slack-open-source-alternatives-exitpath-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/notion-slack-open-source-alternatives-exitpath-2026/</guid>
+      <pubDate>Thu, 19 Nov 2026 12:56:47 GMT</pubDate>
+      <category>트렌드</category>
+      <description>노션과 슬랙을 떠날 때 어떤 오픈소스로 옮길지, 무엇이 따라오고 무엇이 남는지 ExitPath 점수와 공식 내보내기 범위로 정리했습니다.</description>
+    </item>
     <item>
       <title>jQuery 4.1.0과 3.8.0, 버전 확인과 업그레이드 방법</title>
       <link>https://bluebworks.com/articles/jquery-4-1-0-3-8-0-upgrade-version-check-2026/</link>
