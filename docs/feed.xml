@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 19 Nov 2026 12:56:47 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 00:38:59 GMT</lastBuildDate>
+    <item>
+      <title>챗GPT Work Chat 차이, 같은 요청 보내 본 결과</title>
+      <link>https://bluebworks.com/articles/chatgpt-work-chat-difference-usage-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/chatgpt-work-chat-difference-usage-2026/</guid>
+      <pubDate>Fri, 20 Nov 2026 00:38:59 GMT</pubDate>
+      <category>AI 서비스</category>
+      <description>챗GPT Work는 결과물을 끝까지 만들어 주는 모드입니다. 같은 장보기 요청을 두 모드에 보내 차이를 봤습니다.</description>
+    </item>
     <item>
       <title>노션 대체 오픈소스와 슬랙 대체, ExitPath로 고르는 법</title>
       <link>https://bluebworks.com/articles/notion-slack-open-source-alternatives-exitpath-2026/</link>

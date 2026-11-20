@@ -1,0 +1,326 @@
+{
+  "slug": "chatgpt-work-chat-difference-usage-2026",
+  "title": "챗GPT Work Chat 차이, 같은 요청 보내 본 결과",
+  "seoTitle": "챗GPT Work와 Chat 차이, 사용량 한도와 쓰는 법",
+  "summary": "챗GPT Work는 결과물을 끝까지 만들어 주는 모드입니다. 같은 장보기 요청을 두 모드에 보내 차이를 봤습니다.",
+  "category": "AI 서비스",
+  "announcedAt": "2026-11-17",
+  "publishedAt": "2026-11-20T09:38:59+09:00",
+  "verifiedAt": "2026-11-20T09:38:59+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "챗GPT Work",
+    "ChatGPT Work",
+    "챗GPT Work Chat 차이",
+    "챗GPT Work 사용량",
+    "챗GPT Work 사용법",
+    "챗GPT 플러스",
+    "GPT-6.2 Astra",
+    "코덱스 사용량"
+  ],
+  "keyPoints": [
+    "차이: Chat은 빠른 대화와 질문용, Work는 문서나 표, 보고서 같은 결과물을 끝까지 만드는 에이전트 모드입니다",
+    "실행 결과: 같은 장보기 엑셀 요청에 Work는 웹 검색을 거쳐 2만 4,100원, Chat은 추정 가격으로 4만 6,500원 계획을 냈습니다",
+    "사용량: Work는 코덱스와 같은 사용량을 나눠 쓰고, 플러스는 5시간 한도와 주간 한도를 왼쪽 아래 사용량 메뉴에서 볼 수 있습니다"
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-20T09:38:59+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://chatgpt.com",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with own ChatGPT screen",
+        "reason": "Work 모델 목록이 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-chat-models.webp",
+        "decision": "included",
+        "rightsBasis": "Own account screen of ChatGPT, no personal data",
+        "reason": "Chat 모드 모델 목록이 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-work-models.webp",
+        "decision": "included",
+        "rightsBasis": "Own account screen of ChatGPT, no personal data",
+        "reason": "Work 모드 모델 목록이 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-work-result.webp",
+        "decision": "included",
+        "rightsBasis": "Own account screen of ChatGPT, no personal data",
+        "reason": "Work 모드 답과 엑셀 파일이 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-chat-result.webp",
+        "decision": "included",
+        "rightsBasis": "Own account screen of ChatGPT, no personal data",
+        "reason": "Chat 모드 답과 예산 숫자가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://chatgpt.com",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-usage.webp",
+        "decision": "included",
+        "rightsBasis": "Own account screen of ChatGPT, no personal data",
+        "reason": "플러스 사용량 메뉴의 5시간과 주간 한도가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://x.com/OpenAI/status/2122750135608528984",
+        "decision": "excluded",
+        "reason": "첨부 이미지는 복사하지 않고 X 임베드로 인용함."
+      }
+    ]
+  },
+  "image": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-thumb.png",
+  "imageSourceUrl": "https://chatgpt.com",
+  "imageAlt": "챗GPT Work와 Chat 썸네일. 왼쪽에 큰 제목, 오른쪽에 Work 모드의 모델 선택 목록(GPT-6.2 Astra, GPT-6.2 Sol, GPT-6.1 Sol 등)",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "Work 모드 모델 목록. Chat보다 고를 수 있는 모델이 훨씬 많다",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "챗GPT Work와 Chat, 나뉜 이유",
+      "paragraphs": [
+        "요즘 챗GPT 화면 맨 위를 보면 Chat과 Work 두 버튼이 나란히 있습니다. 둘 다 같은 대화창처럼 생겼지만 오픈AI는 쓰임을 분명히 나눠 두었습니다.",
+        "오픈AI 도움말 설명으로는 Chat은 빠른 대화와 일상 질문용입니다. Work는 여러 단계를 거쳐 끝난 결과물을 내놓는 에이전트입니다. 코딩은 따로 코덱스가 맡습니다.",
+        "Work가 만드는 것으로는 문서, 스프레드시트, 발표 자료, 보고서, 사이트가 꼽힙니다. 주제를 조사하거나 자료를 분석해 파일로 넘겨주는 일이 중심입니다.",
+        "웹과 모바일에서는 플러스, 프로, 비즈니스, 엔터프라이즈, 에듀 같은 유료 요금제에서 Work를 쓸 수 있습니다. 무료 요금제는 윈도우와 맥 데스크톱 앱에서만 Work가 열립니다.",
+        "11월 17일(미국 시간)부터는 Work 안에서 GPT-6.2 아스트라와 솔도 고를 수 있게 됐습니다. 플러스, 프로, 엔터프라이즈, 에듀가 대상입니다."
+      ],
+      "sourceRefs": [
+        1,
+        3,
+        5
+      ],
+      "embeds": [
+        {
+          "type": "x",
+          "url": "https://x.com/OpenAI/status/2122750135608528984",
+          "author": "OpenAI",
+          "handle": "OpenAI",
+          "postedAt": "2026-11-17T17:54:05Z",
+          "dateLabel": "2026년 11월 17일 UTC",
+          "text": "Starting today, GPT-6.2 Astra and Sol are available in ChatGPT Work and Codex for Plus, Pro, Enterprise, and Edu users.\n\nPro 500 subscribers can use Ultrafast with either model. For the first time, we’re also bringing Ultrafast to Pro 200 subscribers, starting with GPT-6.2 Sol.",
+          "caption": "오픈AI 공식 계정의 Work 이용 대상 안내."
+        }
+      ]
+    },
+    {
+      "title": "Chat 모델 메뉴와 Work 모델 메뉴 차이",
+      "paragraphs": [
+        "플러스 계정에서 두 모드를 번갈아 열어 보면 차이가 바로 보입니다. Chat의 모델 메뉴에는 GPT-6와 GPT-5.6 Sol 두 개만 있고, 위쪽에 생각 수준을 고르는 막대가 따로 있습니다.",
+        "Work로 바꾸면 메뉴가 길어집니다. 맨 위 기본(추천 모델 세트) 아래로 GPT-6.2 Astra, GPT-6.2 Sol, GPT-6.1 Sol, GPT-6.1 Terra, GPT-6 Astra, GPT-6 Sol, GPT-6 Luna가 이어집니다.",
+        "그 아래 GPT-5.6 Sol, Terra, Luna까지 모두 11개가 떴습니다. 도움말에도 GPT-6.1 Sol, Terra, GPT-6 Luna는 일반 Chat 모델 메뉴에 나오지 않는다고 적혀 있습니다.",
+        "기본을 고르면 모델과 생각 수준을 막대 하나로 함께 움직이고, 모델을 직접 고르면 그 모델이 지원하는 생각 수준만 나옵니다. 처음이라면 기본에 두고 써도 됩니다."
+      ],
+      "sourceRefs": [
+        1
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-chat-models.webp",
+          "alt": "챗GPT Chat 모드 모델 메뉴. GPT-6에 체크 표시, 아래에 GPT-5.6 Sol 하나가 더 있다",
+          "caption": "Chat 모드에서 고를 수 있는 모델은 두 개다.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com",
+          "width": 262,
+          "height": 132
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-work-models.webp",
+          "alt": "챗GPT Work 모드 모델 메뉴. 기본 추천 모델 세트, GPT-6.2 Astra 체크, GPT-6.2 Sol, GPT-6.1 Sol, GPT-6.1 Terra, GPT-6 Astra, GPT-6 Sol",
+          "caption": "Work 모드에서는 GPT-6.2 아스트라와 솔을 직접 고를 수 있다.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com",
+          "width": 266,
+          "height": 292
+        }
+      ]
+    },
+    {
+      "title": "같은 장보기 엑셀 요청을 Work에 보낸 결과",
+      "paragraphs": [
+        "차이를 눈으로 보려고 같은 요청 하나를 두 모드에 보냈습니다. 1인 가구 다음 주 평일 저녁 5일치 장보기 계획을 엑셀로 만들고, 예산 5만 원에 요일, 메뉴, 재료, 예상 가격 열과 합계 줄을 넣어 달라는 내용입니다.",
+        "Work는 GPT-6.2 Astra Light 설정 그대로 보냈습니다. 화면에 43초 동안 작업했다는 표시가 뜬 뒤 평일저녁_장보기 엑셀 파일 하나가 붙어 나왔습니다.",
+        "답 첫 줄은 11월 23일(월)부터 27일(금)까지 저녁 5끼 예상 장보기 비용이 2만 4,100원이고 예산에서 2만 5,900원이 남는다는 내용이었습니다.",
+        "식용유와 간장은 집에 있다고 가정했다는 말도 붙었습니다. 금요일은 남은 재료로 김치달걀우동을 만들어 추가로 살 것이 없게 짰다고 했습니다.",
+        "오른쪽 소스 칸에는 웹 검색과 파일이 기록돼 있었습니다. 시키지 않았는데도 가격을 웹에서 찾아본 셈입니다. 금액을 고치면 합계가 자동으로 바뀐다는 안내도 있었습니다."
+      ],
+      "sourceRefs": [
+        1
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-work-result.webp",
+          "alt": "챗GPT Work 답 화면. 43초 동안 작업함 표시, 예상 장보기 비용 24,100원, 남은 예산 25,900원, 평일저녁_장보기.xlsx 파일 링크",
+          "caption": "Work는 웹 검색을 거쳐 2만 4,100원짜리 계획과 엑셀 파일을 냈다.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com",
+          "width": 460,
+          "height": 482
+        }
+      ]
+    },
+    {
+      "title": "같은 요청을 Chat에 보낸 결과",
+      "paragraphs": [
+        "이번에는 새 대화에서 Chat을 누르고 같은 문장을 그대로 넣었습니다. 생각 수준은 Medium, 모델은 GPT-6였습니다. 처리 시간은 Chat도 43초로 똑같았습니다.",
+        "Chat도 엑셀 파일을 만들어 줬습니다. 화면에 예산 5만 원, 예상 합계 4만 6,500원, 남는 예산 3,500원이 큰 숫자로 뜨고 그 아래 요일별 메뉴와 가격 표가 나왔습니다.",
+        "월요일 닭고기 덮밥 1만 1,000원, 화요일 두부 김치찌개 9,000원처럼 메뉴마다 값이 붙었습니다. 다만 답 끝에 가격은 실제 판매가가 아닌 추정치라고 직접 적혀 있었습니다.",
+        "정리하면 두 모드 모두 파일은 만들었지만 Work 쪽이 가격을 찾아보는 단계를 더 거쳤고, Chat은 가진 지식으로 예산 안에 맞추는 데 그쳤습니다. 숫자가 거의 두 배 차이가 난 이유입니다.",
+        "한 번 해 본 결과라 언제나 이렇다고 말할 수는 없습니다. 그래도 실제 가격이나 최신 정보가 필요한 결과물이라면 Work에 맡기는 쪽이 손이 덜 갑니다."
+      ],
+      "sourceRefs": [
+        3
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-chat-result.webp",
+          "alt": "챗GPT Chat 답 화면. 43s 동안 처리함, 분석 완료, 예산 50,000원, 예상 합계 46,500원, 남는 예산 3,500원",
+          "caption": "Chat은 추정 가격으로 4만 6,500원 계획을 냈다.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com",
+          "width": 460,
+          "height": 592
+        }
+      ]
+    },
+    {
+      "title": "챗GPT Work 사용량 보는 곳과 5시간, 주간 한도",
+      "paragraphs": [
+        "Work는 Chat과 사용량 계산이 다릅니다. 도움말은 Work가 코덱스와 같은 사용량 구조를 따르고, 두 곳이 요금제에 포함된 사용량을 함께 나눠 쓴다고 설명합니다.",
+        "플러스에는 5시간 한도와 주간 한도가 같이 걸립니다. 둘 다 남아 있어야 계속 쓸 수 있고, 주간 한도가 넉넉해도 5시간 한도가 먼저 찰 수 있습니다.",
+        "남은 양은 웹 화면 왼쪽 아래 둥근 사용량 아이콘을 누르면 바로 보입니다. 사용량 출처: 내 Plus 플랜 아래에 5시간 한도, 주간 한도, 크레딧이 퍼센트로 나옵니다. 사용량 관리를 누르면 설정의 사용량 화면으로 넘어갑니다.",
+        "장보기 요청을 보내기 전에는 5시간 한도가 98% 남아 있었습니다. Work 작업을 끝내고 다시 열자 95%였습니다(그 사이 Chat에서도 같은 요청을 한 번 보냈습니다). 주간 한도는 63% 그대로였습니다.",
+        "프로 100, 200, 500 요금제는 지금 Work와 코덱스에 5시간 한도가 없습니다. 포함된 사용량은 있으니 설정의 사용량 화면에서 남은 양과 초기화 시각을 보면 됩니다.",
+        "플러스 기준으로 도움말이 내놓은 5시간 동안의 대략적인 메시지 수는 GPT-6 Astra 5에서 45개, GPT-6.1 Sol 15에서 160개, GPT-6 Luna 350에서 3,000개입니다. 보장된 숫자가 아니라 작업에 따라 크게 달라지는 추정치입니다."
+      ],
+      "sourceRefs": [
+        2
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chatgpt-work-chat-difference-usage-2026-usage.webp",
+          "alt": "챗GPT 사용량 메뉴. 사용량 출처 내 Plus 플랜, 5시간 한도 95% 남음, 주간 한도 63% 남음, 크레딧 0크레딧, 사용량 관리",
+          "caption": "왼쪽 아래 사용량 아이콘을 누르면 나오는 한도 표시.",
+          "credit": "ChatGPT",
+          "sourceUrl": "https://chatgpt.com",
+          "width": 262,
+          "height": 188
+        }
+      ]
+    },
+    {
+      "title": "플러스에서 Work 사용량 아끼는 설정",
+      "paragraphs": [
+        "같은 일이라도 모델과 설정에 따라 쓰는 양이 달라집니다. 입력과 출력이 길수록, 생각 수준이 높을수록, 빠른 모드를 켤수록, 단계가 많은 작업일수록 더 씁니다.",
+        "플러스와 비즈니스 스탠더드는 아스트라를 제한된 양만 쓸 수 있고, 다 쓰면 크레딧을 따로 사야 이어서 쓸 수 있습니다. 아스트라는 솔보다 사용량이 빨리 줄어들 수 있다고 적혀 있습니다.",
+        "생각 수준은 낮은 쪽부터 시작하라는 것이 오픈AI 안내입니다. 낮은 수준이 꼭 성능이 낮다는 뜻은 아니어서, 아스트라를 Low로 둔 쪽이 솔 High보다 나을 수 있다고 했습니다.",
+        "모델 메뉴의 빠른 모드 활성화 옆에는 사용량 증가라는 작은 글씨가 붙어 있습니다. 급하지 않으면 꺼 두는 편이 낫습니다. 한도에 닿은 뒤 모델을 바꿔도 같은 사용량 풀이라 다시 채워지지 않습니다.",
+        "더 빠른 Ultrafast는 플러스에서 쓸 수 없습니다. 크레딧을 사도 열리지 않고, 지금은 프로 500달러와 일부 엔터프라이즈, 에듀 쪽에만 있습니다."
+      ],
+      "sourceRefs": [
+        2,
+        1
+      ]
+    },
+    {
+      "title": "챗GPT Work에 일 맡길 때 요청 쓰는 법",
+      "paragraphs": [
+        "오픈AI가 안내하는 Work 사용 순서는 단순합니다. Work를 고르고, 필요한 파일과 자료를 붙인 뒤, 원하는 결과물을 설명하면 됩니다. 결과를 보고 같은 대화에서 고쳐 달라고 이어 가면 됩니다.",
+        "요청에는 끝난 모습을 적는 것이 좋습니다. 이번 장보기 요청처럼 파일 형식(엑셀), 열 이름, 예산, 마지막 줄 합계처럼 확인할 기준을 넣으면 Work가 그 기준에 맞춰 파일을 만듭니다.",
+        "작업 중에는 진행 상황을 보면서 질문에 답하거나 방향을 바꿀 수 있습니다. 중요한 동작은 내 승인을 받고 넘어가도록 돼 있어서, 연결한 앱이 많을수록 승인 창을 눈여겨봐야 합니다.",
+        "가격이나 일정처럼 바뀌는 숫자가 들어가는 결과물은 받은 뒤 한 번 더 보는 습관이 필요합니다. Work가 웹 검색을 했더라도 내 동네 마트 가격과는 다를 수 있으니, 엑셀 금액 칸을 내 영수증 기준으로 고치면 합계가 따라 바뀝니다."
+      ],
+      "sourceRefs": [
+        1,
+        3
+      ]
+    },
+    {
+      "title": "챗GPT Work와 Chat 고르는 기준",
+      "paragraphs": [
+        "고르기 애매하면 이번처럼 같은 문장을 두 모드에 한 번씩 보내 보는 것도 방법입니다. 다만 Work는 한 번마다 플러스 한도를 몇 퍼센트씩 쓰니, 비교는 짧은 요청으로 하고 긴 작업은 한쪽에만 맡기는 편이 낫습니다.",
+        "질문 하나에 답을 듣거나 아이디어를 주고받는 일이면 Chat이 맞습니다. 번역이나 짧은 글 다듬기, 메일 초안도 여기에 들어갑니다. 빠르고, Work 사용량도 건드리지 않습니다.",
+        "조사하고 정리해서 파일로 받아야 하는 일, 예를 들어 비교표, 보고서, 발표 자료, 가계부 양식 같은 것은 Work에 맡기는 편이 결과가 낫습니다. 이번 장보기 엑셀처럼 최신 가격이 들어가야 하는 일도 마찬가지입니다.",
+        "Work는 정해진 시각에 반복하거나 바뀐 것을 지켜보는 예약 작업도 맡을 수 있습니다. 웹과 모바일의 Work는 클라우드에서 돌아서 내 컴퓨터 파일을 직접 열지는 못하고, 내 파일을 쓰려면 데스크톱 앱이 필요합니다.",
+        "Chat과 Work 대화는 왼쪽 최근 목록에 함께 쌓이고, 기존 프로젝트에서도 Work로 새 대화를 시작할 수 있습니다. 무료 사용자라면 데스크톱 앱을 깔아야 Work를 열어 볼 수 있습니다."
+      ],
+      "sourceRefs": [
+        1,
+        3,
+        4
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "ChatGPT Work and Codex (OpenAI 도움말)",
+      "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+      "description": "Chat, Work, 코덱스 구분, Work 모델 목록, 이용 가능한 요금제, 웹과 데스크톱 차이, Ultrafast 대상."
+    },
+    {
+      "name": "Managing usage with GPT-6 Astra in Work and Codex (OpenAI 도움말)",
+      "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex",
+      "description": "5시간 한도와 주간 한도, 플러스 메시지 범위 추정치, 생각 수준과 빠른 모드 안내."
+    },
+    {
+      "name": "ChatGPT Work 소개 페이지",
+      "url": "https://chatgpt.com/work",
+      "description": "요금제별 이용 가능 범위와 Work가 만드는 결과물."
+    },
+    {
+      "name": "ChatGPT is now a partner for your most ambitious work (OpenAI)",
+      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work",
+      "description": "Work 출시 발표, 데스크톱 앱에서는 무료 요금제 포함 모든 요금제에서 사용."
+    },
+    {
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com",
+      "description": "플러스 계정의 Chat과 Work 모델 메뉴, 장보기 요청 결과, 사용량 메뉴 화면."
+    },
+    {
+      "name": "OpenAI 공식 X 게시물",
+      "url": "https://x.com/OpenAI/status/2122750135608528984",
+      "description": "GPT-6.2 아스트라와 솔의 Work, 코덱스 이용 대상."
+    }
+  ],
+  "resources": [
+    {
+      "name": "Get started with ChatGPT Work (ChatGPT Learn)",
+      "url": "https://learn.chatgpt.com/docs/get-started-with-work",
+      "type": "문서",
+      "description": "Chat과 Work를 나눠 쓰는 법과 첫 작업 예시"
+    },
+    {
+      "name": "ChatGPT Work and Codex (OpenAI 도움말)",
+      "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+      "type": "문서",
+      "description": "요금제별 Work 이용 범위와 모델 목록"
+    },
+    {
+      "name": "챗GPT 아스트라 솔 차이 (BlueBWorks)",
+      "url": "https://bluebworks.com/articles/chatgpt-gpt-6-2-astra-sol-difference-2026/",
+      "type": "문서",
+      "description": "같은 일정 메모를 아스트라와 솔에 맡긴 비교"
+    },
+    {
+      "name": "챗GPT 코덱스 사용량 통합 (BlueBWorks)",
+      "url": "https://bluebworks.com/articles/chatgpt-codex-shared-usage-limit-december-2026/",
+      "type": "문서",
+      "description": "챗GPT와 코덱스 사용량 한도 변경 소식"
+    }
+  ]
+}
