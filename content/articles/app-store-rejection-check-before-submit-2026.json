@@ -1,0 +1,297 @@
+{
+  "slug": "app-store-rejection-check-before-submit-2026",
+  "title": "앱스토어 리젝 사유, 제출 전에 잡는 오픈소스 검사기",
+  "seoTitle": "앱스토어 리젝 사유와 플레이 심사 거절, 제출 전 검사",
+  "summary": "앱스토어와 구글 플레이 심사에서 자주 걸리는 사유를 제출 전에 찾아 주는 오픈소스 app-store-compliance를 연습용 앱에 돌려 봤습니다. 무엇을 잡고 무엇은 못 잡는지 정리했습니다.",
+  "category": "오픈소스",
+  "announcedAt": "2026-11-15",
+  "publishedAt": "2026-11-20T15:50:27+09:00",
+  "verifiedAt": "2026-11-20T15:50:27+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "앱스토어 리젝",
+    "앱스토어 심사 거절",
+    "구글 플레이 심사",
+    "app-store-compliance",
+    "앱 출시 체크리스트"
+  ],
+  "keyPoints": [
+    "app-store-compliance는 앱 폴더를 훑어 애플과 구글 심사에서 거절될 만한 코드를 찾아 주는 bash 검사기와 문서 묶음입니다. 앱 코드는 바꾸지 않습니다.",
+    "연습용 앱에 돌리니 카메라 사용 문구 누락, 계정 삭제 기능 없음, 문자 권한, targetSdk 34 같은 치명 위험 5개가 나왔고, 고친 뒤에는 0개가 됐습니다.",
+    "데모 계정, 개인정보 신고 양식처럼 코드 밖에서 걸리는 사유는 검사로 못 잡으니 같이 들어 있는 체크리스트로 따로 봐야 합니다."
+  ],
+  "image": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-thumb.png",
+  "imageSourceUrl": "https://github.com/mjmirza/app-store-compliance",
+  "imageAlt": "앱스토어 리젝 제출 전 검사, 치명 위험 5개에서 0개로. 오른쪽에 검사 결과 BLOCKED critical=5 화면과 고친 뒤 CLEAR critical=0 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "고치기 전에는 BLOCKED, 고친 뒤에는 CLEAR가 나온다.",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "앱스토어 리젝, 왜 제출 전에 잡아야 하나",
+      "paragraphs": [
+        "앱을 처음 스토어에 올려 본 사람은 거의 다 한 번쯤 리젝 메일을 받습니다. 문제는 메일이 짧다는 점입니다. 가이드라인 번호 하나와 몇 줄 설명만 오니 어디를 고쳐야 할지 감으로 찾게 됩니다.",
+        "고쳐서 다시 내면 또 심사를 기다려야 합니다. 이 과정이 두세 번 반복되면 출시가 한두 주씩 밀립니다. 그래서 제출 버튼을 누르기 전에 흔한 거절 사유를 미리 걸러 보자는 도구가 나옵니다.",
+        "이번에 GitHub 트렌딩에 올라온 mjmirza/app-store-compliance가 그런 도구입니다. 애플 앱스토어와 구글 플레이에서 자주 나오는 거절 패턴을 문서로 모으고, 앱 폴더를 훑어 걸릴 만한 코드를 찾아 주는 bash 검사기를 같이 줍니다.",
+        "2026년 6월에 처음 공개됐고 지금 별이 2천 개를 조금 넘습니다. 최신 버전은 2.4.0이고 마지막 커밋은 11월 15일입니다. 개발자가 아니어도 읽을 수 있는 출시 전 체크리스트와, 이미 거절당한 뒤 이의 제기하는 방법을 정리한 문서도 들어 있습니다."
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "app-store-compliance가 하는 일",
+      "paragraphs": [
+        "핵심은 두 가지입니다. 하나는 거절 사례를 가이드라인 번호와 고치는 법에 묶어 둔 문서이고, 다른 하나는 그 내용을 코드에서 찾아보는 검사 스크립트입니다.",
+        "검사기는 iOS와 안드로이드 프로젝트를 모두 봅니다. 플러터, 리액트 네이티브와 엑스포, 아이오닉 같은 크로스 플랫폼 프로젝트도 알아봅니다. 찾은 문제는 치명, 높음, 보통 세 단계로 나눠 치명부터 보여 줍니다.",
+        "각 항목에는 어느 파일 몇 번째 줄에서 걸렸는지와 fix 줄이 붙습니다. 마지막 줄이 BLOCKED면 치명 위험이 있다는 뜻이고, CLEAR면 코드 검사에서는 치명 위험이 없다는 뜻입니다.",
+        "README는 설치되는 것도 없고 앱 코드를 바꾸지도 않는다고 설명합니다."
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "제출 전 검사 실행 방법",
+      "paragraphs": [
+        "필요한 건 git과 bash뿐입니다. 맥과 리눅스는 터미널에서 바로 되고, 윈도우는 Git Bash나 WSL에서 돌리면 됩니다. 저장소를 한 번 받아 두고 앱 폴더 경로만 바꿔 넣으면 됩니다.",
+        "경로에는 Xcode 프로젝트나 안드로이드 앱이 들어 있는 폴더를 넣습니다. 폴더 이름에 띄어쓰기가 있으면 따옴표를 꼭 붙입니다. 터미널 창에 폴더를 끌어다 놓으면 경로가 자동으로 들어갑니다.",
+        "끝나면 검사에 걸린 시간도 함께 찍힙니다. README는 작은 프로젝트는 1초 안팎이라고 하지만, 리눅스 호환 환경인 WSL1에서 파일 몇 개짜리 연습용 앱을 돌렸을 때는 처음 96초, 다시 돌렸을 때 52초가 걸렸습니다.",
+        "마지막 줄이 NOT CHECKED로 끝나면 그 폴더에서 iOS나 안드로이드 프로젝트를 못 찾았다는 뜻입니다. 이때는 경로가 앱 루트를 가리키는지부터 봅니다. 저장소와 문서는 git pull 한 번으로 최신 규칙을 받아 올 수 있어서, 제출할 때마다 받기 전에 한 번 갱신해 두면 좋습니다."
+      ],
+      "code": {
+        "language": "bash",
+        "text": "# 1. 검사기와 문서 받기\ngit clone https://github.com/mjmirza/app-store-compliance ~/repositories/app-store-compliance\n\n# 2. 앱 폴더 검사하기 (경로만 바꾼다)\nbash ~/repositories/app-store-compliance/agent-os/hooks/app-store-compliance-guard.sh \"/path/to/your/app\"",
+        "caption": "두 번째 줄의 경로만 내 앱 폴더로 바꾼다. 앱 파일은 바뀌지 않는다."
+      },
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "연습용 앱에 돌려 본 결과: 치명 위험 5개",
+      "paragraphs": [
+        "실제 앱을 넣기 전에 일부러 문제를 심어 둔 작은 가계부 앱 폴더를 만들었습니다. iOS 쪽은 영수증을 찍는 카메라 코드와 로그인 화면만 있고, 안드로이드 쪽은 매니페스트와 빌드 설정 파일 하나씩입니다.",
+        "iOS에서는 두 가지가 치명으로 나왔습니다. 로그인은 있는데 앱 안에서 계정을 지우는 기능이 없다는 것, 그리고 카메라를 쓰는데 Info.plist에 카메라를 쓰는 이유 문구가 없다는 것입니다.",
+        "둘 다 애플 심사 가이드라인 5.1.1에 걸리는 내용입니다. 가이드라인은 앱에서 계정을 만들 수 있으면 앱 안에서 계정 삭제도 제공해야 한다고 적고 있습니다. 개인정보에 접근할 때는 그 이유를 분명하게 밝히라고 합니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-ios.png",
+          "alt": "터미널 검사 결과 iOS 부분. CRITICAL APPLE-5.1.1-NO-ACCOUNT-DELETION 계정 생성은 있는데 앱 안 계정 삭제 없음, LoginView.swift 2번째 줄. CRITICAL APPLE-5.1.1-MISSING-USAGE-DESCRIPTION 카메라 사용 문구 없음, ReceiptScanView.swift 3번째 줄",
+          "caption": "iOS는 계정 삭제 없음, 카메라 사용 문구 없음 두 가지가 치명으로 나온다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/mjmirza/app-store-compliance",
+          "width": 800,
+          "height": 550
+        }
+      ],
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "구글 플레이 심사 거절 사유: 문자 권한과 targetSdk",
+      "paragraphs": [
+        "안드로이드 쪽은 치명이 세 개였습니다. 매니페스트에 문자 읽기 권한(READ_SMS)을 넣어 둔 것, targetSdk가 34인 것, 그리고 민감한 정보에 접근하면서 앱 안 고지가 없다는 것입니다.",
+        "구글 플레이 정책상 문자와 통화 기록 권한은 기본 문자 앱이나 기본 전화 앱처럼 그 기능이 핵심인 앱만 쓸 수 있습니다. 쓰려면 Play Console에서 권한 신고 양식을 내야 하고, 없으면 앱이 내려갈 수 있습니다.",
+        "targetSdk는 날짜가 정해진 규칙입니다. 2026년 8월 31일부터 새 앱과 업데이트는 안드로이드 16(API 36) 이상을 대상으로 해야 올릴 수 있습니다. 웨어 OS와 자동차용은 35, TV와 XR은 34 이상입니다.",
+        "기한 연장은 11월 1일까지 신청할 수 있었으니 지금은 지났습니다. 이미 올라가 있는 앱은 API 35 이상이어야 더 새 안드로이드 기기를 쓰는 신규 사용자에게 계속 보입니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-android.png",
+          "alt": "터미널 검사 결과 안드로이드 부분. CRITICAL GOOGLE-PERM-SMS-CALLLOG 문자 또는 통화 기록 권한 선언, AndroidManifest.xml 2번째 줄. CRITICAL GOOGLE-TARGET-API targetSdk 34가 2026년 8월 31일부터 적용된 API 36 기준보다 낮음, build.gradle 2번째 줄",
+          "caption": "문자 권한과 targetSdk 34가 각각 파일과 줄 번호까지 찍힌다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/mjmirza/app-store-compliance",
+          "width": 800,
+          "height": 664
+        }
+      ],
+      "sourceRefs": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "title": "고친 뒤 다시 돌린 결과: BLOCKED에서 CLEAR로",
+      "paragraphs": [
+        "fix 줄에 적힌 대로 고쳤습니다. Info.plist에 카메라 사용 이유 문구와 암호화 사용 여부 값을 넣고, 로그인 화면 코드에 계정 삭제 함수를 만들었습니다.",
+        "안드로이드는 문자 권한을 빼고 targetSdk를 36으로 올렸습니다. 릴리스 빌드에 코드 줄이기 옵션도 켰습니다. 그리고 같은 명령을 다시 돌렸습니다.",
+        "처음에는 치명 5개, 높음 4개, 보통 3개였고 마지막 줄이 BLOCKED였습니다. 고친 뒤에는 치명 0개, 높음 2개, 보통 3개로 바뀌고 마지막 줄이 CLEAR가 됐습니다.",
+        "남은 높음 2개는 두 플랫폼 모두 개인정보처리방침 링크가 없다는 것이었습니다. 연습용 앱이라 일부러 두었지만, 실제 앱이라면 스토어 등록 정보와 앱 안 양쪽에 넣어야 합니다. 보통 단계로는 2026년 연령 등급 설문 확인, 버튼 햅틱 같은 접근성 권고가 남았습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-blocked.png",
+          "alt": "터미널 Summary critical=5 high=4 medium=3, Scan time 96s, BLOCKED 5 critical rejection risks above",
+          "caption": "고치기 전. 치명 5개로 BLOCKED.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/mjmirza/app-store-compliance",
+          "width": 800,
+          "height": 246
+        },
+        {
+          "src": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-clear.png",
+          "alt": "터미널 Summary critical=0 high=2 medium=3, Scan time 52s, CLEAR 0 critical risks in the code scan",
+          "caption": "고친 뒤. 치명 0개로 CLEAR, 높음과 보통은 남는다.",
+          "credit": "BlueBWorks",
+          "sourceUrl": "https://github.com/mjmirza/app-store-compliance",
+          "width": 800,
+          "height": 284
+        }
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "플러터, 리액트 네이티브, 엑스포 앱에서 보는 것",
+      "paragraphs": [
+        "요즘은 네이티브 코드를 직접 쓰지 않고 플러터나 리액트 네이티브로 앱을 만드는 경우가 많습니다. 검사기는 이런 프로젝트도 따로 알아보고, 프레임워크마다 자주 빠지는 파일을 짚어 줍니다.",
+        "플러터와 리액트 네이티브에서는 개인정보 매니페스트 파일(PrivacyInfo.xcprivacy)이 프로젝트에 하나도 없을 때 치명으로 잡습니다. 저장소나 분석 라이브러리처럼 내가 직접 쓰지 않아도 따라 들어온 모듈 때문에 필요해지는 경우가 많아서 놓치기 쉽습니다.",
+        "엑스포로 만든 앱은 네이티브 폴더가 없어도 app.json이나 app.config를 읽어 사용 목적 문구, 개인정보 매니페스트, 안드로이드 권한을 봅니다. 네이티브 코드까지 보려면 README 안내대로 npx expo prebuild로 폴더를 만든 뒤 다시 돌리면 됩니다.",
+        "검사가 끝나면 맨 아래에 각국 규제와 스토어 정책 시행일 목록도 찍힙니다. 이번에는 12월 1일 일본 구글 플레이 결제 관련 항목부터 내년 초 미국 여러 주의 연령 확인 법까지 날짜순으로 나왔습니다. 해외 출시를 생각한다면 이 목록도 한 번 훑어볼 만합니다."
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "검사로 못 잡는 리젝 사유",
+      "paragraphs": [
+        "CLEAR가 떴다고 심사 통과가 보장되지는 않습니다. 검사기 스스로도 마지막 줄에서 코드로 볼 수 없는 계정과 등록 정보 점검은 체크리스트로 따로 하라고 안내합니다.",
+        "README는 요즘 가장 많이 걸리는 두 가지로 데모 계정과 개인정보 신고를 꼽습니다. 심사자가 로그인해 볼 수 있는 계정과 실제로 돌아가는 서버가 있어야 하고, 신고한 수집 항목이 SDK까지 포함해 앱의 실제 동작과 맞아야 합니다.",
+        "구글 플레이에는 개인 개발자 계정만의 조건도 있습니다. 2023년 11월 13일 이후 만든 개인 계정은 테스터 12명 이상이 14일 동안 계속 참여한 비공개 테스트를 거쳐야 정식 출시를 신청할 수 있습니다.",
+        "이런 항목은 코드에 흔적이 없어서 검사기가 보통 단계 알림으로만 띄웁니다. 개발자가 아니라면 체크리스트 문서의 앞 두 항목부터 보는 게 빠릅니다."
+      ],
+      "sourceRefs": [
+        1,
+        5
+      ]
+    },
+    {
+      "title": "라이선스와 쓸 때 주의할 점",
+      "paragraphs": [
+        "이 저장소는 MIT 같은 일반 오픈소스 라이선스가 아니라 OpenRoots Agent License 2.3을 씁니다. 개인, 비영리, 학교, 공공기관과 연 매출 2천만 달러 이하 회사는 따로 비용 없이 쓸 수 있습니다.",
+        "그보다 큰 회사는 넘는 매출에 대해 사용료 조건이 붙습니다. 경쟁 제품으로 다시 팔거나 남의 서비스처럼 재포장하는 것은 막혀 있으니, 회사에서 쓸 때는 라이선스 원문을 한 번 읽어 두는 편이 안전합니다.",
+        "검사 규칙은 글자 패턴으로 코드를 찾는 방식이라 빠뜨리거나 잘못 잡는 경우도 있습니다. 걸린 항목은 fix 줄만 믿지 말고 연결된 애플, 구글 공식 문서에서 한 번 더 보는 게 좋습니다.",
+        "클로드 코드나 커서 같은 AI 코딩 도구에 제출 명령 직전 자동으로 돌게 붙이는 설치 스크립트도 있습니다. 한 번씩 점검만 할 거라면 위 두 줄 명령으로 충분합니다.",
+        "이 검사기는 심사 대신 통과를 보장해 주는 도구가 아니라, 리젝 메일에서 자주 보는 실수를 제출 전에 한 번 더 걸러 주는 그물에 가깝습니다. 특히 처음 앱을 내는 사람에게는 어떤 규칙이 있는지 한눈에 보는 목록 역할도 합니다."
+      ],
+      "sourceRefs": [
+        1,
+        6
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "GitHub: mjmirza/app-store-compliance",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "description": "검사기 실행 방법, 결과 읽는 법, 체크리스트와 문서 목록"
+    },
+    {
+      "name": "Apple App Review Guidelines",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "description": "5.1.1 계정 로그인과 계정 삭제, 개인정보 사용 목적 문구"
+    },
+    {
+      "name": "Android Developers: Target API level requirements",
+      "url": "https://developer.android.com/google/play/requirements/target-sdk",
+      "description": "2026년 8월 31일부터 새 앱과 업데이트 API 36 이상, 기존 앱 API 35 이상"
+    },
+    {
+      "name": "Play Console 고객센터: SMS 또는 통화 기록 권한 그룹 사용",
+      "url": "https://support.google.com/googleplay/android-developer/answer/10208820",
+      "description": "문자와 통화 기록 권한을 쓸 수 있는 경우와 권한 신고 양식"
+    },
+    {
+      "name": "Play Console 고객센터: 새 개인 개발자 계정의 앱 테스트 요건",
+      "url": "https://support.google.com/googleplay/android-developer/answer/14151465",
+      "description": "테스터 12명, 14일 연속 비공개 테스트 조건"
+    },
+    {
+      "name": "OpenRoots Agent License 2.3",
+      "url": "https://openroots.org/licenses/ora/2.3",
+      "description": "무료 사용 범위와 금지 사항 요약"
+    }
+  ],
+  "resources": [
+    {
+      "name": "app-store-compliance 저장소",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "type": "저장소",
+      "description": "검사기와 거절 패턴 문서"
+    },
+    {
+      "name": "출시 전 체크리스트",
+      "url": "https://github.com/mjmirza/app-store-compliance/blob/main/docs/PRE-SUBMISSION-CHECKLIST.md",
+      "type": "문서",
+      "description": "코드 밖의 계정, 등록 정보 점검 항목"
+    },
+    {
+      "name": "리젝 대응 안내",
+      "url": "https://github.com/mjmirza/app-store-compliance/blob/main/docs/MISTAKE-PATTERNS.md",
+      "type": "문서",
+      "description": "자주 걸리는 사유와 이의 제기 방법"
+    },
+    {
+      "name": "Apple App Review Guidelines",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "type": "문서",
+      "description": "애플 심사 가이드라인 전체"
+    }
+  ],
+  "discovery": {
+    "xStatus": "public-search",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-20T15:50:27+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://github.com/mjmirza/app-store-compliance",
+        "assetUrl": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with own terminal output",
+        "reason": "글 내용을 보여 주는 실행 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/mjmirza/app-store-compliance",
+        "assetUrl": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-ios.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "iOS 검사 결과를 보여 주는 실행 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/mjmirza/app-store-compliance",
+        "assetUrl": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-android.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "안드로이드 검사 결과를 보여 주는 실행 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/mjmirza/app-store-compliance",
+        "assetUrl": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-blocked.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "고치기 전 요약을 보여 주는 실행 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://github.com/mjmirza/app-store-compliance",
+        "assetUrl": "https://bluebworks.com/assets/editorial/app-store-rejection-check-before-submit-2026-clear.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks own terminal output",
+        "reason": "고친 뒤 요약을 보여 주는 실행 화면이라 포함."
+      }
+    ]
+  }
+}

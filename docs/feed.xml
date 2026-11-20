@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 20 Nov 2026 00:38:59 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 06:50:27 GMT</lastBuildDate>
+    <item>
+      <title>앱스토어 리젝 사유, 제출 전에 잡는 오픈소스 검사기</title>
+      <link>https://bluebworks.com/articles/app-store-rejection-check-before-submit-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/app-store-rejection-check-before-submit-2026/</guid>
+      <pubDate>Fri, 20 Nov 2026 06:50:27 GMT</pubDate>
+      <category>오픈소스</category>
+      <description>앱스토어와 구글 플레이 심사에서 자주 걸리는 사유를 제출 전에 찾아 주는 오픈소스 app-store-compliance를 연습용 앱에 돌려 봤습니다. 무엇을 잡고 무엇은 못 잡는지 정리했습니다.</description>
+    </item>
     <item>
       <title>챗GPT Work Chat 차이, 같은 요청 보내 본 결과</title>
       <link>https://bluebworks.com/articles/chatgpt-work-chat-difference-usage-2026/</link>
