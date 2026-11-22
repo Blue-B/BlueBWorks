@@ -104,7 +104,7 @@ function head({
     <link rel="icon" href="${assetHref(base, "favicon-48.png")}" sizes="48x48" type="image/png">
     <link rel="apple-touch-icon" href="${assetHref(base, "apple-touch-icon.png")}">
     <link rel="alternate" type="application/rss+xml" title="${esc(config.rssTitle)}" href="${pageHref(base, "feed.xml")}">
-    <link rel="stylesheet" href="${assetHref(base, "journal.css")}?v=edition6">
+    <link rel="stylesheet" href="${assetHref(base, "journal.css")}?v=edition7">
     ${ld}
   </head>`;
 }
@@ -193,7 +193,10 @@ function mediaFigure(post, base, { className = "post-media", eager = false } = {
     // Cards already have an outer link. Only the article cover gets zoom/source links.
     const isCover = className === 'source-media';
     const credit = esc(post.imageCredit || sourceHost(post));
-    const sourceLink = isCover && post.imageSourceUrl
+    const ownImage = /bluebworks/i.test(post.imageCredit || '') || (!post.imageCredit && /bluebworks/i.test(post.image || ''));
+    const sourceLink = ownImage
+      ? ''
+      : isCover && post.imageSourceUrl
       ? `<a href="${esc(post.imageSourceUrl)}" target="_blank" rel="noopener noreferrer">${credit} · 원문</a>`
       : `<cite>${credit}</cite>`;
     return `<figure class="${className}">
@@ -280,12 +283,17 @@ export function renderHome({ config, base, posts, generatedAt, heroImageUrl = ""
   return layout({ config, base, active: "home", title: config.homeTitle || config.siteName, description: config.description, canonicalPath: "/", ogType: "website", ogImage: heroImageUrl, bodyClass: "page-home", content: journalHome({ config, base, posts: posts.filter(isIndexable), notes: mascotNotes(config, base) }), jsonLd: [websiteJsonLd(config), orgJsonLd(config)], generatedAt });
 }
 
-function citations(refs, sources) {
+function citationMarks(refs, sources) {
   const valid = refs.filter((ref) => ref >= 1 && ref <= sources.length);
   if (!valid.length) return "";
-  return `<p class="source-refs">근거 ${valid
-    .map((ref) => `<a href="#source-${ref}">[${ref}]</a>`)
-    .join(" ")}</p>`;
+  return `<sup class="fn-refs">${valid
+    .map((ref) => `<a href="#source-${ref}" aria-label="출처 ${ref}">${ref}</a>`)
+    .join(",")}</sup>`;
+}
+
+function citations(refs, sources) {
+  const marks = citationMarks(refs, sources);
+  return marks ? `<p class="source-refs fn-only">${marks}</p>` : "";
 }
 
 function renderSections(post) {
@@ -293,12 +301,13 @@ function renderSections(post) {
     .map((section, index) => {
       const id = `sec-${index + 1}`;
       const paragraphs = sectionParagraphs(section);
-      const body = paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("\n        ");
+      const marks = citationMarks(section.sourceRefs, post.sources);
+      const body = paragraphs.map((paragraph, pi) => `<p>${esc(paragraph)}${pi === paragraphs.length - 1 ? marks : ""}</p>`).join("\n        ");
       return `<section class="prose-section" id="${id}">
         <h2>${esc(section.title)}</h2>
         ${body}
         ${articleExtras(section)}
-        ${citations(section.sourceRefs, post.sources)}
+        ${paragraphs.length ? "" : citations(section.sourceRefs, post.sources)}
       </section>`;
     })
     .join("\n      ");

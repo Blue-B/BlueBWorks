@@ -69,7 +69,7 @@ test('all public pages use one theme and omit the rejected interface copy', () =
   const files = ['index.html', 'articles/index.html', 'about.html', 'contact.html', 'privacy.html', 'articles/git-2-56-2026/index.html'];
   for (const file of files) {
     const html = read(file);
-    assert.match(html, /journal\.css\?v=edition6/);
+    assert.match(html, /journal\.css\?v=edition7/);
     assert.doesNotMatch(html, /href="[^"]*\/(?:style|prototype)\.css/);
     assert.doesNotMatch(html, /fonts\.googleapis\.com/);
     for (const phrase of ['쌓아둔 기록', '제목, 모델, 도구 이름으로 찾아보세요', '모델과 도구, 지금 읽을 이야기', '기술을 읽는 저널', '원문으로 가기']) assert.ok(!html.includes(phrase), `${file}: rejected copy ${phrase}`);

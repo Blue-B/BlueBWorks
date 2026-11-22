@@ -314,3 +314,5 @@ html[data-motion=reduced]{scroll-behavior:auto}html[data-motion=reduced] *,html[
 .prose-section .faq-item h3{font-size:19px;line-height:1.6;font-weight:750;margin:0 0 8px}
 .prose-section .faq-item p{font-size:17px;line-height:1.9;margin:0}
 @media(max-width:560px){.stat-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stat-card{padding:12px}.stat-card strong{font-size:24px}.prose-section .faq-item h3{font-size:17px}.prose-section .faq-item p{font-size:16px}}
+
+.fn-refs{font-size:.72em;line-height:0;margin-left:2px;vertical-align:super;white-space:nowrap}.fn-refs a{color:var(--muted);text-decoration:none;padding:0 1px}.fn-refs a:hover{color:var(--accent)}.source-refs.fn-only{margin-top:4px}
