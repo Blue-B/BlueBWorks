@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Fri, 20 Nov 2026 12:44:30 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 05:30:00 GMT</lastBuildDate>
+    <item>
+      <title>git 커밋 메시지 수정, 마지막 커밋과 이전 커밋 그리고 push 한 뒤</title>
+      <link>https://bluebworks.com/articles/git-commit-message-amend-rebase-force-push-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/git-commit-message-amend-rebase-force-push-2026/</guid>
+      <pubDate>Mon, 23 Nov 2026 05:30:00 GMT</pubDate>
+      <category>개발도구</category>
+      <description>git 커밋 메시지를 고치는 세 가지 경우를 연습 저장소에서 직접 해 보고 정리했습니다. 마지막 커밋은 commit --amend, 이전 커밋은 rebase -i 의 reword, 이미 push 했다면 --force-with-lease 와 --force-if-includes 를 함께 씁니다.</description>
+    </item>
     <item>
       <title>A4 미니북 만들기, 8쪽 접는 순서 맞춰 주는 무료 편집기</title>
       <link>https://bluebworks.com/articles/a4-mini-book-zine-maker-fanzines-app-2026/</link>

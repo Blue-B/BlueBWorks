@@ -1,0 +1,222 @@
+{
+  "slug": "git-commit-message-amend-rebase-force-push-2026",
+  "title": "git 커밋 메시지 수정, 마지막 커밋과 이전 커밋 그리고 push 한 뒤",
+  "seoTitle": "git 커밋 메시지 수정 방법, push 한 뒤 고치기까지",
+  "summary": "git 커밋 메시지를 고치는 세 가지 경우를 연습 저장소에서 직접 해 보고 정리했습니다. 마지막 커밋은 commit --amend, 이전 커밋은 rebase -i 의 reword, 이미 push 했다면 --force-with-lease 와 --force-if-includes 를 함께 씁니다.",
+  "category": "개발도구",
+  "announcedAt": "2026-11-23",
+  "publishedAt": "2026-11-23T14:30:00+09:00",
+  "verifiedAt": "2026-11-23T14:30:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "git 커밋 메시지 수정",
+    "git commit amend",
+    "git rebase reword",
+    "git push 후 커밋 메시지 수정",
+    "force-with-lease",
+    "git 이전 커밋 메시지 수정"
+  ],
+  "keyPoints": [
+    "아직 push 하지 않았다면 마지막 커밋은 git commit --amend, 그보다 앞의 커밋은 git rebase -i 에서 pick 을 reword 로 바꾸면 됩니다. 어느 쪽이든 커밋 해시가 새로 만들어집니다.",
+    "이미 push 한 커밋을 고쳤다면 일반 push 는 거절됩니다. --force 대신 --force-with-lease --force-if-includes 를 함께 써야 그사이 올라온 동료 커밋을 덮어쓰지 않습니다."
+  ],
+  "image": "https://bluebworks.com/assets/editorial/git-commit-message-amend-rebase-force-push-2026-thumb.png",
+  "imageSourceUrl": "https://docs.github.com/ko/pull-requests/how-tos/commit-changes/changing-a-commit-message",
+  "imageAlt": "커밋 메시지 수정, 마지막 커밋과 이전 커밋, push 한 뒤까지. 오른쪽에 GitHub 문서의 대화형 리베이스로 커밋 메시지를 바꾸는 단계 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "이전 커밋 메시지는 rebase -i 목록에서 pick 을 reword 로 바꿔 고친다.",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "git 커밋 메시지 수정, push 했는지부터 봅니다",
+      "paragraphs": [
+        "커밋 메시지에 오타를 내거나 이슈 번호를 빠뜨리는 일은 생각보다 자주 생깁니다. 고치는 명령은 두 개뿐인데, 그 커밋을 이미 원격 저장소에 올렸는지에 따라 뒷정리가 완전히 달라집니다.",
+        "직접 확인해 보려고 WSL 우분투의 git 2.43.0 으로 연습 저장소를 만들고, 원격 역할을 할 빈 저장소(bare)를 옆에 하나 더 두었습니다. 로그인 버그 수졍이라고 오타를 낸 커밋 e06f419 에 git commit --amend 를 실행하자 메시지가 로그인 버그 수정으로 바뀌면서 해시가 dee6d31 로 달라졌습니다.",
+        "이전 커밋 세 개를 rebase -i 로 고쳤을 때는 메시지를 바꾼 건 맨 아래 하나뿐인데도 위의 두 커밋까지 해시가 모두 바뀌었습니다. 그 상태로 push 하자 non-fast-forward 로 거절됐고, 동료 역할 저장소에서 커밋을 하나 올린 뒤에는 강제 푸시 방식에 따라 그 커밋이 지워지기도 하고 막히기도 했습니다.",
+        "정리하면 순서는 이렇습니다. 아직 push 하지 않은 커밋이면 마음 편히 고치면 되고, 이미 push 한 커밋이면 혼자 쓰는 브랜치인지부터 봅니다. 여럿이 같이 쓰는 main 이나 develop 브랜치라면 메시지 오타 정도는 그대로 두는 편이 대부분 낫습니다."
+      ],
+      "sourceRefs": [1, 2]
+    },
+    {
+      "title": "마지막 커밋 메시지는 commit --amend",
+      "paragraphs": [
+        "가장 최근 커밋 하나만 고칠 때는 git commit --amend 를 씁니다. 그냥 실행하면 기존 메시지가 들어 있는 편집기가 열리고, 저장하고 닫으면 끝납니다. 편집기를 거치지 않으려면 -m 뒤에 새 메시지를 바로 적습니다.",
+        "아래가 연습 저장소에서 실제로 나온 결과입니다. amend 전에는 맨 위 커밋이 e06f419 였는데, 실행 직후 같은 자리에 dee6d31 이 들어섰습니다. 메시지만 바꿨어도 git 입장에서는 새 커밋을 하나 만들어 갈아 끼운 것입니다.",
+        "출력에 찍힌 Date 는 처음 커밋했던 시각 그대로입니다. amend 는 작성자와 작성 시각을 기본으로 유지하고, 커밋한 사람 정보만 지금 시각으로 바꿉니다. 작성 시각까지 새로 찍고 싶다면 --reset-author 를 붙입니다.",
+        "메시지가 아니라 파일을 빠뜨렸을 때도 같은 명령을 씁니다. 빠진 파일을 git add 로 올린 뒤 git commit --amend --no-edit 를 실행하면 메시지는 그대로 두고 그 파일만 마지막 커밋에 합쳐집니다.",
+        "amend 는 언제나 맨 위 커밋 하나에만 작동합니다. 고치려는 커밋 위에 다른 커밋이 이미 쌓여 있다면 amend 로는 손댈 수 없으니 다음에 나오는 rebase 방법으로 넘어갑니다."
+      ],
+      "code": {
+        "language": "bash",
+        "caption": "마지막 커밋 메시지를 고친 실제 출력",
+        "text": "$ git log --oneline\ne06f419 로그인 버그 수졍\ne8c1775 첫 커밋\n\n$ git commit --amend -m \"로그인 버그 수정\"\n[main dee6d31] 로그인 버그 수정\n Date: Mon Nov 23 14:25:45 2026 +0900\n 1 file changed, 1 insertion(+)\n create mode 100644 b.txt\n\n$ git log --oneline\ndee6d31 로그인 버그 수정\ne8c1775 첫 커밋"
+      },
+      "sourceRefs": [1, 4]
+    },
+    {
+      "title": "이전 커밋 메시지는 rebase -i 에서 reword",
+      "paragraphs": [
+        "두세 개 전 커밋 메시지를 고칠 때는 대화형 리베이스를 씁니다. 최근 세 개 안에 있다면 git rebase -i HEAD~3 을 실행합니다. 편집기에 오래된 커밋부터 pick 줄이 나열되는데, 고칠 커밋 앞의 pick 을 reword(줄여서 r)로 바꾸고 저장합니다.",
+        "그러면 reword 로 표시한 커밋마다 메시지 편집기가 차례로 한 번씩 열립니다. 새 메시지를 쓰고 저장하면 다음 커밋으로 넘어가고, 마지막에 Successfully rebased 가 나오면 끝입니다. 줄 순서를 바꾸거나 지우면 커밋 순서가 바뀌거나 커밋이 사라지니 pick 이라는 낱말만 고칩니다.",
+        "연습 저장소에서는 세 커밋 중 맨 아래 하나만 reword 로 바꿨습니다. 결과를 보면 메시지를 고친 커밋뿐 아니라 그 위에 쌓인 설정 파일 추가와 README 수정 커밋까지 해시가 전부 바뀌었습니다. 커밋 해시에는 부모 커밋 정보가 들어가기 때문에 아래 커밋 하나가 바뀌면 위쪽이 모두 새로 만들어집니다.",
+        "맨 처음 커밋까지 고쳐야 한다면 HEAD~n 대신 git rebase -i --root 를 씁니다. 중간에 꼬였다면 git rebase --abort 로 시작 전 상태로 돌아갈 수 있으니, 리베이스가 끝나기 전에는 겁먹고 다른 명령을 섞지 않는 편이 좋습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/git-commit-message-amend-rebase-force-push-2026-github-rebase.png",
+          "alt": "GitHub 문서의 이전 또는 여러 커밋 메시지의 메시지 변경 단계. git rebase -i HEAD~n, pick 을 reword 로 바꾼 목록 예시, git push --force-with-lease origin EXAMPLE-BRANCH",
+          "caption": "고칠 커밋 줄의 pick 만 reword 로 바꾸고 저장한다.",
+          "credit": "GitHub Docs",
+          "sourceUrl": "https://docs.github.com/ko/pull-requests/how-tos/commit-changes/changing-a-commit-message",
+          "width": 858,
+          "height": 763
+        }
+      ],
+      "code": {
+        "language": "bash",
+        "caption": "rebase -i 로 세 번째 전 커밋 메시지를 고친 실제 출력",
+        "text": "$ git log --oneline\nfd4e862 README 수정\na41384d 설정 파일 추가\ndee6d31 로그인 버그 수정\ne8c1775 첫 커밋\n\n$ git rebase -i HEAD~3\n# 편집기에 나온 목록 (첫 줄의 pick 을 reword 로 바꿈)\nreword dee6d31 로그인 버그 수정\npick a41384d 설정 파일 추가\npick fd4e862 README 수정\n\nSuccessfully rebased and updated refs/heads/main.\n\n$ git log --oneline\n8378c04 README 수정\n8d03d78 설정 파일 추가\nfaf31bd 로그인 버그 수정 (세션 만료 처리)\ne8c1775 첫 커밋"
+      },
+      "sourceRefs": [1, 3]
+    },
+    {
+      "title": "push 한 커밋을 고치면 일반 push 가 거절되는 이유",
+      "paragraphs": [
+        "앞의 세 커밋은 이미 원격에 올린 상태였습니다. 리베이스가 끝난 뒤 git status 는 ahead 3, behind 3 을 보여 줬습니다. 내 쪽에는 새 해시 커밋 세 개가 있고, 원격에는 옛 해시 커밋 세 개가 그대로 남아 있다는 뜻입니다.",
+        "이 상태에서 그냥 git push 를 하면 non-fast-forward 로 거절됩니다. 원격 기록 위에 이어 붙이는 것이 아니라 원격 기록을 바꿔치기하는 것이라 git 이 막는 것입니다. 안내 문구는 git pull 을 먼저 하라고 하지만, 메시지를 고친 경우에는 따라 하면 안 됩니다. 옛 커밋과 새 커밋이 합쳐져 같은 내용이 두 번 들어간 기록이 생깁니다.",
+        "혼자 쓰는 기능 브랜치라면 강제 푸시로 원격 기록을 내 것으로 바꾸면 됩니다. 이때 --force 보다 --force-with-lease 를 씁니다. GitHub 문서도 수정한 커밋을 올릴 때 git push --force-with-lease origin 브랜치 이름 형태를 안내합니다.",
+        "--force-with-lease 는 내가 마지막으로 받아 온 원격 상태와 지금 원격 상태가 같을 때만 덮어씁니다. 연습 저장소에서 동료 역할 저장소가 커밋을 하나 올린 뒤 바로 --force-with-lease 로 push 하자 stale info 라는 이유로 거절됐습니다. 그냥 --force 였다면 동료 커밋이 소리 없이 사라졌을 상황입니다."
+      ],
+      "code": {
+        "language": "bash",
+        "caption": "메시지를 고친 뒤 push 했을 때 실제 출력",
+        "text": "$ git status -sb\n## main...origin/main [ahead 3, behind 3]\n\n$ git push origin main\n ! [rejected]        main -> main (non-fast-forward)\nerror: failed to push some refs to '/tmp/gitdemo/remote.git'\n\n# 그사이 동료가 커밋을 올린 상태\n$ git push --force-with-lease origin main\n ! [rejected]        main -> main (stale info)\nerror: failed to push some refs to '/tmp/gitdemo/remote.git'"
+      },
+      "sourceRefs": [1, 2]
+    },
+    {
+      "title": "fetch 뒤의 force-with-lease 는 동료 커밋을 지웠습니다",
+      "paragraphs": [
+        "여기서 많이 하는 실수가 하나 있습니다. 거절 메시지를 보고 git fetch 로 원격 상태를 받아 온 뒤 같은 명령을 다시 실행하는 것입니다. 연습 저장소에서 그대로 해 보니 이번에는 forced update 로 통과했고, 원격 로그에서 동료 커밋이 사라졌습니다.",
+        "fetch 를 하면 내 저장소가 기억하는 원격 상태(origin/main)가 최신으로 바뀝니다. --force-with-lease 는 그 기억과 실제 원격만 비교하니, 동료 커밋을 내 브랜치에 합치지 않았어도 둘이 같다고 보고 덮어씁니다. 일부 편집기나 도구가 백그라운드에서 자동으로 fetch 하는 경우에도 같은 일이 생길 수 있습니다.",
+        "이걸 막는 옵션이 --force-if-includes 입니다. git 2.30 에 들어온 옵션으로, 원격의 최신 커밋이 내 로컬 브랜치 기록(reflog)에 한 번이라도 들어온 적이 있을 때만 강제 푸시를 허락합니다. 같은 상황에서 두 옵션을 함께 주자 remote ref updated since checkout 이유로 거절됐습니다.",
+        "그래서 강제 푸시는 git push --force-with-lease --force-if-includes 로 외워 두는 편이 안전합니다. 매번 치기 번거로우면 git config --global push.useForceIfIncludes true 를 한 번 설정해 두면 --force-with-lease 를 쓸 때 자동으로 함께 적용됩니다.",
+        "거절됐다면 동료 커밋을 먼저 내 브랜치에 반영해야 합니다. 동료가 올린 커밋이 내가 고친 커밋들 위에 쌓여 있다면 메시지를 고치려면 동료 커밋까지 다시 써야 하므로, 그때는 메시지 수정을 포기하고 원격 기록을 그대로 받아들이는 쪽이 맞습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/git-commit-message-amend-rebase-force-push-2026-git-push-force-if-includes.png",
+          "alt": "git-push 공식 문서의 --force-if-includes 설명. 원격 추적 브랜치의 끝이 로컬에 반영됐을 때만 강제 업데이트한다는 내용",
+          "caption": "원격 최신 커밋이 내 브랜치에 들어온 적이 없으면 강제 푸시를 막는다.",
+          "credit": "Git 공식 문서",
+          "sourceUrl": "https://git-scm.com/docs/git-push",
+          "width": 846,
+          "height": 309
+        }
+      ],
+      "code": {
+        "language": "bash",
+        "caption": "fetch 뒤 강제 푸시 두 가지를 비교한 실제 출력",
+        "text": "$ git fetch origin\n$ git push --force-with-lease origin main\n + 8d025ec...8378c04 main -> main (forced update)\n# 원격 로그에서 동료 커밋 8d025ec 가 사라짐\n\n# 동료가 다시 커밋을 올린 뒤, 같은 상황에서\n$ git fetch origin\n$ git push --force-with-lease --force-if-includes origin main\n ! [rejected]        main -> main (remote ref updated since checkout)\nerror: failed to push some refs to '/tmp/gitdemo/remote.git'"
+      },
+      "sourceRefs": [2]
+    },
+    {
+      "title": "메시지만 고친 커밋이 pull --rebase 에서 사라진 일",
+      "paragraphs": [
+        "마지막으로 하나 더 해 봤습니다. 이미 올라간 README 수정 커밋의 메시지를 amend 로 README 수정 (설치 순서 추가)로 바꾼 뒤, 강제 푸시가 거절되자 git pull --rebase 로 동료 커밋을 받아 왔습니다.",
+        "리베이스는 성공했다고 나왔는데 로그를 보니 내가 고친 메시지가 없었습니다. 원격의 옛 커밋 README 수정 위에 동료 커밋만 올라가 있었습니다. 출력 중간에 skippedCherryPicks 안내가 지나갔는데, 바뀐 내용이 이미 원격에 있는 커밋과 똑같아서 내 커밋을 건너뛰었다는 뜻입니다.",
+        "git 은 같은 변경인지를 파일 내용으로 판단하고 메시지는 보지 않습니다. 메시지만 고친 커밋은 이렇게 조용히 빠질 수 있으니, pull --rebase 뒤에는 git log --oneline 으로 고친 메시지가 남았는지 한 번 봐야 합니다. 이 경우 git push 결과도 Everything up-to-date 였습니다.",
+        "비밀번호나 토큰처럼 지워야 할 정보가 메시지에 들어간 경우라면 강제 푸시만으로 끝나지 않을 수 있습니다. GitHub 문서는 강제 푸시 뒤에도 원래 커밋이 GitHub 에 남을 수 있다며, 옛 커밋 ID 를 적어 GitHub 지원 포털에 삭제를 요청하라고 안내합니다. 노출된 토큰은 메시지를 고치기 전에 먼저 폐기하고 새로 발급하는 것이 순서입니다."
+      ],
+      "code": {
+        "language": "bash",
+        "caption": "pull --rebase 뒤 고친 메시지가 빠진 실제 출력",
+        "text": "$ git commit --amend -m \"README 수정 (설치 순서 추가)\"\n$ git pull --rebase origin main\nhint: Disable this message with \"git config advice.skippedCherryPicks false\"\nSuccessfully rebased and updated refs/heads/main.\n\n$ git log --oneline -3\n778be2f 동료 커밋 2\n8378c04 README 수정\n8d03d78 설정 파일 추가\n\n$ git push origin main\nEverything up-to-date"
+      },
+      "sourceRefs": [1, 3]
+    }
+  ],
+  "sources": [
+    {
+      "name": "GitHub Docs: 커밋 메시지 변경",
+      "url": "https://docs.github.com/ko/pull-requests/how-tos/commit-changes/changing-a-commit-message",
+      "description": "commit --amend, rebase -i 의 reword, push 뒤 --force-with-lease, 민감 정보가 든 커밋 삭제 요청 안내"
+    },
+    {
+      "name": "Git 공식 문서: git-push",
+      "url": "https://git-scm.com/docs/git-push",
+      "description": "--force-with-lease 와 --force-if-includes 동작, push.useForceIfIncludes 설정"
+    },
+    {
+      "name": "Git 공식 문서: git-rebase",
+      "url": "https://git-scm.com/docs/git-rebase",
+      "description": "대화형 리베이스의 reword 명령, --root, --abort"
+    },
+    {
+      "name": "Git 공식 문서: git-commit",
+      "url": "https://git-scm.com/docs/git-commit",
+      "description": "--amend, --no-edit, --reset-author 옵션"
+    }
+  ],
+  "resources": [
+    {
+      "name": "GitHub Docs: 커밋 메시지 변경",
+      "url": "https://docs.github.com/ko/pull-requests/how-tos/commit-changes/changing-a-commit-message",
+      "type": "공식 문서",
+      "description": "최근 커밋과 이전 커밋 메시지를 고치고 다시 올리는 단계"
+    },
+    {
+      "name": "Pro Git: 히스토리 단장하기",
+      "url": "https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-%ED%9E%88%EC%8A%A4%ED%86%A0%EB%A6%AC-%EB%8B%A8%EC%9E%A5%ED%95%98%EA%B8%B0",
+      "type": "책",
+      "description": "amend 와 대화형 리베이스로 커밋을 고치는 방법을 한국어로 설명한 장"
+    },
+    {
+      "name": "Git 공식 문서: git-push",
+      "url": "https://git-scm.com/docs/git-push",
+      "type": "공식 문서",
+      "description": "강제 푸시 옵션 전체 설명"
+    },
+    {
+      "name": "Git 공식 문서: git-rebase",
+      "url": "https://git-scm.com/docs/git-rebase",
+      "type": "공식 문서",
+      "description": "대화형 리베이스 명령 목록"
+    }
+  ],
+  "discovery": {
+    "xStatus": "unavailable",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-23T14:30:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://docs.github.com/ko/pull-requests/how-tos/commit-changes/changing-a-commit-message",
+        "assetUrl": "https://bluebworks.com/assets/editorial/git-commit-message-amend-rebase-force-push-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with a cropped quotation of GitHub Docs (CC-BY 4.0)",
+        "reason": "글 내용을 보여 주는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://docs.github.com/ko/pull-requests/how-tos/commit-changes/changing-a-commit-message",
+        "assetUrl": "https://bluebworks.com/assets/editorial/git-commit-message-amend-rebase-force-push-2026-github-rebase.png",
+        "decision": "included",
+        "rightsBasis": "GitHub Docs content licensed CC-BY 4.0, cropped with attribution",
+        "reason": "reword 로 이전 커밋 메시지를 바꾸는 단계 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://git-scm.com/docs/git-push",
+        "assetUrl": "https://bluebworks.com/assets/editorial/git-commit-message-amend-rebase-force-push-2026-git-push-force-if-includes.png",
+        "decision": "included",
+        "rightsBasis": "Git documentation (GPLv2), short quotation with attribution",
+        "reason": "--force-if-includes 설명 화면이라 포함."
+      }
+    ]
+  }
+}
