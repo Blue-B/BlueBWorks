@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ko" data-base="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="google-adsense-account" content="ca-pub-3336895189172465">
+    <title>윈도우 포트 확인 명령어와 사용중인 포트 죽이기 | BlueBWorks</title>
+    <meta name="description" content="윈도우에서 3000번이나 8080번 포트가 이미 사용 중이라고 나올 때 어떤 프로그램이 잡고 있는지 찾아 끄는 방법입니다.">
+    <link rel="canonical" href="https://bluebworks.com/articles/windows-port-check-kill-netstat-taskkill-2026/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlueBWorks">
+    <meta property="og:title" content="윈도우 포트 확인 명령어와 사용중인 포트 죽이기 | BlueBWorks">
+    <meta property="og:description" content="윈도우에서 3000번이나 8080번 포트가 이미 사용 중이라고 나올 때 어떤 프로그램이 잡고 있는지 찾아 끄는 방법입니다.">
+    <meta property="og:url" content="https://bluebworks.com/articles/windows-port-check-kill-netstat-taskkill-2026/">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-thumb.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="윈도우 포트 확인과 포트 죽이기. netstat 으로 찾고 taskkill 로 끄기. 오른쪽에 netstat 문서의 -n, -o 옵션 설명 화면">
+    <meta name="twitter:image" content="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-thumb.png">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-48.png" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="BlueBWorks" href="/feed.xml">
+    <link rel="stylesheet" href="/assets/journal.css?v=edition7">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"윈도우 포트 확인과 포트 죽이기, netstat 과 taskkill","description":"윈도우에서 3000번이나 8080번 포트가 이미 사용 중이라고 나올 때 어떤 프로그램이 잡고 있는지 찾아 끄는 방법입니다. cmd 에서는 netstat -ano 와 taskkill, PowerShell 에서는 Get-NetTCPConnection 과 Stop-Process 를 쓰는데, PowerShell 쪽은 PID 를 넘기는 방식을 잘못 쓰면 오류만 나고 포트가 그대로 남습니다.","url":"https://bluebworks.com/articles/windows-port-check-kill-netstat-taskkill-2026/","mainEntityOfPage":"https://bluebworks.com/articles/windows-port-check-kill-netstat-taskkill-2026/","datePublished":"2026-11-24T00:18:00.000Z","dateModified":"2026-11-24T00:18:00.000Z","author":{"@type":"Organization","name":"BlueBWorks"},"publisher":{"@type":"Organization","name":"BlueBWorks"},"inLanguage":"ko-KR","articleSection":"개발도구","keywords":"윈도우 포트 확인, 포트 죽이기, netstat 포트 확인, 사용중인 포트 죽이기, taskkill, Get-NetTCPConnection, 8080 포트 kill","isAccessibleForFree":true,"image":"https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-thumb.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://bluebworks.com/"},{"@type":"ListItem","position":2,"name":"글 목록","item":"https://bluebworks.com/articles/"},{"@type":"ListItem","position":3,"name":"윈도우 포트 확인과 포트 죽이기, netstat 과 taskkill","item":"https://bluebworks.com/articles/windows-port-check-kill-netstat-taskkill-2026/"}]}</script>
+  </head>
+  <body class="page-article">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <header class="site-header journal-header" data-nav-ready="false">
+    <div class="journal-masthead">
+      <a class="journal-brand" href="/" aria-label="BlueBWorks 홈"><span class="brand-name">BlueBWorks<span class="brand-dot" aria-hidden="true">.</span></span><span class="brand-label">개발 도구 · 오픈소스 · AI</span></a>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="주요 메뉴"><a href="/">홈</a><a href="/articles/" aria-current="page">글 목록</a><a href="/about.html">소개</a><a href="/contact.html">문의</a><a href="https://github.com/Blue-B/BlueBWorks" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></nav>
+      <div class="journal-tools"><a class="header-search" aria-label="검색" href="/articles/#archive-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>검색</span></a><button class="nav-toggle" type="button" aria-label="메뉴 열기" data-nav-toggle aria-expanded="false" aria-controls="site-nav" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 17h18"/></svg><span>메뉴</span></button></div>
+    </div>
+  </header>
+  <main id="main">
+    <div class="progress" id="reading-progress" aria-hidden="true"><span></span></div>
+    <section class="article-cover article-cover-compact" aria-labelledby="article-title">
+    <div class="wrap cover-inner">
+      <header class="cover-copy">
+        <p class="cover-eyebrow"><span>개발도구</span></p>
+        <h1 id="article-title">윈도우 포트 확인과 포트 죽이기, netstat 과 taskkill</h1>
+        <p class="cover-dek">윈도우에서 3000번이나 8080번 포트가 이미 사용 중이라고 나올 때 어떤 프로그램이 잡고 있는지 찾아 끄는 방법입니다. cmd 에서는 netstat -ano 와 taskkill, PowerShell 에서는 Get-NetTCPConnection 과 Stop-Process 를 쓰는데, PowerShell 쪽은 PID 를 넘기는 방식을 잘못 쓰면 오류만 나고 포트가 그대로 남습니다.</p>
+        <p class="cover-meta"><span>블로그 게시 2026년 11월 24일</span><span>소식 발표 2026년 11월 24일</span><span>확인 2026년 11월 24일</span><span>7분 읽기</span></p>
+      </header>
+    </div>
+  </section>
+    <div class="wrap article-wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <ol>
+          <li><a href="/">홈</a></li>
+          <li><a href="/articles/">글 목록</a></li>
+        </ol>
+      </nav>
+      <div class="article-layout">
+        <aside class="article-aside aside-left" aria-label="목차">
+          <details class="toc" open>
+      <summary>목차</summary>
+      <nav aria-label="글 목차">
+        <ol>
+          <li><a href="#sec-1">윈도우 포트 확인, 이미 사용 중 오류에서 시작합니다</a></li>
+          <li><a href="#sec-2">netstat -ano 로 포트를 잡은 PID 찾기</a></li>
+          <li><a href="#sec-3">사용중인 포트 죽이기는 taskkill /PID 번호 /F</a></li>
+          <li><a href="#sec-4">findstr :3000 이 30001번 포트까지 잡는 문제</a></li>
+          <li><a href="#sec-5">PowerShell 포트 확인은 Get-NetTCPConnection</a></li>
+          <li><a href="#sec-6">Stop-Process 로 PID 숫자를 파이프하면 오류가 납니다</a></li>
+          <li><a href="#sec-7">PowerShell 에서 포트 죽이기, 실제로 통한 명령</a></li>
+          <li><a href="#sec-8">포트 번호만 바꿔 쓰는 명령 묶음</a></li>
+        </ol>
+      </nav>
+    </details>
+        </aside>
+        <article class="article" aria-labelledby="article-title" itemscope itemtype="https://schema.org/BlogPosting">
+          <header class="article-head">
+            <meta itemprop="headline" content="윈도우 포트 확인과 포트 죽이기, netstat 과 taskkill">
+            <meta itemprop="description" content="윈도우에서 3000번이나 8080번 포트가 이미 사용 중이라고 나올 때 어떤 프로그램이 잡고 있는지 찾아 끄는 방법입니다. cmd 에서는 netstat -ano 와 taskkill, PowerShell 에서는 Get-NetTCPConnection 과 Stop-Process 를 쓰는데, PowerShell 쪽은 PID 를 넘기는 방식을 잘못 쓰면 오류만 나고 포트가 그대로 남습니다.">
+            <p class="article-byline">글 작성: <span>BlueBWorks</span></p>
+
+          </header>
+          <figure class="source-media">
+        <a href="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-thumb.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="대표 이미지 크게 보기: 윈도우 포트 확인과 포트 죽이기. netstat 으로 찾고 taskkill 로 끄기. 오른쪽에 netstat 문서의 -n, -o 옵션 설명 화면"><img src="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-thumb.png" alt="윈도우 포트 확인과 포트 죽이기. netstat 으로 찾고 taskkill 로 끄기. 오른쪽에 netstat 문서의 -n, -o 옵션 설명 화면" width="1600" height="900" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></a>
+        <figcaption><span>netstat 의 -o 옵션이 연결마다 PID 를 붙여 준다.</span></figcaption>
+      </figure>
+          <details class="key-points" open>
+      <summary>요약</summary>
+      <ul>
+        <li>netstat -ano | findstr :3000 으로 포트를 잡은 PID 를 찾고, tasklist 로 어떤 프로그램인지 본 다음 taskkill /PID 번호 /F 로 끕니다.</li>
+        <li>findstr :3000 은 30001번 같은 다른 포트도 함께 걸러 냅니다. LISTENING 줄만 남기고 포트 번호 뒤 공백까지 붙여 찾아야 정확합니다.</li>
+        <li>PowerShell 에서 OwningProcess 숫자를 Stop-Process 로 바로 파이프하면 바인딩 오류가 나고 포트는 그대로입니다. Stop-Process -Id 뒤에 괄호로 넘기거나 Get-Process 를 거칩니다.</li>
+        <li>PID 가 4 로 나오면 Windows 의 System 프로세스입니다. 끄는 대상이 아니니 내 서버의 포트 번호를 바꾸는 편이 빠릅니다.</li>
+      </ul>
+    </details>
+
+          <div class="article-body" itemprop="articleBody">
+            <section class="prose-section" id="sec-1">
+        <h2>윈도우 포트 확인, 이미 사용 중 오류에서 시작합니다</h2>
+        <p>개발 서버를 띄우다 보면 address already in use 오류를 자주 만납니다. 앞서 띄운 서버를 창만 닫고 끝냈거나, 다른 프로그램이 같은 포트를 먼저 잡고 있을 때 나옵니다.</p>
+        <p>Windows 11 Pro 에 연습용 node 서버를 3000번 포트로 하나 띄워 두고 같은 명령을 한 번 더 실행해 봤습니다. 두 번째 서버는 EADDRINUSE 오류를 남기고 바로 꺼졌습니다.</p>
+        <p>이럴 때 할 일은 두 가지입니다. 그 포트를 누가 잡고 있는지 찾고, 내가 띄운 것이 맞으면 끄는 것입니다. cmd 에서는 netstat 과 taskkill 두 줄이면 끝납니다.</p>
+        <p>PowerShell 로 한 줄에 끝내려다 오류만 나고 포트가 그대로 남은 일도 있었습니다. 왜 그런지, 실제로 통한 명령은 무엇인지도 뒤에 적었습니다.<sup class="fn-refs"><a href="#source-1" aria-label="출처 1">1</a></sup></p>
+        <figure class="code-example"><figcaption>text · 같은 포트로 서버를 두 번 띄웠을 때 나온 오류</figcaption><pre tabindex="0"><code>C:\&gt; node srv.js 3000
+EADDRINUSE: listen EADDRINUSE: address already in use :::3000</code></pre></figure>
+
+      </section>
+      <section class="prose-section" id="sec-2">
+        <h2>netstat -ano 로 포트를 잡은 PID 찾기</h2>
+        <p>cmd 나 PowerShell 어느 쪽에서든 netstat -ano 를 실행하면 지금 열린 TCP 연결과 대기 중인 포트가 전부 나옵니다. -a 는 대기 중인 포트까지, -n 은 주소를 숫자로, -o 는 연결마다 PID 를 붙여 줍니다.</p>
+        <p>목록이 길어서 보통 findstr 로 원하는 포트만 거릅니다. 3000번으로 거르자 두 줄이 나왔습니다. 0.0.0.0 은 IPv4, [::] 는 IPv6 주소이고 같은 서버가 두 주소에서 기다리는 모습입니다.</p>
+        <p>맨 끝 숫자 3148 이 그 서버의 PID 입니다. 포트를 붙잡고 기다리는 쪽은 상태가 LISTENING 인 줄이고, 브라우저가 붙어 있으면 ESTABLISHED 줄도 보이는데 PID 는 LISTENING 줄 것을 보면 됩니다.</p>
+        <p>-b 를 더하면 실행 파일 이름까지 보여 주지만 Microsoft 문서에 따르면 시간이 오래 걸리고 권한이 부족하면 실패합니다. 일반 창이라면 PID 를 먼저 찾고 이름은 tasklist 로 보는 편이 빠릅니다.</p>
+        <p>명령이 낯설다면 찾은 PID 를 들고 작업 관리자로 가도 됩니다. netstat 문서도 -o 로 얻은 PID 로 작업 관리자에서 해당 프로그램을 찾을 수 있다고 안내합니다. 다만 포트 번호 자체는 작업 관리자에 나오지 않으니 PID 는 netstat 으로 먼저 구해야 합니다.<sup class="fn-refs"><a href="#source-1" aria-label="출처 1">1</a></sup></p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-netstat-o.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: netstat 문서의 매개변수 표. -n 은 주소와 포트를 숫자로 표시, -o 는 연결마다 프로세스 ID(PID)를 표시하고 -a, -n, -p 와 함께 쓸 수 있다는 설명">
+        <img src="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-netstat-o.png" alt="netstat 문서의 매개변수 표. -n 은 주소와 포트를 숫자로 표시, -o 는 연결마다 프로세스 ID(PID)를 표시하고 -a, -n, -p 와 함께 쓸 수 있다는 설명" width="740" height="500" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>-o 를 붙여야 연결마다 PID 가 나온다.</span><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netstat" target="_blank" rel="noopener noreferrer">Microsoft Learn · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>text · 3000번 포트를 잡은 PID 찾기</figcaption><pre tabindex="0"><code>C:\&gt; netstat -ano | findstr :3000
+  TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       3148
+  TCP    [::]:3000              [::]:0                 LISTENING       3148</code></pre></figure>
+
+      </section>
+      <section class="prose-section" id="sec-3">
+        <h2>사용중인 포트 죽이기는 taskkill /PID 번호 /F</h2>
+        <p>PID 만으로는 무슨 프로그램인지 알 수 없으니 끄기 전에 tasklist 로 이름을 봅니다. tasklist /FI &quot;PID eq 3148&quot; 을 실행하자 node.exe 가 메모리 36,840K 를 쓰고 있다고 나왔습니다.</p>
+        <p>내가 띄운 개발 서버가 맞으니 taskkill /PID 3148 /F 로 끕니다. /F 는 강제로 끝내라는 옵션이고, 실행하자 SUCCESS 와 함께 프로세스가 끝났다는 메시지가 나왔습니다.</p>
+        <p>같은 netstat 명령을 다시 돌리면 아무 줄도 나오지 않습니다. 3000번 포트가 비었다는 뜻이고, 이제 서버를 다시 띄우면 오류 없이 올라옵니다.</p>
+        <p>/F 없이 실행하면 메시지가 Sent termination signal 로 바뀝니다. 종료 신호만 보낸다는 뜻인데 이번 node 서버는 그 신호만으로 꺼졌습니다. 신호를 받고도 남아 있으면 그때 /F 를 붙입니다.</p>
+        <p>이미 꺼진 PID 에 다시 taskkill 을 보내면 not found 오류가 납니다. 자식 프로세스까지 같이 끝내려면 /T 를 붙이면 되고, 지정한 프로세스가 시작한 자식들까지 함께 정리됩니다.</p>
+        <p>이름으로 한꺼번에 끄는 /IM node.exe 도 있습니다. 다만 다른 창에서 돌던 node 까지 모두 꺼지기 때문에 포트 하나만 비우려는 상황이라면 PID 로 끄는 쪽이 안전합니다.<sup class="fn-refs"><a href="#source-2" aria-label="출처 2">2</a></sup></p>
+        <figure class="code-example"><figcaption>text · PID 로 프로그램 이름을 보고 강제로 끈 결과</figcaption><pre tabindex="0"><code>C:\&gt; tasklist /FI &quot;PID eq 3148&quot;
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+node.exe                      3148 Console                    1     36,840 K
+
+C:\&gt; taskkill /PID 3148 /F
+SUCCESS: The process with PID 3148 has been terminated.
+
+C:\&gt; netstat -ano | findstr :3000
+(아무 줄도 나오지 않음)</code></pre></figure>
+
+      </section>
+      <section class="prose-section" id="sec-4">
+        <h2>findstr :3000 이 30001번 포트까지 잡는 문제</h2>
+        <p>포트 번호를 그대로 findstr 에 넣으면 그 숫자로 시작하는 다른 포트도 같이 걸립니다. 3000번과 30001번에 서버를 하나씩 띄우고 findstr :3000 으로 거르자 네 줄이 나왔습니다.</p>
+        <p>그중 두 줄은 PID 가 다른 30001번 서버였습니다. 맨 끝 숫자만 보고 taskkill 을 했다면 엉뚱한 서버를 끌 뻔했습니다. 포트 번호 뒤에 공백을 붙이고 LISTENING 줄만 남기면 3000번만 나옵니다.</p>
+        <p>findstr 은 따옴표 안의 공백을 검색어 구분으로 읽기 때문에, 공백까지 한 덩어리로 찾으려면 /C: 를 앞에 붙여야 합니다. 아래 두 번째 명령이 그렇게 거른 결과입니다.</p>
+        <p>PID 가 4 로 나오는 포트도 있습니다. 이 PC 에서는 445번과 5357번이 그랬고, tasklist 로 보면 이름이 System 입니다. Windows 자체라 끄는 대상이 아니니 내 서버 포트를 바꾸는 편이 빠릅니다.</p>
+        <p>Stop-Process 문서도 프로세스를 끄면 그 프로세스에 기대는 다른 프로세스와 서비스가 함께 멈출 수 있고, 심하면 Windows 가 멈출 수 있다고 적고 있습니다. 낯선 이름이면 끄기 전에 한 번 더 봅니다.<sup class="fn-refs"><a href="#source-1" aria-label="출처 1">1</a>,<a href="#source-3" aria-label="출처 3">3</a></sup></p>
+        <figure class="code-example"><figcaption>text · 3000번만 거르려다 30001번까지 나온 결과와 고친 명령</figcaption><pre tabindex="0"><code>C:\&gt; netstat -ano | findstr :3000
+  TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       4856
+  TCP    0.0.0.0:30001          0.0.0.0:0              LISTENING       13680
+  TCP    [::]:3000              [::]:0                 LISTENING       4856
+  TCP    [::]:30001             [::]:0                 LISTENING       13680
+
+C:\&gt; netstat -ano | findstr LISTENING | findstr /C:&quot;:3000 &quot;
+  TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       4856
+  TCP    [::]:3000              [::]:0                 LISTENING       4856</code></pre></figure>
+
+      </section>
+      <section class="prose-section" id="sec-5">
+        <h2>PowerShell 포트 확인은 Get-NetTCPConnection</h2>
+        <p>PowerShell 에서는 Get-NetTCPConnection 이 netstat 자리를 대신합니다. -LocalPort 로 포트를, -State Listen 으로 대기 중인 연결만 고르면 OwningProcess 칸에 PID 가 나옵니다.</p>
+        <p>문자열을 거르는 방식이 아니라 포트 번호로 고르는 방식이라 30001번이 섞이지 않습니다. 앞에서 겪은 findstr 문제를 신경 쓰지 않아도 되는 점이 가장 편했습니다.</p>
+        <p>-State 는 Listen, Established, TimeWait 처럼 상태 이름을 받습니다. -State 를 빼면 그 포트로 오간 연결까지 모두 나오니, 포트를 잡은 프로그램만 찾을 때는 Listen 을 넣어 두는 편이 깔끔합니다.</p>
+        <p>netstat 은 0.0.0.0 과 [::] 두 줄을 보여 줬는데 Get-NetTCPConnection 은 :: 한 줄만 보여 줬습니다. 줄 수는 달라도 PID 는 똑같이 3148 이었습니다.</p>
+        <p>PowerShell 7.6 과 Windows 에 기본으로 들어 있는 Windows PowerShell 5.1 양쪽에서 같은 명령이 돌아갔습니다. PID 를 알면 Get-Process -Id 로 프로세스 이름과 시작 시각까지 볼 수 있어 여러 개가 떠 있을 때 고르기 쉽습니다.<sup class="fn-refs"><a href="#source-4" aria-label="출처 4">4</a></sup></p>
+        <figure class="code-example"><figcaption>powershell · Get-NetTCPConnection 으로 3000번을 잡은 PID 보기</figcaption><pre tabindex="0"><code>PS&gt; Get-NetTCPConnection -LocalPort 3000 -State Listen |
+&gt;&gt;   Select-Object LocalAddress,LocalPort,State,OwningProcess
+
+LocalAddress LocalPort  State OwningProcess
+------------ ---------  ----- -------------
+::                3000 Listen          3148</code></pre></figure>
+
+      </section>
+      <section class="prose-section" id="sec-6">
+        <h2>Stop-Process 로 PID 숫자를 파이프하면 오류가 납니다</h2>
+        <p>한 줄로 끝내려고 OwningProcess 를 꺼내 Stop-Process 로 바로 넘겨 봤습니다. 8080번에 서버를 띄워 둔 상태였는데, 돌아온 것은 입력 개체를 어떤 매개변수에도 묶을 수 없다는 오류였습니다.</p>
+        <p>다시 조회해 보니 8080번은 여전히 Listen 상태였습니다. 인터넷에 돌아다니는 한 줄 명령 중에 이 형태가 꽤 있어서, 오류 메시지를 못 보고 넘어가면 포트가 왜 안 비는지 한참 헤매게 됩니다.</p>
+        <p>이유는 Stop-Process 문서의 -Id 항목에 있습니다. -Id 는 파이프로 들어온 값을 그대로 받지 않고, 들어온 개체에 Id 라는 속성이 있을 때만 그 값을 받습니다.</p>
+        <p>-ExpandProperty 로 꺼낸 PID 는 그냥 숫자라 Id 속성이 없습니다. 파이프로 그대로 받을 수 있는 건 프로세스 개체뿐이고, 문서의 입력 항목에도 프로세스 개체를 파이프할 수 있다고만 나옵니다.<sup class="fn-refs"><a href="#source-3" aria-label="출처 3">3</a>,<a href="#source-4" aria-label="출처 4">4</a></sup></p>
+        <figure class="article-figure">
+      <a href="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-stop-process-id.png" data-zoom-image target="_blank" rel="noopener noreferrer" aria-label="이미지 크게 보기: Stop-Process 문서의 -Id 매개변수 집합 표. Value from pipeline 은 False, Value from pipeline by property name 은 True">
+        <img src="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-stop-process-id.png" alt="Stop-Process 문서의 -Id 매개변수 집합 표. Value from pipeline 은 False, Value from pipeline by property name 은 True" width="754" height="690" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="figure-zoom-label" aria-hidden="true">확대해서 보기 ↗</span>
+      </a>
+      <figcaption><span>-Id 는 파이프 값을 바로 받지 않고 Id 속성으로만 받는다.</span><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/stop-process" target="_blank" rel="noopener noreferrer">Microsoft Learn · 원문</a></figcaption>
+    </figure><figure class="code-example"><figcaption>powershell · 숫자 PID 를 파이프로 넘겼을 때 나온 오류</figcaption><pre tabindex="0"><code>PS&gt; Get-NetTCPConnection -LocalPort 8080 -State Listen |
+&gt;&gt;   Select-Object -ExpandProperty OwningProcess -Unique | Stop-Process -Force
+Stop-Process: The input object cannot be bound to any parameters for the command
+either because the command does not take pipeline input or the input and its
+properties do not match any of the parameters that take pipeline input.
+
+PS&gt; Get-NetTCPConnection -LocalPort 8080 -State Listen | Select-Object LocalPort,State,OwningProcess
+
+LocalPort  State OwningProcess
+---------  ----- -------------
+     8080 Listen          2568</code></pre></figure>
+
+      </section>
+      <section class="prose-section" id="sec-7">
+        <h2>PowerShell 에서 포트 죽이기, 실제로 통한 명령</h2>
+        <p>숫자를 파이프 대신 -Id 뒤 괄호 안에서 구해 넘기자 8080번 서버가 바로 꺼졌습니다. -PassThru 를 붙이면 끈 프로세스를 다시 보여 주는데 HasExited 가 True 로 나왔습니다.</p>
+        <p>그다음 8080번을 다시 조회했을 때 Listen 줄은 하나도 없었습니다. 결과가 여러 줄이면 같은 PID 가 겹쳐 나올 수 있어서, 한 번씩만 넘기도록 Select-Object -Unique 를 붙여 두었습니다.</p>
+        <p>프로세스 개체를 만들어 넘기는 방법도 됩니다. Get-Process -Id 로 얻은 개체는 파이프로 Stop-Process 에 그대로 넘어갑니다. 3000번 서버를 이 방식으로 끄자 node 프로세스가 정상적으로 내려갔습니다.</p>
+        <p>끄기 직전에 한 번 더 묻게 하고 싶다면 -Confirm 을 붙입니다. 문서 예시처럼 프로세스 이름과 PID 를 함께 보여 주고, 그 질문에 답해야 끝냅니다.</p>
+        <p>다른 사용자 계정이 띄운 프로세스는 일반 창에서 꺼지지 않을 수 있습니다. Stop-Process 문서는 현재 사용자 소유가 아닌 프로세스를 끄려면 PowerShell 을 관리자 권한으로 열어야 한다고 안내합니다.<sup class="fn-refs"><a href="#source-3" aria-label="출처 3">3</a>,<a href="#source-4" aria-label="출처 4">4</a></sup></p>
+        <figure class="code-example"><figcaption>powershell · 괄호로 PID 를 넘기거나 Get-Process 를 거쳐 끈 결과</figcaption><pre tabindex="0"><code>PS&gt; Stop-Process -Id ((Get-NetTCPConnection -LocalPort 8080 -State Listen).OwningProcess |
+&gt;&gt;   Select-Object -Unique) -Force -PassThru
+
+   Id ProcessName HasExited
+   -- ----------- ---------
+12936 node             True
+
+PS&gt; Get-Process -Id (Get-NetTCPConnection -LocalPort 3000 -State Listen).OwningProcess |
+&gt;&gt;   Stop-Process -PassThru
+
+  Id ProcessName
+  -- -----------
+4856 node</code></pre></figure>
+
+      </section>
+      <section class="prose-section" id="sec-8">
+        <h2>포트 번호만 바꿔 쓰는 명령 묶음</h2>
+        <p>아래 3000 자리에 자기 포트 번호만 바꿔 넣으면 됩니다. cmd 와 PowerShell 중 익숙한 쪽 하나만 기억해도 충분하고, 어느 쪽이든 끄기 전에 프로그램 이름을 보는 순서는 같습니다.</p>
+        <p>3000번과 8080번만의 이야기는 아닙니다. 5173, 8000처럼 개발 도구마다 기본으로 쓰는 포트가 다를 뿐, 어느 번호든 PID 를 찾고 이름을 본 뒤 끄는 순서는 똑같습니다.</p>
+        <p>끄자마자 같은 포트가 다시 잡힌다면 PID 가 바뀌었는지 봅니다. 새 PID 라면 무언가가 서버를 다시 띄우고 있다는 뜻이니, 그 프로그램을 먼저 멈춘 다음 포트를 비워야 같은 일이 반복되지 않습니다.<sup class="fn-refs"><a href="#source-1" aria-label="출처 1">1</a>,<a href="#source-2" aria-label="출처 2">2</a>,<a href="#source-3" aria-label="출처 3">3</a>,<a href="#source-4" aria-label="출처 4">4</a></sup></p>
+        <figure class="code-example"><figcaption>powershell · cmd 와 PowerShell 에서 쓰는 명령</figcaption><pre tabindex="0"><code>REM cmd
+netstat -ano | findstr LISTENING | findstr /C:&quot;:3000 &quot;
+tasklist /FI &quot;PID eq &lt;PID&gt;&quot;
+taskkill /PID &lt;PID&gt; /F
+
+# PowerShell
+Get-NetTCPConnection -LocalPort 3000 -State Listen | Select-Object LocalPort,OwningProcess
+Get-Process -Id (Get-NetTCPConnection -LocalPort 3000 -State Listen).OwningProcess
+Stop-Process -Id ((Get-NetTCPConnection -LocalPort 3000 -State Listen).OwningProcess | Select-Object -Unique) -Force</code></pre></figure>
+
+      </section>
+          </div>
+
+
+
+          <section class="sources" id="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">출처</h2>
+      <ol>
+        <li id="source-1">
+          <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netstat" target="_blank" rel="noopener noreferrer">
+            <strong>Microsoft Learn: netstat</strong>
+            <span>learn.microsoft.com</span>
+          </a>
+        </li>
+        <li id="source-2">
+          <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/taskkill" target="_blank" rel="noopener noreferrer">
+            <strong>Microsoft Learn: taskkill</strong>
+            <span>learn.microsoft.com</span>
+          </a>
+        </li>
+        <li id="source-3">
+          <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/stop-process" target="_blank" rel="noopener noreferrer">
+            <strong>Microsoft Learn: Stop-Process</strong>
+            <span>learn.microsoft.com</span>
+          </a>
+        </li>
+        <li id="source-4">
+          <a href="https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection" target="_blank" rel="noopener noreferrer">
+            <strong>Microsoft Learn: Get-NetTCPConnection</strong>
+            <span>learn.microsoft.com</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+          <section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">관련 글</h2>
+      <ul class="related-list">
+        <li>
+          <a href="/articles/git-commit-message-amend-rebase-force-push-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>git 커밋 메시지 수정, 마지막 커밋과 이전 커밋 그리고 push 한 뒤</strong>
+            <span>게시 2026년 11월 23일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/github-copilot-free-ai-credits-2026/">
+            <span class="related-cat">개발도구</span>
+            <strong>깃허브 코파일럿 무료 사용량, AI 크레딧 200 확인법</strong>
+            <span>게시 2026년 11월 14일</span>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/claude-mem-install-provider-guide-2026/">
+            <span class="related-cat">개발 도구</span>
+            <strong>claude-mem 설치 방법: 클로드 코드 세션 기억 플러그인, 메모리 제공자 선택과 저장 위치</strong>
+            <span>게시 2026년 11월 2일</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+          <p class="article-back"><a href="/articles/">글 목록으로</a></p>
+        </article>
+        <aside class="article-aside aside-right" aria-labelledby="resources-title">
+      <h2 class="rail-title" id="resources-title">참고 자료</h2>
+      <ul class="rail-list">
+        <li class="rail-item">
+      <a class="rail-card" href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tasklist" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>Microsoft Learn: tasklist</strong>
+        <span class="rail-desc">PID 나 이름으로 실행 중인 프로세스를 거르는 /fi 필터</span>
+        <span class="rail-host">learn.microsoft.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/findstr" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>Microsoft Learn: findstr</strong>
+        <span class="rail-desc">/c 옵션으로 공백이 든 문자열을 그대로 찾는 방법</span>
+        <span class="rail-host">learn.microsoft.com</span>
+      </a>
+    </li>
+        <li class="rail-item">
+      <a class="rail-card" href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/stop-process" target="_blank" rel="noopener noreferrer">
+        <span class="rail-type">공식 문서</span>
+        <strong>Microsoft Learn: Stop-Process</strong>
+        <span class="rail-desc">매개변수별 파이프라인 입력 표와 예제</span>
+        <span class="rail-host">learn.microsoft.com</span>
+      </a>
+    </li>
+      </ul>
+      <div class="article-tools">
+        <button type="button" class="copy-link" data-copy-url="https://bluebworks.com/articles/windows-port-check-kill-netstat-taskkill-2026/">링크 복사</button>
+        <span class="copy-status" role="status" aria-live="polite"></span>
+      </div>
+    </aside>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>BlueBWorks</strong>
+      </div>
+      <nav class="footer-nav" aria-label="바닥글">
+        <a href="/about.html">소개</a>
+        <a href="/contact.html">문의</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/feed.xml">RSS</a>
+        <a href="https://github.com/Blue-B/BlueBWorks" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="journal-footer-bottom wrap"><p class="footer-byline">각 글에 공식 출처를 함께 적습니다.</p><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">동작 줄이기</button></div>
+  </footer>
+  <script src="/assets/app.js?v=edition6" defer></script>
+  <script src="/assets/journal.js?v=edition6" defer></script>
+
+  </body>
+</html>

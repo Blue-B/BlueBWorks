@@ -59,9 +59,21 @@
           <button class="filter" type="button" data-filter="오픈소스·개발도구" aria-pressed="false">오픈소스·개발도구</button>
           <button class="filter" type="button" data-filter="에이전트" aria-pressed="false">에이전트</button>
         </div>
-        <p class="list-status" data-list-status aria-live="polite">글 99편</p>
+        <p class="list-status" data-list-status aria-live="polite">글 100편</p>
       </section>
       <ol class="archive-list" data-post-list>
+        <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="윈도우 포트 확인과 포트 죽이기, netstat 과 taskkill 윈도우에서 3000번이나 8080번 포트가 이미 사용 중이라고 나올 때 어떤 프로그램이 잡고 있는지 찾아 끄는 방법입니다. cmd 에서는 netstat -ano 와 taskkill, powershell 에서는 get-nettcpconnection 과 stop-process 를 쓰는데, powershell 쪽은 pid 를 넘기는 방식을 잘못 쓰면 오류만 나고 포트가 그대로 남습니다. 개발도구 published 윈도우 포트 확인 포트 죽이기 netstat 포트 확인 사용중인 포트 죽이기 taskkill get-nettcpconnection 8080 포트 kill netstat -ano | findstr :3000 으로 포트를 잡은 pid 를 찾고, tasklist 로 어떤 프로그램인지 본 다음 taskkill /pid 번호 /f 로 끕니다. findstr :3000 은 30001번 같은 다른 포트도 함께 걸러 냅니다. listening 줄만 남기고 포트 번호 뒤 공백까지 붙여 찾아야 정확합니다. powershell 에서 owningprocess 숫자를 stop-process 로 바로 파이프하면 바인딩 오류가 나고 포트는 그대로입니다. stop-process -id 뒤에 괄호로 넘기거나 get-process 를 거칩니다. pid 가 4 로 나오면 windows 의 system 프로세스입니다. 끄는 대상이 아니니 내 서버의 포트 번호를 바꾸는 편이 빠릅니다.">
+        <a href="/articles/windows-port-check-kill-netstat-taskkill-2026/">
+          <span class="archive-thumb"><img src="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-thumb.png" alt="윈도우 포트 확인과 포트 죽이기. netstat 으로 찾고 taskkill 로 끄기. 오른쪽에 netstat 문서의 -n, -o 옵션 설명 화면" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>윈도우 포트 확인과 포트 죽이기, netstat 과 taskkill</strong>
+            <span class="archive-summary">윈도우에서 3000번이나 8080번 포트가 이미 사용 중이라고 나올 때 어떤 프로그램이 잡고 있는지 찾아 끄는 방법입니다. cmd 에서는 netstat -ano 와 taskkill, PowerShell 에서는 Get-NetTCPConnection 과 Stop-Process 를 쓰는데, PowerShell 쪽은 PID 를 넘기는 방식을 잘못 쓰면 오류만 나고 포트가 그대로 남습니다.</span>
+            <span class="archive-date">게시 2026년 11월 24일</span>
+
+          </div>
+        </a>
+      </li>
         <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="git 커밋 메시지 수정, 마지막 커밋과 이전 커밋 그리고 push 한 뒤 git 커밋 메시지를 고치는 세 가지 경우를 연습 저장소에서 직접 해 보고 정리했습니다. 마지막 커밋은 commit --amend, 이전 커밋은 rebase -i 의 reword, 이미 push 했다면 --force-with-lease 와 --force-if-includes 를 함께 씁니다. 개발도구 published git 커밋 메시지 수정 git commit amend git rebase reword git push 후 커밋 메시지 수정 force-with-lease git 이전 커밋 메시지 수정 아직 push 하지 않았다면 마지막 커밋은 git commit --amend, 그보다 앞의 커밋은 git rebase -i 에서 pick 을 reword 로 바꾸면 됩니다. 어느 쪽이든 커밋 해시가 새로 만들어집니다. 이미 push 한 커밋을 고쳤다면 일반 push 는 거절됩니다. --force 대신 --force-with-lease --force-if-includes 를 함께 써야 그사이 올라온 동료 커밋을 덮어쓰지 않습니다.">
         <a href="/articles/git-commit-message-amend-rebase-force-push-2026/">
           <span class="archive-thumb"><img src="https://bluebworks.com/assets/editorial/git-commit-message-amend-rebase-force-push-2026-thumb.png" alt="커밋 메시지 수정, 마지막 커밋과 이전 커밋, push 한 뒤까지. 오른쪽에 GitHub 문서의 대화형 리베이스로 커밋 메시지를 바꾸는 단계 화면" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
