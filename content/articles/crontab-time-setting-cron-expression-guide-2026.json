@@ -1,0 +1,360 @@
+{
+  "slug": "crontab-time-setting-cron-expression-guide-2026",
+  "title": "크론탭 시간 설정, 크론 표현식 읽는 법과 자주 틀리는 곳",
+  "seoTitle": "크론탭 시간 설정과 크론 표현식 해석, 5분마다 예시",
+  "summary": "크론탭 시간 설정은 분, 시, 일, 월, 요일 다섯 칸만 알면 읽힙니다. 다만 */35 가 35분마다가 아니라는 점, 날짜와 요일을 같이 적으면 둘 중 하나만 맞아도 돈다는 점, 서버 시간대와 GitHub Actions 의 UTC 기준처럼 표현식만 봐서는 모르는 함정이 있습니다. 자주 쓰는 예시와 함께 정리했습니다.",
+  "category": "개발도구",
+  "announcedAt": "2026-11-26",
+  "publishedAt": "2026-11-26T10:27:00+09:00",
+  "verifiedAt": "2026-11-26T10:27:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "크론탭 시간 설정",
+    "크론 표현식",
+    "crontab 설정",
+    "cron 5분마다",
+    "크론 표현식 해석",
+    "GitHub Actions cron",
+    "크론 표현식 6자리"
+  ],
+  "keyPoints": [
+    "다섯 칸은 왼쪽부터 분, 시, 일, 월, 요일입니다. 5분마다는 */5 * * * *, 매일 새벽 3시는 0 3 * * *, 평일 오전 9시는 0 9 * * 1-5 입니다.",
+    "*/35 는 35분 간격이 아니라 매시 0분과 35분에 돕니다. 나누기는 그 칸 안에서만 계산됩니다.",
+    "일 칸과 요일 칸을 둘 다 숫자로 채우면 둘 중 하나만 맞아도 실행됩니다. 0 9 1 * 1 은 매달 1일과 매주 월요일 두 경우에 모두 돕니다.",
+    "Ubuntu 기본 cron 은 사용자별 시간대를 지원하지 않습니다. GitHub Actions 는 기본이 UTC 라 한국 시간 자정은 0 15 * * * 로 적습니다.",
+    "crontab -n 파일이름 으로 설치 전에 문법만 볼 수 있습니다. 여섯 칸짜리 표현식이나 마지막 줄바꿈 누락도 여기서 걸립니다."
+  ],
+  "image": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-thumb.png",
+  "imageSourceUrl": "https://crontab.guru/",
+  "imageAlt": "크론탭 시간 설정. */35 는 35분마다가 아닙니다. 오른쪽에 */35 표현식의 다음 실행 시각 목록 화면",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "*/35 는 정각과 35분, 한 시간에 두 번 돈다.",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "크론탭 시간 설정은 다섯 칸만 읽으면 됩니다",
+      "paragraphs": [
+        "서버에서 백업이나 정리 스크립트를 정해진 시각에 돌리려면 대부분 cron 을 씁니다. crontab -e 로 연 파일에 한 줄씩 적는데, 맨 앞 다섯 칸이 시각이고 그 뒤가 실행할 명령입니다.",
+        "자주 쓰는 표현식 다섯 개를 crontab.guru 에 넣고 다음 실행 시각 목록을 펼쳐 봤습니다. */5 * * * * 는 10:20, 10:25, 10:30 처럼 5분 간격으로 나왔고, 0 3 * * * 는 다음 날 새벽 3시 정각 하나만 잡혔습니다.",
+        "예상과 다르게 나온 것도 두 개 있었습니다. */35 * * * * 는 10:35 다음이 11:10 이 아니라 11:00 이었고, 0 9 1 * 1 은 11월 30일 월요일과 12월 1일에 연달아 잡혔습니다. 둘 다 cron 문서에 적힌 규칙대로 움직인 결과입니다.",
+        "칸 순서는 왼쪽부터 분(0~59), 시(0~23), 일(1~31), 월(1~12), 요일(0~7)입니다. 요일은 0 과 7 이 모두 일요일이고, 월과 요일은 jan, mon 처럼 영어 앞 세 글자로 써도 됩니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-every5.png",
+          "alt": "crontab.guru 에 */5 * * * * 를 넣은 화면. At every 5th minute 라는 설명과 10시 20분부터 5분 간격의 다음 실행 시각 다섯 개",
+          "caption": "*/5 는 10:20, 10:25, 10:30 처럼 5분마다 잡힌다.",
+          "credit": "Crontab.guru",
+          "sourceUrl": "https://crontab.guru/",
+          "width": 445,
+          "height": 400
+        }
+      ],
+      "code": {
+        "language": "text",
+        "caption": "칸 순서와 한 줄 예시",
+        "text": "# 분 시 일 월 요일  명령\n*/5 * * * *  /home/me/check.sh\n0 3 * * *    /home/me/backup.sh"
+      },
+      "sourceRefs": [
+        1,
+        2,
+        6
+      ]
+    },
+    {
+      "title": "자주 쓰는 크론 표현식 예시",
+      "paragraphs": [
+        "별표는 그 칸의 처음부터 끝까지 전부라는 뜻입니다. 쉼표는 목록, 하이픈은 범위, 슬래시는 간격입니다. 이 네 가지만 섞으면 대부분의 일정을 적을 수 있습니다.",
+        "평일 오전 9시는 0 9 * * 1-5 입니다. crontab.guru 에 넣으면 금요일인 11월 27일 다음이 바로 11월 30일 월요일이라 주말 이틀을 건너뛰는 것이 목록에서 보입니다.",
+        "매일 한 번 도는 작업이라면 0 0 * * * 대신 @daily 처럼 줄여 쓰는 이름도 있습니다. @hourly, @weekly, @monthly, @reboot 도 같은 방식이고, @reboot 는 재부팅 뒤 한 번 돕니다.",
+        "분 칸을 비워 두지 않는 것도 중요합니다. 0 9 * * * 대신 * 9 * * * 라고 적으면 9시 정각 한 번이 아니라 9시 0분부터 59분까지 60번을 돕니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-weekday9.png",
+          "alt": "crontab.guru 에 0 9 * * 1-5 를 넣은 화면. 월요일부터 금요일까지 9시라는 설명과 11월 27일 다음이 11월 30일인 실행 시각 목록",
+          "caption": "27일 금요일 다음이 30일 월요일로 넘어간다.",
+          "credit": "Crontab.guru",
+          "sourceUrl": "https://crontab.guru/",
+          "width": 445,
+          "height": 499
+        }
+      ],
+      "code": {
+        "language": "text",
+        "caption": "자주 쓰는 표현식",
+        "text": "*/5 * * * *      5분마다\n*/10 * * * *     10분마다\n0 * * * *        매시 정각\n0 */2 * * *      2시간마다 정각\n0 3 * * *        매일 새벽 3시\n30 18 * * *      매일 저녁 6시 30분\n0 9 * * 1-5      평일 오전 9시\n0 0 * * 0        매주 일요일 자정\n0 0 1 * *        매달 1일 자정\n30 4 1,15 * *    매달 1일과 15일 새벽 4시 30분"
+      },
+      "sourceRefs": [
+        1,
+        2,
+        6
+      ]
+    },
+    {
+      "title": "저장 전에 crontab -n 으로 문법 오류 찾기",
+      "paragraphs": [
+        "Ubuntu 와 Debian 의 crontab 에는 -n 옵션이 있습니다. 파일을 넘기면 문법만 보고 실제 crontab 에는 아무것도 쓰지 않습니다. 지금 돌고 있는 일정을 건드리지 않고 오타부터 잡을 수 있습니다.",
+        "Ubuntu 24.04 에서 시험용 파일 다섯 개를 만들어 crontab -n 에 넣어 봤습니다. 정상 파일은 The syntax of the crontab file was successfully checked 한 줄과 함께 종료 코드 0 으로 끝났습니다.",
+        "시 칸에 25 를 넣은 파일은 bad hour 로 막혔습니다. Spring 식 L 을 일 칸에 넣은 파일은 bad day-of-month 였고, 여섯 칸짜리 0 0 3 * * * 는 여섯째 별표가 명령 자리로 밀리면서 bad command 가 나왔습니다.",
+        "마지막 줄 뒤에 줄바꿈이 없는 파일도 missing newline before EOF 오류와 함께 설치를 거부했습니다. 편집기에서 마지막 줄 끝에 엔터를 한 번 넣어 두면 됩니다.",
+        "crontab -r 은 지금 crontab 전체를 지우는 옵션입니다. 키보드에서 e 와 r 이 붙어 있어 -e 를 치려다 실수하기 쉬운데, -i 를 같이 주면 지우기 전에 y 를 한 번 묻습니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "crontab -n 으로 본 결과",
+        "text": "$ crontab -n ok.cron\nThe syntax of the crontab file was successfully checked.\n\n$ crontab -n bad.cron        # 시 칸에 25\n\"bad.cron\":0: bad hour\nerrors in crontab file, can't install.\n\n$ crontab -n spring.cron     # 일 칸에 L\n\"spring.cron\":0: bad day-of-month\n\n$ crontab -n six.cron        # 0 0 3 * * *\n\"six.cron\":0: bad command\n\n$ crontab -n nonl.cron       # 마지막 줄바꿈 없음\nnew crontab file is missing newline before EOF, can't install."
+      },
+      "sourceRefs": [
+        5
+      ]
+    },
+    {
+      "title": "*/35 는 35분마다가 아닙니다",
+      "paragraphs": [
+        "35분 간격으로 돌리려고 */35 * * * * 를 적으면 실제로는 매시 0분과 35분에 돕니다. crontab.guru 목록도 10:35, 11:00, 11:35, 12:00 으로 나와서 간격이 35분과 25분을 번갈아 갑니다.",
+        "슬래시 간격은 그 칸 안에서만 계산되기 때문입니다. 분 칸은 0 부터 59 까지라 0, 35 두 값만 남고, 시가 바뀌면 다시 0 부터 셉니다. cronie 의 crontab 문서도 */35 가 한 시간에 두 번 돈다고 적고 있습니다.",
+        "60 을 나누어떨어지게 하는 값(5, 10, 15, 20, 30)은 이런 문제가 없습니다. 시 칸도 같아서 */5 는 0, 5, 10, 15, 20시에 돌고 20시 다음은 25시가 아니라 다음 날 0시입니다.",
+        "정말 35분이나 90분 간격이 필요하면 매분 돌리면서 스크립트 안에서 시각을 나눠 보는 방법이 문서에 예시로 나옵니다. 간격이 길다면 시간을 직접 나열하는 쪽이 읽기 쉽습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-step35.png",
+          "alt": "crontab.guru 에 */35 * * * * 를 넣은 화면. 다음 실행 시각이 10시 35분, 11시, 11시 35분, 12시, 12시 35분",
+          "caption": "10:35 다음이 11:10 이 아니라 11:00 이다.",
+          "credit": "Crontab.guru",
+          "sourceUrl": "https://crontab.guru/",
+          "width": 445,
+          "height": 400
+        }
+      ],
+      "code": {
+        "language": "text",
+        "caption": "*/35 와 실제 실행 시각",
+        "text": "*/35 * * * *\n10:35  11:00  11:35  12:00  12:35\n\n# 90분 간격이 필요하면 시각을 직접 나열\n0 0,3,6,9,12,15,18,21 * * *\n30 1,4,7,10,13,16,19,22 * * *"
+      },
+      "sourceRefs": [
+        2,
+        6
+      ]
+    },
+    {
+      "title": "날짜와 요일을 둘 다 적으면 둘 중 하나만 맞아도 돕니다",
+      "paragraphs": [
+        "매달 1일이 월요일일 때만 돌리고 싶어서 0 9 1 * 1 이라고 쓰는 경우가 있습니다. 이 표현식은 1일에도, 매주 월요일에도 돕니다. crontab.guru 설명도 day-of-month 1 and on Monday 로 나옵니다.",
+        "실행 목록을 펼치면 11월 30일 월요일, 12월 1일 화요일, 12월 7일 월요일 순서였습니다. 1일과 월요일이 겹치는 날만 고르는 것이 아니라 두 조건을 합친 것입니다.",
+        "Debian 과 Ubuntu 의 crontab 문서도 일과 요일 두 칸이 모두 별표가 아니면 둘 중 하나만 맞아도 실행한다고 적고 있습니다. 문서 예시인 30 4 1,15 * 5 는 매달 1일과 15일, 그리고 매주 금요일에 돕니다.",
+        "둘 다 맞을 때만 돌리려면 한쪽 조건은 명령 안에서 거르는 방법이 흔합니다. 예를 들어 0 9 1 * * 로 매달 1일에 돌리고, 명령 앞에 오늘이 월요일인지 보는 조건을 붙입니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-dayor.png",
+          "alt": "crontab.guru 에 0 9 1 * 1 을 넣은 화면. 1일과 월요일 9시라는 설명과 11월 30일, 12월 1일, 12월 7일 순서의 실행 시각",
+          "caption": "월요일인 30일과 화요일인 1일에 모두 잡힌다.",
+          "credit": "Crontab.guru",
+          "sourceUrl": "https://crontab.guru/",
+          "width": 445,
+          "height": 450
+        }
+      ],
+      "code": {
+        "language": "bash",
+        "caption": "매달 1일이 월요일일 때만 실행",
+        "text": "0 9 1 * *  [ \"$(date +\\%u)\" = 1 ] && /home/me/report.sh"
+      },
+      "sourceRefs": [
+        1,
+        2,
+        6
+      ]
+    },
+    {
+      "title": "크론탭 시간대는 서버 시간을 따릅니다",
+      "paragraphs": [
+        "cron 은 그 서버의 시간대로 표현식을 읽습니다. 해외 리전에 만든 클라우드 서버는 UTC 로 설정된 경우가 많아서, 0 3 * * * 가 한국 시간 새벽 3시가 아니라 낮 12시에 돌 수 있습니다.",
+        "먼저 date 명령으로 서버 시간대를 봅니다. Ubuntu 24.04 WSL 에서 date 는 10:21 KST 를, TZ=UTC date 는 01:21 UTC 를 보여 줬습니다. 끝에 붙은 KST 나 UTC 가 cron 이 따르는 기준입니다.",
+        "Ubuntu 와 Debian 에 기본으로 들어 있는 cron 은 사용자별 시간대를 지원하지 않습니다. crontab 맨 위에 TZ=UTC 를 적어도 실행되는 명령의 환경만 바뀌고, 언제 돌지는 여전히 서버 시간대로 정해진다고 문서에 나와 있습니다.",
+        "Fedora 나 RHEL 계열에서 쓰는 cronie 는 CRON_TZ 변수로 그 파일의 시간대를 따로 정할 수 있습니다. 같은 crontab 을 다른 배포판으로 옮길 때 이 차이 때문에 시각이 어긋날 수 있습니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "서버 시간대 보는 법",
+        "text": "$ date \"+%Y-%m-%d %H:%M %Z\"\n2026-11-26 10:21 KST\n\n$ TZ=UTC date \"+%Y-%m-%d %H:%M %Z\"\n2026-11-26 01:21 UTC"
+      },
+      "sourceRefs": [
+        1,
+        2
+      ]
+    },
+    {
+      "title": "GitHub Actions cron 은 UTC 기준입니다",
+      "paragraphs": [
+        "GitHub Actions 의 schedule 도 같은 다섯 칸 문법을 쓰지만 기본 시간대가 UTC 입니다. 한국 시간은 UTC 보다 9시간 빠르니 한국 시간 기준으로 원하는 시각에서 9시간을 빼서 적어야 합니다.",
+        "한국 시간 자정에 돌리려면 0 15 * * * 입니다. date 명령으로 UTC 15시를 한국 시간으로 바꾸자 다음 날 00:00 KST 가 나왔고, 반대로 한국 시간 오전 9시는 UTC 0시였습니다.",
+        "날짜가 하루 밀린다는 점도 같이 봐야 합니다. 한국 시간 월요일 오전 8시는 UTC 로 일요일 23시라 요일 칸이 0 이 됩니다. 평일만 돌리는 작업은 요일 범위까지 같이 옮겨야 합니다.",
+        "GitHub 문서에는 cron 아래에 timezone 으로 IANA 시간대 이름을 적는 방법도 나와 있습니다. Asia/Seoul 을 적으면 한국 시간 그대로 써도 됩니다. 가장 짧은 실행 간격은 5분에 한 번입니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-gh-utc.png",
+          "alt": "crontab.guru 에 0 15 * * * 를 넣은 화면. 매일 15시라는 설명과 11월 26일부터 30일까지 15시 실행 목록",
+          "caption": "UTC 로 적은 15시는 한국 시간 다음 날 자정이다.",
+          "credit": "Crontab.guru",
+          "sourceUrl": "https://crontab.guru/",
+          "width": 445,
+          "height": 499
+        }
+      ],
+      "code": {
+        "language": "yaml",
+        "caption": "한국 시간 자정에 도는 두 가지 방법",
+        "text": "on:\n  schedule:\n    # 기본은 UTC, 15시 = 한국 시간 0시\n    - cron: '0 15 * * *'\n\n# 시간대를 직접 정하는 방법\non:\n  schedule:\n    - cron: '0 0 * * *'\n      timezone: \"Asia/Seoul\""
+      },
+      "sourceRefs": [
+        3,
+        6
+      ]
+    },
+    {
+      "title": "크론 표현식 6자리는 초가 맨 앞에 붙은 형식",
+      "paragraphs": [
+        "크론 표현식이 여섯 칸이면 Spring 이나 Quartz 같은 자바 스케줄러용일 가능성이 큽니다. Spring 문서 기준으로 맨 앞이 초이고, 그 뒤가 분, 시, 일, 월, 요일입니다.",
+        "그래서 같은 의미라도 칸 수가 다릅니다. 매일 새벽 3시는 crontab 에서 0 3 * * * 이고 Spring 에서는 0 0 3 * * * 입니다. 여섯 칸짜리를 crontab 에 넣으면 앞에서 본 것처럼 bad command 로 막힙니다.",
+        "Spring 형식에는 crontab 에 없는 기호도 있습니다. L 은 그달 마지막 날, 1W 는 그달 첫 평일, MON#1 은 첫째 월요일입니다. 리눅스 기본 cron 은 이 기호를 모르니 옮겨 쓸 때 빼야 합니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "다섯 칸과 여섯 칸 비교",
+        "text": "# crontab (분 시 일 월 요일)\n0 3 * * *\n\n# Spring @Scheduled (초 분 시 일 월 요일)\n0 0 3 * * *\n0 0 0 L * *       매달 마지막 날 자정\n0 0 9 ? * MON#1   첫째 월요일 오전 9시"
+      },
+      "sourceRefs": [
+        4
+      ]
+    },
+    {
+      "title": "명령 칸에서 자주 막히는 % 와 환경 변수",
+      "paragraphs": [
+        "시각을 맞게 적었는데 명령이 안 도는 경우는 명령 칸 문제일 때가 많습니다. 대표적인 것이 % 기호입니다. crontab 명령 안의 % 는 줄바꿈으로 바뀌어서 date +%F 같은 명령이 중간에 잘립니다.",
+        "날짜를 파일 이름에 넣으려면 \\% 처럼 역슬래시를 붙입니다. 위의 월요일 조건 예시에서 \\%u 로 쓴 것도 같은 이유입니다.",
+        "cron 은 로그인 셸과 다른 환경에서 돕니다. 기본 셸은 sh 이고 계정 정보에서 채워지는 변수는 HOME 과 LOGNAME 정도라, 터미널에서 잘 되던 명령이 경로를 못 찾을 수 있습니다. 명령은 전체 경로로 적는 편이 안전합니다.",
+        "출력을 파일로 남겨 두면 원인을 찾기 쉽습니다. 명령 끝에 >> $HOME/cron.log 2>&1 을 붙이면 성공한 출력과 오류가 모두 한 파일에 쌓입니다. 지금 등록된 목록은 crontab -l 로 볼 수 있습니다."
+      ],
+      "code": {
+        "language": "bash",
+        "caption": "% 를 이스케이프하고 로그를 남기는 예",
+        "text": "0 3 * * *  /usr/bin/tar czf /home/me/backup/site-$(date +\\%F).tgz /var/www/site >> /home/me/cron.log 2>&1"
+      },
+      "sourceRefs": [
+        1,
+        2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Debian Manpages: crontab(5), cron 3.0pl1",
+      "url": "https://manpages.debian.org/trixie/cron/crontab.5.en.html",
+      "description": "Debian 과 Ubuntu 기본 cron 의 다섯 칸 문법, 일과 요일 조건, % 처리, 시간대 제한"
+    },
+    {
+      "name": "man7.org: crontab(5), cronie",
+      "url": "https://man7.org/linux/man-pages/man5/crontab.5.html",
+      "description": "간격 표기의 범위, */35 예시, CRON_TZ, @daily 같은 줄임 이름"
+    },
+    {
+      "name": "GitHub Docs: Events that trigger workflows, schedule",
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule",
+      "description": "기본 UTC, timezone 지정, 가장 짧은 간격 5분"
+    },
+    {
+      "name": "Spring Framework: Cron Expressions",
+      "url": "https://docs.spring.io/spring-framework/reference/integration/scheduling.html#scheduling-cron-expression",
+      "description": "초가 들어간 여섯 칸 형식과 L, W, # 기호"
+    },
+    {
+      "name": "Debian Manpages: crontab(1), cron 3.0pl1",
+      "url": "https://manpages.debian.org/trixie/cron/crontab.1.en.html",
+      "description": "-e, -l, -r, -i 옵션과 문법만 보는 -n"
+    },
+    {
+      "name": "Crontab.guru",
+      "url": "https://crontab.guru/",
+      "description": "표현식의 뜻과 다음 실행 시각 목록"
+    }
+  ],
+  "resources": [
+    {
+      "name": "Crontab.guru",
+      "url": "https://crontab.guru/",
+      "type": "도구",
+      "description": "표현식을 넣으면 뜻과 다음 실행 시각을 보여 주는 웹 도구"
+    },
+    {
+      "name": "Crontab.guru examples",
+      "url": "https://crontab.guru/examples.html",
+      "type": "예시 모음",
+      "description": "자주 쓰는 일정별 표현식 목록"
+    },
+    {
+      "name": "Debian Manpages: crontab(1)",
+      "url": "https://manpages.debian.org/trixie/cron/crontab.1.en.html",
+      "type": "공식 문서",
+      "description": "crontab -n 으로 문법만 보는 방법과 -r, -i 옵션"
+    }
+  ],
+  "discovery": {
+    "xStatus": "unavailable",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-26T10:27:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://crontab.guru/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with a cropped screen of the Crontab.guru web tool output",
+        "reason": "*/35 의 실행 시각 목록 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://crontab.guru/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-every5.png",
+        "decision": "included",
+        "rightsBasis": "Screen of the Crontab.guru web tool output for an expression entered by BlueBWorks, cropped with attribution",
+        "reason": "*/5 의 다음 실행 시각 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://crontab.guru/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-weekday9.png",
+        "decision": "included",
+        "rightsBasis": "Screen of the Crontab.guru web tool output for an expression entered by BlueBWorks, cropped with attribution",
+        "reason": "평일 9시 표현식의 실행 시각 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://crontab.guru/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-step35.png",
+        "decision": "included",
+        "rightsBasis": "Screen of the Crontab.guru web tool output for an expression entered by BlueBWorks, cropped with attribution",
+        "reason": "*/35 의 실제 실행 시각 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://crontab.guru/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-dayor.png",
+        "decision": "included",
+        "rightsBasis": "Screen of the Crontab.guru web tool output for an expression entered by BlueBWorks, cropped with attribution",
+        "reason": "일과 요일 조건이 합쳐지는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://crontab.guru/",
+        "assetUrl": "https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-gh-utc.png",
+        "decision": "included",
+        "rightsBasis": "Screen of the Crontab.guru web tool output for an expression entered by BlueBWorks, cropped with attribution",
+        "reason": "UTC 15시 표현식의 실행 시각 화면이라 포함."
+      }
+    ]
+  }
+}

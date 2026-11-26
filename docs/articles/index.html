@@ -59,9 +59,21 @@
           <button class="filter" type="button" data-filter="오픈소스·개발도구" aria-pressed="false">오픈소스·개발도구</button>
           <button class="filter" type="button" data-filter="에이전트" aria-pressed="false">에이전트</button>
         </div>
-        <p class="list-status" data-list-status aria-live="polite">글 100편</p>
+        <p class="list-status" data-list-status aria-live="polite">글 101편</p>
       </section>
       <ol class="archive-list" data-post-list>
+        <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="크론탭 시간 설정, 크론 표현식 읽는 법과 자주 틀리는 곳 크론탭 시간 설정은 분, 시, 일, 월, 요일 다섯 칸만 알면 읽힙니다. 다만 */35 가 35분마다가 아니라는 점, 날짜와 요일을 같이 적으면 둘 중 하나만 맞아도 돈다는 점, 서버 시간대와 github actions 의 utc 기준처럼 표현식만 봐서는 모르는 함정이 있습니다. 자주 쓰는 예시와 함께 정리했습니다. 개발도구 published 크론탭 시간 설정 크론 표현식 crontab 설정 cron 5분마다 크론 표현식 해석 github actions cron 크론 표현식 6자리 다섯 칸은 왼쪽부터 분, 시, 일, 월, 요일입니다. 5분마다는 */5 * * * *, 매일 새벽 3시는 0 3 * * *, 평일 오전 9시는 0 9 * * 1-5 입니다. */35 는 35분 간격이 아니라 매시 0분과 35분에 돕니다. 나누기는 그 칸 안에서만 계산됩니다. 일 칸과 요일 칸을 둘 다 숫자로 채우면 둘 중 하나만 맞아도 실행됩니다. 0 9 1 * 1 은 매달 1일과 매주 월요일 두 경우에 모두 돕니다. ubuntu 기본 cron 은 사용자별 시간대를 지원하지 않습니다. github actions 는 기본이 utc 라 한국 시간 자정은 0 15 * * * 로 적습니다. crontab -n 파일이름 으로 설치 전에 문법만 볼 수 있습니다. 여섯 칸짜리 표현식이나 마지막 줄바꿈 누락도 여기서 걸립니다.">
+        <a href="/articles/crontab-time-setting-cron-expression-guide-2026/">
+          <span class="archive-thumb"><img src="https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-thumb.png" alt="크론탭 시간 설정. */35 는 35분마다가 아닙니다. 오른쪽에 */35 표현식의 다음 실행 시각 목록 화면" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>크론탭 시간 설정, 크론 표현식 읽는 법과 자주 틀리는 곳</strong>
+            <span class="archive-summary">크론탭 시간 설정은 분, 시, 일, 월, 요일 다섯 칸만 알면 읽힙니다. 다만 */35 가 35분마다가 아니라는 점, 날짜와 요일을 같이 적으면 둘 중 하나만 맞아도 돈다는 점, 서버 시간대와 GitHub Actions 의 UTC 기준처럼 표현식만 봐서는 모르는 함정이 있습니다. 자주 쓰는 예시와 함께 정리했습니다.</span>
+            <span class="archive-date">게시 2026년 11월 26일</span>
+
+          </div>
+        </a>
+      </li>
         <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="윈도우 포트 확인과 포트 죽이기, netstat 과 taskkill 윈도우에서 3000번이나 8080번 포트가 이미 사용 중이라고 나올 때 어떤 프로그램이 잡고 있는지 찾아 끄는 방법입니다. cmd 에서는 netstat -ano 와 taskkill, powershell 에서는 get-nettcpconnection 과 stop-process 를 쓰는데, powershell 쪽은 pid 를 넘기는 방식을 잘못 쓰면 오류만 나고 포트가 그대로 남습니다. 개발도구 published 윈도우 포트 확인 포트 죽이기 netstat 포트 확인 사용중인 포트 죽이기 taskkill get-nettcpconnection 8080 포트 kill netstat -ano | findstr :3000 으로 포트를 잡은 pid 를 찾고, tasklist 로 어떤 프로그램인지 본 다음 taskkill /pid 번호 /f 로 끕니다. findstr :3000 은 30001번 같은 다른 포트도 함께 걸러 냅니다. listening 줄만 남기고 포트 번호 뒤 공백까지 붙여 찾아야 정확합니다. powershell 에서 owningprocess 숫자를 stop-process 로 바로 파이프하면 바인딩 오류가 나고 포트는 그대로입니다. stop-process -id 뒤에 괄호로 넘기거나 get-process 를 거칩니다. pid 가 4 로 나오면 windows 의 system 프로세스입니다. 끄는 대상이 아니니 내 서버의 포트 번호를 바꾸는 편이 빠릅니다.">
         <a href="/articles/windows-port-check-kill-netstat-taskkill-2026/">
           <span class="archive-thumb"><img src="https://bluebworks.com/assets/editorial/windows-port-check-kill-netstat-taskkill-2026-thumb.png" alt="윈도우 포트 확인과 포트 죽이기. netstat 으로 찾고 taskkill 로 끄기. 오른쪽에 netstat 문서의 -n, -o 옵션 설명 화면" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>

@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 24 Nov 2026 00:18:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 01:27:00 GMT</lastBuildDate>
+    <item>
+      <title>크론탭 시간 설정, 크론 표현식 읽는 법과 자주 틀리는 곳</title>
+      <link>https://bluebworks.com/articles/crontab-time-setting-cron-expression-guide-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/crontab-time-setting-cron-expression-guide-2026/</guid>
+      <pubDate>Thu, 26 Nov 2026 01:27:00 GMT</pubDate>
+      <category>개발도구</category>
+      <description>크론탭 시간 설정은 분, 시, 일, 월, 요일 다섯 칸만 알면 읽힙니다. 다만 */35 가 35분마다가 아니라는 점, 날짜와 요일을 같이 적으면 둘 중 하나만 맞아도 돈다는 점, 서버 시간대와 GitHub Actions 의 UTC 기준처럼 표현식만 봐서는 모르는 함정이 있습니다. 자주 쓰는 예시와 함께 정리했습니다.</description>
+    </item>
     <item>
       <title>윈도우 포트 확인과 포트 죽이기, netstat 과 taskkill</title>
       <link>https://bluebworks.com/articles/windows-port-check-kill-netstat-taskkill-2026/</link>
