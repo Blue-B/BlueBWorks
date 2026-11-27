@@ -1,0 +1,349 @@
+{
+  "slug": "chmod-755-644-linux-permission-numbers-2026",
+  "title": "chmod 755 644 뜻, 리눅스 권한 숫자 읽는 법",
+  "seoTitle": "chmod 755 644 뜻과 리눅스 권한 숫자 읽는 법",
+  "summary": "chmod 755, 644, 600 같은 숫자는 읽기 4, 쓰기 2, 실행 1을 더한 값을 소유자, 그룹, 나머지 순서로 적은 것입니다. 숫자 읽는 법과 ls -l로 확인하는 법, chmod -R 644로 폴더가 통째로 잠기는 경우와 푸는 명령까지 Ubuntu에서 실제로 돌린 결과로 정리했습니다.",
+  "category": "개발도구",
+  "announcedAt": "2026-11-27",
+  "publishedAt": "2026-11-27T09:27:00+09:00",
+  "verifiedAt": "2026-11-27T09:27:00+09:00",
+  "status": "published",
+  "reviewStatus": "reviewed",
+  "editorialVersion": 2,
+  "tags": [
+    "chmod 755",
+    "chmod 644",
+    "리눅스 권한",
+    "chmod 명령어",
+    "리눅스 권한 숫자",
+    "chmod 하위폴더",
+    "chmod 777",
+    "chmod 600"
+  ],
+  "keyPoints": [
+    "세 자리 숫자는 왼쪽부터 소유자, 그룹, 나머지 사람의 권한입니다. 읽기 4, 쓰기 2, 실행 1을 더해서 7(rwx), 6(rw-), 5(r-x), 4(r--)가 됩니다.",
+    "보통 파일은 644, 폴더와 실행할 스크립트는 755, 나만 봐야 하는 파일은 600 입니다.",
+    "chmod -R 644를 폴더에 쓰면 폴더 자체의 실행 권한까지 빠져 안으로 들어갈 수 없게 됩니다. find로 폴더와 파일을 나눠 바꾸거나 대문자 X를 씁니다.",
+    "SSH 개인 키가 644 면 ssh가 그 키를 쓰지 않고 넘어갑니다. chmod 600으로 고칩니다."
+  ],
+  "image": "https://bluebworks.com/assets/editorial/chmod-755-644-linux-permission-numbers-2026-thumb.png",
+  "imageSourceUrl": "https://www.gnu.org/software/coreutils/manual/html_node/Numeric-Modes.html",
+  "imageAlt": "chmod 755와 644, 권한 숫자 읽는 법. 오른쪽에 GNU coreutils 설명서의 숫자 모드 표에서 소유자 400 200 100, 그룹 40 20 10, 나머지 4 2 1 부분",
+  "imageCredit": "BlueBWorks",
+  "imageCaption": "소유자, 그룹, 나머지 자리마다 4, 2, 1을 더한다.",
+  "imageWidth": 1600,
+  "imageHeight": 900,
+  "sections": [
+    {
+      "title": "chmod 755, 644 숫자부터 보면 됩니다",
+      "paragraphs": [
+        "리눅스나 맥, WSL에서 스크립트를 만들고 바로 실행하면 Permission denied가 먼저 뜨는 경우가 많습니다. 파일을 새로 만들면 실행 권한이 없는 상태로 생기기 때문입니다.",
+        "Ubuntu 24.04에서 echo 한 줄짜리 run.sh를 만들어 실행해 봤습니다. 처음 만든 파일의 권한은 -rw-r--r--, 숫자로는 644 였고 ./run.sh는 Permission denied로 끝났습니다.",
+        "chmod 755 run.sh 한 줄을 넣은 뒤에는 권한이 -rwxr-xr-x로 바뀌고 같은 명령이 hello를 출력했습니다. 755와 644가 무슨 뜻인지만 알면 이런 오류는 대부분 바로 풀립니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "실행 권한이 없을 때와 chmod 755 뒤",
+        "text": "$ ls -l run.sh\n-rw-r--r-- 1 me me 21 Nov 27 09:08 run.sh\n$ ./run.sh\nbash: ./run.sh: Permission denied\n$ chmod 755 run.sh\n$ ls -l run.sh\n-rwxr-xr-x 1 me me 21 Nov 27 09:08 run.sh\n$ ./run.sh\nhello"
+      },
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "리눅스 권한 숫자 읽는 법, 4 2 1 더하기",
+      "paragraphs": [
+        "권한 숫자 세 자리는 왼쪽부터 파일 소유자, 같은 그룹 사용자, 그 밖의 사람 몫입니다. 자리마다 읽기 4, 쓰기 2, 실행 1을 더한 값을 적습니다.",
+        "그래서 7은 4+2+1로 rwx, 6은 4+2로 rw-, 5는 4+1로 r-x, 4는 r-- 하나뿐입니다. 0이면 아무 권한도 없습니다.",
+        "755를 풀면 소유자는 rwx, 그룹과 나머지는 r-x 입니다. 644는 소유자만 rw- 이고 나머지는 r-- 라서 누구나 읽을 수 있지만 고칠 수 있는 사람은 소유자뿐입니다.",
+        "처음에는 숫자 대신 글자를 세 개씩 끊어 읽는 쪽이 쉽습니다. rwxr-xr-x를 rwx, r-x, r-x로 나누고 각 묶음에서 r은 4, w는 2, x는 1로 바꿔 더하면 7, 5, 5가 나옵니다.",
+        "GNU coreutils 설명서의 숫자 모드 표도 같은 구조입니다. 소유자 칸은 400, 200, 100, 그룹은 40, 20, 10, 나머지는 4, 2, 1 이라 자리마다 더하면 됩니다.",
+        "숫자는 항상 8진수로 읽고 앞에 0을 붙이지 않아도 됩니다. 0755와 755는 같은 값입니다. 네 자리일 때 맨 앞 자리는 setuid 같은 특수 권한이라 평소에는 쓸 일이 드뭅니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chmod-755-644-linux-permission-numbers-2026-numeric.png",
+          "alt": "GNU coreutils Numeric Modes 표. The file's owner 400 Read, 200 Write, 100 Execute/search, 그룹 40 20 10, 나머지 4 2 1",
+          "caption": "자리마다 읽기, 쓰기, 실행 값을 더한다.",
+          "credit": "GNU Coreutils manual",
+          "sourceUrl": "https://www.gnu.org/software/coreutils/manual/html_node/Numeric-Modes.html",
+          "width": 781,
+          "height": 570
+        }
+      ],
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "자주 쓰는 권한 숫자, 644 755 600 700 777",
+      "paragraphs": [
+        "644는 웹 페이지, 설정 파일, 문서처럼 평범한 파일에 씁니다. 새로 만든 파일이 기본으로 이 값이었습니다.",
+        "755는 폴더와 실행할 스크립트에 씁니다. 폴더의 x는 실행이 아니라 그 안으로 들어가는 권한이라서, 폴더는 읽기만 있고 x가 없으면 열어 볼 수 없습니다.",
+        "그룹 자리는 같은 그룹에 묶인 다른 계정 몫입니다. 혼자 쓰는 노트북이나 WSL 에서는 그룹과 나머지가 사실상 구분되지 않지만, 여러 사람이 쓰는 서버나 웹 서버 계정이 따로 있는 환경에서는 이 두 자리가 의미를 가집니다.",
+        "600은 나만 읽고 쓰는 파일입니다. API 키를 적은 파일, SSH 개인 키가 여기에 해당합니다. 폴더 버전은 700 입니다.",
+        "777은 누구나 읽고 쓰고 실행할 수 있는 상태입니다. 실제로 걸어 보면 ls -l에 -rwxrwxrwx로 나옵니다. 급할 때 오류를 없애려고 많이 쓰지만 다른 계정이나 프로그램도 파일을 바꿀 수 있게 되니, 원인을 찾은 뒤에는 644 나 755로 되돌리는 편이 낫습니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "777을 걸었을 때 ls -l 결과",
+        "text": "$ chmod 777 memo.txt\n$ ls -l memo.txt\n-rwxrwxrwx 1 me me 0 Nov 27 09:08 memo.txt"
+      },
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "리눅스 권한 확인, ls -l과 stat",
+      "paragraphs": [
+        "지금 권한은 ls -l로 봅니다. 맨 앞 열 글자 가운데 첫 글자는 종류(-는 파일, d는 폴더)이고, 나머지 아홉 글자가 소유자, 그룹, 나머지 순서의 rwx 세 묶음입니다.",
+        "숫자로 바로 보고 싶으면 stat을 씁니다. -c 뒤에 %a를 넣으면 644 같은 숫자가, %A를 넣으면 ls와 같은 글자 표기가 나옵니다. 리눅스 GNU stat 기준이라 맥의 stat은 옵션이 다릅니다.",
+        "폴더 하나만 볼 때는 ls -ld처럼 d를 붙여야 합니다. 그냥 ls -l 폴더이름을 치면 폴더 자체가 아니라 안에 든 파일 목록이 나와서, 폴더 권한을 본다고 생각했다가 엉뚱한 줄을 읽기 쉽습니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "stat으로 숫자와 글자 표기 함께 보기",
+        "text": "$ stat -c \"%a %A %n\" memo.txt run.sh site\n644 -rw-r--r-- memo.txt\n755 -rwxr-xr-x run.sh\n755 drwxr-xr-x site"
+      },
+      "sourceRefs": [
+        6
+      ]
+    },
+    {
+      "title": "숫자 대신 기호로 바꾸기, u+x g-w o-r",
+      "paragraphs": [
+        "숫자는 세 자리를 한꺼번에 새로 정합니다. 지금 권한에서 하나만 더하거나 빼고 싶을 때는 기호가 편합니다.",
+        "u는 소유자, g는 그룹, o는 나머지, a는 전부입니다. +는 더하기, -는 빼기, =는 그 값으로 맞추기입니다. 쉼표로 여러 개를 한 번에 줄 수 있습니다.",
+        "600 이던 memo.txt에 u+x,g-w를 주자 700이 됐습니다. 644에서 o-r을 빼면 640, a=r로 맞추면 444가 됩니다. 설명서도 664를 ug=rw,o=r과 같은 값으로 소개합니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "기호 모드로 바꾼 결과",
+        "text": "$ chmod 600 memo.txt\n$ chmod u+x,g-w memo.txt; stat -c \"%a %A\" memo.txt\n700 -rwx------\n$ chmod 644 memo.txt; chmod o-r memo.txt; stat -c \"%a %A\" memo.txt\n640 -rw-r-----\n$ chmod a=r memo.txt; stat -c \"%a %A\" memo.txt\n444 -r--r--r--"
+      },
+      "sourceRefs": [
+        1
+      ]
+    },
+    {
+      "title": "chmod -R 644를 폴더에 쓰면 생기는 일",
+      "paragraphs": [
+        "chmod 하위폴더 포함 변경은 -R 옵션으로 합니다. 그런데 웹 파일을 644로 맞추려고 폴더째 chmod -R 644를 걸면 바로 문제가 생깁니다.",
+        "site 폴더 안에 index.html과 img 폴더를 두고 실제로 걸어 봤습니다. chmod는 site 폴더 자체를 먼저 644로 바꿨고, x가 빠진 폴더 안으로는 더 내려가지 못해 Permission denied를 두 번 남겼습니다.",
+        "그 뒤 ls -l site는 이름만 보여 주고 권한, 크기, 날짜가 전부 물음표로 나왔습니다. cd site와 cat도 모두 막혔습니다. 안쪽 파일은 그대로인데 폴더 문이 잠긴 셈입니다.",
+        "반대로 chmod -R 755 로 한 번에 풀면 폴더는 열리지만 그 안의 사진, html, 설정 파일까지 전부 실행 권한이 붙습니다. 당장 문제는 없어 보여도 실행할 이유가 없는 파일에 x가 남으니, 폴더와 파일을 나눠 거는 쪽이 깔끔합니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "chmod -R 644 site 뒤의 실제 출력",
+        "text": "$ chmod -R 644 site\nchmod: cannot access 'site/img': Permission denied\nchmod: cannot access 'site/index.html': Permission denied\n$ ls -ld site\ndrw-r--r-- 1 me me 512 Nov 27 09:08 site\n$ ls -l site\nls: cannot access 'site/img': Permission denied\nls: cannot access 'site/index.html': Permission denied\ntotal 0\nd????????? ? ? ? ?            ? img\n-????????? ? ? ? ?            ? index.html\n$ cd site\nbash: cd: site: Permission denied"
+      },
+      "sourceRefs": [
+        3
+      ]
+    },
+    {
+      "title": "폴더는 755, 파일은 644로 나눠 바꾸기",
+      "paragraphs": [
+        "먼저 맨 위 폴더에 chmod 755를 걸어 문을 다시 엽니다. 그다음 find로 폴더와 파일을 따로 골라 바꾸면 하위 폴더까지 한 번에 정리됩니다.",
+        "-type d는 폴더만, -type f는 파일만 고릅니다. 끝의 {} +는 찾은 것을 모아 chmod에 한 번에 넘기는 형식이라 파일이 많아도 빠릅니다.",
+        "실행해 보니 site와 site/img는 755, index.html은 644로 돌아왔습니다.",
+        "웹 서버에 올린 사이트가 403을 내거나 이미지 일부만 안 보일 때도 이 두 줄로 먼저 정리해 보면 원인이 빨리 좁혀집니다. 폴더에 x가 없는지, 파일에 r이 없는지가 가장 흔한 경우라서 권한을 바로잡은 뒤에도 같으면 그때 소유자나 서버 설정을 봅니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "폴더와 파일을 나눠 권한 바꾸기",
+        "text": "$ chmod 755 site\n$ find site -type d -exec chmod 755 {} +\n$ find site -type f -exec chmod 644 {} +\n$ find site -exec stat -c \"%a %A %n\" {} \\;\n755 drwxr-xr-x site\n755 drwxr-xr-x site/img\n644 -rw-r--r-- site/index.html"
+      },
+      "sourceRefs": [
+        1,
+        3
+      ]
+    },
+    {
+      "title": "대문자 X로 폴더에만 실행 권한 주기",
+      "paragraphs": [
+        "find 두 줄이 번거로우면 기호 모드의 대문자 X를 씁니다. 소문자 x는 모든 대상에 실행 권한을 주지만, 대문자 X는 폴더이거나 이미 누군가 실행할 수 있던 파일에만 줍니다.",
+        "그룹과 나머지 권한을 모두 지워 700, 700, 600으로 만든 뒤 chmod -R go+rX site를 걸었습니다. 폴더 두 개는 755가 됐고 index.html은 실행 권한 없이 644로 남았습니다.",
+        "대문자 X는 -R과 함께 쓸 때 쓸모가 큽니다. go+rX는 그룹과 나머지에 읽기를 주고, 폴더에는 들어갈 권한까지 붙이며, 원래 실행 파일이던 스크립트는 실행 가능 상태를 그대로 이어 줍니다. 숫자 모드에는 이런 조건이 없어서 같은 일을 하려면 find로 나눠야 합니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chmod-755-644-linux-permission-numbers-2026-capital-x.png",
+          "alt": "GNU coreutils Conditional Executability 설명. X를 쓰면 대상이 폴더이거나 이미 실행 권한이 있을 때만 실행 권한이 바뀐다는 문장과 a+X 예시",
+          "caption": "X는 폴더와 원래 실행 파일에만 x를 붙인다.",
+          "credit": "GNU Coreutils manual",
+          "sourceUrl": "https://www.gnu.org/software/coreutils/manual/html_node/Conditional-Executability.html",
+          "width": 832,
+          "height": 728
+        }
+      ],
+      "code": {
+        "language": "text",
+        "caption": "go+rX로 폴더만 755, 파일은 644",
+        "text": "$ chmod -R go-rwx site\n700 drwx------ site\n700 drwx------ site/img\n600 -rw------- site/index.html\n$ chmod -R go+rX site\n755 drwxr-xr-x site\n755 drwxr-xr-x site/img\n644 -rw-r--r-- site/index.html"
+      },
+      "sourceRefs": [
+        2
+      ]
+    },
+    {
+      "title": "SSH 키 권한은 600, 644면 키를 무시합니다",
+      "paragraphs": [
+        "chmod 600을 가장 자주 만나는 곳이 SSH 개인 키입니다. 키 파일을 다른 곳에서 복사해 오면 644로 바뀌어 있는 경우가 많습니다.",
+        "시험용 키를 하나 만들어 644로 바꾼 뒤 불러 봤더니 UNPROTECTED PRIVATE KEY FILE 경고와 함께 bad permissions로 키를 쓰지 않았습니다. chmod 600으로 바꾸자 같은 명령이 정상적으로 공개 키를 출력했습니다.",
+        "ssh 설명서는 개인 키 파일을 사용자만 읽을 수 있고 다른 사람은 읽기, 쓰기, 실행 모두 못 하게 두라고 적고 있습니다. 다른 사람이 접근할 수 있는 키는 그냥 무시한다는 문장도 있습니다.",
+        "같은 설명서는 ~/.ssh/config 파일도 사용자만 읽고 쓰고 다른 사람은 쓸 수 없게 두라고 적고 있습니다. 설정 파일을 다른 PC에서 옮겨 왔다면 키와 함께 권한을 한 번 같이 보는 편이 좋습니다."
+      ],
+      "figures": [
+        {
+          "src": "https://bluebworks.com/assets/editorial/chmod-755-644-linux-permission-numbers-2026-ssh-key.png",
+          "alt": "ssh(1) 설명서 FILES 항목. ~/.ssh/id_ed25519 등 개인 키 파일은 사용자만 읽을 수 있어야 하고 다른 사람이 접근할 수 있으면 ssh가 무시한다는 설명",
+          "caption": "개인 키는 다른 사람이 읽을 수 없어야 쓴다.",
+          "credit": "OpenSSH ssh(1) manual",
+          "sourceUrl": "https://man7.org/linux/man-pages/man1/ssh.1.html",
+          "width": 892,
+          "height": 438
+        }
+      ],
+      "code": {
+        "language": "text",
+        "caption": "644 인 개인 키를 불렀을 때",
+        "text": "$ chmod 644 k\n$ ssh-keygen -y -f k\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nPermissions 0644 for 'k' are too open.\nIt is required that your private key files are NOT accessible by others.\nThis private key will be ignored.\nLoad key \"k\": bad permissions\n$ chmod 600 k\n$ ssh-keygen -y -f k\nssh-ed25519 AAAAC3NzaC1lZDI1NTE5..."
+      },
+      "sourceRefs": [
+        4
+      ]
+    },
+    {
+      "title": "바뀐 권한을 바로 보는 -c, 같은 권한 복사하는 --reference",
+      "paragraphs": [
+        "권한을 여러 파일에 한꺼번에 걸 때는 -c를 붙여 두면 편합니다. 실제로 값이 바뀐 파일만 골라 원래 값과 새 값을 함께 보여 줍니다.",
+        "644 이던 run.sh와 memo.txt에 chmod -c 755를 걸자 두 줄이 나왔고, 이미 755 인 run.sh에 다시 걸었을 때는 아무것도 나오지 않았습니다. -v를 쓰면 바뀌지 않은 파일도 retained로 한 줄씩 적어 줍니다.",
+        "다른 파일과 똑같이 맞추고 싶으면 숫자를 외울 필요 없이 --reference를 씁니다. chmod --reference=run.sh memo.txt처럼 기준 파일을 주면 memo.txt도 run.sh와 같은 755가 됐습니다.",
+        "-R로 폴더를 돌 때 중간에 만나는 심볼릭 링크는 건너뜁니다. 명령줄에 직접 적은 링크는 링크가 가리키는 원래 파일의 권한을 바꿉니다. 링크 자체의 권한은 대부분의 시스템에서 바꿀 수도 없고 쓰이지도 않습니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "-c와 -v, --reference 실행 결과",
+        "text": "$ chmod -c 755 run.sh memo.txt\nmode of 'run.sh' changed from 0644 (rw-r--r--) to 0755 (rwxr-xr-x)\nmode of 'memo.txt' changed from 0644 (rw-r--r--) to 0755 (rwxr-xr-x)\n$ chmod -c 755 run.sh\n$ chmod -v 755 run.sh\nmode of 'run.sh' retained as 0755 (rwxr-xr-x)\n$ chmod --reference=run.sh memo.txt\n$ stat -c \"%a %n\" run.sh memo.txt\n755 run.sh\n755 memo.txt"
+      },
+      "sourceRefs": [
+        3
+      ]
+    },
+    {
+      "title": "새 파일이 644로 생기는 이유, umask",
+      "paragraphs": [
+        "처음에 run.sh가 644로 만들어진 건 umask 때문입니다. umask는 새로 만드는 파일과 폴더에서 미리 빼 둘 권한이고, 이 Ubuntu 에서는 0022 였습니다. 그래서 그룹과 나머지의 쓰기 권한이 빠진 644, 폴더는 755로 생겼습니다.",
+        "같은 셸에서 umask 077을 먼저 주고 만들자 파일은 600, 폴더는 700으로 생겼습니다. 기본값은 시스템마다 다르니 내 환경 값은 umask 한 줄로 확인하면 됩니다.",
+        "chmod로 권한을 바꿀 수 있는 사람은 그 파일의 소유자나 관리자 권한을 가진 프로세스뿐입니다. 남의 파일을 바꾸려다 Operation not permitted가 나오면 권한 숫자보다 소유자를 먼저 봐야 합니다."
+      ],
+      "code": {
+        "language": "text",
+        "caption": "umask 값에 따라 달라지는 새 파일 권한",
+        "text": "$ umask\n0022\n$ (umask 077; touch secret.txt; mkdir priv; stat -c \"%a %A %n\" secret.txt priv)\n600 -rw------- secret.txt\n700 drwx------ priv"
+      },
+      "sourceRefs": [
+        5,
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "GNU Coreutils manual: Numeric Modes",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/Numeric-Modes.html",
+      "description": "소유자, 그룹, 나머지 자리별 400/40/4 값과 8진수 해석, 664 와 ug=rw,o=r 예시"
+    },
+    {
+      "name": "GNU Coreutils manual: Conditional Executability",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/Conditional-Executability.html",
+      "description": "대문자 X 가 폴더와 원래 실행 가능한 파일에만 실행 권한을 주는 규칙"
+    },
+    {
+      "name": "GNU Coreutils manual: chmod invocation",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html",
+      "description": "-R 옵션, 심볼릭 링크 처리, 권한을 바꿀 수 있는 사용자"
+    },
+    {
+      "name": "ssh(1) Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man1/ssh.1.html",
+      "description": "~/.ssh/id_ed25519 등 개인 키 파일 권한과 다른 사람이 접근 가능하면 무시한다는 설명"
+    },
+    {
+      "name": "GNU Coreutils manual: The Umask and Protection",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/Umask-and-Protection.html",
+      "description": "umask 가 기호 모드에 주는 영향과 기본값이 시스템마다 다르다는 설명"
+    },
+    {
+      "name": "GNU Coreutils manual: stat invocation",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/stat-invocation.html",
+      "description": "%a 는 8진수 권한, %A 는 ls -ld 와 같은 글자 표기"
+    }
+  ],
+  "resources": [
+    {
+      "name": "GNU Coreutils manual: Symbolic Modes",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/Symbolic-Modes.html",
+      "type": "공식 문서",
+      "description": "u, g, o, a 와 +, -, = 조합 규칙"
+    },
+    {
+      "name": "GNU Coreutils manual: chmod invocation",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html",
+      "type": "공식 문서",
+      "description": "--reference, -c, -v 등 옵션 전체"
+    },
+    {
+      "name": "GNU Coreutils manual: stat invocation",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/stat-invocation.html",
+      "type": "?? ??",
+      "description": "권한 숫자를 바로 보는 %a 와 글자 표기 %A 등 출력 형식"
+    },
+    {
+      "name": "ssh(1) Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man1/ssh.1.html",
+      "type": "?? ??",
+      "description": "~/.ssh 아래 키와 설정 파일별 권한 요구 사항"
+    }
+  ],
+  "discovery": {
+    "xStatus": "unavailable",
+    "notes": "공식 출처와 원문을 확인함."
+  },
+  "mediaReview": {
+    "checkedAt": "2026-11-27T09:27:00+09:00",
+    "status": "included",
+    "candidates": [
+      {
+        "sourceUrl": "https://www.gnu.org/software/coreutils/manual/html_node/Numeric-Modes.html",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chmod-755-644-linux-permission-numbers-2026-thumb.png",
+        "decision": "included",
+        "rightsBasis": "BlueBWorks original thumbnail with a cropped quotation of the GNU Coreutils manual numeric modes table",
+        "reason": "권한 숫자 표가 보이는 화면이라 포함."
+      },
+      {
+        "sourceUrl": "https://www.gnu.org/software/coreutils/manual/html_node/Numeric-Modes.html",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chmod-755-644-linux-permission-numbers-2026-numeric.png",
+        "decision": "included",
+        "rightsBasis": "Cropped quotation of the GNU Coreutils manual (GFDL) with attribution",
+        "reason": "소유자, 그룹, 나머지 자리 값을 보여 주는 공식 표라 포함."
+      },
+      {
+        "sourceUrl": "https://www.gnu.org/software/coreutils/manual/html_node/Conditional-Executability.html",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chmod-755-644-linux-permission-numbers-2026-capital-x.png",
+        "decision": "included",
+        "rightsBasis": "Cropped quotation of the GNU Coreutils manual (GFDL) with attribution",
+        "reason": "대문자 X 규칙을 설명하는 공식 문단이라 포함."
+      },
+      {
+        "sourceUrl": "https://man7.org/linux/man-pages/man1/ssh.1.html",
+        "assetUrl": "https://bluebworks.com/assets/editorial/chmod-755-644-linux-permission-numbers-2026-ssh-key.png",
+        "decision": "included",
+        "rightsBasis": "Cropped quotation of the ssh(1) manual page with attribution",
+        "reason": "개인 키 파일 권한 설명 문단이라 포함."
+      }
+    ]
+  }
+}

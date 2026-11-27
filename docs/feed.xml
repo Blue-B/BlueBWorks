@@ -5,7 +5,15 @@
     <link>https://bluebworks.com/</link>
     <description>AI 모델과 개발 도구, 오픈소스 소식을 공식 자료로 확인하고 사용 방법, 비용, 지원 환경과 제한 사항을 한국어로 정리합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 26 Nov 2026 01:27:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 00:27:00 GMT</lastBuildDate>
+    <item>
+      <title>chmod 755 644 뜻, 리눅스 권한 숫자 읽는 법</title>
+      <link>https://bluebworks.com/articles/chmod-755-644-linux-permission-numbers-2026/</link>
+      <guid isPermaLink="true">https://bluebworks.com/articles/chmod-755-644-linux-permission-numbers-2026/</guid>
+      <pubDate>Fri, 27 Nov 2026 00:27:00 GMT</pubDate>
+      <category>개발도구</category>
+      <description>chmod 755, 644, 600 같은 숫자는 읽기 4, 쓰기 2, 실행 1을 더한 값을 소유자, 그룹, 나머지 순서로 적은 것입니다. 숫자 읽는 법과 ls -l로 확인하는 법, chmod -R 644로 폴더가 통째로 잠기는 경우와 푸는 명령까지 Ubuntu에서 실제로 돌린 결과로 정리했습니다.</description>
+    </item>
     <item>
       <title>크론탭 시간 설정, 크론 표현식 읽는 법과 자주 틀리는 곳</title>
       <link>https://bluebworks.com/articles/crontab-time-setting-cron-expression-guide-2026/</link>

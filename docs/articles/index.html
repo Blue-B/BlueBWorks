@@ -59,9 +59,21 @@
           <button class="filter" type="button" data-filter="오픈소스·개발도구" aria-pressed="false">오픈소스·개발도구</button>
           <button class="filter" type="button" data-filter="에이전트" aria-pressed="false">에이전트</button>
         </div>
-        <p class="list-status" data-list-status aria-live="polite">글 101편</p>
+        <p class="list-status" data-list-status aria-live="polite">글 102편</p>
       </section>
       <ol class="archive-list" data-post-list>
+        <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="chmod 755 644 뜻, 리눅스 권한 숫자 읽는 법 chmod 755, 644, 600 같은 숫자는 읽기 4, 쓰기 2, 실행 1을 더한 값을 소유자, 그룹, 나머지 순서로 적은 것입니다. 숫자 읽는 법과 ls -l로 확인하는 법, chmod -r 644로 폴더가 통째로 잠기는 경우와 푸는 명령까지 ubuntu에서 실제로 돌린 결과로 정리했습니다. 개발도구 published chmod 755 chmod 644 리눅스 권한 chmod 명령어 리눅스 권한 숫자 chmod 하위폴더 chmod 777 chmod 600 세 자리 숫자는 왼쪽부터 소유자, 그룹, 나머지 사람의 권한입니다. 읽기 4, 쓰기 2, 실행 1을 더해서 7(rwx), 6(rw-), 5(r-x), 4(r--)가 됩니다. 보통 파일은 644, 폴더와 실행할 스크립트는 755, 나만 봐야 하는 파일은 600 입니다. chmod -r 644를 폴더에 쓰면 폴더 자체의 실행 권한까지 빠져 안으로 들어갈 수 없게 됩니다. find로 폴더와 파일을 나눠 바꾸거나 대문자 x를 씁니다. ssh 개인 키가 644 면 ssh가 그 키를 쓰지 않고 넘어갑니다. chmod 600으로 고칩니다.">
+        <a href="/articles/chmod-755-644-linux-permission-numbers-2026/">
+          <span class="archive-thumb"><img src="https://bluebworks.com/assets/editorial/chmod-755-644-linux-permission-numbers-2026-thumb.png" alt="chmod 755와 644, 권한 숫자 읽는 법. 오른쪽에 GNU coreutils 설명서의 숫자 모드 표에서 소유자 400 200 100, 그룹 40 20 10, 나머지 4 2 1 부분" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+          <div class="archive-copy">
+            <span class="archive-cat">개발도구</span>
+            <strong>chmod 755 644 뜻, 리눅스 권한 숫자 읽는 법</strong>
+            <span class="archive-summary">chmod 755, 644, 600 같은 숫자는 읽기 4, 쓰기 2, 실행 1을 더한 값을 소유자, 그룹, 나머지 순서로 적은 것입니다. 숫자 읽는 법과 ls -l로 확인하는 법, chmod -R 644로 폴더가 통째로 잠기는 경우와 푸는 명령까지 Ubuntu에서 실제로 돌린 결과로 정리했습니다.</span>
+            <span class="archive-date">게시 2026년 11월 27일</span>
+
+          </div>
+        </a>
+      </li>
         <li class="archive-entry has-thumb" data-post-card data-category="개발도구" data-search="크론탭 시간 설정, 크론 표현식 읽는 법과 자주 틀리는 곳 크론탭 시간 설정은 분, 시, 일, 월, 요일 다섯 칸만 알면 읽힙니다. 다만 */35 가 35분마다가 아니라는 점, 날짜와 요일을 같이 적으면 둘 중 하나만 맞아도 돈다는 점, 서버 시간대와 github actions 의 utc 기준처럼 표현식만 봐서는 모르는 함정이 있습니다. 자주 쓰는 예시와 함께 정리했습니다. 개발도구 published 크론탭 시간 설정 크론 표현식 crontab 설정 cron 5분마다 크론 표현식 해석 github actions cron 크론 표현식 6자리 다섯 칸은 왼쪽부터 분, 시, 일, 월, 요일입니다. 5분마다는 */5 * * * *, 매일 새벽 3시는 0 3 * * *, 평일 오전 9시는 0 9 * * 1-5 입니다. */35 는 35분 간격이 아니라 매시 0분과 35분에 돕니다. 나누기는 그 칸 안에서만 계산됩니다. 일 칸과 요일 칸을 둘 다 숫자로 채우면 둘 중 하나만 맞아도 실행됩니다. 0 9 1 * 1 은 매달 1일과 매주 월요일 두 경우에 모두 돕니다. ubuntu 기본 cron 은 사용자별 시간대를 지원하지 않습니다. github actions 는 기본이 utc 라 한국 시간 자정은 0 15 * * * 로 적습니다. crontab -n 파일이름 으로 설치 전에 문법만 볼 수 있습니다. 여섯 칸짜리 표현식이나 마지막 줄바꿈 누락도 여기서 걸립니다.">
         <a href="/articles/crontab-time-setting-cron-expression-guide-2026/">
           <span class="archive-thumb"><img src="https://bluebworks.com/assets/editorial/crontab-time-setting-cron-expression-guide-2026-thumb.png" alt="크론탭 시간 설정. */35 는 35분마다가 아닙니다. 오른쪽에 */35 표현식의 다음 실행 시각 목록 화면" width="1600" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
